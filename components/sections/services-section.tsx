@@ -144,13 +144,6 @@ export function ServicesSection() {
             ))}
           </div>
         </div>
-
-        <div className="text-center mt-12">
-          <Button size="lg" className="bg-viana-orange hover:bg-viana-orange/90 text-white">
-            {t("services.cta")}
-            <ArrowRight className="ml-2 h-5 w-5" />
-          </Button>
-        </div>
       </div>
     </section>
   )
