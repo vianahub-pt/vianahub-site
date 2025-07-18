@@ -66,7 +66,7 @@ export function ServicesSection() {
           {services.map((service, index) => (
             <Card
               key={index}
-              className="group hover:shadow-xl transition-all duration-300 border-0 bg-orange-50 dark:bg-orange-900/20 rounded-tl-none rounded-tr-3xl rounded-bl-none rounded-br-3xl"
+              className="group hover:shadow-xl transition-all duration-300 border-0 bg-orange-50 dark:bg-orange-900/20 rounded-tl-none rounded-tr-[3rem] rounded-bl-none rounded-br-[3rem]"
             >
               <CardHeader>
                 <div className="flex justify-center mb-4">{service.icon}</div>
@@ -75,7 +75,7 @@ export function ServicesSection() {
                 </CardTitle>
               </CardHeader>
               <CardContent className="text-center">
-                <CardDescription className="mb-6 font-kurale">{service.description}</CardDescription>
+                <CardDescription className="mb-6 font-kurale text-viana-orange">{service.description}</CardDescription>
                 <Link href={service.href}>
                   <Button
                     variant="outline"
