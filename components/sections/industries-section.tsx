@@ -11,21 +11,38 @@ import { useEffect, useRef, useState } from "react"
 export function IndustriesSection() {
   const { t } = useTranslation()
   const sectionRef = useRef<HTMLElement>(null)
-  const [isVisible, setIsVisible] = useState(false)
+  const [visibleCards, setVisibleCards] = useState<boolean[]>([])
 
   useEffect(() => {
+    const cardElements = sectionRef.current?.querySelectorAll(".industry-card")
+
+    if (!cardElements) return
+
+    // Initialize all cards as not visible
+    setVisibleCards(new Array(cardElements.length).fill(false))
+
     const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true)
-        }
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const index = Number.parseInt(entry.target.getAttribute("data-index") || "0")
+            setVisibleCards((prev) => {
+              const newState = [...prev]
+              newState[index] = true
+              return newState
+            })
+          }
+        })
       },
-      { threshold: 0.3 },
+      {
+        threshold: 0.1,
+        rootMargin: "0px 0px -50px 0px",
+      },
     )
 
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current)
-    }
+    cardElements.forEach((card) => {
+      observer.observe(card)
+    })
 
     return () => observer.disconnect()
   }, [])
@@ -86,11 +103,12 @@ export function IndustriesSection() {
           {industries.map((industry, index) => (
             <Card
               key={index}
-              className={`group hover:shadow-xl transition-all duration-700 border-0 ${
-                isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+              data-index={index}
+              className={`industry-card group hover:shadow-xl border-0 transform transition-all duration-1000 ease-out ${
+                visibleCards[index] ? "opacity-100 translate-y-0 scale-100" : "opacity-0 translate-y-12 scale-95"
               }`}
               style={{
-                transitionDelay: `${index * 150}ms`,
+                transitionDelay: visibleCards[index] ? `${index * 200}ms` : "0ms",
               }}
             >
               <CardContent className="p-8 text-center">
