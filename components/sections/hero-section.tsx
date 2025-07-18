@@ -32,7 +32,10 @@ export function HeroSection() {
           playsInline
           poster="/wallpaper.jpg"
         >
-          <source src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/home-hero-QF1p4zm3ekF8rOyXzcuiTVontRDngQ.mp4" type="video/mp4" />
+          <source
+            src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/home-hero-QF1p4zm3ekF8rOyXzcuiTVontRDngQ.mp4"
+            type="video/mp4"
+          />
           Your browser does not support the video tag.
         </video>
       </div>
@@ -45,9 +48,12 @@ export function HeroSection() {
           <div className="space-y-8">
             <div className="space-y-6">
               <h1 className="text-4xl lg:text-7xl font-bold text-viana-white leading-tight drop-shadow-2xl">
-                {t("hero.title.line1")}
-                <span className="block text-viana-yellow">{t("hero.title.line2")}</span>
-                <span className="block">{t("hero.title.line3")}</span>
+                <span className="text-viana-orange">Soluções </span>
+                <span className="text-viana-white">Digitais </span>
+                <span className="text-viana-white">Que </span>
+                <span className="block text-viana-orange">Transformam </span>
+                <span className="text-viana-white">o </span>
+                <span className="text-viana-orange">Seu Negócio</span>
               </h1>
               <p className="text-xl lg:text-2xl text-viana-white/95 max-w-3xl mx-auto leading-relaxed drop-shadow-lg font-kurale">
                 {t("hero.subtitle")}

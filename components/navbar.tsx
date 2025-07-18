@@ -39,7 +39,15 @@ export function Navbar() {
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between h-20">
             {/* Logo */}
-            <Link href="/" className="flex items-center space-x-2">
+            <Link
+              href="/"
+              className="flex items-center space-x-2"
+              onClick={() => {
+                if (window.location.pathname === "/") {
+                  window.scrollTo({ top: 0, behavior: "smooth" })
+                }
+              }}
+            >
               <img src="/logo.png" alt="VianaHub" className="h-12 w-auto object-contain" />
             </Link>
 
