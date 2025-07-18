@@ -70,7 +70,7 @@ export function IndustriesSection() {
   ]
 
   return (
-    <section ref={sectionRef} className="py-20 relative overflow-hidden">
+    <section ref={sectionRef} className="py-20">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <Badge variant="outline" className="mb-4">
@@ -86,11 +86,11 @@ export function IndustriesSection() {
           {industries.map((industry, index) => (
             <Card
               key={index}
-              className={`group hover:shadow-xl transition-all duration-300 border-0 relative ${
-                isVisible ? "fireworks-card" : ""
+              className={`group hover:shadow-xl transition-all duration-700 border-0 ${
+                isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
               }`}
               style={{
-                animationDelay: `${index * 0.2}s`,
+                transitionDelay: `${index * 150}ms`,
               }}
             >
               <CardContent className="p-8 text-center">
@@ -109,115 +109,10 @@ export function IndustriesSection() {
                   </Button>
                 </Link>
               </CardContent>
-
-              {/* Fireworks particles */}
-              {isVisible && (
-                <>
-                  <div className="firework-particle particle-1"></div>
-                  <div className="firework-particle particle-2"></div>
-                  <div className="firework-particle particle-3"></div>
-                  <div className="firework-particle particle-4"></div>
-                  <div className="firework-particle particle-5"></div>
-                  <div className="firework-particle particle-6"></div>
-                </>
-              )}
             </Card>
           ))}
         </div>
       </div>
-
-      <style jsx>{`
-        .fireworks-card {
-          animation: cardPulse 2s ease-in-out;
-        }
-
-        @keyframes cardPulse {
-          0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 165, 0, 0.7); }
-          50% { transform: scale(1.05); box-shadow: 0 0 0 10px rgba(255, 165, 0, 0); }
-          100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 165, 0, 0); }
-        }
-
-        .firework-particle {
-          position: absolute;
-          width: 4px;
-          height: 4px;
-          background: #ff6b35;
-          border-radius: 50%;
-          pointer-events: none;
-        }
-
-        .particle-1 {
-          top: 20%;
-          left: 20%;
-          animation: firework1 1.5s ease-out;
-        }
-
-        .particle-2 {
-          top: 30%;
-          right: 20%;
-          animation: firework2 1.8s ease-out;
-        }
-
-        .particle-3 {
-          bottom: 30%;
-          left: 30%;
-          animation: firework3 1.6s ease-out;
-        }
-
-        .particle-4 {
-          bottom: 20%;
-          right: 30%;
-          animation: firework4 1.7s ease-out;
-        }
-
-        .particle-5 {
-          top: 50%;
-          left: 10%;
-          animation: firework5 1.4s ease-out;
-        }
-
-        .particle-6 {
-          top: 50%;
-          right: 10%;
-          animation: firework6 1.9s ease-out;
-        }
-
-        @keyframes firework1 {
-          0% { transform: translate(0, 0) scale(0); opacity: 1; }
-          50% { transform: translate(-30px, -40px) scale(1); opacity: 1; }
-          100% { transform: translate(-60px, -80px) scale(0); opacity: 0; }
-        }
-
-        @keyframes firework2 {
-          0% { transform: translate(0, 0) scale(0); opacity: 1; }
-          50% { transform: translate(40px, -30px) scale(1); opacity: 1; }
-          100% { transform: translate(80px, -60px) scale(0); opacity: 0; }
-        }
-
-        @keyframes firework3 {
-          0% { transform: translate(0, 0) scale(0); opacity: 1; }
-          50% { transform: translate(-25px, 35px) scale(1); opacity: 1; }
-          100% { transform: translate(-50px, 70px) scale(0); opacity: 0; }
-        }
-
-        @keyframes firework4 {
-          0% { transform: translate(0, 0) scale(0); opacity: 1; }
-          50% { transform: translate(35px, 25px) scale(1); opacity: 1; }
-          100% { transform: translate(70px, 50px) scale(0); opacity: 0; }
-        }
-
-        @keyframes firework5 {
-          0% { transform: translate(0, 0) scale(0); opacity: 1; }
-          50% { transform: translate(-45px, 0) scale(1); opacity: 1; }
-          100% { transform: translate(-90px, 0) scale(0); opacity: 0; }
-        }
-
-        @keyframes firework6 {
-          0% { transform: translate(0, 0) scale(0); opacity: 1; }
-          50% { transform: translate(45px, 0) scale(1); opacity: 1; }
-          100% { transform: translate(90px, 0) scale(0); opacity: 0; }
-        }
-      `}</style>
     </section>
   )
 }
