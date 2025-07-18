@@ -6,9 +6,54 @@ import { Badge } from "@/components/ui/badge"
 import { useTranslation } from "@/contexts/translation-context"
 import { Zap, MessageSquare, Code, Layers, FileText, Users, ArrowRight } from "lucide-react"
 import Link from "next/link"
+import { useEffect, useRef, useState } from "react"
 
 export function ServicesSection() {
   const { t } = useTranslation()
+  const sectionRef = useRef<HTMLElement>(null)
+  const [visibleCards, setVisibleCards] = useState<boolean[]>([])
+
+  useEffect(() => {
+    const cardElements = sectionRef.current?.querySelectorAll(".service-card")
+
+    if (!cardElements) return
+
+    // Initialize all cards as not visible
+    setVisibleCards(new Array(cardElements.length).fill(false))
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          const index = Number.parseInt(entry.target.getAttribute("data-index") || "0")
+
+          if (entry.isIntersecting) {
+            setVisibleCards((prev) => {
+              const newState = [...prev]
+              newState[index] = true
+              return newState
+            })
+          } else {
+            // Reset animation when card leaves viewport
+            setVisibleCards((prev) => {
+              const newState = [...prev]
+              newState[index] = false
+              return newState
+            })
+          }
+        })
+      },
+      {
+        threshold: 0.1,
+        rootMargin: "0px 0px -50px 0px",
+      },
+    )
+
+    cardElements.forEach((card) => {
+      observer.observe(card)
+    })
+
+    return () => observer.disconnect()
+  }, [])
 
   const services = [
     {
@@ -50,7 +95,7 @@ export function ServicesSection() {
   ]
 
   return (
-    <section className="py-20 bg-gray-100 dark:bg-gray-800">
+    <section ref={sectionRef} className="py-20 bg-gray-100 dark:bg-gray-800">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <Badge variant="outline" className="mb-4">
@@ -67,7 +112,13 @@ export function ServicesSection() {
             {services.map((service, index) => (
               <Card
                 key={index}
-                className="group hover:shadow-xl transition-all duration-300 border-0 bg-white dark:bg-gray-900 rounded-tl-none rounded-tr-[5rem] rounded-bl-[5rem] rounded-br-none"
+                data-index={index}
+                className={`service-card group hover:shadow-xl border-0 bg-white dark:bg-gray-900 rounded-tl-none rounded-tr-[5rem] rounded-bl-[5rem] rounded-br-none transform transition-all duration-1000 ease-out ${
+                  visibleCards[index] ? "opacity-100 translate-y-0 scale-100" : "opacity-0 translate-y-12 scale-95"
+                }`}
+                style={{
+                  transitionDelay: visibleCards[index] ? `${index * 200}ms` : "0ms",
+                }}
               >
                 <CardHeader>
                   <div className="flex justify-center mb-4">{service.icon}</div>
