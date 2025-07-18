@@ -49,10 +49,10 @@ export function HeroSection() {
             <div className="space-y-6">
               <h1 className="text-4xl lg:text-7xl font-bold text-viana-white leading-tight drop-shadow-2xl">
                 <span className="text-viana-orange">Soluções </span>
-                <span className="text-viana-white">Digitais </span>
-                <span className="text-viana-white">Que </span>
-                <span className="block text-viana-orange">Transformam </span>
-                <span className="text-viana-white">o </span>
+                <span className="text-viana-white">Digitais</span>
+                <span className="block text-viana-white">que </span>
+                <span className="text-viana-orange">Transformam</span>
+                <span className="block text-viana-white">o </span>
                 <span className="text-viana-orange">Seu Negócio</span>
               </h1>
               <p className="text-xl lg:text-2xl text-viana-white/95 max-w-3xl mx-auto leading-relaxed drop-shadow-lg font-kurale">
