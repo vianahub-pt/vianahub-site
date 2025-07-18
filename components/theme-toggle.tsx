@@ -7,18 +7,10 @@ import { Sun, Moon } from "lucide-react"
 export function ThemeToggle() {
   const [isDark, setIsDark] = useState(false)
 
-  // Carregar tema salvo
+  // Sempre iniciar com tema default
   useEffect(() => {
-    const savedTheme = localStorage.getItem("vianahub-theme") || "default"
-    const isCurrentlyDark = savedTheme === "dark"
-    setIsDark(isCurrentlyDark)
-
-    // Aplicar tema salvo
-    if (isCurrentlyDark) {
-      document.documentElement.classList.add("dark")
-    } else {
-      document.documentElement.classList.remove("dark")
-    }
+    setIsDark(false)
+    document.documentElement.classList.remove("dark")
   }, [])
 
   const toggleTheme = () => {
