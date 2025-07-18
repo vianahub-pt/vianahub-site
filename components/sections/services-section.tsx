@@ -66,7 +66,7 @@ export function ServicesSection() {
           {services.map((service, index) => (
             <Card
               key={index}
-              className="group hover:shadow-xl transition-all duration-300 border-0 bg-orange-50 dark:bg-orange-900/20 rounded-tl-none rounded-tr-[3rem] rounded-bl-none rounded-br-[3rem]"
+              className="group hover:shadow-xl transition-all duration-300 border-0 bg-yellow-50 dark:bg-yellow-900/20 rounded-tl-none rounded-tr-[3rem] rounded-bl-[3rem] rounded-br-none"
             >
               <CardHeader>
                 <div className="flex justify-center mb-4">{service.icon}</div>
