@@ -24,11 +24,19 @@ export function IndustriesSection() {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
+          const index = Number.parseInt(entry.target.getAttribute("data-index") || "0")
+
           if (entry.isIntersecting) {
-            const index = Number.parseInt(entry.target.getAttribute("data-index") || "0")
             setVisibleCards((prev) => {
               const newState = [...prev]
               newState[index] = true
+              return newState
+            })
+          } else {
+            // Reset animation when card leaves viewport
+            setVisibleCards((prev) => {
+              const newState = [...prev]
+              newState[index] = false
               return newState
             })
           }
@@ -104,7 +112,7 @@ export function IndustriesSection() {
             <Card
               key={index}
               data-index={index}
-              className={`industry-card group hover:shadow-xl border-0 transform transition-all duration-1000 ease-out ${
+              className={`industry-card group hover:shadow-xl border-0 bg-gray-50 dark:bg-gray-800 transform transition-all duration-1000 ease-out ${
                 visibleCards[index] ? "opacity-100 translate-y-0 scale-100" : "opacity-0 translate-y-12 scale-95"
               }`}
               style={{
