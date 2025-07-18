@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   title: "VianaHub - Soluções Tecnológicas Inovadoras",
   description:
     "Transformamos ideias em soluções digitais. Desenvolvimento de software, consultoria em TI e soluções personalizadas para o seu negócio.",
-    generator: 'v0.dev'
+  generator: "v0.dev",
 }
 
 export default function RootLayout({
@@ -30,7 +30,7 @@ export default function RootLayout({
   return (
     <html lang="pt" suppressHydrationWarning>
       <body className={`${inter.className} ${kurale.variable}`}>
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
+        <ThemeProvider attribute="class" defaultTheme="light" enableSystem={false} disableTransitionOnChange>
           <TranslationProviderWrapper>
             {children}
             <Toaster />
