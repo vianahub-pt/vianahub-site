@@ -62,32 +62,36 @@ export function ServicesSection() {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-8">
-          {services.map((service, index) => (
-            <Card
-              key={index}
-              className="group hover:shadow-xl transition-all duration-300 border-0 bg-white dark:bg-gray-900 rounded-tl-none rounded-tr-[5rem] rounded-bl-[5rem] rounded-br-none"
-            >
-              <CardHeader>
-                <div className="flex justify-center mb-4">{service.icon}</div>
-                <CardTitle className="text-center group-hover:text-viana-orange transition-colors">
-                  {service.title}
-                </CardTitle>
-              </CardHeader>
-              <CardContent className="text-center">
-                <CardDescription className="mb-6 font-kurale text-viana-orange">{service.description}</CardDescription>
-                <Link href={service.href}>
-                  <Button
-                    variant="outline"
-                    className="group-hover:bg-viana-orange group-hover:text-white transition-colors bg-transparent"
-                  >
-                    Saiba Mais
-                    <ArrowRight className="ml-2 h-4 w-4" />
-                  </Button>
-                </Link>
-              </CardContent>
-            </Card>
-          ))}
+        <div className="max-w-4xl mx-auto">
+          <div className="grid md:grid-cols-2 gap-8">
+            {services.map((service, index) => (
+              <Card
+                key={index}
+                className="group hover:shadow-xl transition-all duration-300 border-0 bg-white dark:bg-gray-900 rounded-tl-none rounded-tr-[5rem] rounded-bl-[5rem] rounded-br-none"
+              >
+                <CardHeader>
+                  <div className="flex justify-center mb-4">{service.icon}</div>
+                  <CardTitle className="text-center group-hover:text-viana-orange transition-colors">
+                    {service.title}
+                  </CardTitle>
+                </CardHeader>
+                <CardContent className="text-center">
+                  <CardDescription className="mb-6 font-kurale text-viana-orange">
+                    {service.description}
+                  </CardDescription>
+                  <Link href={service.href}>
+                    <Button
+                      variant="outline"
+                      className="group-hover:bg-viana-orange group-hover:text-white transition-colors bg-transparent"
+                    >
+                      Saiba Mais
+                      <ArrowRight className="ml-2 h-4 w-4" />
+                    </Button>
+                  </Link>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
         </div>
 
         <div className="text-center mt-12">
