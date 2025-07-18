@@ -52,8 +52,8 @@ export function HeroSection() {
                 <span className="text-viana-white">Digitais</span>
                 <span className="block text-viana-white">que </span>
                 <span className="text-viana-orange">Transformam</span>
-                <span className="block text-viana-white">o </span>
-                <span className="text-viana-orange">Seu Negócio</span>
+                <span className="block text-viana-white">o seu </span>
+                <span className="text-viana-orange">Negócio</span>
               </h1>
               <p className="text-xl lg:text-2xl text-viana-white/95 max-w-3xl mx-auto leading-relaxed drop-shadow-lg font-kurale">
                 {t("hero.subtitle")}
