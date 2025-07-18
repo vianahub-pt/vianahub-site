@@ -50,7 +50,7 @@ export function ServicesSection() {
   ]
 
   return (
-    <section className="py-20 bg-gray-50 dark:bg-gray-800">
+    <section className="py-20 bg-gray-100 dark:bg-gray-800">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <Badge variant="outline" className="mb-4">
@@ -66,7 +66,7 @@ export function ServicesSection() {
           {services.map((service, index) => (
             <Card
               key={index}
-              className="group hover:shadow-xl transition-all duration-300 border-0 bg-yellow-50 dark:bg-yellow-900/20 rounded-tl-none rounded-tr-[3rem] rounded-bl-[3rem] rounded-br-none"
+              className="group hover:shadow-xl transition-all duration-300 border-0 bg-white dark:bg-gray-900 rounded-tl-none rounded-tr-[5rem] rounded-bl-[5rem] rounded-br-none"
             >
               <CardHeader>
                 <div className="flex justify-center mb-4">{service.icon}</div>
