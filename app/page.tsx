@@ -1,5 +1,6 @@
 import { TranslationProvider } from "@/contexts/translation-context"
 import { HeroSection } from "@/components/sections/hero-section"
+import { EntertainmentSection } from "@/components/sections/entertainment-section"
 import { ServicesSection } from "@/components/sections/services-section"
 import { IndustriesSection } from "@/components/sections/industries-section"
 import { TechnologiesSection } from "@/components/sections/technologies-section"
@@ -17,6 +18,7 @@ export default function HomePage() {
       <div className="min-h-screen bg-viana-white">
         <Navbar />
         <HeroSection />
+        <EntertainmentSection />
         <ServicesSection />
         <ParallaxSection />
         <IndustriesSection />
