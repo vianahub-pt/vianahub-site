@@ -9,7 +9,7 @@ export function EntertainmentSection() {
         </div>
 
         <div className="max-w-6xl mx-auto">
-          <div className="relative w-full h-[800px] md:h-[900px] lg:h-[1000px] rounded-lg overflow-hidden shadow-xl">
+          <div className="relative w-full rounded-lg overflow-hidden shadow-xl">
             <iframe
               src="https://www.fox.vianahub.pt/"
               className="w-full h-full border-0"
