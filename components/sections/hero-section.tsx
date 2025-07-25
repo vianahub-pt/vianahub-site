@@ -48,9 +48,15 @@ export function HeroSection() {
           <div className="space-y-8">
             <div className="space-y-6">
               <h1 className="text-4xl lg:text-7xl font-bold text-viana-white leading-tight drop-shadow-2xl">
-                <span className="text-viana-orange">Soluções <span className="text-viana-white">Digitais</span></span>
-                <span className="block text-viana-white">que <span className="text-viana-orange">Transformam</span></span>
-                <span className="block text-viana-white">o seu <span className="text-viana-orange">Negócio</span></span>
+                <span className="text-viana-orange">
+                  Soluções <span className="text-viana-white">Digitais</span>
+                </span>
+                <span className="block text-viana-white">
+                  que <span className="text-viana-orange">Transformam</span>
+                </span>
+                <span className="block text-viana-white">
+                  o seu <span className="text-viana-orange">Negócio</span>
+                </span>
               </h1>
               <p className="text-xl lg:text-2xl text-viana-white/95 max-w-3xl mx-auto leading-relaxed drop-shadow-lg font-kurale">
                 {t("hero.subtitle")}
@@ -60,7 +66,7 @@ export function HeroSection() {
             <div className="flex flex-col sm:flex-row gap-6 justify-center">
               <Button
                 size="lg"
-                className="bg-viana-white text-viana-orange hover:bg-viana-yellow hover:text-viana-black text-lg px-8 py-4 shadow-xl"
+                className="bg-viana-white text-viana-orange hover:bg-viana-yellow hover:text-viana-orange text-lg px-8 py-4 shadow-xl"
               >
                 {t("hero.cta.start")}
                 <ArrowRight className="ml-2 h-6 w-6" />
