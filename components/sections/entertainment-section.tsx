@@ -48,9 +48,7 @@ export function EntertainmentSection() {
     <section className="w-full bg-white dark:bg-gray-900" style={{ minHeight: `${iframeHeight + 120}px` }}>
       <div className="container mx-auto px-4">
         <div className="text-center py-16">
-          <Badge variant="outline" className="mb-4">
-            <h2 className="text-4xl font-bold mb-4">Entretenimento</h2>
-          </Badge>        
+          <h2 className="text-4xl font-bold mb-4">Entretenimento</h2>
         </div>
 
         <div className="w-full">
