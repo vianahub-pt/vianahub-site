@@ -117,9 +117,8 @@ export function IndustriesSection() {
               }}
             >
               <CardContent className="p-8 text-center">
-                <div className="flex justify-center mb-6">{industry.icon}</div>
                 <h3 className="text-xl font-bold mb-4 group-hover:text-viana-orange transition-colors">
-                  {industry.title}
+                 {industry.icon} {industry.title}
                 </h3>
                 <p className="text-gray-600 dark:text-gray-300 mb-6 font-kurale">{industry.description}</p>
                 <Link href={industry.href}>
