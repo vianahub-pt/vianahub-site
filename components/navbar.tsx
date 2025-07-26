@@ -81,8 +81,11 @@ export function Navbar() {
                     <Menu className="h-6 w-6" />
                   </Button>
                 </SheetTrigger>
-                <SheetContent side="right" className="w-[300px] bg-black/90 backdrop-blur-md border-l border-gray-800">
-                  <div className="flex flex-col space-y-4 mt-8">
+                <SheetContent
+                  side="right"
+                  className="w-[300px] bg-black/90 backdrop-blur-md border-l border-gray-800 overflow-y-auto"
+                >
+                  <div className="flex flex-col space-y-4 mt-8 pb-8">
                     {/* O que Fazemos */}
                     <Collapsible open={openMenus.whatWeDo} onOpenChange={() => toggleMenu("whatWeDo")}>
                       <CollapsibleTrigger className="flex items-center justify-between w-full text-white hover:text-viana-orange transition-colors font-medium py-2">
@@ -96,37 +99,37 @@ export function Navbar() {
                           href="/what-we-do/development"
                           className="block text-gray-300 hover:text-viana-orange transition-colors py-1"
                         >
-                          {t("nav.development")}
+                          {t("menu.development")}
                         </Link>
                         <Link
                           href="/what-we-do/system-integration"
                           className="block text-gray-300 hover:text-viana-orange transition-colors py-1"
                         >
-                          {t("nav.systemIntegration")}
+                          {t("menu.system-integration")}
                         </Link>
                         <Link
                           href="/what-we-do/outsourcing"
                           className="block text-gray-300 hover:text-viana-orange transition-colors py-1"
                         >
-                          {t("nav.outsourcing")}
+                          {t("menu.outsourcing")}
                         </Link>
                         <Link
                           href="/what-we-do/agile"
                           className="block text-gray-300 hover:text-viana-orange transition-colors py-1"
                         >
-                          {t("nav.agile")}
+                          {t("menu.agile")}
                         </Link>
                         <Link
                           href="/what-we-do/chatbot"
                           className="block text-gray-300 hover:text-viana-orange transition-colors py-1"
                         >
-                          {t("nav.chatbot")}
+                          {t("menu.chatbot")}
                         </Link>
                         <Link
                           href="/what-we-do/landing-pages"
                           className="block text-gray-300 hover:text-viana-orange transition-colors py-1"
                         >
-                          {t("nav.landingPages")}
+                          {t("menu.landing-pages")}
                         </Link>
                       </CollapsibleContent>
                     </Collapsible>
@@ -144,19 +147,19 @@ export function Navbar() {
                           href="/engineering/road"
                           className="block text-gray-300 hover:text-viana-orange transition-colors py-1"
                         >
-                          {t("nav.roadEngineering")}
+                          {t("menu.road")}
                         </Link>
                         <Link
                           href="/engineering/railway"
                           className="block text-gray-300 hover:text-viana-orange transition-colors py-1"
                         >
-                          {t("nav.railwayEngineering")}
+                          {t("menu.railway")}
                         </Link>
                         <Link
                           href="/engineering/solar-energy"
                           className="block text-gray-300 hover:text-viana-orange transition-colors py-1"
                         >
-                          {t("nav.solarEnergy")}
+                          {t("menu.solar-energy")}
                         </Link>
                       </CollapsibleContent>
                     </Collapsible>
@@ -174,37 +177,37 @@ export function Navbar() {
                           href="/industry/healthcare"
                           className="block text-gray-300 hover:text-viana-orange transition-colors py-1"
                         >
-                          {t("nav.healthcare")}
+                          {t("menu.healthcare")}
                         </Link>
                         <Link
                           href="/industry/financial"
                           className="block text-gray-300 hover:text-viana-orange transition-colors py-1"
                         >
-                          {t("nav.financial")}
+                          {t("menu.financial")}
                         </Link>
                         <Link
                           href="/industry/education"
                           className="block text-gray-300 hover:text-viana-orange transition-colors py-1"
                         >
-                          {t("nav.education")}
+                          {t("menu.education")}
                         </Link>
                         <Link
                           href="/industry/retail"
                           className="block text-gray-300 hover:text-viana-orange transition-colors py-1"
                         >
-                          {t("nav.retail")}
+                          {t("menu.retail")}
                         </Link>
                         <Link
                           href="/industry/manufacturing"
                           className="block text-gray-300 hover:text-viana-orange transition-colors py-1"
                         >
-                          {t("nav.manufacturing")}
+                          {t("menu.manufacturing")}
                         </Link>
                         <Link
                           href="/industry/government"
                           className="block text-gray-300 hover:text-viana-orange transition-colors py-1"
                         >
-                          {t("nav.government")}
+                          {t("menu.government")}
                         </Link>
                       </CollapsibleContent>
                     </Collapsible>
@@ -222,19 +225,19 @@ export function Navbar() {
                           href="/security/cyber-security"
                           className="block text-gray-300 hover:text-viana-orange transition-colors py-1"
                         >
-                          {t("nav.cybersecurity")}
+                          {t("menu.cybersecurity")}
                         </Link>
                         <Link
                           href="/security/access"
                           className="block text-gray-300 hover:text-viana-orange transition-colors py-1"
                         >
-                          {t("nav.access")}
+                          {t("menu.access")}
                         </Link>
                         <Link
                           href="/security/backups"
                           className="block text-gray-300 hover:text-viana-orange transition-colors py-1"
                         >
-                          {t("nav.backup")}
+                          {t("menu.backups")}
                         </Link>
                       </CollapsibleContent>
                     </Collapsible>
