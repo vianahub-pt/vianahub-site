@@ -7,6 +7,7 @@ import { Toaster } from "@/components/ui/toaster"
 import { WhatsAppChat } from "@/components/whatsapp-chat"
 import { PreferencesDialog } from "@/components/preferences-dialog"
 import TranslationProviderWrapper from "@/components/translation-provider-wrapper"
+import { Navbar } from "@/components/navbar"
 
 const inter = Inter({ subsets: ["latin"] })
 const kurale = Kurale({
@@ -29,13 +30,16 @@ export default function RootLayout({
 }) {
   return (
     <html lang="pt" suppressHydrationWarning>
-      <body className={`${inter.className} ${kurale.variable}`}>
+      <body className={`${inter.className} ${kurale.variable} overflow-x-hidden`}>
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem={false} disableTransitionOnChange>
           <TranslationProviderWrapper>
-            {children}
-            <Toaster />
-            <WhatsAppChat />
-            <PreferencesDialog />
+            <div className="min-h-screen w-full max-w-full">
+              <Navbar />
+              <main className="w-full max-w-full">{children}</main>
+              <Toaster />
+              <WhatsAppChat />
+              <PreferencesDialog />
+            </div>
           </TranslationProviderWrapper>
         </ThemeProvider>
       </body>
