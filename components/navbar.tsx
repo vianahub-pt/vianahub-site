@@ -164,7 +164,7 @@ export function Navbar() {
                     {/* Indústrias */}
                     <Collapsible open={openMenus.industries} onOpenChange={() => toggleMenu("industries")}>
                       <CollapsibleTrigger className="flex items-center justify-between w-full text-white hover:text-viana-orange transition-colors font-medium py-2">
-                        {t("nav.industries")}
+                        {t("nav.industry")}
                         <ChevronDown
                           className={cn("h-4 w-4 transition-transform", openMenus.industries && "rotate-180")}
                         />
@@ -222,19 +222,19 @@ export function Navbar() {
                           href="/security/cyber-security"
                           className="block text-gray-300 hover:text-viana-orange transition-colors py-1"
                         >
-                          {t("nav.cyberSecurity")}
+                          {t("nav.cybersecurity")}
                         </Link>
                         <Link
                           href="/security/access"
                           className="block text-gray-300 hover:text-viana-orange transition-colors py-1"
                         >
-                          {t("nav.accessControl")}
+                          {t("nav.access")}
                         </Link>
                         <Link
                           href="/security/backups"
                           className="block text-gray-300 hover:text-viana-orange transition-colors py-1"
                         >
-                          {t("nav.backups")}
+                          {t("nav.backup")}
                         </Link>
                       </CollapsibleContent>
                     </Collapsible>
