@@ -1,6 +1,5 @@
 export const navbarTranslations = {
   pt: {
-    "nav.home": "Início",
     "nav.whatWeDo": "O que Fazemos",
     "nav.engineering": "Engenharia",
     "nav.industry": "Indústria",
@@ -38,7 +37,6 @@ export const navbarTranslations = {
     "menu.contact-us": "Fale Conosco",
   },
   en: {
-    "nav.home": "Home",
     "nav.whatWeDo": "What We Do",
     "nav.engineering": "Engineering",
     "nav.industry": "Industry",
@@ -76,7 +74,6 @@ export const navbarTranslations = {
     "menu.contact-us": "Contact Us",
   },
   es: {
-    "nav.home": "Inicio",
     "nav.whatWeDo": "Qué Hacemos",
     "nav.engineering": "Ingeniería",
     "nav.industry": "Industria",
@@ -114,7 +111,6 @@ export const navbarTranslations = {
     "menu.contact-us": "Contáctenos",
   },
   fr: {
-    "nav.home": "Accueil",
     "nav.whatWeDo": "Ce que nous faisons",
     "nav.engineering": "Ingénierie",
     "nav.industry": "Industrie",
@@ -152,7 +148,6 @@ export const navbarTranslations = {
     "menu.contact-us": "Contactez-nous",
   },
   de: {
-    "nav.home": "Startseite",
     "nav.whatWeDo": "Was wir tun",
     "nav.engineering": "Ingenieurwesen",
     "nav.industry": "Industrie",

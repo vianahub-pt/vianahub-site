@@ -1,43 +1,60 @@
 "use client"
 
-import Link from "next/link"
-import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible"
 import { ChevronDown } from "lucide-react"
-import { useState } from "react"
 import { useTranslation } from "@/contexts/translation-context"
+import { useMenu } from "./menu-context"
+import Link from "next/link"
+
+const industryItems = [
+  { href: "/industry/education", key: "menu.education" },
+  { href: "/industry/government", key: "menu.government" },
+  { href: "/industry/manufacturing", key: "menu.manufacturing" },
+  { href: "/industry/financial", key: "menu.financial" },
+  { href: "/industry/retail", key: "menu.retail" },
+  { href: "/industry/healthcare", key: "menu.healthcare" },
+]
 
 export function IndustryMobileSelector() {
   const { t } = useTranslation()
-  const [isOpen, setIsOpen] = useState(false)
+  const { activeMenu, setActiveMenu } = useMenu()
+  const isOpen = activeMenu === "industry"
+
+  const handleToggle = () => {
+    setActiveMenu(isOpen ? null : "industry")
+  }
+
+  const handleItemSelect = () => {
+    setActiveMenu(null)
+  }
 
   return (
-    <Collapsible open={isOpen} onOpenChange={setIsOpen} className="border-b border-gray-700">
-      <CollapsibleTrigger className="flex items-center justify-between w-full py-4 text-white hover:text-viana-orange">
-        {t("nav.industry")}
-        <ChevronDown className={`h-4 w-4 transition-transform ${isOpen ? "rotate-180" : ""}`} />
-      </CollapsibleTrigger>
-      <CollapsibleContent className="pb-4">
-        <div className="flex flex-col space-y-2 pl-4">
-          <Link href="/industry/education" className="text-gray-300 hover:text-viana-orange py-2">
-            {t("menu.education")}
-          </Link>
-          <Link href="/industry/government" className="text-gray-300 hover:text-viana-orange py-2">
-            {t("menu.government")}
-          </Link>
-          <Link href="/industry/manufacturing" className="text-gray-300 hover:text-viana-orange py-2">
-            {t("menu.manufacturing")}
-          </Link>
-          <Link href="/industry/financial" className="text-gray-300 hover:text-viana-orange py-2">
-            {t("menu.financial")}
-          </Link>
-          <Link href="/industry/retail" className="text-gray-300 hover:text-viana-orange py-2">
-            {t("menu.retail")}
-          </Link>
-          <Link href="/industry/healthcare" className="text-gray-300 hover:text-viana-orange py-2">
-            {t("menu.healthcare")}
-          </Link>
+    <div className="border-b border-gray-700/30">
+      <button
+        onClick={handleToggle}
+        className="w-full flex items-center justify-between px-4 py-4 text-left font-medium text-viana-white hover:bg-viana-yellow/10 transition-colors duration-200"
+      >
+        <span>{t("nav.industry")}</span>
+        <ChevronDown className={`h-4 w-4 transition-transform duration-200 ${isOpen ? "rotate-180" : ""}`} />
+      </button>
+
+      <div
+        className={`overflow-hidden transition-all duration-300 ease-in-out ${
+          isOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
+        }`}
+      >
+        <div className="pb-2">
+          {industryItems.map((item) => (
+            <Link
+              key={item.href}
+              href={item.href}
+              onClick={handleItemSelect}
+              className="block px-8 py-3 text-sm text-viana-white/80 hover:text-viana-white hover:bg-viana-orange/20 transition-all duration-150"
+            >
+              {t(item.key)}
+            </Link>
+          ))}
         </div>
-      </CollapsibleContent>
-    </Collapsible>
+      </div>
+    </div>
   )
 }

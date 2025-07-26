@@ -1,43 +1,60 @@
 "use client"
 
-import Link from "next/link"
-import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible"
 import { ChevronDown } from "lucide-react"
-import { useState } from "react"
 import { useTranslation } from "@/contexts/translation-context"
+import { useMenu } from "./menu-context"
+import Link from "next/link"
+
+const whatWeDoItems = [
+  { href: "/what-we-do/agile", key: "menu.agile" },
+  { href: "/what-we-do/development", key: "menu.development" },
+  { href: "/what-we-do/chatbot", key: "menu.chatbot" },
+  { href: "/what-we-do/landing-pages", key: "menu.landing-pages" },
+  { href: "/what-we-do/outsourcing", key: "menu.outsourcing" },
+  { href: "/what-we-do/system-integration", key: "menu.system-integration" },
+]
 
 export function WhatWeDoMobileSelector() {
   const { t } = useTranslation()
-  const [isOpen, setIsOpen] = useState(false)
+  const { activeMenu, setActiveMenu } = useMenu()
+  const isOpen = activeMenu === "what-we-do"
+
+  const handleToggle = () => {
+    setActiveMenu(isOpen ? null : "what-we-do")
+  }
+
+  const handleItemSelect = () => {
+    setActiveMenu(null)
+  }
 
   return (
-    <Collapsible open={isOpen} onOpenChange={setIsOpen} className="border-b border-gray-700">
-      <CollapsibleTrigger className="flex items-center justify-between w-full py-4 text-white hover:text-viana-orange">
-        {t("nav.whatWeDo")}
-        <ChevronDown className={`h-4 w-4 transition-transform ${isOpen ? "rotate-180" : ""}`} />
-      </CollapsibleTrigger>
-      <CollapsibleContent className="pb-4">
-        <div className="flex flex-col space-y-2 pl-4">
-          <Link href="/what-we-do/agile" className="text-gray-300 hover:text-viana-orange py-2">
-            {t("menu.agile")}
-          </Link>
-          <Link href="/what-we-do/development" className="text-gray-300 hover:text-viana-orange py-2">
-            {t("menu.development")}
-          </Link>
-          <Link href="/what-we-do/chatbot" className="text-gray-300 hover:text-viana-orange py-2">
-            {t("menu.chatbot")}
-          </Link>
-          <Link href="/what-we-do/landing-pages" className="text-gray-300 hover:text-viana-orange py-2">
-            {t("menu.landing-pages")}
-          </Link>
-          <Link href="/what-we-do/outsourcing" className="text-gray-300 hover:text-viana-orange py-2">
-            {t("menu.outsourcing")}
-          </Link>
-          <Link href="/what-we-do/system-integration" className="text-gray-300 hover:text-viana-orange py-2">
-            {t("menu.system-integration")}
-          </Link>
+    <div className="border-b border-gray-700/30">
+      <button
+        onClick={handleToggle}
+        className="w-full flex items-center justify-between px-4 py-4 text-left font-medium text-viana-white hover:bg-viana-yellow/10 transition-colors duration-200"
+      >
+        <span>{t("nav.whatWeDo")}</span>
+        <ChevronDown className={`h-4 w-4 transition-transform duration-200 ${isOpen ? "rotate-180" : ""}`} />
+      </button>
+
+      <div
+        className={`overflow-hidden transition-all duration-300 ease-in-out ${
+          isOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
+        }`}
+      >
+        <div className="pb-2">
+          {whatWeDoItems.map((item) => (
+            <Link
+              key={item.href}
+              href={item.href}
+              onClick={handleItemSelect}
+              className="block px-8 py-3 text-sm text-viana-white/80 hover:text-viana-white hover:bg-viana-orange/20 transition-all duration-150"
+            >
+              {t(item.key)}
+            </Link>
+          ))}
         </div>
-      </CollapsibleContent>
-    </Collapsible>
+      </div>
+    </div>
   )
 }
