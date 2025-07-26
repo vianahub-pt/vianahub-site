@@ -37,7 +37,6 @@ export function LanguageSelector() {
   return (
     <div className="relative" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
       <div className="flex items-center space-x-2 px-4 py-2 rounded-md transition-all duration-100 font-medium drop-shadow-lg cursor-pointer bg-transparent text-viana-white hover:bg-viana-yellow/20 hover:text-viana-white dark:hover:bg-gray-500/20">
-        <Globe className="h-4 w-4" />
         <span className="text-sm flex items-center space-x-2">
           {currentLanguage && (
             <Image
