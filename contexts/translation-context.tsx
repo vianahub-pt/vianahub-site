@@ -1,10 +1,10 @@
 "use client"
 
 import { createContext, useContext, useState, useEffect, type ReactNode } from "react"
-import { homeTranslations } from "@/app/translation"
 import { navbarTranslations } from "@/app/translations/navbar"
+import { homeTranslations } from "@/app/translation"
 
-export type Language = "pt" | "en" | "es" | "fr" | "de"
+type Language = "pt" | "en" | "es" | "fr" | "de"
 
 interface TranslationContextType {
   language: Language
@@ -18,7 +18,6 @@ export function TranslationProvider({ children }: { children: ReactNode }) {
   const [language, setLanguage] = useState<Language>("pt")
 
   useEffect(() => {
-    // Load language from localStorage on client side
     const savedLanguage = localStorage.getItem("language") as Language
     if (savedLanguage && ["pt", "en", "es", "fr", "de"].includes(savedLanguage)) {
       setLanguage(savedLanguage)
@@ -31,14 +30,20 @@ export function TranslationProvider({ children }: { children: ReactNode }) {
   }
 
   const t = (key: string): string => {
-    // Try to find translation in navbarTranslations first, then in homeTranslations
-    const navTranslation = navbarTranslations[language]?.[key as keyof (typeof navbarTranslations)[typeof language]]
-    if (navTranslation) {
-      return navTranslation
+    // Primeiro tenta buscar nas traduções da navbar
+    const navbarTranslation = navbarTranslations[language]?.[key]
+    if (navbarTranslation) {
+      return navbarTranslation
     }
 
-    const homeTranslation = homeTranslations[language]?.[key as keyof (typeof homeTranslations)[typeof language]]
-    return homeTranslation || key
+    // Depois tenta buscar nas traduções da home
+    const homeTranslation = homeTranslations[language]?.[key]
+    if (homeTranslation) {
+      return homeTranslation
+    }
+
+    // Se não encontrar, retorna a chave
+    return key
   }
 
   return (

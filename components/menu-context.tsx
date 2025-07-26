@@ -24,3 +24,6 @@ export function useMenu() {
   }
   return context
 }
+
+// Adicionar alias para compatibilidade
+export const useMenuContext = useMenu
