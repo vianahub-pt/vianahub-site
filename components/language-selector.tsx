@@ -4,15 +4,15 @@ import { ChevronDown, Globe } from "lucide-react"
 import { Card, CardContent } from "@/components/ui/card"
 import { useTranslation } from "@/contexts/translation-context"
 import { useMenu } from "./menu-context"
+import Image from "next/image"
 
 const languages = [
-  { code: "pt", name: "Português", flag: "https://flagcdn.com/w40/br.png" }, // Brasil
-  { code: "en", name: "English", flag: "https://flagcdn.com/w40/us.png" },   // Estados Unidos
-  { code: "es", name: "Español", flag: "https://flagcdn.com/w40/es.png" },   // Espanha
-  { code: "fr", name: "Français", flag: "https://flagcdn.com/w40/fr.png" },  // França
-  { code: "de", name: "Deutsch", flag: "https://flagcdn.com/w40/de.png" },   // Alemanha
-];
-
+  { code: "pt", name: "Português", flag: "/pt.svg" },
+  { code: "en", name: "English", flag: "/us.svg" },
+  { code: "es", name: "Español", flag: "/es.svg" },
+  { code: "fr", name: "Français", flag: "/fr.svg" },
+  { code: "de", name: "Deutsch", flag: "/de.svg" },
+]
 
 export function LanguageSelector() {
   const { language, setLanguage } = useTranslation()
@@ -37,9 +37,17 @@ export function LanguageSelector() {
   return (
     <div className="relative" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
       <div className="flex items-center space-x-2 px-4 py-2 rounded-md transition-all duration-100 font-medium drop-shadow-lg cursor-pointer bg-transparent text-viana-white hover:bg-viana-yellow/20 hover:text-viana-white dark:hover:bg-gray-500/20">
-        <Globe className="h-4 w-4" />
-        <span className="text-sm">
-          {currentLanguage?.flag} {currentLanguage?.name}
+        <span className="text-sm flex items-center space-x-2">
+          {currentLanguage && (
+            <Image
+              src={currentLanguage.flag || "/placeholder.svg"}
+              alt={`${currentLanguage.name} flag`}
+              width={20}
+              height={15}
+              className="inline-block"
+            />
+          )}
+          <span>{currentLanguage?.name}</span>
         </span>
         <ChevronDown className={`h-4 w-4 transition-transform duration-100 ${isOpen ? "rotate-180" : ""}`} />
       </div>
@@ -65,7 +73,13 @@ export function LanguageSelector() {
                       language === lang.code ? "bg-viana-orange/30 text-viana-white" : "text-viana-white"
                     }`}
                   >
-                    <span className="text-lg">{lang.flag}</span>
+                    <Image
+                      src={lang.flag || "/placeholder.svg"}
+                      alt={`${lang.name} flag`}
+                      width={20}
+                      height={15}
+                      className="inline-block"
+                    />
                     <span>{lang.name}</span>
                   </button>
                 ))}
