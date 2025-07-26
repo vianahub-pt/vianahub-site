@@ -2,6 +2,7 @@
 
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
+import { Badge } from "@/components/ui/badge"
 import { useTranslation } from "@/contexts/translation-context"
 import { Zap, MessageSquare, Code, Layers, FileText, Users, ArrowRight } from "lucide-react"
 import Link from "next/link"
@@ -97,6 +98,9 @@ export function ServicesSection() {
     <section ref={sectionRef} className="py-20 bg-gray-100 dark:bg-gray-800">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
+          <Badge variant="outline" className="mb-4">
+            {t("services.title")}
+          </Badge>
           <h2 className="text-4xl font-bold mb-4">{t("services.title")}</h2>
           <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto font-kurale">
             {t("services.subtitle")}
@@ -109,20 +113,20 @@ export function ServicesSection() {
               <Card
                 key={index}
                 data-index={index}
-                className={`text-center service-card group hover:shadow-xl border-0 bg-white dark:bg-gray-900 rounded-tl-none rounded-tr-[5rem] rounded-bl-[5rem] rounded-br-none transform transition-all duration-1000 ease-out ${
+                className={`service-card group hover:shadow-xl border-0 bg-white dark:bg-gray-900 rounded-tl-none rounded-tr-[5rem] rounded-bl-[5rem] rounded-br-none transform transition-all duration-1000 ease-out ${
                   visibleCards[index] ? "opacity-100 translate-y-0 scale-100" : "opacity-0 translate-y-12 scale-95"
                 }`}
                 style={{
                   transitionDelay: visibleCards[index] ? `${index * 200}ms` : "0ms",
                 }}
               >
-                <CardHeader>
-                  <CardTitle className="flex text-center items-center gap-3 group-hover:text-viana-orange transition-colors">
+                <CardHeader className="text-center">
+                  <CardTitle className="flex items-center justify-center gap-3 group-hover:text-viana-orange transition-colors">
                     {service.icon}
                     {service.title}
                   </CardTitle>
                 </CardHeader>
-                <CardContent>
+                <CardContent className="text-center">
                   <CardDescription className="mb-6 font-kurale text-viana-orange">
                     {service.description}
                   </CardDescription>
