@@ -10,7 +10,7 @@ import { InstitutionalMobileSelector } from "./institutional-mobile-selector"
 
 export function MobileMenu() {
   return (
-    <div className="flex flex-col mt-8 pb-8 bg-black/60 overflow-y-auto max-h-[calc(100vh-200px)]">
+    <div className="flex flex-col mt-8 pb-8 overflow-y-auto max-h-[calc(100vh-200px)]">
       {/* Language Selector e Theme Toggle no topo do menu mobile */}
 
       {/* Navegação accordion para mobile */}

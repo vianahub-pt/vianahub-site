@@ -71,7 +71,7 @@ export function Navbar() {
                 </SheetTrigger>
                 <SheetContent
                   side="right"
-                  className="w-[300px] bg-black/90 backdrop-blur-md border-l border-gray-800 overflow-y-auto"
+                  className="w-[300px] bg-black/80 backdrop-blur-md border-l border-gray-800 overflow-y-auto"
                 >
                   <MobileMenu />
                 </SheetContent>
