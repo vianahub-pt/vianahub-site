@@ -14,12 +14,10 @@ import { SecuritySelector } from "./security-selector"
 import { InstitutionalSelector } from "./institutional-selector"
 import { MobileMenu } from "./mobile-menu"
 import { MenuProvider } from "./menu-context"
-import { useTranslation } from "@/contexts/translation-context"
 import { cn } from "@/lib/utils"
 
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false)
-  const { t } = useTranslation()
 
   useEffect(() => {
     const handleScroll = () => {
