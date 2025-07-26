@@ -1,18 +1,31 @@
 "use client"
 
+import { useState } from "react"
 import Link from "next/link"
-import { ChevronDown } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
-import { useMenu } from "./menu-context"
+import { ChevronDown } from "lucide-react"
 import { useTranslation } from "@/contexts/translation-context"
+import { useMenuContext } from "./menu-context"
 
 export function SecuritySelector() {
-  const { activeMenu, setActiveMenu } = useMenu()
   const { t } = useTranslation()
+  const { closeAllMenus } = useMenuContext()
+  const [isOpen, setIsOpen] = useState(false)
+
+  const handleOpenChange = (open: boolean) => {
+    if (open) {
+      closeAllMenus()
+    }
+    setIsOpen(open)
+  }
+
+  const handleItemClick = () => {
+    setIsOpen(false)
+  }
 
   return (
-    <DropdownMenu open={activeMenu === "security"} onOpenChange={(open) => setActiveMenu(open ? "security" : null)}>
+    <DropdownMenu open={isOpen} onOpenChange={handleOpenChange}>
       <DropdownMenuTrigger asChild>
         <Button variant="ghost" className="text-white hover:text-viana-orange flex items-center gap-1">
           {t("nav.security")}
@@ -21,17 +34,29 @@ export function SecuritySelector() {
       </DropdownMenuTrigger>
       <DropdownMenuContent className="w-56 bg-black/90 backdrop-blur-md border-gray-800">
         <DropdownMenuItem asChild>
-          <Link href="/security/cyber-security" className="text-white hover:text-viana-orange">
+          <Link
+            href="/security/cyber-security"
+            className="text-white hover:text-viana-orange cursor-pointer"
+            onClick={handleItemClick}
+          >
             {t("menu.cybersecurity")}
           </Link>
         </DropdownMenuItem>
         <DropdownMenuItem asChild>
-          <Link href="/security/backups" className="text-white hover:text-viana-orange">
+          <Link
+            href="/security/backups"
+            className="text-white hover:text-viana-orange cursor-pointer"
+            onClick={handleItemClick}
+          >
             {t("menu.backups")}
           </Link>
         </DropdownMenuItem>
         <DropdownMenuItem asChild>
-          <Link href="/security/access" className="text-white hover:text-viana-orange">
+          <Link
+            href="/security/access"
+            className="text-white hover:text-viana-orange cursor-pointer"
+            onClick={handleItemClick}
+          >
             {t("menu.access")}
           </Link>
         </DropdownMenuItem>

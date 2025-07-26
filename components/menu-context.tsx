@@ -17,13 +17,10 @@ export function MenuProvider({ children }: { children: ReactNode }) {
   return <MenuContext.Provider value={{ activeMenu, setActiveMenu }}>{children}</MenuContext.Provider>
 }
 
-export function useMenu() {
+export function useMenuContext() {
   const context = useContext(MenuContext)
   if (context === undefined) {
     throw new Error("useMenu must be used within a MenuProvider")
   }
   return context
 }
-
-// Adicionar alias para compatibilidade
-export const useMenuContext = useMenu

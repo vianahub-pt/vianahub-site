@@ -1,21 +1,31 @@
 "use client"
 
+import { useState } from "react"
 import Link from "next/link"
-import { ChevronDown } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
-import { useMenu } from "./menu-context"
+import { ChevronDown } from "lucide-react"
 import { useTranslation } from "@/contexts/translation-context"
+import { useMenuContext } from "./menu-context"
 
 export function EngineeringSelector() {
-  const { activeMenu, setActiveMenu } = useMenu()
   const { t } = useTranslation()
+  const { closeAllMenus } = useMenuContext()
+  const [isOpen, setIsOpen] = useState(false)
+
+  const handleOpenChange = (open: boolean) => {
+    if (open) {
+      closeAllMenus()
+    }
+    setIsOpen(open)
+  }
+
+  const handleItemClick = () => {
+    setIsOpen(false)
+  }
 
   return (
-    <DropdownMenu
-      open={activeMenu === "engineering"}
-      onOpenChange={(open) => setActiveMenu(open ? "engineering" : null)}
-    >
+    <DropdownMenu open={isOpen} onOpenChange={handleOpenChange}>
       <DropdownMenuTrigger asChild>
         <Button variant="ghost" className="text-white hover:text-viana-orange flex items-center gap-1">
           {t("nav.engineering")}
@@ -24,17 +34,29 @@ export function EngineeringSelector() {
       </DropdownMenuTrigger>
       <DropdownMenuContent className="w-56 bg-black/90 backdrop-blur-md border-gray-800">
         <DropdownMenuItem asChild>
-          <Link href="/engineering/solar-energy" className="text-white hover:text-viana-orange">
+          <Link
+            href="/engineering/solar-energy"
+            className="text-white hover:text-viana-orange cursor-pointer"
+            onClick={handleItemClick}
+          >
             {t("menu.solar-energy")}
           </Link>
         </DropdownMenuItem>
         <DropdownMenuItem asChild>
-          <Link href="/engineering/railway" className="text-white hover:text-viana-orange">
+          <Link
+            href="/engineering/railway"
+            className="text-white hover:text-viana-orange cursor-pointer"
+            onClick={handleItemClick}
+          >
             {t("menu.railway")}
           </Link>
         </DropdownMenuItem>
         <DropdownMenuItem asChild>
-          <Link href="/engineering/road" className="text-white hover:text-viana-orange">
+          <Link
+            href="/engineering/road"
+            className="text-white hover:text-viana-orange cursor-pointer"
+            onClick={handleItemClick}
+          >
             {t("menu.road")}
           </Link>
         </DropdownMenuItem>
