@@ -6,12 +6,13 @@ import { useTranslation } from "@/contexts/translation-context"
 import { useMenu } from "./menu-context"
 
 const languages = [
-  { code: "pt", name: "Português", flag: "🇵🇹" },
-  { code: "en", name: "English", flag: "🇺🇸" },
-  { code: "es", name: "Español", flag: "🇪🇸" },
-  { code: "fr", name: "Français", flag: "🇫🇷" },
-  { code: "de", name: "Deutsch", flag: "🇩🇪" },
-]
+  { code: "pt", name: "Português", flag: "https://flagcdn.com/w40/br.png" }, // Brasil
+  { code: "en", name: "English", flag: "https://flagcdn.com/w40/us.png" },   // Estados Unidos
+  { code: "es", name: "Español", flag: "https://flagcdn.com/w40/es.png" },   // Espanha
+  { code: "fr", name: "Français", flag: "https://flagcdn.com/w40/fr.png" },  // França
+  { code: "de", name: "Deutsch", flag: "https://flagcdn.com/w40/de.png" },   // Alemanha
+];
+
 
 export function LanguageSelector() {
   const { language, setLanguage } = useTranslation()
