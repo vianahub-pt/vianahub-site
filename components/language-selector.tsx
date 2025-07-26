@@ -65,7 +65,6 @@ export function LanguageSelector() {
                     }`}
                   >
                     <span className="text-lg">{lang.flag}</span>
-                    <span>{lang.name}</span>
                   </button>
                 ))}
               </div>
