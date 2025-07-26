@@ -1,57 +1,34 @@
 "use client"
 
-import { ChevronDown } from "lucide-react"
-import { useTranslation } from "@/contexts/translation-context"
-import { useMenu } from "./menu-context"
 import Link from "next/link"
-
-const securityItems = [
-  { href: "/security/cyber-security", key: "menu.cybersecurity" },
-  { href: "/security/backups", key: "menu.backups" },
-  { href: "/security/access", key: "menu.access" },
-]
+import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible"
+import { ChevronDown } from "lucide-react"
+import { useState } from "react"
+import { useTranslation } from "@/contexts/translation-context"
 
 export function SecurityMobileSelector() {
   const { t } = useTranslation()
-  const { activeMenu, setActiveMenu } = useMenu()
-  const isOpen = activeMenu === "security"
-
-  const handleToggle = () => {
-    setActiveMenu(isOpen ? null : "security")
-  }
-
-  const handleItemSelect = () => {
-    setActiveMenu(null)
-  }
+  const [isOpen, setIsOpen] = useState(false)
 
   return (
-    <div className="border-b border-gray-700/30">
-      <button
-        onClick={handleToggle}
-        className="w-full flex items-center justify-between px-4 py-4 text-left font-medium text-viana-white hover:bg-viana-yellow/10 transition-colors duration-200"
-      >
-        <span>{t("nav.security")}</span>
-        <ChevronDown className={`h-4 w-4 transition-transform duration-200 ${isOpen ? "rotate-180" : ""}`} />
-      </button>
-
-      <div
-        className={`overflow-hidden transition-all duration-300 ease-in-out ${
-          isOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
-        }`}
-      >
-        <div className="pb-2">
-          {securityItems.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              onClick={handleItemSelect}
-              className="block px-8 py-3 text-sm text-viana-white/80 hover:text-viana-white hover:bg-viana-orange/20 transition-all duration-150"
-            >
-              {t(item.key)}
-            </Link>
-          ))}
+    <Collapsible open={isOpen} onOpenChange={setIsOpen} className="border-b border-gray-700">
+      <CollapsibleTrigger className="flex items-center justify-between w-full py-4 text-white hover:text-viana-orange">
+        {t("nav.security")}
+        <ChevronDown className={`h-4 w-4 transition-transform ${isOpen ? "rotate-180" : ""}`} />
+      </CollapsibleTrigger>
+      <CollapsibleContent className="pb-4">
+        <div className="flex flex-col space-y-2 pl-4">
+          <Link href="/security/cyber-security" className="text-gray-300 hover:text-viana-orange py-2">
+            {t("menu.cybersecurity")}
+          </Link>
+          <Link href="/security/backups" className="text-gray-300 hover:text-viana-orange py-2">
+            {t("menu.backups")}
+          </Link>
+          <Link href="/security/access" className="text-gray-300 hover:text-viana-orange py-2">
+            {t("menu.access")}
+          </Link>
         </div>
-      </div>
-    </div>
+      </CollapsibleContent>
+    </Collapsible>
   )
 }

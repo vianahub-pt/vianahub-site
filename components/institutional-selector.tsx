@@ -1,69 +1,54 @@
 "use client"
 
-import { ChevronDown } from "lucide-react"
-import { Card, CardContent } from "@/components/ui/card"
-import { useTranslation } from "@/contexts/translation-context"
-import { useMenu } from "./menu-context"
+import { useState } from "react"
 import Link from "next/link"
-
-const institutionalItems = [
-  { href: "/about", key: "menu.about-us" }, // Usando a nova chave de tradução
-  { href: "/careers", key: "menu.our-mission" }, // Exemplo de nova chave
-  { href: "/contact", key: "menu.contact-us" }, // Usando a nova chave de tradução
-]
+import { Button } from "@/components/ui/button"
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
+import { ChevronDown } from "lucide-react"
+import { useTranslation } from "@/contexts/translation-context"
+import { useMenuContext } from "./menu-context"
 
 export function InstitutionalSelector() {
   const { t } = useTranslation()
-  const { activeMenu, setActiveMenu } = useMenu()
-  const isOpen = activeMenu === "institutional"
+  const { closeAllMenus } = useMenuContext()
+  const [isOpen, setIsOpen] = useState(false)
 
-  const handleMouseEnter = () => {
-    setActiveMenu("institutional")
+  const handleOpenChange = (open: boolean) => {
+    if (open) {
+      closeAllMenus()
+    }
+    setIsOpen(open)
   }
 
-  const handleMouseLeave = () => {
-    setActiveMenu(null)
-  }
-
-  const handleItemSelect = () => {
-    setActiveMenu(null)
+  const handleItemClick = () => {
+    setIsOpen(false)
   }
 
   return (
-    <div className="relative" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
-      <div className="flex items-center space-x-1 px-4 py-2 rounded-md transition-all duration-100 font-medium drop-shadow-lg cursor-pointer bg-transparent text-viana-white hover:bg-viana-yellow/20 hover:text-viana-white dark:hover:bg-gray-500/20">
-        <span>{t("nav.institutional")}</span> {/* Usando a chave de tradução */}
-        <ChevronDown className={`h-4 w-4 transition-transform duration-100 ${isOpen ? "rotate-180" : ""}`} />
-      </div>
-
-      {isOpen && (
-        <div
-          className="absolute z-[9999] w-80 top-full animate-in fade-in-0 slide-in-from-top-1 duration-100"
-          style={{
-            left: 0,
-            transformOrigin: "top left",
-          }}
-        >
-          <div className="h-1 w-full" />
-
-          <Card className="bg-black/80 dark:bg-black/80 backdrop-blur-md border border-white/30 dark:border-gray-400/30">
-            <CardContent className="p-1">
-              <div className="space-y-1">
-                {institutionalItems.map((item) => (
-                  <Link
-                    key={item.href}
-                    href={item.href}
-                    onClick={handleItemSelect}
-                    className="w-full flex items-center px-3 py-2 rounded-md hover:bg-viana-orange/50 hover:text-viana-white transition-all duration-75 text-left text-sm font-medium drop-shadow-lg text-viana-white block"
-                  >
-                    {t(item.key)}
-                  </Link>
-                ))}
-              </div>
-            </CardContent>
-          </Card>
-        </div>
-      )}
-    </div>
+    <DropdownMenu open={isOpen} onOpenChange={handleOpenChange}>
+      <DropdownMenuTrigger asChild>
+        <Button variant="ghost" className="text-white hover:text-viana-orange flex items-center gap-1">
+          {t("nav.institutional")}
+          <ChevronDown className="h-4 w-4" />
+        </Button>
+      </DropdownMenuTrigger>
+      <DropdownMenuContent className="w-56 bg-black/90 backdrop-blur-md border-gray-800">
+        <DropdownMenuItem asChild>
+          <Link href="/about" className="text-white hover:text-viana-orange cursor-pointer" onClick={handleItemClick}>
+            {t("menu.about-us")}
+          </Link>
+        </DropdownMenuItem>
+        <DropdownMenuItem asChild>
+          <Link href="/careers" className="text-white hover:text-viana-orange cursor-pointer" onClick={handleItemClick}>
+            {t("menu.our-mission")}
+          </Link>
+        </DropdownMenuItem>
+        <DropdownMenuItem asChild>
+          <Link href="/contact" className="text-white hover:text-viana-orange cursor-pointer" onClick={handleItemClick}>
+            {t("menu.contact-us")}
+          </Link>
+        </DropdownMenuItem>
+      </DropdownMenuContent>
+    </DropdownMenu>
   )
 }
