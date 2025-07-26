@@ -12,13 +12,13 @@ export function MobileMenu() {
   return (
     <div className="flex flex-col mt-8 pb-8 overflow-y-auto max-h-[calc(100vh-200px)]">
       {/* Language Selector e Theme Toggle no topo do menu mobile */}
-      <div className="flex items-center justify-between border-b border-gray-700 pb-4 mb-4">
-        <LanguageSelector />
-        <ThemeToggle />
-      </div>
 
       {/* Navegação accordion para mobile */}
       <div className="flex flex-col">
+        <div className="flex items-center justify-between border-b border-gray-700 pb-4 mb-4">
+          <LanguageSelector />
+          <ThemeToggle />
+        </div>
         <WhatWeDoMobileSelector />
         <EngineeringMobileSelector />
         <IndustryMobileSelector />
