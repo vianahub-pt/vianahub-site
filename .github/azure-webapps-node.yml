@@ -1,0 +1,45 @@
+trigger:
+  branches:
+    include:
+      - develop
+
+pool:
+  vmImage: "ubuntu-latest"
+
+variables:
+  - name: NODE_VERSION
+    value: "20.x"
+  - group: FoxGameSecrets
+
+steps:
+  - task: UseNode@1
+    inputs:
+      version: "$(NODE_VERSION)"
+    displayName: "🟢 Usar Node.js $(NODE_VERSION)"
+
+  - script: npm install -g pnpm
+    displayName: "🔧 Instalar pnpm"
+
+  - task: Cache@2
+    inputs:
+      key: 'pnpm | "$(Agent.OS)" | pnpm-lock.yaml'
+      restoreKeys: |
+        pnpm | "$(Agent.OS)"
+      path: $(Pipeline.Workspace)/.pnpm-store
+    displayName: "📦 Cache de dependências pnpm"
+
+  - script: |
+      pnpm config set store-dir $(Pipeline.Workspace)/.pnpm-store
+      pnpm install --frozen-lockfile --prefer-offline
+    displayName: "📥 Instalar dependências com pnpm"
+
+  - script: |
+      pnpm run build
+    displayName: "🔨 Build e export estático do Next.js"
+
+  - task: AzureStaticWebApp@0
+    inputs:
+      app_location: "out"
+      output_location: ""
+      azure_static_web_apps_api_token: "cc47eaa71366b5ab5ff13d46f64adc635775198b76f6cc18b2554ba56aee46f102-a5246e0b-b98a-4e5d-b5fe-587bf80413520031919045106403"
+    displayName: "🌐 Deploy para Azure Static Web App"
