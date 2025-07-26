@@ -2,7 +2,6 @@
 
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
-import { Badge } from "@/components/ui/badge"
 import { useTranslation } from "@/contexts/translation-context"
 import { Zap, MessageSquare, Code, Layers, FileText, Users, ArrowRight } from "lucide-react"
 import Link from "next/link"
@@ -98,10 +97,10 @@ export function ServicesSection() {
     <section ref={sectionRef} className="py-20 bg-gray-100 dark:bg-gray-800">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-4">{t("services.title")}</h2>
-            <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto font-kurale">
-              {t("services.subtitle")}
-            </p>
+          <h2 className="text-4xl font-bold mb-4">{t("services.title")}</h2>
+          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto font-kurale">
+            {t("services.subtitle")}
+          </p>
         </div>
 
         <div className="max-w-4xl mx-auto">
@@ -118,12 +117,12 @@ export function ServicesSection() {
                 }}
               >
                 <CardHeader>
-                  <div className="flex justify-center mb-4">{service.icon}</div>
-                  <CardTitle className="text-center group-hover:text-viana-orange transition-colors">
+                  <CardTitle className="flex items-center gap-3 group-hover:text-viana-orange transition-colors">
+                    {service.icon}
                     {service.title}
                   </CardTitle>
                 </CardHeader>
-                <CardContent className="text-center">
+                <CardContent>
                   <CardDescription className="mb-6 font-kurale text-viana-orange">
                     {service.description}
                   </CardDescription>
