@@ -117,7 +117,7 @@ export function ServicesSection() {
                 }}
               >
                 <CardHeader>
-                  <CardTitle className="flex items-center gap-3 group-hover:text-viana-orange transition-colors">
+                  <CardTitle className="flex text-center items-center gap-3 group-hover:text-viana-orange transition-colors">
                     {service.icon}
                     {service.title}
                   </CardTitle>
