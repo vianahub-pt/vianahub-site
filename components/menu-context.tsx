@@ -24,6 +24,3 @@ export function useMenuContext() {
   }
   return context
 }
-
-// Add alias for backward compatibility
-export const useMenu = useMenuContext
