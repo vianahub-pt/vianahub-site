@@ -47,8 +47,8 @@ export function LanguageSelector() {
         <div
           className="absolute z-[9999] w-48 top-full animate-in fade-in-0 slide-in-from-top-1 duration-100"
           style={{
-            right: 0,
-            transformOrigin: "top right",
+            left: 0,
+            transformOrigin: "top left",
           }}
         >
           <div className="h-1 w-full" />
