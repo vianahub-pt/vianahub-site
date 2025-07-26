@@ -1,29 +1,73 @@
 import type React from "react"
 import type { Metadata } from "next"
-import { Inter, Kurale } from "next/font/google"
+import { Inter } from "next/font/google"
 import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
+import { TranslationProvider } from "@/contexts/translation-context"
 import { Toaster } from "@/components/ui/toaster"
 import { WhatsAppChat } from "@/components/whatsapp-chat"
-import { PreferencesDialog } from "@/components/preferences-dialog"
-import TranslationProviderWrapper from "@/components/translation-provider-wrapper"
 
 const inter = Inter({ subsets: ["latin"] })
-const kurale = Kurale({
-  weight: "400",
-  subsets: ["latin"],
-  variable: "--font-kurale",
-})
 
 export const metadata: Metadata = {
-  title: "VianaHub - Soluções Tecnológicas Inovadoras",
+  title: {
+    default: "VianaHub - Soluções Tecnológicas Inovadoras",
+    template: "%s | VianaHub",
+  },
   description:
-    "Transformamos ideias em soluções digitais. Desenvolvimento de software, consultoria em TI e soluções personalizadas para o seu negócio.",
-  generator: "v0.dev",
-  keywords: "desenvolvimento software, consultoria TI, soluções digitais, tecnologia, inovação, VianaHub",
+    "Transformamos ideias em soluções digitais inovadoras. Desenvolvimento web, aplicações móveis, consultoria tecnológica e muito mais.",
+  keywords: [
+    "desenvolvimento web",
+    "aplicações móveis",
+    "consultoria tecnológica",
+    "soluções digitais",
+    "inovação",
+    "tecnologia",
+  ],
   authors: [{ name: "VianaHub" }],
   creator: "VianaHub",
   publisher: "VianaHub",
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
+  metadataBase: new URL("https://vianahub.pt"),
+  alternates: {
+    canonical: "/",
+    languages: {
+      "pt-PT": "/",
+      "en-US": "/en",
+      "es-ES": "/es",
+      "fr-FR": "/fr",
+      "de-DE": "/de",
+    },
+  },
+  openGraph: {
+    type: "website",
+    locale: "pt_PT",
+    url: "https://vianahub.pt",
+    siteName: "VianaHub",
+    title: "VianaHub - Soluções Tecnológicas Inovadoras",
+    description:
+      "Transformamos ideias em soluções digitais inovadoras. Desenvolvimento web, aplicações móveis, consultoria tecnológica e muito mais.",
+    images: [
+      {
+        url: "/logo.png",
+        width: 1200,
+        height: 630,
+        alt: "VianaHub Logo",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "VianaHub - Soluções Tecnológicas Inovadoras",
+    description:
+      "Transformamos ideias em soluções digitais inovadoras. Desenvolvimento web, aplicações móveis, consultoria tecnológica e muito mais.",
+    images: ["/logo.png"],
+    creator: "@vianahub",
+  },
   robots: {
     index: true,
     follow: true,
@@ -35,26 +79,12 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
-  openGraph: {
-    type: "website",
-    locale: "pt_PT",
-    url: "https://vianahub.pt",
-    siteName: "VianaHub",
-    title: "VianaHub - Soluções Tecnológicas Inovadoras",
-    description:
-      "Transformamos ideias em soluções digitais. Desenvolvimento de software, consultoria em TI e soluções personalizadas para o seu negócio.",
+  verification: {
+    google: "google-site-verification-code",
+    yandex: "yandex-verification-code",
+    yahoo: "yahoo-site-verification-code",
   },
-  twitter: {
-    card: "summary_large_image",
-    title: "VianaHub - Soluções Tecnológicas Inovadoras",
-    description:
-      "Transformamos ideias em soluções digitais. Desenvolvimento de software, consultoria em TI e soluções personalizadas para o seu negócio.",
-  },
-}
-
-// Esta função garante que o layout seja estático
-export function generateStaticParams() {
-  return []
+    generator: 'v0.dev'
 }
 
 export default function RootLayout({
@@ -64,21 +94,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang="pt" suppressHydrationWarning>
-      <head>
-        <link rel="canonical" href="https://vianahub.pt" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="theme-color" content="#FF6B35" />
-      </head>
-      <body className={`${inter.className} ${kurale.variable} overflow-x-hidden`}>
-        <ThemeProvider attribute="class" defaultTheme="light" enableSystem={false} disableTransitionOnChange>
-          <TranslationProviderWrapper>
-            <div className="min-h-screen w-full max-w-full">
-              {children}
-              <Toaster />
-              <WhatsAppChat />
-              <PreferencesDialog />
-            </div>
-          </TranslationProviderWrapper>
+      <body className={inter.className}>
+        <ThemeProvider attribute="class" defaultTheme="light" enableSystem disableTransitionOnChange>
+          <TranslationProvider>
+            {children}
+            <Toaster />
+            <WhatsAppChat />
+          </TranslationProvider>
         </ThemeProvider>
       </body>
     </html>

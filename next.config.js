@@ -2,6 +2,8 @@
 const nextConfig = {
   output: "export",
   trailingSlash: true,
+  skipTrailingSlashRedirect: true,
+  distDir: "out",
   eslint: {
     ignoreDuringBuilds: true,
   },
@@ -11,13 +13,14 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
-  // Configurações específicas para SSG
   experimental: {
     optimizeCss: true,
   },
-  // Garantir que todas as páginas sejam estáticas
   generateBuildId: async () => {
     return "vianahub-static-build"
+  },
+  async generateStaticParams() {
+    return []
   },
 }
 

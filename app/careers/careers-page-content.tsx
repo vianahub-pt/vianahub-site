@@ -2,7 +2,7 @@
 
 import { DialogTrigger } from "@/components/ui/dialog"
 import { Navbar } from "@/components/navbar"
-import { useTranslation } from "@/contexts/translation"
+import { useTranslation } from "@/contexts/translation-context"
 
 import type React from "react"
 
