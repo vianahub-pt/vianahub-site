@@ -12,23 +12,45 @@ import { ParallaxSection } from "@/components/sections/parallax-section"
 import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
 
+// Dados estáticos que serão gerados em build time
+export async function generateStaticParams() {
+  return []
+}
+
+// Esta página será pré-renderizada em build time
 export default function HomePage() {
   return (
     <TranslationProvider>
       <div className="min-h-screen bg-viana-white">
         <Navbar />
-        <HeroSection />
-        <EntertainmentSection />
-        <ServicesSection />
-        <ParallaxSection />
-        <IndustriesSection />
-        <TechnologiesSection />
-        <ProjectsSection />
-        <TestimonialsSection />
-        <InsightsSection />
-        <CareersSection />
+        <main>
+          <HeroSection />
+          <EntertainmentSection />
+          <ServicesSection />
+          <ParallaxSection />
+          <IndustriesSection />
+          <TechnologiesSection />
+          <ProjectsSection />
+          <TestimonialsSection />
+          <InsightsSection />
+          <CareersSection />
+        </main>
         <Footer />
       </div>
     </TranslationProvider>
   )
+}
+
+// Metadados estáticos
+export const metadata = {
+  title: "VianaHub - Soluções Tecnológicas Inovadoras",
+  description:
+    "Transformamos ideias em soluções digitais. Desenvolvimento de software, consultoria em TI e soluções personalizadas para o seu negócio.",
+  keywords: "desenvolvimento software, consultoria TI, soluções digitais, tecnologia, inovação",
+  openGraph: {
+    title: "VianaHub - Soluções Tecnológicas Inovadoras",
+    description: "Transformamos ideias em soluções digitais",
+    type: "website",
+    locale: "pt_PT",
+  },
 }

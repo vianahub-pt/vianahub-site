@@ -1,46 +1,53 @@
 "use client"
 
-import { useState } from "react"
-import Link from "next/link"
 import { ChevronDown } from "lucide-react"
-import { Button } from "@/components/ui/button"
 import { useTranslation } from "@/contexts/translation-context"
+import { useMenu } from "./menu-context"
+import Link from "next/link"
+
+const engineeringItems = [
+  { href: "/engineering/solar-energy", key: "menu.solar-energy" },
+  { href: "/engineering/railway", key: "menu.railway" },
+  { href: "/engineering/road", key: "menu.road" },
+]
 
 export function EngineeringMobileSelector() {
-  const [isOpen, setIsOpen] = useState(false)
   const { t } = useTranslation()
+  const { activeMenu, setActiveMenu } = useMenu()
+  const isOpen = activeMenu === "engineering"
 
-  const engineering = [
-    { href: "/engineering/road", label: t("navbar.engineering.road") },
-    { href: "/engineering/railway", label: t("navbar.engineering.railway") },
-    { href: "/engineering/solar-energy", label: t("navbar.engineering.solarEnergy") },
-  ]
+  const handleToggle = () => {
+    setActiveMenu(isOpen ? null : "engineering")
+  }
+
+  const handleItemSelect = () => {
+    setActiveMenu(null)
+  }
 
   return (
-    <div className="border-b border-gray-700/50">
-      <Button
-        variant="ghost"
-        className="w-full justify-between text-white hover:text-viana-orange hover:bg-gray-800/50 py-4 px-0"
-        onClick={() => setIsOpen(!isOpen)}
+    <div className="border-b border-gray-700/30">
+      <button
+        onClick={handleToggle}
+        className="w-full flex items-center justify-between px-4 py-4 text-left font-medium text-viana-white hover:bg-viana-yellow/10 transition-colors duration-200"
       >
-        <span className="text-base font-medium">{t("navbar.engineering.title")}</span>
-        <ChevronDown className={`h-4 w-4 transition-transform duration-300 ${isOpen ? "rotate-180" : ""}`} />
-      </Button>
+        <span>{t("nav.engineering")}</span>
+        <ChevronDown className={`h-4 w-4 transition-transform duration-200 ${isOpen ? "rotate-180" : ""}`} />
+      </button>
 
       <div
         className={`overflow-hidden transition-all duration-300 ease-in-out ${
           isOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
         }`}
       >
-        <div className="pb-4 pl-4 space-y-2">
-          {engineering.map((item) => (
+        <div className="pb-2">
+          {engineeringItems.map((item) => (
             <Link
               key={item.href}
               href={item.href}
-              className="block py-2 px-3 text-gray-300 hover:text-viana-orange hover:bg-gray-800/30 rounded-md transition-colors duration-200"
-              onClick={() => setIsOpen(false)}
+              onClick={handleItemSelect}
+              className="block px-8 py-3 text-sm text-viana-white/80 hover:text-viana-white hover:bg-viana-orange/20 transition-all duration-150"
             >
-              {item.label}
+              {t(item.key)}
             </Link>
           ))}
         </div>

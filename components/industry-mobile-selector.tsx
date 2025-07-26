@@ -1,49 +1,56 @@
 "use client"
 
-import { useState } from "react"
-import Link from "next/link"
 import { ChevronDown } from "lucide-react"
-import { Button } from "@/components/ui/button"
 import { useTranslation } from "@/contexts/translation-context"
+import { useMenu } from "./menu-context"
+import Link from "next/link"
+
+const industryItems = [
+  { href: "/industry/education", key: "menu.education" },
+  { href: "/industry/government", key: "menu.government" },
+  { href: "/industry/manufacturing", key: "menu.manufacturing" },
+  { href: "/industry/financial", key: "menu.financial" },
+  { href: "/industry/retail", key: "menu.retail" },
+  { href: "/industry/healthcare", key: "menu.healthcare" },
+]
 
 export function IndustryMobileSelector() {
-  const [isOpen, setIsOpen] = useState(false)
   const { t } = useTranslation()
+  const { activeMenu, setActiveMenu } = useMenu()
+  const isOpen = activeMenu === "industry"
 
-  const industries = [
-    { href: "/industry/healthcare", label: t("navbar.industry.healthcare") },
-    { href: "/industry/financial", label: t("navbar.industry.financial") },
-    { href: "/industry/education", label: t("navbar.industry.education") },
-    { href: "/industry/retail", label: t("navbar.industry.retail") },
-    { href: "/industry/manufacturing", label: t("navbar.industry.manufacturing") },
-    { href: "/industry/government", label: t("navbar.industry.government") },
-  ]
+  const handleToggle = () => {
+    setActiveMenu(isOpen ? null : "industry")
+  }
+
+  const handleItemSelect = () => {
+    setActiveMenu(null)
+  }
 
   return (
-    <div className="border-b border-gray-700/50">
-      <Button
-        variant="ghost"
-        className="w-full justify-between text-white hover:text-viana-orange hover:bg-gray-800/50 py-4 px-0"
-        onClick={() => setIsOpen(!isOpen)}
+    <div className="border-b border-gray-700/30">
+      <button
+        onClick={handleToggle}
+        className="w-full flex items-center justify-between px-4 py-4 text-left font-medium text-viana-white hover:bg-viana-yellow/10 transition-colors duration-200"
       >
-        <span className="text-base font-medium">{t("navbar.industry.title")}</span>
-        <ChevronDown className={`h-4 w-4 transition-transform duration-300 ${isOpen ? "rotate-180" : ""}`} />
-      </Button>
+        <span>{t("nav.industry")}</span>
+        <ChevronDown className={`h-4 w-4 transition-transform duration-200 ${isOpen ? "rotate-180" : ""}`} />
+      </button>
 
       <div
         className={`overflow-hidden transition-all duration-300 ease-in-out ${
           isOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
         }`}
       >
-        <div className="pb-4 pl-4 space-y-2">
-          {industries.map((industry) => (
+        <div className="pb-2">
+          {industryItems.map((item) => (
             <Link
-              key={industry.href}
-              href={industry.href}
-              className="block py-2 px-3 text-gray-300 hover:text-viana-orange hover:bg-gray-800/30 rounded-md transition-colors duration-200"
-              onClick={() => setIsOpen(false)}
+              key={item.href}
+              href={item.href}
+              onClick={handleItemSelect}
+              className="block px-8 py-3 text-sm text-viana-white/80 hover:text-viana-white hover:bg-viana-orange/20 transition-all duration-150"
             >
-              {industry.label}
+              {t(item.key)}
             </Link>
           ))}
         </div>
