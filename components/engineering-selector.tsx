@@ -10,18 +10,21 @@ import { useMenuContext } from "./menu-context"
 
 export function EngineeringSelector() {
   const { t } = useTranslation()
-  const { closeAllMenus } = useMenuContext()
+  const { activeMenu, setActiveMenu } = useMenuContext()
   const [isOpen, setIsOpen] = useState(false)
 
   const handleOpenChange = (open: boolean) => {
     if (open) {
-      closeAllMenus()
+      setActiveMenu("engineering")
+    } else {
+      setActiveMenu(null)
     }
     setIsOpen(open)
   }
 
   const handleItemClick = () => {
     setIsOpen(false)
+    setActiveMenu(null)
   }
 
   return (
