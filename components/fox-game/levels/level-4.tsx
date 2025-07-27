@@ -1,17 +1,16 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { Fox } from "../fox"
-import { level4MazeDesktop, level4MazeMobile, type Position } from "../../../data/fox-game/mazes-level-4"
+import { level4DesktopMaze, level4MobileMaze, type Position } from "../../../data/fox-game/mazes-level-4"
 
 interface Level4Props {
   foxPosition: Position
   cellSize: number
   isMoving: boolean
-  onCellClick?: (position: Position) => Promise<boolean>
-  gameStarted?: boolean
-  findReachableCells?: (start: Position) => Set<string>
-  isMobile?: boolean
+  onCellClick: (position: Position) => void
+  gameStarted: boolean
+  findReachableCells: (start: Position) => Set<string>
+  isMobile: boolean
 }
 
 export function Level4({
@@ -21,92 +20,67 @@ export function Level4({
   onCellClick,
   gameStarted,
   findReachableCells,
-  isMobile = false,
+  isMobile,
 }: Level4Props) {
-  const maze = isMobile ? level4MazeMobile : level4MazeDesktop
-
-  const getCellClass = (x: number, y: number) => {
-    const cellValue = maze.grid[y][x]
-    let baseClass = ""
-
-    switch (cellValue) {
-      case 1:
-        baseClass = "bg-purple-800" // Parede
-        break
-      case 2:
-        baseClass = "bg-gradient-to-br from-yellow-200 to-orange-300" // Início - Deserto
-        break
-      case 3:
-        baseClass = "bg-gradient-to-br from-cyan-200 to-blue-300" // Fim - Oásis
-        break
-      default:
-        baseClass = "bg-purple-100" // Caminho livre
-        break
-    }
-
-    // Adicionar classe para células clicáveis (que estão na área alcançável)
-    if (gameStarted && cellValue !== 1 && isReachable(x, y)) {
-      baseClass +=
-        " cursor-pointer hover:bg-purple-200 hover:ring-2 hover:ring-purple-400 transition-all duration-200 touch-manipulation"
-    }
-
-    return baseClass
-  }
-
-  const isReachable = (x: number, y: number) => {
-    if (!findReachableCells) return false
-    const reachableCells = findReachableCells(foxPosition)
-    return reachableCells.has(`${x},${y}`)
-  }
-
-  const handleCellClick = (x: number, y: number) => {
-    if (!gameStarted || !onCellClick || isMoving) return
-
-    const cellValue = maze.grid[y][x]
-    if (cellValue === 1) return // Não pode clicar em paredes
-
-    if (isReachable(x, y)) {
-      onCellClick({ x, y })
-    }
-  }
+  const maze = isMobile ? level4MobileMaze : level4DesktopMaze
+  const reachableCells = gameStarted ? findReachableCells(foxPosition) : new Set<string>()
 
   const getCellContent = (x: number, y: number) => {
-    const cellValue = maze.grid[y][x]
-    if (cellValue === 2) {
-      // Posição inicial - Deserto
+    // Raposa
+    if (foxPosition.x === x && foxPosition.y === y) {
       return (
-        <div className="w-full h-full relative overflow-hidden rounded flex items-center justify-center">
-          <img
-            src={isMobile ? "/desert-mobile.png" : "/desert-desktop.png"}
-            alt="Deserto - Início"
-            className="object-cover rounded"
-            style={{
-              imageRendering: "pixelated",
-              width: "100%",
-              height: "100%",
-            }}
-          />
-        </div>
+        <motion.img
+          key={`fox-${x}-${y}`}
+          src={isMobile ? "/fox-mobile.png" : "/fox-desktop.png"}
+          alt="Fox"
+          className="w-full h-full object-contain"
+          animate={isMoving ? { scale: [1, 1.1, 1] } : {}}
+          transition={{ duration: 0.3 }}
+        />
       )
     }
-    if (cellValue === 3) {
-      // Posição final - Oásis
+
+    // Oásis (fim)
+    if (maze.end && maze.end.x === x && maze.end.y === y) {
       return (
-        <div className="w-full h-full relative overflow-hidden rounded flex items-center justify-center">
-          <img
-            src={isMobile ? "/oasis-mobile.png" : "/oasis-desktop.png"}
-            alt="Oásis - Fim"
-            className="object-cover rounded"
-            style={{
-              imageRendering: "pixelated",
-              width: "100%",
-              height: "100%",
-            }}
-          />
-        </div>
+        <motion.img
+          src={isMobile ? "/oasis-mobile.png" : "/oasis-desktop.png"}
+          alt="Oasis"
+          className="w-full h-full object-contain"
+          animate={{ scale: [1, 1.05, 1] }}
+          transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY }}
+        />
       )
     }
-    return null
+
+    // Células vazias
+    return (
+      <img
+        src={isMobile ? "/desert-mobile.png" : "/desert-desktop.png"}
+        alt="Desert"
+        className="w-full h-full object-contain"
+      />
+    )
+  }
+
+  const getCellStyle = (x: number, y: number) => {
+    const isReachable = reachableCells.has(`${x},${y}`)
+    const isFoxPosition = foxPosition.x === x && foxPosition.y === y
+    const isEnd = maze.end && maze.end.x === x && maze.end.y === y
+
+    let className = "border border-purple-300 relative cursor-pointer transition-all duration-200 "
+
+    if (isFoxPosition) {
+      className += "ring-2 ring-indigo-500 ring-offset-1 "
+    } else if (isEnd) {
+      className += "ring-2 ring-blue-500 ring-offset-1 "
+    } else if (isReachable && gameStarted) {
+      className += "ring-1 ring-green-400 bg-green-50/50 hover:bg-green-100/70 "
+    } else {
+      className += "hover:bg-purple-50/50 "
+    }
+
+    return className
   }
 
   return (
@@ -114,54 +88,43 @@ export function Level4({
       initial={{ opacity: 0, scale: 0.9 }}
       animate={{ opacity: 1, scale: 1 }}
       exit={{ opacity: 0, scale: 0.9 }}
-      transition={{ duration: 0.5 }}
-      className={`relative border-4 border-purple-600 rounded-lg overflow-hidden bg-purple-50 ${isMobile ? "mx-auto" : ""}`}
-      style={{
-        width: isMobile ? "100%" : maze.size.width * cellSize,
-        height: maze.size.height * cellSize,
-        maxWidth: isMobile ? `${maze.size.width * cellSize}px` : "none",
-        overflow: "hidden",
-      }}
+      transition={{ duration: 0.3 }}
+      className="bg-purple-100 border-4 border-purple-400 rounded-lg p-2 shadow-lg"
     >
-      {/* Grid */}
       <div
-        className="grid gap-0 overflow-hidden mx-auto"
+        className="grid gap-0"
         style={{
           gridTemplateColumns: `repeat(${maze.size.width}, ${cellSize}px)`,
           gridTemplateRows: `repeat(${maze.size.height}, ${cellSize}px)`,
-          width: maze.size.width * cellSize,
-          height: maze.size.height * cellSize,
         }}
       >
-        {maze.grid.flat().map((cell, index) => {
-          const x = index % maze.size.width
-          const y = Math.floor(index / maze.size.width)
-          const cellContent = getCellContent(x, y)
+        {maze.grid.map((row, y) =>
+          row.map((cell, x) => {
+            if (cell === 1) {
+              // Parede
+              return (
+                <div
+                  key={`${x}-${y}`}
+                  className="bg-purple-800 border border-purple-900"
+                  style={{ width: cellSize, height: cellSize }}
+                />
+              )
+            }
 
-          return (
-            <div
-              key={index}
-              className={`border border-purple-200 ${getCellClass(x, y)} relative overflow-hidden`}
-              style={{
-                width: cellSize,
-                height: cellSize,
-                minHeight: isMobile ? "45px" : `${cellSize}px`,
-                minWidth: isMobile ? "45px" : `${cellSize}px`,
-              }}
-              onClick={() => handleCellClick(x, y)}
-            >
-              {cellContent}
-              {/* Indicador visual para células clicáveis com 25% mais de cor */}
-              {gameStarted && isReachable(x, y) && maze.grid[y][x] !== 1 && (
-                <div className="absolute inset-0 bg-purple-400 bg-opacity-25 pointer-events-none" />
-              )}
-            </div>
-          )
-        })}
+            // Célula caminhável
+            return (
+              <div
+                key={`${x}-${y}`}
+                className={getCellStyle(x, y)}
+                style={{ width: cellSize, height: cellSize }}
+                onClick={() => onCellClick({ x, y })}
+              >
+                {getCellContent(x, y)}
+              </div>
+            )
+          }),
+        )}
       </div>
-
-      {/* Fox */}
-      <Fox position={foxPosition} cellSize={cellSize} isMoving={isMoving} isMobile={isMobile} />
     </motion.div>
   )
 }

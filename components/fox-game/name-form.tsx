@@ -7,6 +7,7 @@ import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { useTranslation } from "@/contexts/translation-context"
 
 interface NameFormProps {
   onNameSubmit: (name: string) => void
@@ -14,6 +15,7 @@ interface NameFormProps {
 
 export function NameForm({ onNameSubmit }: NameFormProps) {
   const [name, setName] = useState("")
+  const { t } = useTranslation()
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
@@ -38,21 +40,21 @@ export function NameForm({ onNameSubmit }: NameFormProps) {
             >
               <img src="/fox-desktop.png" alt="Fox" className="w-16 h-16 object-contain" />
             </motion.div>
-            <CardTitle className="text-2xl font-bold text-amber-800">Aventura da Raposa no Deserto</CardTitle>
-            <p className="text-amber-600 mt-2">Ajude a raposa a encontrar o oásis através do labirinto!</p>
+            <CardTitle className="text-2xl font-bold text-amber-800">{t("foxGame.nameFormTitle")}</CardTitle>
+            <p className="text-amber-600 mt-2">{t("foxGame.nameFormSubtitle")}</p>
           </CardHeader>
           <CardContent>
             <form onSubmit={handleSubmit} className="space-y-4">
               <div>
                 <label htmlFor="playerName" className="block text-sm font-medium text-amber-700 mb-2">
-                  Digite seu nome para começar:
+                  {t("foxGame.nameFormLabel")}
                 </label>
                 <Input
                   id="playerName"
                   type="text"
                   value={name}
                   onChange={(e) => setName(e.target.value)}
-                  placeholder="Seu nome aqui..."
+                  placeholder={t("foxGame.nameFormPlaceholder")}
                   className="w-full"
                   maxLength={20}
                   required
@@ -63,16 +65,17 @@ export function NameForm({ onNameSubmit }: NameFormProps) {
                 className="w-full bg-orange-600 hover:bg-orange-700 text-white font-semibold py-2 px-4 rounded-lg transition-colors"
                 disabled={!name.trim()}
               >
-                Começar Aventura!
+                {t("foxGame.nameFormButton")}
               </Button>
             </form>
             <div className="mt-6 text-center text-sm text-amber-600">
-              <p className="mb-2">Como jogar:</p>
+              <p className="mb-2">{t("foxGame.howToPlay")}</p>
               <ul className="text-xs space-y-1">
-                <li>• Use as setas do teclado para mover a raposa</li>
-                <li>• Ou clique nas células para mover</li>
-                <li>• Encontre o oásis em cada nível</li>
-                <li>• Complete todos os 5 níveis o mais rápido possível!</li>
+                {t("foxGame.howToPlayInstructions")
+                  .split("\n")
+                  .map((line, index) => (
+                    <li key={index}>{line}</li>
+                  ))}
               </ul>
             </div>
           </CardContent>
