@@ -72,6 +72,10 @@ export const homeTranslations = {
     "projects.crm.category": "Vendas",
     "projects.crm.description": "CRM completo com automação de vendas e análise de performance.",
 
+    // Testimonials Section
+    "testimonials.title": "O que Nossos Clientes Dizem",
+    "testimonials.subtitle": "Depoimentos reais de clientes que transformaram seus negócios conosco",
+
     // Services Section
     "services.title.part1": "Nossos",
     "services.title.part2": "Serviços",
@@ -211,6 +215,10 @@ export const homeTranslations = {
     "projects.crm.category": "Sales",
     "projects.crm.description": "Complete CRM with sales automation and performance analysis.",
 
+    // Testimonials Section
+    "testimonials.title": "What Our Clients Say",
+    "testimonials.subtitle": "Real testimonials from clients who transformed their businesses with us",
+
     // Services Section
     "services.title.part1": "Our",
     "services.title.part2": "Services",
@@ -349,6 +357,10 @@ export const homeTranslations = {
     "projects.crm.title": "Sistema CRM",
     "projects.crm.category": "Ventas",
     "projects.crm.description": "CRM completo con automatización de ventas y análisis de rendimiento.",
+
+    // Testimonials Section
+    "testimonials.title": "Lo que Dicen Nuestros Clientes",
+    "testimonials.subtitle": "Testimonios reales de clientes que transformaron sus negocios con nosotros",
 
     // Services Section
     "services.title.part1": "Nuestros",
@@ -491,6 +503,10 @@ export const homeTranslations = {
     "projects.crm.title": "Système CRM",
     "projects.crm.category": "Ventes",
     "projects.crm.description": "CRM complet avec automatisation des ventes et analyse de performance.",
+
+    // Testimonials Section
+    "testimonials.title": "Ce que Disent Nos Clients",
+    "testimonials.subtitle": "Témoignages réels de clients qui ont transformé leurs entreprises avec nous",
 
     // Services Section
     "services.title.part1": "Nos",
@@ -635,6 +651,10 @@ export const homeTranslations = {
     "projects.crm.title": "CRM-System",
     "projects.crm.category": "Vertrieb",
     "projects.crm.description": "Vollständiges CRM mit Vertriebsautomatisierung und Leistungsanalyse.",
+
+    // Testimonials Section
+    "testimonials.title": "Was Unsere Kunden Sagen",
+    "testimonials.subtitle": "Echte Testimonials von Kunden, die ihre Unternehmen mit uns transformiert haben",
 
     // Services Section
     "services.title.part1": "Unsere",
