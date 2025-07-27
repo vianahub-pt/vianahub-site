@@ -76,6 +76,19 @@ export const homeTranslations = {
     "testimonials.title": "O que Nossos Clientes Dizem",
     "testimonials.subtitle": "Depoimentos reais de clientes que transformaram seus negócios conosco",
 
+    // Insights Section
+    "insights.title": "Insights e Resultados",
+    "insights.subtitle": "Dados que comprovam nossa excelência e compromisso com resultados excepcionais",
+    "insights.growth.title": "Crescimento dos Clientes",
+    "insights.growth.description": "Aumento médio no crescimento dos nossos clientes após implementação",
+    "insights.experience.title": "Satisfação do Cliente",
+    "insights.experience.description": "Taxa de satisfação baseada em feedback direto dos clientes",
+    "insights.innovation.title": "Projetos Inovadores",
+    "insights.innovation.description": "Projetos que implementam tecnologias de ponta e soluções únicas",
+    "insights.results.title": "Taxa de Sucesso",
+    "insights.results.description": "Projetos entregues dentro do prazo e orçamento estabelecidos",
+    "insights.cta": "Conheça Nossos Resultados",
+
     // Services Section
     "services.title.part1": "Nossos",
     "services.title.part2": "Serviços",
@@ -219,6 +232,19 @@ export const homeTranslations = {
     "testimonials.title": "What Our Clients Say",
     "testimonials.subtitle": "Real testimonials from clients who transformed their businesses with us",
 
+    // Insights Section
+    "insights.title": "Insights and Results",
+    "insights.subtitle": "Data that proves our excellence and commitment to exceptional results",
+    "insights.growth.title": "Client Growth",
+    "insights.growth.description": "Average growth increase of our clients after implementation",
+    "insights.experience.title": "Client Satisfaction",
+    "insights.experience.description": "Satisfaction rate based on direct client feedback",
+    "insights.innovation.title": "Innovative Projects",
+    "insights.innovation.description": "Projects implementing cutting-edge technologies and unique solutions",
+    "insights.results.title": "Success Rate",
+    "insights.results.description": "Projects delivered on time and within established budget",
+    "insights.cta": "Discover Our Results",
+
     // Services Section
     "services.title.part1": "Our",
     "services.title.part2": "Services",
@@ -361,6 +387,20 @@ export const homeTranslations = {
     // Testimonials Section
     "testimonials.title": "Lo que Dicen Nuestros Clientes",
     "testimonials.subtitle": "Testimonios reales de clientes que transformaron sus negocios con nosotros",
+
+    // Insights Section
+    "insights.title": "Insights y Resultados",
+    "insights.subtitle": "Datos que demuestran nuestra excelencia y compromiso con resultados excepcionales",
+    "insights.growth.title": "Crecimiento de Clientes",
+    "insights.growth.description":
+      "Aumento promedio en el crecimiento de nuestros clientes después de la implementación",
+    "insights.experience.title": "Satisfacción del Cliente",
+    "insights.experience.description": "Tasa de satisfacción basada en comentarios directos de los clientes",
+    "insights.innovation.title": "Proyectos Innovadores",
+    "insights.innovation.description": "Proyectos que implementan tecnologías de vanguardia y soluciones únicas",
+    "insights.results.title": "Tasa de Éxito",
+    "insights.results.description": "Proyectos entregados a tiempo y dentro del presupuesto establecido",
+    "insights.cta": "Descubra Nuestros Resultados",
 
     // Services Section
     "services.title.part1": "Nuestros",
@@ -507,6 +547,19 @@ export const homeTranslations = {
     // Testimonials Section
     "testimonials.title": "Ce que Disent Nos Clients",
     "testimonials.subtitle": "Témoignages réels de clients qui ont transformé leurs entreprises avec nous",
+
+    // Insights Section
+    "insights.title": "Insights et Résultats",
+    "insights.subtitle": "Données qui prouvent notre excellence et notre engagement envers des résultats exceptionnels",
+    "insights.growth.title": "Croissance des Clients",
+    "insights.growth.description": "Augmentation moyenne de la croissance de nos clients après implémentation",
+    "insights.experience.title": "Satisfaction Client",
+    "insights.experience.description": "Taux de satisfaction basé sur les commentaires directs des clients",
+    "insights.innovation.title": "Projets Innovants",
+    "insights.innovation.description": "Projets implémentant des technologies de pointe et des solutions uniques",
+    "insights.results.title": "Taux de Réussite",
+    "insights.results.description": "Projets livrés dans les délais et le budget établis",
+    "insights.cta": "Découvrez Nos Résultats",
 
     // Services Section
     "services.title.part1": "Nos",
@@ -655,6 +708,19 @@ export const homeTranslations = {
     // Testimonials Section
     "testimonials.title": "Was Unsere Kunden Sagen",
     "testimonials.subtitle": "Echte Testimonials von Kunden, die ihre Unternehmen mit uns transformiert haben",
+
+    // Insights Section
+    "insights.title": "Insights und Ergebnisse",
+    "insights.subtitle": "Daten, die unsere Exzellenz und unser Engagement für außergewöhnliche Ergebnisse beweisen",
+    "insights.growth.title": "Kundenwachstum",
+    "insights.growth.description": "Durchschnittliche Wachstumssteigerung unserer Kunden nach der Implementierung",
+    "insights.experience.title": "Kundenzufriedenheit",
+    "insights.experience.description": "Zufriedenheitsrate basierend auf direktem Kundenfeedback",
+    "insights.innovation.title": "Innovative Projekte",
+    "insights.innovation.description": "Projekte, die modernste Technologien und einzigartige Lösungen implementieren",
+    "insights.results.title": "Erfolgsrate",
+    "insights.results.description": "Projekte, die termingerecht und im festgelegten Budget geliefert wurden",
+    "insights.cta": "Entdecken Sie Unsere Ergebnisse",
 
     // Services Section
     "services.title.part1": "Unsere",

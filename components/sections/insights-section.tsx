@@ -42,8 +42,16 @@ export function InsightsSection() {
   ]
 
   return (
-    <section className="py-20 bg-gradient-to-r from-viana-blue to-viana-orange text-white">
-      <div className="container mx-auto px-4">
+    <section
+      className="py-20 bg-gradient-to-r from-viana-blue to-viana-orange text-white relative"
+      style={{
+        backgroundImage: `linear-gradient(rgba(0, 123, 191, 0.9), rgba(255, 165, 0, 0.9)), url('/insights.jpg')`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundAttachment: "fixed",
+      }}
+    >
+      <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-16">
           <Badge variant="outline" className="mb-4 border-white text-white">
             Insights
