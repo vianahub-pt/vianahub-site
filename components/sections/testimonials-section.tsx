@@ -58,6 +58,56 @@ export function TestimonialsSection() {
 
   return (
     <section className="py-20 bg-gray-50">
+      <style jsx>{`
+        @keyframes float1 {
+          0%, 100% { transform: translateY(0px) rotate(0deg); }
+          25% { transform: translateY(-8px) rotate(0.5deg); }
+          50% { transform: translateY(-4px) rotate(0deg); }
+          75% { transform: translateY(-12px) rotate(-0.5deg); }
+        }
+        
+        @keyframes float2 {
+          0%, 100% { transform: translateY(-5px) rotate(0deg); }
+          25% { transform: translateY(-15px) rotate(-0.5deg); }
+          50% { transform: translateY(0px) rotate(0deg); }
+          75% { transform: translateY(-8px) rotate(0.5deg); }
+        }
+        
+        @keyframes float3 {
+          0%, 100% { transform: translateY(-3px) rotate(0deg); }
+          25% { transform: translateY(-10px) rotate(0.5deg); }
+          50% { transform: translateY(-8px) rotate(0deg); }
+          75% { transform: translateY(2px) rotate(-0.5deg); }
+        }
+        
+        .floating-card-1 {
+          animation: float1 6s ease-in-out infinite;
+        }
+        
+        .floating-card-2 {
+          animation: float2 7s ease-in-out infinite;
+        }
+        
+        .floating-card-3 {
+          animation: float3 5.5s ease-in-out infinite;
+        }
+        
+        .floating-card-4 {
+          animation: float1 6.5s ease-in-out infinite;
+          animation-delay: -1s;
+        }
+        
+        .floating-card-5 {
+          animation: float2 6s ease-in-out infinite;
+          animation-delay: -2s;
+        }
+        
+        .floating-card-6 {
+          animation: float3 7s ease-in-out infinite;
+          animation-delay: -1.5s;
+        }
+      `}</style>
+
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-3xl lg:text-4xl font-bold text-viana-black mb-4">{t("testimonials.title")}</h2>
@@ -66,7 +116,10 @@ export function TestimonialsSection() {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {testimonials.map((testimonial, index) => (
-            <Card key={index} className="border-none shadow-lg hover:shadow-xl transition-shadow duration-300">
+            <Card
+              key={index}
+              className={`border-none shadow-lg hover:shadow-xl transition-shadow duration-300 floating-card-${index + 1}`}
+            >
               <CardContent className="p-6">
                 <div className="flex items-center mb-4">
                   {[...Array(testimonial.rating)].map((_, i) => (
