@@ -55,7 +55,9 @@ export function InsightsSection() {
           <Badge variant="outline" className="mb-4 border-white text-white">
             Insights
           </Badge>
-          <h2 className="text-4xl font-bold mb-4">{t("insights.title")}</h2>
+          <h2 className="text-4xl font-bold mb-4">
+            <span className="text-white">Nossos</span> <span className="text-viana-yellow">Insights</span>
+          </h2>
           <p className="text-xl text-gray-100 max-w-3xl mx-auto font-kurale">{t("insights.subtitle")}</p>
         </div>
 

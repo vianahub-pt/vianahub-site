@@ -97,7 +97,7 @@ export function ServicesSection() {
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
-            {t("services.title.part1")} <span className="text-viana-orange">{t("services.title.part2")}</span>
+            <span className="text-gray-900">Nossos</span> <span className="text-viana-orange">Serviços</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto font-kurale">{t("services.subtitle")}</p>
         </div>
