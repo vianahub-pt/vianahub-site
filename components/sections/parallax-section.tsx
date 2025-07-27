@@ -5,7 +5,7 @@ export function ParallaxSection() {
     <div
       className="relative h-[500px] overflow-hidden"
       style={{
-        backgroundImage: "url('/what-we-do-parallax.jpg')",
+        backgroundImage: "url('/dashborad.jpg')",
         backgroundAttachment: "fixed",
         backgroundPosition: "center center",
         backgroundRepeat: "no-repeat",
