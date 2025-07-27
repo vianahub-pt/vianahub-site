@@ -72,8 +72,8 @@ export function CareersSection() {
                   </Link>
                 </div>
               </div>
-              <div className="bg-gradient-to-br from-viana-orange to-viana-yellow p-4 flex items-center justify-center">
-                <div className="w-full h-full">
+              <div className="bg-gradient-to-br from-viana-orange to-viana-yellow p-4 flex items-center justify-center min-h-full">
+                <div className="w-full h-full flex items-center justify-center">
                   <Carousel
                     className="w-full h-full"
                     plugins={[plugin.current]}
