@@ -4,23 +4,34 @@ export interface Position {
 }
 
 export interface Maze {
+  id: number
   name: string
   grid: number[][]
   start: Position
   end: Position
-  size: {
-    width: number
-    height: number
-  }
+  size: { width: number; height: number }
 }
 
-// Import all maze levels
-import { level1Desktop, level1Mobile } from "./mazes-level-1"
-import { level2Desktop, level2Mobile } from "./mazes-level-2"
-import { level3Desktop, level3Mobile } from "./mazes-level-3"
-import { level4Desktop, level4Mobile } from "./mazes-level-4"
-import { level5Desktop, level5Mobile } from "./mazes-level-5"
+import { level1MazeDesktop, level1MazeMobile } from "./mazes-level-1"
+import { level2MazeDesktop, level2MazeMobile } from "./mazes-level-2"
+import { level3MazeDesktop, level3MazeMobile } from "./mazes-level-3"
+import { level4MazeDesktop, level4MazeMobile } from "./mazes-level-4"
+import { level5MazeDesktop, level5MazeMobile } from "./mazes-level-5"
 
-export const desktopMazes: Maze[] = [level1Desktop, level2Desktop, level3Desktop, level4Desktop, level5Desktop]
+export const desktopMazes: Maze[] = [
+  level1MazeDesktop,
+  level2MazeDesktop,
+  level3MazeDesktop,
+  level4MazeDesktop,
+  level5MazeDesktop,
+]
 
-export const mobileMazes: Maze[] = [level1Mobile, level2Mobile, level3Mobile, level4Mobile, level5Mobile]
+export const mobileMazes: Maze[] = [
+  level1MazeMobile,
+  level2MazeMobile,
+  level3MazeMobile,
+  level4MazeMobile,
+  level5MazeMobile,
+]
+
+export type { Position }
