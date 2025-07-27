@@ -29,7 +29,6 @@ export default function HomePage() {
           <ServicesSection />
           <ParallaxSection />
           <IndustriesSection />
-          <TechnologiesSection />
           <ProjectsSection />
           <TestimonialsSection />
           <InsightsSection />
