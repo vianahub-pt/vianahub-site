@@ -1,6 +1,6 @@
 "use client"
 
-import { ChevronDown } from "lucide-react"
+import { ChevronDown, Globe } from "lucide-react"
 import { Card, CardContent } from "@/components/ui/card"
 import { useTranslation } from "@/contexts/translation-context"
 import { useMenu } from "./menu-context"
@@ -29,7 +29,7 @@ export function LanguageSelector() {
 
   const handleLanguageSelect = (langCode: "pt" | "en" | "es" | "fr" | "de") => {
     setLanguage(langCode)
-    localStorage.setItem("language", langCode)
+    setActiveMenu(null)
   }
 
   const currentLanguage = languages.find((lang) => lang.code === language)

@@ -6,45 +6,45 @@ import { Facebook, Twitter, Instagram, Linkedin, Mail, Phone, MapPin, MessageCir
 import { WhatsAppChat } from "@/components/whatsapp-chat"
 import { useTranslation } from "@/contexts/translation-context"
 
-const footerSections = {
-  "O que Fazemos": [
-    { name: "Ágil", href: "/what-we-do/agile" },
-    { name: "Chatbot", href: "/what-we-do/chatbot" },
-    { name: "Desenvolvimento", href: "/what-we-do/development" },
-    { name: "Integração de Sistemas", href: "/what-we-do/system-integration" },
-    { name: "Landing Pages", href: "/what-we-do/landing-pages" },
-    { name: "Terceirização", href: "/what-we-do/outsourcing" },
-  ],
-  Engenharia: [
-    { name: "Energia Solar", href: "/engineering/solar-energy" },
-    { name: "Ferroviário", href: "/engineering/railway" },
-    { name: "Rodoviário", href: "/engineering/road" },
-  ],
-  Indústria: [
-    { name: "Educação", href: "/industry/education" },
-    { name: "Governo", href: "/industry/government" },
-    { name: "Manufatura", href: "/industry/manufacturing" },
-    { name: "Financeiros", href: "/industry/financial" },
-    { name: "Varejo", href: "/industry/retail" },
-    { name: "Saúde", href: "/industry/healthcare" },
-  ],
-  Segurança: [
-    { name: "Acessos", href: "/security/access" },
-    { name: "Backups", href: "/security/backups" },
-    { name: "Segurança Cibernética", href: "/security/cyber-security" },
-  ],
-  Empresa: [
-    { name: "Sobre", href: "/about" },
-    { name: "Contacto", href: "/contact" },
-    { name: "Carreiras", href: "/careers" },
-    { name: "Blog", href: "/blog" },
-    { name: "Privacidade", href: "/privacy" },
-    { name: "Termos", href: "/terms" },
-  ],
-}
-
 export function Footer() {
   const { t } = useTranslation()
+
+  const footerSections = {
+    [t("footer.sections.whatWeDo")]: [
+      { name: t("footer.links.agile"), href: "/what-we-do/agile" },
+      { name: t("footer.links.chatbot"), href: "/what-we-do/chatbot" },
+      { name: t("footer.links.development"), href: "/what-we-do/development" },
+      { name: t("footer.links.integration"), href: "/what-we-do/system-integration" },
+      { name: t("footer.links.landing"), href: "/what-we-do/landing-pages" },
+      { name: t("footer.links.outsourcing"), href: "/what-we-do/outsourcing" },
+    ],
+    [t("footer.sections.engineering")]: [
+      { name: t("footer.links.solar"), href: "/engineering/solar-energy" },
+      { name: t("footer.links.railway"), href: "/engineering/railway" },
+      { name: t("footer.links.road"), href: "/engineering/road" },
+    ],
+    [t("footer.sections.industry")]: [
+      { name: t("footer.links.education"), href: "/industry/education" },
+      { name: t("footer.links.government"), href: "/industry/government" },
+      { name: t("footer.links.manufacturing"), href: "/industry/manufacturing" },
+      { name: t("footer.links.financial"), href: "/industry/financial" },
+      { name: t("footer.links.retail"), href: "/industry/retail" },
+      { name: t("footer.links.healthcare"), href: "/industry/healthcare" },
+    ],
+    [t("footer.sections.security")]: [
+      { name: t("footer.links.access"), href: "/security/access" },
+      { name: t("footer.links.backups"), href: "/security/backups" },
+      { name: t("footer.links.cybersecurity"), href: "/security/cyber-security" },
+    ],
+    [t("footer.sections.company")]: [
+      { name: t("footer.links.about"), href: "/about" },
+      { name: t("footer.links.contact"), href: "/contact" },
+      { name: t("footer.links.careers"), href: "/careers" },
+      { name: t("footer.links.blog"), href: "/blog" },
+      { name: t("footer.links.privacy"), href: "/privacy" },
+      { name: t("footer.links.terms"), href: "/terms" },
+    ],
+  }
 
   return (
     <>
@@ -70,7 +70,7 @@ export function Footer() {
                 </div>
                 <div className="flex items-center">
                   <MapPin className="h-4 w-4 mr-3 text-viana-orange dark:text-gray-400" />
-                  <span className="text-sm text-white">São Paulo, SP - Brasil</span>
+                  <span className="text-sm text-white">{t("footer.location")}</span>
                 </div>
               </div>
             </div>
@@ -174,7 +174,7 @@ export function Footer() {
           <Button
             size="lg"
             className="bg-green-500 text-white hover:bg-green-600 dark:bg-green-600 dark:hover:bg-green-700 shadow-lg rounded-full w-14 h-14 p-0"
-            title="Atendimento WhatsApp"
+            title={t("footer.whatsapp")}
           >
             <MessageCircle className="h-6 w-6" />
           </Button>
