@@ -3,140 +3,55 @@
 import { Button } from "@/components/ui/button"
 import { ArrowRight, Play } from "lucide-react"
 import { useTranslation } from "@/contexts/translation-context"
-import { Counter } from "@/components/counter"
-import { useEffect, useRef, useState } from "react"
 
 export function HeroSection() {
   const { t } = useTranslation()
-  const videoRef = useRef<HTMLVideoElement>(null)
-  const [videoError, setVideoError] = useState(false)
-
-  useEffect(() => {
-    if (videoRef.current && !videoError) {
-      const playVideo = async () => {
-        try {
-          await videoRef.current?.play()
-        } catch (error) {
-          console.warn("Vídeo não pôde ser reproduzido automaticamente:", error)
-          setVideoError(true)
-        }
-      }
-
-      // Tentar reproduzir o vídeo após um pequeno delay
-      const timer = setTimeout(playVideo, 100)
-
-      return () => clearTimeout(timer)
-    }
-  }, [videoError])
 
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden">
-      {/* Vídeo de fundo ou imagem fallback */}
-      <div className="absolute inset-0 z-0">
-        {!videoError ? (
-          <video
-            ref={videoRef}
-            className="absolute inset-0 w-full h-full object-cover"
-            autoPlay
-            muted
-            loop
-            playsInline
-            poster="/wallpaper.jpg"
-            onError={() => setVideoError(true)}
-          >
-            <source
-              src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/home-hero-QF1p4zm3ekF8rOyXzcuiTVontRDngQ.mp4"
-              type="video/mp4"
-            />
-          </video>
-        ) : (
-          <div
-            className="absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat"
-            style={{ backgroundImage: "url(/wallpaper.jpg)" }}
-          />
-        )}
+    <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-viana-blue via-viana-orange to-viana-yellow overflow-hidden">
+      {/* Background Pattern */}
+      <div className="absolute inset-0 opacity-10">
+        <div className="absolute inset-0 bg-[url('/placeholder.svg?height=100&width=100')] bg-repeat opacity-20"></div>
       </div>
 
-      {/* Overlay para melhorar o contraste */}
-      <div className="absolute inset-0 bg-black/60 z-0" />
+      {/* Content */}
+      <div className="relative z-10 container mx-auto px-4 text-center">
+        <div className="max-w-4xl mx-auto">
+          <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
+            {t("hero.title")}
+            <br />
+            <span className="text-viana-yellow">{t("hero.titleHighlight")}</span>
+          </h1>
 
-      {/* Conteúdo - ajustado para começar do topo */}
-      <div className="relative z-10 container mx-auto px-4 py-20 pt-24 lg:pt-28">
-        <div className="max-w-4xl mx-auto text-center">
-          <div className="space-y-8">
-            <div className="space-y-6">
-              <h1 className="text-4xl lg:text-7xl font-bold text-viana-white leading-tight drop-shadow-2xl">
-                <span className="text-viana-orange">
-                  Soluções <span className="text-viana-white">Digitais</span>
-                </span>
-                <span className="block text-viana-white">
-                  que <span className="text-viana-orange">Transformam</span>
-                </span>
-                <span className="block text-viana-white">
-                  o seu <span className="text-viana-orange">Negócio</span>
-                </span>
-              </h1>
-              <p className="text-xl lg:text-2xl text-viana-white/95 max-w-3xl mx-auto leading-relaxed drop-shadow-lg font-kurale">
-                {t("hero.subtitle")}
-              </p>
-            </div>
+          <p className="text-xl md:text-2xl text-white/90 mb-8 max-w-3xl mx-auto leading-relaxed">
+            {t("hero.subtitle")}
+          </p>
 
-            <div className="flex flex-col sm:flex-row gap-6 justify-center">
-              <Button
-                size="lg"
-                className="bg-viana-white text-viana-orange hover:bg-viana-yellow hover:text-viana-orange text-lg px-8 py-4 shadow-xl"
-              >
-                {t("hero.cta.start")}
-                <ArrowRight className="ml-2 h-6 w-6" />
-              </Button>
-              <Button
-                size="lg"
-                variant="outline"
-                className="border-2 border-viana-white text-viana-white hover:bg-viana-white hover:text-viana-orange text-lg px-8 py-4 bg-black/20 backdrop-blur-sm shadow-xl"
-              >
-                <Play className="mr-2 h-6 w-6" />
-                {t("hero.cta.demo")}
-              </Button>
-            </div>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <Button
+              size="lg"
+              className="bg-viana-yellow text-viana-black hover:bg-yellow-400 font-semibold px-8 py-4 text-lg"
+            >
+              {t("hero.cta.primary")}
+              <ArrowRight className="ml-2 h-5 w-5" />
+            </Button>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 pt-12 max-w-2xl mx-auto">
-              <div className="text-center bg-black/30 backdrop-blur-sm rounded-lg p-6 shadow-xl">
-                <Counter
-                  end={500}
-                  suffix="+"
-                  className="text-4xl lg:text-5xl font-bold text-viana-yellow mb-2 drop-shadow-lg"
-                />
-                <div className="text-viana-white/90 text-lg drop-shadow-lg font-kurale">{t("hero.stats.projects")}</div>
-              </div>
-              <div className="text-center bg-black/30 backdrop-blur-sm rounded-lg p-6 shadow-xl">
-                <Counter
-                  end={50}
-                  suffix="+"
-                  className="text-4xl lg:text-5xl font-bold text-viana-yellow mb-2 drop-shadow-lg"
-                />
-                <div className="text-viana-white/90 text-lg drop-shadow-lg font-kurale">{t("hero.stats.clients")}</div>
-              </div>
-              <div className="text-center bg-black/30 backdrop-blur-sm rounded-lg p-6 shadow-xl">
-                <Counter
-                  end={5}
-                  suffix="+"
-                  className="text-4xl lg:text-5xl font-bold text-viana-yellow mb-2 drop-shadow-lg"
-                />
-                <div className="text-viana-white/90 text-lg drop-shadow-lg font-kurale">{t("hero.stats.years")}</div>
-              </div>
-            </div>
+            <Button
+              size="lg"
+              variant="outline"
+              className="border-white text-white hover:bg-white hover:text-viana-blue bg-transparent font-semibold px-8 py-4 text-lg"
+            >
+              <Play className="mr-2 h-5 w-5" />
+              {t("hero.cta.secondary")}
+            </Button>
           </div>
         </div>
       </div>
 
-      {/* Indicador de scroll */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10">
-        <div className="animate-bounce">
-          <div className="w-6 h-10 border-2 border-viana-white rounded-full flex justify-center drop-shadow-lg">
-            <div className="w-1 h-3 bg-viana-white rounded-full mt-2 animate-pulse"></div>
-          </div>
-        </div>
-      </div>
+      {/* Floating Elements */}
+      <div className="absolute top-20 left-10 w-20 h-20 bg-white/10 rounded-full animate-pulse"></div>
+      <div className="absolute bottom-20 right-10 w-32 h-32 bg-white/5 rounded-full animate-bounce"></div>
+      <div className="absolute top-1/2 left-20 w-16 h-16 bg-viana-yellow/20 rounded-full animate-ping"></div>
     </section>
   )
 }

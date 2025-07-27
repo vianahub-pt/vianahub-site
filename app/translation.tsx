@@ -1,5 +1,13 @@
 export const homeTranslations = {
   pt: {
+    // Hero Section
+    "hero.title": "Transformamos Ideias em",
+    "hero.titleHighlight": "Soluções Digitais",
+    "hero.subtitle":
+      "Desenvolvemos tecnologias inovadoras que impulsionam o crescimento do seu negócio. Da concepção à implementação, criamos soluções personalizadas que fazem a diferença.",
+    "hero.cta.primary": "Começar Projeto",
+    "hero.cta.secondary": "Ver Portfólio",
+
     // Services Section
     "services.title.part1": "Nossos",
     "services.title.part2": "Serviços",
@@ -22,26 +30,54 @@ export const homeTranslations = {
     "services.automation.description": "Automatizamos processos repetitivos para aumentar a eficiência da sua empresa.",
     "services.cta": "Saiba Mais",
 
+    // Industries Section
+    "industries.title": "Indústrias que Atendemos",
+    "industries.subtitle": "Experiência comprovada em diversos setores",
+    "industries.education.title": "Educação",
+    "industries.education.description": "Plataformas educacionais e sistemas de gestão acadêmica",
+    "industries.healthcare.title": "Saúde",
+    "industries.healthcare.description": "Sistemas hospitalares e soluções de telemedicina",
+    "industries.financial.title": "Financeiro",
+    "industries.financial.description": "Soluções bancárias e sistemas de pagamento seguros",
+    "industries.government.title": "Governo",
+    "industries.government.description": "Sistemas públicos e portais de transparência",
+    "industries.manufacturing.title": "Manufatura",
+    "industries.manufacturing.description": "Automação industrial e sistemas de controle",
+    "industries.retail.title": "Varejo",
+    "industries.retail.description": "E-commerce e sistemas de gestão comercial",
+
+    // Technologies Section
+    "technologies.title": "Tecnologias que Dominamos",
+    "technologies.subtitle": "Utilizamos as mais modernas tecnologias do mercado",
+
+    // Projects Section
+    "projects.title": "Nossos Projetos",
+    "projects.subtitle": "Conheça alguns dos projetos que desenvolvemos",
+    "projects.viewAll": "Ver Todos os Projetos",
+
+    // Testimonials Section
+    "testimonials.title": "O que Nossos Clientes Dizem",
+    "testimonials.subtitle": "Depoimentos de quem confia no nosso trabalho",
+
+    // Insights Section
+    "insights.title": "Insights e Novidades",
+    "insights.subtitle": "Fique por dentro das últimas tendências em tecnologia",
+    "insights.readMore": "Ler Mais",
+
+    // Careers Section
+    "careers.title": "Junte-se à Nossa Equipe",
+    "careers.subtitle": "Faça parte de uma equipe apaixonada por tecnologia e inovação",
+    "careers.cta": "Ver Vagas",
+
     // Footer
     "footer.description":
-      "Transformamos ideias em soluções digitais inovadoras. Especialistas em desenvolvimento de software e consultoria em TI.",
+      "Transformamos ideias em soluções digitais inovadoras. Desenvolvimento web, aplicações móveis, consultoria tecnológica e muito mais.",
     "footer.location": "São Paulo, SP - Brasil",
-    "footer.newsletter": "Receba nossas novidades:",
-    "footer.subscribe": "Inscrever",
-    "footer.rights": "© 2024 VianaHub. Todos os direitos reservados.",
-    "footer.privacy": "Privacidade",
-    "footer.terms": "Termos",
-    "footer.cookies": "Cookies",
-    "footer.whatsapp": "Atendimento WhatsApp",
-
-    // Footer Sections
     "footer.sections.whatWeDo": "O que Fazemos",
     "footer.sections.engineering": "Engenharia",
     "footer.sections.industry": "Indústria",
     "footer.sections.security": "Segurança",
     "footer.sections.company": "Empresa",
-
-    // Footer Links
     "footer.links.agile": "Ágil",
     "footer.links.chatbot": "Chatbot",
     "footer.links.development": "Desenvolvimento",
@@ -66,17 +102,31 @@ export const homeTranslations = {
     "footer.links.blog": "Blog",
     "footer.links.privacy": "Privacidade",
     "footer.links.terms": "Termos",
+    "footer.newsletter": "Receba nossas novidades:",
+    "footer.subscribe": "Inscrever",
+    "footer.rights": "© 2024 VianaHub. Todos os direitos reservados.",
+    "footer.privacy": "Política de Privacidade",
+    "footer.terms": "Termos de Uso",
+    "footer.cookies": "Cookies",
+    "footer.whatsapp": "Atendimento WhatsApp",
   },
   en: {
+    // Hero Section
+    "hero.title": "We Transform Ideas into",
+    "hero.titleHighlight": "Digital Solutions",
+    "hero.subtitle":
+      "We develop innovative technologies that drive your business growth. From conception to implementation, we create customized solutions that make a difference.",
+    "hero.cta.primary": "Start Project",
+    "hero.cta.secondary": "View Portfolio",
+
     // Services Section
     "services.title.part1": "Our",
     "services.title.part2": "Services",
     "services.subtitle": "We offer complete technology solutions to transform your vision into digital reality",
     "services.web.title": "Web Development",
-    "services.web.description": "We create modern, responsive and performance-optimized websites and web applications.",
+    "services.web.description": "We create modern, responsive web sites and applications optimized for performance.",
     "services.mobile.title": "Mobile Applications",
-    "services.mobile.description":
-      "We develop native and hybrid apps for iOS and Android with focus on user experience.",
+    "services.mobile.description": "We develop native and hybrid apps for iOS and Android focused on user experience.",
     "services.landing.title": "Landing Pages",
     "services.landing.description": "Conversion-optimized pages to maximize your digital marketing results.",
     "services.integration.title": "System Integration",
@@ -88,26 +138,54 @@ export const homeTranslations = {
     "services.automation.description": "We automate repetitive processes to increase your company's efficiency.",
     "services.cta": "Learn More",
 
+    // Industries Section
+    "industries.title": "Industries We Serve",
+    "industries.subtitle": "Proven experience across various sectors",
+    "industries.education.title": "Education",
+    "industries.education.description": "Educational platforms and academic management systems",
+    "industries.healthcare.title": "Healthcare",
+    "industries.healthcare.description": "Hospital systems and telemedicine solutions",
+    "industries.financial.title": "Financial",
+    "industries.financial.description": "Banking solutions and secure payment systems",
+    "industries.government.title": "Government",
+    "industries.government.description": "Public systems and transparency portals",
+    "industries.manufacturing.title": "Manufacturing",
+    "industries.manufacturing.description": "Industrial automation and control systems",
+    "industries.retail.title": "Retail",
+    "industries.retail.description": "E-commerce and commercial management systems",
+
+    // Technologies Section
+    "technologies.title": "Technologies We Master",
+    "technologies.subtitle": "We use the most modern technologies in the market",
+
+    // Projects Section
+    "projects.title": "Our Projects",
+    "projects.subtitle": "Discover some of the projects we've developed",
+    "projects.viewAll": "View All Projects",
+
+    // Testimonials Section
+    "testimonials.title": "What Our Clients Say",
+    "testimonials.subtitle": "Testimonials from those who trust our work",
+
+    // Insights Section
+    "insights.title": "Insights and News",
+    "insights.subtitle": "Stay updated with the latest technology trends",
+    "insights.readMore": "Read More",
+
+    // Careers Section
+    "careers.title": "Join Our Team",
+    "careers.subtitle": "Be part of a team passionate about technology and innovation",
+    "careers.cta": "View Jobs",
+
     // Footer
     "footer.description":
-      "We transform ideas into innovative digital solutions. Experts in software development and IT consulting.",
+      "We transform ideas into innovative digital solutions. Web development, mobile applications, technology consulting and much more.",
     "footer.location": "São Paulo, SP - Brazil",
-    "footer.newsletter": "Get our updates:",
-    "footer.subscribe": "Subscribe",
-    "footer.rights": "© 2024 VianaHub. All rights reserved.",
-    "footer.privacy": "Privacy",
-    "footer.terms": "Terms",
-    "footer.cookies": "Cookies",
-    "footer.whatsapp": "WhatsApp Support",
-
-    // Footer Sections
     "footer.sections.whatWeDo": "What We Do",
     "footer.sections.engineering": "Engineering",
     "footer.sections.industry": "Industry",
     "footer.sections.security": "Security",
     "footer.sections.company": "Company",
-
-    // Footer Links
     "footer.links.agile": "Agile",
     "footer.links.chatbot": "Chatbot",
     "footer.links.development": "Development",
@@ -132,18 +210,33 @@ export const homeTranslations = {
     "footer.links.blog": "Blog",
     "footer.links.privacy": "Privacy",
     "footer.links.terms": "Terms",
+    "footer.newsletter": "Get our updates:",
+    "footer.subscribe": "Subscribe",
+    "footer.rights": "© 2024 VianaHub. All rights reserved.",
+    "footer.privacy": "Privacy Policy",
+    "footer.terms": "Terms of Use",
+    "footer.cookies": "Cookies",
+    "footer.whatsapp": "WhatsApp Support",
   },
   es: {
+    // Hero Section
+    "hero.title": "Transformamos Ideas en",
+    "hero.titleHighlight": "Soluciones Digitales",
+    "hero.subtitle":
+      "Desarrollamos tecnologías innovadoras que impulsan el crecimiento de su negocio. Desde la concepción hasta la implementación, creamos soluciones personalizadas que marcan la diferencia.",
+    "hero.cta.primary": "Iniciar Proyecto",
+    "hero.cta.secondary": "Ver Portafolio",
+
     // Services Section
     "services.title.part1": "Nuestros",
     "services.title.part2": "Servicios",
     "services.subtitle": "Ofrecemos soluciones tecnológicas completas para transformar su visión en realidad digital",
     "services.web.title": "Desarrollo Web",
     "services.web.description":
-      "Creamos sitios web y aplicaciones web modernas, responsivas y optimizadas para el rendimiento.",
+      "Creamos sitios web y aplicaciones modernas, responsivas y optimizadas para el rendimiento.",
     "services.mobile.title": "Aplicaciones Móviles",
     "services.mobile.description":
-      "Desarrollamos aplicaciones nativas e híbridas para iOS y Android con enfoque en la experiencia del usuario.",
+      "Desarrollamos aplicaciones nativas e híbridas para iOS y Android enfocadas en la experiencia del usuario.",
     "services.landing.title": "Landing Pages",
     "services.landing.description":
       "Páginas optimizadas para conversión para maximizar sus resultados de marketing digital.",
@@ -157,43 +250,71 @@ export const homeTranslations = {
     "services.automation.description": "Automatizamos procesos repetitivos para aumentar la eficiencia de su empresa.",
     "services.cta": "Saber Más",
 
+    // Industries Section
+    "industries.title": "Industrias que Atendemos",
+    "industries.subtitle": "Experiencia comprobada en diversos sectores",
+    "industries.education.title": "Educación",
+    "industries.education.description": "Plataformas educativas y sistemas de gestión académica",
+    "industries.healthcare.title": "Salud",
+    "industries.healthcare.description": "Sistemas hospitalarios y soluciones de telemedicina",
+    "industries.financial.title": "Financiero",
+    "industries.financial.description": "Soluciones bancarias y sistemas de pago seguros",
+    "industries.government.title": "Gobierno",
+    "industries.government.description": "Sistemas públicos y portales de transparencia",
+    "industries.manufacturing.title": "Manufactura",
+    "industries.manufacturing.description": "Automatización industrial y sistemas de control",
+    "industries.retail.title": "Retail",
+    "industries.retail.description": "E-commerce y sistemas de gestión comercial",
+
+    // Technologies Section
+    "technologies.title": "Tecnologías que Dominamos",
+    "technologies.subtitle": "Utilizamos las tecnologías más modernas del mercado",
+
+    // Projects Section
+    "projects.title": "Nuestros Proyectos",
+    "projects.subtitle": "Conozca algunos de los proyectos que hemos desarrollado",
+    "projects.viewAll": "Ver Todos los Proyectos",
+
+    // Testimonials Section
+    "testimonials.title": "Lo que Dicen Nuestros Clientes",
+    "testimonials.subtitle": "Testimonios de quienes confían en nuestro trabajo",
+
+    // Insights Section
+    "insights.title": "Insights y Novedades",
+    "insights.subtitle": "Manténgase al día con las últimas tendencias tecnológicas",
+    "insights.readMore": "Leer Más",
+
+    // Careers Section
+    "careers.title": "Únete a Nuestro Equipo",
+    "careers.subtitle": "Forma parte de un equipo apasionado por la tecnología y la innovación",
+    "careers.cta": "Ver Empleos",
+
     // Footer
     "footer.description":
-      "Transformamos ideas en soluciones digitales innovadoras. Expertos en desarrollo de software y consultoría en TI.",
+      "Transformamos ideas en soluciones digitales innovadoras. Desarrollo web, aplicaciones móviles, consultoría tecnológica y mucho más.",
     "footer.location": "São Paulo, SP - Brasil",
-    "footer.newsletter": "Reciba nuestras novedades:",
-    "footer.subscribe": "Suscribirse",
-    "footer.rights": "© 2024 VianaHub. Todos los derechos reservados.",
-    "footer.privacy": "Privacidad",
-    "footer.terms": "Términos",
-    "footer.cookies": "Cookies",
-    "footer.whatsapp": "Soporte WhatsApp",
-
-    // Footer Sections
-    "footer.sections.whatWeDo": "Qué Hacemos",
+    "footer.sections.whatWeDo": "Lo que Hacemos",
     "footer.sections.engineering": "Ingeniería",
     "footer.sections.industry": "Industria",
     "footer.sections.security": "Seguridad",
     "footer.sections.company": "Empresa",
-
-    // Footer Links
     "footer.links.agile": "Ágil",
     "footer.links.chatbot": "Chatbot",
     "footer.links.development": "Desarrollo",
     "footer.links.integration": "Integración de Sistemas",
     "footer.links.landing": "Landing Pages",
-    "footer.links.outsourcing": "Tercerización",
+    "footer.links.outsourcing": "Outsourcing",
     "footer.links.solar": "Energía Solar",
     "footer.links.railway": "Ferroviario",
     "footer.links.road": "Carreteras",
     "footer.links.education": "Educación",
     "footer.links.government": "Gobierno",
     "footer.links.manufacturing": "Manufactura",
-    "footer.links.financial": "Financieros",
+    "footer.links.financial": "Financiero",
     "footer.links.retail": "Retail",
     "footer.links.healthcare": "Salud",
     "footer.links.access": "Accesos",
-    "footer.links.backups": "Respaldos",
+    "footer.links.backups": "Backups",
     "footer.links.cybersecurity": "Ciberseguridad",
     "footer.links.about": "Acerca de",
     "footer.links.contact": "Contacto",
@@ -201,8 +322,23 @@ export const homeTranslations = {
     "footer.links.blog": "Blog",
     "footer.links.privacy": "Privacidad",
     "footer.links.terms": "Términos",
+    "footer.newsletter": "Reciba nuestras novedades:",
+    "footer.subscribe": "Suscribirse",
+    "footer.rights": "© 2024 VianaHub. Todos los derechos reservados.",
+    "footer.privacy": "Política de Privacidad",
+    "footer.terms": "Términos de Uso",
+    "footer.cookies": "Cookies",
+    "footer.whatsapp": "Soporte WhatsApp",
   },
   fr: {
+    // Hero Section
+    "hero.title": "Nous Transformons les Idées en",
+    "hero.titleHighlight": "Solutions Numériques",
+    "hero.subtitle":
+      "Nous développons des technologies innovantes qui stimulent la croissance de votre entreprise. De la conception à la mise en œuvre, nous créons des solutions personnalisées qui font la différence.",
+    "hero.cta.primary": "Démarrer le Projet",
+    "hero.cta.secondary": "Voir le Portfolio",
+
     // Services Section
     "services.title.part1": "Nos",
     "services.title.part2": "Services",
@@ -210,13 +346,13 @@ export const homeTranslations = {
       "Nous offrons des solutions technologiques complètes pour transformer votre vision en réalité numérique",
     "services.web.title": "Développement Web",
     "services.web.description":
-      "Nous créons des sites web et applications web modernes, responsives et optimisés pour la performance.",
+      "Nous créons des sites web et applications modernes, responsives et optimisés pour la performance.",
     "services.mobile.title": "Applications Mobiles",
     "services.mobile.description":
-      "Nous développons des applications natives et hybrides pour iOS et Android avec un focus sur l'expérience utilisateur.",
+      "Nous développons des applications natives et hybrides pour iOS et Android axées sur l'expérience utilisateur.",
     "services.landing.title": "Landing Pages",
     "services.landing.description":
-      "Pages optimisées pour la conversion pour maximiser vos résultats de marketing digital.",
+      "Pages optimisées pour la conversion pour maximiser vos résultats de marketing numérique.",
     "services.integration.title": "Intégration de Systèmes",
     "services.integration.description":
       "Nous connectons différents systèmes et plateformes pour optimiser vos processus métier.",
@@ -228,26 +364,54 @@ export const homeTranslations = {
       "Nous automatisons les processus répétitifs pour augmenter l'efficacité de votre entreprise.",
     "services.cta": "En Savoir Plus",
 
+    // Industries Section
+    "industries.title": "Industries que Nous Servons",
+    "industries.subtitle": "Expérience prouvée dans divers secteurs",
+    "industries.education.title": "Éducation",
+    "industries.education.description": "Plateformes éducatives et systèmes de gestion académique",
+    "industries.healthcare.title": "Santé",
+    "industries.healthcare.description": "Systèmes hospitaliers et solutions de télémédecine",
+    "industries.financial.title": "Financier",
+    "industries.financial.description": "Solutions bancaires et systèmes de paiement sécurisés",
+    "industries.government.title": "Gouvernement",
+    "industries.government.description": "Systèmes publics et portails de transparence",
+    "industries.manufacturing.title": "Fabrication",
+    "industries.manufacturing.description": "Automatisation industrielle et systèmes de contrôle",
+    "industries.retail.title": "Commerce de Détail",
+    "industries.retail.description": "E-commerce et systèmes de gestion commerciale",
+
+    // Technologies Section
+    "technologies.title": "Technologies que Nous Maîtrisons",
+    "technologies.subtitle": "Nous utilisons les technologies les plus modernes du marché",
+
+    // Projects Section
+    "projects.title": "Nos Projets",
+    "projects.subtitle": "Découvrez quelques-uns des projets que nous avons développés",
+    "projects.viewAll": "Voir Tous les Projets",
+
+    // Testimonials Section
+    "testimonials.title": "Ce que Disent Nos Clients",
+    "testimonials.subtitle": "Témoignages de ceux qui font confiance à notre travail",
+
+    // Insights Section
+    "insights.title": "Insights et Actualités",
+    "insights.subtitle": "Restez informé des dernières tendances technologiques",
+    "insights.readMore": "Lire Plus",
+
+    // Careers Section
+    "careers.title": "Rejoignez Notre Équipe",
+    "careers.subtitle": "Faites partie d'une équipe passionnée par la technologie et l'innovation",
+    "careers.cta": "Voir les Emplois",
+
     // Footer
     "footer.description":
-      "Nous transformons les idées en solutions numériques innovantes. Experts en développement logiciel et conseil en TI.",
+      "Nous transformons les idées en solutions numériques innovantes. Développement web, applications mobiles, conseil technologique et bien plus.",
     "footer.location": "São Paulo, SP - Brésil",
-    "footer.newsletter": "Recevez nos actualités:",
-    "footer.subscribe": "S'abonner",
-    "footer.rights": "© 2024 VianaHub. Tous droits réservés.",
-    "footer.privacy": "Confidentialité",
-    "footer.terms": "Conditions",
-    "footer.cookies": "Cookies",
-    "footer.whatsapp": "Support WhatsApp",
-
-    // Footer Sections
-    "footer.sections.whatWeDo": "Ce Que Nous Faisons",
+    "footer.sections.whatWeDo": "Ce que Nous Faisons",
     "footer.sections.engineering": "Ingénierie",
     "footer.sections.industry": "Industrie",
     "footer.sections.security": "Sécurité",
     "footer.sections.company": "Entreprise",
-
-    // Footer Links
     "footer.links.agile": "Agile",
     "footer.links.chatbot": "Chatbot",
     "footer.links.development": "Développement",
@@ -260,7 +424,7 @@ export const homeTranslations = {
     "footer.links.education": "Éducation",
     "footer.links.government": "Gouvernement",
     "footer.links.manufacturing": "Fabrication",
-    "footer.links.financial": "Financiers",
+    "footer.links.financial": "Financier",
     "footer.links.retail": "Commerce de Détail",
     "footer.links.healthcare": "Santé",
     "footer.links.access": "Accès",
@@ -272,15 +436,30 @@ export const homeTranslations = {
     "footer.links.blog": "Blog",
     "footer.links.privacy": "Confidentialité",
     "footer.links.terms": "Conditions",
+    "footer.newsletter": "Recevez nos actualités:",
+    "footer.subscribe": "S'abonner",
+    "footer.rights": "© 2024 VianaHub. Tous droits réservés.",
+    "footer.privacy": "Politique de Confidentialité",
+    "footer.terms": "Conditions d'Utilisation",
+    "footer.cookies": "Cookies",
+    "footer.whatsapp": "Support WhatsApp",
   },
   de: {
+    // Hero Section
+    "hero.title": "Wir Verwandeln Ideen in",
+    "hero.titleHighlight": "Digitale Lösungen",
+    "hero.subtitle":
+      "Wir entwickeln innovative Technologien, die das Wachstum Ihres Unternehmens vorantreiben. Von der Konzeption bis zur Umsetzung schaffen wir maßgeschneiderte Lösungen, die den Unterschied machen.",
+    "hero.cta.primary": "Projekt Starten",
+    "hero.cta.secondary": "Portfolio Ansehen",
+
     // Services Section
     "services.title.part1": "Unsere",
     "services.title.part2": "Dienstleistungen",
     "services.subtitle": "Wir bieten komplette Technologielösungen, um Ihre Vision in digitale Realität zu verwandeln",
     "services.web.title": "Webentwicklung",
     "services.web.description":
-      "Wir erstellen moderne, responsive und leistungsoptimierte Websites und Webanwendungen.",
+      "Wir erstellen moderne, responsive Websites und Anwendungen, die für Leistung optimiert sind.",
     "services.mobile.title": "Mobile Anwendungen",
     "services.mobile.description":
       "Wir entwickeln native und hybride Apps für iOS und Android mit Fokus auf Benutzererfahrung.",
@@ -298,26 +477,54 @@ export const homeTranslations = {
       "Wir automatisieren repetitive Prozesse zur Steigerung der Effizienz Ihres Unternehmens.",
     "services.cta": "Mehr Erfahren",
 
+    // Industries Section
+    "industries.title": "Branchen, die Wir Bedienen",
+    "industries.subtitle": "Bewährte Erfahrung in verschiedenen Sektoren",
+    "industries.education.title": "Bildung",
+    "industries.education.description": "Bildungsplattformen und akademische Verwaltungssysteme",
+    "industries.healthcare.title": "Gesundheitswesen",
+    "industries.healthcare.description": "Krankenhaussysteme und Telemedizin-Lösungen",
+    "industries.financial.title": "Finanzwesen",
+    "industries.financial.description": "Banking-Lösungen und sichere Zahlungssysteme",
+    "industries.government.title": "Regierung",
+    "industries.government.description": "Öffentliche Systeme und Transparenzportale",
+    "industries.manufacturing.title": "Fertigung",
+    "industries.manufacturing.description": "Industrielle Automatisierung und Kontrollsysteme",
+    "industries.retail.title": "Einzelhandel",
+    "industries.retail.description": "E-Commerce und kommerzielle Verwaltungssysteme",
+
+    // Technologies Section
+    "technologies.title": "Technologien, die Wir Beherrschen",
+    "technologies.subtitle": "Wir verwenden die modernsten Technologien auf dem Markt",
+
+    // Projects Section
+    "projects.title": "Unsere Projekte",
+    "projects.subtitle": "Entdecken Sie einige der Projekte, die wir entwickelt haben",
+    "projects.viewAll": "Alle Projekte Ansehen",
+
+    // Testimonials Section
+    "testimonials.title": "Was Unsere Kunden Sagen",
+    "testimonials.subtitle": "Testimonials von denen, die unserer Arbeit vertrauen",
+
+    // Insights Section
+    "insights.title": "Insights und Neuigkeiten",
+    "insights.subtitle": "Bleiben Sie über die neuesten Technologie-Trends informiert",
+    "insights.readMore": "Mehr Lesen",
+
+    // Careers Section
+    "careers.title": "Werden Sie Teil Unseres Teams",
+    "careers.subtitle": "Werden Sie Teil eines Teams, das sich für Technologie und Innovation begeistert",
+    "careers.cta": "Jobs Ansehen",
+
     // Footer
     "footer.description":
-      "Wir verwandeln Ideen in innovative digitale Lösungen. Experten für Softwareentwicklung und IT-Beratung.",
+      "Wir verwandeln Ideen in innovative digitale Lösungen. Webentwicklung, mobile Anwendungen, Technologieberatung und vieles mehr.",
     "footer.location": "São Paulo, SP - Brasilien",
-    "footer.newsletter": "Erhalten Sie unsere Updates:",
-    "footer.subscribe": "Abonnieren",
-    "footer.rights": "© 2024 VianaHub. Alle Rechte vorbehalten.",
-    "footer.privacy": "Datenschutz",
-    "footer.terms": "Bedingungen",
-    "footer.cookies": "Cookies",
-    "footer.whatsapp": "WhatsApp Support",
-
-    // Footer Sections
     "footer.sections.whatWeDo": "Was Wir Tun",
     "footer.sections.engineering": "Ingenieurwesen",
     "footer.sections.industry": "Industrie",
     "footer.sections.security": "Sicherheit",
     "footer.sections.company": "Unternehmen",
-
-    // Footer Links
     "footer.links.agile": "Agil",
     "footer.links.chatbot": "Chatbot",
     "footer.links.development": "Entwicklung",
@@ -330,7 +537,7 @@ export const homeTranslations = {
     "footer.links.education": "Bildung",
     "footer.links.government": "Regierung",
     "footer.links.manufacturing": "Fertigung",
-    "footer.links.financial": "Finanzen",
+    "footer.links.financial": "Finanzwesen",
     "footer.links.retail": "Einzelhandel",
     "footer.links.healthcare": "Gesundheitswesen",
     "footer.links.access": "Zugang",
@@ -338,9 +545,16 @@ export const homeTranslations = {
     "footer.links.cybersecurity": "Cybersicherheit",
     "footer.links.about": "Über Uns",
     "footer.links.contact": "Kontakt",
-    "footer.links.careers": "Karriere",
+    "footer.links.careers": "Karrieren",
     "footer.links.blog": "Blog",
     "footer.links.privacy": "Datenschutz",
     "footer.links.terms": "Bedingungen",
+    "footer.newsletter": "Erhalten Sie unsere Updates:",
+    "footer.subscribe": "Abonnieren",
+    "footer.rights": "© 2024 VianaHub. Alle Rechte vorbehalten.",
+    "footer.privacy": "Datenschutzrichtlinie",
+    "footer.terms": "Nutzungsbedingungen",
+    "footer.cookies": "Cookies",
+    "footer.whatsapp": "WhatsApp-Support",
   },
 }

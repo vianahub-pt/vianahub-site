@@ -7,49 +7,26 @@ import { useTranslation } from "@/contexts/translation-context"
 
 const testimonials = [
   {
-    name: "Ana Costa",
-    role: "CEO, TechStart",
-    content:
-      "A VianaHub transformou completamente nossa operação. O sistema que desenvolveram aumentou nossa produtividade em 300%",
-    rating: 5,
-    image: "/ana-costa.jpg",
-  },
-  {
-    name: "Roberto Lima",
-    role: "Diretor de TI, InnovaCorp",
-    content:
-      "Profissionais excepcionais! Entregaram o projeto no prazo e superaram todas as expectativas. Recomendo sem hesitar.",
-    rating: 5,
-    image: "/roberto-lima.jpg",
-  },
-  {
     name: "Maria Silva",
-    role: "Fundadora, EcoSolutions",
-    content: "O suporte técnico é incomparável. Sempre disponíveis e com soluções eficientes para qualquer desafio.",
-    rating: 5,
+    role: "CEO, TechStart",
     image: "/maria-silva.jpg",
-  },
-  {
-    name: "Carlos Oliveira",
-    role: "CTO, DataFlow",
-    content:
-      "A expertise técnica da equipe é impressionante. Conseguiram resolver problemas complexos de forma elegante.",
+    content: "A VianaHub transformou completamente nossa presença digital. O resultado superou todas as expectativas!",
     rating: 5,
-    image: "/carlos-oliveira.jpg",
-  },
-  {
-    name: "Lúcia Ferreira",
-    role: "Gerente de Projetos, SmartSys",
-    content: "Parceria de longo prazo que só cresce. A VianaHub é sinônimo de qualidade e confiabilidade.",
-    rating: 5,
-    image: "/lucia-ferreira.jpg",
   },
   {
     name: "João Santos",
-    role: "Diretor Comercial, NextGen",
-    content: "ROI excepcional! O investimento se pagou em menos de 6 meses. Equipe altamente recomendada.",
-    rating: 5,
+    role: "Diretor de TI, InnovaCorp",
     image: "/joao-santos.jpg",
+    content:
+      "Profissionais extremamente competentes e dedicados. Entregaram o projeto no prazo e com qualidade excepcional.",
+    rating: 5,
+  },
+  {
+    name: "Ana Costa",
+    role: "Fundadora, EduTech",
+    image: "/ana-costa.jpg",
+    content: "A plataforma educacional que desenvolveram revolucionou nossa forma de ensinar. Recomendo fortemente!",
+    rating: 5,
   },
 ]
 
@@ -57,30 +34,28 @@ export function TestimonialsSection() {
   const { t } = useTranslation()
 
   return (
-    <section className="py-20 bg-gray-50">
+    <section className="py-20 bg-gradient-to-br from-gray-50 to-white">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-3xl lg:text-4xl font-bold text-viana-black mb-4">{t("testimonials.title")}</h2>
-          <p className="text-xl text-viana-gray max-w-3xl mx-auto">{t("testimonials.subtitle")}</p>
+          <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">{t("testimonials.title")}</h2>
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto">{t("testimonials.subtitle")}</p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {testimonials.map((testimonial, index) => (
-            <Card key={index} className="border-none shadow-lg hover:shadow-xl transition-shadow duration-300">
-              <CardContent className="p-6">
+            <Card key={index} className="border-0 shadow-lg hover:shadow-2xl transition-all duration-300">
+              <CardContent className="p-8">
                 <div className="flex items-center mb-4">
                   {[...Array(testimonial.rating)].map((_, i) => (
-                    <Star key={i} className="h-5 w-5 fill-viana-yellow text-viana-yellow" />
+                    <Star key={i} className="h-5 w-5 text-yellow-400 fill-current" />
                   ))}
                 </div>
-                <p className="text-viana-gray mb-6 italic">"{testimonial.content}"</p>
+
+                <blockquote className="text-gray-700 mb-6 italic leading-relaxed">"{testimonial.content}"</blockquote>
+
                 <div className="flex items-center">
                   <Avatar className="h-12 w-12 mr-4">
-                    <AvatarImage
-                      src={testimonial.image || "/placeholder.svg"}
-                      alt={testimonial.name}
-                      className="object-cover"
-                    />
+                    <AvatarImage src={testimonial.image || "/placeholder.svg"} alt={testimonial.name} />
                     <AvatarFallback>
                       {testimonial.name
                         .split(" ")
@@ -89,8 +64,8 @@ export function TestimonialsSection() {
                     </AvatarFallback>
                   </Avatar>
                   <div>
-                    <h4 className="font-semibold text-viana-black">{testimonial.name}</h4>
-                    <p className="text-sm text-viana-gray">{testimonial.role}</p>
+                    <div className="font-semibold text-gray-900">{testimonial.name}</div>
+                    <div className="text-sm text-gray-600">{testimonial.role}</div>
                   </div>
                 </div>
               </CardContent>
