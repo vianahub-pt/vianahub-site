@@ -1,7 +1,6 @@
 "use client"
 
 import { Card, CardContent } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
 import { useTranslation } from "@/contexts/translation-context"
 import { TrendingUp, Users, Lightbulb, Target } from "lucide-react"
 import { Counter } from "@/components/counter"
@@ -44,7 +43,7 @@ export function InsightsSection() {
     <section
       className="py-20 bg-gradient-to-r from-viana-blue to-viana-orange text-white relative"
       style={{
-        backgroundImage: `linear-gradient(rgba(0, 123, 191, 0.9), rgba(255, 165, 0, 0.9)), url('/insights.jpg')`,
+        backgroundImage: `linear-gradient(rgba(211, 211, 211, 0.9), rgba(211, 211, 211, 0.9)), url('/insights.jpg')`,
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundAttachment: "fixed",
@@ -52,9 +51,6 @@ export function InsightsSection() {
     >
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-16">
-          <Badge variant="outline" className="mb-4 border-white text-white">
-            Insights
-          </Badge>
           <h2 className="text-4xl font-bold mb-4">
             <span className="text-white">Nossos</span> <span className="text-viana-yellow">Insights</span>
           </h2>
