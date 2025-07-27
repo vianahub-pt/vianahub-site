@@ -98,7 +98,8 @@ export function IndustriesSection() {
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold mb-4">
-            <span className="text-gray-900">Indústrias</span> <span className="text-viana-orange">Atendidas</span>
+            <span className="text-gray-900">{t("industries.title.part1")}</span>{" "}
+            <span className="text-viana-orange">{t("industries.title.part2")}</span>
           </h2>
           <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto font-kurale">
             {t("industries.subtitle")}

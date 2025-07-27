@@ -16,7 +16,8 @@ export const homeTranslations = {
     "entertainment.title": "Passa Tempo",
 
     // Industries Section
-    "industries.title": "Indústrias que Atendemos",
+    "industries.title.part1": "Indústrias",
+    "industries.title.part2": "Atendidas",
     "industries.subtitle": "Experiência comprovada em diversos setores",
     "industries.education.title": "Educação",
     "industries.education.description": "Plataformas educacionais e sistemas de gestão acadêmica",
@@ -173,7 +174,8 @@ export const homeTranslations = {
     "entertainment.title": "Entertainment",
 
     // Industries Section
-    "industries.title": "Industries We Serve",
+    "industries.title.part1": "Industries",
+    "industries.title.part2": "Served",
     "industries.subtitle": "Proven experience across various sectors",
     "industries.education.title": "Education",
     "industries.education.description": "Educational platforms and academic management systems",
@@ -327,7 +329,8 @@ export const homeTranslations = {
     "entertainment.title": "Entretenimiento",
 
     // Industries Section
-    "industries.title": "Industrias que Atendemos",
+    "industries.title.part1": "Industrias",
+    "industries.title.part2": "Atendidas",
     "industries.subtitle": "Experiencia comprobada en diversos sectores",
     "industries.education.title": "Educación",
     "industries.education.description": "Plataformas educativas y sistemas de gestión académica",
@@ -487,7 +490,8 @@ export const homeTranslations = {
     "entertainment.title": "Divertissement",
 
     // Industries Section
-    "industries.title": "Industries que Nous Servons",
+    "industries.title.part1": "Industries",
+    "industries.title.part2": "Servies",
     "industries.subtitle": "Expérience prouvée dans divers secteurs",
     "industries.education.title": "Éducation",
     "industries.education.description": "Plateformes éducatives et systèmes de gestion académique",
@@ -648,7 +652,8 @@ export const homeTranslations = {
     "entertainment.title": "Unterhaltung",
 
     // Industries Section
-    "industries.title": "Branchen, die Wir Bedienen",
+    "industries.title.part1": "Branchen",
+    "industries.title.part2": "Bedient",
     "industries.subtitle": "Bewährte Erfahrung in verschiedenen Sektoren",
     "industries.education.title": "Bildung",
     "industries.education.description": "Bildungsplattformen und akademische Verwaltungssysteme",
