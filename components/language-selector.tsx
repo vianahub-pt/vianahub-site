@@ -7,11 +7,11 @@ import { useMenu } from "./menu-context"
 import Image from "next/image"
 
 const languages = [
-  { code: "pt", name: "Português", flag: "/pt.svg" },
-  { code: "en", name: "English", flag: "/us.svg" },
-  { code: "es", name: "Español", flag: "/es.svg" },
-  { code: "fr", name: "Français", flag: "/fr.svg" },
-  { code: "de", name: "Deutsch", flag: "/de.svg" },
+  { code: "pt", name: "Português", flag: "/flags/pt.svg" },
+  { code: "en", name: "English", flag: "/flags/us.svg" },
+  { code: "es", name: "Español", flag: "/flags/es.svg" },
+  { code: "fr", name: "Français", flag: "/flags/fr.svg" },
+  { code: "de", name: "Deutsch", flag: "/flags/de.svg" },
 ]
 
 export function LanguageSelector() {
