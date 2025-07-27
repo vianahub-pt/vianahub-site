@@ -84,12 +84,7 @@ export function CareersSection() {
               </div>
               <div className="bg-gradient-to-br from-viana-orange to-viana-yellow p-4 flex items-center justify-center">
                 <div className="w-full h-full">
-                  <Carousel
-                    className="w-full h-full"
-                    plugins={[plugin.current]}
-                    onMouseEnter={plugin.current.stop}
-                    onMouseLeave={plugin.current.reset}
-                  >
+                  <Carousel className="w-full h-full" plugins={[plugin.current]}>
                     <CarouselContent className="h-full">
                       {positionsMeta.map((positionMeta) => {
                         const translatedPosition = getTranslatedPosition(positionMeta)
