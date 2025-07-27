@@ -1,105 +1,233 @@
 "use client"
 
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import { useState, useEffect } from "react"
+import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
-import { Badge } from "@/components/ui/badge"
-import { ExternalLink, Github } from "lucide-react"
+import { ChevronLeft, ChevronRight, ExternalLink } from "lucide-react"
+import Image from "next/image"
 import { useTranslation } from "@/contexts/translation-context"
 
 const projects = [
   {
+    id: 1,
     title: "E-commerce Platform",
-    description: "Plataforma completa de e-commerce com gestão de produtos, pagamentos e analytics",
+    category: "Varejo",
+    description: "Plataforma completa de comércio eletrônico com gestão de produtos, pagamentos e logística.",
     image: "/ecommerce-platform-concept.png",
-    tags: ["React", "Node.js", "PostgreSQL"],
-    liveUrl: "#",
-    githubUrl: "#",
+    url: "https://example-ecommerce.com",
+    tech: ["React", "Node.js", "MongoDB"],
   },
   {
-    title: "Healthcare Management",
-    description: "Sistema de gestão hospitalar com prontuário eletrônico e agendamento",
+    id: 2,
+    title: "Sistema Hospitalar",
+    category: "Saúde",
+    description: "Sistema integrado de gestão hospitalar com prontuário eletrônico e telemedicina.",
     image: "/hospital-management-system-interface.png",
-    tags: ["Next.js", "TypeScript", "MongoDB"],
-    liveUrl: "#",
-    githubUrl: "#",
+    url: "https://example-hospital.com",
+    tech: ["Vue.js", "Python", "PostgreSQL"],
   },
   {
-    title: "Educational Platform",
-    description: "Plataforma de ensino online com videoaulas, exercícios e gamificação",
+    id: 3,
+    title: "App de Delivery",
+    category: "Alimentação",
+    description: "Aplicativo móvel para delivery de comida com rastreamento em tempo real.",
+    image: "/food-delivery-app-screen.png",
+    url: "https://example-delivery.com",
+    tech: ["React Native", "Firebase", "Node.js"],
+  },
+  {
+    id: 4,
+    title: "Sistema Bancário",
+    category: "Financeiro",
+    description: "Plataforma de internet banking com segurança avançada e APIs de pagamento.",
+    image: "/banking-system.png",
+    url: "https://example-banking.com",
+    tech: ["Angular", "Java", "Oracle"],
+  },
+  {
+    id: 5,
+    title: "Plataforma Educacional",
+    category: "Educação",
+    description: "Sistema de ensino à distância com videoconferência e gestão de cursos.",
     image: "/educational-platform.png",
-    tags: ["Vue.js", "Python", "AWS"],
-    liveUrl: "#",
-    githubUrl: "#",
+    url: "https://example-education.com",
+    tech: ["Next.js", "WebRTC", "MySQL"],
+  },
+  {
+    id: 6,
+    title: "Sistema Logístico",
+    category: "Logística",
+    description: "Plataforma de gestão logística com rastreamento e otimização de rotas.",
+    image: "/logistics-system.png",
+    url: "https://example-logistics.com",
+    tech: ["React", "Express", "Redis"],
+  },
+  {
+    id: 7,
+    title: "Plataforma de Streaming",
+    category: "Entretenimento",
+    description: "Sistema de streaming de vídeo com CDN global e analytics avançados.",
+    image: "/streaming-platform.png",
+    url: "https://example-streaming.com",
+    tech: ["Vue.js", "AWS", "Elasticsearch"],
+  },
+  {
+    id: 8,
+    title: "Sistema CRM",
+    category: "Vendas",
+    description: "CRM completo com automação de vendas e análise de performance.",
+    image: "/crm-system.png",
+    url: "https://example-crm.com",
+    tech: ["React", "Django", "PostgreSQL"],
   },
 ]
 
 export function ProjectsSection() {
   const { t } = useTranslation()
+  const [currentIndex, setCurrentIndex] = useState(0)
+  const [isAutoPlaying, setIsAutoPlaying] = useState(true)
+
+  useEffect(() => {
+    if (!isAutoPlaying) return
+
+    const interval = setInterval(() => {
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % projects.length)
+    }, 4000)
+
+    return () => clearInterval(interval)
+  }, [isAutoPlaying])
+
+  const nextProject = () => {
+    setCurrentIndex((prevIndex) => (prevIndex + 1) % projects.length)
+  }
+
+  const prevProject = () => {
+    setCurrentIndex((prevIndex) => (prevIndex - 1 + projects.length) % projects.length)
+  }
+
+  const goToProject = (index: number) => {
+    setCurrentIndex(index)
+  }
+
+  const handleProjectClick = (url: string) => {
+    window.open(url, "_blank", "noopener,noreferrer")
+  }
 
   return (
-    <section className="py-20 bg-white">
+    <section className="py-20 bg-gradient-to-br from-viana-gray/5 to-viana-orange/5">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">{t("projects.title")}</h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">{t("projects.subtitle")}</p>
+          <h2 className="text-3xl lg:text-4xl font-bold text-viana-black mb-4">{t("projects.title")}</h2>
+          <p className="text-lg text-viana-gray max-w-2xl mx-auto">{t("projects.subtitle")}</p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
-          {projects.map((project, index) => (
-            <Card
-              key={index}
-              className="group hover:shadow-2xl transition-all duration-300 border-0 shadow-lg overflow-hidden"
+        <div
+          className="relative max-w-6xl mx-auto"
+          onMouseEnter={() => setIsAutoPlaying(false)}
+          onMouseLeave={() => setIsAutoPlaying(true)}
+        >
+          {/* Carousel Container */}
+          <div className="overflow-hidden rounded-2xl">
+            <div
+              className="flex transition-transform duration-500 ease-in-out"
+              style={{ transform: `translateX(-${currentIndex * 100}%)` }}
             >
-              <div className="relative overflow-hidden">
-                <img
-                  src={project.image || "/placeholder.svg"}
-                  alt={project.title}
-                  className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
-                />
-                <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-4">
-                  <Button size="sm" variant="secondary" asChild>
-                    <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
-                      <ExternalLink className="h-4 w-4 mr-2" />
-                      Live
-                    </a>
-                  </Button>
-                  <Button size="sm" variant="secondary" asChild>
-                    <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
-                      <Github className="h-4 w-4 mr-2" />
-                      Code
-                    </a>
-                  </Button>
+              {projects.map((project) => (
+                <div key={project.id} className="w-full flex-shrink-0">
+                  <Card
+                    className="mx-4 cursor-pointer hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2"
+                    onClick={() => handleProjectClick(project.url)}
+                  >
+                    <CardContent className="p-0">
+                      <div className="grid md:grid-cols-2 gap-0 h-full">
+                        {/* Image Section */}
+                        <div className="relative h-64 md:h-80 overflow-hidden">
+                          <Image
+                            src={project.image || "/placeholder.svg"}
+                            alt={project.title}
+                            fill
+                            className="object-cover transition-transform duration-300 hover:scale-105"
+                          />
+                          <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
+                          <div className="absolute top-4 right-4">
+                            <div className="bg-viana-orange text-white px-3 py-1 rounded-full text-sm font-medium">
+                              {project.category}
+                            </div>
+                          </div>
+                        </div>
+
+                        {/* Content Section */}
+                        <div className="p-8 flex flex-col justify-center">
+                          <h3 className="text-2xl font-bold text-viana-black mb-4">{project.title}</h3>
+                          <p className="text-viana-gray mb-6 leading-relaxed">{project.description}</p>
+
+                          {/* Tech Stack */}
+                          <div className="flex flex-wrap gap-2 mb-6">
+                            {project.tech.map((tech, index) => (
+                              <span
+                                key={index}
+                                className="bg-viana-orange/10 text-viana-orange px-3 py-1 rounded-full text-sm font-medium"
+                              >
+                                {tech}
+                              </span>
+                            ))}
+                          </div>
+
+                          <Button
+                            className="bg-viana-orange hover:bg-viana-yellow text-white hover:text-viana-black transition-colors w-fit"
+                            onClick={(e) => {
+                              e.stopPropagation()
+                              handleProjectClick(project.url)
+                            }}
+                          >
+                            Ver Projeto
+                            <ExternalLink className="ml-2 h-4 w-4" />
+                          </Button>
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
                 </div>
-              </div>
+              ))}
+            </div>
+          </div>
 
-              <CardHeader>
-                <CardTitle className="text-xl font-bold text-gray-900 group-hover:text-viana-orange transition-colors">
-                  {project.title}
-                </CardTitle>
-              </CardHeader>
+          {/* Navigation Arrows */}
+          <Button
+            variant="outline"
+            size="icon"
+            className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white border-viana-orange text-viana-orange hover:text-viana-orange z-10"
+            onClick={prevProject}
+          >
+            <ChevronLeft className="h-4 w-4" />
+          </Button>
+          <Button
+            variant="outline"
+            size="icon"
+            className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white border-viana-orange text-viana-orange hover:text-viana-orange z-10"
+            onClick={nextProject}
+          >
+            <ChevronRight className="h-4 w-4" />
+          </Button>
 
-              <CardContent>
-                <CardDescription className="text-gray-600 mb-4 leading-relaxed">{project.description}</CardDescription>
-
-                <div className="flex flex-wrap gap-2">
-                  {project.tags.map((tag, tagIndex) => (
-                    <Badge key={tagIndex} variant="secondary" className="text-xs">
-                      {tag}
-                    </Badge>
-                  ))}
-                </div>
-              </CardContent>
-            </Card>
-          ))}
+          {/* Dots Indicator */}
+          <div className="flex justify-center mt-8 space-x-2">
+            {projects.map((_, index) => (
+              <button
+                key={index}
+                className={`w-3 h-3 rounded-full transition-colors ${
+                  index === currentIndex ? "bg-viana-orange" : "bg-viana-gray/30"
+                }`}
+                onClick={() => goToProject(index)}
+              />
+            ))}
+          </div>
         </div>
 
-        <div className="text-center">
-          <Button
-            size="lg"
-            variant="outline"
-            className="hover:bg-viana-orange hover:text-white hover:border-viana-orange bg-transparent"
-          >
-            {t("projects.viewAll")}
+        {/* Call to Action */}
+        <div className="text-center mt-16">
+          <Button size="lg" className="bg-viana-orange hover:bg-viana-yellow text-white hover:text-viana-black">
+            {t("projects.cta")}
           </Button>
         </div>
       </div>

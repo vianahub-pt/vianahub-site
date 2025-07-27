@@ -1,65 +1,67 @@
 "use client"
 
-import { Card, CardContent } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
-import { Play, Users, Star, TrendingUp } from "lucide-react"
-
-const stats = [
-  {
-    icon: <Users className="h-8 w-8 text-viana-orange" />,
-    value: "500+",
-    label: "Clientes Satisfeitos",
-  },
-  {
-    icon: <Star className="h-8 w-8 text-viana-orange" />,
-    value: "1000+",
-    label: "Projetos Entregues",
-  },
-  {
-    icon: <TrendingUp className="h-8 w-8 text-viana-orange" />,
-    value: "15+",
-    label: "Anos de Experiência",
-  },
-  {
-    icon: <Play className="h-8 w-8 text-viana-orange" />,
-    value: "24/7",
-    label: "Suporte Técnico",
-  },
-]
+import { useEffect, useRef, useState } from "react"
 
 export function EntertainmentSection() {
+  const iframeRef = useRef<HTMLIFrameElement>(null)
+  const [iframeHeight, setIframeHeight] = useState(800)
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (iframeRef.current) {
+        try {
+          // Tenta obter a altura do conteúdo do iframe
+          const iframeDocument = iframeRef.current.contentDocument || iframeRef.current.contentWindow?.document
+          if (iframeDocument) {
+            const height = iframeDocument.documentElement.scrollHeight
+            setIframeHeight(Math.max(height, 800)) // Altura mínima de 800px
+          }
+        } catch (error) {
+          // Se não conseguir acessar o conteúdo (CORS), usa altura responsiva
+          const viewportHeight = window.innerHeight
+          setIframeHeight(Math.max(viewportHeight * 0.8, 800))
+        }
+      }
+    }
+
+    // Escuta mudanças de tamanho da janela
+    window.addEventListener("resize", handleResize)
+
+    // Escuta quando o iframe carrega
+    const iframe = iframeRef.current
+    if (iframe) {
+      iframe.addEventListener("load", handleResize)
+    }
+
+    // Executa uma vez no início
+    handleResize()
+
+    return () => {
+      window.removeEventListener("resize", handleResize)
+      if (iframe) {
+        iframe.removeEventListener("load", handleResize)
+      }
+    }
+  }, [])
+
   return (
-    <section className="py-20 bg-gradient-to-br from-viana-blue/5 to-viana-orange/5">
+    <section className="w-full bg-white dark:bg-gray-900" style={{ minHeight: `${iframeHeight + 120}px` }}>
       <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
-          <Badge variant="outline" className="mb-4 text-viana-orange border-viana-orange">
-            Nossos Números
-          </Badge>
-          <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
-            Resultados que <span className="text-viana-orange">Impressionam</span>
+        <div className="text-center py-16">
+            <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
+            Passa <span className="text-viana-orange">Tempo</span>
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Mais de uma década transformando ideias em soluções digitais de sucesso
-          </p>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-          {stats.map((stat, index) => (
-            <Card
-              key={index}
-              className="text-center border-0 shadow-lg hover:shadow-2xl transition-all duration-300 group"
-            >
-              <CardContent className="p-8">
-                <div className="flex justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
-                  {stat.icon}
-                </div>
-                <div className="text-3xl font-bold text-gray-900 mb-2 group-hover:text-viana-orange transition-colors">
-                  {stat.value}
-                </div>
-                <div className="text-gray-600 font-medium">{stat.label}</div>
-              </CardContent>
-            </Card>
-          ))}
+        <div className="w-full">
+          <iframe
+            ref={iframeRef}
+            src="https://www.fox.vianahub.pt/"
+            className="w-full border-0"
+            style={{ height: `${iframeHeight}px` }}
+            title="Entretenimento Fox VianaHub"
+            loading="lazy"
+          />
         </div>
       </div>
     </section>

@@ -1,48 +1,12 @@
 "use client"
 
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { GraduationCap, Heart, Banknote, Building2, Factory, ShoppingCart } from "lucide-react"
+import { Card, CardContent } from "@/components/ui/card"
+import { Button } from "@/components/ui/button"
+import { Badge } from "@/components/ui/badge"
 import { useTranslation } from "@/contexts/translation-context"
+import { GraduationCap, Banknote, Building2, Heart, Factory, ShoppingCart, ArrowRight } from "lucide-react"
+import Link from "next/link"
 import { useEffect, useRef, useState } from "react"
-
-const industries = [
-  {
-    icon: <GraduationCap className="h-12 w-12 text-viana-orange" />,
-    titleKey: "industries.education.title",
-    descriptionKey: "industries.education.description",
-    href: "/industry/education",
-  },
-  {
-    icon: <Heart className="h-12 w-12 text-viana-orange" />,
-    titleKey: "industries.healthcare.title",
-    descriptionKey: "industries.healthcare.description",
-    href: "/industry/healthcare",
-  },
-  {
-    icon: <Banknote className="h-12 w-12 text-viana-orange" />,
-    titleKey: "industries.financial.title",
-    descriptionKey: "industries.financial.description",
-    href: "/industry/financial",
-  },
-  {
-    icon: <Building2 className="h-12 w-12 text-viana-orange" />,
-    titleKey: "industries.government.title",
-    descriptionKey: "industries.government.description",
-    href: "/industry/government",
-  },
-  {
-    icon: <Factory className="h-12 w-12 text-viana-orange" />,
-    titleKey: "industries.manufacturing.title",
-    descriptionKey: "industries.manufacturing.description",
-    href: "/industry/manufacturing",
-  },
-  {
-    icon: <ShoppingCart className="h-12 w-12 text-viana-orange" />,
-    titleKey: "industries.retail.title",
-    descriptionKey: "industries.retail.description",
-    href: "/industry/retail",
-  },
-]
 
 export function IndustriesSection() {
   const { t } = useTranslation()
@@ -91,39 +55,81 @@ export function IndustriesSection() {
     return () => observer.disconnect()
   }, [])
 
+  const industries = [
+    {
+      icon: <GraduationCap className="h-8 w-8 text-viana-orange" />,
+      title: t("industries.education.title"),
+      description: t("industries.education.description"),
+      href: "/industry/education",
+    },
+    {
+      icon: <Banknote className="h-8 w-8 text-viana-orange" />,
+      title: t("industries.financial.title"),
+      description: t("industries.financial.description"),
+      href: "/industry/financial",
+    },
+    {
+      icon: <Building2 className="h-8 w-8 text-viana-orange" />,
+      title: t("industries.government.title"),
+      description: t("industries.government.description"),
+      href: "/industry/government",
+    },
+    {
+      icon: <Heart className="h-8 w-8 text-viana-orange" />,
+      title: t("industries.healthcare.title"),
+      description: t("industries.healthcare.description"),
+      href: "/industry/healthcare",
+    },
+    {
+      icon: <Factory className="h-8 w-8 text-viana-orange" />,
+      title: t("industries.manufacturing.title"),
+      description: t("industries.manufacturing.description"),
+      href: "/industry/manufacturing",
+    },
+    {
+      icon: <ShoppingCart className="h-8 w-8 text-viana-orange" />,
+      title: t("industries.retail.title"),
+      description: t("industries.retail.description"),
+      href: "/industry/retail",
+    },
+  ]
+
   return (
-    <section ref={sectionRef} className="py-20 bg-white">
+    <section ref={sectionRef} className="py-20">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">{t("industries.title")}</h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">{t("industries.subtitle")}</p>
+          <h2 className="text-4xl font-bold mb-4">{t("industries.title")}</h2>
+          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto font-kurale">
+            {t("industries.subtitle")}
+          </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {industries.map((industry, index) => (
             <Card
               key={index}
               data-index={index}
-              className={`industry-card group hover:shadow-2xl border-0 shadow-lg bg-white cursor-pointer transform transition-all duration-1000 ease-out ${
+              className={`industry-card group hover:shadow-xl border-0 bg-gray-50 dark:bg-gray-800 transform transition-all duration-1000 ease-out ${
                 visibleCards[index] ? "opacity-100 translate-y-0 scale-100" : "opacity-0 translate-y-12 scale-95"
               }`}
               style={{
-                transitionDelay: visibleCards[index] ? `${index * 150}ms` : "0ms",
+                transitionDelay: visibleCards[index] ? `${index * 200}ms` : "0ms",
               }}
-              onClick={() => (window.location.href = industry.href)}
             >
-              <CardHeader className="text-center pb-4">
-                <div className="flex justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
-                  {industry.icon}
-                </div>
-                <CardTitle className="text-xl font-bold text-gray-900 group-hover:text-viana-orange transition-colors">
-                  {t(industry.titleKey)}
-                </CardTitle>
-              </CardHeader>
-              <CardContent className="text-center">
-                <CardDescription className="text-gray-600 leading-relaxed">
-                  {t(industry.descriptionKey)}
-                </CardDescription>
+              <CardContent className="p-8 text-center">
+                <h3 className="text-xl font-bold mb-4 group-hover:text-viana-orange transition-colors">
+                 {industry.icon} {industry.title}
+                </h3>
+                <p className="text-gray-600 dark:text-gray-300 mb-6 font-kurale">{industry.description}</p>
+                <Link href={industry.href}>
+                  <Button
+                    variant="outline"
+                    className="group-hover:bg-viana-orange group-hover:text-white transition-colors bg-transparent"
+                  >
+                    Explorar
+                    <ArrowRight className="ml-2 h-4 w-4" />
+                  </Button>
+                </Link>
               </CardContent>
             </Card>
           ))}
