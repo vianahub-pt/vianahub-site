@@ -43,7 +43,7 @@ export function InsightsSection() {
     <section
       className="py-20 bg-gradient-to-r from-viana-blue to-viana-orange text-white relative"
       style={{
-        backgroundImage: `linear-gradient(rgba(211, 211, 211, 0.9), rgba(211, 211, 211, 0.9)), url('/insights.jpg')`,
+        backgroundImage: `linear-gradient(rgba(211, 211, 211, 0.9), rgba(0, 0, 0, 0.9)), url('/insights.jpg')`,
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundAttachment: "fixed",
