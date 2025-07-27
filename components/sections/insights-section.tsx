@@ -1,10 +1,9 @@
 "use client"
 
 import { Card, CardContent } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { useTranslation } from "@/contexts/translation-context"
-import { TrendingUp, Users, Lightbulb, Target, ArrowRight } from "lucide-react"
+import { TrendingUp, Users, Lightbulb, Target } from "lucide-react"
 import { Counter } from "@/components/counter"
 
 export function InsightsSection() {
@@ -75,13 +74,6 @@ export function InsightsSection() {
               </CardContent>
             </Card>
           ))}
-        </div>
-
-        <div className="text-center mt-12">
-          <Button size="lg" className="bg-white text-viana-blue hover:bg-gray-100">
-            {t("insights.cta")}
-            <ArrowRight className="ml-2 h-5 w-5" />
-          </Button>
         </div>
       </div>
     </section>
