@@ -1,6 +1,9 @@
 export const homeTranslations = {
   pt: {
     // Hero Section
+    "hero.title.line1": "Soluções Digitais",
+    "hero.title.line2": "que Transformam",
+    "hero.title.line3": "o seu Negócio",
     "hero.subtitle":
       "Desenvolvemos tecnologias inovadoras que impulsionam o crescimento do seu negócio. Da concepção à implementação, criamos soluções personalizadas que fazem a diferença.",
     "hero.cta.start": "Começar Projeto",
@@ -78,6 +81,9 @@ export const homeTranslations = {
   },
   en: {
     // Hero Section
+    "hero.title.line1": "Digital Solutions",
+    "hero.title.line2": "that Transform",
+    "hero.title.line3": "your Business",
     "hero.subtitle":
       "We develop innovative technologies that drive your business growth. From conception to implementation, we create customized solutions that make a difference.",
     "hero.cta.start": "Start Project",
@@ -153,6 +159,9 @@ export const homeTranslations = {
   },
   es: {
     // Hero Section
+    "hero.title.line1": "Soluciones Digitales",
+    "hero.title.line2": "que Transforman",
+    "hero.title.line3": "su Negocio",
     "hero.subtitle":
       "Desarrollamos tecnologías innovadoras que impulsan el crecimiento de su negocio. Desde la concepción hasta la implementación, creamos soluciones personalizadas que marcan la diferencia.",
     "hero.cta.start": "Iniciar Proyecto",
@@ -205,7 +214,7 @@ export const homeTranslations = {
 
     // Footer Links
     "footer.links.agile": "Ágil",
-    "footer.links.chatbot": "Chatbot",
+    "footer.links.chatbot": "Desarrollo",
     "footer.links.development": "Desarrollo",
     "footer.links.integration": "Integración de Sistemas",
     "footer.links.landing": "Landing Pages",
@@ -231,6 +240,9 @@ export const homeTranslations = {
   },
   fr: {
     // Hero Section
+    "hero.title.line1": "Solutions Numériques",
+    "hero.title.line2": "qui Transforment",
+    "hero.title.line3": "votre Entreprise",
     "hero.subtitle":
       "Nous développons des technologies innovantes qui stimulent la croissance de votre entreprise. De la conception à la mise en œuvre, nous créons des solutions personnalisées qui font la différence.",
     "hero.cta.start": "Démarrer le Projet",
@@ -311,6 +323,9 @@ export const homeTranslations = {
   },
   de: {
     // Hero Section
+    "hero.title.line1": "Digitale Lösungen",
+    "hero.title.line2": "die Ihr Unternehmen",
+    "hero.title.line3": "Transformieren",
     "hero.subtitle":
       "Wir entwickeln innovative Technologien, die das Wachstum Ihres Unternehmens vorantreiben. Von der Konzeption bis zur Umsetzung schaffen wir maßgeschneiderte Lösungen, die den Unterschied machen.",
     "hero.cta.start": "Projekt Starten",
