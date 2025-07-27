@@ -32,6 +32,15 @@ export const homeTranslations = {
     "industries.retail.description": "E-commerce e sistemas de gestão comercial",
     "industries.cta": "Explorar",
 
+    // Projects Section
+    "projects.title": "Nossos Projetos",
+    "projects.subtitle": "Conheça alguns dos projetos que desenvolvemos para nossos clientes",
+    "projects.cta": "Ver Todos os Projetos",
+
+    // Testimonials Section
+    "testimonials.title": "O que Nossos Clientes Dizem",
+    "testimonials.subtitle": "Depoimentos reais de clientes que transformaram seus negócios conosco",
+
     // Services Section
     "services.title.part1": "Nossos",
     "services.title.part2": "Serviços",
@@ -132,6 +141,15 @@ export const homeTranslations = {
     "industries.retail.description": "E-commerce and commercial management systems",
     "industries.cta": "Explore",
 
+    // Projects Section
+    "projects.title": "Our Projects",
+    "projects.subtitle": "Discover some of the projects we've developed for our clients",
+    "projects.cta": "View All Projects",
+
+    // Testimonials Section
+    "testimonials.title": "What Our Clients Say",
+    "testimonials.subtitle": "Real testimonials from clients who transformed their businesses with us",
+
     // Services Section
     "services.title.part1": "Our",
     "services.title.part2": "Services",
@@ -229,6 +247,15 @@ export const homeTranslations = {
     "industries.retail.title": "Retail",
     "industries.retail.description": "E-commerce y sistemas de gestión comercial",
     "industries.cta": "Explorar",
+
+    // Projects Section
+    "projects.title": "Nuestros Proyectos",
+    "projects.subtitle": "Descubra algunos de los proyectos que hemos desarrollado para nuestros clientes",
+    "projects.cta": "Ver Todos los Proyectos",
+
+    // Testimonials Section
+    "testimonials.title": "Lo que Dicen Nuestros Clientes",
+    "testimonials.subtitle": "Testimonios reales de clientes que transformaron sus negocios con nosotros",
 
     // Services Section
     "services.title.part1": "Nuestros",
@@ -330,6 +357,15 @@ export const homeTranslations = {
     "industries.retail.title": "Commerce de Détail",
     "industries.retail.description": "E-commerce et systèmes de gestion commerciale",
     "industries.cta": "Explorer",
+
+    // Projects Section
+    "projects.title": "Nos Projets",
+    "projects.subtitle": "Découvrez quelques-uns des projets que nous avons développés pour nos clients",
+    "projects.cta": "Voir Tous les Projets",
+
+    // Testimonials Section
+    "testimonials.title": "Ce que Disent Nos Clients",
+    "testimonials.subtitle": "Témoignages réels de clients qui ont transformé leurs entreprises avec nous",
 
     // Services Section
     "services.title.part1": "Nos",
@@ -433,6 +469,15 @@ export const homeTranslations = {
     "industries.retail.title": "Einzelhandel",
     "industries.retail.description": "E-Commerce und kommerzielle Verwaltungssysteme",
     "industries.cta": "Erkunden",
+
+    // Projects Section
+    "projects.title": "Unsere Projekte",
+    "projects.subtitle": "Entdecken Sie einige der Projekte, die wir für unsere Kunden entwickelt haben",
+    "projects.cta": "Alle Projekte Ansehen",
+
+    // Testimonials Section
+    "testimonials.title": "Was Unsere Kunden Sagen",
+    "testimonials.subtitle": "Echte Testimonials von Kunden, die ihre Unternehmen mit uns transformiert haben",
 
     // Services Section
     "services.title.part1": "Unsere",
