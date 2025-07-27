@@ -73,16 +73,6 @@ export function ServicesSection() {
               </CardHeader>
               <CardContent className="text-center">
                 <p className="text-viana-orange mb-6 leading-relaxed font-kurale">{service.description}</p>
-                <Button
-                  variant="outline"
-                  className="group-hover:bg-viana-orange group-hover:text-white group-hover:border-viana-orange transition-all duration-300 bg-transparent"
-                  asChild
-                >
-                  <a href={service.href}>
-                    Saiba Mais
-                    <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                  </a>
-                </Button>
               </CardContent>
             </Card>
           ))}
