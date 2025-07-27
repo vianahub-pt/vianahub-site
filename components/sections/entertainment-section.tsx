@@ -3,7 +3,7 @@
 import { useTranslation } from "@/contexts/translation-context"
 import FoxMazeGame from "@/components/fox-game/fox-maze-game"
 
-export default function EntertainmentSection() {
+export function EntertainmentSection() {
   const { t } = useTranslation()
 
   return (
