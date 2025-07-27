@@ -10,72 +10,72 @@ import { useTranslation } from "@/contexts/translation-context"
 const projects = [
   {
     id: 1,
-    title: "E-commerce Platform",
-    category: "Varejo",
-    description: "Plataforma completa de comércio eletrônico com gestão de produtos, pagamentos e logística.",
+    title: "projects.ecommerce.title",
+    category: "projects.ecommerce.category",
+    description: "projects.ecommerce.description",
     image: "/ecommerce-platform-concept.png",
     url: "https://example-ecommerce.com",
     tech: ["React", "Node.js", "MongoDB"],
   },
   {
     id: 2,
-    title: "Sistema Hospitalar",
-    category: "Saúde",
-    description: "Sistema integrado de gestão hospitalar com prontuário eletrônico e telemedicina.",
+    title: "projects.hospital.title",
+    category: "projects.hospital.category",
+    description: "projects.hospital.description",
     image: "/hospital-management-system-interface.png",
     url: "https://example-hospital.com",
     tech: ["Vue.js", "Python", "PostgreSQL"],
   },
   {
     id: 3,
-    title: "App de Delivery",
-    category: "Alimentação",
-    description: "Aplicativo móvel para delivery de comida com rastreamento em tempo real.",
+    title: "projects.delivery.title",
+    category: "projects.delivery.category",
+    description: "projects.delivery.description",
     image: "/food-delivery-app-screen.png",
     url: "https://example-delivery.com",
     tech: ["React Native", "Firebase", "Node.js"],
   },
   {
     id: 4,
-    title: "Sistema Bancário",
-    category: "Financeiro",
-    description: "Plataforma de internet banking com segurança avançada e APIs de pagamento.",
+    title: "projects.banking.title",
+    category: "projects.banking.category",
+    description: "projects.banking.description",
     image: "/banking-system.png",
     url: "https://example-banking.com",
     tech: ["Angular", "Java", "Oracle"],
   },
   {
     id: 5,
-    title: "Plataforma Educacional",
-    category: "Educação",
-    description: "Sistema de ensino à distância com videoconferência e gestão de cursos.",
+    title: "projects.education.title",
+    category: "projects.education.category",
+    description: "projects.education.description",
     image: "/educational-platform.png",
     url: "https://example-education.com",
     tech: ["Next.js", "WebRTC", "MySQL"],
   },
   {
     id: 6,
-    title: "Sistema Logístico",
-    category: "Logística",
-    description: "Plataforma de gestão logística com rastreamento e otimização de rotas.",
+    title: "projects.logistics.title",
+    category: "projects.logistics.category",
+    description: "projects.logistics.description",
     image: "/logistics-system.png",
     url: "https://example-logistics.com",
     tech: ["React", "Express", "Redis"],
   },
   {
     id: 7,
-    title: "Plataforma de Streaming",
-    category: "Entretenimento",
-    description: "Sistema de streaming de vídeo com CDN global e analytics avançados.",
+    title: "projects.streaming.title",
+    category: "projects.streaming.category",
+    description: "projects.streaming.description",
     image: "/streaming-platform.png",
     url: "https://example-streaming.com",
     tech: ["Vue.js", "AWS", "Elasticsearch"],
   },
   {
     id: 8,
-    title: "Sistema CRM",
-    category: "Vendas",
-    description: "CRM completo com automação de vendas e análise de performance.",
+    title: "projects.crm.title",
+    category: "projects.crm.category",
+    description: "projects.crm.description",
     image: "/crm-system.png",
     url: "https://example-crm.com",
     tech: ["React", "Django", "PostgreSQL"],
@@ -144,22 +144,22 @@ export function ProjectsSection() {
                         <div className="relative h-64 md:h-80 overflow-hidden">
                           <Image
                             src={project.image || "/placeholder.svg"}
-                            alt={project.title}
+                            alt={t(project.title)}
                             fill
                             className="object-cover transition-transform duration-300 hover:scale-105"
                           />
                           <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
                           <div className="absolute top-4 right-4">
                             <div className="bg-viana-orange text-white px-3 py-1 rounded-full text-sm font-medium">
-                              {project.category}
+                              {t(project.category)}
                             </div>
                           </div>
                         </div>
 
                         {/* Content Section */}
                         <div className="p-8 flex flex-col justify-center">
-                          <h3 className="text-2xl font-bold text-viana-black mb-4">{project.title}</h3>
-                          <p className="text-viana-gray mb-6 leading-relaxed">{project.description}</p>
+                          <h3 className="text-2xl font-bold text-viana-black mb-4">{t(project.title)}</h3>
+                          <p className="text-viana-gray mb-6 leading-relaxed">{t(project.description)}</p>
 
                           {/* Tech Stack */}
                           <div className="flex flex-wrap gap-2 mb-6">
@@ -180,7 +180,7 @@ export function ProjectsSection() {
                               handleProjectClick(project.url)
                             }}
                           >
-                            Ver Projeto
+                            {t("projects.viewProject")}
                             <ExternalLink className="ml-2 h-4 w-4" />
                           </Button>
                         </div>
