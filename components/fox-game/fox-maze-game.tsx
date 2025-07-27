@@ -129,30 +129,32 @@ export default function FoxMazeGame() {
     }
   }, [currentLevel, currentMaze, gameWon])
 
-  // Verificar se chegou ao fim
+  // Verificar se chegou ao fim - CORRIGIDO para evitar múltiplas execuções
   useEffect(() => {
-    if (currentMaze && currentMaze.end && foxPosition.x === currentMaze.end.x && foxPosition.y === currentMaze.end.y) {
-      setIsCompleted(true)
+    if (!currentMaze || !currentMaze.end) return
+    if (foxPosition.x !== currentMaze.end.x || foxPosition.y !== currentMaze.end.y) return
+    if (isCompleted) return // Evitar múltiplas execuções
 
-      if (currentLevel === mazes.length - 1) {
-        // Último nível - mostrar mensagem de vitória final
-        setGameWon(true)
-        setGameStarted(false)
-        setEndTime(Date.now())
+    setIsCompleted(true)
 
-        // Calcular tempo total e adicionar ao ranking
-        if (startTime) {
-          const totalTime = Math.floor((Date.now() - startTime) / 1000)
-          addToRanking(playerName, totalTime)
-        }
-      } else {
-        // Avançar automaticamente para o próximo nível após 1.5 segundos
-        setTimeout(() => {
-          setCurrentLevel(currentLevel + 1)
-        }, 1500)
+    if (currentLevel === mazes.length - 1) {
+      // Último nível - mostrar mensagem de vitória final
+      setGameWon(true)
+      setGameStarted(false)
+      setEndTime(Date.now())
+
+      // Calcular tempo total e adicionar ao ranking
+      if (startTime) {
+        const totalTime = Math.floor((Date.now() - startTime) / 1000)
+        addToRanking(playerName, totalTime)
       }
+    } else {
+      // Avançar automaticamente para o próximo nível após 1.5 segundos
+      setTimeout(() => {
+        setCurrentLevel((prev) => prev + 1)
+      }, 1500)
     }
-  }, [foxPosition, currentMaze, currentLevel, startTime, playerName, mazes.length])
+  }, [foxPosition, currentMaze, isCompleted, currentLevel, mazes.length, startTime, playerName])
 
   // Adicionar entrada ao ranking
   const addToRanking = (name: string, time: number) => {
@@ -270,7 +272,7 @@ export default function FoxMazeGame() {
     return reachable
   }
 
-  // Função para animar o movimento ao longo do caminho
+  // Função para animar o movimento ao longo do caminho - SEM DELAY
   const animateMovement = async (path: Position[]) => {
     if (path.length <= 1) return
 
@@ -278,7 +280,7 @@ export default function FoxMazeGame() {
 
     for (let i = 1; i < path.length; i++) {
       setFoxPosition(path[i])
-      await new Promise((resolve) => setTimeout(resolve, 200)) // 200ms entre cada movimento
+      // SEM DELAY - movimento instantâneo
     }
 
     setIsMoving(false)
@@ -305,14 +307,18 @@ export default function FoxMazeGame() {
     return true
   }
 
-  // Controle de teclado
+  // Controle de teclado - CORRIGIDO para evitar scroll da tela
   useEffect(() => {
     if (!mounted || !gameStarted || gameStopped || isMoving || !currentMaze) return
 
     const handleKeyDown = (event: KeyboardEvent) => {
-      if (isCompleted) return
+      // Só prevenir default para as teclas de seta
+      if (["ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight"].includes(event.key)) {
+        event.preventDefault()
+        event.stopPropagation()
+      }
 
-      event.preventDefault()
+      if (isCompleted) return
 
       const newPosition = { ...foxPosition }
       let moved = false
@@ -349,7 +355,7 @@ export default function FoxMazeGame() {
       }
     }
 
-    window.addEventListener("keydown", handleKeyDown)
+    window.addEventListener("keydown", handleKeyDown, { passive: false })
     return () => window.removeEventListener("keydown", handleKeyDown)
   }, [foxPosition, currentMaze, isCompleted, mounted, gameStarted, gameStopped, isMoving])
 
@@ -496,6 +502,7 @@ export default function FoxMazeGame() {
     <TooltipProvider>
       <div
         className={`flex flex-col items-center justify-center min-h-screen bg-gradient-to-b from-yellow-200 to-orange-200 ${isMobile ? "p-1" : "p-2 lg:p-4"} overflow-hidden`}
+        style={{ touchAction: "pan-x pan-y" }} // Evitar problemas de scroll em mobile
       >
         <Card
           className={`w-full ${isMobile ? "max-w-full mx-1" : "max-w-6xl"} bg-white/90 backdrop-blur-sm shadow-2xl`}
