@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect, useCallback, useRef } from "react"
+import { useState, useEffect, useCallback } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { desktopMazes, mobileMazes, type Position } from "../../data/fox-game/mazes"
 import { Button } from "@/components/ui/button"
@@ -14,10 +14,8 @@ import { Level4 } from "./levels/level-4"
 import { Level5 } from "./levels/level-5"
 import { NameForm } from "./name-form"
 import type { RankingEntry } from "./ranking"
-import { useTranslation } from "@/contexts/translation-context"
 
 export default function FoxMazeGame() {
-  const { t } = useTranslation()
   const [currentLevel, setCurrentLevel] = useState(0)
   const [foxPosition, setFoxPosition] = useState<Position>({ x: 0, y: 0 })
   const [isMoving, setIsMoving] = useState(false)
@@ -34,9 +32,6 @@ export default function FoxMazeGame() {
   const [startTime, setStartTime] = useState<number | null>(null)
   const [endTime, setEndTime] = useState<number | null>(null)
   const [ranking, setRanking] = useState<RankingEntry[]>([])
-
-  // Ref para controlar se já está processando a conclusão do nível
-  const processingLevelComplete = useRef(false)
 
   // Inicializar com mobile mazes por padrão
   const [mazes, setMazes] = useState(mobileMazes)
@@ -128,7 +123,6 @@ export default function FoxMazeGame() {
     if (currentMaze && currentMaze.start) {
       setFoxPosition(currentMaze.start)
       setIsCompleted(false)
-      processingLevelComplete.current = false // Reset da flag quando muda de nível
       if (currentLevel === 0 && !gameWon) {
         setEndTime(null)
       }
@@ -138,10 +132,6 @@ export default function FoxMazeGame() {
   // Verificar se chegou ao fim
   useEffect(() => {
     if (currentMaze && currentMaze.end && foxPosition.x === currentMaze.end.x && foxPosition.y === currentMaze.end.y) {
-      // Evitar processamento duplo
-      if (processingLevelComplete.current) return
-      processingLevelComplete.current = true
-
       setIsCompleted(true)
 
       if (currentLevel === mazes.length - 1) {
@@ -190,7 +180,6 @@ export default function FoxMazeGame() {
         setEndTime(null)
         setPlayerName("")
         setShowNameForm(true)
-        processingLevelComplete.current = false
       }, 3000) // Aumentado para 3 segundos para dar tempo de ler a mensagem
 
       return () => clearTimeout(timer)
@@ -281,7 +270,7 @@ export default function FoxMazeGame() {
     return reachable
   }
 
-  // Função para animar o movimento ao longo do caminho - REMOVIDO O DELAY
+  // Função para animar o movimento ao longo do caminho
   const animateMovement = async (path: Position[]) => {
     if (path.length <= 1) return
 
@@ -289,7 +278,7 @@ export default function FoxMazeGame() {
 
     for (let i = 1; i < path.length; i++) {
       setFoxPosition(path[i])
-      // REMOVIDO: await new Promise((resolve) => setTimeout(resolve, 200)) // Delay removido para melhor performance
+      await new Promise((resolve) => setTimeout(resolve, 200)) // 200ms entre cada movimento
     }
 
     setIsMoving(false)
@@ -368,7 +357,6 @@ export default function FoxMazeGame() {
     if (currentMaze && currentMaze.start) {
       setFoxPosition(currentMaze.start)
       setIsCompleted(false)
-      processingLevelComplete.current = false
     }
   }
 
@@ -380,7 +368,6 @@ export default function FoxMazeGame() {
     setStartTime(null)
     setEndTime(null)
     setShowNameForm(true)
-    processingLevelComplete.current = false
   }
 
   const startGame = () => {
@@ -426,17 +413,17 @@ export default function FoxMazeGame() {
   const getPathInfo = () => {
     switch (currentLevel) {
       case 0:
-        return t("foxGame.routes.1")
+        return "1 caminho principal"
       case 1:
-        return t("foxGame.routes.2")
+        return "2 caminhos possíveis"
       case 2:
-        return t("foxGame.routes.3")
+        return "3 rotas diferentes"
       case 3:
-        return t("foxGame.routes.4")
+        return "4 caminhos alternativos"
       case 4:
-        return t("foxGame.routes.5")
+        return "5 rotas para explorar"
       default:
-        return t("foxGame.routes.multiple")
+        return "Múltiplos caminhos"
     }
   }
 
@@ -458,7 +445,7 @@ export default function FoxMazeGame() {
   // Renderizar o componente de nível apropriado
   const renderLevel = () => {
     if (!mounted || !currentMaze || !currentMaze.grid) {
-      return <div className="flex items-center justify-center p-8">{t("foxGame.loadingLevel")}</div>
+      return <div className="flex items-center justify-center p-8">Carregando nível...</div>
     }
 
     const levelProps = {
@@ -493,8 +480,8 @@ export default function FoxMazeGame() {
       <div className="flex items-center justify-center min-h-screen bg-gradient-to-b from-yellow-200 to-orange-200">
         <div className="flex flex-col items-center gap-4">
           <div className="w-16 h-16 border-4 border-amber-600 border-t-transparent rounded-full animate-spin"></div>
-          <div className="text-2xl text-amber-800 font-bold">{t("foxGame.loading")}</div>
-          <div className="text-sm text-amber-600">{t("foxGame.loadingSubtitle")}</div>
+          <div className="text-2xl text-amber-800 font-bold">Carregando Aventura da Raposa...</div>
+          <div className="text-sm text-amber-600">Preparando o deserto para sua jornada</div>
         </div>
       </div>
     )
@@ -524,7 +511,7 @@ export default function FoxMazeGame() {
                   alt="Fox"
                   className={`${isMobile ? "w-6 h-6" : "w-8 h-8"} object-contain`}
                 />
-                {t("foxGame.title")}
+                Aventura da Raposa no Deserto
               </h1>
               <div
                 className={`flex items-center justify-center gap-2 ${isMobile ? "text-xs flex-wrap" : "lg:gap-4 text-sm lg:text-lg flex-wrap"}`}
@@ -533,22 +520,12 @@ export default function FoxMazeGame() {
                   <img src="/user.png" alt="Player" className="w-4 h-4 object-contain" />
                   {playerName}
                 </span>
-                <span className="font-semibold text-amber-700">
-                  {t("foxGame.level")}: {currentLevel + 1}/5
-                </span>
-                <span className="text-amber-600">{currentMaze?.name || t("foxGame.loadingLevel")}</span>
-                {!isMobile && (
-                  <span className="text-purple-600 font-medium">
-                    {t("foxGame.routes")}: {getPathInfo()}
-                  </span>
-                )}
-                <span className="font-semibold text-blue-700">
-                  {t("foxGame.time")}: {getCurrentTime()}
-                </span>
-                {gameStarted && !gameStopped && (
-                  <span className="text-green-600 font-semibold">{t("foxGame.playing")}</span>
-                )}
-                {gameStopped && <span className="text-red-600 font-semibold">{t("foxGame.ending")}</span>}
+                <span className="font-semibold text-amber-700">Nível: {currentLevel + 1}/5</span>
+                <span className="text-amber-600">{currentMaze?.name || "Carregando..."}</span>
+                {!isMobile && <span className="text-purple-600 font-medium">Rotas: {getPathInfo()}</span>}
+                <span className="font-semibold text-blue-700">Tempo: {getCurrentTime()}</span>
+                {gameStarted && !gameStopped && <span className="text-green-600 font-semibold">Jogando</span>}
+                {gameStopped && <span className="text-red-600 font-semibold">Encerrando</span>}
               </div>
 
               {/* Barra de progresso */}
@@ -573,12 +550,12 @@ export default function FoxMazeGame() {
                 {/* Ranking History */}
                 {!isMobile && (
                   <div className="bg-amber-50 border-2 border-amber-200 rounded-lg p-4 flex-1 flex flex-col overflow-hidden">
-                    <h3 className="text-lg font-semibold text-amber-800 mb-3">{t("foxGame.ranking.title")}</h3>
+                    <h3 className="text-lg font-semibold text-amber-800 mb-3">Ranking dos Melhores Tempos</h3>
                     <div className="space-y-2 overflow-y-auto flex-1 min-h-0 max-h-48 lg:max-h-80">
                       {ranking.length === 0 ? (
                         <div className="text-center py-4 text-amber-600">
-                          <p className="text-sm">{t("foxGame.ranking.empty.title")}</p>
-                          <p className="text-xs">{t("foxGame.ranking.empty.subtitle")}</p>
+                          <p className="text-sm">Seja o primeiro no ranking!</p>
+                          <p className="text-xs">Complete todos os níveis para aparecer aqui</p>
                         </div>
                       ) : (
                         ranking.map((entry, index) => {
@@ -612,9 +589,7 @@ export default function FoxMazeGame() {
                                   <img src="/fox-desktop.png" alt="Player" className="w-3 h-3 object-contain" />
                                   {entry.name}
                                   {isCurrentPlayer && (
-                                    <span className="ml-1 text-xs bg-green-600 text-white px-1 rounded">
-                                      {t("foxGame.ranking.you")}
-                                    </span>
+                                    <span className="ml-1 text-xs bg-green-600 text-white px-1 rounded">Você</span>
                                   )}
                                 </span>
                               </div>
@@ -626,7 +601,7 @@ export default function FoxMazeGame() {
                     </div>
                     {ranking.length > 0 && (
                       <div className="mt-3 pt-2 border-t border-amber-200 text-xs text-amber-600 text-center flex-shrink-0">
-                        {t("foxGame.ranking.footer")}
+                        Complete todos os 5 níveis o mais rápido possível para entrar no ranking!
                       </div>
                     )}
                   </div>
@@ -636,9 +611,7 @@ export default function FoxMazeGame() {
                 <div
                   className={`bg-blue-50 border-2 border-blue-200 rounded-lg ${isMobile ? "p-2" : "p-4"} flex-shrink-0`}
                 >
-                  <h3 className={`${isMobile ? "text-sm" : "text-lg"} font-semibold text-blue-800 mb-2`}>
-                    {t("foxGame.controls")}
-                  </h3>
+                  <h3 className={`${isMobile ? "text-sm" : "text-lg"} font-semibold text-blue-800 mb-2`}>Controles</h3>
                   <div className={`grid grid-cols-5 ${isMobile ? "gap-1" : "gap-1 lg:gap-2"}`}>
                     <Tooltip>
                       <TooltipTrigger asChild>
@@ -652,7 +625,7 @@ export default function FoxMazeGame() {
                         </Button>
                       </TooltipTrigger>
                       <TooltipContent>
-                        <p>{t("foxGame.previousLevel")}</p>
+                        <p>Ir para o nível anterior</p>
                       </TooltipContent>
                     </Tooltip>
 
@@ -675,7 +648,7 @@ export default function FoxMazeGame() {
                         </Button>
                       </TooltipTrigger>
                       <TooltipContent>
-                        <p>{gameStarted ? t("foxGame.pauseGame") : t("foxGame.startGame")}</p>
+                        <p>{gameStarted ? "Pausar o jogo" : "Iniciar o jogo"}</p>
                       </TooltipContent>
                     </Tooltip>
 
@@ -690,7 +663,7 @@ export default function FoxMazeGame() {
                         </Button>
                       </TooltipTrigger>
                       <TooltipContent>
-                        <p>{t("foxGame.stopGame")}</p>
+                        <p>Encerrar o jogo e voltar ao início</p>
                       </TooltipContent>
                     </Tooltip>
 
@@ -706,7 +679,7 @@ export default function FoxMazeGame() {
                         </Button>
                       </TooltipTrigger>
                       <TooltipContent>
-                        <p>{t("foxGame.nextLevel")}</p>
+                        <p>Ir para o próximo nível</p>
                       </TooltipContent>
                     </Tooltip>
 
@@ -722,7 +695,7 @@ export default function FoxMazeGame() {
                         </Button>
                       </TooltipTrigger>
                       <TooltipContent>
-                        <p>{t("foxGame.resetLevel")}</p>
+                        <p>Reiniciar o nível atual</p>
                       </TooltipContent>
                     </Tooltip>
                   </div>
@@ -739,11 +712,11 @@ export default function FoxMazeGame() {
                         exit={{ opacity: 0, scale: 0.8 }}
                         className="bg-red-100 border-2 border-red-500 rounded-lg p-4"
                       >
-                        <h3 className="text-xl font-bold text-red-800 mb-2 text-center">{t("foxGame.gameEnding")}</h3>
+                        <h3 className="text-xl font-bold text-red-800 mb-2 text-center">Encerrando Jogo</h3>
                         <p className="text-red-700 text-center mb-2">
-                          {t("foxGame.gameEndingMessage")}
+                          O jogo está sendo encerrado...
                           <br />
-                          <span className="text-sm">{t("foxGame.gameEndingSubtitle")}</span>
+                          <span className="text-sm">Voltando para a tela inicial</span>
                         </p>
                         <div className="mt-3 flex justify-center">
                           <motion.div
@@ -765,16 +738,14 @@ export default function FoxMazeGame() {
                         exit={{ opacity: 0, y: -20 }}
                         className="bg-green-100 border-2 border-green-500 rounded-lg p-4"
                       >
-                        <h2 className="text-2xl font-bold text-green-800 mb-2 text-center">
-                          {t("foxGame.congratulations")}
-                        </h2>
+                        <h2 className="text-2xl font-bold text-green-800 mb-2 text-center">Parabéns!</h2>
                         <p className="text-green-700 mb-4 text-center">
-                          {t("foxGame.completedAllLevels")} <strong>{getCurrentTime()}</strong>!
+                          Você completou todos os níveis em <strong>{getCurrentTime()}</strong>!
                         </p>
                         <div className="text-center space-y-2">
                           <Button onClick={restartGame} className="bg-green-600 hover:bg-green-700 text-white">
                             <RefreshIcon size={16} className="mr-2" />
-                            {t("foxGame.playAgain")}
+                            Jogar Novamente
                           </Button>
                         </div>
                       </motion.div>
@@ -790,12 +761,12 @@ export default function FoxMazeGame() {
                         exit={{ opacity: 0, scale: 0.8 }}
                         className="bg-blue-100 border-2 border-blue-500 rounded-lg p-4"
                       >
-                        <h3 className="text-xl font-bold text-blue-800 mb-2 text-center">{t("foxGame.oasisFound")}</h3>
+                        <h3 className="text-xl font-bold text-blue-800 mb-2 text-center">Oásis Encontrado!</h3>
                         <p className="text-blue-700 text-center">
-                          {t("foxGame.pathCompleted")}
+                          Caminho completado! Preparando próximo desafio...
                           <br />
                           <span className="text-sm">
-                            {t("foxGame.currentTime")} <strong>{getCurrentTime()}</strong>
+                            Tempo atual: <strong>{getCurrentTime()}</strong>
                           </span>
                         </p>
                         <div className="mt-2 flex justify-center">
