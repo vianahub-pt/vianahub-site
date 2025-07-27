@@ -48,7 +48,9 @@ export function EntertainmentSection() {
     <section className="w-full bg-white dark:bg-gray-900" style={{ minHeight: `${iframeHeight + 120}px` }}>
       <div className="container mx-auto px-4">
         <div className="text-center py-16">
-          <h2 className="text-4xl font-bold mb-4">Entretenimento</h2>
+            <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
+            Passa <span className="text-viana-orange">Tempo</span>
+          </h2>
         </div>
 
         <div className="w-full">
