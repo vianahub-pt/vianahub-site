@@ -12,6 +12,26 @@ export const homeTranslations = {
     "hero.stats.clients": "Clientes",
     "hero.stats.years": "Anos",
 
+    // Entertainment Section
+    "entertainment.title": "Passa Tempo",
+
+    // Industries Section
+    "industries.title": "Indústrias que Atendemos",
+    "industries.subtitle": "Experiência comprovada em diversos setores",
+    "industries.education.title": "Educação",
+    "industries.education.description": "Plataformas educacionais e sistemas de gestão acadêmica",
+    "industries.financial.title": "Financeiro",
+    "industries.financial.description": "Soluções bancárias e sistemas de pagamento seguros",
+    "industries.government.title": "Governo",
+    "industries.government.description": "Sistemas públicos e portais de transparência",
+    "industries.healthcare.title": "Saúde",
+    "industries.healthcare.description": "Sistemas hospitalares e soluções de telemedicina",
+    "industries.manufacturing.title": "Manufatura",
+    "industries.manufacturing.description": "Automação industrial e sistemas de controle",
+    "industries.retail.title": "Varejo",
+    "industries.retail.description": "E-commerce e sistemas de gestão comercial",
+    "industries.cta": "Explorar",
+
     // Services Section
     "services.title.part1": "Nossos",
     "services.title.part2": "Serviços",
@@ -92,6 +112,26 @@ export const homeTranslations = {
     "hero.stats.clients": "Clients",
     "hero.stats.years": "Years",
 
+    // Entertainment Section
+    "entertainment.title": "Entertainment",
+
+    // Industries Section
+    "industries.title": "Industries We Serve",
+    "industries.subtitle": "Proven experience across various sectors",
+    "industries.education.title": "Education",
+    "industries.education.description": "Educational platforms and academic management systems",
+    "industries.financial.title": "Financial",
+    "industries.financial.description": "Banking solutions and secure payment systems",
+    "industries.government.title": "Government",
+    "industries.government.description": "Public systems and transparency portals",
+    "industries.healthcare.title": "Healthcare",
+    "industries.healthcare.description": "Hospital systems and telemedicine solutions",
+    "industries.manufacturing.title": "Manufacturing",
+    "industries.manufacturing.description": "Industrial automation and control systems",
+    "industries.retail.title": "Retail",
+    "industries.retail.description": "E-commerce and commercial management systems",
+    "industries.cta": "Explore",
+
     // Services Section
     "services.title.part1": "Our",
     "services.title.part2": "Services",
@@ -170,6 +210,26 @@ export const homeTranslations = {
     "hero.stats.clients": "Clientes",
     "hero.stats.years": "Años",
 
+    // Entertainment Section
+    "entertainment.title": "Entretenimiento",
+
+    // Industries Section
+    "industries.title": "Industrias que Atendemos",
+    "industries.subtitle": "Experiencia comprobada en diversos sectores",
+    "industries.education.title": "Educación",
+    "industries.education.description": "Plataformas educativas y sistemas de gestión académica",
+    "industries.financial.title": "Financiero",
+    "industries.financial.description": "Soluciones bancarias y sistemas de pago seguros",
+    "industries.government.title": "Gobierno",
+    "industries.government.description": "Sistemas públicos y portales de transparencia",
+    "industries.healthcare.title": "Salud",
+    "industries.healthcare.description": "Sistemas hospitalarios y soluciones de telemedicina",
+    "industries.manufacturing.title": "Manufactura",
+    "industries.manufacturing.description": "Automatización industrial y sistemas de control",
+    "industries.retail.title": "Retail",
+    "industries.retail.description": "E-commerce y sistemas de gestión comercial",
+    "industries.cta": "Explorar",
+
     // Services Section
     "services.title.part1": "Nuestros",
     "services.title.part2": "Servicios",
@@ -214,7 +274,7 @@ export const homeTranslations = {
 
     // Footer Links
     "footer.links.agile": "Ágil",
-    "footer.links.chatbot": "Desarrollo",
+    "footer.links.chatbot": "Chatbot",
     "footer.links.development": "Desarrollo",
     "footer.links.integration": "Integración de Sistemas",
     "footer.links.landing": "Landing Pages",
@@ -250,6 +310,26 @@ export const homeTranslations = {
     "hero.stats.projects": "Projets",
     "hero.stats.clients": "Clients",
     "hero.stats.years": "Années",
+
+    // Entertainment Section
+    "entertainment.title": "Divertissement",
+
+    // Industries Section
+    "industries.title": "Industries que Nous Servons",
+    "industries.subtitle": "Expérience prouvée dans divers secteurs",
+    "industries.education.title": "Éducation",
+    "industries.education.description": "Plateformes éducatives et systèmes de gestion académique",
+    "industries.financial.title": "Financier",
+    "industries.financial.description": "Solutions bancaires et systèmes de paiement sécurisés",
+    "industries.government.title": "Gouvernement",
+    "industries.government.description": "Systèmes publics et portails de transparence",
+    "industries.healthcare.title": "Santé",
+    "industries.healthcare.description": "Systèmes hospitaliers et solutions de télémédecine",
+    "industries.manufacturing.title": "Fabrication",
+    "industries.manufacturing.description": "Automatisation industrielle et systèmes de contrôle",
+    "industries.retail.title": "Commerce de Détail",
+    "industries.retail.description": "E-commerce et systèmes de gestion commerciale",
+    "industries.cta": "Explorer",
 
     // Services Section
     "services.title.part1": "Nos",
@@ -333,6 +413,26 @@ export const homeTranslations = {
     "hero.stats.projects": "Projekte",
     "hero.stats.clients": "Kunden",
     "hero.stats.years": "Jahre",
+
+    // Entertainment Section
+    "entertainment.title": "Unterhaltung",
+
+    // Industries Section
+    "industries.title": "Branchen, die Wir Bedienen",
+    "industries.subtitle": "Bewährte Erfahrung in verschiedenen Sektoren",
+    "industries.education.title": "Bildung",
+    "industries.education.description": "Bildungsplattformen und akademische Verwaltungssysteme",
+    "industries.financial.title": "Finanzwesen",
+    "industries.financial.description": "Banking-Lösungen und sichere Zahlungssysteme",
+    "industries.government.title": "Regierung",
+    "industries.government.description": "Öffentliche Systeme und Transparenzportale",
+    "industries.healthcare.title": "Gesundheitswesen",
+    "industries.healthcare.description": "Krankenhaussysteme und Telemedizin-Lösungen",
+    "industries.manufacturing.title": "Fertigung",
+    "industries.manufacturing.description": "Industrielle Automatisierung und Kontrollsysteme",
+    "industries.retail.title": "Einzelhandel",
+    "industries.retail.description": "E-Commerce und kommerzielle Verwaltungssysteme",
+    "industries.cta": "Erkunden",
 
     // Services Section
     "services.title.part1": "Unsere",

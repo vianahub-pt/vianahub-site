@@ -2,7 +2,6 @@
 
 import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
-import { Badge } from "@/components/ui/badge"
 import { useTranslation } from "@/contexts/translation-context"
 import { GraduationCap, Banknote, Building2, Heart, Factory, ShoppingCart, ArrowRight } from "lucide-react"
 import Link from "next/link"
@@ -118,7 +117,7 @@ export function IndustriesSection() {
             >
               <CardContent className="p-8 text-center">
                 <h3 className="text-xl font-bold mb-4 group-hover:text-viana-orange transition-colors">
-                 {industry.icon} {industry.title}
+                  {industry.icon} {industry.title}
                 </h3>
                 <p className="text-gray-600 dark:text-gray-300 mb-6 font-kurale">{industry.description}</p>
                 <Link href={industry.href}>
@@ -126,7 +125,7 @@ export function IndustriesSection() {
                     variant="outline"
                     className="group-hover:bg-viana-orange group-hover:text-white transition-colors bg-transparent"
                   >
-                    Explorar
+                    {t("industries.cta")}
                     <ArrowRight className="ml-2 h-4 w-4" />
                   </Button>
                 </Link>
