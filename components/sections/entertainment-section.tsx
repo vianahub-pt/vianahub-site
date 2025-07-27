@@ -13,9 +13,6 @@ export function EntertainmentSection() {
           <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
             {t("entertainment.title")} <span className="text-viana-orange">Fox</span>
           </h2>
-        </div>
-
-        <div className="pb-16">
           <FoxMazeGame />
         </div>
       </div>
