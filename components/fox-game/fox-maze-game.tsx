@@ -150,7 +150,7 @@ export default function FoxMazeGame() {
       } else {
         // Avançar automaticamente para o próximo nível após 1.5 segundos
         setTimeout(() => {
-          setCurrentLevel(currentLevel + 1)
+          setCurrentLevel((prev) => prev + 1)
         }, 1500)
       }
     }
