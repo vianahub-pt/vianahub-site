@@ -8,6 +8,8 @@ import { useTranslation } from "@/contexts/translation-context"
 import { Users, ArrowRight, Briefcase, Clock } from "lucide-react"
 import Link from "next/link"
 import { careersTranslations } from "@/app/careers/translation"
+import Autoplay from "embla-carousel-autoplay"
+import { useRef } from "react"
 
 interface PositionMeta {
   id: string
@@ -33,6 +35,7 @@ const positionsMeta: PositionMeta[] = [
 
 export function CareersSection() {
   const { t, language } = useTranslation()
+  const plugin = useRef(Autoplay({ delay: 3000, stopOnInteraction: true }))
 
   // Local translation function for careers
   const tCareers = (key: string) => {
@@ -79,23 +82,28 @@ export function CareersSection() {
                   </Button>
                 </div>
               </div>
-              <div className="bg-gradient-to-br from-viana-orange to-viana-yellow p-6 flex items-center justify-center">
-                <div className="w-full max-w-sm">
-                  <Carousel className="w-full">
-                    <CarouselContent>
+              <div className="bg-gradient-to-br from-viana-orange to-viana-yellow p-4 flex items-center justify-center">
+                <div className="w-full h-full">
+                  <Carousel
+                    className="w-full h-full"
+                    plugins={[plugin.current]}
+                    onMouseEnter={plugin.current.stop}
+                    onMouseLeave={plugin.current.reset}
+                  >
+                    <CarouselContent className="h-full">
                       {positionsMeta.map((positionMeta) => {
                         const translatedPosition = getTranslatedPosition(positionMeta)
                         return (
-                          <CarouselItem key={positionMeta.id}>
-                            <Card className="bg-white/95 backdrop-blur-sm border-0 shadow-lg">
-                              <CardHeader className="pb-3">
-                                <div className="flex justify-between items-start mb-2">
-                                  <CardTitle className="text-sm font-bold text-gray-900 leading-tight line-clamp-2">
+                          <CarouselItem key={positionMeta.id} className="h-full">
+                            <Card className="bg-white/95 backdrop-blur-sm border-0 shadow-lg h-full flex flex-col">
+                              <CardHeader className="pb-4 flex-shrink-0">
+                                <div className="flex justify-between items-start mb-3">
+                                  <CardTitle className="text-lg font-bold text-gray-900 leading-tight">
                                     {translatedPosition.title}
                                   </CardTitle>
                                   <Badge
                                     variant="secondary"
-                                    className={`ml-1 text-xs px-2 py-1 flex-shrink-0 ${
+                                    className={`ml-2 text-sm px-3 py-1 flex-shrink-0 ${
                                       translatedPosition.location === tCareers("careers.positions.1.location")
                                         ? "bg-green-100 text-green-800"
                                         : translatedPosition.location === tCareers("careers.positions.2.location")
@@ -106,30 +114,21 @@ export function CareersSection() {
                                     {translatedPosition.location}
                                   </Badge>
                                 </div>
-                                <CardDescription className="text-xs text-gray-600 line-clamp-2">
+                                <CardDescription className="text-sm text-gray-600 leading-relaxed">
                                   {translatedPosition.description}
                                 </CardDescription>
                               </CardHeader>
-                              <CardContent className="pt-0">
-                                <div className="flex items-center gap-2 text-xs text-gray-500 mb-3">
-                                  <div className="flex items-center gap-1">
-                                    <Briefcase className="h-3 w-3" />
-                                    <span className="truncate text-xs">{translatedPosition.department}</span>
+                              <CardContent className="pt-0 flex-grow flex flex-col justify-center">
+                                <div className="flex flex-col gap-3 text-sm text-gray-500">
+                                  <div className="flex items-center gap-2">
+                                    <Briefcase className="h-4 w-4" />
+                                    <span>{translatedPosition.department}</span>
                                   </div>
-                                  <div className="flex items-center gap-1">
-                                    <Clock className="h-3 w-3" />
-                                    <span className="truncate text-xs">{translatedPosition.type}</span>
+                                  <div className="flex items-center gap-2">
+                                    <Clock className="h-4 w-4" />
+                                    <span>{translatedPosition.type}</span>
                                   </div>
                                 </div>
-                                <Link href="/careers">
-                                  <Button
-                                    variant="outline"
-                                    size="sm"
-                                    className="w-full hover:bg-viana-orange hover:text-white transition-colors text-xs bg-transparent"
-                                  >
-                                    {tCareers("careers.positions.viewDetails")}
-                                  </Button>
-                                </Link>
                               </CardContent>
                             </Card>
                           </CarouselItem>
