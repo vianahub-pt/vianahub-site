@@ -3,6 +3,9 @@
 import { createContext, useContext, useState, useEffect, type ReactNode } from "react"
 import { homeTranslations } from "@/app/translation"
 import { navbarTranslations } from "@/app/translations/navbar"
+import { agileTranslations } from "@/app/what-we-do/agile/translation"
+import { careersTranslations } from "@/app/careers/translation"
+import { contactTranslations } from "@/app/contact/translation"
 
 export type Language = "pt" | "en" | "es" | "fr" | "de"
 
@@ -14,6 +17,44 @@ interface TranslationContextType {
 
 const TranslationContext = createContext<TranslationContextType | undefined>(undefined)
 
+const allTranslations = {
+  pt: {
+    ...homeTranslations.pt,
+    ...navbarTranslations.pt,
+    ...agileTranslations.pt,
+    ...careersTranslations.pt,
+    ...contactTranslations.pt,
+  },
+  en: {
+    ...homeTranslations.en,
+    ...navbarTranslations.en,
+    ...agileTranslations.en,
+    ...careersTranslations.en,
+    ...contactTranslations.en,
+  },
+  es: {
+    ...homeTranslations.es,
+    ...navbarTranslations.es,
+    ...agileTranslations.es,
+    ...careersTranslations.es,
+    ...contactTranslations.es,
+  },
+  fr: {
+    ...homeTranslations.fr,
+    ...navbarTranslations.fr,
+    ...agileTranslations.fr,
+    ...careersTranslations.fr,
+    ...contactTranslations.fr,
+  },
+  de: {
+    ...homeTranslations.de,
+    ...navbarTranslations.de,
+    ...agileTranslations.de,
+    ...careersTranslations.de,
+    ...contactTranslations.de,
+  },
+}
+
 export function TranslationProvider({ children }: { children: ReactNode }) {
   const [language, setLanguage] = useState<Language>("pt")
 
@@ -21,7 +62,7 @@ export function TranslationProvider({ children }: { children: ReactNode }) {
     // Load language from localStorage on client side
     const savedLanguage = localStorage.getItem("language") as Language
     if (savedLanguage && ["pt", "en", "es", "fr", "de"].includes(savedLanguage)) {
-      setLanguage(savedLanguage)
+      setLanguage(savedLanguage as Language)
     }
   }, [])
 
@@ -31,14 +72,7 @@ export function TranslationProvider({ children }: { children: ReactNode }) {
   }
 
   const t = (key: string): string => {
-    // Try to find translation in navbarTranslations first, then in homeTranslations
-    const navTranslation = navbarTranslations[language]?.[key as keyof (typeof navbarTranslations)[typeof language]]
-    if (navTranslation) {
-      return navTranslation
-    }
-
-    const homeTranslation = homeTranslations[language]?.[key as keyof (typeof homeTranslations)[typeof language]]
-    return homeTranslation || key
+    return allTranslations[language]?.[key] || key
   }
 
   return (
