@@ -79,6 +79,37 @@ export const homeTranslations = {
     "testimonials.title.part2": "Depoimentos",
     "testimonials.subtitle": "Depoimentos reais de clientes que transformaram seus negócios conosco",
 
+    // Individual Testimonials
+    "testimonials.ana.name": "Ana Costa",
+    "testimonials.ana.role": "CEO, TechStart",
+    "testimonials.ana.content":
+      "A VianaHub transformou completamente nossa operação. O sistema que desenvolveram aumentou nossa produtividade em 300%",
+
+    "testimonials.roberto.name": "Roberto Lima",
+    "testimonials.roberto.role": "Diretor de TI, InnovaCorp",
+    "testimonials.roberto.content":
+      "Profissionais excepcionais! Entregaram o projeto no prazo e superaram todas as expectativas. Recomendo sem hesitar.",
+
+    "testimonials.maria.name": "Maria Silva",
+    "testimonials.maria.role": "Fundadora, EcoSolutions",
+    "testimonials.maria.content":
+      "O suporte técnico é incomparável. Sempre disponíveis e com soluções eficientes para qualquer desafio.",
+
+    "testimonials.carlos.name": "Carlos Oliveira",
+    "testimonials.carlos.role": "CTO, DataFlow",
+    "testimonials.carlos.content":
+      "A expertise técnica da equipe é impressionante. Conseguiram resolver problemas complexos de forma elegante.",
+
+    "testimonials.lucia.name": "Lúcia Ferreira",
+    "testimonials.lucia.role": "Gerente de Projetos, SmartSys",
+    "testimonials.lucia.content":
+      "Parceria de longo prazo que só cresce. A VianaHub é sinônimo de qualidade e confiabilidade.",
+
+    "testimonials.joao.name": "João Santos",
+    "testimonials.joao.role": "Diretor Comercial, NextGen",
+    "testimonials.joao.content":
+      "ROI excepcional! O investimento se pagou em menos de 6 meses. Equipe altamente recomendada.",
+
     // Insights Section
     "insights.title": "Insights e Resultados",
     "insights.subtitle": "Dados que comprovam nossa excelência e compromisso com resultados excepcionais",
@@ -238,6 +269,37 @@ export const homeTranslations = {
     "testimonials.title.part2": "Testimonials",
     "testimonials.subtitle": "Real testimonials from clients who transformed their businesses with us",
 
+    // Individual Testimonials
+    "testimonials.ana.name": "Ana Costa",
+    "testimonials.ana.role": "CEO, TechStart",
+    "testimonials.ana.content":
+      "VianaHub completely transformed our operation. The system they developed increased our productivity by 300%",
+
+    "testimonials.roberto.name": "Roberto Lima",
+    "testimonials.roberto.role": "IT Director, InnovaCorp",
+    "testimonials.roberto.content":
+      "Exceptional professionals! They delivered the project on time and exceeded all expectations. I recommend without hesitation.",
+
+    "testimonials.maria.name": "Maria Silva",
+    "testimonials.maria.role": "Founder, EcoSolutions",
+    "testimonials.maria.content":
+      "The technical support is unmatched. Always available with efficient solutions for any challenge.",
+
+    "testimonials.carlos.name": "Carlos Oliveira",
+    "testimonials.carlos.role": "CTO, DataFlow",
+    "testimonials.carlos.content":
+      "The team's technical expertise is impressive. They managed to solve complex problems elegantly.",
+
+    "testimonials.lucia.name": "Lúcia Ferreira",
+    "testimonials.lucia.role": "Project Manager, SmartSys",
+    "testimonials.lucia.content":
+      "Long-term partnership that keeps growing. VianaHub is synonymous with quality and reliability.",
+
+    "testimonials.joao.name": "João Santos",
+    "testimonials.joao.role": "Commercial Director, NextGen",
+    "testimonials.joao.content":
+      "Exceptional ROI! The investment paid for itself in less than 6 months. Highly recommended team.",
+
     // Insights Section
     "insights.title": "Insights and Results",
     "insights.subtitle": "Data that proves our excellence and commitment to exceptional results",
@@ -396,6 +458,37 @@ export const homeTranslations = {
     "testimonials.title.part1": "Nuestros",
     "testimonials.title.part2": "Testimonios",
     "testimonials.subtitle": "Testimonios reales de clientes que transformaron sus negocios con nosotros",
+
+    // Individual Testimonials
+    "testimonials.ana.name": "Ana Costa",
+    "testimonials.ana.role": "CEO, TechStart",
+    "testimonials.ana.content":
+      "VianaHub transformó completamente nuestra operación. El sistema que desarrollaron aumentó nuestra productividad en 300%",
+
+    "testimonials.roberto.name": "Roberto Lima",
+    "testimonials.roberto.role": "Director de TI, InnovaCorp",
+    "testimonials.roberto.content":
+      "¡Profesionales excepcionales! Entregaron el proyecto a tiempo y superaron todas las expectativas. Los recomiendo sin dudar.",
+
+    "testimonials.maria.name": "Maria Silva",
+    "testimonials.maria.role": "Fundadora, EcoSolutions",
+    "testimonials.maria.content":
+      "El soporte técnico es incomparable. Siempre disponibles con soluciones eficientes para cualquier desafío.",
+
+    "testimonials.carlos.name": "Carlos Oliveira",
+    "testimonials.carlos.role": "CTO, DataFlow",
+    "testimonials.carlos.content":
+      "La experiencia técnica del equipo es impresionante. Lograron resolver problemas complejos de manera elegante.",
+
+    "testimonials.lucia.name": "Lúcia Ferreira",
+    "testimonials.lucia.role": "Gerente de Proyectos, SmartSys",
+    "testimonials.lucia.content":
+      "Asociación a largo plazo que sigue creciendo. VianaHub es sinónimo de calidad y confiabilidad.",
+
+    "testimonials.joao.name": "João Santos",
+    "testimonials.joao.role": "Director Comercial, NextGen",
+    "testimonials.joao.content":
+      "¡ROI excepcional! La inversión se pagó en menos de 6 meses. Equipo altamente recomendado.",
 
     // Insights Section
     "insights.title": "Insights y Resultados",
@@ -560,6 +653,37 @@ export const homeTranslations = {
     "testimonials.title.part2": "Témoignages",
     "testimonials.subtitle": "Témoignages réels de clients qui ont transformé leurs entreprises avec nous",
 
+    // Individual Testimonials
+    "testimonials.ana.name": "Ana Costa",
+    "testimonials.ana.role": "PDG, TechStart",
+    "testimonials.ana.content":
+      "VianaHub a complètement transformé notre opération. Le système qu'ils ont développé a augmenté notre productivité de 300%",
+
+    "testimonials.roberto.name": "Roberto Lima",
+    "testimonials.roberto.role": "Directeur IT, InnovaCorp",
+    "testimonials.roberto.content":
+      "Professionnels exceptionnels ! Ils ont livré le projet à temps et ont dépassé toutes les attentes. Je recommande sans hésiter.",
+
+    "testimonials.maria.name": "Maria Silva",
+    "testimonials.maria.role": "Fondatrice, EcoSolutions",
+    "testimonials.maria.content":
+      "Le support technique est incomparable. Toujours disponibles avec des solutions efficaces pour tout défi.",
+
+    "testimonials.carlos.name": "Carlos Oliveira",
+    "testimonials.carlos.role": "CTO, DataFlow",
+    "testimonials.carlos.content":
+      "L'expertise technique de l'équipe est impressionnante. Ils ont réussi à résoudre des problèmes complexes de manière élégante.",
+
+    "testimonials.lucia.name": "Lúcia Ferreira",
+    "testimonials.lucia.role": "Chef de Projet, SmartSys",
+    "testimonials.lucia.content":
+      "Partenariat à long terme qui ne cesse de croître. VianaHub est synonyme de qualité et de fiabilité.",
+
+    "testimonials.joao.name": "João Santos",
+    "testimonials.joao.role": "Directeur Commercial, NextGen",
+    "testimonials.joao.content":
+      "ROI exceptionnel ! L'investissement s'est rentabilisé en moins de 6 mois. Équipe hautement recommandée.",
+
     // Insights Section
     "insights.title": "Insights et Résultats",
     "insights.subtitle": "Données qui prouvent notre excellence et notre engagement envers des résultats exceptionnels",
@@ -723,6 +847,37 @@ export const homeTranslations = {
     "testimonials.title.part1": "Unsere",
     "testimonials.title.part2": "Testimonials",
     "testimonials.subtitle": "Echte Testimonials von Kunden, die ihre Unternehmen mit uns transformiert haben",
+
+    // Individual Testimonials
+    "testimonials.ana.name": "Ana Costa",
+    "testimonials.ana.role": "CEO, TechStart",
+    "testimonials.ana.content":
+      "VianaHub hat unseren Betrieb vollständig transformiert. Das System, das sie entwickelt haben, steigerte unsere Produktivität um 300%",
+
+    "testimonials.roberto.name": "Roberto Lima",
+    "testimonials.roberto.role": "IT-Direktor, InnovaCorp",
+    "testimonials.roberto.content":
+      "Außergewöhnliche Fachkräfte! Sie lieferten das Projekt pünktlich ab und übertrafen alle Erwartungen. Ich empfehle ohne zu zögern.",
+
+    "testimonials.maria.name": "Maria Silva",
+    "testimonials.maria.role": "Gründerin, EcoSolutions",
+    "testimonials.maria.content":
+      "Der technische Support ist unvergleichlich. Immer verfügbar mit effizienten Lösungen für jede Herausforderung.",
+
+    "testimonials.carlos.name": "Carlos Oliveira",
+    "testimonials.carlos.role": "CTO, DataFlow",
+    "testimonials.carlos.content":
+      "Die technische Expertise des Teams ist beeindruckend. Sie schafften es, komplexe Probleme elegant zu lösen.",
+
+    "testimonials.lucia.name": "Lúcia Ferreira",
+    "testimonials.lucia.role": "Projektmanagerin, SmartSys",
+    "testimonials.lucia.content":
+      "Langfristige Partnerschaft, die nur wächst. VianaHub ist ein Synonym für Qualität und Zuverlässigkeit.",
+
+    "testimonials.joao.name": "João Santos",
+    "testimonials.joao.role": "Vertriebsleiter, NextGen",
+    "testimonials.joao.content":
+      "Außergewöhnlicher ROI! Die Investition amortisierte sich in weniger als 6 Monaten. Sehr empfehlenswertes Team.",
 
     // Insights Section
     "insights.title": "Insights und Ergebnisse",

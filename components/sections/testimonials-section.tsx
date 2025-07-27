@@ -7,47 +7,32 @@ import { useTranslation } from "@/contexts/translation-context"
 
 const testimonials = [
   {
-    name: "Ana Costa",
-    role: "CEO, TechStart",
-    content:
-      "A VianaHub transformou completamente nossa operação. O sistema que desenvolveram aumentou nossa produtividade em 300%",
+    key: "ana",
     rating: 5,
     image: "/ana-costa.jpg",
   },
   {
-    name: "Roberto Lima",
-    role: "Diretor de TI, InnovaCorp",
-    content:
-      "Profissionais excepcionais! Entregaram o projeto no prazo e superaram todas as expectativas. Recomendo sem hesitar.",
+    key: "roberto",
     rating: 5,
     image: "/roberto-lima.jpg",
   },
   {
-    name: "Maria Silva",
-    role: "Fundadora, EcoSolutions",
-    content: "O suporte técnico é incomparável. Sempre disponíveis e com soluções eficientes para qualquer desafio.",
+    key: "maria",
     rating: 5,
     image: "/maria-silva.jpg",
   },
   {
-    name: "Carlos Oliveira",
-    role: "CTO, DataFlow",
-    content:
-      "A expertise técnica da equipe é impressionante. Conseguiram resolver problemas complexos de forma elegante.",
+    key: "carlos",
     rating: 5,
     image: "/carlos-oliveira.jpg",
   },
   {
-    name: "Lúcia Ferreira",
-    role: "Gerente de Projetos, SmartSys",
-    content: "Parceria de longo prazo que só cresce. A VianaHub é sinônimo de qualidade e confiabilidade.",
+    key: "lucia",
     rating: 5,
     image: "/lucia-ferreira.jpg",
   },
   {
-    name: "João Santos",
-    role: "Diretor Comercial, NextGen",
-    content: "ROI excepcional! O investimento se pagou em menos de 6 meses. Equipe altamente recomendada.",
+    key: "joao",
     rating: 5,
     image: "/joao-santos.jpg",
   },
@@ -120,7 +105,7 @@ export function TestimonialsSection() {
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {testimonials.map((testimonial, index) => (
             <Card
-              key={index}
+              key={testimonial.key}
               className={`border-none shadow-lg hover:shadow-xl transition-shadow duration-300 floating-card-${index + 1}`}
             >
               <CardContent className="p-6">
@@ -129,24 +114,24 @@ export function TestimonialsSection() {
                     <Star key={i} className="h-5 w-5 fill-viana-yellow text-viana-yellow" />
                   ))}
                 </div>
-                <p className="text-viana-gray mb-6 italic">"{testimonial.content}"</p>
+                <p className="text-viana-gray mb-6 italic">"{t(`testimonials.${testimonial.key}.content`)}"</p>
                 <div className="flex items-center">
                   <Avatar className="h-12 w-12 mr-4">
                     <AvatarImage
                       src={testimonial.image || "/placeholder.svg"}
-                      alt={testimonial.name}
+                      alt={t(`testimonials.${testimonial.key}.name`)}
                       className="object-cover"
                     />
                     <AvatarFallback>
-                      {testimonial.name
+                      {t(`testimonials.${testimonial.key}.name`)
                         .split(" ")
                         .map((n) => n[0])
                         .join("")}
                     </AvatarFallback>
                   </Avatar>
                   <div>
-                    <h4 className="font-semibold text-viana-black">{testimonial.name}</h4>
-                    <p className="text-sm text-viana-gray">{testimonial.role}</p>
+                    <h4 className="font-semibold text-viana-black">{t(`testimonials.${testimonial.key}.name`)}</h4>
+                    <p className="text-sm text-viana-gray">{t(`testimonials.${testimonial.key}.role`)}</p>
                   </div>
                 </div>
               </CardContent>
