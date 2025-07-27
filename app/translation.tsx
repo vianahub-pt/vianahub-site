@@ -75,7 +75,8 @@ export const homeTranslations = {
     "projects.crm.description": "CRM completo com automação de vendas e análise de performance.",
 
     // Testimonials Section
-    "testimonials.title": "O que Nossos Clientes Dizem",
+    "testimonials.title.part1": "Nossos",
+    "testimonials.title.part2": "Depoimentos",
     "testimonials.subtitle": "Depoimentos reais de clientes que transformaram seus negócios conosco",
 
     // Insights Section
@@ -233,7 +234,8 @@ export const homeTranslations = {
     "projects.crm.description": "Complete CRM with sales automation and performance analysis.",
 
     // Testimonials Section
-    "testimonials.title": "What Our Clients Say",
+    "testimonials.title.part1": "Our",
+    "testimonials.title.part2": "Testimonials",
     "testimonials.subtitle": "Real testimonials from clients who transformed their businesses with us",
 
     // Insights Section
@@ -391,7 +393,8 @@ export const homeTranslations = {
     "projects.crm.description": "CRM completo con automatización de ventas y análisis de rendimiento.",
 
     // Testimonials Section
-    "testimonials.title": "Lo que Dicen Nuestros Clientes",
+    "testimonials.title.part1": "Nuestros",
+    "testimonials.title.part2": "Testimonios",
     "testimonials.subtitle": "Testimonios reales de clientes que transformaron sus negocios con nosotros",
 
     // Insights Section
@@ -553,7 +556,8 @@ export const homeTranslations = {
     "projects.crm.description": "CRM complet avec automatisation des ventes et analyse de performance.",
 
     // Testimonials Section
-    "testimonials.title": "Ce que Disent Nos Clients",
+    "testimonials.title.part1": "Nos",
+    "testimonials.title.part2": "Témoignages",
     "testimonials.subtitle": "Témoignages réels de clients qui ont transformé leurs entreprises avec nous",
 
     // Insights Section
@@ -716,7 +720,8 @@ export const homeTranslations = {
     "projects.crm.description": "Vollständiges CRM mit Vertriebsautomatisierung und Leistungsanalyse.",
 
     // Testimonials Section
-    "testimonials.title": "Was Unsere Kunden Sagen",
+    "testimonials.title.part1": "Unsere",
+    "testimonials.title.part2": "Testimonials",
     "testimonials.subtitle": "Echte Testimonials von Kunden, die ihre Unternehmen mit uns transformiert haben",
 
     // Insights Section

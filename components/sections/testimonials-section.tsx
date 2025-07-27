@@ -111,7 +111,8 @@ export function TestimonialsSection() {
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-3xl lg:text-4xl font-bold text-viana-black mb-4">
-            <span className="text-gray-900">Nossos</span> <span className="text-viana-orange">Depoimentos</span>
+            <span className="text-gray-900">{t("testimonials.title.part1")}</span>{" "}
+            <span className="text-viana-orange">{t("testimonials.title.part2")}</span>
           </h2>
           <p className="text-xl text-viana-gray max-w-3xl mx-auto">{t("testimonials.subtitle")}</p>
         </div>
