@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect, useCallback } from "react"
+import { useState, useEffect, useCallback, useRef } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { desktopMazes, mobileMazes, type Position } from "../../data/fox-game/mazes"
 import { Button } from "@/components/ui/button"
@@ -34,6 +34,9 @@ export default function FoxMazeGame() {
   const [startTime, setStartTime] = useState<number | null>(null)
   const [endTime, setEndTime] = useState<number | null>(null)
   const [ranking, setRanking] = useState<RankingEntry[]>([])
+
+  // Ref para controlar se já está processando a conclusão do nível
+  const processingLevelComplete = useRef(false)
 
   // Inicializar com mobile mazes por padrão
   const [mazes, setMazes] = useState(mobileMazes)
@@ -125,6 +128,7 @@ export default function FoxMazeGame() {
     if (currentMaze && currentMaze.start) {
       setFoxPosition(currentMaze.start)
       setIsCompleted(false)
+      processingLevelComplete.current = false // Reset da flag quando muda de nível
       if (currentLevel === 0 && !gameWon) {
         setEndTime(null)
       }
@@ -134,6 +138,10 @@ export default function FoxMazeGame() {
   // Verificar se chegou ao fim
   useEffect(() => {
     if (currentMaze && currentMaze.end && foxPosition.x === currentMaze.end.x && foxPosition.y === currentMaze.end.y) {
+      // Evitar processamento duplo
+      if (processingLevelComplete.current) return
+      processingLevelComplete.current = true
+
       setIsCompleted(true)
 
       if (currentLevel === mazes.length - 1) {
@@ -154,7 +162,7 @@ export default function FoxMazeGame() {
         }, 1500)
       }
     }
-  }, [foxPosition, currentMaze, startTime, playerName, mazes.length])
+  }, [foxPosition, currentMaze, currentLevel, startTime, playerName, mazes.length])
 
   // Adicionar entrada ao ranking
   const addToRanking = (name: string, time: number) => {
@@ -182,6 +190,7 @@ export default function FoxMazeGame() {
         setEndTime(null)
         setPlayerName("")
         setShowNameForm(true)
+        processingLevelComplete.current = false
       }, 3000) // Aumentado para 3 segundos para dar tempo de ler a mensagem
 
       return () => clearTimeout(timer)
@@ -359,6 +368,7 @@ export default function FoxMazeGame() {
     if (currentMaze && currentMaze.start) {
       setFoxPosition(currentMaze.start)
       setIsCompleted(false)
+      processingLevelComplete.current = false
     }
   }
 
@@ -370,6 +380,7 @@ export default function FoxMazeGame() {
     setStartTime(null)
     setEndTime(null)
     setShowNameForm(true)
+    processingLevelComplete.current = false
   }
 
   const startGame = () => {
