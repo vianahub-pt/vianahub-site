@@ -25,6 +25,13 @@ export const homeTranslations = {
     "foxGame.instructions":
       "• Use as setas do teclado para mover a raposa\n• Ou clique nas células para mover\n• Encontre o oásis em cada nível\n• Complete todos os 5 níveis o mais rápido possível!",
 
+    // Fox Game Ranking
+    "foxGame.ranking.title": "🏆 Ranking dos Melhores Tempos",
+    "foxGame.ranking.empty.title": "🌟 Seja o primeiro no ranking!",
+    "foxGame.ranking.empty.subtitle": "Complete todos os níveis para aparecer aqui",
+    "foxGame.ranking.you": "Você",
+    "foxGame.ranking.footer": "Complete todos os 5 níveis o mais rápido possível para entrar no ranking!",
+
     // Industries Section
     "industries.title.part1": "Indústrias",
     "industries.title.part2": "Atendidas",
@@ -273,6 +280,13 @@ export const homeTranslations = {
     "foxGame.instructions":
       "• Use arrow keys to move the fox\n• Or click on cells to move\n• Find the oasis in each level\n• Complete all 5 levels as fast as possible!",
 
+    // Fox Game Ranking
+    "foxGame.ranking.title": "🏆 Best Times Ranking",
+    "foxGame.ranking.empty.title": "🌟 Be the first in the ranking!",
+    "foxGame.ranking.empty.subtitle": "Complete all levels to appear here",
+    "foxGame.ranking.you": "You",
+    "foxGame.ranking.footer": "Complete all 5 levels as fast as possible to enter the ranking!",
+
     // Industries Section
     "industries.title.part1": "Industries",
     "industries.title.part2": "Served",
@@ -514,6 +528,13 @@ export const homeTranslations = {
     "foxGame.howToPlay": "Cómo jugar:",
     "foxGame.instructions":
       "• Usa las flechas del teclado para mover el zorro\n• O haz clic en las celdas para mover\n• Encuentra el oasis en cada nivel\n• ¡Completa todos los 5 niveles lo más rápido posible!",
+
+    // Fox Game Ranking
+    "foxGame.ranking.title": "🏆 Ranking de Mejores Tiempos",
+    "foxGame.ranking.empty.title": "🌟 ¡Sé el primero en el ranking!",
+    "foxGame.ranking.empty.subtitle": "Completa todos los niveles para aparecer aquí",
+    "foxGame.ranking.you": "Tú",
+    "foxGame.ranking.footer": "¡Completa todos los 5 niveles lo más rápido posible para entrar en el ranking!",
 
     // Industries Section
     "industries.title.part1": "Industrias",
@@ -768,6 +789,14 @@ export const homeTranslations = {
     "foxGame.instructions":
       "• Utilisez les flèches du clavier pour déplacer le renard\n• Ou cliquez sur les cellules pour vous déplacer\n• Trouvez l'oasis à chaque niveau\n• Terminez tous les 5 niveaux le plus rapidement possible !",
 
+    // Fox Game Ranking
+    "foxGame.ranking.title": "🏆 Classement des Meilleurs Temps",
+    "foxGame.ranking.empty.title": "🌟 Soyez le premier du classement !",
+    "foxGame.ranking.empty.subtitle": "Terminez tous les niveaux pour apparaître ici",
+    "foxGame.ranking.you": "Vous",
+    "foxGame.ranking.footer":
+      "Terminez tous les 5 niveaux le plus rapidement possible pour entrer dans le classement !",
+
     // Industries Section
     "industries.title.part1": "Industries",
     "industries.title.part2": "Servies",
@@ -1020,6 +1049,13 @@ export const homeTranslations = {
     "foxGame.howToPlay": "Wie man spielt:",
     "foxGame.instructions":
       "• Verwende die Pfeiltasten, um den Fuchs zu bewegen\n• Oder klicke auf Zellen, um dich zu bewegen\n• Finde die Oase in jedem Level\n• Vervollständige alle 5 Level so schnell wie möglich!",
+
+    // Fox Game Ranking
+    "foxGame.ranking.title": "🏆 Bestzeiten-Rangliste",
+    "foxGame.ranking.empty.title": "🌟 Sei der Erste in der Rangliste!",
+    "foxGame.ranking.empty.subtitle": "Vervollständige alle Level, um hier zu erscheinen",
+    "foxGame.ranking.you": "Du",
+    "foxGame.ranking.footer": "Vervollständige alle 5 Level so schnell wie möglich, um in die Rangliste zu kommen!",
 
     // Industries Section
     "industries.title.part1": "Branchen",
