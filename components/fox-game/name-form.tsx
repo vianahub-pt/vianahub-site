@@ -1,86 +1,63 @@
 "use client"
 
 import type React from "react"
-
 import { useState } from "react"
-import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { Label } from "@/components/ui/label"
 import { useTranslation } from "@/contexts/translation-context"
 
 interface NameFormProps {
-  onNameSubmit: (name: string) => void
+  onStart: (name: string) => void
 }
 
-export function NameForm({ onNameSubmit }: NameFormProps) {
-  const [name, setName] = useState("")
+export const NameForm: React.FC<NameFormProps> = ({ onStart }) => {
   const { t } = useTranslation()
+  const [name, setName] = useState("")
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
     if (name.trim()) {
-      onNameSubmit(name.trim())
+      onStart(name.trim())
     }
   }
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gradient-to-b from-yellow-200 to-orange-200 p-4">
-      <motion.div
-        initial={{ opacity: 0, scale: 0.8 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 0.5 }}
-      >
-        <Card className="w-full max-w-md bg-white/90 backdrop-blur-sm shadow-2xl">
-          <CardHeader className="text-center">
-            <motion.div
-              animate={{ rotate: [0, 10, -10, 0] }}
-              transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY }}
-              className="flex justify-center mb-4"
-            >
-              <img src="/fox-desktop.png" alt="Fox" className="w-16 h-16 object-contain" />
-            </motion.div>
-            <CardTitle className="text-2xl font-bold text-amber-800">{t("foxGame.nameFormTitle")}</CardTitle>
-            <p className="text-amber-600 mt-2">{t("foxGame.nameFormSubtitle")}</p>
-          </CardHeader>
-          <CardContent>
-            <form onSubmit={handleSubmit} className="space-y-4">
-              <div>
-                <label htmlFor="playerName" className="block text-sm font-medium text-amber-700 mb-2">
-                  {t("foxGame.nameFormLabel")}
-                </label>
-                <Input
-                  id="playerName"
-                  type="text"
-                  value={name}
-                  onChange={(e) => setName(e.target.value)}
-                  placeholder={t("foxGame.nameFormPlaceholder")}
-                  className="w-full"
-                  maxLength={20}
-                  required
-                />
-              </div>
-              <Button
-                type="submit"
-                className="w-full bg-orange-600 hover:bg-orange-700 text-white font-semibold py-2 px-4 rounded-lg transition-colors"
-                disabled={!name.trim()}
-              >
-                {t("foxGame.nameFormButton")}
-              </Button>
-            </form>
-            <div className="mt-6 text-center text-sm text-amber-600">
-              <p className="mb-2">{t("foxGame.howToPlay")}</p>
-              <ul className="text-xs space-y-1">
-                {t("foxGame.howToPlayInstructions")
-                  .split("\n")
-                  .map((line, index) => (
-                    <li key={index}>{line}</li>
-                  ))}
-              </ul>
+    <div className="flex items-center justify-center min-h-[500px] p-4">
+      <Card className="w-full max-w-md">
+        <CardHeader className="text-center">
+          <CardTitle className="text-2xl font-bold text-orange-600">{t("foxGame.nameFormTitle")}</CardTitle>
+          <p className="text-gray-600 mt-2">{t("foxGame.nameFormSubtitle")}</p>
+        </CardHeader>
+        <CardContent className="space-y-6">
+          <form onSubmit={handleSubmit} className="space-y-4">
+            <div className="space-y-2">
+              <Label htmlFor="playerName">{t("foxGame.nameFormLabel")}</Label>
+              <Input
+                id="playerName"
+                type="text"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                placeholder={t("foxGame.nameFormPlaceholder")}
+                className="text-center"
+                maxLength={20}
+                required
+              />
             </div>
-          </CardContent>
-        </Card>
-      </motion.div>
+            <Button type="submit" className="w-full bg-orange-500 hover:bg-orange-600" disabled={!name.trim()}>
+              {t("foxGame.nameFormButton")}
+            </Button>
+          </form>
+
+          <div className="border-t pt-4 space-y-3">
+            <div className="text-sm font-semibold text-gray-700">{t("foxGame.howToPlay")}</div>
+            <div className="text-xs text-gray-600 space-y-1 whitespace-pre-line">
+              {t("foxGame.howToPlayInstructions")}
+            </div>
+          </div>
+        </CardContent>
+      </Card>
     </div>
   )
 }
