@@ -150,11 +150,11 @@ export default function FoxMazeGame() {
       } else {
         // Avançar automaticamente para o próximo nível após 1.5 segundos
         setTimeout(() => {
-          setCurrentLevel((prev) => prev + 1)
+          setCurrentLevel(currentLevel + 1)
         }, 1500)
       }
     }
-  }, [foxPosition, currentMaze, currentLevel, startTime, playerName, mazes.length])
+  }, [foxPosition, currentMaze, startTime, playerName, mazes.length])
 
   // Adicionar entrada ao ranking
   const addToRanking = (name: string, time: number) => {
