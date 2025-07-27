@@ -4,41 +4,59 @@ import { Button } from "@/components/ui/button"
 import { ArrowRight, Play } from "lucide-react"
 import { useTranslation } from "@/contexts/translation-context"
 import { Counter } from "@/components/counter"
-import { useEffect, useRef } from "react"
+import { useEffect, useRef, useState } from "react"
 
 export function HeroSection() {
   const { t } = useTranslation()
-
   const videoRef = useRef<HTMLVideoElement>(null)
+  const [videoError, setVideoError] = useState(false)
 
   useEffect(() => {
-    if (videoRef.current) {
-      videoRef.current.play().catch((error) => {
-        console.error("Erro ao reproduzir o vídeo:", error)
-      })
+    if (videoRef.current && !videoError) {
+      const playVideo = async () => {
+        try {
+          await videoRef.current?.play()
+        } catch (error) {
+          console.warn("Vídeo não pôde ser reproduzido automaticamente:", error)
+          setVideoError(true)
+        }
+      }
+
+      // Tentar reproduzir o vídeo após um pequeno delay
+      const timer = setTimeout(playVideo, 100)
+
+      return () => clearTimeout(timer)
     }
-  }, [])
+  }, [videoError])
 
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden">
-      {/* Vídeo de fundo */}
+      {/* Vídeo de fundo ou imagem fallback */}
       <div className="absolute inset-0 z-0">
-        <video
-          ref={videoRef}
-          className="absolute inset-0 w-full h-full object-cover"
-          autoPlay
-          muted
-          loop
-          playsInline
-          poster="/wallpaper.jpg"
-        >
-          <source
-            src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/home-hero-QF1p4zm3ekF8rOyXzcuiTVontRDngQ.mp4"
-            type="video/mp4"
+        {!videoError ? (
+          <video
+            ref={videoRef}
+            className="absolute inset-0 w-full h-full object-cover"
+            autoPlay
+            muted
+            loop
+            playsInline
+            poster="/wallpaper.jpg"
+            onError={() => setVideoError(true)}
+          >
+            <source
+              src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/home-hero-QF1p4zm3ekF8rOyXzcuiTVontRDngQ.mp4"
+              type="video/mp4"
+            />
+          </video>
+        ) : (
+          <div
+            className="absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat"
+            style={{ backgroundImage: "url(/wallpaper.jpg)" }}
           />
-          Your browser does not support the video tag.
-        </video>
+        )}
       </div>
+
       {/* Overlay para melhorar o contraste */}
       <div className="absolute inset-0 bg-black/60 z-0" />
 
