@@ -34,7 +34,8 @@ export const homeTranslations = {
     "industries.cta": "Explorar",
 
     // Projects Section
-    "projects.title": "Nossos Projetos",
+    "projects.title.part1": "Nossos",
+    "projects.title.part2": "Projetos",
     "projects.subtitle": "Conheça alguns dos projetos que desenvolvemos para nossos clientes",
     "projects.cta": "Ver Todos os Projetos",
     "projects.viewProject": "Ver Projeto",
@@ -192,7 +193,8 @@ export const homeTranslations = {
     "industries.cta": "Explore",
 
     // Projects Section
-    "projects.title": "Our Projects",
+    "projects.title.part1": "Our",
+    "projects.title.part2": "Projects",
     "projects.subtitle": "Discover some of the projects we've developed for our clients",
     "projects.cta": "View All Projects",
     "projects.viewProject": "View Project",
@@ -347,7 +349,8 @@ export const homeTranslations = {
     "industries.cta": "Explorar",
 
     // Projects Section
-    "projects.title": "Nuestros Proyectos",
+    "projects.title.part1": "Nuestros",
+    "projects.title.part2": "Proyectos",
     "projects.subtitle": "Descubra algunos de los proyectos que hemos desarrollado para nuestros clientes",
     "projects.cta": "Ver Todos los Proyectos",
     "projects.viewProject": "Ver Proyecto",
@@ -508,7 +511,8 @@ export const homeTranslations = {
     "industries.cta": "Explorer",
 
     // Projects Section
-    "projects.title": "Nos Projets",
+    "projects.title.part1": "Nos",
+    "projects.title.part2": "Projets",
     "projects.subtitle": "Découvrez quelques-uns des projets que nous avons développés pour nos clients",
     "projects.cta": "Voir Tous les Projets",
     "projects.viewProject": "Voir le Projet",
@@ -670,7 +674,8 @@ export const homeTranslations = {
     "industries.cta": "Erkunden",
 
     // Projects Section
-    "projects.title": "Unsere Projekte",
+    "projects.title.part1": "Unsere",
+    "projects.title.part2": "Projekte",
     "projects.subtitle": "Entdecken Sie einige der Projekte, die wir für unsere Kunden entwickelt haben",
     "projects.cta": "Alle Projekte Ansehen",
     "projects.viewProject": "Projekt Ansehen",

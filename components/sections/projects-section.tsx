@@ -118,7 +118,8 @@ export function ProjectsSection() {
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-3xl lg:text-4xl font-bold text-viana-black mb-4">
-            <span className="text-gray-900">Nossos</span> <span className="text-viana-orange">Projetos</span>
+            <span className="text-gray-900">{t("projects.title.part1")}</span>{" "}
+            <span className="text-viana-orange">{t("projects.title.part2")}</span>
           </h2>
           <p className="text-lg text-viana-gray max-w-2xl mx-auto">{t("projects.subtitle")}</p>
         </div>
