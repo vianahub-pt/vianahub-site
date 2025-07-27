@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel"
 import { useTranslation } from "@/contexts/translation-context"
-import { Users, ArrowRight, Briefcase, Clock } from "lucide-react"
+import { Users, Briefcase, Clock } from "lucide-react"
 import Link from "next/link"
 import Autoplay from "embla-carousel-autoplay"
 import { useRef } from "react"
@@ -63,17 +63,13 @@ export function CareersSection() {
                 <p className="text-lg text-gray-600 dark:text-gray-300 mb-8 leading-relaxed font-kurale">
                   {t("careers.subtitle")}
                 </p>
-                <div className="flex flex-col sm:flex-row gap-4">
+                <div className="flex justify-center">
                   <Link href="/careers">
                     <Button size="lg" className="bg-viana-orange hover:bg-viana-orange/90 text-white">
                       <Briefcase className="mr-2 h-5 w-5" />
                       {t("careers.viewPositions")}
                     </Button>
                   </Link>
-                  <Button size="lg" variant="outline">
-                    {t("careers.cta")}
-                    <ArrowRight className="ml-2 h-5 w-5" />
-                  </Button>
                 </div>
               </div>
               <div className="bg-gradient-to-br from-viana-orange to-viana-yellow p-4 flex items-center justify-center">
