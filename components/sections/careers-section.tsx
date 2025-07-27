@@ -7,7 +7,6 @@ import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious
 import { useTranslation } from "@/contexts/translation-context"
 import { Users, ArrowRight, Briefcase, Clock } from "lucide-react"
 import Link from "next/link"
-import { careersTranslations } from "@/app/careers/translation"
 import Autoplay from "embla-carousel-autoplay"
 import { useRef } from "react"
 
@@ -34,24 +33,19 @@ const positionsMeta: PositionMeta[] = [
 ]
 
 export function CareersSection() {
-  const { t, language } = useTranslation()
+  const { t } = useTranslation()
   const plugin = useRef(Autoplay({ delay: 3000, stopOnInteraction: true }))
-
-  // Local translation function for careers
-  const tCareers = (key: string) => {
-    return careersTranslations[language]?.[key] || key
-  }
 
   const getTranslatedPosition = (positionMeta: PositionMeta): TranslatedPosition => {
     const baseKey = `careers.positions.${positionMeta.id}`
 
     return {
       ...positionMeta,
-      title: tCareers(`${baseKey}.title`),
-      department: tCareers(`${baseKey}.department`),
-      location: tCareers(`${baseKey}.location`),
-      type: tCareers(`${baseKey}.type`),
-      description: tCareers(`${baseKey}.description`),
+      title: t(`${baseKey}.title`),
+      department: t(`${baseKey}.department`),
+      location: t(`${baseKey}.location`),
+      type: t(`${baseKey}.type`),
+      description: t(`${baseKey}.description`),
     }
   }
 
@@ -105,9 +99,9 @@ export function CareersSection() {
                                   <Badge
                                     variant="secondary"
                                     className={`ml-2 text-sm px-3 py-1 flex-shrink-0 ${
-                                      translatedPosition.location === tCareers("careers.positions.1.location")
+                                      translatedPosition.location === t("careers.positions.1.location")
                                         ? "bg-green-100 text-green-800"
-                                        : translatedPosition.location === tCareers("careers.positions.2.location")
+                                        : translatedPosition.location === t("careers.positions.2.location")
                                           ? "bg-blue-100 text-blue-800"
                                           : "bg-purple-100 text-purple-800"
                                     }`}

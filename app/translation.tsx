@@ -110,6 +110,53 @@ export const homeTranslations = {
     "testimonials.joao.content":
       "ROI excepcional! O investimento se pagou em menos de 6 meses. Equipe altamente recomendada.",
 
+    // Careers Section
+    "careers.title": "Junte-se à Nossa Equipe",
+    "careers.subtitle":
+      "Faça parte de uma equipe inovadora que está transformando o futuro da tecnologia. Oferecemos um ambiente colaborativo, desafios estimulantes e oportunidades de crescimento.",
+    "careers.viewPositions": "Ver Vagas",
+    "careers.cta": "Enviar Currículo",
+
+    // Career Positions
+    "careers.positions.1.title": "Desenvolvedor Full Stack",
+    "careers.positions.1.department": "Desenvolvimento",
+    "careers.positions.1.location": "Remoto",
+    "careers.positions.1.type": "Tempo Integral",
+    "careers.positions.1.description": "Desenvolva aplicações web modernas usando React, Node.js e tecnologias cloud.",
+
+    "careers.positions.2.title": "Designer UX/UI",
+    "careers.positions.2.department": "Design",
+    "careers.positions.2.location": "São Paulo",
+    "careers.positions.2.type": "Tempo Integral",
+    "careers.positions.2.description":
+      "Crie experiências digitais incríveis e interfaces intuitivas para nossos produtos.",
+
+    "careers.positions.3.title": "Analista de QA",
+    "careers.positions.3.department": "Qualidade",
+    "careers.positions.3.location": "Híbrido",
+    "careers.positions.3.type": "Tempo Integral",
+    "careers.positions.3.description":
+      "Garanta a qualidade dos nossos produtos através de testes automatizados e manuais.",
+
+    "careers.positions.4.title": "Arquiteto de Software",
+    "careers.positions.4.department": "Arquitetura",
+    "careers.positions.4.location": "São Paulo",
+    "careers.positions.4.type": "Tempo Integral",
+    "careers.positions.4.description": "Projete e implemente arquiteturas escaláveis para sistemas complexos.",
+
+    "careers.positions.5.title": "Product Manager",
+    "careers.positions.5.department": "Produto",
+    "careers.positions.5.location": "Remoto",
+    "careers.positions.5.type": "Tempo Integral",
+    "careers.positions.5.description": "Lidere o desenvolvimento de produtos inovadores do conceito ao lançamento.",
+
+    "careers.positions.6.title": "DevOps Engineer",
+    "careers.positions.6.department": "Infraestrutura",
+    "careers.positions.6.location": "Híbrido",
+    "careers.positions.6.type": "Tempo Integral",
+    "careers.positions.6.description":
+      "Automatize processos e mantenha nossa infraestrutura cloud funcionando perfeitamente.",
+
     // Insights Section
     "insights.title": "Insights e Resultados",
     "insights.subtitle": "Dados que comprovam nossa excelência e compromisso com resultados excepcionais",
@@ -300,6 +347,50 @@ export const homeTranslations = {
     "testimonials.joao.content":
       "Exceptional ROI! The investment paid for itself in less than 6 months. Highly recommended team.",
 
+    // Careers Section
+    "careers.title": "Join Our Team",
+    "careers.subtitle":
+      "Be part of an innovative team that is transforming the future of technology. We offer a collaborative environment, stimulating challenges and growth opportunities.",
+    "careers.viewPositions": "View Positions",
+    "careers.cta": "Send Resume",
+
+    // Career Positions
+    "careers.positions.1.title": "Full Stack Developer",
+    "careers.positions.1.department": "Development",
+    "careers.positions.1.location": "Remote",
+    "careers.positions.1.type": "Full Time",
+    "careers.positions.1.description": "Develop modern web applications using React, Node.js and cloud technologies.",
+
+    "careers.positions.2.title": "UX/UI Designer",
+    "careers.positions.2.department": "Design",
+    "careers.positions.2.location": "São Paulo",
+    "careers.positions.2.type": "Full Time",
+    "careers.positions.2.description": "Create amazing digital experiences and intuitive interfaces for our products.",
+
+    "careers.positions.3.title": "QA Analyst",
+    "careers.positions.3.department": "Quality",
+    "careers.positions.3.location": "Hybrid",
+    "careers.positions.3.type": "Full Time",
+    "careers.positions.3.description": "Ensure the quality of our products through automated and manual testing.",
+
+    "careers.positions.4.title": "Software Architect",
+    "careers.positions.4.department": "Architecture",
+    "careers.positions.4.location": "São Paulo",
+    "careers.positions.4.type": "Full Time",
+    "careers.positions.4.description": "Design and implement scalable architectures for complex systems.",
+
+    "careers.positions.5.title": "Product Manager",
+    "careers.positions.5.department": "Product",
+    "careers.positions.5.location": "Remote",
+    "careers.positions.5.type": "Full Time",
+    "careers.positions.5.description": "Lead the development of innovative products from concept to launch.",
+
+    "careers.positions.6.title": "DevOps Engineer",
+    "careers.positions.6.department": "Infrastructure",
+    "careers.positions.6.location": "Hybrid",
+    "careers.positions.6.type": "Full Time",
+    "careers.positions.6.description": "Automate processes and keep our cloud infrastructure running perfectly.",
+
     // Insights Section
     "insights.title": "Insights and Results",
     "insights.subtitle": "Data that proves our excellence and commitment to exceptional results",
@@ -489,6 +580,55 @@ export const homeTranslations = {
     "testimonials.joao.role": "Director Comercial, NextGen",
     "testimonials.joao.content":
       "¡ROI excepcional! La inversión se pagó en menos de 6 meses. Equipo altamente recomendado.",
+
+    // Careers Section
+    "careers.title": "Únete a Nuestro Equipo",
+    "careers.subtitle":
+      "Forma parte de un equipo innovador que está transformando el futuro de la tecnología. Ofrecemos un ambiente colaborativo, desafíos estimulantes y oportunidades de crecimiento.",
+    "careers.viewPositions": "Ver Vacantes",
+    "careers.cta": "Enviar Currículum",
+
+    // Career Positions
+    "careers.positions.1.title": "Desarrollador Full Stack",
+    "careers.positions.1.department": "Desarrollo",
+    "careers.positions.1.location": "Remoto",
+    "careers.positions.1.type": "Tiempo Completo",
+    "careers.positions.1.description":
+      "Desarrolla aplicaciones web modernas usando React, Node.js y tecnologías cloud.",
+
+    "careers.positions.2.title": "Diseñador UX/UI",
+    "careers.positions.2.department": "Diseño",
+    "careers.positions.2.location": "São Paulo",
+    "careers.positions.2.type": "Tiempo Completo",
+    "careers.positions.2.description":
+      "Crea experiencias digitales increíbles e interfaces intuitivas para nuestros productos.",
+
+    "careers.positions.3.title": "Analista de QA",
+    "careers.positions.3.department": "Calidad",
+    "careers.positions.3.location": "Híbrido",
+    "careers.positions.3.type": "Tiempo Completo",
+    "careers.positions.3.description":
+      "Garantiza la calidad de nuestros productos a través de pruebas automatizadas y manuales.",
+
+    "careers.positions.4.title": "Arquitecto de Software",
+    "careers.positions.4.department": "Arquitectura",
+    "careers.positions.4.location": "São Paulo",
+    "careers.positions.4.type": "Tiempo Completo",
+    "careers.positions.4.description": "Diseña e implementa arquitecturas escalables para sistemas complejos.",
+
+    "careers.positions.5.title": "Product Manager",
+    "careers.positions.5.department": "Producto",
+    "careers.positions.5.location": "Remoto",
+    "careers.positions.5.type": "Tiempo Completo",
+    "careers.positions.5.description":
+      "Lidera el desarrollo de productos innovadores desde el concepto hasta el lanzamiento.",
+
+    "careers.positions.6.title": "Ingeniero DevOps",
+    "careers.positions.6.department": "Infraestructura",
+    "careers.positions.6.location": "Híbrido",
+    "careers.positions.6.type": "Tiempo Completo",
+    "careers.positions.6.description":
+      "Automatiza procesos y mantiene nuestra infraestructura cloud funcionando perfectamente.",
 
     // Insights Section
     "insights.title": "Insights y Resultados",
@@ -684,6 +824,54 @@ export const homeTranslations = {
     "testimonials.joao.content":
       "ROI exceptionnel ! L'investissement s'est rentabilisé en moins de 6 mois. Équipe hautement recommandée.",
 
+    // Careers Section
+    "careers.title": "Rejoignez Notre Équipe",
+    "careers.subtitle":
+      "Faites partie d'une équipe innovante qui transforme l'avenir de la technologie. Nous offrons un environnement collaboratif, des défis stimulants et des opportunités de croissance.",
+    "careers.viewPositions": "Voir les Postes",
+    "careers.cta": "Envoyer CV",
+
+    // Career Positions
+    "careers.positions.1.title": "Développeur Full Stack",
+    "careers.positions.1.department": "Développement",
+    "careers.positions.1.location": "À Distance",
+    "careers.positions.1.type": "Temps Plein",
+    "careers.positions.1.description":
+      "Développez des applications web modernes en utilisant React, Node.js et les technologies cloud.",
+
+    "careers.positions.2.title": "Designer UX/UI",
+    "careers.positions.2.department": "Design",
+    "careers.positions.2.location": "São Paulo",
+    "careers.positions.2.type": "Temps Plein",
+    "careers.positions.2.description":
+      "Créez des expériences numériques incroyables et des interfaces intuitives pour nos produits.",
+
+    "careers.positions.3.title": "Analyste QA",
+    "careers.positions.3.department": "Qualité",
+    "careers.positions.3.location": "Hybride",
+    "careers.positions.3.type": "Temps Plein",
+    "careers.positions.3.description": "Assurez la qualité de nos produits grâce à des tests automatisés et manuels.",
+
+    "careers.positions.4.title": "Architecte Logiciel",
+    "careers.positions.4.department": "Architecture",
+    "careers.positions.4.location": "São Paulo",
+    "careers.positions.4.type": "Temps Plein",
+    "careers.positions.4.description":
+      "Concevez et implémentez des architectures évolutives pour des systèmes complexes.",
+
+    "careers.positions.5.title": "Chef de Produit",
+    "careers.positions.5.department": "Produit",
+    "careers.positions.5.location": "À Distance",
+    "careers.positions.5.type": "Temps Plein",
+    "careers.positions.5.description": "Dirigez le développement de produits innovants du concept au lancement.",
+
+    "careers.positions.6.title": "Ingénieur DevOps",
+    "careers.positions.6.department": "Infrastructure",
+    "careers.positions.6.location": "Hybride",
+    "careers.positions.6.type": "Temps Plein",
+    "careers.positions.6.description":
+      "Automatisez les processus et maintenez notre infrastructure cloud fonctionnant parfaitement.",
+
     // Insights Section
     "insights.title": "Insights et Résultats",
     "insights.subtitle": "Données qui prouvent notre excellence et notre engagement envers des résultats exceptionnels",
@@ -878,6 +1066,57 @@ export const homeTranslations = {
     "testimonials.joao.role": "Vertriebsleiter, NextGen",
     "testimonials.joao.content":
       "Außergewöhnlicher ROI! Die Investition amortisierte sich in weniger als 6 Monaten. Sehr empfehlenswertes Team.",
+
+    // Careers Section
+    "careers.title": "Treten Sie Unserem Team Bei",
+    "careers.subtitle":
+      "Werden Sie Teil eines innovativen Teams, das die Zukunft der Technologie transformiert. Wir bieten eine kollaborative Umgebung, stimulierende Herausforderungen und Wachstumsmöglichkeiten.",
+    "careers.viewPositions": "Stellen Ansehen",
+    "careers.cta": "Lebenslauf Senden",
+
+    // Career Positions
+    "careers.positions.1.title": "Full Stack Entwickler",
+    "careers.positions.1.department": "Entwicklung",
+    "careers.positions.1.location": "Remote",
+    "careers.positions.1.type": "Vollzeit",
+    "careers.positions.1.description":
+      "Entwickeln Sie moderne Webanwendungen mit React, Node.js und Cloud-Technologien.",
+
+    "careers.positions.2.title": "UX/UI Designer",
+    "careers.positions.2.department": "Design",
+    "careers.positions.2.location": "São Paulo",
+    "careers.positions.2.type": "Vollzeit",
+    "careers.positions.2.description":
+      "Erstellen Sie erstaunliche digitale Erfahrungen und intuitive Benutzeroberflächen für unsere Produkte.",
+
+    "careers.positions.3.title": "QA Analyst",
+    "careers.positions.3.department": "Qualität",
+    "careers.positions.3.location": "Hybrid",
+    "careers.positions.3.type": "Vollzeit",
+    "careers.positions.3.description":
+      "Gewährleisten Sie die Qualität unserer Produkte durch automatisierte und manuelle Tests.",
+
+    "careers.positions.4.title": "Software Architekt",
+    "careers.positions.4.department": "Architektur",
+    "careers.positions.4.location": "São Paulo",
+    "careers.positions.4.type": "Vollzeit",
+    "careers.positions.4.description":
+      "Entwerfen und implementieren Sie skalierbare Architekturen für komplexe Systeme.",
+
+    "careers.positions.5.title": "Produktmanager",
+
+    "careers.positions.5.department": "Produkt",
+    "careers.positions.5.location": "Remote",
+    "careers.positions.5.type": "Vollzeit",
+    "careers.positions.5.description":
+      "Leiten Sie die Entwicklung innovativer Produkte vom Konzept bis zur Markteinführung.",
+
+    "careers.positions.6.title": "DevOps Ingenieur",
+    "careers.positions.6.department": "Infrastruktur",
+    "careers.positions.6.location": "Hybrid",
+    "careers.positions.6.type": "Vollzeit",
+    "careers.positions.6.description":
+      "Automatisieren Sie Prozesse und halten Sie unsere Cloud-Infrastruktur perfekt am Laufen.",
 
     // Insights Section
     "insights.title": "Insights und Ergebnisse",
