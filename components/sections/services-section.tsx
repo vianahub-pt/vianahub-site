@@ -2,7 +2,7 @@
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
-import { ArrowRight, Code, Smartphone, Globe, Database, Shield, Zap } from "lucide-react"
+import { Code, Smartphone, Globe, Database, Shield, Zap } from "lucide-react"
 import { useTranslation } from "@/contexts/translation-context"
 import { useEffect, useRef, useState } from "react"
 
@@ -123,14 +123,12 @@ export function ServicesSection() {
               <CardContent className="text-center">
                 <p className="text-viana-orange mb-6 leading-relaxed font-kurale">{t(service.descriptionKey)}</p>
                 <Button
+                  size="sm"
                   variant="outline"
                   className="group-hover:bg-viana-orange group-hover:text-white group-hover:border-viana-orange transition-all duration-300 bg-transparent"
                   asChild
                 >
-                  <a href={service.href}>
-                    {t("services.cta")}
-                    <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                  </a>
+                  <a href={service.href}>{t("services.cta")}</a>
                 </Button>
               </CardContent>
             </Card>
