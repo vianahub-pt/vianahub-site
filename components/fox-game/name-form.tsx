@@ -1,7 +1,6 @@
 "use client"
 
 import type React from "react"
-
 import { useState } from "react"
 import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
@@ -71,9 +70,11 @@ export function NameForm({ onNameSubmit }: NameFormProps) {
             <div className="mt-6 text-center text-sm text-amber-600">
               <p className="mb-2">{t("foxGame.howToPlay")}</p>
               <ul className="text-xs space-y-1">
-                {t("foxGame.instructions").map((instruction: string, index: number) => (
-                  <li key={index}>• {instruction}</li>
-                ))}
+                {t("foxGame.instructions")
+                  .split("\n")
+                  .map((instruction, index) => (
+                    <li key={index}>{instruction}</li>
+                  ))}
               </ul>
             </div>
           </CardContent>
