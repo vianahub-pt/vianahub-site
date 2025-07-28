@@ -4,7 +4,6 @@ import { useEffect } from "react"
 import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
 import { Card, CardContent } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
 import { TranslationProvider, useTranslation } from "@/contexts/translation-context"
 import { Zap, Users, Target, TrendingUp, CheckCircle, Clock, BarChart3, Lightbulb } from "lucide-react"
 
@@ -67,7 +66,7 @@ function AgilePageContent() {
 
       {/* Hero Section */}
       <section
-        className="relative pt-24 lg:pt-28 pb-20 bg-gradient-to-br from-viana-orange to-viana-yellow overflow-hidden"
+        className="relative pt-8 pb-20 bg-gradient-to-br from-viana-orange to-viana-yellow overflow-hidden"
         style={{
           backgroundImage: "url(/pages/what-we-do-agile.jpg)",
           backgroundSize: "cover",
@@ -79,9 +78,6 @@ function AgilePageContent() {
           <div className="max-w-4xl mx-auto text-center text-white mt-8">
             <h1 className="text-4xl lg:text-6xl font-bold mb-6">{t("agile.hero.title")}</h1>
             <p className="text-xl lg:text-2xl mb-8 opacity-90">{t("agile.hero.subtitle")}</p>
-            <Button size="lg" className="bg-white text-viana-orange hover:bg-gray-100 font-semibold px-8 py-3">
-              Saiba Mais
-            </Button>
           </div>
         </div>
       </section>
@@ -131,17 +127,6 @@ function AgilePageContent() {
               </Card>
             ))}
           </div>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="py-20 bg-viana-yellow">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl lg:text-4xl font-bold text-viana-black mb-6">{t("agile.ready.title")}</h2>
-          <p className="text-xl text-viana-gray mb-8 max-w-2xl mx-auto">{t("agile.ready.subtitle")}</p>
-          <Button size="lg" className="bg-viana-orange hover:bg-viana-orange/90 text-white font-semibold px-8 py-3">
-            {t("agile.ready.cta")}
-          </Button>
         </div>
       </section>
 
