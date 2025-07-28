@@ -15,22 +15,22 @@ export default function DevelopmentPage() {
 
   const carouselItems = [
     {
-      image: "/what-we-do-development-admin-template.jpg",
+      image: "/pages/what-we-do-development-website-template.jpg",
       title: t("development.services.carousel.website"),
       alt: "Website Development",
     },
     {
-      image: "/what-we-do-development-mobile-template.jpg",
+      image: "/pages/what-we-do-development-mobile-template.jpg",
       title: t("development.services.carousel.mobile"),
       alt: "Mobile Applications",
     },
     {
-      image: "/what-we-do-development-website-template.jpg",
+      image: "/pages/what-we-do-development-admin-template.jpg",
       title: t("development.services.carousel.corporate"),
       alt: "Corporate Systems",
     },
     {
-      image: "/what-we-do-development-integration-template.jpg",
+      image: "/pages/what-we-do-development-integration-template.jpg",
       title: t("development.services.carousel.apis"),
       alt: "API Architecture",
     },
@@ -44,7 +44,7 @@ export default function DevelopmentPage() {
         <section
           className="relative py-20 px-4 text-white overflow-hidden"
           style={{
-            backgroundImage: "url('/pages/what-we-do-development.jpg')",
+            backgroundImage: "url('/pages/what-we-do-landing-page.jpg')",
             backgroundSize: "cover",
             backgroundPosition: "center",
             backgroundRepeat: "no-repeat",
