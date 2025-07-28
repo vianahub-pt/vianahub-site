@@ -67,7 +67,7 @@ export default function LandingPagesPage() {
         <main className="pt-28">
           {/* Hero Section */}
           <section
-            className="relative pt-24 lg:pt-28 pb-20 bg-gradient-to-br from-viana-orange to-viana-yellow overflow-hidden"
+            className="relative pt-24 lg:pt-28 pb-20 bg-gradient-to-br from-viana-orange to-viana-yellow overflow-hidden h-full min-h-[50vh]"
             style={{
               backgroundImage: "url('/pages/landing-page.jpg')",
               backgroundSize: "cover",

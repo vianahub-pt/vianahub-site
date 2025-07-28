@@ -68,7 +68,7 @@ export default function OutsourcingPage() {
 
           {/* Hero Section */}
           <section
-            className="relative pt-24 lg:pt-28 pb-20 bg-gradient-to-br from-viana-orange to-viana-yellow overflow-hidden"
+            className="relative pt-24 lg:pt-28 pb-20 bg-gradient-to-br from-viana-orange to-viana-yellow overflow-hidden h-full min-h-[50vh]"
             style={{
               backgroundImage: "url('/pages/outsourcing.jpg')",
               backgroundSize: "cover",
