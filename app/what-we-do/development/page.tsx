@@ -5,17 +5,14 @@ import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel"
-import { Badge } from "@/components/ui/badge"
-import { Breadcrumb } from "@/components/breadcrumb"
 import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
-import { WhatsAppChat } from "@/components/whatsapp-chat"
-import { useTranslation } from "@/contexts/translation-context"
+import { TranslationProvider, useTranslation } from "@/contexts/translation-context"
 import { Code, Smartphone, Globe, Database, Zap, Shield, Palette, CheckCircle } from "lucide-react"
 import Autoplay from "embla-carousel-autoplay"
 import Link from "next/link"
 
-export default function DevelopmentPage() {
+function DevelopmentPageContent() {
   const { t } = useTranslation()
   const [mounted, setMounted] = useState(false)
 
@@ -96,20 +93,19 @@ export default function DevelopmentPage() {
     },
   ]
 
-return (
-    
+  return (
     <div className="min-h-screen bg-viana-white">
-    <Navbar />
-    <main className="pt-28">
-      {/* Hero Section */}
-      <section
+      <Navbar />
+      <main className="pt-28">
+        {/* Hero Section */}
+        <section
           className="relative pt-0 pb-0 bg-gradient-to-br from-viana-orange to-viana-yellow overflow-hidden h-[300px]"
           style={{
             backgroundImage: "url(/pages/development.jpg)",
             backgroundSize: "cover",
             backgroundPosition: "center",
           }}
-      >
+        >
           <div className="absolute inset-0 bg-black/60 z-0" />
           <div className="container mx-auto px-4 relative z-10 h-full flex items-center justify-center">
             <div className="max-w-4xl mx-auto text-center text-white">
@@ -117,8 +113,8 @@ return (
               <p className="text-xl lg:text-2xl mb-8 opacity-90">{t("development.hero.subtitle")}</p>
             </div>
           </div>
-      </section>
-	  
+        </section>
+
         {/* Services Carousel Section */}
         <section className="py-20 bg-gray-50 dark:bg-gray-900">
           <div className="container mx-auto px-4">
@@ -215,11 +211,18 @@ return (
               <Link href="/contact">{t("development.cta.button")}</Link>
             </Button>
           </div>
-        </section>	  
+        </section>
+      </main>
 
-	</main>
-	
       <Footer />
     </div>
+  )
+}
+
+export default function DevelopmentPage() {
+  return (
+    <TranslationProvider>
+      <DevelopmentPageContent />
+    </TranslationProvider>
   )
 }
