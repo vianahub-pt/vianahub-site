@@ -53,8 +53,9 @@ export function CareersSection() {
     <section className="py-20 bg-gray-50 dark:bg-gray-800">
       <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto">
-          <Card className="border-0 shadow-xl overflow-hidden">
-            <div className="grid md:grid-cols-2">
+          <div className="grid md:grid-cols-2 gap-6">
+            {/* Caixa Branca */}
+            <Card className="border-0 shadow-xl overflow-hidden">
               <div className="p-12">
                 <div className="flex items-center mb-6">
                   <Users className="h-8 w-8 text-viana-orange mr-4" />
@@ -72,7 +73,11 @@ export function CareersSection() {
                   </Link>
                 </div>
               </div>
-              <div className="bg-gradient-to-br from-viana-orange to-viana-yellow p-4 flex items-center justify-center min-h-full">
+            </Card>
+
+            {/* Caixa Laranja */}
+            <Card className="border-0 shadow-xl overflow-hidden bg-gradient-to-br from-viana-orange to-viana-yellow">
+              <div className="p-4 flex items-center justify-center min-h-full">
                 <div className="w-full h-full flex items-center justify-center">
                   <Carousel
                     className="w-full h-full"
@@ -131,8 +136,8 @@ export function CareersSection() {
                   </Carousel>
                 </div>
               </div>
-            </div>
-          </Card>
+            </Card>
+          </div>
         </div>
       </div>
     </section>
