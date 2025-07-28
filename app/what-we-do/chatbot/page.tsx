@@ -143,11 +143,125 @@ export default function ChatbotPage() {
                 <p className="text-xl text-viana-gray">{t("chatbot.demo.subtitle")}</p>
               </div>
 
-              <div className="bg-gray-50 rounded-lg p-8 text-center">
-                <Bot className="h-16 w-16 text-viana-orange mx-auto mb-4" />
-                <h3 className="text-2xl font-bold text-viana-black mb-4">{t("chatbot.demo.interactive.title")}</h3>
-                <p className="text-viana-gray mb-6">{t("chatbot.demo.interactive.description")}</p>
+              <div className="bg-gray-50 rounded-lg p-8">
+                <Bot className="h-16 w-16 text-viana-orange mx-auto mb-6" />
+
+                {/* Chat Animation */}
+                <div className="max-w-md mx-auto bg-white rounded-lg shadow-lg overflow-hidden">
+                  <div className="bg-viana-orange text-white p-3 text-center font-semibold">Chatbot Demo</div>
+                  <div className="p-4 h-80 overflow-y-auto">
+                    <div className="space-y-3">
+                      {/* Bot message */}
+                      <div
+                        className="flex items-start space-x-2 animate-fade-in-up"
+                        style={{ animationDelay: "0.5s", opacity: 0, animationFillMode: "forwards" }}
+                      >
+                        <div className="w-8 h-8 bg-viana-orange rounded-full flex items-center justify-center flex-shrink-0">
+                          <Bot className="w-4 h-4 text-white" />
+                        </div>
+                        <div className="bg-gray-100 rounded-lg p-3 max-w-xs">
+                          <p className="text-sm">Olá! Como posso ajudá-lo hoje?</p>
+                        </div>
+                      </div>
+
+                      {/* User message */}
+                      <div
+                        className="flex items-start space-x-2 justify-end animate-fade-in-up"
+                        style={{ animationDelay: "1.5s", opacity: 0, animationFillMode: "forwards" }}
+                      >
+                        <div className="bg-viana-orange text-white rounded-lg p-3 max-w-xs">
+                          <p className="text-sm">Oi! Gostaria de pedir um lanche</p>
+                        </div>
+                        <div className="w-8 h-8 bg-gray-300 rounded-full flex items-center justify-center flex-shrink-0">
+                          <Users className="w-4 h-4 text-gray-600" />
+                        </div>
+                      </div>
+
+                      {/* Bot message */}
+                      <div
+                        className="flex items-start space-x-2 animate-fade-in-up"
+                        style={{ animationDelay: "2.5s", opacity: 0, animationFillMode: "forwards" }}
+                      >
+                        <div className="w-8 h-8 bg-viana-orange rounded-full flex items-center justify-center flex-shrink-0">
+                          <Bot className="w-4 h-4 text-white" />
+                        </div>
+                        <div className="bg-gray-100 rounded-lg p-3 max-w-xs">
+                          <p className="text-sm">Perfeito! Temos sanduíches, pizzas e saladas. O que prefere?</p>
+                        </div>
+                      </div>
+
+                      {/* User message */}
+                      <div
+                        className="flex items-start space-x-2 justify-end animate-fade-in-up"
+                        style={{ animationDelay: "3.5s", opacity: 0, animationFillMode: "forwards" }}
+                      >
+                        <div className="bg-viana-orange text-white rounded-lg p-3 max-w-xs">
+                          <p className="text-sm">Um sanduíche de frango, por favor</p>
+                        </div>
+                        <div className="w-8 h-8 bg-gray-300 rounded-full flex items-center justify-center flex-shrink-0">
+                          <Users className="w-4 h-4 text-gray-600" />
+                        </div>
+                      </div>
+
+                      {/* Bot message */}
+                      <div
+                        className="flex items-start space-x-2 animate-fade-in-up"
+                        style={{ animationDelay: "4.5s", opacity: 0, animationFillMode: "forwards" }}
+                      >
+                        <div className="w-8 h-8 bg-viana-orange rounded-full flex items-center justify-center flex-shrink-0">
+                          <Bot className="w-4 h-4 text-white" />
+                        </div>
+                        <div className="bg-gray-100 rounded-lg p-3 max-w-xs">
+                          <p className="text-sm">Ótima escolha! Sanduíche de frango - R$ 15,00. Confirma o pedido?</p>
+                        </div>
+                      </div>
+
+                      {/* User message */}
+                      <div
+                        className="flex items-start space-x-2 justify-end animate-fade-in-up"
+                        style={{ animationDelay: "5.5s", opacity: 0, animationFillMode: "forwards" }}
+                      >
+                        <div className="bg-viana-orange text-white rounded-lg p-3 max-w-xs">
+                          <p className="text-sm">Sim, confirmo!</p>
+                        </div>
+                        <div className="w-8 h-8 bg-gray-300 rounded-full flex items-center justify-center flex-shrink-0">
+                          <Users className="w-4 h-4 text-gray-600" />
+                        </div>
+                      </div>
+
+                      {/* Bot message */}
+                      <div
+                        className="flex items-start space-x-2 animate-fade-in-up"
+                        style={{ animationDelay: "6.5s", opacity: 0, animationFillMode: "forwards" }}
+                      >
+                        <div className="w-8 h-8 bg-viana-orange rounded-full flex items-center justify-center flex-shrink-0">
+                          <Bot className="w-4 h-4 text-white" />
+                        </div>
+                        <div className="bg-gray-100 rounded-lg p-3 max-w-xs">
+                          <p className="text-sm">Pedido confirmado! ✅ Tempo estimado: 20 minutos. Obrigado!</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
+
+              <style jsx>{`
+                @keyframes fade-in-up {
+                  from {
+                    opacity: 0;
+                    transform: translateY(20px);
+                  }
+                  to {
+                    opacity: 1;
+                    transform: translateY(0);
+                  }
+                }
+                
+                .animate-fade-in-up {
+                  animation: fade-in-up 0.6s ease-out;
+                }
+              `}</style>
             </div>
           </div>
         </section>
