@@ -9,6 +9,7 @@ import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious
 import { Code, Smartphone, Building, Globe, Zap, Shield, Palette, CheckCircle, ArrowRight } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
+import Autoplay from "embla-carousel-autoplay"
 
 export default function DevelopmentPage() {
   const { t } = useTranslation()
@@ -67,7 +68,18 @@ export default function DevelopmentPage() {
 
             {/* Carousel */}
             <div className="mb-16">
-              <Carousel className="w-full max-w-4xl mx-auto">
+              <Carousel
+                className="w-full max-w-4xl mx-auto"
+                opts={{
+                  align: "start",
+                  loop: true,
+                }}
+                plugins={[
+                  Autoplay({
+                    delay: 4000,
+                  }),
+                ]}
+              >
                 <CarouselContent>
                   {carouselItems.map((item, index) => (
                     <CarouselItem key={index}>
