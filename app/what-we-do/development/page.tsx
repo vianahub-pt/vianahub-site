@@ -43,12 +43,11 @@ export default function DevelopmentPage() {
       <main className="pt-28">
         {/* Hero Section */}
         <section
-          className="relative py-20 px-4 text-white overflow-hidden"
+          className="relative pt-0 pb-20 bg-gradient-to-br from-viana-orange to-viana-yellow overflow-hidden"
           style={{
-            backgroundImage: "url('/pages/what-we-do-landing-page.jpg')",
+            backgroundImage: "url(/pages/what-we-do-development.jpg)",
             backgroundSize: "cover",
             backgroundPosition: "center",
-            backgroundRepeat: "no-repeat",
           }}
         >
           <div className="absolute inset-0 bg-black/50" />
