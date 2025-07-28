@@ -7,6 +7,7 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { TranslationProvider, useTranslation } from "@/contexts/translation-context"
 import { MessageCircle, Bot, Zap, Clock, Users, BarChart, Headphones, CheckCircle } from "lucide-react"
+import Link from "next/link"
 
 export default function ChatbotPage() {
   const { t } = useTranslation()
@@ -81,9 +82,6 @@ export default function ChatbotPage() {
             <div className="max-w-4xl mx-auto text-center text-white mt-8">
               <h1 className="text-4xl lg:text-6xl font-bold mb-6">{t("chatbot.hero.title")}</h1>
               <p className="text-xl lg:text-2xl mb-8 opacity-90">{t("chatbot.hero.subtitle")}</p>
-              <Button size="lg" className="bg-white text-viana-orange hover:bg-gray-100 font-semibold px-8 py-3">
-                {t("chatbot.hero.cta")}
-              </Button>
             </div>
           </div>
         </section>
@@ -149,9 +147,6 @@ export default function ChatbotPage() {
                 <Bot className="h-16 w-16 text-viana-orange mx-auto mb-4" />
                 <h3 className="text-2xl font-bold text-viana-black mb-4">{t("chatbot.demo.interactive.title")}</h3>
                 <p className="text-viana-gray mb-6">{t("chatbot.demo.interactive.description")}</p>
-                <Button className="bg-viana-orange hover:bg-viana-orange/90 text-white font-semibold px-8 py-3">
-                  {t("chatbot.demo.cta")}
-                </Button>
               </div>
             </div>
           </div>
@@ -162,9 +157,11 @@ export default function ChatbotPage() {
           <div className="container mx-auto px-4 text-center">
             <h2 className="text-3xl lg:text-4xl font-bold text-viana-black mb-6">{t("chatbot.cta.title")}</h2>
             <p className="text-xl text-viana-gray mb-8 max-w-2xl mx-auto">{t("chatbot.cta.subtitle")}</p>
-            <Button size="lg" className="bg-viana-orange hover:bg-viana-orange/90 text-white font-semibold px-8 py-3">
-              {t("chatbot.cta.button")}
-            </Button>
+            <Link href="/contact">
+              <Button size="lg" className="bg-viana-orange hover:bg-viana-orange/90 text-white font-semibold px-8 py-3">
+                {t("chatbot.cta.button")}
+              </Button>
+            </Link>
           </div>
         </section>
 
