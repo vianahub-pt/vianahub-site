@@ -68,19 +68,18 @@ function LandingPagesContent() {
       <main className="pt-28">
         {/* Hero Section */}
         <section
-          className="relative pt-24 lg:pt-28 pb-20 bg-gradient-to-br from-viana-orange to-viana-yellow overflow-hidden"
+          className="relative pt-0 pb-0 bg-gradient-to-br from-viana-orange to-viana-yellow overflow-hidden h-[300px]"
           style={{
-            backgroundImage: "url('/pages/landing-page.jpg')",
+            backgroundImage: "url(/pages/ystem-integration.jpg)",
             backgroundSize: "cover",
             backgroundPosition: "center",
-            backgroundRepeat: "no-repeat",
           }}
         >
-          <div className="absolute inset-0 bg-black/10"></div>
-          <div className="container mx-auto px-4 relative z-10">
-            <div className="max-w-4xl mx-auto text-center text-white mt-8">
-              <h1 className="text-4xl lg:text-6xl font-bold mb-6 drop-shadow-lg">{t("landingPages.hero.title")}</h1>
-              <p className="text-xl lg:text-2xl mb-8 opacity-90 drop-shadow-lg">{t("landingPages.hero.subtitle")}</p>
+          <div className="absolute inset-0 bg-black/60 z-0" />
+          <div className="container mx-auto px-4 relative z-10 h-full flex items-center justify-center">
+            <div className="max-w-4xl mx-auto text-center text-white">
+              <h1 className="text-4xl lg:text-6xl font-bold mb-6">{t("landingPages.hero.title")}</h1>
+              <p className="text-xl lg:text-2xl mb-8 opacity-90">{t("landingPages.hero.subtitle")}</p>
             </div>
           </div>
         </section>
