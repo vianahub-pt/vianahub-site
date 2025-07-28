@@ -70,7 +70,7 @@ function AgilePageContent() {
       <section
         className="relative pt-0 pb-20 bg-gradient-to-br from-viana-orange to-viana-yellow overflow-hidden"
         style={{
-          backgroundImage: "url(/pages/what-we-do-agile.jpg)",
+          backgroundImage: "url(/pages/agile.jpg)",
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
