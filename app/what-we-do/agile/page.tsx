@@ -4,6 +4,7 @@ import { useEffect } from "react"
 import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
 import { Card, CardContent } from "@/components/ui/card"
+import { Breadcrumb } from "@/components/breadcrumb"
 import { TranslationProvider, useTranslation } from "@/contexts/translation-context"
 import { Zap, Users, Target, TrendingUp, Calendar, Timer, Eye, Truck } from "lucide-react"
 
@@ -63,9 +64,8 @@ function AgilePageContent() {
   return (
 
     <div className="min-h-screen bg-viana-white">
-      <Navbar />
 
-<main className="pt-28">
+    <main className="pt-28">
       {/* Hero Section */}
       <section
         className="relative pt-0 pb-20 bg-gradient-to-br from-viana-orange to-viana-yellow overflow-hidden"
@@ -131,7 +131,7 @@ function AgilePageContent() {
           </div>
         </div>
       </section>
-</main>
+    </main>
       <Footer />
     </div>
   )
