@@ -1,206 +1,181 @@
 "use client"
 
-import { useEffect } from "react"
-import { Navbar } from "@/components/navbar"
-import { Footer } from "@/components/footer"
-import { Card, CardContent } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
-import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel"
 import { useTranslation } from "@/contexts/translation-context"
-import { Zap, Users, CheckCircle, Globe, Smartphone, Database, Code, Shield } from "lucide-react"
+import { Button } from "@/components/ui/button"
+import { Card, CardContent } from "@/components/ui/card"
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel"
+import { Code, Smartphone, Building, Globe, Zap, Shield, Palette, CheckCircle, ArrowRight } from "lucide-react"
 import Image from "next/image"
+import Link from "next/link"
 
-function DevelopmentPageContent() {
+export default function DevelopmentPage() {
   const { t } = useTranslation()
 
-  useEffect(() => {
-    window.scrollTo(0, 0)
-  }, [])
-
-  const services = [
+  const carouselItems = [
     {
-      icon: <Globe className="h-8 w-8 text-viana-orange" />,
-      titleKey: "development.web.title",
-      descriptionKey: "development.web.description",
-    },
-    {
-      icon: <Smartphone className="h-8 w-8 text-viana-orange" />,
-      titleKey: "development.mobile.title",
-      descriptionKey: "development.mobile.description",
-    },
-    {
-      icon: <Database className="h-8 w-8 text-viana-orange" />,
-      titleKey: "development.corporate.title",
-      descriptionKey: "development.corporate.description",
-    },
-    {
-      icon: <Code className="h-8 w-8 text-viana-orange" />,
-      titleKey: "development.apis.title",
-      descriptionKey: "development.apis.description",
-    },
-  ]
-
-  const carouselImages = [
-    {
-      src: "/services/website-development.png",
+      image: "/development-website.png",
+      title: t("development.services.carousel.website"),
       alt: "Website Development",
-      titleKey: "development.services.carousel.website",
     },
     {
-      src: "/services/mobile-app.png",
-      alt: "Mobile Application",
-      titleKey: "development.services.carousel.mobile",
+      image: "/development-mobile.png",
+      title: t("development.services.carousel.mobile"),
+      alt: "Mobile Applications",
     },
     {
-      src: "/services/corporate-system.png",
-      alt: "Corporate System",
-      titleKey: "development.services.carousel.corporate",
+      image: "/development-corporate.png",
+      title: t("development.services.carousel.corporate"),
+      alt: "Corporate Systems",
     },
     {
-      src: "/services/api-architecture.png",
+      image: "/development-apis.png",
+      title: t("development.services.carousel.apis"),
       alt: "API Architecture",
-      titleKey: "development.services.carousel.apis",
-    },
-  ]
-
-  const benefits = [
-    {
-      icon: <Zap className="h-6 w-6 text-viana-orange" />,
-      titleKey: "development.performance.title",
-      descriptionKey: "development.performance.description",
-    },
-    {
-      icon: <Shield className="h-6 w-6 text-viana-orange" />,
-      titleKey: "development.security.title",
-      descriptionKey: "development.security.description",
-    },
-    {
-      icon: <Users className="h-6 w-6 text-viana-orange" />,
-      titleKey: "development.ux.title",
-      descriptionKey: "development.ux.description",
-    },
-    {
-      icon: <CheckCircle className="h-6 w-6 text-viana-orange" />,
-      titleKey: "development.quality.title",
-      descriptionKey: "development.quality.description",
     },
   ]
 
   return (
-    <div className="min-h-screen bg-viana-white">
-      <Navbar />
+    <div className="min-h-screen">
+      {/* Hero Section */}
+      <section
+        className="relative py-20 px-4 text-white overflow-hidden"
+        style={{
+          backgroundImage: "url('/pages/what-we-do-development.jpg')",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
+        }}
+      >
+        <div className="absolute inset-0 bg-black/50" />
+        <div className="relative max-w-6xl mx-auto text-center">
+          <h1 className="text-4xl md:text-6xl font-bold mb-6">{t("development.title")}</h1>
+          <p className="text-xl md:text-2xl mb-8 max-w-3xl mx-auto">{t("development.subtitle")}</p>
+        </div>
+      </section>
 
-      <main className="pt-28">
-        {/* Hero Section */}
-        <section
-          className="relative pt-24 lg:pt-28 pb-20 overflow-hidden"
-          style={{
-            backgroundImage: "url('/pages/what-we-do-development.jpg')",
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-            backgroundRepeat: "no-repeat",
-          }}
-        >
-          <div className="absolute inset-0 bg-black/50"></div>
-          <div className="container mx-auto px-4 relative z-10">
-            <div className="max-w-4xl mx-auto text-center text-white mt-8">
-              <h1 className="text-4xl lg:text-6xl font-bold mb-6">{t("development.title")}</h1>
-              <p className="text-xl lg:text-2xl mb-8 opacity-90">{t("development.subtitle")}</p>
+      {/* Services Section with Carousel */}
+      <section className="py-20 px-4 bg-gray-50">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">{t("development.services.title")}</h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">{t("development.services.subtitle")}</p>
+          </div>
+
+          {/* Carousel */}
+          <div className="mb-16">
+            <Carousel className="w-full max-w-4xl mx-auto">
+              <CarouselContent>
+                {carouselItems.map((item, index) => (
+                  <CarouselItem key={index}>
+                    <div className="p-1">
+                      <Card>
+                        <CardContent className="flex flex-col items-center justify-center p-6">
+                          <div className="relative w-full h-64 md:h-80 mb-4 rounded-lg overflow-hidden">
+                            <Image
+                              src={item.image || "/placeholder.svg"}
+                              alt={item.alt}
+                              fill
+                              className="object-cover"
+                            />
+                          </div>
+                          <h3 className="text-xl font-semibold text-center">{item.title}</h3>
+                        </CardContent>
+                      </Card>
+                    </div>
+                  </CarouselItem>
+                ))}
+              </CarouselContent>
+              <CarouselPrevious />
+              <CarouselNext />
+            </Carousel>
+          </div>
+
+          {/* Services Grid */}
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <Card className="p-6 text-center hover:shadow-lg transition-shadow">
+              <Code className="h-12 w-12 text-blue-600 mx-auto mb-4" />
+              <h3 className="text-xl font-semibold mb-2">{t("development.web.title")}</h3>
+              <p className="text-gray-600">{t("development.web.description")}</p>
+            </Card>
+
+            <Card className="p-6 text-center hover:shadow-lg transition-shadow">
+              <Smartphone className="h-12 w-12 text-green-600 mx-auto mb-4" />
+              <h3 className="text-xl font-semibold mb-2">{t("development.mobile.title")}</h3>
+              <p className="text-gray-600">{t("development.mobile.description")}</p>
+            </Card>
+
+            <Card className="p-6 text-center hover:shadow-lg transition-shadow">
+              <Building className="h-12 w-12 text-purple-600 mx-auto mb-4" />
+              <h3 className="text-xl font-semibold mb-2">{t("development.corporate.title")}</h3>
+              <p className="text-gray-600">{t("development.corporate.description")}</p>
+            </Card>
+
+            <Card className="p-6 text-center hover:shadow-lg transition-shadow">
+              <Globe className="h-12 w-12 text-orange-600 mx-auto mb-4" />
+              <h3 className="text-xl font-semibold mb-2">{t("development.apis.title")}</h3>
+              <p className="text-gray-600">{t("development.apis.description")}</p>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* Why Choose Us Section */}
+      <section className="py-20 px-4">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">{t("development.why.title")}</h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">{t("development.why.subtitle")}</p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div className="text-center">
+              <div className="bg-blue-100 rounded-full p-4 w-16 h-16 mx-auto mb-4 flex items-center justify-center">
+                <Zap className="h-8 w-8 text-blue-600" />
+              </div>
+              <h3 className="text-xl font-semibold mb-2">{t("development.performance.title")}</h3>
+              <p className="text-gray-600">{t("development.performance.description")}</p>
+            </div>
+
+            <div className="text-center">
+              <div className="bg-green-100 rounded-full p-4 w-16 h-16 mx-auto mb-4 flex items-center justify-center">
+                <Shield className="h-8 w-8 text-green-600" />
+              </div>
+              <h3 className="text-xl font-semibold mb-2">{t("development.security.title")}</h3>
+              <p className="text-gray-600">{t("development.security.description")}</p>
+            </div>
+
+            <div className="text-center">
+              <div className="bg-purple-100 rounded-full p-4 w-16 h-16 mx-auto mb-4 flex items-center justify-center">
+                <Palette className="h-8 w-8 text-purple-600" />
+              </div>
+              <h3 className="text-xl font-semibold mb-2">{t("development.ux.title")}</h3>
+              <p className="text-gray-600">{t("development.ux.description")}</p>
+            </div>
+
+            <div className="text-center">
+              <div className="bg-orange-100 rounded-full p-4 w-16 h-16 mx-auto mb-4 flex items-center justify-center">
+                <CheckCircle className="h-8 w-8 text-orange-600" />
+              </div>
+              <h3 className="text-xl font-semibold mb-2">{t("development.quality.title")}</h3>
+              <p className="text-gray-600">{t("development.quality.description")}</p>
             </div>
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* Services Section with Carousel */}
-        <section className="py-20 bg-white">
-          <div className="container mx-auto px-4">
-            <div className="text-center mb-16">
-              <h2 className="text-3xl lg:text-4xl font-bold text-viana-black mb-4">
-                {t("development.services.title")}
-              </h2>
-              <p className="text-xl text-viana-gray max-w-3xl mx-auto">{t("development.services.subtitle")}</p>
-            </div>
-
-            {/* Carousel */}
-            <div className="mb-16">
-              <Carousel className="w-full max-w-4xl mx-auto">
-                <CarouselContent>
-                  {carouselImages.map((image, index) => (
-                    <CarouselItem key={index}>
-                      <div className="p-1">
-                        <Card>
-                          <CardContent className="flex flex-col items-center justify-center p-6">
-                            <div className="relative w-full h-64 mb-4 rounded-lg overflow-hidden">
-                              <Image
-                                src={image.src || "/placeholder.svg"}
-                                alt={image.alt}
-                                fill
-                                className="object-cover"
-                              />
-                            </div>
-                            <h3 className="text-xl font-bold text-viana-black text-center">{t(image.titleKey)}</h3>
-                          </CardContent>
-                        </Card>
-                      </div>
-                    </CarouselItem>
-                  ))}
-                </CarouselContent>
-                <CarouselPrevious />
-                <CarouselNext />
-              </Carousel>
-            </div>
-
-            {/* Service Cards */}
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-              {services.map((service, index) => (
-                <Card key={index} className="text-center hover:shadow-lg transition-shadow border-none">
-                  <CardContent className="p-6">
-                    <div className="flex justify-center mb-4">{service.icon}</div>
-                    <h3 className="text-xl font-bold text-viana-black mb-3">{t(service.titleKey)}</h3>
-                    <p className="text-viana-gray">{t(service.descriptionKey)}</p>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Benefits Section */}
-        <section className="py-20 bg-gray-50">
-          <div className="container mx-auto px-4">
-            <div className="text-center mb-16">
-              <h2 className="text-3xl lg:text-4xl font-bold text-viana-black mb-4">{t("development.why.title")}</h2>
-              <p className="text-xl text-viana-gray max-w-3xl mx-auto">{t("development.why.subtitle")}</p>
-            </div>
-
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-              {benefits.map((benefit, index) => (
-                <div key={index} className="text-center">
-                  <div className="flex justify-center mb-4">{benefit.icon}</div>
-                  <h3 className="text-lg font-bold text-viana-black mb-3">{t(benefit.titleKey)}</h3>
-                  <p className="text-viana-gray">{t(benefit.descriptionKey)}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* CTA Section */}
-        <section className="py-20 bg-viana-orange">
-          <div className="container mx-auto px-4 text-center">
-            <h2 className="text-3xl lg:text-4xl font-bold text-white mb-6">{t("development.cta.title")}</h2>
-            <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">{t("development.cta.subtitle")}</p>
-            <Button size="lg" className="bg-white text-viana-orange hover:bg-gray-100 font-semibold px-8 py-3">
+      {/* CTA Section */}
+      <section className="py-20 px-4 bg-blue-600 text-white">
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">{t("development.cta.title")}</h2>
+          <p className="text-xl mb-8">{t("development.cta.subtitle")}</p>
+          <Button asChild size="lg" variant="secondary">
+            <Link href="/contact" className="inline-flex items-center">
               {t("development.cta.button")}
-            </Button>
-          </div>
-        </section>
-      </main>
-
-      <Footer />
+              <ArrowRight className="ml-2 h-4 w-4" />
+            </Link>
+          </Button>
+        </div>
+      </section>
     </div>
   )
-}
-
-export default function DevelopmentPage() {
-  return <DevelopmentPageContent />
 }
