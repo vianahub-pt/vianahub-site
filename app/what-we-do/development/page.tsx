@@ -1,199 +1,247 @@
 "use client"
 
-import { useTranslation } from "@/contexts/translation-context"
-import { Navbar } from "@/components/navbar"
-import { Footer } from "@/components/footer"
+import { useState, useEffect } from "react"
+import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel"
-import { Code, Smartphone, Building, Globe, Zap, Shield, Palette, CheckCircle, ArrowRight } from "lucide-react"
-import Image from "next/image"
-import Link from "next/link"
+import { Badge } from "@/components/ui/badge"
+import { Breadcrumb } from "@/components/breadcrumb"
+import { Navbar } from "@/components/navbar"
+import { Footer } from "@/components/footer"
+import { WhatsAppChat } from "@/components/whatsapp-chat"
+import { useTranslation } from "@/contexts/translation-context"
+import { Code, Smartphone, Globe, Database, Zap, Shield, Palette, CheckCircle } from "lucide-react"
 import Autoplay from "embla-carousel-autoplay"
 
 export default function DevelopmentPage() {
   const { t } = useTranslation()
+  const [mounted, setMounted] = useState(false)
 
-  const carouselItems = [
+  useEffect(() => {
+    setMounted(true)
+  }, [])
+
+  if (!mounted) {
+    return null
+  }
+
+  const services = [
     {
-      image: "/pages/what-we-do-development-website-template.jpg",
       title: t("development.services.carousel.website"),
-      alt: "Website Development",
+      image: "/pages/what-we-do-development-website-template.jpg",
+      icon: Globe,
     },
     {
-      image: "/pages/what-we-do-development-mobile-template.jpg",
       title: t("development.services.carousel.mobile"),
-      alt: "Mobile Applications",
+      image: "/pages/what-we-do-development-mobile-template.jpg",
+      icon: Smartphone,
     },
     {
-      image: "/pages/what-we-do-development-admin-template.jpg",
       title: t("development.services.carousel.corporate"),
-      alt: "Corporate Systems",
+      image: "/pages/what-we-do-development-admin-template.jpg",
+      icon: Code,
     },
     {
-      image: "/pages/what-we-do-development-integration-template.jpg",
       title: t("development.services.carousel.apis"),
-      alt: "API Architecture",
+      image: "/pages/what-we-do-development-integration-template.jpg",
+      icon: Database,
+    },
+  ]
+
+  const features = [
+    {
+      icon: Zap,
+      title: t("development.performance.title"),
+      description: t("development.performance.description"),
+    },
+    {
+      icon: Shield,
+      title: t("development.security.title"),
+      description: t("development.security.description"),
+    },
+    {
+      icon: Palette,
+      title: t("development.ux.title"),
+      description: t("development.ux.description"),
+    },
+    {
+      icon: CheckCircle,
+      title: t("development.quality.title"),
+      description: t("development.quality.description"),
+    },
+  ]
+
+  const serviceDetails = [
+    {
+      icon: Globe,
+      title: t("development.web.title"),
+      description: t("development.web.description"),
+    },
+    {
+      icon: Smartphone,
+      title: t("development.mobile.title"),
+      description: t("development.mobile.description"),
+    },
+    {
+      icon: Code,
+      title: t("development.corporate.title"),
+      description: t("development.corporate.description"),
+    },
+    {
+      icon: Database,
+      title: t("development.apis.title"),
+      description: t("development.apis.description"),
     },
   ]
 
   return (
-    <div className="min-h-screen bg-viana-white">
+    <div className="min-h-screen bg-background">
       <Navbar />
-      <main className="pt-28">
-        {/* Hero Section */}
-        <section
-          className="relative pt-0 pb-20 bg-gradient-to-br from-viana-orange to-viana-yellow overflow-hidden"
-          style={{
-            backgroundImage: "url(/pages/what-we-do-development.jpg)",
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-          }}
-        >
-          <div className="absolute inset-0 bg-black/50" />
-          <div className="relative max-w-6xl mx-auto text-center">
-            <h1 className="text-4xl md:text-6xl font-bold mb-6">{t("development.title")}</h1>
-            <p className="text-xl md:text-2xl mb-8 max-w-3xl mx-auto">{t("development.subtitle")}</p>
-          </div>
-        </section>
 
-        {/* Services Section with Carousel */}
-        <section className="py-20 px-4 bg-gray-50">
-          <div className="max-w-6xl mx-auto">
-            <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-4xl font-bold mb-4">{t("development.services.title")}</h2>
-              <p className="text-xl text-gray-600 max-w-3xl mx-auto">{t("development.services.subtitle")}</p>
-            </div>
+      {/* Breadcrumb */}
+      <div className="container mx-auto px-4 pt-24">
+        <Breadcrumb
+          items={[
+            { label: "Home", href: "/" },
+            { label: "O que fazemos", href: "/what-we-do" },
+            { label: "Desenvolvimento", href: "/what-we-do/development" },
+          ]}
+        />
+      </div>
 
-            {/* Carousel */}
-            <div className="mb-16">
-              <Carousel
-                className="w-full max-w-4xl mx-auto"
-                opts={{
-                  align: "start",
-                  loop: true,
-                }}
-                plugins={[
-                  Autoplay({
-                    delay: 4000,
-                  }),
-                ]}
-              >
-                <CarouselContent>
-                  {carouselItems.map((item, index) => (
-                    <CarouselItem key={index}>
-                      <div className="p-1">
-                        <Card>
-                          <CardContent className="flex flex-col items-center justify-center p-6">
-                            <div className="relative w-full h-64 md:h-80 mb-4 rounded-lg overflow-hidden">
-                              <Image
-                                src={item.image || "/placeholder.svg"}
-                                alt={item.alt}
-                                fill
-                                className="object-cover"
-                              />
-                            </div>
-                            <h3 className="text-xl font-semibold text-center">{item.title}</h3>
-                          </CardContent>
-                        </Card>
-                      </div>
-                    </CarouselItem>
-                  ))}
-                </CarouselContent>
-                <CarouselPrevious />
-                <CarouselNext />
-              </Carousel>
-            </div>
+      {/* Hero Section */}
+      <section className="relative py-20 overflow-hidden">
+        <div className="absolute inset-0 z-0">
+          <Image
+            src="/pages/what-we-do-landing-page.jpg"
+            alt="Development Hero"
+            fill
+            className="object-cover"
+            priority
+          />
+          <div className="absolute inset-0 bg-black/60" />
+        </div>
 
-            {/* Services Grid */}
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-              <Card className="p-6 text-center hover:shadow-lg transition-shadow">
-                <Code className="h-12 w-12 text-blue-600 mx-auto mb-4" />
-                <h3 className="text-xl font-semibold mb-2">{t("development.web.title")}</h3>
-                <p className="text-gray-600">{t("development.web.description")}</p>
-              </Card>
-
-              <Card className="p-6 text-center hover:shadow-lg transition-shadow">
-                <Smartphone className="h-12 w-12 text-green-600 mx-auto mb-4" />
-                <h3 className="text-xl font-semibold mb-2">{t("development.mobile.title")}</h3>
-                <p className="text-gray-600">{t("development.mobile.description")}</p>
-              </Card>
-
-              <Card className="p-6 text-center hover:shadow-lg transition-shadow">
-                <Building className="h-12 w-12 text-purple-600 mx-auto mb-4" />
-                <h3 className="text-xl font-semibold mb-2">{t("development.corporate.title")}</h3>
-                <p className="text-gray-600">{t("development.corporate.description")}</p>
-              </Card>
-
-              <Card className="p-6 text-center hover:shadow-lg transition-shadow">
-                <Globe className="h-12 w-12 text-orange-600 mx-auto mb-4" />
-                <h3 className="text-xl font-semibold mb-2">{t("development.apis.title")}</h3>
-                <p className="text-gray-600">{t("development.apis.description")}</p>
-              </Card>
-            </div>
-          </div>
-        </section>
-
-        {/* Why Choose Us Section */}
-        <section className="py-20 px-4">
-          <div className="max-w-6xl mx-auto">
-            <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-4xl font-bold mb-4">{t("development.why.title")}</h2>
-              <p className="text-xl text-gray-600 max-w-3xl mx-auto">{t("development.why.subtitle")}</p>
-            </div>
-
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-              <div className="text-center">
-                <div className="bg-blue-100 rounded-full p-4 w-16 h-16 mx-auto mb-4 flex items-center justify-center">
-                  <Zap className="h-8 w-8 text-blue-600" />
-                </div>
-                <h3 className="text-xl font-semibold mb-2">{t("development.performance.title")}</h3>
-                <p className="text-gray-600">{t("development.performance.description")}</p>
-              </div>
-
-              <div className="text-center">
-                <div className="bg-green-100 rounded-full p-4 w-16 h-16 mx-auto mb-4 flex items-center justify-center">
-                  <Shield className="h-8 w-8 text-green-600" />
-                </div>
-                <h3 className="text-xl font-semibold mb-2">{t("development.security.title")}</h3>
-                <p className="text-gray-600">{t("development.security.description")}</p>
-              </div>
-
-              <div className="text-center">
-                <div className="bg-purple-100 rounded-full p-4 w-16 h-16 mx-auto mb-4 flex items-center justify-center">
-                  <Palette className="h-8 w-8 text-purple-600" />
-                </div>
-                <h3 className="text-xl font-semibold mb-2">{t("development.ux.title")}</h3>
-                <p className="text-gray-600">{t("development.ux.description")}</p>
-              </div>
-
-              <div className="text-center">
-                <div className="bg-orange-100 rounded-full p-4 w-16 h-16 mx-auto mb-4 flex items-center justify-center">
-                  <CheckCircle className="h-8 w-8 text-orange-600" />
-                </div>
-                <h3 className="text-xl font-semibold mb-2">{t("development.quality.title")}</h3>
-                <p className="text-gray-600">{t("development.quality.description")}</p>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* CTA Section */}
-        <section className="py-20 px-4 bg-blue-600 text-white">
-          <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">{t("development.cta.title")}</h2>
-            <p className="text-xl mb-8">{t("development.cta.subtitle")}</p>
-            <Button asChild size="lg" variant="secondary">
-              <Link href="/contact" className="inline-flex items-center">
-                {t("development.cta.button")}
-                <ArrowRight className="ml-2 h-4 w-4" />
-              </Link>
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="max-w-4xl mx-auto text-center text-white">
+            <Badge variant="secondary" className="mb-4">
+              Desenvolvimento
+            </Badge>
+            <h1 className="text-4xl md:text-6xl font-bold mb-6">{t("development.hero.title")}</h1>
+            <p className="text-xl md:text-2xl mb-8 text-gray-200">{t("development.hero.subtitle")}</p>
+            <Button size="lg" className="bg-primary hover:bg-primary/90">
+              {t("development.hero.cta")}
             </Button>
           </div>
-        </section>
-      </main>
+        </div>
+      </section>
+
+      {/* Services Carousel Section */}
+      <section className="py-20 bg-gray-50 dark:bg-gray-900">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">{t("development.services.title")}</h2>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">{t("development.services.subtitle")}</p>
+          </div>
+
+          <div className="max-w-5xl mx-auto">
+            <Carousel
+              plugins={[
+                Autoplay({
+                  delay: 4000,
+                  stopOnInteraction: true,
+                }),
+              ]}
+              opts={{
+                align: "start",
+                loop: true,
+              }}
+              className="w-full"
+            >
+              <CarouselContent>
+                {services.map((service, index) => (
+                  <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
+                    <Card className="h-full">
+                      <CardContent className="p-0">
+                        <div className="relative h-64 overflow-hidden rounded-t-lg">
+                          <Image
+                            src={service.image || "/placeholder.svg"}
+                            alt={service.title}
+                            fill
+                            className="object-cover transition-transform hover:scale-105"
+                          />
+                        </div>
+                        <div className="p-6">
+                          <div className="flex items-center gap-3 mb-3">
+                            <service.icon className="h-6 w-6 text-primary" />
+                            <h3 className="text-xl font-semibold">{service.title}</h3>
+                          </div>
+                        </div>
+                      </CardContent>
+                    </Card>
+                  </CarouselItem>
+                ))}
+              </CarouselContent>
+              <CarouselPrevious />
+              <CarouselNext />
+            </Carousel>
+          </div>
+        </div>
+      </section>
+
+      {/* Service Details Section */}
+      <section className="py-20">
+        <div className="container mx-auto px-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {serviceDetails.map((service, index) => (
+              <Card key={index} className="text-center">
+                <CardContent className="p-6">
+                  <service.icon className="h-12 w-12 text-primary mx-auto mb-4" />
+                  <h3 className="text-xl font-semibold mb-3">{service.title}</h3>
+                  <p className="text-muted-foreground">{service.description}</p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Why Choose Us Section */}
+      <section className="py-20 bg-gray-50 dark:bg-gray-900">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">{t("development.why.title")}</h2>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">{t("development.why.subtitle")}</p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {features.map((feature, index) => (
+              <Card key={index} className="text-center">
+                <CardContent className="p-6">
+                  <feature.icon className="h-12 w-12 text-primary mx-auto mb-4" />
+                  <h3 className="text-xl font-semibold mb-3">{feature.title}</h3>
+                  <p className="text-muted-foreground">{feature.description}</p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-20 bg-primary text-primary-foreground">
+        <div className="container mx-auto px-4 text-center">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">{t("development.cta.title")}</h2>
+          <p className="text-xl mb-8 max-w-3xl mx-auto opacity-90">{t("development.cta.subtitle")}</p>
+          <Button size="lg" variant="secondary">
+            {t("development.cta.button")}
+          </Button>
+        </div>
+      </section>
 
       <Footer />
+      <WhatsAppChat />
     </div>
   )
 }
