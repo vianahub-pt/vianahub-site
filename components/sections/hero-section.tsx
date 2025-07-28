@@ -41,7 +41,6 @@ export function HeroSection() {
             muted
             loop
             playsInline
-            poster="/wallpaper.jpg"
             onError={() => setVideoError(true)}
           >
             <source
@@ -50,10 +49,7 @@ export function HeroSection() {
             />
           </video>
         ) : (
-          <div
-            className="absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat"
-            style={{ backgroundImage: "url(/wallpaper.jpg)" }}
-          />
+          <div className="absolute inset-0 w-full h-full bg-black" />
         )}
       </div>
 
