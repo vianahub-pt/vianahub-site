@@ -3,7 +3,6 @@
 import { createContext, useContext, useState, useEffect, type ReactNode } from "react"
 import { homeTranslations } from "@/app/translation"
 import { navbarTranslations } from "@/app/translations/navbar"
-import { agileTranslations } from "@/app/what-we-do/agile/translation"
 import { careersTranslations } from "@/app/careers/translation"
 import { contactTranslations } from "@/app/contact/translation"
 import { aboutTranslations } from "@/app/about/translation"
@@ -23,7 +22,6 @@ const allTranslations = {
   pt: {
     ...homeTranslations.pt,
     ...navbarTranslations.pt,
-    ...agileTranslations.pt,
     ...careersTranslations.pt,
     ...contactTranslations.pt,
     ...aboutTranslations.pt,
@@ -129,9 +127,8 @@ const allTranslations = {
     "landingPages.benefits.design.description": "Visual moderno e profissional que gera confiança.",
     "landingPages.benefits.speed.title": "Carregamento Rápido",
     "landingPages.benefits.speed.description": "Otimização de performance para melhor experiência.",
-    "landingPages.cta.title": "Aumente suas Conversões Hoje",
-    "landingPages.cta.subtitle":
-      "Tenha uma landing page profissional que converte visitantes em clientes e impulsiona o crescimento do seu negócio.",
+    "landingPages.cta.title": "Pronto para Desenvolver?",
+    "landingPages.cta.subtitle": "Transforme suas ideias em realidade com nossa expertise em desenvolvimento.",
     "landingPages.cta.button": "Solicitar Orçamento",
     // Outsourcing translations
     "outsourcing.hero.title": "Terceirização de TI",
@@ -208,7 +205,6 @@ const allTranslations = {
   en: {
     ...homeTranslations.en,
     ...navbarTranslations.en,
-    ...agileTranslations.en,
     ...careersTranslations.en,
     ...contactTranslations.en,
     ...aboutTranslations.en,
@@ -388,7 +384,6 @@ const allTranslations = {
   es: {
     ...homeTranslations.es,
     ...navbarTranslations.es,
-    ...agileTranslations.es,
     ...careersTranslations.es,
     ...contactTranslations.es,
     ...aboutTranslations.es,
@@ -532,7 +527,6 @@ const allTranslations = {
   fr: {
     ...homeTranslations.fr,
     ...navbarTranslations.fr,
-    ...agileTranslations.fr,
     ...careersTranslations.fr,
     ...contactTranslations.fr,
     ...aboutTranslations.fr,
@@ -680,7 +674,6 @@ const allTranslations = {
   de: {
     ...homeTranslations.de,
     ...navbarTranslations.de,
-    ...agileTranslations.de,
     ...careersTranslations.de,
     ...contactTranslations.de,
     ...aboutTranslations.de,
