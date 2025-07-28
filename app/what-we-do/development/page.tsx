@@ -100,7 +100,7 @@ export default function DevelopmentPage() {
     <div className="min-h-screen bg-background">
       <Navbar />
 
-        <main className="pt-28">
+      <main className="pt-28">
 
         {/* Hero Section */}
         <section className="relative py-20 overflow-hidden">
