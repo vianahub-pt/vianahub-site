@@ -30,22 +30,22 @@ export default function DevelopmentPage() {
   const services = [
     {
       title: t("development.services.carousel.website"),
-      image: "/pages/what-we-do-development-website-template.jpg",
+      image: "/pages/website-template.jpg",
       icon: Globe,
     },
     {
       title: t("development.services.carousel.mobile"),
-      image: "/pages/what-we-do-development-mobile-template.jpg",
+      image: "/pages/mobile-template.jpg",
       icon: Smartphone,
     },
     {
       title: t("development.services.carousel.corporate"),
-      image: "/pages/what-we-do-development-admin-template.jpg",
+      image: "/pages/admin-template.jpg",
       icon: Code,
     },
     {
       title: t("development.services.carousel.apis"),
-      image: "/pages/what-we-do-development-integration-template.jpg",
+      image: "/pages/integration-template.jpg",
       icon: Database,
     },
   ]
