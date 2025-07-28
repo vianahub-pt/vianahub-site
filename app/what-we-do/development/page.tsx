@@ -81,9 +81,6 @@ function DevelopmentPageContent() {
               <div className="max-w-4xl mx-auto text-center text-white mt-8">
                 <h1 className="text-4xl lg:text-6xl font-bold mb-6">{t("development.title")}</h1>
                 <p className="text-xl lg:text-2xl mb-8 opacity-90">{t("development.subtitle")}</p>
-                <Button size="lg" className="bg-viana-orange hover:bg-viana-orange/90 text-white font-semibold px-8 py-3">
-                  {t("development.cta")}
-                </Button>
               </div>
             </div>
           </section>
