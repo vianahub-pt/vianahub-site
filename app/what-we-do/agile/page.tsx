@@ -61,11 +61,11 @@ function AgilePageContent() {
   ]
 
   return (
-  <div>
-      <Navbar />
-      </div>
-    <div className="min-h-screen bg-viana-white">
 
+    <div className="min-h-screen bg-viana-white">
+      <Navbar />
+
+<main className="pt-28">
       {/* Hero Section */}
       <section
         className="relative pt-0 pb-20 bg-gradient-to-br from-viana-orange to-viana-yellow overflow-hidden"
@@ -131,7 +131,7 @@ function AgilePageContent() {
           </div>
         </div>
       </section>
-
+</main>
       <Footer />
     </div>
   )
