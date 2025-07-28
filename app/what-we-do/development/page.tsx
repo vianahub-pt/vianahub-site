@@ -13,6 +13,7 @@ import { WhatsAppChat } from "@/components/whatsapp-chat"
 import { useTranslation } from "@/contexts/translation-context"
 import { Code, Smartphone, Globe, Database, Zap, Shield, Palette, CheckCircle } from "lucide-react"
 import Autoplay from "embla-carousel-autoplay"
+import Link from "next/link"
 
 export default function DevelopmentPage() {
   const { t } = useTranslation()
@@ -130,9 +131,6 @@ export default function DevelopmentPage() {
             </Badge>
             <h1 className="text-4xl md:text-6xl font-bold mb-6">{t("development.hero.title")}</h1>
             <p className="text-xl md:text-2xl mb-8 text-gray-200">{t("development.hero.subtitle")}</p>
-            <Button size="lg" className="bg-primary hover:bg-primary/90">
-              {t("development.hero.cta")}
-            </Button>
           </div>
         </div>
       </section>
@@ -234,8 +232,8 @@ export default function DevelopmentPage() {
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">{t("development.cta.title")}</h2>
           <p className="text-xl mb-8 max-w-3xl mx-auto opacity-90">{t("development.cta.subtitle")}</p>
-          <Button size="lg" variant="secondary">
-            {t("development.cta.button")}
+          <Button size="lg" variant="secondary" asChild>
+            <Link href="/contact">{t("development.cta.button")}</Link>
           </Button>
         </div>
       </section>
