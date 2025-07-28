@@ -61,8 +61,8 @@ function AgilePageContent() {
   ]
 
   return (
-    <div className="min-h-screen bg-viana-white">
       <Navbar />
+    <div className="min-h-screen bg-viana-white">
 
       {/* Hero Section */}
       <section
