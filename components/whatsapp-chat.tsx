@@ -105,7 +105,7 @@ export function WhatsAppChat({ children }: WhatsAppChatProps) {
                       <span className="text-green-500 font-bold text-lg">V</span>
                     </div>
                     <div>
-                      <div className="font-semibold">{t("whatsapp.title")}</div>
+                      <div className="font-semibold">Suporte</div>
                       <div className="text-xs text-green-100">{t("whatsapp.status")}</div>
                     </div>
                   </div>
