@@ -7,55 +7,58 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { TranslationProvider } from "@/contexts/translation-context"
 import { Zap, Target, TrendingUp, Smartphone, Search, BarChart3, Palette, Rocket } from "lucide-react"
+import { useTranslation } from "@/contexts/translation-context"
 
 export default function LandingPagesPage() {
   useEffect(() => {
     window.scrollTo(0, 0)
   }, [])
 
+  const { t } = useTranslation()
+
   const features = [
     {
       icon: <Zap className="h-8 w-8 text-viana-orange" />,
-      title: "Alta Conversão",
-      description: "Landing pages otimizadas para maximizar suas conversões.",
+      title: t("landingPages.features.conversion.title"),
+      description: t("landingPages.features.conversion.description"),
     },
     {
       icon: <Smartphone className="h-8 w-8 text-viana-orange" />,
-      title: "Responsivo",
-      description: "Design adaptável para todos os dispositivos e telas.",
+      title: t("landingPages.features.responsive.title"),
+      description: t("landingPages.features.responsive.description"),
     },
     {
       icon: <Search className="h-8 w-8 text-viana-orange" />,
-      title: "SEO Otimizado",
-      description: "Otimização completa para mecanismos de busca.",
+      title: t("landingPages.features.seo.title"),
+      description: t("landingPages.features.seo.description"),
     },
     {
       icon: <BarChart3 className="h-8 w-8 text-viana-orange" />,
-      title: "Analytics",
-      description: "Acompanhamento detalhado de métricas e performance.",
+      title: t("landingPages.features.analytics.title"),
+      description: t("landingPages.features.analytics.description"),
     },
   ]
 
   const benefits = [
     {
       icon: <Target className="h-6 w-6 text-viana-orange" />,
-      name: "Foco no Objetivo",
-      description: "Páginas direcionadas para uma ação específica do usuário.",
+      name: t("landingPages.benefits.focus.title"),
+      description: t("landingPages.benefits.focus.description"),
     },
     {
       icon: <TrendingUp className="h-6 w-6 text-viana-orange" />,
-      name: "Aumento de Vendas",
-      description: "Estratégias comprovadas para aumentar suas conversões.",
+      name: t("landingPages.benefits.sales.title"),
+      description: t("landingPages.benefits.sales.description"),
     },
     {
       icon: <Palette className="h-6 w-6 text-viana-orange" />,
-      name: "Design Atrativo",
-      description: "Visual moderno e profissional que gera confiança.",
+      name: t("landingPages.benefits.design.title"),
+      description: t("landingPages.benefits.design.description"),
     },
     {
       icon: <Rocket className="h-6 w-6 text-viana-orange" />,
-      name: "Carregamento Rápido",
-      description: "Otimização de performance para melhor experiência.",
+      name: t("landingPages.benefits.speed.title"),
+      description: t("landingPages.benefits.speed.description"),
     },
   ]
 
@@ -66,32 +69,31 @@ export default function LandingPagesPage() {
 
         <main className="pt-28">
           {/* Hero Section */}
-        <section
-          className="relative pt-0 pb-0 bg-gradient-to-br from-viana-orange to-viana-yellow overflow-hidden h-[300px]"
-          style={{
-            backgroundImage: "url(/pages/landing-page.jpg)",
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-          }}
-        >
-          <div className="absolute inset-0 bg-black/60 z-0" />
-          <div className="container mx-auto px-4 relative z-10 h-full flex items-center justify-center">
-            <div className="max-w-4xl mx-auto text-center text-white">
-              <h1 className="text-4xl lg:text-6xl font-bold mb-6">{t("agile.hero.title")}</h1>
-              <p className="text-xl lg:text-2xl mb-8 opacity-90">{t("agile.hero.subtitle")}</p>
+          <section
+            className="relative pt-0 pb-0 bg-gradient-to-br from-viana-orange to-viana-yellow overflow-hidden h-[300px]"
+            style={{
+              backgroundImage: "url(/pages/landing-page.jpg)",
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+            }}
+          >
+            <div className="absolute inset-0 bg-black/60 z-0" />
+            <div className="container mx-auto px-4 relative z-10 h-full flex items-center justify-center">
+              <div className="max-w-4xl mx-auto text-center text-white">
+                <h1 className="text-4xl lg:text-6xl font-bold mb-6">{t("landingPages.hero.title")}</h1>
+                <p className="text-xl lg:text-2xl mb-8 opacity-90">{t("landingPages.hero.subtitle")}</p>
+              </div>
             </div>
-          </div>
-        </section>
+          </section>
 
           {/* Features Section */}
           <section className="py-20 bg-white">
             <div className="container mx-auto px-4">
               <div className="text-center mb-16">
-                <h2 className="text-3xl lg:text-4xl font-bold text-viana-black mb-4">Recursos Essenciais</h2>
-                <p className="text-xl text-viana-gray max-w-3xl mx-auto">
-                  Nossas landing pages são desenvolvidas com todos os elementos necessários para maximizar suas conversões
-                  e resultados.
-                </p>
+                <h2 className="text-3xl lg:text-4xl font-bold text-viana-black mb-4">
+                  {t("landingPages.features.title")}
+                </h2>
+                <p className="text-xl text-viana-gray max-w-3xl mx-auto">{t("landingPages.features.subtitle")}</p>
               </div>
 
               <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -113,11 +115,9 @@ export default function LandingPagesPage() {
             <div className="container mx-auto px-4">
               <div className="text-center mb-16">
                 <h2 className="text-3xl lg:text-4xl font-bold text-viana-black mb-4">
-                  Por que Escolher Nossas Landing Pages
+                  {t("landingPages.benefits.title")}
                 </h2>
-                <p className="text-xl text-viana-gray max-w-3xl mx-auto">
-                  Combinamos design atrativo com estratégias de conversão para entregar resultados excepcionais.
-                </p>
+                <p className="text-xl text-viana-gray max-w-3xl mx-auto">{t("landingPages.benefits.subtitle")}</p>
               </div>
 
               <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
@@ -141,13 +141,10 @@ export default function LandingPagesPage() {
           {/* CTA Section */}
           <section className="py-20 bg-viana-yellow">
             <div className="container mx-auto px-4 text-center">
-              <h2 className="text-3xl lg:text-4xl font-bold text-viana-black mb-6">Aumente suas Conversões Hoje</h2>
-              <p className="text-xl text-viana-gray mb-8 max-w-2xl mx-auto">
-                Tenha uma landing page profissional que converte visitantes em clientes e impulsiona o crescimento do seu
-                negócio.
-              </p>
+              <h2 className="text-3xl lg:text-4xl font-bold text-viana-black mb-6">{t("landingPages.cta.title")}</h2>
+              <p className="text-xl text-viana-gray mb-8 max-w-2xl mx-auto">{t("landingPages.cta.subtitle")}</p>
               <Button size="lg" className="bg-viana-orange hover:bg-viana-orange/90 text-white font-semibold px-8 py-3">
-                Solicitar Orçamento
+                {t("landingPages.cta.button")}
               </Button>
             </div>
           </section>
