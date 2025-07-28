@@ -160,7 +160,7 @@ export default function ChatbotPage() {
                           <Bot className="w-4 h-4 text-white" />
                         </div>
                         <div className="bg-gray-100 rounded-lg p-3 max-w-xs">
-                          <p className="text-sm">Olá! Como posso ajudá-lo hoje?</p>
+                          <p className="text-sm">{t("chatbot.chat.bot.greeting")}</p>
                         </div>
                       </div>
 
@@ -170,7 +170,7 @@ export default function ChatbotPage() {
                         style={{ animationDelay: "1.5s", opacity: 0, animationFillMode: "forwards" }}
                       >
                         <div className="bg-viana-orange text-white rounded-lg p-3 max-w-xs">
-                          <p className="text-sm">Oi! Gostaria de pedir um lanche</p>
+                          <p className="text-sm">{t("chatbot.chat.user.order")}</p>
                         </div>
                         <div className="w-8 h-8 bg-gray-300 rounded-full flex items-center justify-center flex-shrink-0">
                           <Users className="w-4 h-4 text-gray-600" />
@@ -186,7 +186,7 @@ export default function ChatbotPage() {
                           <Bot className="w-4 h-4 text-white" />
                         </div>
                         <div className="bg-gray-100 rounded-lg p-3 max-w-xs">
-                          <p className="text-sm">Perfeito! Temos sanduíches, pizzas e saladas. O que prefere?</p>
+                          <p className="text-sm">{t("chatbot.chat.bot.options")}</p>
                         </div>
                       </div>
 
@@ -196,7 +196,7 @@ export default function ChatbotPage() {
                         style={{ animationDelay: "3.5s", opacity: 0, animationFillMode: "forwards" }}
                       >
                         <div className="bg-viana-orange text-white rounded-lg p-3 max-w-xs">
-                          <p className="text-sm">Um sanduíche de frango, por favor</p>
+                          <p className="text-sm">{t("chatbot.chat.user.choice")}</p>
                         </div>
                         <div className="w-8 h-8 bg-gray-300 rounded-full flex items-center justify-center flex-shrink-0">
                           <Users className="w-4 h-4 text-gray-600" />
@@ -212,7 +212,7 @@ export default function ChatbotPage() {
                           <Bot className="w-4 h-4 text-white" />
                         </div>
                         <div className="bg-gray-100 rounded-lg p-3 max-w-xs">
-                          <p className="text-sm">Ótima escolha! Sanduíche de frango - R$ 15,00. Confirma o pedido?</p>
+                          <p className="text-sm">{t("chatbot.chat.bot.confirm")}</p>
                         </div>
                       </div>
 
@@ -222,7 +222,7 @@ export default function ChatbotPage() {
                         style={{ animationDelay: "5.5s", opacity: 0, animationFillMode: "forwards" }}
                       >
                         <div className="bg-viana-orange text-white rounded-lg p-3 max-w-xs">
-                          <p className="text-sm">Sim, confirmo!</p>
+                          <p className="text-sm">{t("chatbot.chat.user.confirm")}</p>
                         </div>
                         <div className="w-8 h-8 bg-gray-300 rounded-full flex items-center justify-center flex-shrink-0">
                           <Users className="w-4 h-4 text-gray-600" />
@@ -238,7 +238,7 @@ export default function ChatbotPage() {
                           <Bot className="w-4 h-4 text-white" />
                         </div>
                         <div className="bg-gray-100 rounded-lg p-3 max-w-xs">
-                          <p className="text-sm">Pedido confirmado! ✅ Tempo estimado: 20 minutos. Obrigado!</p>
+                          <p className="text-sm">{t("chatbot.chat.bot.success")}</p>
                         </div>
                       </div>
                     </div>
