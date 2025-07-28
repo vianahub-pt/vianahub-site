@@ -172,6 +172,38 @@ const allTranslations = {
     "outsourcing.cta.subtitle":
       "Monte sua equipe de desenvolvimento ideal e acelere a entrega dos seus projetos com qualidade garantida.",
     "outsourcing.cta.button": "Solicitar Proposta",
+    // System Integration translations
+    "systemIntegration.hero.title": "Integração de Sistemas",
+    "systemIntegration.hero.subtitle":
+      "Conecte todos os seus sistemas e aplicações para criar um ambiente tecnológico unificado e eficiente.",
+    "systemIntegration.benefits.title": "Benefícios da Integração",
+    "systemIntegration.benefits.subtitle":
+      "Transforme sistemas isolados em uma solução unificada que potencializa a eficiência e produtividade da sua empresa.",
+    "systemIntegration.benefits.connectivity.title": "Conectividade Total",
+    "systemIntegration.benefits.connectivity.description":
+      "Integração completa entre todos os seus sistemas e aplicações.",
+    "systemIntegration.benefits.automation.title": "Automação",
+    "systemIntegration.benefits.automation.description":
+      "Automatização de processos para maior eficiência operacional.",
+    "systemIntegration.benefits.data.title": "Dados Unificados",
+    "systemIntegration.benefits.data.description": "Centralização e sincronização de dados em tempo real.",
+    "systemIntegration.benefits.security.title": "Segurança",
+    "systemIntegration.benefits.security.description": "Protocolos de segurança avançados em todas as integrações.",
+    "systemIntegration.solutions.title": "Soluções de Integração",
+    "systemIntegration.solutions.subtitle":
+      "Oferecemos soluções personalizadas para conectar qualquer tipo de sistema, desde aplicações modernas até sistemas legados.",
+    "systemIntegration.solutions.apis.title": "APIs e Microserviços",
+    "systemIntegration.solutions.apis.description": "Desenvolvimento de APIs robustas para comunicação entre sistemas.",
+    "systemIntegration.solutions.cloud.title": "Integração em Nuvem",
+    "systemIntegration.solutions.cloud.description": "Conexão de sistemas locais com soluções em nuvem.",
+    "systemIntegration.solutions.erp.title": "ERP e CRM",
+    "systemIntegration.solutions.erp.description": "Integração de sistemas de gestão empresarial e relacionamento.",
+    "systemIntegration.solutions.legacy.title": "Sistemas Legados",
+    "systemIntegration.solutions.legacy.description": "Modernização e integração de sistemas antigos.",
+    "systemIntegration.cta.title": "Unifique seus Sistemas",
+    "systemIntegration.cta.subtitle":
+      "Elimine silos de informação e crie um ambiente tecnológico integrado que impulsiona a eficiência do seu negócio.",
+    "systemIntegration.cta.button": "Avaliar Integração",
   },
   en: {
     ...homeTranslations.en,
@@ -321,6 +353,37 @@ const allTranslations = {
     "outsourcing.cta.subtitle":
       "Build your ideal development team and accelerate the delivery of your projects with guaranteed quality.",
     "outsourcing.cta.button": "Request Proposal",
+    // System Integration translations
+    "systemIntegration.hero.title": "System Integration",
+    "systemIntegration.hero.subtitle":
+      "Connect all your systems and applications to create a unified and efficient technological environment.",
+    "systemIntegration.benefits.title": "Integration Benefits",
+    "systemIntegration.benefits.subtitle":
+      "Transform isolated systems into a unified solution that enhances your company's efficiency and productivity.",
+    "systemIntegration.benefits.connectivity.title": "Total Connectivity",
+    "systemIntegration.benefits.connectivity.description":
+      "Complete integration between all your systems and applications.",
+    "systemIntegration.benefits.automation.title": "Automation",
+    "systemIntegration.benefits.automation.description": "Process automation for greater operational efficiency.",
+    "systemIntegration.benefits.data.title": "Unified Data",
+    "systemIntegration.benefits.data.description": "Centralization and real-time data synchronization.",
+    "systemIntegration.benefits.security.title": "Security",
+    "systemIntegration.benefits.security.description": "Advanced security protocols in all integrations.",
+    "systemIntegration.solutions.title": "Integration Solutions",
+    "systemIntegration.solutions.subtitle":
+      "We offer customized solutions to connect any type of system, from modern applications to legacy systems.",
+    "systemIntegration.solutions.apis.title": "APIs and Microservices",
+    "systemIntegration.solutions.apis.description": "Development of robust APIs for communication between systems.",
+    "systemIntegration.solutions.cloud.title": "Cloud Integration",
+    "systemIntegration.solutions.cloud.description": "Connection of local systems with cloud solutions.",
+    "systemIntegration.solutions.erp.title": "ERP and CRM",
+    "systemIntegration.solutions.erp.description": "Integration of business management and relationship systems.",
+    "systemIntegration.solutions.legacy.title": "Legacy Systems",
+    "systemIntegration.solutions.legacy.description": "Modernization and integration of old systems.",
+    "systemIntegration.cta.title": "Unify Your Systems",
+    "systemIntegration.cta.subtitle":
+      "Eliminate information silos and create an integrated technological environment that drives your business efficiency.",
+    "systemIntegration.cta.button": "Evaluate Integration",
   },
   es: {
     ...homeTranslations.es,
@@ -433,6 +496,38 @@ const allTranslations = {
     "outsourcing.cta.subtitle":
       "Forme su equipo de desarrollo ideal y acelere la entrega de sus proyectos con calidad garantizada.",
     "outsourcing.cta.button": "Solicitar Propuesta",
+    // System Integration translations
+    "systemIntegration.hero.title": "Integración de Sistemas",
+    "systemIntegration.hero.subtitle":
+      "Conecte todos sus sistemas y aplicaciones para crear un entorno tecnológico unificado y eficiente.",
+    "systemIntegration.benefits.title": "Beneficios de la Integración",
+    "systemIntegration.benefits.subtitle":
+      "Transforme sistemas aislados en una solución unificada que potencia la eficiencia y productividad de su empresa.",
+    "systemIntegration.benefits.connectivity.title": "Conectividad Total",
+    "systemIntegration.benefits.connectivity.description":
+      "Integración completa entre todos sus sistemas y aplicaciones.",
+    "systemIntegration.benefits.automation.title": "Automatización",
+    "systemIntegration.benefits.automation.description":
+      "Automatización de procesos para mayor eficiencia operacional.",
+    "systemIntegration.benefits.data.title": "Datos Unificados",
+    "systemIntegration.benefits.data.description": "Centralización y sincronización de datos en tiempo real.",
+    "systemIntegration.benefits.security.title": "Seguridad",
+    "systemIntegration.benefits.security.description": "Protocolos de seguridad avanzados en todas las integraciones.",
+    "systemIntegration.solutions.title": "Soluciones de Integración",
+    "systemIntegration.solutions.subtitle":
+      "Ofrecemos soluciones personalizadas para conectar cualquier tipo de sistema, desde aplicaciones modernas hasta sistemas legados.",
+    "systemIntegration.solutions.apis.title": "APIs y Microservicios",
+    "systemIntegration.solutions.apis.description": "Desarrollo de APIs robustas para comunicación entre sistemas.",
+    "systemIntegration.solutions.cloud.title": "Integración en la Nube",
+    "systemIntegration.solutions.cloud.description": "Conexión de sistemas locales con soluciones en la nube.",
+    "systemIntegration.solutions.erp.title": "ERP y CRM",
+    "systemIntegration.solutions.erp.description": "Integración de sistemas de gestión empresarial y relaciones.",
+    "systemIntegration.solutions.legacy.title": "Sistemas Legados",
+    "systemIntegration.solutions.legacy.description": "Modernización e integración de sistemas antiguos.",
+    "systemIntegration.cta.title": "Unifique sus Sistemas",
+    "systemIntegration.cta.subtitle":
+      "Elimine silos de información y cree un entorno tecnológico integrado que impulse la eficiencia de su negocio.",
+    "systemIntegration.cta.button": "Evaluar Integración",
   },
   fr: {
     ...homeTranslations.fr,
@@ -548,6 +643,39 @@ const allTranslations = {
     "outsourcing.cta.subtitle":
       "Formez votre équipe de développement idéale et accélérez la livraison de vos projets avec une qualité garantie.",
     "outsourcing.cta.button": "Demander Proposition",
+    // System Integration translations
+    "systemIntegration.hero.title": "Intégration de Systèmes",
+    "systemIntegration.hero.subtitle":
+      "Connectez tous vos systèmes et applications pour créer un environnement technologique unifié et efficace.",
+    "systemIntegration.benefits.title": "Avantages de l'Intégration",
+    "systemIntegration.benefits.subtitle":
+      "Transformez les systèmes isolés en une solution unifiée qui améliore l'efficacité et la productivité de votre entreprise.",
+    "systemIntegration.benefits.connectivity.title": "Connectivité Totale",
+    "systemIntegration.benefits.connectivity.description":
+      "Intégration complète entre tous vos systèmes et applications.",
+    "systemIntegration.benefits.automation.title": "Automatisation",
+    "systemIntegration.benefits.automation.description":
+      "Automatisation des processus pour une plus grande efficacité opérationnelle.",
+    "systemIntegration.benefits.data.title": "Données Unifiées",
+    "systemIntegration.benefits.data.description": "Centralisation et synchronisation des données en temps réel.",
+    "systemIntegration.benefits.security.title": "Sécurité",
+    "systemIntegration.benefits.security.description": "Protocoles de sécurité avancés dans toutes les intégrations.",
+    "systemIntegration.solutions.title": "Solutions d'Intégration",
+    "systemIntegration.solutions.subtitle":
+      "Nous offrons des solutions personnalisées pour connecter tout type de système, des applications modernes aux systèmes hérités.",
+    "systemIntegration.solutions.apis.title": "APIs et Microservices",
+    "systemIntegration.solutions.apis.description":
+      "Développement d'APIs robustes pour la communication entre systèmes.",
+    "systemIntegration.solutions.cloud.title": "Intégration Cloud",
+    "systemIntegration.solutions.cloud.description": "Connexion de systèmes locaux avec des solutions cloud.",
+    "systemIntegration.solutions.erp.title": "ERP et CRM",
+    "systemIntegration.solutions.erp.description": "Intégration de systèmes de gestion d'entreprise et de relations.",
+    "systemIntegration.solutions.legacy.title": "Systèmes Hérités",
+    "systemIntegration.solutions.legacy.description": "Modernisation et intégration de systèmes anciens.",
+    "systemIntegration.cta.title": "Unifiez vos Systèmes",
+    "systemIntegration.cta.subtitle":
+      "Éliminez les silos d'information et créez un environnement technologique intégré qui stimule l'efficacité de votre entreprise.",
+    "systemIntegration.cta.button": "Évaluer l'Intégration",
   },
   de: {
     ...homeTranslations.de,
@@ -661,6 +789,38 @@ const allTranslations = {
     "outsourcing.cta.subtitle":
       "Bilden Sie Ihr ideales Entwicklungsteam und beschleunigen Sie die Lieferung Ihrer Projekte mit garantierter Qualität.",
     "outsourcing.cta.button": "Angebot Anfordern",
+    // System Integration translations
+    "systemIntegration.hero.title": "Systemintegration",
+    "systemIntegration.hero.subtitle":
+      "Verbinden Sie alle Ihre Systeme und Anwendungen, um eine einheitliche und effiziente technologische Umgebung zu schaffen.",
+    "systemIntegration.benefits.title": "Integrationsvorteile",
+    "systemIntegration.benefits.subtitle":
+      "Verwandeln Sie isolierte Systeme in eine einheitliche Lösung, die die Effizienz und Produktivität Ihres Unternehmens steigert.",
+    "systemIntegration.benefits.connectivity.title": "Totale Konnektivität",
+    "systemIntegration.benefits.connectivity.description":
+      "Vollständige Integration zwischen allen Ihren Systemen und Anwendungen.",
+    "systemIntegration.benefits.automation.title": "Automatisierung",
+    "systemIntegration.benefits.automation.description": "Prozessautomatisierung für größere operative Effizienz.",
+    "systemIntegration.benefits.data.title": "Vereinheitlichte Daten",
+    "systemIntegration.benefits.data.description": "Zentralisierung und Echtzeit-Datensynchronisation.",
+    "systemIntegration.benefits.security.title": "Sicherheit",
+    "systemIntegration.benefits.security.description": "Erweiterte Sicherheitsprotokolle in allen Integrationen.",
+    "systemIntegration.solutions.title": "Integrationslösungen",
+    "systemIntegration.solutions.subtitle":
+      "Wir bieten maßgeschneiderte Lösungen zur Verbindung jeder Art von System, von modernen Anwendungen bis zu Legacy-Systemen.",
+    "systemIntegration.solutions.apis.title": "APIs und Microservices",
+    "systemIntegration.solutions.apis.description":
+      "Entwicklung robuster APIs für die Kommunikation zwischen Systemen.",
+    "systemIntegration.solutions.cloud.title": "Cloud-Integration",
+    "systemIntegration.solutions.cloud.description": "Verbindung lokaler Systeme mit Cloud-Lösungen.",
+    "systemIntegration.solutions.erp.title": "ERP und CRM",
+    "systemIntegration.solutions.erp.description": "Integration von Unternehmensmanagement- und Beziehungssystemen.",
+    "systemIntegration.solutions.legacy.title": "Legacy-Systeme",
+    "systemIntegration.solutions.legacy.description": "Modernisierung und Integration alter Systeme.",
+    "systemIntegration.cta.title": "Vereinheitlichen Sie Ihre Systeme",
+    "systemIntegration.cta.subtitle":
+      "Beseitigen Sie Informationssilos und schaffen Sie eine integrierte technologische Umgebung, die die Effizienz Ihres Unternehmens vorantreibt.",
+    "systemIntegration.cta.button": "Integration Bewerten",
   },
 }
 
