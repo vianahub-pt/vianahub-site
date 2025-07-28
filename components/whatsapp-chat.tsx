@@ -58,7 +58,7 @@ export function WhatsAppChat({ children }: WhatsAppChatProps) {
       setTimeout(() => {
         const autoReply = {
           id: messages.length + 2,
-          text: "Obrigado pela sua mensagem! Nossa equipe irá responder em breve. Para atendimento imediato, ligue para +55 (11) 9999-9999.",
+          text: t("whatsapp.autoReply"),
           sender: "support",
           time: new Date().toLocaleTimeString("pt-PT", { hour: "2-digit", minute: "2-digit" }),
         }
@@ -69,7 +69,7 @@ export function WhatsAppChat({ children }: WhatsAppChatProps) {
 
   const handleWhatsAppRedirect = () => {
     const phoneNumber = "5511999999999"
-    const defaultMessage = "Olá! Gostaria de saber mais sobre os serviços da VianaHub."
+    const defaultMessage = t("whatsapp.defaultMessage")
     const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(defaultMessage)}`
     window.open(whatsappUrl, "_blank")
   }
@@ -196,7 +196,7 @@ export function WhatsAppChat({ children }: WhatsAppChatProps) {
                     onClick={handleWhatsAppRedirect}
                     variant="outline"
                     size="sm"
-                    className="text-green-600 border-green-600 hover:bg-green-50 dark:text-green-400 dark:border-green-400 dark:hover:bg-green-900/20"
+                    className="text-green-600 border-green-600 hover:bg-green-50 dark:text-green-400 dark:border-green-400 dark:hover:bg-green-900/20 bg-transparent"
                   >
                     <MessageCircle className="h-4 w-4 mr-2" />
                     {t("whatsapp.continue")}

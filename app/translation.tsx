@@ -64,6 +64,17 @@ export const homeTranslations = {
     "foxGame.routes.5": "5 rotas para explorar",
     "foxGame.routes.multiple": "Múltiplos caminhos",
 
+    // WhatsApp Chat
+    "whatsapp.title": "VianaHub Suporte",
+    "whatsapp.status": "Online agora",
+    "whatsapp.welcome":
+      "Olá! Como podemos ajudá-lo hoje? Nossa equipe está pronta para esclarecer suas dúvidas sobre nossos serviços.",
+    "whatsapp.placeholder": "Digite sua mensagem...",
+    "whatsapp.continue": "Continuar no WhatsApp",
+    "whatsapp.autoReply":
+      "Obrigado pela sua mensagem! Nossa equipe irá responder em breve. Para atendimento imediato, ligue para +55 (11) 9999-9999.",
+    "whatsapp.defaultMessage": "Olá! Gostaria de saber mais sobre os serviços da VianaHub.",
+
     // Industries Section
     "industries.title.part1": "Indústrias",
     "industries.title.part2": "Atendidas",
@@ -351,6 +362,17 @@ export const homeTranslations = {
     "foxGame.routes.5": "5 routes to explore",
     "foxGame.routes.multiple": "Multiple paths",
 
+    // WhatsApp Chat
+    "whatsapp.title": "VianaHub Support",
+    "whatsapp.status": "Online now",
+    "whatsapp.welcome":
+      "Hello! How can we help you today? Our team is ready to answer your questions about our services.",
+    "whatsapp.placeholder": "Type your message...",
+    "whatsapp.continue": "Continue on WhatsApp",
+    "whatsapp.autoReply":
+      "Thank you for your message! Our team will respond shortly. For immediate assistance, call +55 (11) 9999-9999.",
+    "whatsapp.defaultMessage": "Hello! I would like to know more about VianaHub's services.",
+
     // Industries Section
     "industries.title.part1": "Industries",
     "industries.title.part2": "Served",
@@ -631,6 +653,17 @@ export const homeTranslations = {
     "foxGame.routes.4": "4 caminos alternativos",
     "foxGame.routes.5": "5 rutas para explorar",
     "foxGame.routes.multiple": "Múltiples caminos",
+
+    // WhatsApp Chat
+    "whatsapp.title": "Soporte VianaHub",
+    "whatsapp.status": "En línea ahora",
+    "whatsapp.welcome":
+      "¡Hola! ¿Cómo podemos ayudarte hoy? Nuestro equipo está listo para responder tus preguntas sobre nuestros servicios.",
+    "whatsapp.placeholder": "Escribe tu mensaje...",
+    "whatsapp.continue": "Continuar en WhatsApp",
+    "whatsapp.autoReply":
+      "¡Gracias por tu mensaje! Nuestro equipo responderá pronto. Para atención inmediata, llama al +55 (11) 9999-9999.",
+    "whatsapp.defaultMessage": "¡Hola! Me gustaría saber más sobre los servicios de VianaHub.",
 
     // Industries Section
     "industries.title.part1": "Industrias",
@@ -925,6 +958,17 @@ export const homeTranslations = {
     "foxGame.routes.5": "5 routes à explorer",
     "foxGame.routes.multiple": "Chemins multiples",
 
+    // WhatsApp Chat
+    "whatsapp.title": "Support VianaHub",
+    "whatsapp.status": "En ligne maintenant",
+    "whatsapp.welcome":
+      "Bonjour ! Comment pouvons-nous vous aider aujourd'hui ? Notre équipe est prête à répondre à vos questions sur nos services.",
+    "whatsapp.placeholder": "Tapez votre message...",
+    "whatsapp.continue": "Continuer sur WhatsApp",
+    "whatsapp.autoReply":
+      "Merci pour votre message ! Notre équipe répondra bientôt. Pour une assistance immédiate, appelez le +55 (11) 9999-9999.",
+    "whatsapp.defaultMessage": "Bonjour ! J'aimerais en savoir plus sur les services de VianaHub.",
+
     // Industries Section
     "industries.title.part1": "Industries",
     "industries.title.part2": "Servies",
@@ -1107,6 +1151,17 @@ export const homeTranslations = {
       "Nous automatisons les processus répétitifs pour augmenter l'efficacité de votre entreprise.",
     "services.cta": "En Savoir Plus",
 
+    // WhatsApp Chat
+    "whatsapp.title": "Support VianaHub",
+    "whatsapp.status": "En ligne maintenant",
+    "whatsapp.welcome":
+      "Bonjour ! Comment pouvons-nous vous aider aujourd'hui ? Notre équipe est prête à répondre à vos questions sur nos services.",
+    "whatsapp.placeholder": "Tapez votre message...",
+    "whatsapp.continue": "Continuer sur WhatsApp",
+    "whatsapp.autoReply":
+      "Merci pour votre message ! Notre équipe répondra bientôt. Pour une assistance immédiate, appelez le +55 (11) 9999-9999.",
+    "whatsapp.defaultMessage": "Bonjour ! J'aimerais en savoir plus sur les services de VianaHub.",
+
     // Footer
     "footer.description":
       "Nous transformons les idées en solutions numériques innovantes. Experts en développement logiciel et conseil en TI.",
@@ -1216,6 +1271,17 @@ export const homeTranslations = {
     "foxGame.routes.4": "4 alternative Pfade",
     "foxGame.routes.5": "5 Routen zu erkunden",
     "foxGame.routes.multiple": "Mehrere Pfade",
+
+    // WhatsApp Chat
+    "whatsapp.title": "VianaHub Support",
+    "whatsapp.status": "Jetzt online",
+    "whatsapp.welcome":
+      "Hallo! Wie können wir Ihnen heute helfen? Unser Team ist bereit, Ihre Fragen zu unseren Dienstleistungen zu beantworten.",
+    "whatsapp.placeholder": "Geben Sie Ihre Nachricht ein...",
+    "whatsapp.continue": "Auf WhatsApp fortfahren",
+    "whatsapp.autoReply":
+      "Vielen Dank für Ihre Nachricht! Unser Team wird bald antworten. Für sofortige Hilfe rufen Sie +55 (11) 9999-9999 an.",
+    "whatsapp.defaultMessage": "Hallo! Ich möchte mehr über die Dienstleistungen von VianaHub erfahren.",
 
     // Industries Section
     "industries.title.part1": "Branchen",
