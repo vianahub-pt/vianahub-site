@@ -106,7 +106,7 @@ const allTranslations = {
     // Landing Pages translations
     "landingPages.hero.title": "Landing Pages de Alta Conversão",
     "landingPages.hero.subtitle":
-      "Páginas otimizadas para maximizar suas conversões e impulsionar o crescimento do seu negócio.",
+      "Criamos landing pages que convertem visitantes em clientes, com design profissional e estratégias comprovadas de marketing digital.",
     "landingPages.features.title": "Recursos Essenciais",
     "landingPages.features.subtitle":
       "Nossas landing pages são desenvolvidas com todos os elementos necessários para maximizar suas conversões e resultados.",
