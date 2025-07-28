@@ -63,9 +63,7 @@ export default function OutsourcingPage() {
     <TranslationProvider>
       <div className="min-h-screen bg-viana-white">
         <Navbar />
-
         <main className="pt-28">
-
           {/* Hero Section */}
           <section
             className="relative pt-0 pb-0 bg-gradient-to-br from-viana-orange to-viana-yellow overflow-hidden h-[300px]"
@@ -75,16 +73,11 @@ export default function OutsourcingPage() {
               backgroundPosition: "center",
             }}
           >
-            <div className="absolute inset-0 bg-black/60 z-0"></div>
-            <div className="container mx-auto px-4 relative z-10">
-              <div className="max-w-4xl mx-auto text-center text-white mt-8">
-                <h1 className="text-4xl lg:text-6xl font-bold mb-6">Terceirização de TI</h1>
-                <p className="text-xl lg:text-2xl mb-8 opacity-90">
-                  Acelere seus projetos com equipes especializadas, reduzindo custos e mantendo a mais alta qualidade.
-                </p>
-                <Button size="lg" className="bg-white text-viana-orange hover:bg-gray-100 font-semibold px-8 py-3">
-                  Montar Equipe
-                </Button>
+            <div className="absolute inset-0 bg-black/60 z-0" />
+            <div className="container mx-auto px-4 relative z-10 h-full flex items-center justify-center">
+              <div className="max-w-4xl mx-auto text-center text-white">
+                <h1 className="text-4xl lg:text-6xl font-bold mb-6">{t("agile.hero.title")}</h1>
+                <p className="text-xl lg:text-2xl mb-8 opacity-90">{t("agile.hero.subtitle")}</p>
               </div>
             </div>
           </section>
