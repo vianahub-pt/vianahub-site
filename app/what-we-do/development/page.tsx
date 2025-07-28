@@ -15,22 +15,22 @@ export default function DevelopmentPage() {
 
   const carouselItems = [
     {
-      image: "/development-website.png",
+      image: "/what-we-do-development-admin-template.jpg",
       title: t("development.services.carousel.website"),
       alt: "Website Development",
     },
     {
-      image: "/development-mobile.png",
+      image: "/what-we-do-development-mobile-template.jpg",
       title: t("development.services.carousel.mobile"),
       alt: "Mobile Applications",
     },
     {
-      image: "/development-corporate.png",
+      image: "/what-we-do-development-website-template.jpg",
       title: t("development.services.carousel.corporate"),
       alt: "Corporate Systems",
     },
     {
-      image: "/development-apis.png",
+      image: "/what-we-do-development-integration-template.jpg",
       title: t("development.services.carousel.apis"),
       alt: "API Architecture",
     },
