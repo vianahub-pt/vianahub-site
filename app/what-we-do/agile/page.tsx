@@ -18,46 +18,46 @@ function AgilePageContent() {
   const benefits = [
     {
       icon: <Zap className="h-8 w-8 text-viana-orange" />,
-      titleKey: "agile.delivery.title",
-      descriptionKey: "agile.delivery.description",
+      titleKey: "agile.benefits.delivery.title",
+      descriptionKey: "agile.benefits.delivery.description",
     },
     {
       icon: <Users className="h-8 w-8 text-viana-orange" />,
-      titleKey: "agile.collaboration.title",
-      descriptionKey: "agile.collaboration.description",
+      titleKey: "agile.benefits.collaboration.title",
+      descriptionKey: "agile.benefits.collaboration.description",
     },
     {
       icon: <Target className="h-8 w-8 text-viana-orange" />,
-      titleKey: "agile.focus.title",
-      descriptionKey: "agile.focus.description",
+      titleKey: "agile.benefits.flexibility.title",
+      descriptionKey: "agile.benefits.flexibility.description",
     },
     {
       icon: <TrendingUp className="h-8 w-8 text-viana-orange" />,
-      titleKey: "agile.improvement.title",
-      descriptionKey: "agile.improvement.description",
+      titleKey: "agile.benefits.quality.title",
+      descriptionKey: "agile.benefits.quality.description",
     },
   ]
 
   const methodologies = [
     {
       icon: <CheckCircle className="h-6 w-6 text-viana-orange" />,
-      nameKey: "agile.scrum.title",
-      descriptionKey: "agile.scrum.description",
+      nameKey: "agile.process.planning.title",
+      descriptionKey: "agile.process.planning.description",
     },
     {
       icon: <Clock className="h-6 w-6 text-viana-orange" />,
-      nameKey: "agile.kanban.title",
-      descriptionKey: "agile.kanban.description",
+      nameKey: "agile.process.sprints.title",
+      descriptionKey: "agile.process.sprints.description",
     },
     {
       icon: <BarChart3 className="h-6 w-6 text-viana-orange" />,
-      nameKey: "agile.lean.title",
-      descriptionKey: "agile.lean.description",
+      nameKey: "agile.process.review.title",
+      descriptionKey: "agile.process.review.description",
     },
     {
       icon: <Lightbulb className="h-6 w-6 text-viana-orange" />,
-      nameKey: "agile.design.title",
-      descriptionKey: "agile.design.description",
+      nameKey: "agile.process.delivery.title",
+      descriptionKey: "agile.process.delivery.description",
     },
   ]
 
@@ -77,10 +77,10 @@ function AgilePageContent() {
         <div className="absolute inset-0 bg-black/50"></div>
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-4xl mx-auto text-center text-white mt-8">
-            <h1 className="text-4xl lg:text-6xl font-bold mb-6">{t("agile.title")}</h1>
-            <p className="text-xl lg:text-2xl mb-8 opacity-90">{t("agile.subtitle")}</p>
+            <h1 className="text-4xl lg:text-6xl font-bold mb-6">{t("agile.hero.title")}</h1>
+            <p className="text-xl lg:text-2xl mb-8 opacity-90">{t("agile.hero.subtitle")}</p>
             <Button size="lg" className="bg-white text-viana-orange hover:bg-gray-100 font-semibold px-8 py-3">
-              {t("agile.cta")}
+              Saiba Mais
             </Button>
           </div>
         </div>
@@ -112,8 +112,8 @@ function AgilePageContent() {
       <section className="py-20 bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-3xl lg:text-4xl font-bold text-viana-black mb-4">{t("agile.methodologies.title")}</h2>
-            <p className="text-xl text-viana-gray max-w-3xl mx-auto">{t("agile.methodologies.subtitle")}</p>
+            <h2 className="text-3xl lg:text-4xl font-bold text-viana-black mb-4">{t("agile.process.title")}</h2>
+            <p className="text-xl text-viana-gray max-w-3xl mx-auto">{t("agile.process.subtitle")}</p>
           </div>
 
           <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
