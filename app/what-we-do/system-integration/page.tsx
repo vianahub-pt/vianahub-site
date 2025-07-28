@@ -68,12 +68,11 @@ export default function SystemIntegrationPage() {
 
           {/* Hero Section */}
           <section
-            className="relative pt-0 pb-10 bg-gradient-to-br from-viana-orange to-viana-yellow overflow-hidden h-full min-h-[250px] max-h-[300px]"
+            className="relative pt-0 pb-0 bg-gradient-to-br from-viana-orange to-viana-yellow overflow-hidden h-[300px]"
             style={{
-              backgroundImage: "url('/pages/system-integration.jpg')",
+              backgroundImage: "url(/pages/system-integration.jpg)",
               backgroundSize: "cover",
               backgroundPosition: "center",
-              backgroundRepeat: "no-repeat",
             }}
           >
             <div className="absolute inset-0 bg-black/60 z-0"></div>
