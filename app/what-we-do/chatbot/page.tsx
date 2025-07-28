@@ -69,13 +69,12 @@ export default function ChatbotPage() {
         <main className="pt-28">
           {/* Hero Section */}
           <section
-            className="relative pt-0 pb-10 bg-gradient-to-br from-viana-orange to-viana-yellow overflow-hidden h-full min-h-[250px] max-h-[300px]"
-            style={{
-              backgroundImage: "url('/pages/chatbot.jpg')",
-              backgroundSize: "cover",
-              backgroundPosition: "center",
-              backgroundRepeat: "no-repeat",
-            }}
+          className="relative pt-0 pb-0 bg-gradient-to-br from-viana-orange to-viana-yellow overflow-hidden h-[300px]"
+          style={{
+            backgroundImage: "url(/pages/chatbot.jpg)",
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+          }}
           >
           <div className="absolute inset-0 bg-black/60 z-0" />
           <div className="container mx-auto px-4 relative z-10 flex items-center justify-center">
