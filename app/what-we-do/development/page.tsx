@@ -100,146 +100,137 @@ export default function DevelopmentPage() {
     <div className="min-h-screen bg-background">
       <Navbar />
 
-      {/* Breadcrumb */}
-      <div className="container mx-auto px-4 pt-24">
-        <Breadcrumb
-          items={[
-            { label: "Home", href: "/" },
-            { label: "O que fazemos", href: "/what-we-do" },
-            { label: "Desenvolvimento", href: "/what-we-do/development" },
-          ]}
-        />
-      </div>
+        <main className="pt-28">
 
-      {/* Hero Section */}
-      <section className="relative py-20 overflow-hidden">
-        <div className="absolute inset-0 z-0">
-          <Image
-            src="/pages/what-we-do-landing-page.jpg"
-            alt="Development Hero"
-            fill
-            className="object-cover"
-            priority
-          />
-          <div className="absolute inset-0 bg-black/60" />
-        </div>
-
-        <div className="container mx-auto px-4 relative z-10">
-          <div className="max-w-4xl mx-auto text-center text-white">
-            <Badge variant="secondary" className="mb-4">
-              Desenvolvimento
-            </Badge>
-            <h1 className="text-4xl md:text-6xl font-bold mb-6">{t("development.hero.title")}</h1>
-            <p className="text-xl md:text-2xl mb-8 text-gray-200">{t("development.hero.subtitle")}</p>
-          </div>
-        </div>
-      </section>
-
-      {/* Services Carousel Section */}
-      <section className="py-20 bg-gray-50 dark:bg-gray-900">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">{t("development.services.title")}</h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">{t("development.services.subtitle")}</p>
+        {/* Hero Section */}
+        <section className="relative py-20 overflow-hidden">
+          <div className="absolute inset-0 z-0">
+            <Image
+              src="/pages/what-we-do-landing-page.jpg"
+              alt="Development Hero"
+              fill
+              className="object-cover"
+              priority
+            />
+            <div className="absolute inset-0 bg-black/60" />
           </div>
 
-          <div className="max-w-5xl mx-auto">
-            <Carousel
-              plugins={[
-                Autoplay({
-                  delay: 4000,
-                  stopOnInteraction: true,
-                }),
-              ]}
-              opts={{
-                align: "start",
-                loop: true,
-              }}
-              className="w-full"
-            >
-              <CarouselContent>
-                {services.map((service, index) => (
-                  <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
-                    <Card className="h-full">
-                      <CardContent className="p-0">
-                        <div className="relative h-64 overflow-hidden rounded-t-lg">
-                          <Image
-                            src={service.image || "/placeholder.svg"}
-                            alt={service.title}
-                            fill
-                            className="object-cover transition-transform hover:scale-105"
-                          />
-                        </div>
-                        <div className="p-6">
-                          <div className="flex items-center gap-3 mb-3">
-                            <service.icon className="h-6 w-6 text-primary" />
-                            <h3 className="text-xl font-semibold">{service.title}</h3>
+          <div className="container mx-auto px-4 relative z-10">
+            <div className="max-w-4xl mx-auto text-center text-white">
+              <Badge variant="secondary" className="mb-4">
+                Desenvolvimento
+              </Badge>
+              <h1 className="text-4xl md:text-6xl font-bold mb-6">{t("development.hero.title")}</h1>
+              <p className="text-xl md:text-2xl mb-8 text-gray-200">{t("development.hero.subtitle")}</p>
+            </div>
+          </div>
+        </section>
+
+        {/* Services Carousel Section */}
+        <section className="py-20 bg-gray-50 dark:bg-gray-900">
+          <div className="container mx-auto px-4">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl md:text-4xl font-bold mb-4">{t("development.services.title")}</h2>
+              <p className="text-xl text-muted-foreground max-w-3xl mx-auto">{t("development.services.subtitle")}</p>
+            </div>
+
+            <div className="max-w-5xl mx-auto">
+              <Carousel
+                plugins={[
+                  Autoplay({
+                    delay: 4000,
+                    stopOnInteraction: true,
+                  }),
+                ]}
+                opts={{
+                  align: "start",
+                  loop: true,
+                }}
+                className="w-full"
+              >
+                <CarouselContent>
+                  {services.map((service, index) => (
+                    <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
+                      <Card className="h-full">
+                        <CardContent className="p-0">
+                          <div className="relative h-64 overflow-hidden rounded-t-lg">
+                            <Image
+                              src={service.image || "/placeholder.svg"}
+                              alt={service.title}
+                              fill
+                              className="object-cover transition-transform hover:scale-105"
+                            />
                           </div>
-                        </div>
-                      </CardContent>
-                    </Card>
-                  </CarouselItem>
-                ))}
-              </CarouselContent>
-              <CarouselPrevious />
-              <CarouselNext />
-            </Carousel>
+                          <div className="p-6">
+                            <div className="flex items-center gap-3 mb-3">
+                              <service.icon className="h-6 w-6 text-primary" />
+                              <h3 className="text-xl font-semibold">{service.title}</h3>
+                            </div>
+                          </div>
+                        </CardContent>
+                      </Card>
+                    </CarouselItem>
+                  ))}
+                </CarouselContent>
+                <CarouselPrevious />
+                <CarouselNext />
+              </Carousel>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Service Details Section */}
-      <section className="py-20">
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {serviceDetails.map((service, index) => (
-              <Card key={index} className="text-center">
-                <CardContent className="p-6">
-                  <service.icon className="h-12 w-12 text-primary mx-auto mb-4" />
-                  <h3 className="text-xl font-semibold mb-3">{service.title}</h3>
-                  <p className="text-muted-foreground">{service.description}</p>
-                </CardContent>
-              </Card>
-            ))}
+        {/* Service Details Section */}
+        <section className="py-20">
+          <div className="container mx-auto px-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+              {serviceDetails.map((service, index) => (
+                <Card key={index} className="text-center">
+                  <CardContent className="p-6">
+                    <service.icon className="h-12 w-12 text-primary mx-auto mb-4" />
+                    <h3 className="text-xl font-semibold mb-3">{service.title}</h3>
+                    <p className="text-muted-foreground">{service.description}</p>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Why Choose Us Section */}
-      <section className="py-20 bg-gray-50 dark:bg-gray-900">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">{t("development.why.title")}</h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">{t("development.why.subtitle")}</p>
+        {/* Why Choose Us Section */}
+        <section className="py-20 bg-gray-50 dark:bg-gray-900">
+          <div className="container mx-auto px-4">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl md:text-4xl font-bold mb-4">{t("development.why.title")}</h2>
+              <p className="text-xl text-muted-foreground max-w-3xl mx-auto">{t("development.why.subtitle")}</p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+              {features.map((feature, index) => (
+                <Card key={index} className="text-center">
+                  <CardContent className="p-6">
+                    <feature.icon className="h-12 w-12 text-primary mx-auto mb-4" />
+                    <h3 className="text-xl font-semibold mb-3">{feature.title}</h3>
+                    <p className="text-muted-foreground">{feature.description}</p>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
           </div>
+        </section>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {features.map((feature, index) => (
-              <Card key={index} className="text-center">
-                <CardContent className="p-6">
-                  <feature.icon className="h-12 w-12 text-primary mx-auto mb-4" />
-                  <h3 className="text-xl font-semibold mb-3">{feature.title}</h3>
-                  <p className="text-muted-foreground">{feature.description}</p>
-                </CardContent>
-              </Card>
-            ))}
+        {/* CTA Section */}
+        <section className="py-20 bg-primary text-primary-foreground">
+          <div className="container mx-auto px-4 text-center">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">{t("development.cta.title")}</h2>
+            <p className="text-xl mb-8 max-w-3xl mx-auto opacity-90">{t("development.cta.subtitle")}</p>
+            <Button size="lg" variant="secondary" asChild>
+              <Link href="/contact">{t("development.cta.button")}</Link>
+            </Button>
           </div>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="py-20 bg-primary text-primary-foreground">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">{t("development.cta.title")}</h2>
-          <p className="text-xl mb-8 max-w-3xl mx-auto opacity-90">{t("development.cta.subtitle")}</p>
-          <Button size="lg" variant="secondary" asChild>
-            <Link href="/contact">{t("development.cta.button")}</Link>
-          </Button>
-        </div>
-      </section>
+        </section>
+      </main>
 
       <Footer />
-      <WhatsAppChat />
     </div>
   )
 }
