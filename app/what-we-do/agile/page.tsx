@@ -5,7 +5,7 @@ import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
 import { Card, CardContent } from "@/components/ui/card"
 import { TranslationProvider, useTranslation } from "@/contexts/translation-context"
-import { Zap, Users, Target, TrendingUp, CheckCircle, Clock, BarChart3, Lightbulb } from "lucide-react"
+import { Zap, Users, Target, TrendingUp, Calendar, Timer, Eye, Truck } from "lucide-react"
 
 function AgilePageContent() {
   const { t } = useTranslation()
@@ -39,22 +39,22 @@ function AgilePageContent() {
 
   const methodologies = [
     {
-      icon: <CheckCircle className="h-6 w-6 text-viana-orange" />,
+      icon: <Calendar className="h-6 w-6 text-viana-orange" />,
       nameKey: "agile.process.planning.title",
       descriptionKey: "agile.process.planning.description",
     },
     {
-      icon: <Clock className="h-6 w-6 text-viana-orange" />,
+      icon: <Timer className="h-6 w-6 text-viana-orange" />,
       nameKey: "agile.process.sprints.title",
       descriptionKey: "agile.process.sprints.description",
     },
     {
-      icon: <BarChart3 className="h-6 w-6 text-viana-orange" />,
+      icon: <Eye className="h-6 w-6 text-viana-orange" />,
       nameKey: "agile.process.review.title",
       descriptionKey: "agile.process.review.description",
     },
     {
-      icon: <Lightbulb className="h-6 w-6 text-viana-orange" />,
+      icon: <Truck className="h-6 w-6 text-viana-orange" />,
       nameKey: "agile.process.delivery.title",
       descriptionKey: "agile.process.delivery.description",
     },
@@ -66,7 +66,7 @@ function AgilePageContent() {
 
       {/* Hero Section */}
       <section
-        className="relative pt-8 pb-20 bg-gradient-to-br from-viana-orange to-viana-yellow overflow-hidden"
+        className="relative pt-0 pb-20 bg-gradient-to-br from-viana-orange to-viana-yellow overflow-hidden"
         style={{
           backgroundImage: "url(/pages/what-we-do-agile.jpg)",
           backgroundSize: "cover",
