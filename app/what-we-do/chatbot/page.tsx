@@ -71,7 +71,7 @@ export default function ChatbotPage() {
           <section
             className="relative pt-24 lg:pt-28 pb-20 bg-gradient-to-br from-viana-orange to-viana-yellow overflow-hidden"
             style={{
-              backgroundImage: "url('/pages/what-we-do-chatbot.jpg')",
+              backgroundImage: "url('/pages/chatbot.jpg')",
               backgroundSize: "cover",
               backgroundPosition: "center",
               backgroundRepeat: "no-repeat",
