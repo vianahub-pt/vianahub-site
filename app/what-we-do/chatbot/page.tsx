@@ -69,7 +69,7 @@ export default function ChatbotPage() {
         <main className="pt-28">
           {/* Hero Section */}
           <section
-            className="relative pt-0 pb-10 bg-gradient-to-br from-viana-orange to-viana-yellow overflow-hidden h-full max-h-[300px]"
+            className="relative pt-0 pb-10 bg-gradient-to-br from-viana-orange to-viana-yellow overflow-hidden h-full min-h-[250px] max-h-[300px]"
             style={{
               backgroundImage: "url('/pages/chatbot.jpg')",
               backgroundSize: "cover",
