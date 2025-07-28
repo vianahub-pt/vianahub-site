@@ -66,7 +66,7 @@ function AgilePageContent() {
       <main className="pt-28">
         {/* Hero Section */}
         <section
-          className="relative pt-0 pb-10 min-h-[50vh] bg-gradient-to-br from-viana-orange to-viana-yellow overflow-hidden h-full min-h-[50vh]"
+          className="relative pt-0 pb-10 bg-gradient-to-br from-viana-orange to-viana-yellow overflow-hidden h-full min-h-[250px]"
           style={{
             backgroundImage: "url(/pages/agile.jpg)",
             backgroundSize: "cover",
