@@ -62,9 +62,9 @@ function AgilePageContent() {
   ]
 
   return (
-
+    <Navbar />
+    
     <div className="min-h-screen bg-viana-white">
-
     <main className="pt-28">
       {/* Hero Section */}
       <section
