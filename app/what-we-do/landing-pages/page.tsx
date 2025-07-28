@@ -75,9 +75,6 @@ export default function LandingPagesPage() {
                   Criamos landing pages que convertem visitantes em clientes, com design profissional e estratégias
                   comprovadas de marketing digital.
                 </p>
-                <Button size="lg" className="bg-white text-viana-orange hover:bg-gray-100 font-semibold px-8 py-3">
-                  Criar Minha Landing Page
-                </Button>
               </div>
             </div>
           </section>
