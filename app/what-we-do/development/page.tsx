@@ -96,29 +96,29 @@ export default function DevelopmentPage() {
     },
   ]
 
-  return (
-    <div className="min-h-screen bg-background">
-      <Navbar />
-
-      <main className="pt-28">
-
-        {/* Hero Section */}
-              <section
+return (
+    
+    <div className="min-h-screen bg-viana-white">
+    <Navbar />
+    <main className="pt-28">
+      {/* Hero Section */}
+      <section
         className="relative pt-0 pb-20 bg-gradient-to-br from-viana-orange to-viana-yellow overflow-hidden"
         style={{
-          backgroundImage: "url(/pages/development.jpg)",
+          backgroundImage: "url(/pages/agile.jpg)",
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
       >
-          <div className="container mx-auto px-4 relative z-10">
-            <div className="max-w-4xl mx-auto text-center text-white">
-              <h1 className="text-4xl md:text-6xl font-bold mb-6">{t("development.hero.title")}</h1>
-              <p className="text-xl md:text-2xl mb-8 text-gray-200">{t("development.hero.subtitle")}</p>
-            </div>
+        <div className="absolute inset-0 bg-black/50"></div>
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="max-w-4xl mx-auto text-center text-white mt-8">
+            <h1 className="text-4xl lg:text-6xl font-bold mb-6">{t("agile.hero.title")}</h1>
+            <p className="text-xl lg:text-2xl mb-8 opacity-90">{t("agile.hero.subtitle")}</p>
           </div>
-        </section>
-
+        </div>
+      </section>
+	  
         {/* Services Carousel Section */}
         <section className="py-20 bg-gray-50 dark:bg-gray-900">
           <div className="container mx-auto px-4">
@@ -220,9 +220,10 @@ export default function DevelopmentPage() {
               <Link href="/contact">{t("development.cta.button")}</Link>
             </Button>
           </div>
-        </section>
-      </main>
+        </section>	  
 
+	</main>
+	
       <Footer />
     </div>
   )
