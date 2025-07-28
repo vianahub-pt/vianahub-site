@@ -103,18 +103,14 @@ export default function DevelopmentPage() {
       <main className="pt-28">
 
         {/* Hero Section */}
-        <section className="relative py-20 overflow-hidden">
-          <div className="absolute inset-0 z-0">
-            <Image
-              src="/pages/what-we-do-landing-page.jpg"
-              alt="Development Hero"
-              fill
-              className="object-cover"
-              priority
-            />
-            <div className="absolute inset-0 bg-black/60" />
-          </div>
-
+              <section
+        className="relative pt-0 pb-20 bg-gradient-to-br from-viana-orange to-viana-yellow overflow-hidden"
+        style={{
+          backgroundImage: "url(/pages/development.jpg)",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}
+      >
           <div className="container mx-auto px-4 relative z-10">
             <div className="max-w-4xl mx-auto text-center text-white">
               <h1 className="text-4xl md:text-6xl font-bold mb-6">{t("development.hero.title")}</h1>
