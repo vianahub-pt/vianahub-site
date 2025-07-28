@@ -1,6 +1,7 @@
 "use client"
 
 import { useTranslation } from "@/contexts/translation-context"
+import { Navbar } from "@/components/navbar"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel"
