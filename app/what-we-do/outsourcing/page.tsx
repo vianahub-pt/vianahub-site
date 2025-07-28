@@ -76,7 +76,7 @@ export default function OutsourcingPage() {
               backgroundRepeat: "no-repeat",
             }}
           >
-            <div className="absolute inset-0 bg-black/10"></div>
+            <div className="absolute inset-0 bg-black/60 z-0"></div>
             <div className="container mx-auto px-4 relative z-10">
               <div className="max-w-4xl mx-auto text-center text-white mt-8">
                 <h1 className="text-4xl lg:text-6xl font-bold mb-6">Terceirização de TI</h1>
