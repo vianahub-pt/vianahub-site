@@ -1,13 +1,6 @@
 import type React from "react"
 import type { Metadata } from "next"
-import { Inter } from "next/font/google"
-import "./globals.css"
-import { ThemeProvider } from "@/components/theme-provider"
-import { TranslationProvider } from "@/contexts/translation-context"
-import { Toaster } from "@/components/ui/toaster"
-import { WhatsAppChat } from "@/components/whatsapp-chat"
-
-const inter = Inter({ subsets: ["latin"] })
+import ClientLayout from "./ClientLayout"
 
 export const metadata: Metadata = {
   title: {
@@ -84,7 +77,7 @@ export const metadata: Metadata = {
     yandex: "yandex-verification-code",
     yahoo: "yahoo-site-verification-code",
   },
-    generator: 'v0.dev'
+  generator: "v0.dev",
 }
 
 export default function RootLayout({
@@ -92,17 +85,8 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
-  return (
-    <html lang="pt" suppressHydrationWarning>
-      <body className={inter.className}>
-        <ThemeProvider attribute="class" defaultTheme="light" enableSystem disableTransitionOnChange>
-          <TranslationProvider>
-            {children}
-            <Toaster />
-            <WhatsAppChat />
-          </TranslationProvider>
-        </ThemeProvider>
-      </body>
-    </html>
-  )
+  return <ClientLayout>{children}</ClientLayout>
 }
+
+
+import './globals.css'
