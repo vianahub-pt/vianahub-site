@@ -117,9 +117,6 @@ export default function DevelopmentPage() {
 
           <div className="container mx-auto px-4 relative z-10">
             <div className="max-w-4xl mx-auto text-center text-white">
-              <Badge variant="secondary" className="mb-4">
-                Desenvolvimento
-              </Badge>
               <h1 className="text-4xl md:text-6xl font-bold mb-6">{t("development.hero.title")}</h1>
               <p className="text-xl md:text-2xl mb-8 text-gray-200">{t("development.hero.subtitle")}</p>
             </div>
