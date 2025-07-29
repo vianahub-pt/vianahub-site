@@ -70,7 +70,7 @@ function LandingPagesContent() {
         <section
           className="relative pt-0 pb-0 bg-gradient-to-br from-viana-orange to-viana-yellow overflow-hidden h-[300px]"
           style={{
-            backgroundImage: "url(/pages/ystem-integration.jpg)",
+            backgroundImage: "url(/pages/landing-page.jpg)",
             backgroundSize: "cover",
             backgroundPosition: "center",
           }}
