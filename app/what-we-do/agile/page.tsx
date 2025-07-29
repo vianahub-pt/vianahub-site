@@ -204,7 +204,7 @@ export default function AgilePage() {
         </section>
 
         {/* Parallax Section */}
-        <ParallaxSection imageUrl="/pages/agil-paralax.jpg" height="400px" />
+        <Parallax />
 
         {/* Methodologies Section */}
         <section ref={processRef} className="py-20 bg-gray-50">
