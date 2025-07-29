@@ -6,7 +6,6 @@ import { navbarTranslations } from "@/app/translations/navbar"
 import { careersTranslations } from "@/app/careers/translation"
 import { contactTranslations } from "@/app/contact/translation"
 import { aboutTranslations } from "@/app/about/translation"
-import { developmentTranslations } from "@/app/what-we-do/development/translation"
 import { chatbotTranslations } from "@/app/what-we-do/chatbot/translation"
 
 export type Language = "pt" | "en" | "es" | "fr" | "de"
@@ -27,7 +26,6 @@ const allTranslations = {
     ...careersTranslations.pt,
     ...contactTranslations.pt,
     ...aboutTranslations.pt,
-    ...developmentTranslations.pt,
     ...chatbotTranslations.pt,
     // Agile translations
     "agile.hero.title": "Metodologia Ágil",
@@ -163,7 +161,6 @@ const allTranslations = {
     ...careersTranslations.en,
     ...contactTranslations.en,
     ...aboutTranslations.en,
-    ...developmentTranslations.en,
     ...chatbotTranslations.en,
     // Agile translations
     "agile.hero.title": "Agile Methodology",
@@ -295,7 +292,6 @@ const allTranslations = {
     ...careersTranslations.es,
     ...contactTranslations.es,
     ...aboutTranslations.es,
-    ...developmentTranslations.es,
     ...chatbotTranslations.es,
     // Agile translations
     "agile.hero.title": "Metodología Ágil",
@@ -435,7 +431,6 @@ const allTranslations = {
     ...careersTranslations.fr,
     ...contactTranslations.fr,
     ...aboutTranslations.fr,
-    ...developmentTranslations.fr,
     ...chatbotTranslations.fr,
     // Agile translations
     "agile.hero.title": "Méthodologie Agile",
@@ -578,7 +573,6 @@ const allTranslations = {
     ...careersTranslations.de,
     ...contactTranslations.de,
     ...aboutTranslations.de,
-    ...developmentTranslations.de,
     ...chatbotTranslations.de,
     // Agile translations
     "agile.hero.title": "Agile Methodik",
