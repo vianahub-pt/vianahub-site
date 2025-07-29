@@ -4,7 +4,6 @@ import { useEffect, useRef, useState } from "react"
 import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
 import { Card, CardContent } from "@/components/ui/card"
-import { Parallax } from "@/parallax"
 import { useTranslation } from "@/contexts/translation-context"
 import { Zap, Users, Target, TrendingUp, Calendar, Timer, Eye, Truck } from "lucide-react"
 
@@ -202,9 +201,6 @@ export default function AgilePage() {
             </div>
           </div>
         </section>
-
-        {/* Parallax Section */}
-        <Parallax />
 
         {/* Methodologies Section */}
         <section ref={processRef} className="py-20 bg-gray-50">
