@@ -180,20 +180,6 @@ function DevelopmentPageContent() {
           </div>
         </section>
 
-        {/* Parallax Section */}
-        <div
-          className="relative h-[500px] overflow-hidden"
-          style={{
-            backgroundImage: "url('/pages/development-parallax.jpg')",
-            backgroundAttachment: "fixed",
-            backgroundPosition: "center center",
-            backgroundRepeat: "no-repeat",
-            backgroundSize: "cover",
-          }}
-        >
-          <div className="absolute inset-0 bg-gradient-to-b from-black/5 to-black/10" />
-        </div>
-
         {/* Why Choose Us Section */}
         <section className="py-20 bg-gray-50 dark:bg-gray-900">
           <div className="container mx-auto px-4">
