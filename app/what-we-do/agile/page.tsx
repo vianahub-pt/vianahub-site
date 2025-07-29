@@ -11,11 +11,26 @@ function AgilePageContent() {
   const { t } = useTranslation()
   const processRef = useRef<HTMLElement>(null)
   const benefitsRef = useRef<HTMLElement>(null)
+  const parallaxRef = useRef<HTMLDivElement>(null)
   const [visibleCards, setVisibleCards] = useState<boolean[]>([])
   const [visibleBenefits, setVisibleBenefits] = useState<boolean[]>([])
 
   useEffect(() => {
     window.scrollTo(0, 0)
+  }, [])
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (parallaxRef.current) {
+        const scrolled = window.pageYOffset
+        const parallax = parallaxRef.current
+        const speed = scrolled * 0.3
+        parallax.style.transform = `translateY(${speed}px)`
+      }
+    }
+
+    window.addEventListener("scroll", handleScroll)
+    return () => window.removeEventListener("scroll", handleScroll)
   }, [])
 
   useEffect(() => {
@@ -153,14 +168,13 @@ function AgilePageContent() {
       <Navbar />
       <main className="pt-28">
         {/* Hero Section */}
-        <section
-          className="relative pt-0 pb-0 bg-gradient-to-br from-viana-orange to-viana-yellow overflow-hidden h-[300px]"
-          style={{
-            backgroundImage: "url(/pages/agile.jpg)",
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-          }}
-        >
+        <section className="relative pt-0 pb-0 bg-gradient-to-br from-viana-orange to-viana-yellow overflow-hidden h-[300px]">
+          <div
+            className="absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat"
+            style={{
+              backgroundImage: "url('/pages/agile.jpg')",
+            }}
+          />
           <div className="absolute inset-0 bg-black/60 z-0" />
           <div className="container mx-auto px-4 relative z-10 h-full flex items-center justify-center">
             <div className="max-w-4xl mx-auto text-center text-white">
@@ -201,6 +215,18 @@ function AgilePageContent() {
               ))}
             </div>
           </div>
+        </section>
+
+        {/* Parallax Section */}
+        <section className="relative h-[400px] overflow-hidden">
+          <div
+            ref={parallaxRef}
+            className="absolute inset-0 w-full h-[120%] bg-cover bg-center bg-no-repeat"
+            style={{
+              backgroundImage: "url('/pages/agile.jpg')",
+            }}
+          />
+          <div className="absolute inset-0 bg-black/40" />
         </section>
 
         {/* Methodologies Section */}
