@@ -11,11 +11,26 @@ function AgilePageContent() {
   const { t } = useTranslation()
   const processRef = useRef<HTMLElement>(null)
   const benefitsRef = useRef<HTMLElement>(null)
+  const parallaxRef = useRef<HTMLDivElement>(null)
   const [visibleCards, setVisibleCards] = useState<boolean[]>([])
   const [visibleBenefits, setVisibleBenefits] = useState<boolean[]>([])
 
   useEffect(() => {
     window.scrollTo(0, 0)
+  }, [])
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (parallaxRef.current) {
+        const scrolled = window.pageYOffset
+        const parallax = parallaxRef.current
+        const speed = scrolled * 0.5
+        parallax.style.transform = `translateY(${speed}px)`
+      }
+    }
+
+    window.addEventListener("scroll", handleScroll)
+    return () => window.removeEventListener("scroll", handleScroll)
   }, [])
 
   useEffect(() => {
@@ -201,6 +216,21 @@ function AgilePageContent() {
               ))}
             </div>
           </div>
+        </section>
+
+        {/* Parallax Section */}
+        <section className="relative h-[400px] overflow-hidden">
+          <div
+            ref={parallaxRef}
+            className="absolute inset-0 w-full h-[120%]"
+            style={{
+              backgroundImage: "url(/agil-paralax.png)",
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+              backgroundAttachment: "fixed",
+            }}
+          />
+          <div className="absolute inset-0 bg-black/40" />
         </section>
 
         {/* Methodologies Section */}
