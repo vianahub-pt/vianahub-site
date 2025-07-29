@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react"
 import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
 import { Card, CardContent } from "@/components/ui/card"
+import { ParallaxSection } from "@/components/parallax-section"
 import { useTranslation } from "@/contexts/translation-context"
 import { Zap, Users, Target, TrendingUp, Calendar, Timer, Eye, Truck } from "lucide-react"
 
@@ -11,26 +12,11 @@ export default function AgilePage() {
   const { t } = useTranslation()
   const processRef = useRef<HTMLElement>(null)
   const benefitsRef = useRef<HTMLElement>(null)
-  const parallaxRef = useRef<HTMLDivElement>(null)
   const [visibleCards, setVisibleCards] = useState<boolean[]>([])
   const [visibleBenefits, setVisibleBenefits] = useState<boolean[]>([])
 
   useEffect(() => {
     window.scrollTo(0, 0)
-  }, [])
-
-  useEffect(() => {
-    const handleScroll = () => {
-      if (parallaxRef.current) {
-        const scrolled = window.pageYOffset
-        const parallax = parallaxRef.current
-        const speed = scrolled * 0.3
-        parallax.style.transform = `translateY(${speed}px)`
-      }
-    }
-
-    window.addEventListener("scroll", handleScroll)
-    return () => window.removeEventListener("scroll", handleScroll)
   }, [])
 
   useEffect(() => {
@@ -218,16 +204,7 @@ export default function AgilePage() {
         </section>
 
         {/* Parallax Section */}
-        <section className="relative h-[400px] overflow-hidden">
-          <div
-            ref={parallaxRef}
-            className="absolute inset-0 w-full h-[120%] bg-cover bg-center bg-no-repeat"
-            style={{
-              backgroundImage: "url('/pages/agil-paralax.jpg')",
-            }}
-          />
-          <div className="absolute inset-0 bg-black/40" />
-        </section>
+        <ParallaxSection imageUrl="/pages/agil-paralax.jpg" height="400px" />
 
         {/* Methodologies Section */}
         <section ref={processRef} className="py-20 bg-gray-50">
