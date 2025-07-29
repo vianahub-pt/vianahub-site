@@ -3,7 +3,6 @@
 import { useEffect, useRef, useState } from "react"
 import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
-import { Parallax } from "@/parallax"
 import { Card, CardContent } from "@/components/ui/card"
 import { useTranslation } from "@/contexts/translation-context"
 import { Zap, Users, Target, TrendingUp, Calendar, Timer, Eye, Truck } from "lucide-react"
@@ -203,8 +202,19 @@ export default function AgilePage() {
           </div>
         </section>
 
-        {/*Parallax Section*/}
-        <Parallax/>
+        {/* Parallax Section */}
+        <div
+          className="relative h-[500px] overflow-hidden"
+          style={{
+            backgroundImage: "url('/pages/agil-paralax.jpg')",
+            backgroundAttachment: "fixed",
+            backgroundPosition: "center center",
+            backgroundRepeat: "no-repeat",
+            backgroundSize: "cover",
+          }}
+        >
+          <div className="absolute inset-0 bg-gradient-to-b from-black/5 to-black/10" />
+        </div>
 
         {/* Methodologies Section */}
         <section ref={processRef} className="py-20 bg-gray-50">
