@@ -4,10 +4,10 @@ import { useEffect, useRef, useState } from "react"
 import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
 import { Card, CardContent } from "@/components/ui/card"
-import { TranslationProvider, useTranslation } from "@/contexts/translation-context"
+import { useTranslation } from "@/contexts/translation-context"
 import { Zap, Users, Target, TrendingUp, Calendar, Timer, Eye, Truck } from "lucide-react"
 
-function AgilePageContent() {
+export default function AgilePage() {
   const { t } = useTranslation()
   const processRef = useRef<HTMLElement>(null)
   const benefitsRef = useRef<HTMLElement>(null)
@@ -266,13 +266,5 @@ function AgilePageContent() {
       </main>
       <Footer />
     </div>
-  )
-}
-
-export default function AgilePage() {
-  return (
-    <TranslationProvider>
-      <AgilePageContent />
-    </TranslationProvider>
   )
 }

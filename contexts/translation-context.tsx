@@ -29,6 +29,33 @@ const allTranslations = {
     ...aboutTranslations.pt,
     ...developmentTranslations.pt,
     ...chatbotTranslations.pt,
+    // Agile translations
+    "agile.hero.title": "Metodologia Ágil",
+    "agile.hero.subtitle":
+      "Acelere seus projetos com metodologias ágeis comprovadas e entregue resultados excepcionais.",
+    "agile.benefits.title": "Benefícios da Metodologia Ágil",
+    "agile.benefits.subtitle":
+      "Descubra como a metodologia ágil pode transformar seus projetos e acelerar seus resultados.",
+    "agile.benefits.delivery.title": "Entrega Rápida",
+    "agile.benefits.delivery.description": "Entregas incrementais e frequentes para valor contínuo ao cliente.",
+    "agile.benefits.collaboration.title": "Colaboração",
+    "agile.benefits.collaboration.description":
+      "Comunicação efetiva entre equipes e stakeholders durante todo o projeto.",
+    "agile.benefits.flexibility.title": "Flexibilidade",
+    "agile.benefits.flexibility.description": "Adaptação rápida a mudanças e novos requisitos do mercado.",
+    "agile.benefits.quality.title": "Qualidade",
+    "agile.benefits.quality.description": "Foco contínuo na qualidade através de testes e revisões constantes.",
+    "agile.process.title": "Nosso Processo Ágil",
+    "agile.process.subtitle":
+      "Seguimos um processo estruturado que garante entregas de qualidade e satisfação do cliente.",
+    "agile.process.planning.title": "Planejamento",
+    "agile.process.planning.description": "Definição clara de objetivos, escopo e prioridades do projeto.",
+    "agile.process.sprints.title": "Sprints",
+    "agile.process.sprints.description": "Desenvolvimento em ciclos curtos com entregas incrementais.",
+    "agile.process.review.title": "Revisão",
+    "agile.process.review.description": "Avaliação contínua do progresso e ajustes necessários.",
+    "agile.process.delivery.title": "Entrega",
+    "agile.process.delivery.description": "Implementação e entrega de funcionalidades testadas e aprovadas.",
     // Landing Pages translations
     "landingPages.hero.title": "Landing Pages de Alta Conversão",
     "landingPages.hero.subtitle":
@@ -138,6 +165,32 @@ const allTranslations = {
     ...aboutTranslations.en,
     ...developmentTranslations.en,
     ...chatbotTranslations.en,
+    // Agile translations
+    "agile.hero.title": "Agile Methodology",
+    "agile.hero.subtitle": "Accelerate your projects with proven agile methodologies and deliver exceptional results.",
+    "agile.benefits.title": "Benefits of Agile Methodology",
+    "agile.benefits.subtitle":
+      "Discover how agile methodology can transform your projects and accelerate your results.",
+    "agile.benefits.delivery.title": "Fast Delivery",
+    "agile.benefits.delivery.description": "Incremental and frequent deliveries for continuous customer value.",
+    "agile.benefits.collaboration.title": "Collaboration",
+    "agile.benefits.collaboration.description":
+      "Effective communication between teams and stakeholders throughout the project.",
+    "agile.benefits.flexibility.title": "Flexibility",
+    "agile.benefits.flexibility.description": "Quick adaptation to changes and new market requirements.",
+    "agile.benefits.quality.title": "Quality",
+    "agile.benefits.quality.description": "Continuous focus on quality through constant testing and reviews.",
+    "agile.process.title": "Our Agile Process",
+    "agile.process.subtitle":
+      "We follow a structured process that ensures quality deliveries and customer satisfaction.",
+    "agile.process.planning.title": "Planning",
+    "agile.process.planning.description": "Clear definition of project objectives, scope and priorities.",
+    "agile.process.sprints.title": "Sprints",
+    "agile.process.sprints.description": "Development in short cycles with incremental deliveries.",
+    "agile.process.review.title": "Review",
+    "agile.process.review.description": "Continuous evaluation of progress and necessary adjustments.",
+    "agile.process.delivery.title": "Delivery",
+    "agile.process.delivery.description": "Implementation and delivery of tested and approved functionalities.",
     // Landing Pages translations
     "landingPages.hero.title": "High-Converting Landing Pages",
     "landingPages.hero.subtitle": "Pages optimized to maximize your conversions and boost your business growth.",
@@ -244,6 +297,33 @@ const allTranslations = {
     ...aboutTranslations.es,
     ...developmentTranslations.es,
     ...chatbotTranslations.es,
+    // Agile translations
+    "agile.hero.title": "Metodología Ágil",
+    "agile.hero.subtitle":
+      "Acelere sus proyectos con metodologías ágiles probadas y entregue resultados excepcionales.",
+    "agile.benefits.title": "Beneficios de la Metodología Ágil",
+    "agile.benefits.subtitle":
+      "Descubra cómo la metodología ágil puede transformar sus proyectos y acelerar sus resultados.",
+    "agile.benefits.delivery.title": "Entrega Rápida",
+    "agile.benefits.delivery.description": "Entregas incrementales y frecuentes para valor continuo al cliente.",
+    "agile.benefits.collaboration.title": "Colaboración",
+    "agile.benefits.collaboration.description":
+      "Comunicación efectiva entre equipos y stakeholders durante todo el proyecto.",
+    "agile.benefits.flexibility.title": "Flexibilidad",
+    "agile.benefits.flexibility.description": "Adaptación rápida a cambios y nuevos requisitos del mercado.",
+    "agile.benefits.quality.title": "Calidad",
+    "agile.benefits.quality.description": "Enfoque continuo en la calidad a través de pruebas y revisiones constantes.",
+    "agile.process.title": "Nuestro Proceso Ágil",
+    "agile.process.subtitle":
+      "Seguimos un proceso estructurado que garantiza entregas de calidad y satisfacción del cliente.",
+    "agile.process.planning.title": "Planificación",
+    "agile.process.planning.description": "Definición clara de objetivos, alcance y prioridades del proyecto.",
+    "agile.process.sprints.title": "Sprints",
+    "agile.process.sprints.description": "Desarrollo en ciclos cortos con entregas incrementales.",
+    "agile.process.review.title": "Revisión",
+    "agile.process.review.description": "Evaluación continua del progreso y ajustes necesarios.",
+    "agile.process.delivery.title": "Entrega",
+    "agile.process.delivery.description": "Implementación y entrega de funcionalidades probadas y aprobadas.",
     // Landing Pages translations
     "landingPages.hero.title": "Landing Pages de Alta Conversión",
     "landingPages.hero.subtitle":
@@ -357,6 +437,33 @@ const allTranslations = {
     ...aboutTranslations.fr,
     ...developmentTranslations.fr,
     ...chatbotTranslations.fr,
+    // Agile translations
+    "agile.hero.title": "Méthodologie Agile",
+    "agile.hero.subtitle":
+      "Accélérez vos projets avec des méthodologies agiles éprouvées et livrez des résultats exceptionnels.",
+    "agile.benefits.title": "Avantages de la Méthodologie Agile",
+    "agile.benefits.subtitle":
+      "Découvrez comment la méthodologie agile peut transformer vos projets et accélérer vos résultats.",
+    "agile.benefits.delivery.title": "Livraison Rapide",
+    "agile.benefits.delivery.description": "Livraisons incrémentales et fréquentes pour une valeur continue au client.",
+    "agile.benefits.collaboration.title": "Collaboration",
+    "agile.benefits.collaboration.description":
+      "Communication efficace entre les équipes et les parties prenantes tout au long du projet.",
+    "agile.benefits.flexibility.title": "Flexibilité",
+    "agile.benefits.flexibility.description": "Adaptation rapide aux changements et aux nouvelles exigences du marché.",
+    "agile.benefits.quality.title": "Qualité",
+    "agile.benefits.quality.description": "Focus continu sur la qualité grâce à des tests et révisions constants.",
+    "agile.process.title": "Notre Processus Agile",
+    "agile.process.subtitle":
+      "Nous suivons un processus structuré qui garantit des livraisons de qualité et la satisfaction client.",
+    "agile.process.planning.title": "Planification",
+    "agile.process.planning.description": "Définition claire des objectifs, portée et priorités du projet.",
+    "agile.process.sprints.title": "Sprints",
+    "agile.process.sprints.description": "Développement en cycles courts avec des livraisons incrémentales.",
+    "agile.process.review.title": "Révision",
+    "agile.process.review.description": "Évaluation continue du progrès et ajustements nécessaires.",
+    "agile.process.delivery.title": "Livraison",
+    "agile.process.delivery.description": "Implémentation et livraison de fonctionnalités testées et approuvées.",
     // Landing Pages translations
     "landingPages.hero.title": "Landing Pages à Haute Conversion",
     "landingPages.hero.subtitle":
@@ -473,6 +580,33 @@ const allTranslations = {
     ...aboutTranslations.de,
     ...developmentTranslations.de,
     ...chatbotTranslations.de,
+    // Agile translations
+    "agile.hero.title": "Agile Methodik",
+    "agile.hero.subtitle":
+      "Beschleunigen Sie Ihre Projekte mit bewährten agilen Methoden und liefern Sie außergewöhnliche Ergebnisse.",
+    "agile.benefits.title": "Vorteile der Agilen Methodik",
+    "agile.benefits.subtitle":
+      "Entdecken Sie, wie agile Methodik Ihre Projekte transformieren und Ihre Ergebnisse beschleunigen kann.",
+    "agile.benefits.delivery.title": "Schnelle Lieferung",
+    "agile.benefits.delivery.description": "Inkrementelle und häufige Lieferungen für kontinuierlichen Kundenwert.",
+    "agile.benefits.collaboration.title": "Zusammenarbeit",
+    "agile.benefits.collaboration.description":
+      "Effektive Kommunikation zwischen Teams und Stakeholdern während des gesamten Projekts.",
+    "agile.benefits.flexibility.title": "Flexibilität",
+    "agile.benefits.flexibility.description": "Schnelle Anpassung an Änderungen und neue Marktanforderungen.",
+    "agile.benefits.quality.title": "Qualität",
+    "agile.benefits.quality.description": "Kontinuierlicher Fokus auf Qualität durch ständige Tests und Überprüfungen.",
+    "agile.process.title": "Unser Agiler Prozess",
+    "agile.process.subtitle":
+      "Wir folgen einem strukturierten Prozess, der Qualitätslieferungen und Kundenzufriedenheit gewährleistet.",
+    "agile.process.planning.title": "Planung",
+    "agile.process.planning.description": "Klare Definition von Projektzielen, Umfang und Prioritäten.",
+    "agile.process.sprints.title": "Sprints",
+    "agile.process.sprints.description": "Entwicklung in kurzen Zyklen mit inkrementellen Lieferungen.",
+    "agile.process.review.title": "Überprüfung",
+    "agile.process.review.description": "Kontinuierliche Bewertung des Fortschritts und notwendige Anpassungen.",
+    "agile.process.delivery.title": "Lieferung",
+    "agile.process.delivery.description": "Implementierung und Lieferung getesteter und genehmigter Funktionalitäten.",
     // Landing Pages translations
     "landingPages.hero.title": "Hochkonvertierende Landing Pages",
     "landingPages.hero.subtitle":
