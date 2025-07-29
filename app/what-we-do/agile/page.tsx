@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect } from "react"
+import { useEffect, useRef, useState } from "react"
 import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
 import { Card, CardContent } from "@/components/ui/card"
@@ -9,9 +9,53 @@ import { Zap, Users, Target, TrendingUp, Calendar, Timer, Eye, Truck } from "luc
 
 function AgilePageContent() {
   const { t } = useTranslation()
+  const processRef = useRef<HTMLElement>(null)
+  const [visibleCards, setVisibleCards] = useState<boolean[]>([])
 
   useEffect(() => {
     window.scrollTo(0, 0)
+  }, [])
+
+  useEffect(() => {
+    const cardElements = processRef.current?.querySelectorAll(".process-card")
+
+    if (!cardElements) return
+
+    // Initialize all cards as not visible
+    setVisibleCards(new Array(cardElements.length).fill(false))
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          const index = Number.parseInt(entry.target.getAttribute("data-index") || "0")
+
+          if (entry.isIntersecting) {
+            setVisibleCards((prev) => {
+              const newState = [...prev]
+              newState[index] = true
+              return newState
+            })
+          } else {
+            // Reset animation when card leaves viewport
+            setVisibleCards((prev) => {
+              const newState = [...prev]
+              newState[index] = false
+              return newState
+            })
+          }
+        })
+      },
+      {
+        threshold: 0.1,
+        rootMargin: "0px 0px -50px 0px",
+      },
+    )
+
+    cardElements.forEach((card) => {
+      observer.observe(card)
+    })
+
+    return () => observer.disconnect()
   }, [])
 
   const benefits = [
@@ -105,7 +149,7 @@ function AgilePageContent() {
         </section>
 
         {/* Methodologies Section */}
-        <section className="py-20 bg-gray-50">
+        <section ref={processRef} className="py-20 bg-gray-50">
           <div className="container mx-auto px-4">
             <div className="text-center mb-16">
               <h2 className="text-3xl lg:text-4xl font-bold text-viana-black mb-4">{t("agile.process.title")}</h2>
@@ -114,7 +158,16 @@ function AgilePageContent() {
 
             <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
               {methodologies.map((methodology, index) => (
-                <Card key={index} className="hover:shadow-lg transition-shadow border-none">
+                <Card
+                  key={index}
+                  data-index={index}
+                  className={`process-card hover:shadow-lg border-none transform transition-all duration-1000 ease-out ${
+                    visibleCards[index] ? "opacity-100 translate-y-0 scale-100" : "opacity-0 translate-y-12 scale-95"
+                  }`}
+                  style={{
+                    transitionDelay: visibleCards[index] ? `${index * 200}ms` : "0ms",
+                  }}
+                >
                   <CardContent className="p-6">
                     <div className="flex items-start space-x-4">
                       <div className="flex-shrink-0">{methodology.icon}</div>
