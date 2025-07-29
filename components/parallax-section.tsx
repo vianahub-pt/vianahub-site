@@ -16,21 +16,24 @@ export function ParallaxSection({ imageUrl, height = "400px", children }: Parall
     const handleScroll = () => {
       if (parallaxRef.current) {
         const scrolled = window.pageYOffset
-        const element = parallaxRef.current
-        const rect = element.getBoundingClientRect()
-        const elementTop = rect.top + scrolled
-        const elementHeight = rect.height
-        const windowHeight = window.innerHeight
+        const element = parallaxRef.current.parentElement
+        if (element) {
+          const rect = element.getBoundingClientRect()
+          const elementTop = scrolled + rect.top
+          const elementHeight = rect.height
+          const windowHeight = window.innerHeight
 
-        // Only apply parallax when element is in viewport
-        if (scrolled + windowHeight > elementTop && scrolled < elementTop + elementHeight) {
-          const speed = (scrolled - elementTop) * 0.3
-          parallaxRef.current.style.transform = `translateY(${speed}px)`
+          // Apply parallax effect when element is in viewport
+          if (rect.top < windowHeight && rect.bottom > 0) {
+            const speed = -(scrolled - elementTop) * 0.5
+            parallaxRef.current.style.transform = `translate3d(0, ${speed}px, 0)`
+          }
         }
       }
     }
 
-    window.addEventListener("scroll", handleScroll)
+    handleScroll() // Initial call
+    window.addEventListener("scroll", handleScroll, { passive: true })
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
 
@@ -38,10 +41,11 @@ export function ParallaxSection({ imageUrl, height = "400px", children }: Parall
     <section className="relative overflow-hidden" style={{ height }}>
       <div
         ref={parallaxRef}
-        className="absolute inset-0 w-full h-[120%] bg-cover bg-center bg-no-repeat bg-fixed"
+        className="absolute inset-0 w-full bg-cover bg-center bg-no-repeat will-change-transform"
         style={{
           backgroundImage: `url('${imageUrl}')`,
-          top: "-10%",
+          height: `calc(100% + 200px)`,
+          top: "-100px",
         }}
       />
       <div className="absolute inset-0 bg-black/40" />
