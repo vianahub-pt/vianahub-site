@@ -206,7 +206,7 @@ export default function AgilePage() {
         <div
           className="relative h-[500px] overflow-hidden"
           style={{
-            backgroundImage: "url('/pages/agil-paralax.jpg')",
+            backgroundImage: "url('/pages/agile-parallax.jpg')",
             backgroundAttachment: "fixed",
             backgroundPosition: "center center",
             backgroundRepeat: "no-repeat",
