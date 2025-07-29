@@ -1,5 +1,6 @@
 export const chatbotTranslations = {
   pt: {
+    // Chatbot translations
     "chatbot.hero.title": "Chatbots Inteligentes",
     "chatbot.hero.subtitle":
       "Automatize o atendimento ao cliente com chatbots inteligentes que oferecem respostas precisas e experiência excepcional.",
@@ -29,6 +30,10 @@ export const chatbotTranslations = {
     "chatbot.benefits.scalability.description": "Atenda milhares de clientes simultaneamente sem limitações.",
     "chatbot.demo.title": "Veja um Chatbot em Ação",
     "chatbot.demo.subtitle": "Experimente como nossos chatbots podem transformar o atendimento da sua empresa.",
+    "chatbot.demo.interactive.title": "Demo Interativo",
+    "chatbot.demo.interactive.description":
+      "Converse com nosso chatbot de demonstração e veja como ele pode ajudar seus clientes.",
+    "chatbot.demo.cta": "Iniciar Demo",
     "chatbot.cta.title": "Automatize seu Atendimento",
     "chatbot.cta.subtitle": "Implemente um chatbot inteligente e revolucione a forma como você atende seus clientes.",
     "chatbot.cta.button": "Solicitar Demonstração",
@@ -41,6 +46,7 @@ export const chatbotTranslations = {
     "chatbot.chat.bot.success": "Pedido confirmado! ✅ Tempo estimado: 20 minutos. Obrigado!",
   },
   en: {
+    // Chatbot translations
     "chatbot.hero.title": "Intelligent Chatbots",
     "chatbot.hero.subtitle":
       "Automate customer service with intelligent chatbots that offer accurate responses and exceptional experience.",
@@ -69,6 +75,10 @@ export const chatbotTranslations = {
     "chatbot.benefits.scalability.description": "Serve thousands of customers simultaneously without limitations.",
     "chatbot.demo.title": "See a Chatbot in Action",
     "chatbot.demo.subtitle": "Experience how our chatbots can transform your company's service.",
+    "chatbot.demo.interactive.title": "Interactive Demo",
+    "chatbot.demo.interactive.description":
+      "Chat with our demonstration chatbot and see how it can help your customers.",
+    "chatbot.demo.cta": "Start Demo",
     "chatbot.cta.title": "Automate your Service",
     "chatbot.cta.subtitle": "Implement an intelligent chatbot and revolutionize the way you serve your customers.",
     "chatbot.cta.button": "Request Demonstration",
@@ -81,6 +91,7 @@ export const chatbotTranslations = {
     "chatbot.chat.bot.success": "Order confirmed! ✅ Estimated time: 20 minutes. Thank you!",
   },
   es: {
+    // Chatbot translations
     "chatbot.hero.title": "Chatbots Inteligentes",
     "chatbot.hero.subtitle":
       "Automatice el servicio al cliente con chatbots inteligentes que ofrecen respuestas precisas y experiencia excepcional.",
@@ -111,6 +122,10 @@ export const chatbotTranslations = {
     "chatbot.benefits.scalability.description": "Atienda miles de clientes simultáneamente sin limitaciones.",
     "chatbot.demo.title": "Vea un Chatbot en Acción",
     "chatbot.demo.subtitle": "Experimente cómo nuestros chatbots pueden transformar el servicio de su empresa.",
+    "chatbot.demo.interactive.title": "Demo Interactivo",
+    "chatbot.demo.interactive.description":
+      "Converse con nuestro chatbot de demostración y vea cómo puede ayudar a sus clientes.",
+    "chatbot.demo.cta": "Iniciar Demo",
     "chatbot.cta.title": "Automatice su Servicio",
     "chatbot.cta.subtitle": "Implemente un chatbot inteligente y revolucione la forma como atiende a sus clientes.",
     "chatbot.cta.button": "Solicitar Demostración",
@@ -123,6 +138,7 @@ export const chatbotTranslations = {
     "chatbot.chat.bot.success": "¡Pedido confirmado! ✅ Tiempo estimado: 20 minutos. ¡Gracias!",
   },
   fr: {
+    // Chatbot translations
     "chatbot.hero.title": "Chatbots Intelligents",
     "chatbot.hero.subtitle":
       "Automatisez le service client avec des chatbots intelligents qui offrent des réponses précises et une expérience exceptionnelle.",
@@ -152,6 +168,10 @@ export const chatbotTranslations = {
     "chatbot.benefits.scalability.description": "Servez des milliers de clients simultanément sans limitations.",
     "chatbot.demo.title": "Voir un Chatbot en Action",
     "chatbot.demo.subtitle": "Découvrez comment nos chatbots peuvent transformer le service de votre entreprise.",
+    "chatbot.demo.interactive.title": "Démo Interactive",
+    "chatbot.demo.interactive.description":
+      "Discutez avec notre chatbot de démonstration et voyez comment il peut aider vos clients.",
+    "chatbot.demo.cta": "Démarrer Démo",
     "chatbot.cta.title": "Automatisez votre Service",
     "chatbot.cta.subtitle":
       "Implémentez un chatbot intelligent et révolutionnez la façon dont vous servez vos clients.",
@@ -165,6 +185,7 @@ export const chatbotTranslations = {
     "chatbot.chat.bot.success": "Commande confirmée ! ✅ Temps estimé : 20 minutes. Merci !",
   },
   de: {
+    // Chatbot translations
     "chatbot.hero.title": "Intelligente Chatbots",
     "chatbot.hero.subtitle":
       "Automatisieren Sie den Kundenservice mit intelligenten Chatbots, die präzise Antworten und außergewöhnliche Erfahrungen bieten.",
@@ -174,10 +195,9 @@ export const chatbotTranslations = {
       "Unsere Chatbots nutzen modernste künstliche Intelligenz, um außergewöhnliche Erfahrungen zu bieten.",
     "chatbot.features.conversations.title": "Natürliche Gespräche",
     "chatbot.features.conversations.description":
-      "Fortgeschrittene KI für fließende und natürliche Gespräche mit Ihren Kunden.",
+      "Erweiterte KI für fließende und natürliche Gespräche mit Ihren Kunden.",
     "chatbot.features.availability.title": "24/7 Verfügbarkeit",
-    "chatbot.features.availability.description":
-      "Automatisierter Service 24 Stunden am Tag, 7 Tage die Woche verfügbar.",
+    "chatbot.features.availability.description": "Automatisierter Service rund um die Uhr verfügbar, 7 Tage die Woche.",
     "chatbot.features.channels.title": "Mehrere Kanäle",
     "chatbot.features.channels.description": "Integration mit WhatsApp, Facebook, Telegram und anderen Kanälen.",
     "chatbot.features.analytics.title": "Erweiterte Analytics",
@@ -195,6 +215,10 @@ export const chatbotTranslations = {
     "chatbot.benefits.scalability.description": "Bedienen Sie Tausende von Kunden gleichzeitig ohne Einschränkungen.",
     "chatbot.demo.title": "Sehen Sie einen Chatbot in Aktion",
     "chatbot.demo.subtitle": "Erleben Sie, wie unsere Chatbots den Service Ihres Unternehmens transformieren können.",
+    "chatbot.demo.interactive.title": "Interaktive Demo",
+    "chatbot.demo.interactive.description":
+      "Chatten Sie mit unserem Demonstrations-Chatbot und sehen Sie, wie er Ihren Kunden helfen kann.",
+    "chatbot.demo.cta": "Demo Starten",
     "chatbot.cta.title": "Automatisieren Sie Ihren Service",
     "chatbot.cta.subtitle":
       "Implementieren Sie einen intelligenten Chatbot und revolutionieren Sie die Art, wie Sie Ihre Kunden bedienen.",

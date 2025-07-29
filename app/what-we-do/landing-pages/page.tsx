@@ -5,10 +5,10 @@ import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
 import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
-import { TranslationProvider, useTranslation } from "@/contexts/translation-context"
+import { useTranslation } from "@/contexts/translation-context"
 import { Zap, Target, TrendingUp, Smartphone, Search, BarChart3, Palette, Rocket } from "lucide-react"
 
-function LandingPagesContent() {
+export default function LandingPagesPage() {
   const { t } = useTranslation()
 
   useEffect(() => {
@@ -150,13 +150,5 @@ function LandingPagesContent() {
 
       <Footer />
     </div>
-  )
-}
-
-export default function LandingPagesPage() {
-  return (
-    <TranslationProvider>
-      <LandingPagesContent />
-    </TranslationProvider>
   )
 }
