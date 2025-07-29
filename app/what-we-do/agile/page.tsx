@@ -10,7 +10,9 @@ import { Zap, Users, Target, TrendingUp, Calendar, Timer, Eye, Truck } from "luc
 function AgilePageContent() {
   const { t } = useTranslation()
   const processRef = useRef<HTMLElement>(null)
+  const benefitsRef = useRef<HTMLElement>(null)
   const [visibleCards, setVisibleCards] = useState<boolean[]>([])
+  const [visibleBenefits, setVisibleBenefits] = useState<boolean[]>([])
 
   useEffect(() => {
     window.scrollTo(0, 0)
@@ -52,6 +54,48 @@ function AgilePageContent() {
     )
 
     cardElements.forEach((card) => {
+      observer.observe(card)
+    })
+
+    return () => observer.disconnect()
+  }, [])
+
+  useEffect(() => {
+    const benefitElements = benefitsRef.current?.querySelectorAll(".benefit-card")
+
+    if (!benefitElements) return
+
+    // Initialize all benefits as not visible
+    setVisibleBenefits(new Array(benefitElements.length).fill(false))
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          const index = Number.parseInt(entry.target.getAttribute("data-index") || "0")
+
+          if (entry.isIntersecting) {
+            setVisibleBenefits((prev) => {
+              const newState = [...prev]
+              newState[index] = true
+              return newState
+            })
+          } else {
+            // Reset animation when card leaves viewport
+            setVisibleBenefits((prev) => {
+              const newState = [...prev]
+              newState[index] = false
+              return newState
+            })
+          }
+        })
+      },
+      {
+        threshold: 0.1,
+        rootMargin: "0px 0px -50px 0px",
+      },
+    )
+
+    benefitElements.forEach((card) => {
       observer.observe(card)
     })
 
@@ -127,7 +171,7 @@ function AgilePageContent() {
         </section>
 
         {/* Benefits Section */}
-        <section className="py-20 bg-white">
+        <section ref={benefitsRef} className="py-20 bg-white">
           <div className="container mx-auto px-4">
             <div className="text-center mb-16">
               <h2 className="text-3xl lg:text-4xl font-bold text-viana-black mb-4">{t("agile.benefits.title")}</h2>
@@ -136,7 +180,18 @@ function AgilePageContent() {
 
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
               {benefits.map((benefit, index) => (
-                <Card key={index} className="text-center hover:shadow-lg transition-shadow border-none">
+                <Card
+                  key={index}
+                  data-index={index}
+                  className={`benefit-card text-center hover:shadow-lg transition-all duration-1000 ease-out border-none transform ${
+                    visibleBenefits[index]
+                      ? "opacity-100 translate-x-0"
+                      : `opacity-0 ${index < 2 ? "-translate-x-full" : "translate-x-full"}`
+                  }`}
+                  style={{
+                    transitionDelay: visibleBenefits[index] ? `${index * 200}ms` : "0ms",
+                  }}
+                >
                   <CardContent className="p-6">
                     <div className="flex justify-center mb-4">{benefit.icon}</div>
                     <h3 className="text-xl font-bold text-viana-black mb-3">{t(benefit.titleKey)}</h3>
