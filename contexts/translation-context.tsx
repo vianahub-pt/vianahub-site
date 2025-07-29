@@ -7,6 +7,7 @@ import { careersTranslations } from "@/app/careers/translation"
 import { contactTranslations } from "@/app/contact/translation"
 import { aboutTranslations } from "@/app/about/translation"
 import { developmentTranslations } from "@/app/what-we-do/development/translation"
+import { chatbotTranslations } from "@/app/what-we-do/chatbot/translation"
 
 export type Language = "pt" | "en" | "es" | "fr" | "de"
 
@@ -27,50 +28,7 @@ const allTranslations = {
     ...contactTranslations.pt,
     ...aboutTranslations.pt,
     ...developmentTranslations.pt,
-    // Chatbot translations
-    "chatbot.hero.title": "Chatbots Inteligentes",
-    "chatbot.hero.subtitle":
-      "Automatize o atendimento ao cliente com chatbots inteligentes que oferecem respostas precisas e experiência excepcional.",
-    "chatbot.hero.cta": "Criar Chatbot",
-    "chatbot.features.title": "Recursos Avançados",
-    "chatbot.features.subtitle":
-      "Nossos chatbots utilizam inteligência artificial de última geração para proporcionar experiências excepcionais.",
-    "chatbot.features.conversations.title": "Conversas Naturais",
-    "chatbot.features.conversations.description": "IA avançada para conversas fluidas e naturais com seus clientes.",
-    "chatbot.features.availability.title": "Disponibilidade 24/7",
-    "chatbot.features.availability.description":
-      "Atendimento automatizado disponível 24 horas por dia, 7 dias por semana.",
-    "chatbot.features.channels.title": "Múltiplos Canais",
-    "chatbot.features.channels.description": "Integração com WhatsApp, Facebook, Telegram e outros canais.",
-    "chatbot.features.analytics.title": "Analytics Avançado",
-    "chatbot.features.analytics.description": "Relatórios detalhados sobre interações e performance do chatbot.",
-    "chatbot.benefits.title": "Benefícios para seu Negócio",
-    "chatbot.benefits.subtitle":
-      "Transforme o atendimento ao cliente e otimize operações com nossa tecnologia de chatbot.",
-    "chatbot.benefits.response.title": "Resposta Instantânea",
-    "chatbot.benefits.response.description": "Respostas imediatas para dúvidas frequentes dos clientes.",
-    "chatbot.benefits.costs.title": "Redução de Custos",
-    "chatbot.benefits.costs.description": "Diminua custos operacionais com atendimento automatizado.",
-    "chatbot.benefits.satisfaction.title": "Satisfação do Cliente",
-    "chatbot.benefits.satisfaction.description": "Melhore a experiência do cliente com atendimento eficiente.",
-    "chatbot.benefits.scalability.title": "Escalabilidade",
-    "chatbot.benefits.scalability.description": "Atenda milhares de clientes simultaneamente sem limitações.",
-    "chatbot.demo.title": "Veja um Chatbot em Ação",
-    "chatbot.demo.subtitle": "Experimente como nossos chatbots podem transformar o atendimento da sua empresa.",
-    "chatbot.demo.interactive.title": "Demo Interativo",
-    "chatbot.demo.interactive.description":
-      "Converse com nosso chatbot de demonstração e veja como ele pode ajudar seus clientes.",
-    "chatbot.demo.cta": "Iniciar Demo",
-    "chatbot.cta.title": "Automatize seu Atendimento",
-    "chatbot.cta.subtitle": "Implemente um chatbot inteligente e revolucione a forma como você atende seus clientes.",
-    "chatbot.cta.button": "Solicitar Demonstração",
-    "chatbot.chat.bot.greeting": "Olá! Como posso ajudá-lo hoje?",
-    "chatbot.chat.user.order": "Oi! Gostaria de pedir um lanche",
-    "chatbot.chat.bot.options": "Perfeito! Temos sanduíches, pizzas e saladas. O que prefere?",
-    "chatbot.chat.user.choice": "Um sanduíche de frango, por favor",
-    "chatbot.chat.bot.confirm": "Ótima escolha! Sanduíche de frango - R$ 15,00. Confirma o pedido?",
-    "chatbot.chat.user.confirm": "Sim, confirmo!",
-    "chatbot.chat.bot.success": "Pedido confirmado! ✅ Tempo estimado: 20 minutos. Obrigado!",
+    ...chatbotTranslations.pt,
     // Landing Pages translations
     "landingPages.hero.title": "Landing Pages de Alta Conversão",
     "landingPages.hero.subtitle":
@@ -179,49 +137,7 @@ const allTranslations = {
     ...contactTranslations.en,
     ...aboutTranslations.en,
     ...developmentTranslations.en,
-    // Chatbot translations
-    "chatbot.hero.title": "Intelligent Chatbots",
-    "chatbot.hero.subtitle":
-      "Automate customer service with intelligent chatbots that offer accurate responses and exceptional experience.",
-    "chatbot.hero.cta": "Create Chatbot",
-    "chatbot.features.title": "Advanced Features",
-    "chatbot.features.subtitle":
-      "Our chatbots use cutting-edge artificial intelligence to provide exceptional experiences.",
-    "chatbot.features.conversations.title": "Natural Conversations",
-    "chatbot.features.conversations.description":
-      "Advanced AI for fluid and natural conversations with your customers.",
-    "chatbot.features.availability.title": "24/7 Availability",
-    "chatbot.features.availability.description": "Automated service available 24 hours a day, 7 days a week.",
-    "chatbot.features.channels.title": "Multiple Channels",
-    "chatbot.features.channels.description": "Integration with WhatsApp, Facebook, Telegram and other channels.",
-    "chatbot.features.analytics.title": "Advanced Analytics",
-    "chatbot.features.analytics.description": "Detailed reports on interactions and chatbot performance.",
-    "chatbot.benefits.title": "Benefits for your Business",
-    "chatbot.benefits.subtitle": "Transform customer service and optimize operations with our chatbot technology.",
-    "chatbot.benefits.response.title": "Instant Response",
-    "chatbot.benefits.response.description": "Immediate responses to frequently asked customer questions.",
-    "chatbot.benefits.costs.title": "Cost Reduction",
-    "chatbot.benefits.costs.description": "Reduce operational costs with automated service.",
-    "chatbot.benefits.satisfaction.title": "Customer Satisfaction",
-    "chatbot.benefits.satisfaction.description": "Improve customer experience with efficient service.",
-    "chatbot.benefits.scalability.title": "Scalability",
-    "chatbot.benefits.scalability.description": "Serve thousands of customers simultaneously without limitations.",
-    "chatbot.demo.title": "See a Chatbot in Action",
-    "chatbot.demo.subtitle": "Experience how our chatbots can transform your company's service.",
-    "chatbot.demo.interactive.title": "Interactive Demo",
-    "chatbot.demo.interactive.description":
-      "Chat with our demonstration chatbot and see how it can help your customers.",
-    "chatbot.demo.cta": "Start Demo",
-    "chatbot.cta.title": "Automate your Service",
-    "chatbot.cta.subtitle": "Implement an intelligent chatbot and revolutionize the way you serve your customers.",
-    "chatbot.cta.button": "Request Demonstration",
-    "chatbot.chat.bot.greeting": "Hello! How can I help you today?",
-    "chatbot.chat.user.order": "Hi! I would like to order a snack",
-    "chatbot.chat.bot.options": "Perfect! We have sandwiches, pizzas and salads. What do you prefer?",
-    "chatbot.chat.user.choice": "A chicken sandwich, please",
-    "chatbot.chat.bot.confirm": "Great choice! Chicken sandwich - $15.00. Confirm the order?",
-    "chatbot.chat.user.confirm": "Yes, I confirm!",
-    "chatbot.chat.bot.success": "Order confirmed! ✅ Estimated time: 20 minutes. Thank you!",
+    ...chatbotTranslations.en,
     // Landing Pages translations
     "landingPages.hero.title": "High-Converting Landing Pages",
     "landingPages.hero.subtitle": "Pages optimized to maximize your conversions and boost your business growth.",
@@ -327,6 +243,7 @@ const allTranslations = {
     ...contactTranslations.es,
     ...aboutTranslations.es,
     ...developmentTranslations.es,
+    ...chatbotTranslations.es,
     // Landing Pages translations
     "landingPages.hero.title": "Landing Pages de Alta Conversión",
     "landingPages.hero.subtitle":
@@ -439,6 +356,7 @@ const allTranslations = {
     ...contactTranslations.fr,
     ...aboutTranslations.fr,
     ...developmentTranslations.fr,
+    ...chatbotTranslations.fr,
     // Landing Pages translations
     "landingPages.hero.title": "Landing Pages à Haute Conversion",
     "landingPages.hero.subtitle":
@@ -554,6 +472,7 @@ const allTranslations = {
     ...contactTranslations.de,
     ...aboutTranslations.de,
     ...developmentTranslations.de,
+    ...chatbotTranslations.de,
     // Landing Pages translations
     "landingPages.hero.title": "Hochkonvertierende Landing Pages",
     "landingPages.hero.subtitle":
