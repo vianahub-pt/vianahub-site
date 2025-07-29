@@ -5,7 +5,7 @@ export function Parallax() {
     <div
       className="relative h-[500px] overflow-hidden"
       style={{
-        backgroundImage: "url('/dashborad.jpg')",
+        backgroundImage: "url('/agil-paralax.jpg')",
         backgroundAttachment: "fixed",
         backgroundPosition: "center center",
         backgroundRepeat: "no-repeat",
