@@ -1,20 +1,32 @@
-"use client"
+"use client";
 
-import Link from "next/link"
-import { Button } from "@/components/ui/button"
-import { Facebook, Twitter, Instagram, Linkedin, Mail, Phone, MapPin, MessageCircle } from "lucide-react"
-import { WhatsAppChat } from "@/components/whatsapp-chat"
-import { useTranslation } from "@/contexts/translation-context"
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
+import {
+  Facebook,
+  Twitter,
+  Instagram,
+  Linkedin,
+  Mail,
+  Phone,
+  MapPin,
+  MessageCircle,
+} from "lucide-react";
+import { WhatsAppChat } from "@/components/whatsapp-chat";
+import { useTranslation } from "@/contexts/translation-context";
 
 export function Footer() {
-  const { t } = useTranslation()
+  const { t } = useTranslation();
 
   const footerSections = {
     [t("footer.sections.whatWeDo")]: [
       { name: t("footer.links.agile"), href: "/what-we-do/agile" },
       { name: t("footer.links.chatbot"), href: "/what-we-do/chatbot" },
       { name: t("footer.links.development"), href: "/what-we-do/development" },
-      { name: t("footer.links.integration"), href: "/what-we-do/system-integration" },
+      {
+        name: t("footer.links.integration"),
+        href: "/what-we-do/system-integration",
+      },
       { name: t("footer.links.landing"), href: "/what-we-do/landing-pages" },
       { name: t("footer.links.outsourcing"), href: "/what-we-do/outsourcing" },
     ],
@@ -26,7 +38,10 @@ export function Footer() {
     [t("footer.sections.industry")]: [
       { name: t("footer.links.education"), href: "/industry/education" },
       { name: t("footer.links.government"), href: "/industry/government" },
-      { name: t("footer.links.manufacturing"), href: "/industry/manufacturing" },
+      {
+        name: t("footer.links.manufacturing"),
+        href: "/industry/manufacturing",
+      },
       { name: t("footer.links.financial"), href: "/industry/financial" },
       { name: t("footer.links.retail"), href: "/industry/retail" },
       { name: t("footer.links.healthcare"), href: "/industry/healthcare" },
@@ -34,7 +49,10 @@ export function Footer() {
     [t("footer.sections.security")]: [
       { name: t("footer.links.access"), href: "/security/access" },
       { name: t("footer.links.backups"), href: "/security/backups" },
-      { name: t("footer.links.cybersecurity"), href: "/security/cyber-security" },
+      {
+        name: t("footer.links.cybersecurity"),
+        href: "/security/cyber-security",
+      },
     ],
     [t("footer.sections.company")]: [
       { name: t("footer.links.about"), href: "/about" },
@@ -44,7 +62,7 @@ export function Footer() {
       { name: t("footer.links.privacy"), href: "/privacy" },
       { name: t("footer.links.terms"), href: "/terms" },
     ],
-  }
+  };
 
   return (
     <>
@@ -53,16 +71,27 @@ export function Footer() {
           <div className="grid lg:grid-cols-6 gap-8">
             {/* Logo e Descrição */}
             <div className="lg:col-span-1">
-              <Link href="/" className="flex items-center space-x-2 mb-4">
-                <img src="/logo.png" alt="VianaHub" className="h-14 w-auto" />
-              </Link>
-              <p className="text-gray-300 dark:text-gray-400 mb-6 max-w-sm">{t("footer.description")}</p>
+              <div className="flex items-center justify-center mb-4">
+                <Link href="/" className="flex items-center">
+                  <img
+                    src="/face.png"
+                    alt="VianaHub"
+                    className="h-14"
+                    style={{ width: "150%" }}
+                  />
+                </Link>
+              </div>
+              <p className="text-gray-300 dark:text-gray-400 mb-6 max-w-sm">
+                {t("footer.description")}
+              </p>
 
               {/* Contato */}
               <div className="space-y-3">
                 <div className="flex items-center">
                   <Mail className="h-4 w-4 mr-3 text-viana-orange dark:text-gray-400" />
-                  <span className="text-sm text-white">contato@vianahub.com</span>
+                  <span className="text-sm text-white">
+                    contato@vianahub.com
+                  </span>
                 </div>
                 <div className="flex items-center">
                   <Phone className="h-4 w-4 mr-3 text-viana-orange dark:text-gray-400" />
@@ -70,7 +99,9 @@ export function Footer() {
                 </div>
                 <div className="flex items-center">
                   <MapPin className="h-4 w-4 mr-3 text-viana-orange dark:text-gray-400" />
-                  <span className="text-sm text-white">{t("footer.location")}</span>
+                  <span className="text-sm text-white">
+                    {t("footer.location")}
+                  </span>
                 </div>
               </div>
             </div>
@@ -78,7 +109,9 @@ export function Footer() {
             {/* Mapa do Site - Todas as seções no mesmo nível */}
             {Object.entries(footerSections).map(([section, links]) => (
               <div key={section}>
-                <h3 className="font-semibold text-viana-orange dark:text-gray-300 mb-4">{section}</h3>
+                <h3 className="font-semibold text-viana-orange dark:text-gray-300 mb-4">
+                  {section}
+                </h3>
                 <ul className="space-y-2">
                   {links.map((link) => (
                     <li key={link.name}>
@@ -143,7 +176,9 @@ export function Footer() {
       <div className="bg-viana-gray dark:bg-gray-800 text-viana-white py-4">
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row justify-between items-center text-sm min-h-[40px]">
-            <div className="text-white flex items-center h-full">{t("footer.rights")}</div>
+            <div className="text-white flex items-center h-full">
+              {t("footer.rights")}
+            </div>
             <div className="flex space-x-4 mt-2 md:mt-0 items-center h-full">
               <Link
                 href="/privacy-policy"
@@ -181,5 +216,5 @@ export function Footer() {
         </div>
       </WhatsAppChat>
     </>
-  )
+  );
 }
