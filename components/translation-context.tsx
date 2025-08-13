@@ -97,6 +97,10 @@ const translations = {
     "foxGame.points": "Pontos",
     "foxGame.completedIn": "Completado em",
     "foxGame.seconds": "segundos",
+    "foxGame.nameLabel": "Digite o seu nome para começar",
+    "foxGame.howToPlay": "Como jogar",
+    "foxGame.instructions":
+      "• Use as setas do teclado para mover a raposa • Ou clique nas células para se mover • Encontre o oásis em cada nível • Complete todos os 5 níveis o mais rápido possível!",
   },
   en: {
     // Navigation
@@ -184,6 +188,10 @@ const translations = {
     "foxGame.points": "Points",
     "foxGame.completedIn": "Completed in",
     "foxGame.seconds": "seconds",
+    "foxGame.nameLabel": "Enter your name to begin",
+    "foxGame.howToPlay": "How to play",
+    "foxGame.instructions":
+      "• Use the arrow keys to move the fox • Or click on the cells to move • Find the oasis in each level • Complete all 5 levels as quickly as possible!",
   },
   es: {
     // Navigation
@@ -271,6 +279,10 @@ const translations = {
     "foxGame.points": "Puntos",
     "foxGame.completedIn": "Completado en",
     "foxGame.seconds": "segundos",
+    "foxGame.nameLabel": "Ingresa tu nombre para comenzar",
+    "foxGame.howToPlay": "Cómo jugar",
+    "foxGame.instructions":
+      "• Usa las flechas del teclado para mover el zorro • O haz clic en las celdas para moverte • Encuentra el oasis en cada nivel • ¡Completa todos los 5 niveles lo más rápido posible!",
   },
   fr: {
     // Navigation
@@ -358,6 +370,10 @@ const translations = {
     "foxGame.points": "Points",
     "foxGame.completedIn": "Terminé en",
     "foxGame.seconds": "secondes",
+    "foxGame.nameLabel": "Entrez votre nom pour commencer",
+    "foxGame.howToPlay": "Comment jouer",
+    "foxGame.instructions":
+      "• Utilisez les flèches du clavier pour déplacer le renard • Ou cliquez sur les cellules pour vous déplacer • Trouvez l'oasis à chaque niveau • Terminez tous les 5 niveaux le plus rapidement possible!",
   },
   de: {
     // Navigation
@@ -445,6 +461,10 @@ const translations = {
     "foxGame.points": "Punkte",
     "foxGame.completedIn": "Abgeschlossen in",
     "foxGame.seconds": "Sekunden",
+    "foxGame.nameLabel": "Geben Sie Ihren Namen ein, um zu beginnen",
+    "foxGame.howToPlay": "Wie man spielt",
+    "foxGame.instructions":
+      "• Verwenden Sie die Pfeiltasten, um den Fuchs zu bewegen • Oder klicken Sie auf die Zellen, um sich zu bewegen • Finden Sie die Oase in jedem Level • Schließen Sie alle 5 Level so schnell wie möglich ab!",
   },
 }
 
