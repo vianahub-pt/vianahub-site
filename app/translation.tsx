@@ -5,7 +5,7 @@ export const homeTranslations = {
     "hero.title.line2": "Transformam",
     "hero.title.line3": "Negócios",
     "hero.subtitle":
-      "Desenvolvemos tecnologias inovadoras que impulsionam o crescimento do seu negócio. Da concepção à implementação, criamos soluções personalizadas que fazem a diferença.",
+      "Desenvolvemos tecnologias inovadoras que impulsionam o crescimento do seu negócio",
     "hero.cta.start": "Começar Projeto",
     "hero.cta.demo": "Ver Demo",
     "hero.stats.projects": "Projetos",
