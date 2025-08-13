@@ -5,7 +5,6 @@ import { Button } from "@/components/ui/button"
 import { GraduationCap, Banknote, Building2, Heart, Factory, ShoppingCart, ArrowRight } from "lucide-react"
 import Link from "next/link"
 import { useEffect, useRef, useState } from "react"
-import { useTranslation } from "@/components/translation-context"
 
 export function IndustriesSection() {
   const { t } = useTranslation()

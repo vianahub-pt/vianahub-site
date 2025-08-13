@@ -8,6 +8,7 @@ import { Users, Briefcase, Clock } from "lucide-react"
 import Link from "next/link"
 import Autoplay from "embla-carousel-autoplay"
 import { useRef } from "react"
+import { useTranslation } from "@/components/translation-context"
 
 interface PositionMeta {
   id: string
