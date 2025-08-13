@@ -3,7 +3,6 @@
 import type React from "react"
 
 import { useState } from "react"
-import { useTranslation } from "@/contexts/translation-context"
 import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
