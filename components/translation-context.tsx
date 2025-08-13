@@ -13,11 +13,21 @@ interface TranslationContextType {
 
 // Traduções vazias - serão preenchidas gradualmente
 const translations: Record<Language, Record<string, any>> = {
-  pt: {},
-  en: {},
-  es: {},
-  fr: {},
-  de: {},
+  pt: {
+  "nav.contact", "Contacto",
+  },
+  en: {
+  "nav.contact", "Contact",
+  },
+  es: {
+  "nav.contact", "Contacto",
+  },
+  fr: {
+  "nav.contact", "Contact",
+  },
+  de: {
+  "nav.contact", "Kontakt",
+  },
 }
 
 // Context
