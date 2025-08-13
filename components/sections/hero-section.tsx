@@ -2,6 +2,7 @@
 
 import { Counter } from "@/components/counter"
 import { useEffect, useRef, useState } from "react"
+import { useTranslation } from "@/components/translation-context"
 
 export function HeroSection() {
   const { t } = useTranslation()
