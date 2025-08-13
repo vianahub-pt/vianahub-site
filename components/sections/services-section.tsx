@@ -4,6 +4,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Code, Smartphone, Globe, Database, Shield, Zap } from "lucide-react"
 import { useEffect, useRef, useState } from "react"
+import { useTranslation } from "@/components/translation-context"
 
 const services = [
   {
