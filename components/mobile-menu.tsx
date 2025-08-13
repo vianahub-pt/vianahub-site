@@ -1,38 +1,35 @@
 "use client"
 
+import { useState } from "react"
+import { Menu, X } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import { WhatWeDoMobileSelector } from "./what-we-do-mobile-selector"
-import { IndustryMobileSelector } from "./industry-mobile-selector"
-import { SecurityMobileSelector } from "./security-mobile-selector"
-import { InstitutionalMobileSelector } from "./institutional-mobile-selector"
-import { useRouter } from "next/navigation"
-import { useTranslation } from "@/contexts/translation-context"
+import { LanguageSelector } from "@/components/language-selector"
+import { ThemeToggle } from "@/components/theme-toggle"
 
-interface MobileMenuProps {
-  onClose: () => void
-}
-
-export function MobileMenu({ onClose }: MobileMenuProps) {
-  const router = useRouter()
-  const { t } = useTranslation()
-
-  const handleNavigation = (url: string) => {
-    router.push(url)
-    window.scrollTo(0, 0)
-    onClose()
-  }
+export function MobileMenu() {
+  const [isOpen, setIsOpen] = useState(false)
 
   return (
-    <div className="md:hidden border-t bg-background">
-      <div className="container py-4 space-y-2">
-        <WhatWeDoMobileSelector onClose={onClose} />
-        <IndustryMobileSelector onClose={onClose} />
-        <SecurityMobileSelector onClose={onClose} />
-        <InstitutionalMobileSelector onClose={onClose} />
-        <Button variant="ghost" className="w-full justify-start" onClick={() => handleNavigation("/contact")}>
-          {t("nav.contact")}
-        </Button>
-      </div>
+    <div className="lg:hidden">
+      <Button
+        variant="ghost"
+        size="icon"
+        onClick={() => setIsOpen(!isOpen)}
+        className="text-viana-white hover:bg-viana-yellow/20"
+      >
+        {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+      </Button>
+
+      {isOpen && (
+        <div className="absolute top-16 left-0 right-0 bg-black/90 backdrop-blur-md border-b border-white/30">
+          <div className="px-4 py-4 space-y-2">
+            <div className="flex items-center justify-end space-x-2 mb-4">
+              <LanguageSelector />
+              <ThemeToggle />
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   )
 }

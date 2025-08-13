@@ -1,37 +1,34 @@
 import type React from "react"
 import type { Metadata } from "next"
-import { Inter } from "next/font/google"
+import { GeistSans } from "geist/font/sans"
+import { GeistMono } from "geist/font/mono"
 import "./globals.css"
-import { ThemeProvider } from "@/components/theme-provider"
-import { TranslationProvider } from "@/contexts/translation-context"
-import { MenuProvider } from "@/components/menu-context"
-import { Toaster } from "@/components/ui/toaster"
-
-const inter = Inter({ subsets: ["latin"] })
+import ClientLayout from "./client-layout"
 
 export const metadata: Metadata = {
-  title: "VianaHub - Soluções Tecnológicas Inovadoras",
-  description:
-    "Transformamos ideias em soluções digitais de alta qualidade. Especialistas em desenvolvimento web, aplicações móveis e sistemas empresariais.",
-    generator: 'v0.app'
+  title: "v0 App",
+  description: "Created with v0",
+  generator: "v0.app",
 }
 
 export default function RootLayout({
   children,
-}: {
+}: Readonly<{
   children: React.ReactNode
-}) {
+}>) {
   return (
-    <html lang="pt" suppressHydrationWarning>
-      <body className={inter.className}>
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
-          <TranslationProvider>
-            <MenuProvider>
-              {children}
-              <Toaster />
-            </MenuProvider>
-          </TranslationProvider>
-        </ThemeProvider>
+    <html lang="en">
+      <head>
+        <style>{`
+html {
+  font-family: ${GeistSans.style.fontFamily};
+  --font-sans: ${GeistSans.variable};
+  --font-mono: ${GeistMono.variable};
+}
+        `}</style>
+      </head>
+      <body>
+        <ClientLayout>{children}</ClientLayout>
       </body>
     </html>
   )

@@ -1,94 +1,92 @@
 "use client"
 
-import { useState } from "react"
-import { useRouter } from "next/navigation"
 import { ChevronDown } from "lucide-react"
+import { Card, CardContent } from "@/components/ui/card"
 import { useTranslation } from "@/contexts/translation-context"
+import { useMenu } from "./menu-context"
+import { useRouter } from "next/navigation"
 
 export function WhatWeDoSelector() {
-  const [isOpen, setIsOpen] = useState(false)
-  const router = useRouter()
   const { t } = useTranslation()
+  const { activeMenu, setActiveMenu } = useMenu()
+  const router = useRouter()
+  const isOpen = activeMenu === "what-we-do"
+
+  const handleMouseEnter = () => {
+    setActiveMenu("what-we-do")
+  }
+
+  const handleMouseLeave = () => {
+    setActiveMenu(null)
+  }
 
   const handleNavigation = (href: string) => {
     router.push(href)
     window.scrollTo(0, 0)
-    setIsOpen(false)
+    setActiveMenu(null)
   }
 
+  const serviceItems = [
+    { key: "development", href: "/what-we-do/development", label: t("menu.development") },
+    { key: "agile", href: "/what-we-do/agile", label: t("menu.agile") },
+    { key: "outsourcing", href: "/what-we-do/outsourcing", label: t("menu.outsourcing") },
+    { key: "chatbot", href: "/what-we-do/chatbot", label: t("menu.chatbot") },
+    { key: "landing-pages", href: "/what-we-do/landing-pages", label: t("menu.landing-pages") },
+    { key: "system-integration", href: "/what-we-do/system-integration", label: t("menu.system-integration") },
+  ]
+
+  const engineeringItems = [
+    { key: "railway", href: "/engineering/railway", label: t("menu.railway") },
+    { key: "road", href: "/engineering/road", label: t("menu.road") },
+    { key: "solar-energy", href: "/engineering/solar-energy", label: t("menu.solar-energy") },
+  ]
+
   return (
-    <div className="relative">
-      <button
-        onClick={() => setIsOpen(!isOpen)}
-        className="flex items-center space-x-1 px-3 py-2 rounded-md transition-all duration-100 font-medium drop-shadow-lg cursor-pointer bg-transparent text-viana-white hover:bg-viana-yellow/20 hover:text-viana-white text-sm"
-      >
-        <span>{t("menu.whatWeDo")}</span>
-        <ChevronDown className={`h-4 w-4 transition-transform ${isOpen ? "rotate-180" : ""}`} />
-      </button>
+    <div className="relative" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+      <div className="flex items-center space-x-1 px-3 py-2 rounded-md transition-all duration-100 font-medium drop-shadow-lg cursor-pointer bg-transparent text-viana-white hover:bg-viana-yellow/20 hover:text-viana-white">
+        <span className="text-sm">{t("menu.whatWeDo")}</span>
+        <ChevronDown className={`h-4 w-4 transition-transform duration-100 ${isOpen ? "rotate-180" : ""}`} />
+      </div>
 
       {isOpen && (
-        <div className="absolute top-full left-0 mt-1 w-64 bg-black/90 backdrop-blur-md border border-white/30 rounded-md shadow-lg z-50">
-          <div className="py-2">
-            <button
-              onClick={() => handleNavigation("/what-we-do/development")}
-              className="block w-full text-left px-4 py-2 text-sm text-viana-white hover:bg-viana-yellow/20 hover:text-viana-white transition-colors"
-            >
-              {t("menu.development")}
-            </button>
-            <button
-              onClick={() => handleNavigation("/what-we-do/agile")}
-              className="block w-full text-left px-4 py-2 text-sm text-viana-white hover:bg-viana-yellow/20 hover:text-viana-white transition-colors"
-            >
-              {t("menu.agile")}
-            </button>
-            <button
-              onClick={() => handleNavigation("/what-we-do/chatbot")}
-              className="block w-full text-left px-4 py-2 text-sm text-viana-white hover:bg-viana-yellow/20 hover:text-viana-white transition-colors"
-            >
-              {t("menu.chatbot")}
-            </button>
-            <button
-              onClick={() => handleNavigation("/what-we-do/landing-pages")}
-              className="block w-full text-left px-4 py-2 text-sm text-viana-white hover:bg-viana-yellow/20 hover:text-viana-white transition-colors"
-            >
-              {t("menu.landing-pages")}
-            </button>
-            <button
-              onClick={() => handleNavigation("/what-we-do/outsourcing")}
-              className="block w-full text-left px-4 py-2 text-sm text-viana-white hover:bg-viana-yellow/20 hover:text-viana-white transition-colors"
-            >
-              {t("menu.outsourcing")}
-            </button>
-            <button
-              onClick={() => handleNavigation("/what-we-do/system-integration")}
-              className="block w-full text-left px-4 py-2 text-sm text-viana-white hover:bg-viana-yellow/20 hover:text-viana-white transition-colors"
-            >
-              {t("menu.system-integration")}
-            </button>
+        <div
+          className="absolute z-[9999] w-64 top-full animate-in fade-in-0 slide-in-from-top-1 duration-100"
+          style={{
+            left: "50%",
+            transform: "translateX(-50%)",
+            transformOrigin: "top center",
+          }}
+        >
+          <div className="h-1 w-full" />
 
-            {/* Separador horizontal */}
-            <div className="border-t border-white/30 my-2"></div>
+          <Card className="bg-black/80 dark:bg-black/80 backdrop-blur-md border border-white/30 dark:border-gray-400/30">
+            <CardContent className="p-1">
+              <div className="grid gap-1">
+                {serviceItems.map((item) => (
+                  <button
+                    key={item.key}
+                    onClick={() => handleNavigation(item.href)}
+                    className="w-full text-left px-3 py-2 rounded-md hover:bg-viana-orange/50 hover:text-viana-white transition-all duration-75 text-sm font-medium drop-shadow-lg text-viana-white"
+                  >
+                    {item.label}
+                  </button>
+                ))}
 
-            {/* Opções de Engenharia */}
-            <button
-              onClick={() => handleNavigation("/engineering/railway")}
-              className="block w-full text-left px-4 py-2 text-sm text-viana-white hover:bg-viana-yellow/20 hover:text-viana-white transition-colors"
-            >
-              {t("menu.railway")}
-            </button>
-            <button
-              onClick={() => handleNavigation("/engineering/road")}
-              className="block w-full text-left px-4 py-2 text-sm text-viana-white hover:bg-viana-yellow/20 hover:text-viana-white transition-colors"
-            >
-              {t("menu.road")}
-            </button>
-            <button
-              onClick={() => handleNavigation("/engineering/solar-energy")}
-              className="block w-full text-left px-4 py-2 text-sm text-viana-white hover:bg-viana-yellow/20 hover:text-viana-white transition-colors"
-            >
-              {t("menu.solar-energy")}
-            </button>
-          </div>
+                {/* Separador horizontal */}
+                <div className="border-t border-white/30 my-1" />
+
+                {engineeringItems.map((item) => (
+                  <button
+                    key={item.key}
+                    onClick={() => handleNavigation(item.href)}
+                    className="w-full text-left px-3 py-2 rounded-md hover:bg-viana-orange/50 hover:text-viana-white transition-all duration-75 text-sm font-medium drop-shadow-lg text-viana-white"
+                  >
+                    {item.label}
+                  </button>
+                ))}
+              </div>
+            </CardContent>
+          </Card>
         </div>
       )}
     </div>

@@ -1,15 +1,10 @@
-import { Navbar } from "@/components/navbar"
-import { Footer } from "@/components/footer"
-import { WhatsAppChat } from "@/components/whatsapp-chat"
-import { AboutPageClient } from "./AboutPageClient"
+import AboutPageClient from "./about-page-client"
 
 export default function AboutPage() {
   return (
-    <div className="min-h-screen bg-background">
-      <Navbar />
+    <div>
+      <h1>About Us</h1>
       <AboutPageClient />
-      <Footer />
-      <WhatsAppChat />
     </div>
   )
 }
