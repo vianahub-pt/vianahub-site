@@ -1,64 +1,88 @@
 "use client"
-
-import { useState } from "react"
 import { useRouter } from "next/navigation"
 import Link from "next/link"
-import { Button } from "@/components/ui/button"
-import { Menu, X } from "lucide-react"
-import { WhatWeDoSelector } from "./what-we-do-selector"
-import { IndustrySelector } from "./industry-selector"
-import { SecuritySelector } from "./security-selector"
-import { InstitutionalSelector } from "./institutional-selector"
-import { LanguageSelector } from "./language-selector"
-import { ThemeToggle } from "./theme-toggle"
-import { MobileMenu } from "./mobile-menu"
+import Image from "next/image"
 import { useTranslation } from "@/contexts/translation-context"
+import { LanguageSelector } from "@/components/language-selector"
+import { ThemeToggle } from "@/components/theme-toggle"
+import { WhatWeDoSelector } from "@/components/what-we-do-selector"
+import { WhatWeDoMobileSelector } from "@/components/what-we-do-mobile-selector"
+import { IndustrySelector } from "@/components/industry-selector"
+import { IndustryMobileSelector } from "@/components/industry-mobile-selector"
+import { SecuritySelector } from "@/components/security-selector"
+import { SecurityMobileSelector } from "@/components/security-mobile-selector"
+import { InstitutionalSelector } from "@/components/institutional-selector"
+import { InstitutionalMobileSelector } from "@/components/institutional-mobile-selector"
+import { MobileMenu } from "@/components/mobile-menu"
 
 export function Navbar() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
   const router = useRouter()
   const { t } = useTranslation()
 
-  const handleNavigation = (url: string) => {
-    router.push(url)
+  const handleNavigation = (href: string) => {
+    router.push(href)
     window.scrollTo(0, 0)
   }
 
   return (
-    <nav className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="container flex h-16 items-center justify-between">
-        <div className="flex items-center space-x-4">
-          <Link href="/" className="flex items-center space-x-2" onClick={() => handleNavigation("/")}>
-            <div className="h-8 w-8 rounded-full bg-gradient-to-r from-blue-600 to-purple-600" />
-            <span className="font-bold text-xl">VianaHub</span>
-          </Link>
-        </div>
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-black/80 dark:bg-black/80 backdrop-blur-md border-b border-white/30 dark:border-gray-400/30">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between h-16">
+          {/* Logo */}
+          <div className="flex-shrink-0">
+            <Link href="/" className="flex items-center">
+              <Image src="/logo.png" alt="VianaHub" width={40} height={40} className="h-10 w-auto" />
+            </Link>
+          </div>
 
-        {/* Desktop Navigation */}
-        <div className="hidden md:flex items-center space-x-6">
-          <WhatWeDoSelector />
-          <IndustrySelector />
-          <SecuritySelector />
-          <InstitutionalSelector />
-          <Button variant="ghost" onClick={() => handleNavigation("/contact")} className="text-sm font-medium">
-            {t("nav.contact")}
-          </Button>
-        </div>
+          {/* Desktop Navigation */}
+          <div className="hidden lg:block">
+            <div className="ml-10 flex items-baseline space-x-4">
+              <WhatWeDoSelector />
+              <IndustrySelector />
+              <SecuritySelector />
+              <InstitutionalSelector />
+              <button
+                onClick={() => handleNavigation("/contact")}
+                className="flex items-center space-x-1 px-3 py-2 rounded-md transition-all duration-100 font-medium drop-shadow-lg cursor-pointer bg-transparent text-viana-white hover:bg-viana-yellow/20 hover:text-viana-white text-sm"
+              >
+                {t("nav.contact")}
+              </button>
+            </div>
+          </div>
 
-        {/* Right side items */}
-        <div className="flex items-center space-x-4">
-          <LanguageSelector />
-          <ThemeToggle />
+          {/* Right side - Language selector and theme toggle */}
+          <div className="hidden lg:flex items-center space-x-4">
+            <LanguageSelector />
+            <ThemeToggle />
+          </div>
 
           {/* Mobile menu button */}
-          <Button variant="ghost" size="icon" className="md:hidden" onClick={() => setIsMenuOpen(!isMenuOpen)}>
-            {isMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-          </Button>
+          <div className="lg:hidden">
+            <MobileMenu />
+          </div>
         </div>
       </div>
 
       {/* Mobile Navigation */}
-      {isMenuOpen && <MobileMenu onClose={() => setIsMenuOpen(false)} />}
+      <div className="lg:hidden">
+        <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-black/90 dark:bg-black/90 backdrop-blur-md border-t border-white/30 dark:border-gray-400/30">
+          <WhatWeDoMobileSelector />
+          <IndustryMobileSelector />
+          <SecurityMobileSelector />
+          <InstitutionalMobileSelector />
+          <button
+            onClick={() => handleNavigation("/contact")}
+            className="flex items-center justify-between w-full text-viana-white hover:bg-viana-yellow/20 hover:text-viana-white px-3 py-2 rounded-md text-base font-medium transition-all duration-100 drop-shadow-lg"
+          >
+            <span>{t("nav.contact")}</span>
+          </button>
+          <div className="flex items-center space-x-4 px-3 py-2">
+            <LanguageSelector />
+            <ThemeToggle />
+          </div>
+        </div>
+      </div>
     </nav>
   )
 }

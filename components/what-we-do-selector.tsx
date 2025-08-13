@@ -1,60 +1,96 @@
 "use client"
 
-import { Button } from "@/components/ui/button"
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu"
-import { ChevronDown } from "lucide-react"
+import { useState } from "react"
 import { useRouter } from "next/navigation"
+import { ChevronDown } from "lucide-react"
 import { useTranslation } from "@/contexts/translation-context"
 
 export function WhatWeDoSelector() {
+  const [isOpen, setIsOpen] = useState(false)
   const router = useRouter()
   const { t } = useTranslation()
 
-  const handleNavigation = (url: string) => {
-    router.push(url)
+  const handleNavigation = (href: string) => {
+    router.push(href)
     window.scrollTo(0, 0)
+    setIsOpen(false)
   }
 
   return (
-    <DropdownMenu>
-      <DropdownMenuTrigger asChild>
-        <Button variant="ghost" className="text-sm font-medium">
-          {t("menu.whatWeDo")}
-          <ChevronDown className="ml-1 h-4 w-4" />
-        </Button>
-      </DropdownMenuTrigger>
-      <DropdownMenuContent align="start" className="w-56">
-        <DropdownMenuItem onClick={() => handleNavigation("/what-we-do/development")}>
-          {t("menu.development")}
-        </DropdownMenuItem>
-        <DropdownMenuItem onClick={() => handleNavigation("/what-we-do/chatbot")}>{t("menu.chatbot")}</DropdownMenuItem>
-        <DropdownMenuItem onClick={() => handleNavigation("/what-we-do/agile")}>{t("menu.agile")}</DropdownMenuItem>
-        <DropdownMenuItem onClick={() => handleNavigation("/what-we-do/system-integration")}>
-          {t("menu.system-integration")}
-        </DropdownMenuItem>
-        <DropdownMenuItem onClick={() => handleNavigation("/what-we-do/landing-pages")}>
-          {t("menu.landing-pages")}
-        </DropdownMenuItem>
-        <DropdownMenuItem onClick={() => handleNavigation("/what-we-do/outsourcing")}>
-          {t("menu.outsourcing")}
-        </DropdownMenuItem>
+    <div className="relative">
+      <button
+        onClick={() => setIsOpen(!isOpen)}
+        className="flex items-center space-x-1 px-3 py-2 rounded-md transition-all duration-100 font-medium drop-shadow-lg cursor-pointer bg-transparent text-viana-white hover:bg-viana-yellow/20 hover:text-viana-white text-sm"
+      >
+        <span>{t("whatWeDo")}</span>
+        <ChevronDown className={`h-4 w-4 transition-transform ${isOpen ? "rotate-180" : ""}`} />
+      </button>
 
-        <DropdownMenuSeparator />
+      {isOpen && (
+        <div className="absolute top-full left-0 mt-1 w-64 bg-black/90 backdrop-blur-md border border-white/30 rounded-md shadow-lg z-50">
+          <div className="py-2">
+            <button
+              onClick={() => handleNavigation("/what-we-do/development")}
+              className="block w-full text-left px-4 py-2 text-sm text-viana-white hover:bg-viana-yellow/20 hover:text-viana-white transition-colors"
+            >
+              {t("menu.development")}
+            </button>
+            <button
+              onClick={() => handleNavigation("/what-we-do/agile")}
+              className="block w-full text-left px-4 py-2 text-sm text-viana-white hover:bg-viana-yellow/20 hover:text-viana-white transition-colors"
+            >
+              {t("menu.agile")}
+            </button>
+            <button
+              onClick={() => handleNavigation("/what-we-do/chatbot")}
+              className="block w-full text-left px-4 py-2 text-sm text-viana-white hover:bg-viana-yellow/20 hover:text-viana-white transition-colors"
+            >
+              {t("menu.chatbot")}
+            </button>
+            <button
+              onClick={() => handleNavigation("/what-we-do/landing-pages")}
+              className="block w-full text-left px-4 py-2 text-sm text-viana-white hover:bg-viana-yellow/20 hover:text-viana-white transition-colors"
+            >
+              {t("menu.landing-pages")}
+            </button>
+            <button
+              onClick={() => handleNavigation("/what-we-do/outsourcing")}
+              className="block w-full text-left px-4 py-2 text-sm text-viana-white hover:bg-viana-yellow/20 hover:text-viana-white transition-colors"
+            >
+              {t("menu.outsourcing")}
+            </button>
+            <button
+              onClick={() => handleNavigation("/what-we-do/system-integration")}
+              className="block w-full text-left px-4 py-2 text-sm text-viana-white hover:bg-viana-yellow/20 hover:text-viana-white transition-colors"
+            >
+              {t("menu.system-integration")}
+            </button>
 
-        <DropdownMenuItem onClick={() => handleNavigation("/engineering/railway")}>
-          {t("menu.railway")}
-        </DropdownMenuItem>
-        <DropdownMenuItem onClick={() => handleNavigation("/engineering/road")}>{t("menu.road")}</DropdownMenuItem>
-        <DropdownMenuItem onClick={() => handleNavigation("/engineering/solar-energy")}>
-          {t("menu.solar-energy")}
-        </DropdownMenuItem>
-      </DropdownMenuContent>
-    </DropdownMenu>
+            {/* Separador horizontal */}
+            <div className="border-t border-white/30 my-2"></div>
+
+            {/* Opções de Engenharia */}
+            <button
+              onClick={() => handleNavigation("/engineering/railway")}
+              className="block w-full text-left px-4 py-2 text-sm text-viana-white hover:bg-viana-yellow/20 hover:text-viana-white transition-colors"
+            >
+              {t("menu.railway")}
+            </button>
+            <button
+              onClick={() => handleNavigation("/engineering/road")}
+              className="block w-full text-left px-4 py-2 text-sm text-viana-white hover:bg-viana-yellow/20 hover:text-viana-white transition-colors"
+            >
+              {t("menu.road")}
+            </button>
+            <button
+              onClick={() => handleNavigation("/engineering/solar-energy")}
+              className="block w-full text-left px-4 py-2 text-sm text-viana-white hover:bg-viana-yellow/20 hover:text-viana-white transition-colors"
+            >
+              {t("menu.solar-energy")}
+            </button>
+          </div>
+        </div>
+      )}
+    </div>
   )
 }

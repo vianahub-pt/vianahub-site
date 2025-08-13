@@ -1,101 +1,92 @@
 "use client"
 
 import { useState } from "react"
-import { Button } from "@/components/ui/button"
-import { ChevronDown, ChevronRight } from "lucide-react"
 import { useRouter } from "next/navigation"
+import { ChevronDown } from "lucide-react"
 import { useTranslation } from "@/contexts/translation-context"
 
-interface WhatWeDoMobileSelectorProps {
-  onClose: () => void
-}
-
-export function WhatWeDoMobileSelector({ onClose }: WhatWeDoMobileSelectorProps) {
+export function WhatWeDoMobileSelector() {
   const [isOpen, setIsOpen] = useState(false)
   const router = useRouter()
   const { t } = useTranslation()
 
-  const handleNavigation = (url: string) => {
-    router.push(url)
+  const handleNavigation = (href: string) => {
+    router.push(href)
     window.scrollTo(0, 0)
-    onClose()
+    setIsOpen(false)
   }
 
   return (
     <div className="space-y-1">
-      <Button variant="ghost" className="w-full justify-between text-left" onClick={() => setIsOpen(!isOpen)}>
-        {t("menu.whatWeDo")}
-        {isOpen ? <ChevronDown className="h-4 w-4" /> : <ChevronRight className="h-4 w-4" />}
-      </Button>
+      <button
+        onClick={() => setIsOpen(!isOpen)}
+        className="flex items-center justify-between w-full text-viana-white hover:bg-viana-yellow/20 hover:text-viana-white px-3 py-2 rounded-md text-base font-medium transition-all duration-100 drop-shadow-lg"
+      >
+        <span>{t("whatWeDo")}</span>
+        <ChevronDown className={`h-4 w-4 transition-transform ${isOpen ? "rotate-180" : ""}`} />
+      </button>
 
       {isOpen && (
         <div className="pl-4 space-y-1">
-          <Button
-            variant="ghost"
-            className="w-full justify-start text-sm"
+          <button
             onClick={() => handleNavigation("/what-we-do/development")}
+            className="block w-full text-left px-3 py-2 text-sm text-viana-white hover:bg-viana-yellow/20 hover:text-viana-white rounded-md transition-colors"
           >
             {t("menu.development")}
-          </Button>
-          <Button
-            variant="ghost"
-            className="w-full justify-start text-sm"
-            onClick={() => handleNavigation("/what-we-do/chatbot")}
-          >
-            {t("menu.chatbot")}
-          </Button>
-          <Button
-            variant="ghost"
-            className="w-full justify-start text-sm"
+          </button>
+          <button
             onClick={() => handleNavigation("/what-we-do/agile")}
+            className="block w-full text-left px-3 py-2 text-sm text-viana-white hover:bg-viana-yellow/20 hover:text-viana-white rounded-md transition-colors"
           >
             {t("menu.agile")}
-          </Button>
-          <Button
-            variant="ghost"
-            className="w-full justify-start text-sm"
-            onClick={() => handleNavigation("/what-we-do/system-integration")}
+          </button>
+          <button
+            onClick={() => handleNavigation("/what-we-do/chatbot")}
+            className="block w-full text-left px-3 py-2 text-sm text-viana-white hover:bg-viana-yellow/20 hover:text-viana-white rounded-md transition-colors"
           >
-            {t("menu.system-integration")}
-          </Button>
-          <Button
-            variant="ghost"
-            className="w-full justify-start text-sm"
+            {t("menu.chatbot")}
+          </button>
+          <button
             onClick={() => handleNavigation("/what-we-do/landing-pages")}
+            className="block w-full text-left px-3 py-2 text-sm text-viana-white hover:bg-viana-yellow/20 hover:text-viana-white rounded-md transition-colors"
           >
             {t("menu.landing-pages")}
-          </Button>
-          <Button
-            variant="ghost"
-            className="w-full justify-start text-sm"
+          </button>
+          <button
             onClick={() => handleNavigation("/what-we-do/outsourcing")}
+            className="block w-full text-left px-3 py-2 text-sm text-viana-white hover:bg-viana-yellow/20 hover:text-viana-white rounded-md transition-colors"
           >
             {t("menu.outsourcing")}
-          </Button>
+          </button>
+          <button
+            onClick={() => handleNavigation("/what-we-do/system-integration")}
+            className="block w-full text-left px-3 py-2 text-sm text-viana-white hover:bg-viana-yellow/20 hover:text-viana-white rounded-md transition-colors"
+          >
+            {t("menu.system-integration")}
+          </button>
 
-          <div className="border-t border-gray-200 dark:border-gray-700 my-2" />
+          {/* Separador horizontal */}
+          <div className="border-t border-white/30 my-2 mx-3"></div>
 
-          <Button
-            variant="ghost"
-            className="w-full justify-start text-sm"
+          {/* Opções de Engenharia */}
+          <button
             onClick={() => handleNavigation("/engineering/railway")}
+            className="block w-full text-left px-3 py-2 text-sm text-viana-white hover:bg-viana-yellow/20 hover:text-viana-white rounded-md transition-colors"
           >
             {t("menu.railway")}
-          </Button>
-          <Button
-            variant="ghost"
-            className="w-full justify-start text-sm"
+          </button>
+          <button
             onClick={() => handleNavigation("/engineering/road")}
+            className="block w-full text-left px-3 py-2 text-sm text-viana-white hover:bg-viana-yellow/20 hover:text-viana-white rounded-md transition-colors"
           >
             {t("menu.road")}
-          </Button>
-          <Button
-            variant="ghost"
-            className="w-full justify-start text-sm"
+          </button>
+          <button
             onClick={() => handleNavigation("/engineering/solar-energy")}
+            className="block w-full text-left px-3 py-2 text-sm text-viana-white hover:bg-viana-yellow/20 hover:text-viana-white rounded-md transition-colors"
           >
             {t("menu.solar-energy")}
-          </Button>
+          </button>
         </div>
       )}
     </div>

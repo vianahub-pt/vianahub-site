@@ -1,8 +1,9 @@
 "use client"
 
-import { createContext, useContext, useState, useEffect, type ReactNode } from "react"
+import type React from "react"
+import { createContext, useContext, useState, useEffect } from "react"
 
-export type Language = "pt" | "en" | "es" | "fr" | "de"
+type Language = "pt" | "en" | "es" | "fr" | "de"
 
 interface TranslationContextType {
   language: Language
@@ -12,866 +13,937 @@ interface TranslationContextType {
 
 const TranslationContext = createContext<TranslationContextType | undefined>(undefined)
 
-// All translations consolidated in one place
-const allTranslations = {
+const translations = {
   pt: {
     // Navigation
-    "nav.about": "Sobre",
-    "nav.careers": "Carreiras",
+    "nav.home": "Início",
+    "nav.about": "Sobre Nós",
+    "nav.services": "Serviços",
     "nav.contact": "Contacto",
+    "nav.careers": "Carreiras",
     "nav.blog": "Blog",
+    "nav.portfolio": "Portfólio",
+    "nav.testimonials": "Testemunhos",
 
     // Menu items
-    "menu.whatWeDo": "O que Fazemos",
+    whatWeDo: "O que Fazemos",
+    industry: "Indústria",
+    security: "Segurança",
+    engineering: "Engenharia",
+    institutional: "Institucional",
+
+    // Menu options
     "menu.development": "Desenvolvimento",
+    "menu.agile": "Metodologia Ágil",
     "menu.chatbot": "Chatbot",
-    "menu.agile": "Ágil",
-    "menu.integration": "Integração de Sistemas",
     "menu.landing-pages": "Landing Pages",
-    "menu.outsourcing": "Terceirização",
+    "menu.outsourcing": "Outsourcing",
     "menu.system-integration": "Integração de Sistemas",
-    "menu.engineering": "Engenharia",
-    "menu.solar-energy": "Energia Solar",
     "menu.railway": "Ferroviário",
     "menu.road": "Rodoviário",
-    "menu.industry": "Indústria",
+    "menu.solar-energy": "Energia Solar",
     "menu.education": "Educação",
-    "menu.government": "Governo",
-    "menu.manufacturing": "Manufatura",
-    "menu.financial": "Financeiros",
-    "menu.retail": "Varejo",
+    "menu.financial": "Financeiro",
     "menu.healthcare": "Saúde",
-    "menu.security": "Segurança",
-    "menu.access": "Acessos",
+    "menu.manufacturing": "Manufatura",
+    "menu.retail": "Retalho",
+    "menu.government": "Governo",
+    "menu.access": "Controlo de Acesso",
     "menu.backups": "Backups",
     "menu.cybersecurity": "Segurança Cibernética",
     "menu.institutional": "Institucional",
+    "menu.about": "Sobre Nós",
+    "menu.careers": "Carreiras",
+    "menu.contact": "Contacto",
 
-    // Hero Section
-    "hero.title.line1": "Soluções que",
-    "hero.title.line2": "Transformam",
-    "hero.title.line3": "Negócios",
-    "hero.subtitle": "Desenvolvemos tecnologias inovadoras que impulsionam o crescimento do seu negócio",
-    "hero.cta.start": "Começar Projeto",
-    "hero.cta.demo": "Ver Demo",
-    "hero.stats.projects": "Projetos",
-    "hero.stats.clients": "Clientes",
-    "hero.stats.years": "Anos",
-
-    // About Page
-    "about.hero.title": "Sobre a VianaHub",
-    "about.hero.subtitle":
-      "Somos uma empresa de tecnologia especializada em transformação digital, oferecendo soluções inovadoras que impulsionam o crescimento dos nossos clientes.",
-    "about.hero.cta.history": "A Nossa História",
-    "about.hero.cta.team": "Conheça a Equipa",
-    "about.mission.title": "A Nossa Missão",
-    "about.mission.description":
-      "Transformar negócios através da tecnologia, oferecendo soluções inovadoras e personalizadas que geram valor real para os nossos clientes e contribuem para um futuro digital mais eficiente e sustentável.",
-    "about.vision.title": "A Nossa Visão",
-    "about.vision.description":
-      "Ser reconhecida como a principal referência em soluções tecnológicas inovadoras, liderando a transformação digital e criando um impacto positivo na sociedade através da tecnologia.",
-    "about.values.badge": "Os Nossos Valores",
-    "about.values.title": "O que Nos Move",
-    "about.values.subtitle": "Os nossos valores fundamentais orientam cada decisão e acção na nossa jornada",
-    "about.values.innovation.title": "Inovação",
-    "about.values.innovation.description":
-      "Procuramos constantemente novas tecnologias e soluções para superar expectativas.",
-    "about.values.commitment.title": "Compromisso",
-    "about.values.commitment.description": "Dedicação total ao sucesso dos nossos clientes e parceiros de negócio.",
-    "about.values.reliability.title": "Confiabilidade",
-    "about.values.reliability.description":
-      "Construímos relacionamentos duradouros baseados na confiança e transparência.",
-    "about.values.agility.title": "Agilidade",
-    "about.values.agility.description": "Entregamos soluções rápidas e eficientes sem comprometer a qualidade.",
-    "about.history.badge": "A Nossa História",
-    "about.history.title": "Uma Jornada de Inovação",
-    "about.history.subtitle": "Mais de 15 anos a construir soluções que transformam negócios e impactam vidas",
-    "about.history.foundation.title": "Fundação da VianaHub",
-    "about.history.foundation.description":
-      "Iniciámos a nossa jornada com o objectivo de transformar negócios através da tecnologia, começando com uma pequena equipa de programadores apaixonados.",
-    "about.history.projects.title": "Primeiros Grandes Projectos",
-    "about.history.projects.description":
-      "Conquistámos os nossos primeiros clientes empresariais e desenvolvemos soluções que impactaram milhares de utilizadores.",
-    "about.history.expansion.title": "Expansão Internacional",
-    "about.history.expansion.description":
-      "Expandimos as nossas operações para outros países, oferecendo soluções tecnológicas em escala global.",
-    "about.history.growth.title": "Crescimento da Equipa",
-    "about.history.growth.description":
-      "Alcançámos a marca de 50+ especialistas, consolidando a nossa posição como referência em transformação digital.",
-    "about.team.badge": "A Nossa Equipa",
-    "about.team.title": "Liderança Experiente",
-    "about.team.subtitle": "Conheça os profissionais que lideram a nossa visão e estratégia",
-    "about.team.tatiana.role": "CEO & Fundadora",
-    "about.team.tatiana.description":
-      "Administradora e Engenheira com mais de 15 anos de experiência em transformação digital.",
-    "about.team.dener.role": "CTO & Fundador",
-    "about.team.dener.description": "Analista de Sistemas com mais de 30 anos de experiência em sistemas informáticos.",
-    "about.team.carlos.role": "Director Comercial",
-    "about.team.carlos.description": "Especialista em relacionamento com clientes e desenvolvimento de novos negócios.",
-    "about.cta.title": "Pronto para Transformar o Seu Negócio?",
-    "about.cta.subtitle":
-      "Entre em contacto connosco e descubra como podemos ajudar a sua empresa a alcançar novos patamares com as nossas soluções tecnológicas.",
-    "about.cta.contact": "Falar Connosco",
-    "about.cta.projects": "Ver os Nossos Projectos",
-
-    // Contact Page
+    // Contact page
     "contact.hero.title": "Entre em Contacto",
     "contact.hero.subtitle":
-      "Estamos prontos para transformar as suas ideias em soluções digitais inovadoras. Fale connosco hoje mesmo.",
-    "contact.form.title": "Envie-nos uma Mensagem",
-    "contact.form.name": "Nome Completo",
+      "Estamos aqui para ajudar a transformar as suas ideias em realidade. Entre em contacto connosco hoje mesmo.",
+    "contact.form.title": "Fale Connosco",
+    "contact.form.name": "Nome",
     "contact.form.email": "Email",
-    "contact.form.phone": "Telefone",
     "contact.form.company": "Empresa",
-    "contact.form.subject": "Assunto",
     "contact.form.message": "Mensagem",
     "contact.form.submit": "Enviar Mensagem",
-    "contact.form.sending": "A enviar...",
     "contact.info.title": "Informações de Contacto",
-    "contact.info.address": "Morada",
-    "contact.info.phone": "Telefone",
     "contact.info.email": "Email",
+    "contact.info.phone": "Telefone",
+    "contact.info.address": "Morada",
     "contact.info.hours": "Horário de Funcionamento",
     "contact.info.hours.weekdays": "Segunda a Sexta: 9:00 - 18:00",
-    "contact.info.hours.weekend": "Sábado: 9:00 - 13:00",
     "contact.success.title": "Mensagem Enviada!",
     "contact.success.message": "Obrigado pelo seu contacto. Responderemos em breve.",
 
-    // Careers Page
-    "careers.title": "Junte-se à Nossa Equipa",
-    "careers.subtitle":
-      "Descubra oportunidades de carreira numa empresa inovadora que valoriza o talento, a criatividade e o crescimento profissional.",
-    "careers.cta": "Candidatar-me Agora",
-    "careers.parallax.title": "Construa o Futuro Connosco",
-    "careers.parallax.subtitle":
-      "Faça parte de uma equipa que está a transformar o mundo digital através da tecnologia e inovação.",
-    "careers.positions.title": "Oportunidades Disponíveis",
-    "careers.positions.subtitle":
-      "Explore as nossas posições abertas e encontre a oportunidade perfeita para o seu perfil profissional.",
-    "careers.positions.viewDetails": "Ver Detalhes",
-    "careers.positions.apply": "Candidatar-me",
-    "careers.positions.talentBank": "Banco de Talentos",
-    "careers.positions.talentBankNote": "Não encontrou a posição ideal? Junte-se ao nosso banco de talentos!",
-    "careers.positions.joinTalentBank": "Juntar ao Banco de Talentos",
+    // Hero section
+    "hero.title": "Transformamos Ideias em Soluções Digitais",
+    "hero.subtitle":
+      "Somos uma empresa de tecnologia especializada em desenvolvimento de software, consultoria e soluções inovadoras para o seu negócio.",
+    "hero.cta": "Começar Projeto",
+    "hero.learnMore": "Saber Mais",
 
-    // Career positions
-    "careers.positions.1.title": "Desenvolvedor Full Stack Sénior",
-    "careers.positions.1.department": "Desenvolvimento",
-    "careers.positions.1.location": "Remoto",
-    "careers.positions.1.type": "Tempo Integral",
-    "careers.positions.1.description":
-      "Procuramos um desenvolvedor experiente para liderar projetos de desenvolvimento web complexos usando tecnologias modernas.",
-
-    "careers.positions.2.title": "Designer UX/UI",
-    "careers.positions.2.department": "Design",
-    "careers.positions.2.location": "Híbrido",
-    "careers.positions.2.type": "Tempo Integral",
-    "careers.positions.2.description":
-      "Criamos experiências digitais excepcionais. Procuramos um designer criativo para se juntar à nossa equipa.",
-
-    "careers.positions.3.title": "Gestor de Projeto",
-    "careers.positions.3.department": "Gestão",
-    "careers.positions.3.location": "Presencial",
-    "careers.positions.3.type": "Tempo Integral",
-    "careers.positions.3.description":
-      "Lidere projetos tecnológicos do início ao fim, garantindo entregas de qualidade dentro dos prazos estabelecidos.",
-
-    "careers.positions.4.title": "Especialista em Cibersegurança",
-    "careers.positions.4.department": "Segurança",
-    "careers.positions.4.location": "Remoto",
-    "careers.positions.4.type": "Tempo Integral",
-    "careers.positions.4.description":
-      "Proteja os nossos sistemas e dados contra ameaças cibernéticas, implementando as melhores práticas de segurança.",
-
-    "careers.positions.5.title": "Analista de Dados",
-    "careers.positions.5.department": "Analytics",
-    "careers.positions.5.location": "Híbrido",
-    "careers.positions.5.type": "Tempo Integral",
-    "careers.positions.5.description":
-      "Transforme dados em insights valiosos para apoiar decisões estratégicas do negócio.",
-
-    "careers.positions.6.title": "DevOps Engineer",
-    "careers.positions.6.department": "Infraestrutura",
-    "careers.positions.6.location": "Remoto",
-    "careers.positions.6.type": "Tempo Integral",
-    "careers.positions.6.description": "Automatize e otimize os nossos processos de desenvolvimento e deployment.",
-
-    "careers.positionDetails.description": "Descrição",
-    "careers.positionDetails.requirements": "Requisitos",
-    "careers.positionDetails.responsibilities": "Responsabilidades",
-    "careers.positionDetails.benefits": "Benefícios",
-    "careers.positionDetails.salary": "Salário",
-
-    "careers.why.title": "Porquê Trabalhar Connosco?",
-    "careers.why.subtitle": "Descubra o que torna a VianaHub um lugar especial para desenvolver a sua carreira.",
-    "careers.why.innovation.title": "Inovação",
-    "careers.why.innovation.description":
-      "Trabalhe com as tecnologias mais recentes e participe em projetos inovadores.",
-    "careers.why.team.title": "Equipa",
-    "careers.why.team.description": "Faça parte de uma equipa talentosa e colaborativa que se apoia mutuamente.",
-    "careers.why.growth.title": "Crescimento",
-    "careers.why.growth.description":
-      "Desenvolva as suas competências com formação contínua e oportunidades de progressão.",
-    "careers.why.wellbeing.title": "Bem-estar",
-    "careers.why.wellbeing.description":
-      "Valorizamos o equilíbrio trabalho-vida e o bem-estar dos nossos colaboradores.",
-
-    "careers.application.title": "Candidatura",
-    "careers.application.general": "Candidatura Geral",
-    "careers.application.personalInfo": "Informações Pessoais",
-    "careers.application.name": "Nome Completo",
-    "careers.application.email": "Email",
-    "careers.application.phone": "Telefone",
-    "careers.application.educationExperienceTitle": "Formação e Experiência",
-    "careers.application.education": "Formação Académica",
-    "careers.application.educationPlaceholder": "Descreva a sua formação académica...",
-    "careers.application.experience": "Experiência Profissional",
-    "careers.application.experiencePlaceholder": "Descreva a sua experiência profissional relevante...",
-    "careers.application.motivation": "Motivação",
-    "careers.application.motivationLabel": "Carta de Motivação",
-    "careers.application.motivationPlaceholder": "Conte-nos porque quer juntar-se à nossa equipa...",
-    "careers.application.cv": "Curriculum Vitae",
-    "careers.application.cvLabel": "Upload do CV (PDF, DOC, DOCX)",
-    "careers.application.fileSelected": "Ficheiro selecionado:",
-    "careers.application.terms": "Aceito os termos e condições de candidatura",
-    "careers.application.acceptTermsAlert": "Deve aceitar os termos e condições para submeter a candidatura.",
-    "careers.application.cancel": "Cancelar",
-    "careers.application.submit": "Submeter Candidatura",
-    "careers.application.successMessage": "Candidatura submetida com sucesso! Entraremos em contacto brevemente.",
-
-    // Entertainment Section
-    "entertainment.title": "Passa Tempo",
-
-    // Fox Game
-    "foxGame.title": "Aventura da Raposa no Deserto",
-    "foxGame.subtitle": "Ajude a raposa a encontrar o oásis através do labirinto!",
-    "foxGame.nameLabel": "Digite seu nome para começar:",
-    "foxGame.namePlaceholder": "Seu nome aqui...",
-    "foxGame.startButton": "Começar Aventura!",
-    "foxGame.howToPlay": "Como jogar:",
-    "foxGame.instructions":
-      "• Use as setas do teclado para mover a raposa\n• Ou clique nas células para mover\n• Encontre o oásis em cada nível\n• Complete todos os 5 níveis o mais rápido possível!",
-    "foxGame.ranking.title": "🏆 Ranking dos Melhores Tempos",
-    "foxGame.ranking.empty.title": "🌟 Seja o primeiro no ranking!",
-    "foxGame.ranking.empty.subtitle": "Complete todos os níveis para aparecer aqui",
-    "foxGame.ranking.you": "Você",
-    "foxGame.ranking.footer": "Complete todos os 5 níveis o mais rápido possível para entrar no ranking!",
-    "foxGame.loading": "Carregando Aventura da Raposa...",
-    "foxGame.loadingSubtitle": "Preparando o deserto para sua jornada",
-    "foxGame.level": "Nível",
-    "foxGame.routes": "Rotas",
-    "foxGame.time": "Tempo",
-
-    // Industries Section
-    "industries.title.part1": "Indústrias",
-    "industries.title.part2": "Atendidas",
-    "industries.subtitle": "Experiência comprovada em diversos setores",
-    "industries.education.title": "Educação",
-    "industries.education.description": "Plataformas educacionais e sistemas de gestão acadêmica",
-    "industries.financial.title": "Financeiro",
-    "industries.financial.description": "Soluções bancárias e sistemas de pagamento seguros",
-    "industries.government.title": "Governo",
-    "industries.government.description": "Sistemas públicos e portais de transparência",
-    "industries.healthcare.title": "Saúde",
-    "industries.healthcare.description": "Sistemas hospitalares e soluções de telemedicina",
-    "industries.manufacturing.title": "Manufatura",
-    "industries.manufacturing.description": "Automação industrial e sistemas de controle",
-    "industries.retail.title": "Varejo",
-    "industries.retail.description": "E-commerce e sistemas de gestão comercial",
-    "industries.cta": "Explorar",
-
-    // Services Section
-    "services.title.part1": "Nossos",
-    "services.title.part2": "Serviços",
-    "services.subtitle": "Oferecemos soluções completas em tecnologia para transformar sua visão em realidade digital",
-    "services.web.title": "Desenvolvimento Web",
-    "services.web.description": "Criamos sites e aplicações web modernas, responsivas e otimizadas para performance.",
-    "services.mobile.title": "Aplicações Mobile",
-    "services.mobile.description":
-      "Desenvolvemos apps nativos e híbridos para iOS e Android com foco na experiência do usuário.",
-    "services.landing.title": "Landing Pages",
-    "services.landing.description":
-      "Páginas de conversão otimizadas para maximizar seus resultados de marketing digital.",
+    // Services section
+    "services.title": "Os Nossos Serviços",
+    "services.subtitle": "Oferecemos uma gama completa de serviços de tecnologia para impulsionar o seu negócio",
+    "services.development.title": "Desenvolvimento de Software",
+    "services.development.description":
+      "Criamos aplicações web e móveis personalizadas usando as mais recentes tecnologias",
+    "services.consulting.title": "Consultoria Tecnológica",
+    "services.consulting.description": "Ajudamos a definir a melhor estratégia tecnológica para o seu negócio",
     "services.integration.title": "Integração de Sistemas",
-    "services.integration.description":
-      "Conectamos diferentes sistemas e plataformas para otimizar seus processos de negócio.",
-    "services.security.title": "Segurança Digital",
-    "services.security.description":
-      "Implementamos soluções de segurança robustas para proteger seus dados e sistemas.",
-    "services.automation.title": "Automação",
-    "services.automation.description": "Automatizamos processos repetitivos para aumentar a eficiência da sua empresa.",
-    "services.cta": "Saiba Mais",
+    "services.integration.description": "Conectamos os seus sistemas existentes para uma operação mais eficiente",
+    "services.support.title": "Suporte e Manutenção",
+    "services.support.description": "Fornecemos suporte contínuo e manutenção para as suas soluções tecnológicas",
 
-    // Projects Section
-    "projects.title.part1": "Nossos",
-    "projects.title.part2": "Projetos",
-    "projects.subtitle": "Conheça alguns dos projetos que desenvolvemos para nossos clientes",
-    "projects.cta": "Ver Todos os Projetos",
-    "projects.viewProject": "Ver Projeto",
+    // About section
+    "about.title": "Sobre a VianaHub",
+    "about.subtitle": "Conheça a nossa história e missão",
+    "about.description":
+      "A VianaHub é uma empresa de tecnologia fundada com o objetivo de transformar ideias em soluções digitais inovadoras. Com uma equipa experiente e apaixonada por tecnologia, ajudamos empresas de todos os tamanhos a alcançar os seus objetivos através de soluções personalizadas.",
+    "about.mission.title": "A Nossa Missão",
+    "about.mission.description": "Capacitar empresas através de soluções tecnológicas inovadoras e personalizadas",
+    "about.vision.title": "A Nossa Visão",
+    "about.vision.description": "Ser reconhecida como líder em transformação digital e inovação tecnológica",
+    "about.values.title": "Os Nossos Valores",
+    "about.values.innovation": "Inovação",
+    "about.values.quality": "Qualidade",
+    "about.values.partnership": "Parceria",
+    "about.values.excellence": "Excelência",
 
-    // Testimonials Section
-    "testimonials.title.part1": "Nossos",
-    "testimonials.title.part2": "Depoimentos",
-    "testimonials.subtitle": "Depoimentos reais de clientes que transformaram seus negócios conosco",
+    // Testimonials section
+    "testimonials.title": "O que Dizem os Nossos Clientes",
+    "testimonials.subtitle": "Veja como ajudámos outras empresas a alcançar o sucesso",
 
-    // Insights Section
-    "insights.title": "Insights e Resultados",
-    "insights.subtitle": "Dados que comprovam nossa excelência e compromisso com resultados excepcionais",
-    "insights.growth.title": "Crescimento dos Clientes",
-    "insights.growth.description": "Aumento médio no crescimento dos nossos clientes após implementação",
-    "insights.experience.title": "Satisfação do Cliente",
-    "insights.experience.description": "Taxa de satisfação baseada em feedback direto dos clientes",
-    "insights.innovation.title": "Projetos Inovadores",
-    "insights.innovation.description": "Projetos que implementam tecnologias de ponta e soluções únicas",
-    "insights.results.title": "Taxa de Sucesso",
-    "insights.results.description": "Projetos entregues dentro do prazo e orçamento estabelecidos",
-    "insights.cta": "Conheça Nossos Resultados",
-
-    // Careers in home
-    "careers.viewPositions": "Ver Vagas",
-
-    // WhatsApp Chat
-    "whatsapp.title": "VianaHub Suporte",
-    "whatsapp.status": "Online agora",
-    "whatsapp.welcome":
-      "Olá! Como podemos ajudá-lo hoje? Nossa equipe está pronta para esclarecer suas dúvidas sobre nossos serviços.",
-    "whatsapp.placeholder": "Digite sua mensagem...",
-    "whatsapp.continue": "Continuar no WhatsApp",
-    "whatsapp.autoReply":
-      "Obrigado pela sua mensagem! Nossa equipe irá responder em breve. Para atendimento imediato, ligue para +55 (11) 9999-9999.",
-    "whatsapp.defaultMessage": "Olá! Gostaria de saber mais sobre os serviços da VianaHub.",
+    // CTA section
+    "cta.title": "Pronto para Começar?",
+    "cta.subtitle": "Entre em contacto connosco hoje e vamos discutir como podemos ajudar o seu negócio",
+    "cta.button": "Contactar Agora",
 
     // Footer
-    "footer.description":
-      "Transformamos ideias em soluções digitais inovadoras. Especialistas em desenvolvimento de software e consultoria em TI.",
-    "footer.location": "São Paulo, SP - Brasil",
-    "footer.newsletter": "Receba nossas novidades:",
-    "footer.subscribe": "Inscrever",
-    "footer.rights": "Todos os direitos reservados.",
-    "footer.privacy": "Privacidade",
-    "footer.terms": "Termos",
-    "footer.cookies": "Cookies",
-    "footer.whatsapp": "Atendimento WhatsApp",
-    "footer.services": "Serviços",
     "footer.company": "Empresa",
-    "footer.contact": "Contacto",
+    "footer.services": "Serviços",
+    "footer.support": "Suporte",
+    "footer.legal": "Legal",
+    "footer.privacy": "Política de Privacidade",
+    "footer.terms": "Termos de Serviço",
+    "footer.cookies": "Política de Cookies",
+    "footer.rights": "Todos os direitos reservados",
+    "footer.followUs": "Siga-nos",
 
-    // Development page
-    "development.hero.title": "Desenvolvimento de Software",
-    "development.hero.subtitle": "Criamos soluções digitais inovadoras e escaláveis para impulsionar seu negócio.",
-    "development.services.carousel.website": "Desenvolvimento de Websites",
-    "development.services.carousel.mobile": "Aplicações Mobile",
-    "development.services.carousel.corporate": "Sistemas Corporativos",
-    "development.services.carousel.apis": "Arquitetura de APIs",
-    "development.web.title": "Desenvolvimento Web",
-    "development.web.description": "Sites e aplicações web modernas, responsivas e otimizadas.",
-    "development.mobile.title": "Apps Mobile",
-    "development.mobile.description": "Aplicativos nativos e híbridos para iOS e Android.",
-    "development.corporate.title": "Sistemas Corporativos",
-    "development.corporate.description": "Soluções empresariais robustas e integradas.",
-    "development.apis.title": "APIs e Integrações",
-    "development.apis.description": "Desenvolvimento de APIs RESTful e integrações de sistemas.",
-    "development.why.title": "Por que Escolher Nosso Desenvolvimento?",
-    "development.why.subtitle":
-      "Combinamos tecnologia de ponta com metodologias ágeis para entregar resultados excepcionais.",
-    "development.performance.title": "Alta Performance",
-    "development.performance.description": "Código otimizado para máxima velocidade e eficiência.",
-    "development.security.title": "Segurança Avançada",
-    "development.security.description": "Implementamos as melhores práticas de segurança digital.",
-    "development.ux.title": "UX/UI Excepcional",
-    "development.ux.description": "Interfaces intuitivas e experiências de usuário memoráveis.",
-    "development.quality.title": "Qualidade Garantida",
-    "development.quality.description": "Testes rigorosos e controle de qualidade em cada etapa.",
-    "development.cta.title": "Pronto para Desenvolver?",
-    "development.cta.subtitle": "Transforme suas ideias em realidade com nossa expertise em desenvolvimento.",
-    "development.cta.button": "Solicitar Orçamento",
+    // Common
+    "common.loading": "A carregar...",
+    "common.error": "Erro",
+    "common.success": "Sucesso",
+    "common.cancel": "Cancelar",
+    "common.save": "Guardar",
+    "common.edit": "Editar",
+    "common.delete": "Eliminar",
+    "common.view": "Ver",
+    "common.download": "Descarregar",
+    "common.upload": "Carregar",
+    "common.search": "Pesquisar",
+    "common.filter": "Filtrar",
+    "common.sort": "Ordenar",
+    "common.next": "Seguinte",
+    "common.previous": "Anterior",
+    "common.close": "Fechar",
+    "common.open": "Abrir",
+    "common.yes": "Sim",
+    "common.no": "Não",
 
-    // Technologies Section
-    "technologies.title": "Tecnologias que Utilizamos",
-    "technologies.subtitle": "Trabalhamos com as mais modernas ferramentas e frameworks do mercado",
+    // Careers
+    "careers.title": "Junte-se à Nossa Equipa",
+    "careers.subtitle": "Descubra oportunidades emocionantes na VianaHub",
+    "careers.noPositions": "Não há posições disponíveis no momento",
+    "careers.apply": "Candidatar-se",
+    "careers.requirements": "Requisitos",
+    "careers.responsibilities": "Responsabilidades",
+    "careers.benefits": "Benefícios",
+    "careers.location": "Localização",
+    "careers.type": "Tipo",
+    "careers.experience": "Experiência",
+    "careers.salary": "Salário",
+
+    // Projects
+    "projects.title": "Os Nossos Projetos",
+    "projects.subtitle": "Veja alguns dos projetos que desenvolvemos",
+    "projects.viewProject": "Ver Projeto",
+    "projects.technologies": "Tecnologias",
+    "projects.client": "Cliente",
+    "projects.duration": "Duração",
+    "projects.team": "Equipa",
+
+    // Blog
+    "blog.title": "Blog",
+    "blog.subtitle": "Artigos e insights sobre tecnologia",
+    "blog.readMore": "Ler Mais",
+    "blog.author": "Autor",
+    "blog.date": "Data",
+    "blog.category": "Categoria",
+    "blog.tags": "Tags",
+    "blog.share": "Partilhar",
+    "blog.comments": "Comentários",
+    "blog.relatedPosts": "Artigos Relacionados",
+
+    // Forms
+    "form.required": "Campo obrigatório",
+    "form.invalid": "Campo inválido",
+    "form.email.invalid": "Email inválido",
+    "form.phone.invalid": "Telefone inválido",
+    "form.password.weak": "Palavra-passe fraca",
+    "form.password.mismatch": "Palavras-passe não coincidem",
+    "form.submit": "Submeter",
+    "form.reset": "Limpar",
+    "form.sending": "A enviar...",
+    "form.sent": "Enviado com sucesso",
+    "form.error": "Erro ao enviar",
   },
   en: {
     // Navigation
-    "nav.about": "About",
-    "nav.careers": "Careers",
+    "nav.home": "Home",
+    "nav.about": "About Us",
+    "nav.services": "Services",
     "nav.contact": "Contact",
+    "nav.careers": "Careers",
     "nav.blog": "Blog",
+    "nav.portfolio": "Portfolio",
+    "nav.testimonials": "Testimonials",
 
     // Menu items
-    "menu.whatWeDo": "What We Do",
+    whatWeDo: "What We Do",
+    industry: "Industry",
+    security: "Security",
+    engineering: "Engineering",
+    institutional: "Institutional",
+
+    // Menu options
     "menu.development": "Development",
+    "menu.agile": "Agile Methodology",
     "menu.chatbot": "Chatbot",
-    "menu.agile": "Agile",
-    "menu.integration": "System Integration",
     "menu.landing-pages": "Landing Pages",
     "menu.outsourcing": "Outsourcing",
     "menu.system-integration": "System Integration",
-    "menu.engineering": "Engineering",
-    "menu.solar-energy": "Solar Energy",
     "menu.railway": "Railway",
     "menu.road": "Road",
-    "menu.industry": "Industry",
+    "menu.solar-energy": "Solar Energy",
     "menu.education": "Education",
-    "menu.government": "Government",
-    "menu.manufacturing": "Manufacturing",
     "menu.financial": "Financial",
-    "menu.retail": "Retail",
     "menu.healthcare": "Healthcare",
-    "menu.security": "Security",
-    "menu.access": "Access",
+    "menu.manufacturing": "Manufacturing",
+    "menu.retail": "Retail",
+    "menu.government": "Government",
+    "menu.access": "Access Control",
     "menu.backups": "Backups",
     "menu.cybersecurity": "Cybersecurity",
     "menu.institutional": "Institutional",
+    "menu.about": "About Us",
+    "menu.careers": "Careers",
+    "menu.contact": "Contact",
 
-    // Hero Section
-    "hero.title.line1": "Solutions that",
-    "hero.title.line2": "Transform",
-    "hero.title.line3": "Business",
-    "hero.subtitle": "We develop innovative technologies that drive your business growth",
-    "hero.cta.start": "Start Project",
-    "hero.cta.demo": "View Demo",
-    "hero.stats.projects": "Projects",
-    "hero.stats.clients": "Clients",
-    "hero.stats.years": "Years",
-
-    // About Page
-    "about.hero.title": "About VianaHub",
-    "about.hero.subtitle":
-      "We are a technology company specialized in digital transformation, offering innovative solutions that drive our clients' growth.",
-    "about.hero.cta.history": "Our History",
-    "about.hero.cta.team": "Meet the Team",
-    "about.mission.title": "Our Mission",
-    "about.mission.description":
-      "Transform businesses through technology, offering innovative and personalized solutions that generate real value for our clients and contribute to a more efficient and sustainable digital future.",
-    "about.vision.title": "Our Vision",
-    "about.vision.description":
-      "To be recognized as the leading reference in innovative technological solutions, leading digital transformation and creating a positive impact on society through technology.",
-    "about.values.badge": "Our Values",
-    "about.values.title": "What Drives Us",
-    "about.values.subtitle": "Our fundamental values guide every decision and action in our journey",
-    "about.values.innovation.title": "Innovation",
-    "about.values.innovation.description": "We constantly seek new technologies and solutions to exceed expectations.",
-    "about.values.commitment.title": "Commitment",
-    "about.values.commitment.description": "Total dedication to the success of our clients and business partners.",
-    "about.values.reliability.title": "Reliability",
-    "about.values.reliability.description": "We build lasting relationships based on trust and transparency.",
-    "about.values.agility.title": "Agility",
-    "about.values.agility.description": "We deliver fast and efficient solutions without compromising quality.",
-    "about.history.badge": "Our History",
-    "about.history.title": "A Journey of Innovation",
-    "about.history.subtitle": "Over 15 years building solutions that transform businesses and impact lives",
-    "about.history.foundation.title": "VianaHub Foundation",
-    "about.history.foundation.description":
-      "We started our journey with the goal of transforming businesses through technology, beginning with a small team of passionate developers.",
-    "about.history.projects.title": "First Major Projects",
-    "about.history.projects.description":
-      "We won our first corporate clients and developed solutions that impacted thousands of users.",
-    "about.history.expansion.title": "International Expansion",
-    "about.history.expansion.description":
-      "We expanded our operations to other countries, offering technological solutions on a global scale.",
-    "about.history.growth.title": "Team Growth",
-    "about.history.growth.description":
-      "We reached the mark of 50+ specialists, consolidating our position as a reference in digital transformation.",
-    "about.team.badge": "Our Team",
-    "about.team.title": "Experienced Leadership",
-    "about.team.subtitle": "Meet the professionals who lead our vision and strategy",
-    "about.team.tatiana.role": "CEO & Founder",
-    "about.team.tatiana.description":
-      "Administrator and Engineer with over 15 years of experience in digital transformation.",
-    "about.team.dener.role": "CTO & Founder",
-    "about.team.dener.description": "Systems Analyst with over 30 years of experience in computer systems.",
-    "about.team.carlos.role": "Commercial Director",
-    "about.team.carlos.description": "Expert in client relationships and new business development.",
-    "about.cta.title": "Ready to Transform Your Business?",
-    "about.cta.subtitle":
-      "Contact us and discover how we can help your company reach new heights with our technological solutions.",
-    "about.cta.contact": "Contact Us",
-    "about.cta.projects": "View Our Projects",
-
-    // Contact Page
-    "contact.hero.title": "Get in Touch",
-    "contact.hero.subtitle":
-      "We are ready to transform your ideas into innovative digital solutions. Contact us today.",
-    "contact.form.title": "Send us a Message",
-    "contact.form.name": "Full Name",
+    // Contact page
+    "contact.hero.title": "Get In Touch",
+    "contact.hero.subtitle": "We're here to help transform your ideas into reality. Contact us today.",
+    "contact.form.title": "Contact Us",
+    "contact.form.name": "Name",
     "contact.form.email": "Email",
-    "contact.form.phone": "Phone",
     "contact.form.company": "Company",
-    "contact.form.subject": "Subject",
     "contact.form.message": "Message",
     "contact.form.submit": "Send Message",
-    "contact.form.sending": "Sending...",
     "contact.info.title": "Contact Information",
-    "contact.info.address": "Address",
-    "contact.info.phone": "Phone",
     "contact.info.email": "Email",
+    "contact.info.phone": "Phone",
+    "contact.info.address": "Address",
     "contact.info.hours": "Business Hours",
-    "contact.info.hours.weekdays": "Monday to Friday: 9:00 AM - 6:00 PM",
-    "contact.info.hours.weekend": "Saturday: 9:00 AM - 1:00 PM",
+    "contact.info.hours.weekdays": "Monday to Friday: 9:00 - 18:00",
     "contact.success.title": "Message Sent!",
-    "contact.success.message": "Thank you for contacting us. We will respond shortly.",
+    "contact.success.message": "Thank you for contacting us. We'll respond shortly.",
 
-    // Careers Page
-    "careers.title": "Join Our Team",
-    "careers.subtitle":
-      "Discover career opportunities in an innovative company that values talent, creativity, and professional growth.",
-    "careers.cta": "Apply Now",
-    "careers.parallax.title": "Build the Future With Us",
-    "careers.parallax.subtitle":
-      "Be part of a team that is transforming the digital world through technology and innovation.",
-    "careers.positions.title": "Available Opportunities",
-    "careers.positions.subtitle":
-      "Explore our open positions and find the perfect opportunity for your professional profile.",
-    "careers.positions.viewDetails": "View Details",
-    "careers.positions.apply": "Apply",
-    "careers.positions.talentBank": "Talent Bank",
-    "careers.positions.talentBankNote": "Didn't find the ideal position? Join our talent bank!",
-    "careers.positions.joinTalentBank": "Join Talent Bank",
+    // Hero section
+    "hero.title": "We Transform Ideas into Digital Solutions",
+    "hero.subtitle":
+      "We are a technology company specialized in software development, consulting and innovative solutions for your business.",
+    "hero.cta": "Start Project",
+    "hero.learnMore": "Learn More",
 
-    // Career positions
-    "careers.positions.1.title": "Senior Full Stack Developer",
-    "careers.positions.1.department": "Development",
-    "careers.positions.1.location": "Remote",
-    "careers.positions.1.type": "Full Time",
-    "careers.positions.1.description":
-      "We are looking for an experienced developer to lead complex web development projects using modern technologies.",
-
-    "careers.positions.2.title": "UX/UI Designer",
-    "careers.positions.2.department": "Design",
-    "careers.positions.2.location": "Hybrid",
-    "careers.positions.2.type": "Full Time",
-    "careers.positions.2.description":
-      "We create exceptional digital experiences. We are looking for a creative designer to join our team.",
-
-    "careers.positions.3.title": "Project Manager",
-    "careers.positions.3.department": "Management",
-    "careers.positions.3.location": "On-site",
-    "careers.positions.3.type": "Full Time",
-    "careers.positions.3.description":
-      "Lead technology projects from start to finish, ensuring quality deliveries within established deadlines.",
-
-    "careers.positions.4.title": "Cybersecurity Specialist",
-    "careers.positions.4.department": "Security",
-    "careers.positions.4.location": "Remote",
-    "careers.positions.4.type": "Full Time",
-    "careers.positions.4.description":
-      "Protect our systems and data against cyber threats, implementing security best practices.",
-
-    "careers.positions.5.title": "Data Analyst",
-    "careers.positions.5.department": "Analytics",
-    "careers.positions.5.location": "Hybrid",
-    "careers.positions.5.type": "Full Time",
-    "careers.positions.5.description": "Transform data into valuable insights to support strategic business decisions.",
-
-    "careers.positions.6.title": "DevOps Engineer",
-    "careers.positions.6.department": "Infrastructure",
-    "careers.positions.6.location": "Remote",
-    "careers.positions.6.type": "Full Time",
-    "careers.positions.6.description": "Automate and optimize our development and deployment processes.",
-
-    "careers.positionDetails.description": "Description",
-    "careers.positionDetails.requirements": "Requirements",
-    "careers.positionDetails.responsibilities": "Responsibilities",
-    "careers.positionDetails.benefits": "Benefits",
-    "careers.positionDetails.salary": "Salary",
-
-    "careers.why.title": "Why Work With Us?",
-    "careers.why.subtitle": "Discover what makes VianaHub a special place to develop your career.",
-    "careers.why.innovation.title": "Innovation",
-    "careers.why.innovation.description": "Work with the latest technologies and participate in innovative projects.",
-    "careers.why.team.title": "Team",
-    "careers.why.team.description": "Be part of a talented and collaborative team that supports each other.",
-    "careers.why.growth.title": "Growth",
-    "careers.why.growth.description": "Develop your skills with continuous training and advancement opportunities.",
-    "careers.why.wellbeing.title": "Well-being",
-    "careers.why.wellbeing.description": "We value work-life balance and the well-being of our employees.",
-
-    "careers.application.title": "Application",
-    "careers.application.general": "General Application",
-    "careers.application.personalInfo": "Personal Information",
-    "careers.application.name": "Full Name",
-    "careers.application.email": "Email",
-    "careers.application.phone": "Phone",
-    "careers.application.educationExperienceTitle": "Education and Experience",
-    "careers.application.education": "Academic Background",
-    "careers.application.educationPlaceholder": "Describe your academic background...",
-    "careers.application.experience": "Professional Experience",
-    "careers.application.experiencePlaceholder": "Describe your relevant professional experience...",
-    "careers.application.motivation": "Motivation",
-    "careers.application.motivationLabel": "Cover Letter",
-    "careers.application.motivationPlaceholder": "Tell us why you want to join our team...",
-    "careers.application.cv": "Curriculum Vitae",
-    "careers.application.cvLabel": "Upload CV (PDF, DOC, DOCX)",
-    "careers.application.fileSelected": "File selected:",
-    "careers.application.terms": "I accept the application terms and conditions",
-    "careers.application.acceptTermsAlert": "You must accept the terms and conditions to submit the application.",
-    "careers.application.cancel": "Cancel",
-    "careers.application.submit": "Submit Application",
-    "careers.application.successMessage": "Application submitted successfully! We will contact you shortly.",
-
-    // Entertainment Section
-    "entertainment.title": "Entertainment",
-
-    // Fox Game
-    "foxGame.title": "Fox Desert Adventure",
-    "foxGame.subtitle": "Help the fox find the oasis through the maze!",
-    "foxGame.nameLabel": "Enter your name to start:",
-    "foxGame.namePlaceholder": "Your name here...",
-    "foxGame.startButton": "Start Adventure!",
-    "foxGame.howToPlay": "How to play:",
-    "foxGame.instructions":
-      "• Use arrow keys to move the fox\n• Or click on cells to move\n• Find the oasis in each level\n• Complete all 5 levels as fast as possible!",
-    "foxGame.ranking.title": "🏆 Best Times Ranking",
-    "foxGame.ranking.empty.title": "🌟 Be the first in the ranking!",
-    "foxGame.ranking.empty.subtitle": "Complete all levels to appear here",
-    "foxGame.ranking.you": "You",
-    "foxGame.ranking.footer": "Complete all 5 levels as fast as possible to enter the ranking!",
-    "foxGame.loading": "Loading Fox Adventure...",
-    "foxGame.loadingSubtitle": "Preparing the desert for your journey",
-    "foxGame.level": "Level",
-    "foxGame.routes": "Routes",
-    "foxGame.time": "Time",
-
-    // Industries Section
-    "industries.title.part1": "Industries",
-    "industries.title.part2": "Served",
-    "industries.subtitle": "Proven experience across various sectors",
-    "industries.education.title": "Education",
-    "industries.education.description": "Educational platforms and academic management systems",
-    "industries.financial.title": "Financial",
-    "industries.financial.description": "Banking solutions and secure payment systems",
-    "industries.government.title": "Government",
-    "industries.government.description": "Public systems and transparency portals",
-    "industries.healthcare.title": "Healthcare",
-    "industries.healthcare.description": "Hospital systems and telemedicine solutions",
-    "industries.manufacturing.title": "Manufacturing",
-    "industries.manufacturing.description": "Industrial automation and control systems",
-    "industries.retail.title": "Retail",
-    "industries.retail.description": "E-commerce and commercial management systems",
-    "industries.cta": "Explore",
-
-    // Services Section
-    "services.title.part1": "Our",
-    "services.title.part2": "Services",
-    "services.subtitle": "We offer complete technology solutions to transform your vision into digital reality",
-    "services.web.title": "Web Development",
-    "services.web.description": "We create modern, responsive websites and web applications optimized for performance.",
-    "services.mobile.title": "Mobile Applications",
-    "services.mobile.description": "We develop native and hybrid apps for iOS and Android focused on user experience.",
-    "services.landing.title": "Landing Pages",
-    "services.landing.description": "Conversion-optimized pages to maximize your digital marketing results.",
+    // Services section
+    "services.title": "Our Services",
+    "services.subtitle": "We offer a complete range of technology services to boost your business",
+    "services.development.title": "Software Development",
+    "services.development.description": "We create custom web and mobile applications using the latest technologies",
+    "services.consulting.title": "Technology Consulting",
+    "services.consulting.description": "We help define the best technology strategy for your business",
     "services.integration.title": "System Integration",
-    "services.integration.description":
-      "We connect different systems and platforms to optimize your business processes.",
-    "services.security.title": "Digital Security",
-    "services.security.description": "We implement robust security solutions to protect your data and systems.",
-    "services.automation.title": "Automation",
-    "services.automation.description": "We automate repetitive processes to increase your company's efficiency.",
-    "services.cta": "Learn More",
+    "services.integration.description": "We connect your existing systems for more efficient operation",
+    "services.support.title": "Support and Maintenance",
+    "services.support.description": "We provide ongoing support and maintenance for your technology solutions",
 
-    // Projects Section
-    "projects.title.part1": "Our",
-    "projects.title.part2": "Projects",
-    "projects.subtitle": "Learn about some of the projects we developed for our clients",
-    "projects.cta": "View All Projects",
-    "projects.viewProject": "View Project",
+    // About section
+    "about.title": "About VianaHub",
+    "about.subtitle": "Learn about our story and mission",
+    "about.description":
+      "VianaHub is a technology company founded with the goal of transforming ideas into innovative digital solutions. With an experienced team passionate about technology, we help companies of all sizes achieve their goals through customized solutions.",
+    "about.mission.title": "Our Mission",
+    "about.mission.description": "Empower companies through innovative and customized technology solutions",
+    "about.vision.title": "Our Vision",
+    "about.vision.description": "To be recognized as a leader in digital transformation and technological innovation",
+    "about.values.title": "Our Values",
+    "about.values.innovation": "Innovation",
+    "about.values.quality": "Quality",
+    "about.values.partnership": "Partnership",
+    "about.values.excellence": "Excellence",
 
-    // Testimonials Section
-    "testimonials.title.part1": "Our",
-    "testimonials.title.part2": "Testimonials",
-    "testimonials.subtitle": "Real testimonials from clients who transformed their businesses with us",
+    // Testimonials section
+    "testimonials.title": "What Our Clients Say",
+    "testimonials.subtitle": "See how we helped other companies achieve success",
 
-    // Insights Section
-    "insights.title": "Insights and Results",
-    "insights.subtitle": "Data that proves our excellence and commitment to exceptional results",
-    "insights.growth.title": "Client Growth",
-    "insights.growth.description": "Average growth increase of our clients after implementation",
-    "insights.experience.title": "Client Satisfaction",
-    "insights.experience.description": "Satisfaction rate based on direct client feedback",
-    "insights.innovation.title": "Innovative Projects",
-    "insights.innovation.description": "Projects that implement cutting-edge technologies and unique solutions",
-    "insights.results.title": "Success Rate",
-    "insights.results.description": "Projects delivered on time and within established budget",
-    "insights.cta": "Discover Our Results",
-
-    // Careers in home
-    "careers.viewPositions": "View Positions",
-
-    // WhatsApp Chat
-    "whatsapp.title": "VianaHub Support",
-    "whatsapp.status": "Online now",
-    "whatsapp.welcome":
-      "Hello! How can we help you today? Our team is ready to clarify your questions about our services.",
-    "whatsapp.placeholder": "Type your message...",
-    "whatsapp.continue": "Continue on WhatsApp",
-    "whatsapp.autoReply":
-      "Thank you for your message! Our team will respond shortly. For immediate assistance, call +55 (11) 9999-9999.",
-    "whatsapp.defaultMessage": "Hello! I would like to know more about VianaHub services.",
+    // CTA section
+    "cta.title": "Ready to Get Started?",
+    "cta.subtitle": "Contact us today and let's discuss how we can help your business",
+    "cta.button": "Contact Now",
 
     // Footer
-    "footer.description":
-      "We transform ideas into innovative digital solutions. Experts in software development and IT consulting.",
-    "footer.location": "São Paulo, SP - Brazil",
-    "footer.newsletter": "Receive our news:",
-    "footer.subscribe": "Subscribe",
-    "footer.rights": "All rights reserved.",
-    "footer.privacy": "Privacy",
-    "footer.terms": "Terms",
-    "footer.cookies": "Cookies",
-    "footer.whatsapp": "WhatsApp Support",
-    "footer.services": "Services",
     "footer.company": "Company",
-    "footer.contact": "Contact",
+    "footer.services": "Services",
+    "footer.support": "Support",
+    "footer.legal": "Legal",
+    "footer.privacy": "Privacy Policy",
+    "footer.terms": "Terms of Service",
+    "footer.cookies": "Cookie Policy",
+    "footer.rights": "All rights reserved",
+    "footer.followUs": "Follow Us",
 
-    // Development page
-    "development.hero.title": "Software Development",
-    "development.hero.subtitle": "We create innovative and scalable digital solutions to boost your business.",
-    "development.services.carousel.website": "Website Development",
-    "development.services.carousel.mobile": "Mobile Applications",
-    "development.services.carousel.corporate": "Corporate Systems",
-    "development.services.carousel.apis": "API Architecture",
-    "development.web.title": "Web Development",
-    "development.web.description": "Modern, responsive and optimized websites and web applications.",
-    "development.mobile.title": "Mobile Apps",
-    "development.mobile.description": "Native and hybrid applications for iOS and Android.",
-    "development.corporate.title": "Corporate Systems",
-    "development.corporate.description": "Robust and integrated enterprise solutions.",
-    "development.apis.title": "APIs and Integrations",
-    "development.apis.description": "RESTful API development and system integrations.",
-    "development.why.title": "Why Choose Our Development?",
-    "development.why.subtitle":
-      "We combine cutting-edge technology with agile methodologies to deliver exceptional results.",
-    "development.performance.title": "High Performance",
-    "development.performance.description": "Optimized code for maximum speed and efficiency.",
-    "development.security.title": "Advanced Security",
-    "development.security.description": "We implement the best digital security practices.",
-    "development.ux.title": "Exceptional UX/UI",
-    "development.ux.description": "Intuitive interfaces and memorable user experiences.",
-    "development.quality.title": "Guaranteed Quality",
-    "development.quality.description": "Rigorous testing and quality control at every stage.",
-    "development.cta.title": "Ready to Develop?",
-    "development.cta.subtitle": "Transform your ideas into reality with our development expertise.",
-    "development.cta.button": "Request Quote",
+    // Common
+    "common.loading": "Loading...",
+    "common.error": "Error",
+    "common.success": "Success",
+    "common.cancel": "Cancel",
+    "common.save": "Save",
+    "common.edit": "Edit",
+    "common.delete": "Delete",
+    "common.view": "View",
+    "common.download": "Download",
+    "common.upload": "Upload",
+    "common.search": "Search",
+    "common.filter": "Filter",
+    "common.sort": "Sort",
+    "common.next": "Next",
+    "common.previous": "Previous",
+    "common.close": "Close",
+    "common.open": "Open",
+    "common.yes": "Yes",
+    "common.no": "No",
 
-    // Technologies Section
-    "technologies.title": "Technologies We Use",
-    "technologies.subtitle": "We work with the most modern tools and frameworks in the market",
+    // Careers
+    "careers.title": "Join Our Team",
+    "careers.subtitle": "Discover exciting opportunities at VianaHub",
+    "careers.noPositions": "No positions available at the moment",
+    "careers.apply": "Apply",
+    "careers.requirements": "Requirements",
+    "careers.responsibilities": "Responsibilities",
+    "careers.benefits": "Benefits",
+    "careers.location": "Location",
+    "careers.type": "Type",
+    "careers.experience": "Experience",
+    "careers.salary": "Salary",
+
+    // Projects
+    "projects.title": "Our Projects",
+    "projects.subtitle": "See some of the projects we've developed",
+    "projects.viewProject": "View Project",
+    "projects.technologies": "Technologies",
+    "projects.client": "Client",
+    "projects.duration": "Duration",
+    "projects.team": "Team",
+
+    // Blog
+    "blog.title": "Blog",
+    "blog.subtitle": "Articles and insights about technology",
+    "blog.readMore": "Read More",
+    "blog.author": "Author",
+    "blog.date": "Date",
+    "blog.category": "Category",
+    "blog.tags": "Tags",
+    "blog.share": "Share",
+    "blog.comments": "Comments",
+    "blog.relatedPosts": "Related Posts",
+
+    // Forms
+    "form.required": "Required field",
+    "form.invalid": "Invalid field",
+    "form.email.invalid": "Invalid email",
+    "form.phone.invalid": "Invalid phone",
+    "form.password.weak": "Weak password",
+    "form.password.mismatch": "Passwords don't match",
+    "form.submit": "Submit",
+    "form.reset": "Reset",
+    "form.sending": "Sending...",
+    "form.sent": "Sent successfully",
+    "form.error": "Error sending",
   },
   es: {
     // Navigation
+    "nav.home": "Inicio",
     "nav.about": "Acerca de",
-    "nav.careers": "Carreras",
+    "nav.services": "Servicios",
     "nav.contact": "Contacto",
+    "nav.careers": "Carreras",
     "nav.blog": "Blog",
+    "nav.portfolio": "Portafolio",
+    "nav.testimonials": "Testimonios",
 
     // Menu items
-    "menu.whatWeDo": "Qué Hacemos",
+    whatWeDo: "Qué Hacemos",
+    industry: "Industria",
+    security: "Seguridad",
+    engineering: "Ingeniería",
+    institutional: "Institucional",
+
+    // Menu options
     "menu.development": "Desarrollo",
+    "menu.agile": "Metodología Ágil",
     "menu.chatbot": "Chatbot",
-    "menu.agile": "Ágil",
-    "menu.integration": "Integración de Sistemas",
     "menu.landing-pages": "Landing Pages",
     "menu.outsourcing": "Outsourcing",
     "menu.system-integration": "Integración de Sistemas",
-    "menu.engineering": "Ingeniería",
-    "menu.solar-energy": "Energía Solar",
     "menu.railway": "Ferroviario",
     "menu.road": "Carreteras",
-    "menu.industry": "Industria",
+    "menu.solar-energy": "Energía Solar",
     "menu.education": "Educación",
-    "menu.government": "Gobierno",
-    "menu.manufacturing": "Manufactura",
     "menu.financial": "Financiero",
-    "menu.retail": "Retail",
     "menu.healthcare": "Salud",
-    "menu.security": "Seguridad",
-    "menu.access": "Acceso",
-    "menu.backups": "Copias de Seguridad",
+    "menu.manufacturing": "Manufactura",
+    "menu.retail": "Retail",
+    "menu.government": "Gobierno",
+    "menu.access": "Control de Acceso",
+    "menu.backups": "Respaldos",
     "menu.cybersecurity": "Ciberseguridad",
     "menu.institutional": "Institucional",
+    "menu.about": "Acerca de",
+    "menu.careers": "Carreras",
+    "menu.contact": "Contacto",
 
-    // Continue with all other Spanish translations...
-    // (I'll abbreviate this for space, but all translations would be included)
+    // Contact page
+    "contact.hero.title": "Ponte en Contacto",
+    "contact.hero.subtitle": "Estamos aquí para ayudar a transformar tus ideas en realidad. Contáctanos hoy.",
+    "contact.form.title": "Contáctanos",
+    "contact.form.name": "Nombre",
+    "contact.form.email": "Email",
+    "contact.form.company": "Empresa",
+    "contact.form.message": "Mensaje",
+    "contact.form.submit": "Enviar Mensaje",
+    "contact.info.title": "Información de Contacto",
+    "contact.info.email": "Email",
+    "contact.info.phone": "Teléfono",
+    "contact.info.address": "Dirección",
+    "contact.info.hours": "Horario de Atención",
+    "contact.info.hours.weekdays": "Lunes a Viernes: 9:00 - 18:00",
+    "contact.success.title": "¡Mensaje Enviado!",
+    "contact.success.message": "Gracias por contactarnos. Responderemos pronto.",
+
+    // Hero section
+    "hero.title": "Transformamos Ideas en Soluciones Digitales",
+    "hero.subtitle":
+      "Somos una empresa de tecnología especializada en desarrollo de software, consultoría y soluciones innovadoras para tu negocio.",
+    "hero.cta": "Iniciar Proyecto",
+    "hero.learnMore": "Saber Más",
+
+    // Services section
+    "services.title": "Nuestros Servicios",
+    "services.subtitle": "Ofrecemos una gama completa de servicios de tecnología para impulsar tu negocio",
+    "services.development.title": "Desarrollo de Software",
+    "services.development.description":
+      "Creamos aplicaciones web y móviles personalizadas usando las últimas tecnologías",
+    "services.consulting.title": "Consultoría Tecnológica",
+    "services.consulting.description": "Ayudamos a definir la mejor estrategia tecnológica para tu negocio",
+    "services.integration.title": "Integración de Sistemas",
+    "services.integration.description": "Conectamos tus sistemas existentes para una operación más eficiente",
+    "services.support.title": "Soporte y Mantenimiento",
+    "services.support.description": "Proporcionamos soporte continuo y mantenimiento para tus soluciones tecnológicas",
+
+    // About section
+    "about.title": "Acerca de VianaHub",
+    "about.subtitle": "Conoce nuestra historia y misión",
+    "about.description":
+      "VianaHub es una empresa de tecnología fundada con el objetivo de transformar ideas en soluciones digitales innovadoras. Con un equipo experimentado y apasionado por la tecnología, ayudamos a empresas de todos los tamaños a alcanzar sus objetivos a través de soluciones personalizadas.",
+    "about.mission.title": "Nuestra Misión",
+    "about.mission.description": "Empoderar empresas a través de soluciones tecnológicas innovadoras y personalizadas",
+    "about.vision.title": "Nuestra Visión",
+    "about.vision.description": "Ser reconocidos como líderes en transformación digital e innovación tecnológica",
+    "about.values.title": "Nuestros Valores",
+    "about.values.innovation": "Innovación",
+    "about.values.quality": "Calidad",
+    "about.values.partnership": "Asociación",
+    "about.values.excellence": "Excelencia",
+
+    // Testimonials section
+    "testimonials.title": "Lo que Dicen Nuestros Clientes",
+    "testimonials.subtitle": "Ve cómo ayudamos a otras empresas a alcanzar el éxito",
+
+    // CTA section
+    "cta.title": "¿Listo para Comenzar?",
+    "cta.subtitle": "Contáctanos hoy y discutamos cómo podemos ayudar a tu negocio",
+    "cta.button": "Contactar Ahora",
+
+    // Footer
+    "footer.company": "Empresa",
+    "footer.services": "Servicios",
+    "footer.support": "Soporte",
+    "footer.legal": "Legal",
+    "footer.privacy": "Política de Privacidad",
+    "footer.terms": "Términos de Servicio",
+    "footer.cookies": "Política de Cookies",
+    "footer.rights": "Todos los derechos reservados",
+    "footer.followUs": "Síguenos",
+
+    // Common
+    "common.loading": "Cargando...",
+    "common.error": "Error",
+    "common.success": "Éxito",
+    "common.cancel": "Cancelar",
+    "common.save": "Guardar",
+    "common.edit": "Editar",
+    "common.delete": "Eliminar",
+    "common.view": "Ver",
+    "common.download": "Descargar",
+    "common.upload": "Subir",
+    "common.search": "Buscar",
+    "common.filter": "Filtrar",
+    "common.sort": "Ordenar",
+    "common.next": "Siguiente",
+    "common.previous": "Anterior",
+    "common.close": "Cerrar",
+    "common.open": "Abrir",
+    "common.yes": "Sí",
+    "common.no": "No",
+
+    // Careers
+    "careers.title": "Únete a Nuestro Equipo",
+    "careers.subtitle": "Descubre oportunidades emocionantes en VianaHub",
+    "careers.noPositions": "No hay posiciones disponibles en este momento",
+    "careers.apply": "Aplicar",
+    "careers.requirements": "Requisitos",
+    "careers.responsibilities": "Responsabilidades",
+    "careers.benefits": "Beneficios",
+    "careers.location": "Ubicación",
+    "careers.type": "Tipo",
+    "careers.experience": "Experiencia",
+    "careers.salary": "Salario",
+
+    // Projects
+    "projects.title": "Nuestros Proyectos",
+    "projects.subtitle": "Ve algunos de los proyectos que hemos desarrollado",
+    "projects.viewProject": "Ver Proyecto",
+    "projects.technologies": "Tecnologías",
+    "projects.client": "Cliente",
+    "projects.duration": "Duración",
+    "projects.team": "Equipo",
+
+    // Blog
+    "blog.title": "Blog",
+    "blog.subtitle": "Artículos e insights sobre tecnología",
+    "blog.readMore": "Leer Más",
+    "blog.author": "Autor",
+    "blog.date": "Fecha",
+    "blog.category": "Categoría",
+    "blog.tags": "Etiquetas",
+    "blog.share": "Compartir",
+    "blog.comments": "Comentarios",
+    "blog.relatedPosts": "Posts Relacionados",
+
+    // Forms
+    "form.required": "Campo requerido",
+    "form.invalid": "Campo inválido",
+    "form.email.invalid": "Email inválido",
+    "form.phone.invalid": "Teléfono inválido",
+    "form.password.weak": "Contraseña débil",
+    "form.password.mismatch": "Las contraseñas no coinciden",
+    "form.submit": "Enviar",
+    "form.reset": "Limpiar",
+    "form.sending": "Enviando...",
+    "form.sent": "Enviado exitosamente",
+    "form.error": "Error al enviar",
   },
   fr: {
     // Navigation
-    "nav.about": "À propos",
-    "nav.careers": "Carrières",
+    "nav.home": "Accueil",
+    "nav.about": "À Propos",
+    "nav.services": "Services",
     "nav.contact": "Contact",
+    "nav.careers": "Carrières",
     "nav.blog": "Blog",
+    "nav.portfolio": "Portfolio",
+    "nav.testimonials": "Témoignages",
 
     // Menu items
-    "menu.whatWeDo": "Ce Que Nous Faisons",
+    whatWeDo: "Ce Que Nous Faisons",
+    industry: "Industrie",
+    security: "Sécurité",
+    engineering: "Ingénierie",
+    institutional: "Institutionnel",
+
+    // Menu options
     "menu.development": "Développement",
+    "menu.agile": "Méthodologie Agile",
     "menu.chatbot": "Chatbot",
-    "menu.agile": "Agile",
-    "menu.integration": "Intégration de Systèmes",
     "menu.landing-pages": "Landing Pages",
     "menu.outsourcing": "Externalisation",
     "menu.system-integration": "Intégration de Systèmes",
-    "menu.engineering": "Ingénierie",
-    "menu.solar-energy": "Énergie Solaire",
     "menu.railway": "Ferroviaire",
     "menu.road": "Routier",
-    "menu.industry": "Industrie",
+    "menu.solar-energy": "Énergie Solaire",
     "menu.education": "Éducation",
-    "menu.government": "Gouvernement",
-    "menu.manufacturing": "Fabrication",
-    "menu.financial": "Financiers",
-    "menu.retail": "Commerce de Détail",
+    "menu.financial": "Financier",
     "menu.healthcare": "Santé",
-    "menu.security": "Sécurité",
-    "menu.access": "Accès",
+    "menu.manufacturing": "Fabrication",
+    "menu.retail": "Commerce de Détail",
+    "menu.government": "Gouvernement",
+    "menu.access": "Contrôle d'Accès",
     "menu.backups": "Sauvegardes",
     "menu.cybersecurity": "Cybersécurité",
     "menu.institutional": "Institutionnel",
+    "menu.about": "À Propos",
+    "menu.careers": "Carrières",
+    "menu.contact": "Contact",
 
-    // Continue with all other French translations...
+    // Contact page
+    "contact.hero.title": "Contactez-Nous",
+    "contact.hero.subtitle":
+      "Nous sommes là pour aider à transformer vos idées en réalité. Contactez-nous aujourd'hui.",
+    "contact.form.title": "Contactez-Nous",
+    "contact.form.name": "Nom",
+    "contact.form.email": "Email",
+    "contact.form.company": "Entreprise",
+    "contact.form.message": "Message",
+    "contact.form.submit": "Envoyer le Message",
+    "contact.info.title": "Informations de Contact",
+    "contact.info.email": "Email",
+    "contact.info.phone": "Téléphone",
+    "contact.info.address": "Adresse",
+    "contact.info.hours": "Heures d'Ouverture",
+    "contact.info.hours.weekdays": "Lundi au Vendredi: 9:00 - 18:00",
+    "contact.success.title": "Message Envoyé!",
+    "contact.success.message": "Merci de nous avoir contactés. Nous répondrons bientôt.",
+
+    // Hero section
+    "hero.title": "Nous Transformons les Idées en Solutions Numériques",
+    "hero.subtitle":
+      "Nous sommes une entreprise technologique spécialisée dans le développement de logiciels, le conseil et les solutions innovantes pour votre entreprise.",
+    "hero.cta": "Commencer le Projet",
+    "hero.learnMore": "En Savoir Plus",
+
+    // Services section
+    "services.title": "Nos Services",
+    "services.subtitle": "Nous offrons une gamme complète de services technologiques pour booster votre entreprise",
+    "services.development.title": "Développement de Logiciels",
+    "services.development.description":
+      "Nous créons des applications web et mobiles personnalisées en utilisant les dernières technologies",
+    "services.consulting.title": "Conseil Technologique",
+    "services.consulting.description":
+      "Nous aidons à définir la meilleure stratégie technologique pour votre entreprise",
+    "services.integration.title": "Intégration de Systèmes",
+    "services.integration.description": "Nous connectons vos systèmes existants pour une opération plus efficace",
+    "services.support.title": "Support et Maintenance",
+    "services.support.description":
+      "Nous fournissons un support continu et la maintenance pour vos solutions technologiques",
+
+    // About section
+    "about.title": "À Propos de VianaHub",
+    "about.subtitle": "Découvrez notre histoire et notre mission",
+    "about.description":
+      "VianaHub est une entreprise technologique fondée dans le but de transformer les idées en solutions numériques innovantes. Avec une équipe expérimentée et passionnée par la technologie, nous aidons les entreprises de toutes tailles à atteindre leurs objectifs grâce à des solutions personnalisées.",
+    "about.mission.title": "Notre Mission",
+    "about.mission.description":
+      "Autonomiser les entreprises grâce à des solutions technologiques innovantes et personnalisées",
+    "about.vision.title": "Notre Vision",
+    "about.vision.description": "Être reconnu comme leader en transformation numérique et innovation technologique",
+    "about.values.title": "Nos Valeurs",
+    "about.values.innovation": "Innovation",
+    "about.values.quality": "Qualité",
+    "about.values.partnership": "Partenariat",
+    "about.values.excellence": "Excellence",
+
+    // Testimonials section
+    "testimonials.title": "Ce Que Disent Nos Clients",
+    "testimonials.subtitle": "Voyez comment nous avons aidé d'autres entreprises à réussir",
+
+    // CTA section
+    "cta.title": "Prêt à Commencer?",
+    "cta.subtitle": "Contactez-nous aujourd'hui et discutons de la façon dont nous pouvons aider votre entreprise",
+    "cta.button": "Contacter Maintenant",
+
+    // Footer
+    "footer.company": "Entreprise",
+    "footer.services": "Services",
+    "footer.support": "Support",
+    "footer.legal": "Légal",
+    "footer.privacy": "Politique de Confidentialité",
+    "footer.terms": "Conditions de Service",
+    "footer.cookies": "Politique des Cookies",
+    "footer.rights": "Tous droits réservés",
+    "footer.followUs": "Suivez-Nous",
+
+    // Common
+    "common.loading": "Chargement...",
+    "common.error": "Erreur",
+    "common.success": "Succès",
+    "common.cancel": "Annuler",
+    "common.save": "Sauvegarder",
+    "common.edit": "Modifier",
+    "common.delete": "Supprimer",
+    "common.view": "Voir",
+    "common.download": "Télécharger",
+    "common.upload": "Téléverser",
+    "common.search": "Rechercher",
+    "common.filter": "Filtrer",
+    "common.sort": "Trier",
+    "common.next": "Suivant",
+    "common.previous": "Précédent",
+    "common.close": "Fermer",
+    "common.open": "Ouvrir",
+    "common.yes": "Oui",
+    "common.no": "Non",
+
+    // Careers
+    "careers.title": "Rejoignez Notre Équipe",
+    "careers.subtitle": "Découvrez des opportunités passionnantes chez VianaHub",
+    "careers.noPositions": "Aucun poste disponible pour le moment",
+    "careers.apply": "Postuler",
+    "careers.requirements": "Exigences",
+    "careers.responsibilities": "Responsabilités",
+    "careers.benefits": "Avantages",
+    "careers.location": "Localisation",
+    "careers.type": "Type",
+    "careers.experience": "Expérience",
+    "careers.salary": "Salaire",
+
+    // Projects
+    "projects.title": "Nos Projets",
+    "projects.subtitle": "Voyez quelques-uns des projets que nous avons développés",
+    "projects.viewProject": "Voir le Projet",
+    "projects.technologies": "Technologies",
+    "projects.client": "Client",
+    "projects.duration": "Durée",
+    "projects.team": "Équipe",
+
+    // Blog
+    "blog.title": "Blog",
+    "blog.subtitle": "Articles et insights sur la technologie",
+    "blog.readMore": "Lire Plus",
+    "blog.author": "Auteur",
+    "blog.date": "Date",
+    "blog.category": "Catégorie",
+    "blog.tags": "Tags",
+    "blog.share": "Partager",
+    "blog.comments": "Commentaires",
+    "blog.relatedPosts": "Articles Connexes",
+
+    // Forms
+    "form.required": "Champ requis",
+    "form.invalid": "Champ invalide",
+    "form.email.invalid": "Email invalide",
+    "form.phone.invalid": "Téléphone invalide",
+    "form.password.weak": "Mot de passe faible",
+    "form.password.mismatch": "Les mots de passe ne correspondent pas",
+    "form.submit": "Soumettre",
+    "form.reset": "Réinitialiser",
+    "form.sending": "Envoi...",
+    "form.sent": "Envoyé avec succès",
+    "form.error": "Erreur lors de l'envoi",
   },
   de: {
     // Navigation
+    "nav.home": "Startseite",
     "nav.about": "Über Uns",
-    "nav.careers": "Karriere",
+    "nav.services": "Dienstleistungen",
     "nav.contact": "Kontakt",
+    "nav.careers": "Karrieren",
     "nav.blog": "Blog",
+    "nav.portfolio": "Portfolio",
+    "nav.testimonials": "Testimonials",
 
     // Menu items
-    "menu.whatWeDo": "Was Wir Tun",
+    whatWeDo: "Was Wir Tun",
+    industry: "Industrie",
+    security: "Sicherheit",
+    engineering: "Ingenieurwesen",
+    institutional: "Institutionell",
+
+    // Menu options
     "menu.development": "Entwicklung",
+    "menu.agile": "Agile Methodik",
     "menu.chatbot": "Chatbot",
-    "menu.agile": "Agil",
-    "menu.integration": "Systemintegration",
     "menu.landing-pages": "Landing Pages",
     "menu.outsourcing": "Outsourcing",
     "menu.system-integration": "Systemintegration",
-    "menu.engineering": "Ingenieurwesen",
-    "menu.solar-energy": "Solarenergie",
     "menu.railway": "Eisenbahn",
     "menu.road": "Straße",
-    "menu.industry": "Industrie",
+    "menu.solar-energy": "Solarenergie",
     "menu.education": "Bildung",
-    "menu.government": "Regierung",
-    "menu.manufacturing": "Fertigung",
     "menu.financial": "Finanzen",
-    "menu.retail": "Einzelhandel",
     "menu.healthcare": "Gesundheitswesen",
-    "menu.security": "Sicherheit",
-    "menu.access": "Zugang",
+    "menu.manufacturing": "Fertigung",
+    "menu.retail": "Einzelhandel",
+    "menu.government": "Regierung",
+    "menu.access": "Zugriffskontrolle",
     "menu.backups": "Backups",
     "menu.cybersecurity": "Cybersicherheit",
     "menu.institutional": "Institutionell",
+    "menu.about": "Über Uns",
+    "menu.careers": "Karrieren",
+    "menu.contact": "Kontakt",
 
-    // Continue with all other German translations...
+    // Contact page
+    "contact.hero.title": "Kontaktieren Sie Uns",
+    "contact.hero.subtitle": "Wir sind hier, um Ihre Ideen in die Realität umzusetzen. Kontaktieren Sie uns heute.",
+    "contact.form.title": "Kontaktieren Sie Uns",
+    "contact.form.name": "Name",
+    "contact.form.email": "E-Mail",
+    "contact.form.company": "Unternehmen",
+    "contact.form.message": "Nachricht",
+    "contact.form.submit": "Nachricht Senden",
+    "contact.info.title": "Kontaktinformationen",
+    "contact.info.email": "E-Mail",
+    "contact.info.phone": "Telefon",
+    "contact.info.address": "Adresse",
+    "contact.info.hours": "Geschäftszeiten",
+    "contact.info.hours.weekdays": "Montag bis Freitag: 9:00 - 18:00",
+    "contact.success.title": "Nachricht Gesendet!",
+    "contact.success.message": "Danke, dass Sie uns kontaktiert haben. Wir werden bald antworten.",
+
+    // Hero section
+    "hero.title": "Wir Verwandeln Ideen in Digitale Lösungen",
+    "hero.subtitle":
+      "Wir sind ein Technologieunternehmen, das sich auf Softwareentwicklung, Beratung und innovative Lösungen für Ihr Unternehmen spezialisiert hat.",
+    "hero.cta": "Projekt Starten",
+    "hero.learnMore": "Mehr Erfahren",
+
+    // Services section
+    "services.title": "Unsere Dienstleistungen",
+    "services.subtitle":
+      "Wir bieten eine vollständige Palette von Technologiedienstleistungen, um Ihr Unternehmen zu stärken",
+    "services.development.title": "Softwareentwicklung",
+    "services.development.description":
+      "Wir erstellen maßgeschneiderte Web- und Mobile-Anwendungen mit den neuesten Technologien",
+    "services.consulting.title": "Technologieberatung",
+    "services.consulting.description":
+      "Wir helfen dabei, die beste Technologiestrategie für Ihr Unternehmen zu definieren",
+    "services.integration.title": "Systemintegration",
+    "services.integration.description": "Wir verbinden Ihre bestehenden Systeme für einen effizienteren Betrieb",
+    "services.support.title": "Support und Wartung",
+    "services.support.description": "Wir bieten kontinuierlichen Support und Wartung für Ihre Technologielösungen",
+
+    // About section
+    "about.title": "Über VianaHub",
+    "about.subtitle": "Erfahren Sie mehr über unsere Geschichte und Mission",
+    "about.description":
+      "VianaHub ist ein Technologieunternehmen, das mit dem Ziel gegründet wurde, Ideen in innovative digitale Lösungen zu verwandeln. Mit einem erfahrenen Team, das leidenschaftlich für Technologie ist, helfen wir Unternehmen aller Größen, ihre Ziele durch maßgeschneiderte Lösungen zu erreichen.",
+    "about.mission.title": "Unsere Mission",
+    "about.mission.description": "Unternehmen durch innovative und maßgeschneiderte Technologielösungen stärken",
+    "about.vision.title": "Unsere Vision",
+    "about.vision.description":
+      "Als Marktführer in der digitalen Transformation und technologischen Innovation anerkannt zu werden",
+    "about.values.title": "Unsere Werte",
+    "about.values.innovation": "Innovation",
+    "about.values.quality": "Qualität",
+    "about.values.partnership": "Partnerschaft",
+    "about.values.excellence": "Exzellenz",
+
+    // Testimonials section
+    "testimonials.title": "Was Unsere Kunden Sagen",
+    "testimonials.subtitle": "Sehen Sie, wie wir anderen Unternehmen zum Erfolg verholfen haben",
+
+    // CTA section
+    "cta.title": "Bereit Anzufangen?",
+    "cta.subtitle": "Kontaktieren Sie uns heute und lassen Sie uns besprechen, wie wir Ihrem Unternehmen helfen können",
+    "cta.button": "Jetzt Kontaktieren",
+
+    // Footer
+    "footer.company": "Unternehmen",
+    "footer.services": "Dienstleistungen",
+    "footer.support": "Support",
+    "footer.legal": "Rechtliches",
+    "footer.privacy": "Datenschutzrichtlinie",
+    "footer.terms": "Nutzungsbedingungen",
+    "footer.cookies": "Cookie-Richtlinie",
+    "footer.rights": "Alle Rechte vorbehalten",
+    "footer.followUs": "Folgen Sie Uns",
+
+    // Common
+    "common.loading": "Laden...",
+    "common.error": "Fehler",
+    "common.success": "Erfolg",
+    "common.cancel": "Abbrechen",
+    "common.save": "Speichern",
+    "common.edit": "Bearbeiten",
+    "common.delete": "Löschen",
+    "common.view": "Ansehen",
+    "common.download": "Herunterladen",
+    "common.upload": "Hochladen",
+    "common.search": "Suchen",
+    "common.filter": "Filtern",
+    "common.sort": "Sortieren",
+    "common.next": "Weiter",
+    "common.previous": "Zurück",
+    "common.close": "Schließen",
+    "common.open": "Öffnen",
+    "common.yes": "Ja",
+    "common.no": "Nein",
+
+    // Careers
+    "careers.title": "Treten Sie Unserem Team Bei",
+    "careers.subtitle": "Entdecken Sie aufregende Möglichkeiten bei VianaHub",
+    "careers.noPositions": "Derzeit keine Stellen verfügbar",
+    "careers.apply": "Bewerben",
+    "careers.requirements": "Anforderungen",
+    "careers.responsibilities": "Verantwortlichkeiten",
+    "careers.benefits": "Vorteile",
+    "careers.location": "Standort",
+    "careers.type": "Typ",
+    "careers.experience": "Erfahrung",
+    "careers.salary": "Gehalt",
+
+    // Projects
+    "projects.title": "Unsere Projekte",
+    "projects.subtitle": "Sehen Sie einige der Projekte, die wir entwickelt haben",
+    "projects.viewProject": "Projekt Ansehen",
+    "projects.technologies": "Technologien",
+    "projects.client": "Kunde",
+    "projects.duration": "Dauer",
+    "projects.team": "Team",
+
+    // Blog
+    "blog.title": "Blog",
+    "blog.subtitle": "Artikel und Einblicke über Technologie",
+    "blog.readMore": "Mehr Lesen",
+    "blog.author": "Autor",
+    "blog.date": "Datum",
+    "blog.category": "Kategorie",
+    "blog.tags": "Tags",
+    "blog.share": "Teilen",
+    "blog.comments": "Kommentare",
+    "blog.relatedPosts": "Verwandte Beiträge",
+
+    // Forms
+    "form.required": "Pflichtfeld",
+    "form.invalid": "Ungültiges Feld",
+    "form.email.invalid": "Ungültige E-Mail",
+    "form.phone.invalid": "Ungültige Telefonnummer",
+    "form.password.weak": "Schwaches Passwort",
+    "form.password.mismatch": "Passwörter stimmen nicht überein",
+    "form.submit": "Absenden",
+    "form.reset": "Zurücksetzen",
+    "form.sending": "Senden...",
+    "form.sent": "Erfolgreich gesendet",
+    "form.error": "Fehler beim Senden",
   },
 }
 
-export function TranslationProvider({ children }: { children: ReactNode }) {
+export function TranslationProvider({ children }: { children: React.ReactNode }) {
   const [language, setLanguage] = useState<Language>("pt")
 
   useEffect(() => {
-    // Load language from localStorage on client side
     const savedLanguage = localStorage.getItem("language") as Language
-    if (savedLanguage && ["pt", "en", "es", "fr", "de"].includes(savedLanguage)) {
+    if (savedLanguage && translations[savedLanguage]) {
       setLanguage(savedLanguage)
     }
   }, [])
@@ -882,8 +954,7 @@ export function TranslationProvider({ children }: { children: ReactNode }) {
   }
 
   const t = (key: string): string => {
-    const translation = allTranslations[language]?.[key as keyof (typeof allTranslations)[typeof language]]
-    return translation || key
+    return translations[language][key] || key
   }
 
   return (

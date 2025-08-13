@@ -1,41 +1,45 @@
 "use client"
 
 import { useState } from "react"
-import { Button } from "@/components/ui/button"
-import { ChevronDown, ChevronRight } from "lucide-react"
 import { useRouter } from "next/navigation"
+import { ChevronDown } from "lucide-react"
 import { useTranslation } from "@/contexts/translation-context"
 
-interface InstitutionalMobileSelectorProps {
-  onClose: () => void
-}
-
-export function InstitutionalMobileSelector({ onClose }: InstitutionalMobileSelectorProps) {
+export function InstitutionalMobileSelector() {
   const [isOpen, setIsOpen] = useState(false)
   const router = useRouter()
   const { t } = useTranslation()
 
-  const handleNavigation = (url: string) => {
-    router.push(url)
+  const handleNavigation = (href: string) => {
+    router.push(href)
     window.scrollTo(0, 0)
-    onClose()
+    setIsOpen(false)
   }
 
   return (
     <div className="space-y-1">
-      <Button variant="ghost" className="w-full justify-between text-left" onClick={() => setIsOpen(!isOpen)}>
-        {t("menu.institutional")}
-        {isOpen ? <ChevronDown className="h-4 w-4" /> : <ChevronRight className="h-4 w-4" />}
-      </Button>
+      <button
+        onClick={() => setIsOpen(!isOpen)}
+        className="flex items-center justify-between w-full text-viana-white hover:bg-viana-yellow/20 hover:text-viana-white px-3 py-2 rounded-md text-base font-medium transition-all duration-100 drop-shadow-lg"
+      >
+        <span>{t("menu.institutional")}</span>
+        <ChevronDown className={`h-4 w-4 transition-transform ${isOpen ? "rotate-180" : ""}`} />
+      </button>
 
       {isOpen && (
         <div className="pl-4 space-y-1">
-          <Button variant="ghost" className="w-full justify-start text-sm" onClick={() => handleNavigation("/about")}>
-            {t("nav.about")}
-          </Button>
-          <Button variant="ghost" className="w-full justify-start text-sm" onClick={() => handleNavigation("/careers")}>
-            {t("nav.careers")}
-          </Button>
+          <button
+            onClick={() => handleNavigation("/about")}
+            className="block w-full text-left px-3 py-2 text-sm text-viana-white hover:bg-viana-yellow/20 hover:text-viana-white rounded-md transition-colors"
+          >
+            {t("menu.about")}
+          </button>
+          <button
+            onClick={() => handleNavigation("/careers")}
+            className="block w-full text-left px-3 py-2 text-sm text-viana-white hover:bg-viana-yellow/20 hover:text-viana-white rounded-md transition-colors"
+          >
+            {t("menu.careers")}
+          </button>
         </div>
       )}
     </div>
