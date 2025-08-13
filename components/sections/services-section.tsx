@@ -122,7 +122,7 @@ export function ServicesSection() {
                 </CardTitle>
               </CardHeader>
               <CardContent className="text-center">
-                <p className="text-gray-600 mb-6 leading-relaxed font-kurale">{t(service.descriptionKey)}</p>
+                <p className="text-gray-900 mb-6 leading-relaxed font-kurale">{t(service.descriptionKey)}</p>
                 <Button
                   size="sm"
                   variant="outline"
