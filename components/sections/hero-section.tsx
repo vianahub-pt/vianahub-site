@@ -65,7 +65,7 @@ export function HeroSection() {
                 <span className="block text-viana-white">{t("hero.title.line3")}</span>
               </p>
             </div>
-            <p className="text-xl lg:text-2xl text-viana-white/95 max-w-3xl mx-auto leading-relaxed drop-shadow-lg font-kurale">
+            <p className="text-xl lg:text-2xl text-orange max-w-3xl mx-auto leading-relaxed drop-shadow-lg font-kurale">
               {t("hero.subtitle")}
             </p>
 

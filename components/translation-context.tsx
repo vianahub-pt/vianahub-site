@@ -42,6 +42,7 @@ const translations = {
     "hero.title.line1": "Soluções que",
     "hero.title.line2": "Transformam",
     "hero.title.line3": "O Seu Negócio",
+    "hero.subtitle": "Desenvolvemos tecnologias inovadoras que impulsionam o crescimento do seu negócio.",
   },
   en: {
     // Navigation
@@ -74,6 +75,7 @@ const translations = {
     "hero.title.line1": "Solutions that",
     "hero.title.line2": "Transform",
     "hero.title.line3": "Your Business",
+    "hero.subtitle": "We develop innovative technologies that drive your business growth.",
   },
   es: {
     // Navigation
@@ -106,6 +108,7 @@ const translations = {
     "hero.title.line1": "Soluciones que",
     "hero.title.line2": "Transforman",
     "hero.title.line3": "Su Negocio",
+    "hero.subtitle": "Desarrollamos tecnologías innovadoras que impulsan el crecimiento de su negocio.",
   },
   fr: {
     // Navigation
@@ -138,6 +141,7 @@ const translations = {
     "hero.title.line1": "Solutions qui",
     "hero.title.line2": "Transforment",
     "hero.title.line3": "Votre Entreprise",
+    "hero.subtitle": "Nous développons des technologies innovantes qui stimulent la croissance de votre entreprise.",
   },
   de: {
     // Navigation
@@ -170,6 +174,7 @@ const translations = {
     "hero.title.line1": "Lösungen die",
     "hero.title.line2": "Transformieren",
     "hero.title.line3": "Ihr Unternehmen",
+    "hero.subtitle": "Wir entwickeln innovative Technologien, die das Wachstum Ihres Unternehmens vorantreiben.",
   },
 }
 
