@@ -6,6 +6,7 @@ import Image from "next/image"
 import { Menu, X } from "lucide-react"
 import { ThemeToggle } from "@/components/theme-toggle"
 import { WhatWeDoDropdown } from "@/components/what-we-do-dropdown"
+import { LanguageSelector } from "@/components/language-selector"
 import { useTranslation } from "@/components/translation-context"
 
 export function Navbar() {
@@ -19,17 +20,17 @@ export function Navbar() {
   }
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-black/30 backdrop-blur-md border-b border-white/10">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-black/80 dark:bg-black/80 backdrop-blur-md border-b border-white/30 dark:border-gray-400/30">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <div className="flex-shrink-0">
             <button onClick={() => handleNavigation("/")} className="flex items-center cursor-pointer">
-              <Image src="/logo.png" alt="VianaHub" width={150} height={40} className="h-8 w-auto" />
+              <Image src="/logo.png" alt="VianaHub" width={40} height={40} className="h-10 w-auto" />
             </button>
           </div>
 
-          {/* Desktop Menu */}
+          {/* Desktop Navigation */}
           <div className="hidden lg:block">
             <div className="ml-10 flex items-baseline space-x-4">
               <WhatWeDoDropdown />
@@ -42,8 +43,9 @@ export function Navbar() {
             </div>
           </div>
 
-          {/* Theme Toggle */}
-          <div className="hidden lg:block">
+          {/* Right side - Language selector and theme toggle */}
+          <div className="hidden lg:flex items-center space-x-4">
+            <LanguageSelector />
             <ThemeToggle />
           </div>
 

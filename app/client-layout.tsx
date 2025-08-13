@@ -6,6 +6,7 @@ import { ThemeProvider } from "@/components/theme-provider"
 import { TranslationProvider } from "@/components/translation-context"
 import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
+import { Toaster } from "@/components/ui/toaster"
 
 export default function ClientLayout({
   children,
@@ -13,12 +14,13 @@ export default function ClientLayout({
   children: React.ReactNode
 }) {
   return (
-    <ThemeProvider attribute="class" defaultTheme="dark" enableSystem disableTransitionOnChange>
+    <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
       <TranslationProvider>
         <div className="min-h-screen flex flex-col">
           <Navbar />
           <main className="flex-1 pt-16">{children}</main>
           <Footer />
+          <Toaster />
         </div>
       </TranslationProvider>
     </ThemeProvider>
