@@ -1,5 +1,4 @@
 import type { Metadata } from "next"
-import { TranslationProvider } from "@/contexts/translation-context"
 import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
 import { Breadcrumb } from "@/components/breadcrumb"

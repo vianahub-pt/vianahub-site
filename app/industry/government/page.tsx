@@ -1,5 +1,4 @@
 import type { Metadata } from "next"
-import { TranslationProvider } from "@/components/translation-context"
 import { Breadcrumb } from "@/components/breadcrumb"
 import Image from "next/image"
 
