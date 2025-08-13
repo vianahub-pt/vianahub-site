@@ -41,7 +41,7 @@ export function NameForm({ onNameSubmit }: NameFormProps) {
             </div>
 
             <form onSubmit={handleSubmit} className="space-y-4">
-              <div>
+              <div className="text-left">
                 <label htmlFor="playerName" className="block text-sm font-medium text-amber-700 mb-2">
                   {t("foxGame.nameLabel")}
                 </label>
@@ -67,7 +67,12 @@ export function NameForm({ onNameSubmit }: NameFormProps) {
 
             <div className="mt-6 text-left">
               <h3 className="text-sm font-semibold text-amber-800 mb-2">{t("foxGame.howToPlay")}</h3>
-              <div className="text-xs text-amber-600 whitespace-pre-line">{t("foxGame.instructions")}</div>
+              <div className="text-xs text-amber-600 space-y-1">
+                <div>• {t("foxGame.instructions").split(" • ")[0].replace("• ", "")}</div>
+                <div>• {t("foxGame.instructions").split(" • ")[1]}</div>
+                <div>• {t("foxGame.instructions").split(" • ")[2]}</div>
+                <div>• {t("foxGame.instructions").split(" • ")[3]}</div>
+              </div>
             </div>
           </motion.div>
         </CardContent>

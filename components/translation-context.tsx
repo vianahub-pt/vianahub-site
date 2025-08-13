@@ -73,8 +73,8 @@ const translations = {
     "entertainment.oasisGame.description": "Encontre o oásis perdido nesta aventura épica",
     "entertainment.oasisGame.cta": "Descobrir",
     // Fox Game
-    "foxGame.title": "Labirinto da Raposa",
-    "foxGame.subtitle": "Ajude a raposa a encontrar o caminho para casa",
+    "foxGame.title": "Aventura da Raposa no Deserto",
+    "foxGame.subtitle": "Ajude a raposa a encontrar o oásis através do labirinto!",
     "foxGame.instructions": "Use as setas do teclado para mover a raposa através do labirinto",
     "foxGame.level": "Nível",
     "foxGame.score": "Pontuação",
@@ -97,10 +97,12 @@ const translations = {
     "foxGame.points": "Pontos",
     "foxGame.completedIn": "Completado em",
     "foxGame.seconds": "segundos",
-    "foxGame.nameLabel": "Digite o seu nome para começar",
-    "foxGame.howToPlay": "Como jogar",
+    "foxGame.nameLabel": "Digite seu nome para começar:",
+    "foxGame.namePlaceholder": "Seu nome",
+    "foxGame.startButton": "Começar Aventura!",
+    "foxGame.howToPlay": "Como jogar:",
     "foxGame.instructions":
-      "• Use as setas do teclado para mover a raposa • Ou clique nas células para se mover • Encontre o oásis em cada nível • Complete todos os 5 níveis o mais rápido possível!",
+      "Use as setas do teclado para mover a raposa • Ou clique nas células para mover • Encontre o oásis em cada nível • Complete todos os 5 níveis o mais rápido possível!",
   },
   en: {
     // Navigation
@@ -164,8 +166,8 @@ const translations = {
     "entertainment.oasisGame.description": "Find the lost oasis in this epic adventure",
     "entertainment.oasisGame.cta": "Discover",
     // Fox Game
-    "foxGame.title": "Fox Maze",
-    "foxGame.subtitle": "Help the fox find its way home",
+    "foxGame.title": "Fox Desert Adventure",
+    "foxGame.subtitle": "Help the fox find the oasis through the maze!",
     "foxGame.instructions": "Use arrow keys to move the fox through the maze",
     "foxGame.level": "Level",
     "foxGame.score": "Score",
@@ -188,10 +190,12 @@ const translations = {
     "foxGame.points": "Points",
     "foxGame.completedIn": "Completed in",
     "foxGame.seconds": "seconds",
-    "foxGame.nameLabel": "Enter your name to begin",
-    "foxGame.howToPlay": "How to play",
+    "foxGame.nameLabel": "Enter your name to begin:",
+    "foxGame.namePlaceholder": "Your name",
+    "foxGame.startButton": "Start Adventure!",
+    "foxGame.howToPlay": "How to play:",
     "foxGame.instructions":
-      "• Use the arrow keys to move the fox • Or click on the cells to move • Find the oasis in each level • Complete all 5 levels as quickly as possible!",
+      "Use the arrow keys to move the fox • Or click on the cells to move • Find the oasis in each level • Complete all 5 levels as quickly as possible!",
   },
   es: {
     // Navigation
@@ -255,8 +259,8 @@ const translations = {
     "entertainment.oasisGame.description": "Encuentra el oasis perdido en esta aventura épica",
     "entertainment.oasisGame.cta": "Descubrir",
     // Fox Game
-    "foxGame.title": "Laberinto del Zorro",
-    "foxGame.subtitle": "Ayuda al zorro a encontrar el camino a casa",
+    "foxGame.title": "Aventura del Zorro en el Desierto",
+    "foxGame.subtitle": "¡Ayuda al zorro a encontrar el oasis a través del laberinto!",
     "foxGame.instructions": "Usa las flechas del teclado para mover el zorro por el laberinto",
     "foxGame.level": "Nivel",
     "foxGame.score": "Puntuación",
@@ -279,10 +283,12 @@ const translations = {
     "foxGame.points": "Puntos",
     "foxGame.completedIn": "Completado en",
     "foxGame.seconds": "segundos",
-    "foxGame.nameLabel": "Ingresa tu nombre para comenzar",
-    "foxGame.howToPlay": "Cómo jugar",
+    "foxGame.nameLabel": "Ingresa tu nombre para comenzar:",
+    "foxGame.namePlaceholder": "Tu nombre",
+    "foxGame.startButton": "¡Comenzar Aventura!",
+    "foxGame.howToPlay": "Cómo jugar:",
     "foxGame.instructions":
-      "• Usa las flechas del teclado para mover el zorro • O haz clic en las celdas para moverte • Encuentra el oasis en cada nivel • ¡Completa todos los 5 niveles lo más rápido posible!",
+      "Usa las flechas del teclado para mover el zorro • O haz clic en las celdas para moverte • Encuentra el oasis en cada nivel • ¡Completa todos los 5 niveles lo más rápido posible!",
   },
   fr: {
     // Navigation
@@ -346,8 +352,8 @@ const translations = {
     "entertainment.oasisGame.description": "Trouvez l'oasis perdue dans cette aventure épique",
     "entertainment.oasisGame.cta": "Découvrir",
     // Fox Game
-    "foxGame.title": "Labyrinthe du Renard",
-    "foxGame.subtitle": "Aidez le renard à trouver le chemin de la maison",
+    "foxGame.title": "Aventure du Renard dans le Désert",
+    "foxGame.subtitle": "Aidez le renard à trouver l'oasis à travers le labyrinthe!",
     "foxGame.instructions": "Utilisez les flèches du clavier pour déplacer le renard dans le labyrinthe",
     "foxGame.level": "Niveau",
     "foxGame.score": "Score",
@@ -370,10 +376,12 @@ const translations = {
     "foxGame.points": "Points",
     "foxGame.completedIn": "Terminé en",
     "foxGame.seconds": "secondes",
-    "foxGame.nameLabel": "Entrez votre nom pour commencer",
-    "foxGame.howToPlay": "Comment jouer",
+    "foxGame.nameLabel": "Entrez votre nom pour commencer:",
+    "foxGame.namePlaceholder": "Votre nom",
+    "foxGame.startButton": "Commencer l'Aventure!",
+    "foxGame.howToPlay": "Comment jouer:",
     "foxGame.instructions":
-      "• Utilisez les flèches du clavier pour déplacer le renard • Ou cliquez sur les cellules pour vous déplacer • Trouvez l'oasis à chaque niveau • Terminez tous les 5 niveaux le plus rapidement possible!",
+      "Utilisez les flèches du clavier pour déplacer le renard • Ou cliquez sur les cellules pour vous déplacer • Trouvez l'oasis à chaque niveau • Terminez tous les 5 niveaux le plus rapidement possible!",
   },
   de: {
     // Navigation
@@ -437,8 +445,8 @@ const translations = {
     "entertainment.oasisGame.description": "Finden Sie die verlorene Oase in diesem epischen Abenteuer",
     "entertainment.oasisGame.cta": "Entdecken",
     // Fox Game
-    "foxGame.title": "Fuchs-Labyrinth",
-    "foxGame.subtitle": "Helfen Sie dem Fuchs, den Weg nach Hause zu finden",
+    "foxGame.title": "Fuchs-Wüstenabenteuer",
+    "foxGame.subtitle": "Helfen Sie dem Fuchs, die Oase durch das Labyrinth zu finden!",
     "foxGame.instructions": "Verwenden Sie die Pfeiltasten, um den Fuchs durch das Labyrinth zu bewegen",
     "foxGame.level": "Level",
     "foxGame.score": "Punkte",
@@ -461,10 +469,12 @@ const translations = {
     "foxGame.points": "Punkte",
     "foxGame.completedIn": "Abgeschlossen in",
     "foxGame.seconds": "Sekunden",
-    "foxGame.nameLabel": "Geben Sie Ihren Namen ein, um zu beginnen",
-    "foxGame.howToPlay": "Wie man spielt",
+    "foxGame.nameLabel": "Geben Sie Ihren Namen ein, um zu beginnen:",
+    "foxGame.namePlaceholder": "Ihr Name",
+    "foxGame.startButton": "Abenteuer Starten!",
+    "foxGame.howToPlay": "Wie man spielt:",
     "foxGame.instructions":
-      "• Verwenden Sie die Pfeiltasten, um den Fuchs zu bewegen • Oder klicken Sie auf die Zellen, um sich zu bewegen • Finden Sie die Oase in jedem Level • Schließen Sie alle 5 Level so schnell wie möglich ab!",
+      "Verwenden Sie die Pfeiltasten, um den Fuchs zu bewegen • Oder klicken Sie auf die Zellen, um sich zu bewegen • Finden Sie die Oase in jedem Level • Schließen Sie alle 5 Level so schnell wie möglich ab!",
   },
 }
 
