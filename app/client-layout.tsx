@@ -2,9 +2,8 @@
 
 import type React from "react"
 
-import { TranslationProvider } from "@/components/translation-context"
 import { ThemeProvider } from "@/components/theme-provider"
-import { Toaster } from "@/components/ui/toaster"
+import { TranslationProvider } from "@/components/translation-context"
 import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
 
@@ -21,7 +20,6 @@ export default function ClientLayout({
           <main className="flex-1 pt-16">{children}</main>
           <Footer />
         </div>
-        <Toaster />
       </TranslationProvider>
     </ThemeProvider>
   )

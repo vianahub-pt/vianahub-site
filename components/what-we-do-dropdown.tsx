@@ -32,9 +32,9 @@ export function WhatWeDoDropdown() {
         <ChevronDown className={`h-4 w-4 transition-transform ${isOpen ? "rotate-180" : ""}`} />
       </button>
 
-      {/* Dropdown Menu */}
+      {/* Dropdown Menu - sem gap entre o botão e o menu */}
       {isOpen && (
-        <div className="absolute top-full left-0 mt-1 w-56 bg-black/80 backdrop-blur-md border border-white/20 rounded-md shadow-lg z-50">
+        <div className="absolute top-full left-0 w-56 bg-black/80 backdrop-blur-md border border-white/20 rounded-md shadow-lg z-50">
           <div className="py-1">
             {whatWeDoItems.map((item) => (
               <button
