@@ -6,7 +6,7 @@ import { ThemeProvider } from "@/components/theme-provider"
 import { TranslationProvider } from "@/contexts/translation-context"
 import { MenuProvider } from "@/components/menu-context"
 import { Toaster } from "@/components/ui/toaster"
-import Navbar from "@/components/navbar"
+import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
 import { WhatsAppChat } from "@/components/whatsapp-chat"
 
