@@ -16,6 +16,7 @@ const translations = {
     "nav.whatWeDo": "O que Fazemos",
     "nav.engineering": "Engenharia",
     "nav.security": "Segurança",
+    "nav.institutional": "Institucional",
     "nav.contact": "Contacto",
     "nav.development": "Desenvolvimento",
     "nav.agile": "Metodologia Ágil",
@@ -35,12 +36,15 @@ const translations = {
     "nav.cybersecurity": "Cibersegurança",
     "nav.backupSolutions": "Soluções de Backup",
     "nav.accessControl": "Controlo de Acesso",
+    "nav.aboutUs": "Sobre Nós",
+    "nav.opportunities": "Oportunidades",
   },
   en: {
     // Navigation
     "nav.whatWeDo": "What We Do",
     "nav.engineering": "Engineering",
     "nav.security": "Security",
+    "nav.institutional": "Institutional",
     "nav.contact": "Contact",
     "nav.development": "Development",
     "nav.agile": "Agile Methodology",
@@ -60,12 +64,15 @@ const translations = {
     "nav.cybersecurity": "Cybersecurity",
     "nav.backupSolutions": "Backup Solutions",
     "nav.accessControl": "Access Control",
+    "nav.aboutUs": "About Us",
+    "nav.opportunities": "Opportunities",
   },
   es: {
     // Navigation
     "nav.whatWeDo": "Lo que Hacemos",
     "nav.engineering": "Ingeniería",
     "nav.security": "Seguridad",
+    "nav.institutional": "Institucional",
     "nav.contact": "Contacto",
     "nav.development": "Desarrollo",
     "nav.agile": "Metodología Ágil",
@@ -85,12 +92,15 @@ const translations = {
     "nav.cybersecurity": "Ciberseguridad",
     "nav.backupSolutions": "Soluciones de Respaldo",
     "nav.accessControl": "Control de Acceso",
+    "nav.aboutUs": "Sobre Nosotros",
+    "nav.opportunities": "Oportunidades",
   },
   fr: {
     // Navigation
     "nav.whatWeDo": "Ce que Nous Faisons",
     "nav.engineering": "Ingénierie",
     "nav.security": "Sécurité",
+    "nav.institutional": "Institutionnel",
     "nav.contact": "Contact",
     "nav.development": "Développement",
     "nav.agile": "Méthodologie Agile",
@@ -110,12 +120,15 @@ const translations = {
     "nav.cybersecurity": "Cybersécurité",
     "nav.backupSolutions": "Solutions de Sauvegarde",
     "nav.accessControl": "Contrôle d'Accès",
+    "nav.aboutUs": "À Propos de Nous",
+    "nav.opportunities": "Opportunités",
   },
   de: {
     // Navigation
     "nav.whatWeDo": "Was Wir Tun",
     "nav.engineering": "Ingenieurwesen",
     "nav.security": "Sicherheit",
+    "nav.institutional": "Institutionell",
     "nav.contact": "Kontakt",
     "nav.development": "Entwicklung",
     "nav.agile": "Agile Methodik",
@@ -135,6 +148,8 @@ const translations = {
     "nav.cybersecurity": "Cybersicherheit",
     "nav.backupSolutions": "Backup-Lösungen",
     "nav.accessControl": "Zugriffskontrolle",
+    "nav.aboutUs": "Über Uns",
+    "nav.opportunities": "Möglichkeiten",
   },
 }
 

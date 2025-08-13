@@ -15,59 +15,37 @@ export function EngineeringDropdown() {
     setIsOpen(false)
   }
 
+  const menuItems = [
+    { key: "nav.education", path: "/industry/education", icon: GraduationCap },
+    { key: "nav.government", path: "/industry/government", icon: Building },
+    { key: "nav.manufacturing", path: "/industry/manufacturing", icon: Factory },
+    { key: "nav.financial", path: "/industry/financial", icon: DollarSign },
+    { key: "nav.retail", path: "/industry/retail", icon: ShoppingCart },
+    { key: "nav.healthcare", path: "/industry/healthcare", icon: Heart },
+  ]
+
   return (
     <div className="relative" onMouseEnter={() => setIsOpen(true)} onMouseLeave={() => setIsOpen(false)}>
       <button className="flex items-center space-x-1 px-3 py-2 rounded-md transition-all duration-100 font-medium drop-shadow-lg cursor-pointer bg-transparent text-white hover:bg-yellow-500/20 hover:text-white text-sm">
         <span>{t("nav.engineering")}</span>
-        <ChevronDown className="h-4 w-4" />
+        <ChevronDown className={`h-4 w-4 transition-transform duration-200 ${isOpen ? "rotate-180" : ""}`} />
       </button>
 
       {isOpen && (
-        <div className="absolute top-full left-0 w-56 bg-black/80 backdrop-blur-md rounded-md shadow-lg border border-gray-600 z-50">
-          <div className="py-2">
-            <button
-              onClick={() => handleNavigation("/industry/education")}
-              className="flex items-center gap-3 w-full px-4 py-2 text-sm text-white hover:bg-yellow-500/20 transition-colors"
-            >
-              <GraduationCap className="h-4 w-4 text-orange-500" />
-              {t("nav.education")}
-            </button>
-            <button
-              onClick={() => handleNavigation("/industry/government")}
-              className="flex items-center gap-3 w-full px-4 py-2 text-sm text-white hover:bg-yellow-500/20 transition-colors"
-            >
-              <Building className="h-4 w-4 text-orange-500" />
-              {t("nav.government")}
-            </button>
-            <button
-              onClick={() => handleNavigation("/industry/manufacturing")}
-              className="flex items-center gap-3 w-full px-4 py-2 text-sm text-white hover:bg-yellow-500/20 transition-colors"
-            >
-              <Factory className="h-4 w-4 text-orange-500" />
-              {t("nav.manufacturing")}
-            </button>
-            <button
-              onClick={() => handleNavigation("/industry/financial")}
-              className="flex items-center gap-3 w-full px-4 py-2 text-sm text-white hover:bg-yellow-500/20 transition-colors"
-            >
-              <DollarSign className="h-4 w-4 text-orange-500" />
-              {t("nav.financial")}
-            </button>
-            <button
-              onClick={() => handleNavigation("/industry/retail")}
-              className="flex items-center gap-3 w-full px-4 py-2 text-sm text-white hover:bg-yellow-500/20 transition-colors"
-            >
-              <ShoppingCart className="h-4 w-4 text-orange-500" />
-              {t("nav.retail")}
-            </button>
-            <button
-              onClick={() => handleNavigation("/industry/healthcare")}
-              className="flex items-center gap-3 w-full px-4 py-2 text-sm text-white hover:bg-yellow-500/20 transition-colors"
-            >
-              <Heart className="h-4 w-4 text-orange-500" />
-              {t("nav.healthcare")}
-            </button>
-          </div>
+        <div className="absolute top-full left-0 bg-black/80 backdrop-blur-md rounded-md shadow-lg py-2 min-w-[200px] z-50">
+          {menuItems.map((item) => {
+            const IconComponent = item.icon
+            return (
+              <button
+                key={item.key}
+                onClick={() => handleNavigation(item.path)}
+                className="flex items-center gap-3 w-full text-left px-4 py-2 text-sm text-white hover:bg-yellow-500/20 hover:text-white transition-colors duration-150"
+              >
+                <IconComponent className="h-4 w-4 text-orange-500" />
+                {t(item.key)}
+              </button>
+            )
+          })}
         </div>
       )}
     </div>

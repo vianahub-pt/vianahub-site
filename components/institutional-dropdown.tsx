@@ -2,10 +2,10 @@
 
 import { useState } from "react"
 import { useRouter } from "next/navigation"
-import { ChevronDown, Shield, HardDrive, Lock } from "lucide-react"
+import { ChevronDown, Info, Briefcase } from "lucide-react"
 import { useTranslation } from "@/components/translation-context"
 
-export function SecurityDropdown() {
+export function InstitutionalDropdown() {
   const [isOpen, setIsOpen] = useState(false)
   const router = useRouter()
   const { t } = useTranslation()
@@ -16,15 +16,14 @@ export function SecurityDropdown() {
   }
 
   const menuItems = [
-    { key: "nav.cybersecurity", path: "/security/cyber-security", icon: Shield },
-    { key: "nav.backupSolutions", path: "/security/backups", icon: HardDrive },
-    { key: "nav.accessControl", path: "/security/access", icon: Lock },
+    { key: "nav.aboutUs", path: "/about", icon: Info },
+    { key: "nav.opportunities", path: "/careers", icon: Briefcase },
   ]
 
   return (
     <div className="relative" onMouseEnter={() => setIsOpen(true)} onMouseLeave={() => setIsOpen(false)}>
       <button className="flex items-center space-x-1 px-3 py-2 rounded-md transition-all duration-100 font-medium drop-shadow-lg cursor-pointer bg-transparent text-white hover:bg-yellow-500/20 hover:text-white text-sm">
-        <span>{t("nav.security")}</span>
+        <span>{t("nav.institutional")}</span>
         <ChevronDown className={`h-4 w-4 transition-transform duration-200 ${isOpen ? "rotate-180" : ""}`} />
       </button>
 

@@ -8,6 +8,7 @@ import { ThemeToggle } from "@/components/theme-toggle"
 import { WhatWeDoDropdown } from "@/components/what-we-do-dropdown"
 import { EngineeringDropdown } from "@/components/engineering-dropdown"
 import { SecurityDropdown } from "@/components/security-dropdown"
+import { InstitutionalDropdown } from "@/components/institutional-dropdown"
 import { LanguageSelector } from "@/components/language-selector"
 import { useTranslation } from "@/components/translation-context"
 
@@ -38,6 +39,7 @@ export function Navbar() {
               <WhatWeDoDropdown />
               <EngineeringDropdown />
               <SecurityDropdown />
+              <InstitutionalDropdown />
               <button
                 onClick={() => handleNavigation("/contact")}
                 className="flex items-center space-x-1 px-3 py-2 rounded-md transition-all duration-100 font-medium drop-shadow-lg cursor-pointer bg-transparent text-white hover:bg-yellow-500/20 hover:text-white text-sm"
