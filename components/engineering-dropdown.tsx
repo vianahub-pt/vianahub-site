@@ -32,7 +32,7 @@ export function EngineeringDropdown() {
       </button>
 
       {isOpen && (
-        <div className="absolute top-full left-0 mt-1 w-48 bg-black/80 backdrop-blur-md rounded-md shadow-lg border border-white/10 z-50">
+        <div className="absolute top-full left-0 w-48 bg-black/80 backdrop-blur-md rounded-md shadow-lg border border-white/10 z-50">
           <div className="py-2">
             {menuItems.map((item) => {
               const IconComponent = item.icon
