@@ -1,6 +1,5 @@
 "use client"
 
-import { useTranslation } from "@/contexts/translation-context"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Users, Target, Eye, Lightbulb, Award, Handshake } from "lucide-react"
