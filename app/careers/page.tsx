@@ -1,16 +1,15 @@
-import { ClientLayout } from "../ClientLayout"
+import { Navbar } from "@/components/navbar"
+import { Footer } from "@/components/footer"
+import { WhatsAppChat } from "@/components/whatsapp-chat"
 import { CareersPageContent } from "./careers-page-content"
-
-export const metadata = {
-  title: "Carreiras - VianaHub",
-  description:
-    "Junte-se à nossa equipe! Descubra oportunidades de carreira na VianaHub e faça parte da transformação digital.",
-}
 
 export default function CareersPage() {
   return (
-    <ClientLayout>
+    <div className="min-h-screen bg-background">
+      <Navbar />
       <CareersPageContent />
-    </ClientLayout>
+      <Footer />
+      <WhatsAppChat />
+    </div>
   )
 }

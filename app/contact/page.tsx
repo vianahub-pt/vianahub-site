@@ -1,16 +1,15 @@
-import { ClientLayout } from "../ClientLayout"
+import { Navbar } from "@/components/navbar"
+import { Footer } from "@/components/footer"
+import { WhatsAppChat } from "@/components/whatsapp-chat"
 import { ContactPageClient } from "./ContactPageClient"
-
-export const metadata = {
-  title: "Contato - VianaHub",
-  description:
-    "Entre em contato conosco. Vamos conversar sobre como podemos ajudar seu negócio a crescer com tecnologia.",
-}
 
 export default function ContactPage() {
   return (
-    <ClientLayout>
+    <div className="min-h-screen bg-background">
+      <Navbar />
       <ContactPageClient />
-    </ClientLayout>
+      <Footer />
+      <WhatsAppChat />
+    </div>
   )
 }

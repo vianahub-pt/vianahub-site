@@ -40,11 +40,11 @@ export function Navbar() {
           {/* Desktop Navigation */}
           <div className="hidden lg:block">
             <div className="ml-10 flex items-baseline space-x-4">
-              <WhatWeDoSelector />
-              <EngineeringSelector />
-              <IndustrySelector />
-              <SecuritySelector />
-              <InstitutionalSelector />
+              <WhatWeDoSelector title={t("whatWeDo")} />
+              <EngineeringSelector title={t("engineering")} />
+              <IndustrySelector title={t("industry")} />
+              <SecuritySelector title={t("security")} />
+              <InstitutionalSelector title={t("institutional")} />
             </div>
           </div>
 
@@ -64,11 +64,11 @@ export function Navbar() {
       {/* Mobile Navigation */}
       <div className="lg:hidden">
         <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-black/90 dark:bg-black/90 backdrop-blur-md border-t border-white/30 dark:border-gray-400/30">
-          <WhatWeDoMobileSelector />
-          <EngineeringMobileSelector />
-          <IndustryMobileSelector />
-          <SecurityMobileSelector />
-          <InstitutionalMobileSelector />
+          <WhatWeDoMobileSelector title={t("whatWeDo")} />
+          <EngineeringMobileSelector title={t("engineering")} />
+          <IndustryMobileSelector title={t("industry")} />
+          <SecurityMobileSelector title={t("security")} />
+          <InstitutionalMobileSelector title={t("institutional")} />
           <div className="flex items-center space-x-4 px-3 py-2">
             <LanguageSelector />
             <ThemeToggle />
