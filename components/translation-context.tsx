@@ -12,14 +12,19 @@ interface TranslationContextType {
 
 const translations = {
   pt: {
+    // Traduções em português serão adicionadas gradualmente
   },
   en: {
+    // English translations will be added gradually
   },
   es: {
+    // Traducciones en español se añadirán gradualmente
   },
   fr: {
+    // Les traductions françaises seront ajoutées progressivement
   },
   de: {
+    // Deutsche Übersetzungen werden schrittweise hinzugefügt
   },
 }
 
@@ -41,7 +46,24 @@ export function TranslationProvider({ children }: { children: ReactNode }) {
   }
 
   const t = (key: string): string => {
-    return translations[language]?.[key] || translations.pt[key] || key
+    const keys = key.split(".")
+    let value: any = translations[language]
+
+    for (const k of keys) {
+      value = value?.[k]
+    }
+
+    if (typeof value === "string") {
+      return value
+    }
+
+    // Fallback to Portuguese if translation not found
+    value = translations.pt
+    for (const k of keys) {
+      value = value?.[k]
+    }
+
+    return typeof value === "string" ? value : key
   }
 
   return (
