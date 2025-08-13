@@ -2,7 +2,6 @@
 
 import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
-import { useTranslation } from "@/contexts/translation-context"
 import { GraduationCap, Banknote, Building2, Heart, Factory, ShoppingCart, ArrowRight } from "lucide-react"
 import Link from "next/link"
 import { useEffect, useRef, useState } from "react"

@@ -1,7 +1,6 @@
 "use client"
 
 import { Card, CardContent } from "@/components/ui/card"
-import { useTranslation } from "@/contexts/translation-context"
 import { TrendingUp, Users, Lightbulb, Target } from "lucide-react"
 import { Counter } from "@/components/counter"
 
