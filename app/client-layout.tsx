@@ -7,8 +7,8 @@ import { TranslationProvider } from "@/contexts/translation-context"
 import { MenuProvider } from "@/components/menu-context"
 import { Toaster } from "@/components/ui/toaster"
 import Navbar from "@/components/navbar"
-import Footer from "@/components/footer"
-import WhatsAppChat from "@/components/whatsapp-chat"
+import { Footer } from "@/components/footer"
+import { WhatsAppChat } from "@/components/whatsapp-chat"
 
 export default function ClientLayout({
   children,
