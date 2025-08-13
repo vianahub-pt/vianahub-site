@@ -1,1420 +1,794 @@
-"use client";
+"use client"
 
-import {
-  createContext,
-  useContext,
-  useState,
-  useEffect,
-  type ReactNode,
-} from "react";
-import { homeTranslations } from "@/app/translation";
-import { navbarTranslations } from "@/app/translations/navbar";
-import { careersTranslations } from "@/app/careers/translation";
-import { contactTranslations } from "@/app/contact/translation";
-import { aboutTranslations } from "@/app/about/translation";
+import { createContext, useContext, useState, useEffect, type ReactNode } from "react"
 
-export type Language = "pt" | "en" | "es" | "fr" | "de";
+export type Language = "pt" | "en" | "es" | "fr" | "de"
 
 interface TranslationContextType {
-  language: Language;
-  setLanguage: (lang: Language) => void;
-  t: (key: string) => string;
+  language: Language
+  setLanguage: (lang: Language) => void
+  t: (key: string) => string
 }
 
-const TranslationContext = createContext<TranslationContextType | undefined>(
-  undefined
-);
+const TranslationContext = createContext<TranslationContextType | undefined>(undefined)
 
-// Combine all translations into a single object
+// Todas as traduções consolidadas em um único objeto
 const allTranslations = {
   pt: {
-    ...homeTranslations.pt,
-    ...navbarTranslations.pt,
-    ...careersTranslations.pt,
-    ...contactTranslations.pt,
-    ...aboutTranslations.pt,
-    // Chatbot translations
-    "chatbot.hero.title": "Chatbots Inteligentes",
-    "chatbot.hero.subtitle":
-      "Automatize o atendimento ao cliente com chatbots inteligentes que oferecem respostas precisas e experiência excepcional.",
-    "chatbot.hero.cta": "Criar Chatbot",
-    "chatbot.features.title": "Recursos Avançados",
-    "chatbot.features.subtitle":
-      "Nossos chatbots utilizam inteligência artificial de última geração para proporcionar experiências excepcionais.",
-    "chatbot.features.conversations.title": "Conversas Naturais",
-    "chatbot.features.conversations.description":
-      "IA avançada para conversas fluidas e naturais com seus clientes.",
-    "chatbot.features.availability.title": "Disponibilidade 24/7",
-    "chatbot.features.availability.description":
-      "Atendimento automatizado disponível 24 horas por dia, 7 dias por semana.",
-    "chatbot.features.channels.title": "Múltiplos Canais",
-    "chatbot.features.channels.description":
-      "Integração com WhatsApp, Facebook, Telegram e outros canais.",
-    "chatbot.features.analytics.title": "Analytics Avançado",
-    "chatbot.features.analytics.description":
-      "Relatórios detalhados sobre interações e performance do chatbot.",
-    "chatbot.benefits.title": "Benefícios para seu Negócio",
-    "chatbot.benefits.subtitle":
-      "Transforme o atendimento ao cliente e otimize operações com nossa tecnologia de chatbot.",
-    "chatbot.benefits.response.title": "Resposta Instantânea",
-    "chatbot.benefits.response.description":
-      "Respostas imediatas para dúvidas frequentes dos clientes.",
-    "chatbot.benefits.costs.title": "Redução de Custos",
-    "chatbot.benefits.costs.description":
-      "Diminua custos operacionais com atendimento automatizado.",
-    "chatbot.benefits.satisfaction.title": "Satisfação do Cliente",
-    "chatbot.benefits.satisfaction.description":
-      "Melhore a experiência do cliente com atendimento eficiente.",
-    "chatbot.benefits.scalability.title": "Escalabilidade",
-    "chatbot.benefits.scalability.description":
-      "Atenda milhares de clientes simultaneamente sem limitações.",
-    "chatbot.demo.title": "Veja um Chatbot em Ação",
-    "chatbot.demo.subtitle":
-      "Experimente como nossos chatbots podem transformar o atendimento da sua empresa.",
-    "chatbot.demo.interactive.title": "Demo Interativo",
-    "chatbot.demo.interactive.description":
-      "Converse com nosso chatbot de demonstração e veja como ele pode ajudar seus clientes.",
-    "chatbot.demo.cta": "Iniciar Demo",
-    "chatbot.cta.title": "Automatize seu Atendimento",
-    "chatbot.cta.subtitle":
-      "Implemente um chatbot inteligente e revolucione a forma como você atende seus clientes.",
-    "chatbot.cta.button": "Solicitar Demonstração",
-    "chatbot.chat.bot.greeting": "Olá! Como posso ajudá-lo hoje?",
-    "chatbot.chat.user.order": "Oi! Gostaria de pedir um lanche",
-    "chatbot.chat.bot.options":
-      "Perfeito! Temos sanduíches, pizzas e saladas. O que prefere?",
-    "chatbot.chat.user.choice": "Um sanduíche de frango, por favor",
-    "chatbot.chat.bot.confirm":
-      "Ótima escolha! Sanduíche de frango - R$ 15,00. Confirma o pedido?",
-    "chatbot.chat.user.confirm": "Sim, confirmo!",
-    "chatbot.chat.bot.success":
-      "Pedido confirmado! ✅ Tempo estimado: 20 minutos. Obrigado!",
-    // Agile translations
-    "agile.hero.title": "Metodologia Ágil",
-    "agile.hero.subtitle":
-      "Acelere seus projetos com metodologias ágeis comprovadas e entregue resultados excepcionais.",
-    "agile.benefits.title": "Benefícios da Metodologia Ágil",
-    "agile.benefits.subtitle":
-      "Transforme a forma como você desenvolve projetos com nossa abordagem ágil.",
-    "agile.benefits.delivery.title": "Entrega Rápida",
-    "agile.benefits.delivery.description":
-      "Entregas incrementais e frequentes para resultados mais rápidos.",
-    "agile.benefits.collaboration.title": "Colaboração",
-    "agile.benefits.collaboration.description":
-      "Trabalho em equipe eficiente com comunicação constante.",
-    "agile.benefits.flexibility.title": "Flexibilidade",
-    "agile.benefits.flexibility.description":
-      "Adaptação rápida a mudanças e novos requisitos.",
-    "agile.benefits.quality.title": "Qualidade",
-    "agile.benefits.quality.description":
-      "Foco na qualidade através de testes contínuos.",
-    "agile.process.title": "Nosso Processo Ágil",
-    "agile.process.subtitle":
-      "Seguimos um processo estruturado para garantir o sucesso do seu projeto.",
-    "agile.process.planning.title": "Planejamento",
-    "agile.process.planning.description":
-      "Definição clara de objetivos e escopo do projeto.",
-    "agile.process.sprints.title": "Sprints",
-    "agile.process.sprints.description":
-      "Desenvolvimento em ciclos curtos e focados.",
-    "agile.process.review.title": "Revisão",
-    "agile.process.review.description":
-      "Avaliação contínua e feedback constante.",
-    "agile.process.delivery.title": "Entrega",
-    "agile.process.delivery.description":
-      "Implementação e entrega de funcionalidades.",
-    // Development translations
-    "development.hero.title": "Desenvolvimento de Software",
-    "development.hero.subtitle":
-      "Criamos soluções digitais inovadoras e escaláveis para impulsionar seu negócio.",
-    "development.services.title": "Nossos Serviços",
-    "development.services.subtitle":
-      "Oferecemos desenvolvimento completo para todas as suas necessidades digitais.",
-    "development.services.carousel.website": "Desenvolvimento de Websites",
-    "development.services.carousel.mobile": "Aplicações Mobile",
-    "development.services.carousel.corporate": "Sistemas Corporativos",
-    "development.services.carousel.apis": "Arquitetura de APIs",
-    "development.web.title": "Desenvolvimento Web",
-    "development.web.description":
-      "Sites e aplicações web modernas, responsivas e otimizadas.",
-    "development.mobile.title": "Apps Mobile",
-    "development.mobile.description":
-      "Aplicativos nativos e híbridos para iOS e Android.",
-    "development.corporate.title": "Sistemas Corporativos",
-    "development.corporate.description":
-      "Soluções empresariais robustas e integradas.",
-    "development.apis.title": "APIs e Integrações",
-    "development.apis.description":
-      "Desenvolvimento de APIs RESTful e integrações de sistemas.",
-    "development.why.title": "Por que Escolher Nosso Desenvolvimento?",
-    "development.why.subtitle":
-      "Combinamos tecnologia de ponta com metodologias ágeis para entregar resultados excepcionais.",
-    "development.performance.title": "Alta Performance",
-    "development.performance.description":
-      "Código otimizado para máxima velocidade e eficiência.",
-    "development.security.title": "Segurança Avançada",
-    "development.security.description":
-      "Implementamos as melhores práticas de segurança digital.",
-    "development.ux.title": "UX/UI Excepcional",
-    "development.ux.description":
-      "Interfaces intuitivas e experiências de usuário memoráveis.",
-    "development.quality.title": "Qualidade Garantida",
-    "development.quality.description":
-      "Testes rigorosos e controle de qualidade em cada etapa.",
-    "development.cta.title": "Pronto para Desenvolver?",
-    "development.cta.subtitle":
-      "Transforme suas ideias em realidade com nossa expertise em desenvolvimento.",
-    "development.cta.button": "Solicitar Orçamento",
-    // Landing Pages translations
-    "landingPages.hero.title": "Landing Pages de Alta Conversão",
-    "landingPages.hero.subtitle":
-      "Criamos landing pages que convertem visitantes em clientes, com design profissional e estratégias comprovadas de marketing digital.",
-    "landingPages.features.title": "Recursos Essenciais",
-    "landingPages.features.subtitle":
-      "Nossas landing pages são desenvolvidas com todos os elementos necessários para maximizar suas conversões e resultados.",
-    "landingPages.features.conversion.title": "Alta Conversão",
-    "landingPages.features.conversion.description":
-      "Landing pages otimizadas para maximizar suas conversões.",
-    "landingPages.features.responsive.title": "Responsivo",
-    "landingPages.features.responsive.description":
-      "Design adaptável para todos os dispositivos e telas.",
-    "landingPages.features.seo.title": "SEO Otimizado",
-    "landingPages.features.seo.description":
-      "Otimização completa para mecanismos de busca.",
-    "landingPages.features.analytics.title": "Analytics",
-    "landingPages.features.analytics.description":
-      "Acompanhamento detalhado de métricas e performance.",
-    "landingPages.benefits.title": "Por que Escolher Nossas Landing Pages",
-    "landingPages.benefits.subtitle":
-      "Combinamos design atrativo com estratégias de conversão para entregar resultados excepcionais.",
-    "landingPages.benefits.focus.title": "Foco no Objetivo",
-    "landingPages.benefits.focus.description":
-      "Páginas direcionadas para uma ação específica do usuário.",
-    "landingPages.benefits.sales.title": "Aumento de Vendas",
-    "landingPages.benefits.sales.description":
-      "Estratégias comprovadas para aumentar suas conversões.",
-    "landingPages.benefits.design.title": "Design Atrativo",
-    "landingPages.benefits.design.description":
-      "Visual moderno e profissional que gera confiança.",
-    "landingPages.benefits.speed.title": "Carregamento Rápido",
-    "landingPages.benefits.speed.description":
-      "Otimização de performance para melhor experiência.",
-    "landingPages.cta.title": "Pronto para Desenvolver?",
-    "landingPages.cta.subtitle":
-      "Transforme suas ideias em realidade com nossa expertise em desenvolvimento.",
-    "landingPages.cta.button": "Solicitar Orçamento",
-    // Outsourcing translations
-    "outsourcing.hero.title": "Terceirização de TI",
-    "outsourcing.hero.subtitle":
-      "Acelere seus projetos com equipes especializadas e dedicadas ao seu sucesso.",
-    "outsourcing.services.title": "Nossos Serviços",
-    "outsourcing.services.subtitle":
-      "Oferecemos soluções completas de terceirização para atender todas as suas necessidades tecnológicas.",
-    "outsourcing.services.dedicated.title": "Equipes Dedicadas",
-    "outsourcing.services.dedicated.description":
-      "Times especializados trabalhando exclusivamente no seu projeto.",
-    "outsourcing.services.offshore.title": "Desenvolvimento Offshore",
-    "outsourcing.services.offshore.description":
-      "Acesso a talentos globais com custos otimizados.",
-    "outsourcing.services.support.title": "Suporte 24/7",
-    "outsourcing.services.support.description":
-      "Cobertura completa com times em diferentes fusos horários.",
-    "outsourcing.services.specialists.title": "Especialistas Certificados",
-    "outsourcing.services.specialists.description":
-      "Profissionais com certificações nas principais tecnologias.",
-    "outsourcing.benefits.title": "Vantagens da Terceirização",
-    "outsourcing.benefits.subtitle":
-      "Descubra como a terceirização pode transformar sua operação e acelerar seus resultados.",
-    "outsourcing.benefits.costs.title": "Redução de Custos",
-    "outsourcing.benefits.costs.description":
-      "Economize até 60% em custos operacionais e de desenvolvimento.",
-    "outsourcing.benefits.scalability.title": "Escalabilidade Rápida",
-    "outsourcing.benefits.scalability.description":
-      "Aumente ou diminua sua equipe conforme a demanda do projeto.",
-    "outsourcing.benefits.quality.title": "Qualidade Garantida",
-    "outsourcing.benefits.quality.description":
-      "Processos rigorosos de controle de qualidade e testes.",
-    "outsourcing.benefits.focus.title": "Foco no Core Business",
-    "outsourcing.benefits.focus.description":
-      "Concentre-se no seu negócio principal enquanto cuidamos da tecnologia.",
-    "outsourcing.process.title": "Como Funciona",
-    "outsourcing.process.subtitle":
-      "Nosso processo estruturado garante a formação da equipe ideal para seu projeto.",
-    "outsourcing.process.analysis.title": "Análise de Necessidades",
-    "outsourcing.process.analysis.description":
-      "Entendemos suas necessidades específicas e definimos o perfil ideal da equipe.",
-    "outsourcing.process.selection.title": "Seleção de Talentos",
-    "outsourcing.process.selection.description":
-      "Recrutamos e selecionamos os melhores profissionais para compor sua equipe.",
-    "outsourcing.process.integration.title": "Integração e Gestão",
-    "outsourcing.process.integration.description":
-      "Integramos a equipe ao seu projeto e fornecemos gestão contínua.",
-    "outsourcing.cta.title": "Acelere seus Projetos",
-    "outsourcing.cta.subtitle":
-      "Monte sua equipe de desenvolvimento ideal e acelere a entrega dos seus projetos com qualidade garantida.",
-    "outsourcing.cta.button": "Solicitar Proposta",
-    // System Integration translations
-    "systemIntegration.hero.title": "Integração de Sistemas",
-    "systemIntegration.hero.subtitle":
-      "Conecte todos os seus sistemas e aplicações para criar um ambiente tecnológico unificado e eficiente.",
-    "systemIntegration.benefits.title": "Benefícios da Integração",
-    "systemIntegration.benefits.subtitle":
-      "Transforme sistemas isolados em uma solução unificada que potencializa a eficiência e produtividade da sua empresa.",
-    "systemIntegration.benefits.connectivity.title": "Conectividade Total",
-    "systemIntegration.benefits.connectivity.description":
-      "Integração completa entre todos os seus sistemas e aplicações.",
-    "systemIntegration.benefits.automation.title": "Automação",
-    "systemIntegration.benefits.automation.description":
-      "Automatização de processos para maior eficiência operacional.",
-    "systemIntegration.benefits.data.title": "Dados Unificados",
-    "systemIntegration.benefits.data.description":
-      "Centralização e sincronização de dados em tempo real.",
-    "systemIntegration.benefits.security.title": "Segurança",
-    "systemIntegration.benefits.security.description":
-      "Protocolos de segurança avançados em todas as integrações.",
-    "systemIntegration.solutions.title": "Soluções de Integração",
-    "systemIntegration.solutions.subtitle":
-      "Oferecemos soluções personalizadas para conectar qualquer tipo de sistema, desde aplicações modernas até sistemas legados.",
-    "systemIntegration.solutions.apis.title": "APIs e Microserviços",
-    "systemIntegration.solutions.apis.description":
-      "Desenvolvimento de APIs robustas para comunicação entre sistemas.",
-    "systemIntegration.solutions.cloud.title": "Integração em Nuvem",
-    "systemIntegration.solutions.cloud.description":
-      "Conexão de sistemas locais com soluções em nuvem.",
-    "systemIntegration.solutions.erp.title": "ERP e CRM",
-    "systemIntegration.solutions.erp.description":
-      "Integração de sistemas de gestão empresarial e relacionamento.",
-    "systemIntegration.solutions.legacy.title": "Sistemas Legados",
-    "systemIntegration.solutions.legacy.description":
-      "Modernização e integração de sistemas antigos.",
-    "systemIntegration.cta.title": "Unifique seus Sistemas",
-    "systemIntegration.cta.subtitle":
-      "Elimine silos de informação e crie um ambiente tecnológico integrado que impulsiona a eficiência do seu negócio.",
-    "systemIntegration.cta.button": "Avaliar Integração",
-    // Solar Energy translations
-    "solarEnergy.hero.title": "Energia Solar",
-    "solarEnergy.hero.subtitle":
-      "Soluções completas em energia solar fotovoltaica. Projetos residenciais, comerciais e industriais com máxima eficiência energética.",
+    // Navbar
+    "nav.whatWeDo": "O que Fazemos",
+    "nav.engineering": "Engenharia",
+    "nav.industry": "Indústria",
+    "nav.security": "Segurança",
+    "nav.institutional": "Institucional",
+    "nav.about": "Sobre",
+    "nav.careers": "Carreiras",
+    "nav.contact": "Contacto",
+    "nav.home": "Início",
+
+    // Menu items
+    "menu.agile": "Ágil",
+    "menu.development": "Desenvolvimento",
+    "menu.chatbot": "Chatbot",
+    "menu.landing-pages": "Landing Pages",
+    "menu.outsourcing": "Terceirização",
+    "menu.system-integration": "Integração de Sistemas",
+    "menu.solar-energy": "Energia Solar",
+    "menu.railway": "Ferroviário",
+    "menu.road": "Rodoviário",
+    "menu.education": "Educação",
+    "menu.government": "Governo",
+    "menu.manufacturing": "Manufatura",
+    "menu.financial": "Financeiros",
+    "menu.retail": "Varejo",
+    "menu.healthcare": "Saúde",
+    "menu.cybersecurity": "Segurança Cibernética",
+    "menu.backups": "Backups",
+    "menu.access": "Acessos",
+
+    // Footer
+    "footer.description":
+      "Transformamos ideias em soluções digitais inovadoras. Especialistas em desenvolvimento de software e consultoria em TI.",
+    "footer.services": "Serviços",
+    "footer.company": "Empresa",
+    "footer.contact": "Contacto",
+    "footer.rights": "Todos os direitos reservados.",
+    "footer.allRightsReserved": "Todos os direitos reservados.",
+
+    // Hero Section
+    "hero.title.line1": "Soluções que",
+    "hero.title.line2": "Transformam",
+    "hero.title.line3": "Negócios",
+    "hero.subtitle": "Desenvolvemos tecnologias inovadoras que impulsionam o crescimento do seu negócio",
+    "hero.cta.start": "Começar Projeto",
+    "hero.cta.demo": "Ver Demo",
+    "hero.stats.projects": "Projetos",
+    "hero.stats.clients": "Clientes",
+    "hero.stats.years": "Anos",
+
+    // About Page
+    "about.hero.title": "Sobre a VianaHub",
+    "about.hero.subtitle":
+      "Somos uma empresa de tecnologia especializada em transformação digital, oferecendo soluções inovadoras que impulsionam o crescimento dos nossos clientes.",
+    "about.hero.cta.history": "A Nossa História",
+    "about.hero.cta.team": "Conheça a Equipa",
+    "about.mission.title": "A Nossa Missão",
+    "about.mission.description":
+      "Transformar negócios através da tecnologia, oferecendo soluções inovadoras e personalizadas que geram valor real para os nossos clientes e contribuem para um futuro digital mais eficiente e sustentável.",
+    "about.vision.title": "A Nossa Visão",
+    "about.vision.description":
+      "Ser reconhecida como a principal referência em soluções tecnológicas inovadoras, liderando a transformação digital e criando um impacto positivo na sociedade através da tecnologia.",
+    "about.values.badge": "Os Nossos Valores",
+    "about.values.title": "O que Nos Move",
+    "about.values.subtitle": "Os nossos valores fundamentais orientam cada decisão e acção na nossa jornada",
+    "about.values.innovation.title": "Inovação",
+    "about.values.innovation.description":
+      "Procuramos constantemente novas tecnologias e soluções para superar expectativas.",
+    "about.values.commitment.title": "Compromisso",
+    "about.values.commitment.description": "Dedicação total ao sucesso dos nossos clientes e parceiros de negócio.",
+    "about.values.reliability.title": "Confiabilidade",
+    "about.values.reliability.description":
+      "Construímos relacionamentos duradouros baseados na confiança e transparência.",
+    "about.values.agility.title": "Agilidade",
+    "about.values.agility.description": "Entregamos soluções rápidas e eficientes sem comprometer a qualidade.",
+    "about.history.badge": "A Nossa História",
+    "about.history.title": "Uma Jornada de Inovação",
+    "about.history.subtitle": "Mais de 15 anos a construir soluções que transformam negócios e impactam vidas",
+    "about.history.foundation.title": "Fundação da VianaHub",
+    "about.history.foundation.description":
+      "Iniciámos a nossa jornada com o objectivo de transformar negócios através da tecnologia, começando com uma pequena equipa de programadores apaixonados.",
+    "about.history.projects.title": "Primeiros Grandes Projectos",
+    "about.history.projects.description":
+      "Conquistámos os nossos primeiros clientes empresariais e desenvolvemos soluções que impactaram milhares de utilizadores.",
+    "about.history.expansion.title": "Expansão Internacional",
+    "about.history.expansion.description":
+      "Expandimos as nossas operações para outros países, oferecendo soluções tecnológicas em escala global.",
+    "about.history.growth.title": "Crescimento da Equipa",
+    "about.history.growth.description":
+      "Alcançámos a marca de 50+ especialistas, consolidando a nossa posição como referência em transformação digital.",
+    "about.team.badge": "A Nossa Equipa",
+    "about.team.title": "Liderança Experiente",
+    "about.team.subtitle": "Conheça os profissionais que lideram a nossa visão e estratégia",
+    "about.team.tatiana.role": "CEO & Fundadora",
+    "about.team.tatiana.description":
+      "Administradora e Engenheira com mais de 15 anos de experiência em transformação digital.",
+    "about.team.dener.role": "CTO & Fundador",
+    "about.team.dener.description": "Analista de Sistemas com mais de 30 anos de experiência em sistemas informáticos.",
+    "about.team.carlos.role": "Director Comercial",
+    "about.team.carlos.description": "Especialista em relacionamento com clientes e desenvolvimento de novos negócios.",
+    "about.cta.title": "Pronto para Transformar o Seu Negócio?",
+    "about.cta.subtitle":
+      "Entre em contacto connosco e descubra como podemos ajudar a sua empresa a alcançar novos patamares com as nossas soluções tecnológicas.",
+    "about.cta.contact": "Falar Connosco",
+    "about.cta.projects": "Ver os Nossos Projectos",
+
+    // Careers Page
+    "careers.title": "Junte-se à Nossa Equipa",
+    "careers.subtitle":
+      "Descubra oportunidades de carreira numa empresa inovadora que valoriza o talento, a criatividade e o crescimento profissional.",
+    "careers.cta": "Candidatar-me Agora",
+    "careers.parallax.title": "Construa o Futuro Connosco",
+    "careers.parallax.subtitle":
+      "Faça parte de uma equipa que está a transformar o mundo digital através da tecnologia e inovação.",
+    "careers.positions.title": "Oportunidades Disponíveis",
+    "careers.positions.subtitle":
+      "Explore as nossas posições abertas e encontre a oportunidade perfeita para o seu perfil profissional.",
+    "careers.positions.viewDetails": "Ver Detalhes",
+    "careers.positions.apply": "Candidatar-me",
+    "careers.positions.talentBank": "Banco de Talentos",
+    "careers.positions.talentBankNote": "Não encontrou a posição ideal? Junte-se ao nosso banco de talentos!",
+    "careers.positions.joinTalentBank": "Juntar ao Banco de Talentos",
+
+    // Position 1 - Senior Full Stack Developer
+    "careers.positions.1.title": "Desenvolvedor Full Stack Sénior",
+    "careers.positions.1.department": "Desenvolvimento",
+    "careers.positions.1.location": "Remoto",
+    "careers.positions.1.type": "Tempo Integral",
+    "careers.positions.1.description":
+      "Procuramos um desenvolvedor experiente para liderar projetos de desenvolvimento web complexos usando tecnologias modernas.",
+    "careers.positions.1.requirements.0": "5+ anos de experiência em desenvolvimento web",
+    "careers.positions.1.requirements.1": "Experiência com React, Node.js, TypeScript",
+    "careers.positions.1.requirements.2": "Conhecimento de bases de dados SQL e NoSQL",
+    "careers.positions.1.requirements.3": "Experiência com metodologias ágeis",
+    "careers.positions.1.responsibilities.0": "Desenvolver aplicações web escaláveis e performantes",
+    "careers.positions.1.responsibilities.1": "Colaborar com equipas multidisciplinares",
+    "careers.positions.1.responsibilities.2": "Mentorizar desenvolvedores juniores",
+    "careers.positions.1.responsibilities.3": "Participar na arquitetura de soluções técnicas",
+    "careers.positions.1.benefits.0": "Salário competitivo e benefícios",
+    "careers.positions.1.benefits.1": "Trabalho remoto flexível",
+    "careers.positions.1.benefits.2": "Formação contínua e certificações",
+    "careers.positions.1.benefits.3": "Ambiente de trabalho colaborativo",
+
+    // Position 2 - UX/UI Designer
+    "careers.positions.2.title": "Designer UX/UI",
+    "careers.positions.2.department": "Design",
+    "careers.positions.2.location": "Híbrido",
+    "careers.positions.2.type": "Tempo Integral",
+    "careers.positions.2.description":
+      "Criamos experiências digitais excepcionais. Procuramos um designer criativo para se juntar à nossa equipa.",
+    "careers.positions.2.requirements.0": "3+ anos de experiência em design UX/UI",
+    "careers.positions.2.requirements.1": "Proficiência em Figma, Adobe Creative Suite",
+    "careers.positions.2.requirements.2": "Conhecimento de design systems",
+    "careers.positions.2.requirements.3": "Portfolio demonstrando projetos diversos",
+    "careers.positions.2.responsibilities.0": "Criar wireframes, protótipos e designs finais",
+    "careers.positions.2.responsibilities.1": "Conduzir pesquisas de utilizador",
+    "careers.positions.2.responsibilities.2": "Colaborar com desenvolvedores na implementação",
+    "careers.positions.2.responsibilities.3": "Manter e evoluir design systems",
+    "careers.positions.2.benefits.0": "Ambiente criativo e inspirador",
+    "careers.positions.2.benefits.1": "Flexibilidade de horários",
+    "careers.positions.2.benefits.2": "Acesso a ferramentas premium",
+    "careers.positions.2.benefits.3": "Participação em conferências de design",
+
+    // Continue with other positions...
+    "careers.positions.3.title": "Gestor de Projeto",
+    "careers.positions.3.department": "Gestão",
+    "careers.positions.3.location": "Presencial",
+    "careers.positions.3.type": "Tempo Integral",
+    "careers.positions.3.description":
+      "Lidere projetos tecnológicos do início ao fim, garantindo entregas de qualidade dentro dos prazos estabelecidos.",
+
+    "careers.positions.4.title": "Especialista em Cibersegurança",
+    "careers.positions.4.department": "Segurança",
+    "careers.positions.4.location": "Remoto",
+    "careers.positions.4.type": "Tempo Integral",
+    "careers.positions.4.description":
+      "Proteja os nossos sistemas e dados contra ameaças cibernéticas, implementando as melhores práticas de segurança.",
+
+    "careers.positions.5.title": "Analista de Dados",
+    "careers.positions.5.department": "Analytics",
+    "careers.positions.5.location": "Híbrido",
+    "careers.positions.5.type": "Tempo Integral",
+    "careers.positions.5.description":
+      "Transforme dados em insights valiosos para apoiar decisões estratégicas do negócio.",
+
+    "careers.positions.6.title": "DevOps Engineer",
+    "careers.positions.6.department": "Infraestrutura",
+    "careers.positions.6.location": "Remoto",
+    "careers.positions.6.type": "Tempo Integral",
+    "careers.positions.6.description": "Automatize e otimize os nossos processos de desenvolvimento e deployment.",
+
+    "careers.positions.7.title": "Marketing Digital",
+    "careers.positions.7.department": "Marketing",
+    "careers.positions.7.location": "Presencial",
+    "careers.positions.7.type": "Tempo Integral",
+    "careers.positions.7.description":
+      "Desenvolva e execute estratégias de marketing digital para aumentar a nossa presença online.",
+
+    "careers.positions.8.title": "Arquiteto de Soluções",
+    "careers.positions.8.department": "Arquitetura",
+    "careers.positions.8.location": "Híbrido",
+    "careers.positions.8.type": "Tempo Integral",
+    "careers.positions.8.description":
+      "Desenhe arquiteturas técnicas robustas e escaláveis para os nossos projetos enterprise.",
+
+    "careers.positions.9.title": "Suporte Técnico",
+    "careers.positions.9.department": "Suporte",
+    "careers.positions.9.location": "Presencial",
+    "careers.positions.9.type": "Tempo Integral",
+    "careers.positions.9.description":
+      "Forneça suporte técnico de excelência aos nossos clientes e utilizadores internos.",
+
+    "careers.positions.10.title": "Business Analyst",
+    "careers.positions.10.department": "Análise",
+    "careers.positions.10.location": "Híbrido",
+    "careers.positions.10.type": "Tempo Integral",
+    "careers.positions.10.description": "Analise requisitos de negócio e traduza-os em especificações técnicas claras.",
+
+    "careers.positions.11.title": "QA Tester",
+    "careers.positions.11.department": "Qualidade",
+    "careers.positions.11.location": "Remoto",
+    "careers.positions.11.type": "Tempo Integral",
+    "careers.positions.11.description":
+      "Garanta a qualidade dos nossos produtos através de testes rigorosos e metodologias de QA.",
+
+    "careers.positions.12.title": "Recursos Humanos",
+    "careers.positions.12.department": "RH",
+    "careers.positions.12.location": "Presencial",
+    "careers.positions.12.type": "Tempo Integral",
+    "careers.positions.12.description":
+      "Gerir o ciclo de vida dos colaboradores e desenvolver estratégias de retenção de talento.",
+
+    "careers.positionDetails.description": "Descrição",
+    "careers.positionDetails.requirements": "Requisitos",
+    "careers.positionDetails.responsibilities": "Responsabilidades",
+    "careers.positionDetails.benefits": "Benefícios",
+    "careers.positionDetails.salary": "Salário",
+
+    "careers.why.title": "Porquê Trabalhar Connosco?",
+    "careers.why.subtitle": "Descubra o que torna a VianaHub um lugar especial para desenvolver a sua carreira.",
+    "careers.why.innovation.title": "Inovação",
+    "careers.why.innovation.description":
+      "Trabalhe com as tecnologias mais recentes e participe em projetos inovadores.",
+    "careers.why.team.title": "Equipa",
+    "careers.why.team.description": "Faça parte de uma equipa talentosa e colaborativa que se apoia mutuamente.",
+    "careers.why.growth.title": "Crescimento",
+    "careers.why.growth.description":
+      "Desenvolva as suas competências com formação contínua e oportunidades de progressão.",
+    "careers.why.wellbeing.title": "Bem-estar",
+    "careers.why.wellbeing.description":
+      "Valorizamos o equilíbrio trabalho-vida e o bem-estar dos nossos colaboradores.",
+
+    "careers.application.title": "Candidatura",
+    "careers.application.general": "Candidatura Geral",
+    "careers.application.personalInfo": "Informações Pessoais",
+    "careers.application.name": "Nome Completo",
+    "careers.application.email": "Email",
+    "careers.application.phone": "Telefone",
+    "careers.application.educationExperienceTitle": "Formação e Experiência",
+    "careers.application.education": "Formação Académica",
+    "careers.application.educationPlaceholder": "Descreva a sua formação académica...",
+    "careers.application.experience": "Experiência Profissional",
+    "careers.application.experiencePlaceholder": "Descreva a sua experiência profissional relevante...",
+    "careers.application.motivation": "Motivação",
+    "careers.application.motivationLabel": "Carta de Motivação",
+    "careers.application.motivationPlaceholder": "Conte-nos porque quer juntar-se à nossa equipa...",
+    "careers.application.cv": "Curriculum Vitae",
+    "careers.application.cvLabel": "Upload do CV (PDF, DOC, DOCX)",
+    "careers.application.fileSelected": "Ficheiro selecionado:",
+    "careers.application.terms": "Aceito os termos e condições de candidatura",
+    "careers.application.acceptTermsAlert": "Deve aceitar os termos e condições para submeter a candidatura.",
+    "careers.application.cancel": "Cancelar",
+    "careers.application.submit": "Submeter Candidatura",
+    "careers.application.successMessage": "Candidatura submetida com sucesso! Entraremos em contacto brevemente.",
+
+    "careers.terms.title": "Termos e Condições de Candidatura",
+    "careers.terms.close": "Fechar",
+
+    // Contact Page
+    "contact.hero.title": "Entre em Contacto",
+    "contact.hero.subtitle":
+      "Estamos aqui para ajudar a transformar as suas ideias em realidade digital. Fale connosco hoje mesmo.",
+    "contact.form.title": "Envie-nos uma Mensagem",
+    "contact.form.name": "Nome",
+    "contact.form.email": "Email",
+    "contact.form.phone": "Telefone",
+    "contact.form.company": "Empresa",
+    "contact.form.subject": "Assunto",
+    "contact.form.message": "Mensagem",
+    "contact.form.send": "Enviar Mensagem",
+    "contact.info.title": "Informações de Contacto",
+    "contact.info.address": "Morada",
+    "contact.info.phone": "Telefone",
+    "contact.info.email": "Email",
+    "contact.info.hours": "Horário de Funcionamento",
+    "contact.info.hoursValue": "Segunda a Sexta: 9h às 18h",
+
+    // Entertainment Section
+    "entertainment.title": "Passa Tempo",
+
+    // Fox Game
+    "foxGame.title": "Aventura da Raposa no Deserto",
+    "foxGame.subtitle": "Ajude a raposa a encontrar o oásis através do labirinto!",
+    "foxGame.nameLabel": "Digite seu nome para começar:",
+    "foxGame.namePlaceholder": "Seu nome aqui...",
+    "foxGame.startButton": "Começar Aventura!",
+    "foxGame.howToPlay": "Como jogar:",
+    "foxGame.instructions":
+      "• Use as setas do teclado para mover a raposa\n• Ou clique nas células para mover\n• Encontre o oásis em cada nível\n• Complete todos os 5 níveis o mais rápido possível!",
+
+    // WhatsApp Chat
+    "whatsapp.title": "VianaHub Suporte",
+    "whatsapp.status": "Online agora",
+    "whatsapp.welcome":
+      "Olá! Como podemos ajudá-lo hoje? Nossa equipe está pronta para esclarecer suas dúvidas sobre nossos serviços.",
+    "whatsapp.placeholder": "Digite sua mensagem...",
+    "whatsapp.continue": "Continuar no WhatsApp",
+    "whatsapp.autoReply":
+      "Obrigado pela sua mensagem! Nossa equipe irá responder em breve. Para atendimento imediato, ligue para +55 (11) 9999-9999.",
+    "whatsapp.defaultMessage": "Olá! Gostaria de saber mais sobre os serviços da VianaHub.",
+
+    // Industries Section
+    "industries.title.part1": "Indústrias",
+    "industries.title.part2": "Atendidas",
+    "industries.subtitle": "Experiência comprovada em diversos setores",
+    "industries.education.title": "Educação",
+    "industries.education.description": "Plataformas educacionais e sistemas de gestão acadêmica",
+    "industries.financial.title": "Financeiro",
+    "industries.financial.description": "Soluções bancárias e sistemas de pagamento seguros",
+    "industries.government.title": "Governo",
+    "industries.government.description": "Sistemas públicos e portais de transparência",
+    "industries.healthcare.title": "Saúde",
+    "industries.healthcare.description": "Sistemas hospitalares e soluções de telemedicina",
+    "industries.manufacturing.title": "Manufatura",
+    "industries.manufacturing.description": "Automação industrial e sistemas de controle",
+    "industries.retail.title": "Varejo",
+    "industries.retail.description": "E-commerce e sistemas de gestão comercial",
+    "industries.cta": "Explorar",
+
+    // Services Section
+    "services.title.part1": "Nossos",
+    "services.title.part2": "Serviços",
+    "services.subtitle": "Oferecemos soluções completas em tecnologia para transformar sua visão em realidade digital",
+    "services.web.title": "Desenvolvimento Web",
+    "services.web.description": "Criamos sites e aplicações web modernas, responsivas e otimizadas para performance.",
+    "services.mobile.title": "Aplicações Mobile",
+    "services.mobile.description":
+      "Desenvolvemos apps nativos e híbridos para iOS e Android com foco na experiência do usuário.",
+    "services.landing.title": "Landing Pages",
+    "services.landing.description":
+      "Páginas de conversão otimizadas para maximizar seus resultados de marketing digital.",
+    "services.integration.title": "Integração de Sistemas",
+    "services.integration.description":
+      "Conectamos diferentes sistemas e plataformas para otimizar seus processos de negócio.",
+    "services.security.title": "Segurança Digital",
+    "services.security.description":
+      "Implementamos soluções de segurança robustas para proteger seus dados e sistemas.",
+    "services.automation.title": "Automação",
+    "services.automation.description": "Automatizamos processos repetitivos para aumentar a eficiência da sua empresa.",
+    "services.cta": "Saiba Mais",
   },
   en: {
-    ...homeTranslations.en,
-    ...navbarTranslations.en,
-    ...careersTranslations.en,
-    ...contactTranslations.en,
-    ...aboutTranslations.en,
-    // Chatbot translations
-    "chatbot.hero.title": "Intelligent Chatbots",
-    "chatbot.hero.subtitle":
-      "Automate customer service with intelligent chatbots that offer accurate responses and exceptional experience.",
-    "chatbot.hero.cta": "Create Chatbot",
-    "chatbot.features.title": "Advanced Features",
-    "chatbot.features.subtitle":
-      "Our chatbots use cutting-edge artificial intelligence to provide exceptional experiences.",
-    "chatbot.features.conversations.title": "Natural Conversations",
-    "chatbot.features.conversations.description":
-      "Advanced AI for fluid and natural conversations with your customers.",
-    "chatbot.features.availability.title": "24/7 Availability",
-    "chatbot.features.availability.description":
-      "Automated service available 24 hours a day, 7 days a week.",
-    "chatbot.features.channels.title": "Multiple Channels",
-    "chatbot.features.channels.description":
-      "Integration with WhatsApp, Facebook, Telegram and other channels.",
-    "chatbot.features.analytics.title": "Advanced Analytics",
-    "chatbot.features.analytics.description":
-      "Detailed reports on interactions and chatbot performance.",
-    "chatbot.benefits.title": "Benefits for your Business",
-    "chatbot.benefits.subtitle":
-      "Transform customer service and optimize operations with our chatbot technology.",
-    "chatbot.benefits.response.title": "Instant Response",
-    "chatbot.benefits.response.description":
-      "Immediate responses to frequently asked customer questions.",
-    "chatbot.benefits.costs.title": "Cost Reduction",
-    "chatbot.benefits.costs.description":
-      "Reduce operational costs with automated service.",
-    "chatbot.benefits.satisfaction.title": "Customer Satisfaction",
-    "chatbot.benefits.satisfaction.description":
-      "Improve customer experience with efficient service.",
-    "chatbot.benefits.scalability.title": "Scalability",
-    "chatbot.benefits.scalability.description":
-      "Serve thousands of customers simultaneously without limitations.",
-    "chatbot.demo.title": "See a Chatbot in Action",
-    "chatbot.demo.subtitle":
-      "Experience how our chatbots can transform your company's service.",
-    "chatbot.demo.interactive.title": "Interactive Demo",
-    "chatbot.demo.interactive.description":
-      "Chat with our demonstration chatbot and see how it can help your customers.",
-    "chatbot.demo.cta": "Start Demo",
-    "chatbot.cta.title": "Automate your Service",
-    "chatbot.cta.subtitle":
-      "Implement an intelligent chatbot and revolutionize the way you serve your customers.",
-    "chatbot.cta.button": "Request Demonstration",
-    "chatbot.chat.bot.greeting": "Hello! How can I help you today?",
-    "chatbot.chat.user.order": "Hi! I would like to order a snack",
-    "chatbot.chat.bot.options":
-      "Perfect! We have sandwiches, pizzas and salads. What do you prefer?",
-    "chatbot.chat.user.choice": "A chicken sandwich, please",
-    "chatbot.chat.bot.confirm":
-      "Great choice! Chicken sandwich - $15.00. Confirm the order?",
-    "chatbot.chat.user.confirm": "Yes, I confirm!",
-    "chatbot.chat.bot.success":
-      "Order confirmed! ✅ Estimated time: 20 minutes. Thank you!",
-    // Agile translations
-    "agile.hero.title": "Agile Methodology",
-    "agile.hero.subtitle":
-      "Accelerate your projects with proven agile methodologies and deliver exceptional results.",
-    "agile.benefits.title": "Benefits of Agile Methodology",
-    "agile.benefits.subtitle":
-      "Transform the way you develop projects with our agile approach.",
-    "agile.benefits.delivery.title": "Fast Delivery",
-    "agile.benefits.delivery.description":
-      "Incremental and frequent deliveries for faster results.",
-    "agile.benefits.collaboration.title": "Collaboration",
-    "agile.benefits.collaboration.description":
-      "Efficient teamwork with constant communication.",
-    "agile.benefits.flexibility.title": "Flexibility",
-    "agile.benefits.flexibility.description":
-      "Quick adaptation to changes and new requirements.",
-    "agile.benefits.quality.title": "Quality",
-    "agile.benefits.quality.description":
-      "Focus on quality through continuous testing.",
-    "agile.process.title": "Our Agile Process",
-    "agile.process.subtitle":
-      "We follow a structured process to ensure your project's success.",
-    "agile.process.planning.title": "Planning",
-    "agile.process.planning.description":
-      "Clear definition of project objectives and scope.",
-    "agile.process.sprints.title": "Sprints",
-    "agile.process.sprints.description":
-      "Development in short and focused cycles.",
-    "agile.process.review.title": "Review",
-    "agile.process.review.description":
-      "Continuous evaluation and constant feedback.",
-    "agile.process.delivery.title": "Delivery",
-    "agile.process.delivery.description":
-      "Implementation and delivery of functionalities.",
-    // Development translations
-    "development.hero.title": "Software Development",
-    "development.hero.subtitle":
-      "We create innovative and scalable digital solutions to boost your business.",
-    "development.services.title": "Our Services",
-    "development.services.subtitle":
-      "We offer complete development for all your digital needs.",
-    "development.services.carousel.website": "Website Development",
-    "development.services.carousel.mobile": "Mobile Applications",
-    "development.services.carousel.corporate": "Corporate Systems",
-    "development.services.carousel.apis": "API Architecture",
-    "development.web.title": "Web Development",
-    "development.web.description":
-      "Modern, responsive and optimized websites and web applications.",
-    "development.mobile.title": "Mobile Apps",
-    "development.mobile.description":
-      "Native and hybrid applications for iOS and Android.",
-    "development.corporate.title": "Corporate Systems",
-    "development.corporate.description":
-      "Robust and integrated enterprise solutions.",
-    "development.apis.title": "APIs and Integrations",
-    "development.apis.description":
-      "RESTful API development and system integrations.",
-    "development.why.title": "Why Choose Our Development?",
-    "development.why.subtitle":
-      "We combine cutting-edge technology with agile methodologies to deliver exceptional results.",
-    "development.performance.title": "High Performance",
-    "development.performance.description":
-      "Optimized code for maximum speed and efficiency.",
-    "development.security.title": "Advanced Security",
-    "development.security.description":
-      "We implement the best digital security practices.",
-    "development.ux.title": "Exceptional UX/UI",
-    "development.ux.description":
-      "Intuitive interfaces and memorable user experiences.",
-    "development.quality.title": "Guaranteed Quality",
-    "development.quality.description":
-      "Rigorous testing and quality control at every stage.",
-    "development.cta.title": "Ready to Develop?",
-    "development.cta.subtitle":
-      "Transform your ideas into reality with our development expertise.",
-    "development.cta.button": "Request Quote",
-    // Landing Pages translations
-    "landingPages.hero.title": "High-Converting Landing Pages",
-    "landingPages.hero.subtitle":
-      "Pages optimized to maximize your conversions and boost your business growth.",
-    "landingPages.features.title": "Essential Features",
-    "landingPages.features.subtitle":
-      "Our landing pages are developed with all the necessary elements to maximize your conversions and results.",
-    "landingPages.features.conversion.title": "High Conversion",
-    "landingPages.features.conversion.description":
-      "Landing pages optimized to maximize your conversions.",
-    "landingPages.features.responsive.title": "Responsive",
-    "landingPages.features.responsive.description":
-      "Adaptive design for all devices and screens.",
-    "landingPages.features.seo.title": "SEO Optimized",
-    "landingPages.features.seo.description":
-      "Complete optimization for search engines.",
-    "landingPages.features.analytics.title": "Analytics",
-    "landingPages.features.analytics.description":
-      "Detailed tracking of metrics and performance.",
-    "landingPages.benefits.title": "Why Choose Our Landing Pages",
-    "landingPages.benefits.subtitle":
-      "We combine attractive design with conversion strategies to deliver exceptional results.",
-    "landingPages.benefits.focus.title": "Goal Focused",
-    "landingPages.benefits.focus.description":
-      "Pages directed towards a specific user action.",
-    "landingPages.benefits.sales.title": "Increased Sales",
-    "landingPages.benefits.sales.description":
-      "Proven strategies to increase your conversions.",
-    "landingPages.benefits.design.title": "Attractive Design",
-    "landingPages.benefits.design.description":
-      "Modern and professional visual that generates trust.",
-    "landingPages.benefits.speed.title": "Fast Loading",
-    "landingPages.benefits.speed.description":
-      "Performance optimization for better experience.",
-    "landingPages.cta.title": "Increase Your Conversions Today",
-    "landingPages.cta.subtitle":
-      "Have a professional landing page that converts visitors into customers and boosts your business growth.",
-    "landingPages.cta.button": "Request Quote",
-    // Outsourcing translations
-    "outsourcing.hero.title": "IT Outsourcing",
-    "outsourcing.hero.subtitle":
-      "Accelerate your projects with specialized teams dedicated to your success.",
-    "outsourcing.services.title": "Our Services",
-    "outsourcing.services.subtitle":
-      "We offer complete outsourcing solutions to meet all your technological needs.",
-    "outsourcing.services.dedicated.title": "Dedicated Teams",
-    "outsourcing.services.dedicated.description":
-      "Specialized teams working exclusively on your project.",
-    "outsourcing.services.offshore.title": "Offshore Development",
-    "outsourcing.services.offshore.description":
-      "Access to global talent with optimized costs.",
-    "outsourcing.services.support.title": "24/7 Support",
-    "outsourcing.services.support.description":
-      "Complete coverage with teams in different time zones.",
-    "outsourcing.services.specialists.title": "Certified Specialists",
-    "outsourcing.services.specialists.description":
-      "Professionals with certifications in leading technologies.",
-    "outsourcing.benefits.title": "Outsourcing Advantages",
-    "outsourcing.benefits.subtitle":
-      "Discover how outsourcing can transform your operation and accelerate your results.",
-    "outsourcing.benefits.costs.title": "Cost Reduction",
-    "outsourcing.benefits.costs.description":
-      "Save up to 60% on operational and development costs.",
-    "outsourcing.benefits.scalability.title": "Rapid Scalability",
-    "outsourcing.benefits.scalability.description":
-      "Increase or decrease your team according to project demand.",
-    "outsourcing.benefits.quality.title": "Guaranteed Quality",
-    "outsourcing.benefits.quality.description":
-      "Rigorous quality control and testing processes.",
-    "outsourcing.benefits.focus.title": "Focus on Core Business",
-    "outsourcing.benefits.focus.description":
-      "Focus on your main business while we take care of technology.",
-    "outsourcing.process.title": "How It Works",
-    "outsourcing.process.subtitle":
-      "Our structured process ensures the formation of the ideal team for your project.",
-    "outsourcing.process.analysis.title": "Needs Analysis",
-    "outsourcing.process.analysis.description":
-      "We understand your specific needs and define the ideal team profile.",
-    "outsourcing.process.selection.title": "Talent Selection",
-    "outsourcing.process.selection.description":
-      "We recruit and select the best professionals to compose your team.",
-    "outsourcing.process.integration.title": "Integration and Management",
-    "outsourcing.process.integration.description":
-      "We integrate the team into your project and provide continuous management.",
-    "outsourcing.cta.title": "Accelerate Your Projects",
-    "outsourcing.cta.subtitle":
-      "Build your ideal development team and accelerate the delivery of your projects with guaranteed quality.",
-    "outsourcing.cta.button": "Request Proposal",
-    // System Integration translations
-    "systemIntegration.hero.title": "System Integration",
-    "systemIntegration.hero.subtitle":
-      "Connect all your systems and applications to create a unified and efficient technological environment.",
-    "systemIntegration.benefits.title": "Integration Benefits",
-    "systemIntegration.benefits.subtitle":
-      "Transform isolated systems into a unified solution that enhances your company's efficiency and productivity.",
-    "systemIntegration.benefits.connectivity.title": "Total Connectivity",
-    "systemIntegration.benefits.connectivity.description":
-      "Complete integration between all your systems and applications.",
-    "systemIntegration.benefits.automation.title": "Automation",
-    "systemIntegration.benefits.automation.description":
-      "Process automation for greater operational efficiency.",
-    "systemIntegration.benefits.data.title": "Unified Data",
-    "systemIntegration.benefits.data.description":
-      "Centralization and real-time data synchronization.",
-    "systemIntegration.benefits.security.title": "Security",
-    "systemIntegration.benefits.security.description":
-      "Advanced security protocols in all integrations.",
-    "systemIntegration.solutions.title": "Integration Solutions",
-    "systemIntegration.solutions.subtitle":
-      "We offer customized solutions to connect any type of system, from modern applications to legacy systems.",
-    "systemIntegration.solutions.apis.title": "APIs and Microservices",
-    "systemIntegration.solutions.apis.description":
-      "Development of robust APIs for communication between systems.",
-    "systemIntegration.solutions.cloud.title": "Cloud Integration",
-    "systemIntegration.solutions.cloud.description":
-      "Connection of local systems with cloud solutions.",
-    "systemIntegration.solutions.erp.title": "ERP and CRM",
-    "systemIntegration.solutions.erp.description":
-      "Integration of business management and relationship systems.",
-    "systemIntegration.solutions.legacy.title": "Legacy Systems",
-    "systemIntegration.solutions.legacy.description":
-      "Modernization and integration of old systems.",
-    "systemIntegration.cta.title": "Unify Your Systems",
-    "systemIntegration.cta.subtitle":
-      "Eliminate information silos and create an integrated technological environment that drives your business efficiency.",
-    "systemIntegration.cta.button": "Evaluate Integration",
-    // Solar Energy translations
-    "solarEnergy.hero.title": "Solar Energy",
-    "solarEnergy.hero.subtitle":
-      "Complete photovoltaic solar energy solutions. Residential, commercial, and industrial projects with maximum energy efficiency.",
+    // Navbar
+    "nav.whatWeDo": "What We Do",
+    "nav.engineering": "Engineering",
+    "nav.industry": "Industry",
+    "nav.security": "Security",
+    "nav.institutional": "Institutional",
+    "nav.about": "About",
+    "nav.careers": "Careers",
+    "nav.contact": "Contact",
+    "nav.home": "Home",
+
+    // Menu items
+    "menu.agile": "Agile",
+    "menu.development": "Development",
+    "menu.chatbot": "Chatbot",
+    "menu.landing-pages": "Landing Pages",
+    "menu.outsourcing": "Outsourcing",
+    "menu.system-integration": "System Integration",
+    "menu.solar-energy": "Solar Energy",
+    "menu.railway": "Railway",
+    "menu.road": "Road",
+    "menu.education": "Education",
+    "menu.government": "Government",
+    "menu.manufacturing": "Manufacturing",
+    "menu.financial": "Financial",
+    "menu.retail": "Retail",
+    "menu.healthcare": "Healthcare",
+    "menu.cybersecurity": "Cybersecurity",
+    "menu.backups": "Backups",
+    "menu.access": "Access",
+
+    // Footer
+    "footer.description":
+      "We transform ideas into innovative digital solutions. Experts in software development and IT consulting.",
+    "footer.services": "Services",
+    "footer.company": "Company",
+    "footer.contact": "Contact",
+    "footer.rights": "All rights reserved.",
+    "footer.allRightsReserved": "All rights reserved.",
+
+    // Hero Section
+    "hero.title.line1": "Digital Solutions",
+    "hero.title.line2": "that Transform",
+    "hero.title.line3": "your Business",
+    "hero.subtitle":
+      "We develop innovative technologies that drive your business growth. From conception to implementation, we create customized solutions that make a difference.",
+    "hero.cta.start": "Start Project",
+    "hero.cta.demo": "View Demo",
+    "hero.stats.projects": "Projects",
+    "hero.stats.clients": "Clients",
+    "hero.stats.years": "Years",
+
+    // About Page
+    "about.hero.title": "About VianaHub",
+    "about.hero.subtitle":
+      "We are a technology company specialized in digital transformation, offering innovative solutions that drive our clients' growth.",
+    "about.hero.cta.history": "Our History",
+    "about.hero.cta.team": "Meet the Team",
+    "about.mission.title": "Our Mission",
+    "about.mission.description":
+      "Transform businesses through technology, offering innovative and personalized solutions that generate real value for our clients and contribute to a more efficient and sustainable digital future.",
+    "about.vision.title": "Our Vision",
+    "about.vision.description":
+      "To be recognized as the leading reference in innovative technological solutions, leading digital transformation and creating a positive impact on society through technology.",
+    "about.values.badge": "Our Values",
+    "about.values.title": "What Drives Us",
+    "about.values.subtitle": "Our fundamental values guide every decision and action in our journey",
+    "about.values.innovation.title": "Innovation",
+    "about.values.innovation.description": "We constantly seek new technologies and solutions to exceed expectations.",
+    "about.values.commitment.title": "Commitment",
+    "about.values.commitment.description": "Total dedication to the success of our clients and business partners.",
+    "about.values.reliability.title": "Reliability",
+    "about.values.reliability.description": "We build lasting relationships based on trust and transparency.",
+    "about.values.agility.title": "Agility",
+    "about.values.agility.description": "We deliver fast and efficient solutions without compromising quality.",
+    "about.history.badge": "Our History",
+    "about.history.title": "A Journey of Innovation",
+    "about.history.subtitle": "Over 15 years building solutions that transform businesses and impact lives",
+    "about.history.foundation.title": "VianaHub Foundation",
+    "about.history.foundation.description":
+      "We started our journey with the goal of transforming businesses through technology, beginning with a small team of passionate developers.",
+    "about.history.projects.title": "First Major Projects",
+    "about.history.projects.description":
+      "We won our first corporate clients and developed solutions that impacted thousands of users.",
+    "about.history.expansion.title": "International Expansion",
+    "about.history.expansion.description":
+      "We expanded our operations to other countries, offering technological solutions on a global scale.",
+    "about.history.growth.title": "Team Growth",
+    "about.history.growth.description":
+      "We reached the mark of 50+ specialists, consolidating our position as a reference in digital transformation.",
+    "about.team.badge": "Our Team",
+    "about.team.title": "Experienced Leadership",
+    "about.team.subtitle": "Meet the professionals who lead our vision and strategy",
+    "about.team.tatiana.role": "CEO & Founder",
+    "about.team.tatiana.description":
+      "Administrator and Engineer with over 15 years of experience in digital transformation.",
+    "about.team.dener.role": "CTO & Founder",
+    "about.team.dener.description": "Systems Analyst with over 30 years of experience in computer systems.",
+    "about.team.carlos.role": "Commercial Director",
+    "about.team.carlos.description": "Expert in client relationships and new business development.",
+    "about.cta.title": "Ready to Transform Your Business?",
+    "about.cta.subtitle":
+      "Get in touch with us and discover how we can help your company reach new heights with our technological solutions.",
+    "about.cta.contact": "Contact Us",
+    "about.cta.projects": "View Our Projects",
+
+    // Careers Page
+    "careers.title": "Join Our Team",
+    "careers.subtitle":
+      "Discover career opportunities in an innovative company that values talent, creativity, and professional growth.",
+    "careers.cta": "Apply Now",
+    "careers.parallax.title": "Build the Future With Us",
+    "careers.parallax.subtitle":
+      "Be part of a team that is transforming the digital world through technology and innovation.",
+    "careers.positions.title": "Available Opportunities",
+    "careers.positions.subtitle":
+      "Explore our open positions and find the perfect opportunity for your professional profile.",
+    "careers.positions.viewDetails": "View Details",
+    "careers.positions.apply": "Apply",
+    "careers.positions.talentBank": "Talent Bank",
+    "careers.positions.talentBankNote": "Didn't find the ideal position? Join our talent bank!",
+    "careers.positions.joinTalentBank": "Join Talent Bank",
+
+    // Position translations in English...
+    "careers.positions.1.title": "Senior Full Stack Developer",
+    "careers.positions.1.department": "Development",
+    "careers.positions.1.location": "Remote",
+    "careers.positions.1.type": "Full Time",
+    "careers.positions.1.description":
+      "We are looking for an experienced developer to lead complex web development projects using modern technologies.",
+
+    "careers.why.title": "Why Work With Us?",
+    "careers.why.subtitle": "Discover what makes VianaHub a special place to develop your career.",
+    "careers.why.innovation.title": "Innovation",
+    "careers.why.innovation.description": "Work with the latest technologies and participate in innovative projects.",
+    "careers.why.team.title": "Team",
+    "careers.why.team.description": "Be part of a talented and collaborative team that supports each other.",
+    "careers.why.growth.title": "Growth",
+    "careers.why.growth.description": "Develop your skills with continuous training and advancement opportunities.",
+    "careers.why.wellbeing.title": "Well-being",
+    "careers.why.wellbeing.description": "We value work-life balance and the well-being of our employees.",
+
+    "careers.application.title": "Application",
+    "careers.application.general": "General Application",
+    "careers.application.personalInfo": "Personal Information",
+    "careers.application.name": "Full Name",
+    "careers.application.email": "Email",
+    "careers.application.phone": "Phone",
+    "careers.application.educationExperienceTitle": "Education and Experience",
+    "careers.application.education": "Academic Background",
+    "careers.application.educationPlaceholder": "Describe your academic background...",
+    "careers.application.experience": "Professional Experience",
+    "careers.application.experiencePlaceholder": "Describe your relevant professional experience...",
+    "careers.application.motivation": "Motivation",
+    "careers.application.motivationLabel": "Cover Letter",
+    "careers.application.motivationPlaceholder": "Tell us why you want to join our team...",
+    "careers.application.cv": "Curriculum Vitae",
+    "careers.application.cvLabel": "Upload CV (PDF, DOC, DOCX)",
+    "careers.application.fileSelected": "File selected:",
+    "careers.application.terms": "I accept the application terms and conditions",
+    "careers.application.acceptTermsAlert": "You must accept the terms and conditions to submit the application.",
+    "careers.application.cancel": "Cancel",
+    "careers.application.submit": "Submit Application",
+    "careers.application.successMessage": "Application submitted successfully! We will contact you shortly.",
+
+    "careers.terms.title": "Application Terms and Conditions",
+    "careers.terms.close": "Close",
+
+    // Contact Page
+    "contact.hero.title": "Get in Touch",
+    "contact.hero.subtitle": "We're here to help transform your ideas into digital reality. Contact us today.",
+    "contact.form.title": "Send us a Message",
+    "contact.form.name": "Name",
+    "contact.form.email": "Email",
+    "contact.form.phone": "Phone",
+    "contact.form.company": "Company",
+    "contact.form.subject": "Subject",
+    "contact.form.message": "Message",
+    "contact.form.send": "Send Message",
+    "contact.info.title": "Contact Information",
+    "contact.info.address": "Address",
+    "contact.info.phone": "Phone",
+    "contact.info.email": "Email",
+    "contact.info.hours": "Business Hours",
+    "contact.info.hoursValue": "Monday to Friday: 9am to 6pm",
+
+    // Entertainment Section
+    "entertainment.title": "Entertainment",
+
+    // Fox Game
+    "foxGame.title": "Fox Desert Adventure",
+    "foxGame.subtitle": "Help the fox find the oasis through the maze!",
+    "foxGame.nameLabel": "Enter your name to start:",
+    "foxGame.namePlaceholder": "Your name here...",
+    "foxGame.startButton": "Start Adventure!",
+    "foxGame.howToPlay": "How to play:",
+    "foxGame.instructions":
+      "• Use arrow keys to move the fox\n• Or click on cells to move\n• Find the oasis in each level\n• Complete all 5 levels as fast as possible!",
+
+    // WhatsApp Chat
+    "whatsapp.title": "VianaHub Support",
+    "whatsapp.status": "Online now",
+    "whatsapp.welcome":
+      "Hello! How can we help you today? Our team is ready to answer your questions about our services.",
+    "whatsapp.placeholder": "Type your message...",
+    "whatsapp.continue": "Continue on WhatsApp",
+    "whatsapp.autoReply":
+      "Thank you for your message! Our team will respond shortly. For immediate assistance, call +55 (11) 9999-9999.",
+    "whatsapp.defaultMessage": "Hello! I would like to know more about VianaHub's services.",
+
+    // Industries Section
+    "industries.title.part1": "Industries",
+    "industries.title.part2": "Served",
+    "industries.subtitle": "Proven experience across various sectors",
+    "industries.education.title": "Education",
+    "industries.education.description": "Educational platforms and academic management systems",
+    "industries.financial.title": "Financial",
+    "industries.financial.description": "Banking solutions and secure payment systems",
+    "industries.government.title": "Government",
+    "industries.government.description": "Public systems and transparency portals",
+    "industries.healthcare.title": "Healthcare",
+    "industries.healthcare.description": "Hospital systems and telemedicine solutions",
+    "industries.manufacturing.title": "Manufacturing",
+    "industries.manufacturing.description": "Industrial automation and control systems",
+    "industries.retail.title": "Retail",
+    "industries.retail.description": "E-commerce and commercial management systems",
+    "industries.cta": "Explore",
+
+    // Services Section
+    "services.title.part1": "Our",
+    "services.title.part2": "Services",
+    "services.subtitle": "We offer complete technology solutions to transform your vision into digital reality",
+    "services.web.title": "Web Development",
+    "services.web.description": "We create modern, responsive and performance-optimized websites and web applications.",
+    "services.mobile.title": "Mobile Applications",
+    "services.mobile.description":
+      "We develop native and hybrid apps for iOS and Android with focus on user experience.",
+    "services.landing.title": "Landing Pages",
+    "services.landing.description": "Conversion-optimized pages to maximize your digital marketing results.",
+    "services.integration.title": "System Integration",
+    "services.integration.description":
+      "We connect different systems and platforms to optimize your business processes.",
+    "services.security.title": "Digital Security",
+    "services.security.description": "We implement robust security solutions to protect your data and systems.",
+    "services.automation.title": "Automation",
+    "services.automation.description": "We automate repetitive processes to increase your company's efficiency.",
+    "services.cta": "Learn More",
   },
   es: {
-    ...homeTranslations.es,
-    ...navbarTranslations.es,
-    ...careersTranslations.es,
-    ...contactTranslations.es,
-    ...aboutTranslations.es,
-    // Chatbot translations
-    "chatbot.hero.title": "Chatbots Inteligentes",
-    "chatbot.hero.subtitle":
-      "Automatice el servicio al cliente con chatbots inteligentes que ofrecen respuestas precisas y experiencia excepcional.",
-    "chatbot.hero.cta": "Crear Chatbot",
-    "chatbot.features.title": "Características Avanzadas",
-    "chatbot.features.subtitle":
-      "Nuestros chatbots utilizan inteligencia artificial de vanguardia para proporcionar experiencias excepcionales.",
-    "chatbot.features.conversations.title": "Conversaciones Naturales",
-    "chatbot.features.conversations.description":
-      "IA avanzada para conversaciones fluidas y naturales con sus clientes.",
-    "chatbot.features.availability.title": "Disponibilidad 24/7",
-    "chatbot.features.availability.description":
-      "Servicio automatizado disponible 24 horas al día, 7 días a la semana.",
-    "chatbot.features.channels.title": "Múltiples Canales",
-    "chatbot.features.channels.description":
-      "Integración con WhatsApp, Facebook, Telegram y otros canales.",
-    "chatbot.features.analytics.title": "Analytics Avanzado",
-    "chatbot.features.analytics.description":
-      "Informes detallados sobre interacciones y rendimiento del chatbot.",
-    "chatbot.benefits.title": "Beneficios para su Negocio",
-    "chatbot.benefits.subtitle":
-      "Transforme el servicio al cliente y optimice operaciones con nuestra tecnología de chatbot.",
-    "chatbot.benefits.response.title": "Respuesta Instantánea",
-    "chatbot.benefits.response.description":
-      "Respuestas inmediatas a preguntas frecuentes de los clientes.",
-    "chatbot.benefits.costs.title": "Reducción de Costos",
-    "chatbot.benefits.costs.description":
-      "Reduzca costos operacionales con servicio automatizado.",
-    "chatbot.benefits.satisfaction.title": "Satisfacción del Cliente",
-    "chatbot.benefits.satisfaction.description":
-      "Mejore la experiencia del cliente con servicio eficiente.",
-    "chatbot.benefits.scalability.title": "Escalabilidad",
-    "chatbot.benefits.scalability.description":
-      "Atienda miles de clientes simultáneamente sin limitaciones.",
-    "chatbot.demo.title": "Vea un Chatbot en Acción",
-    "chatbot.demo.subtitle":
-      "Experimente cómo nuestros chatbots pueden transformar el servicio de su empresa.",
-    "chatbot.demo.interactive.title": "Demo Interactivo",
-    "chatbot.demo.interactive.description":
-      "Converse con nuestro chatbot de demostración y vea cómo puede ayudar a sus clientes.",
-    "chatbot.demo.cta": "Iniciar Demo",
-    "chatbot.cta.title": "Automatice su Servicio",
-    "chatbot.cta.subtitle":
-      "Implemente un chatbot inteligente y revolucione la forma como atiende a sus clientes.",
-    "chatbot.cta.button": "Solicitar Demostración",
-    "chatbot.chat.bot.greeting": "¡Hola! ¿Cómo puedo ayudarte hoy?",
-    "chatbot.chat.user.order": "¡Hola! Me gustaría pedir un bocadillo",
-    "chatbot.chat.bot.options":
-      "¡Perfecto! Tenemos sándwiches, pizzas y ensaladas. ¿Qué prefieres?",
-    "chatbot.chat.user.choice": "Un sándwich de pollo, por favor",
-    "chatbot.chat.bot.confirm":
-      "¡Excelente elección! Sándwich de pollo - $15.00. ¿Confirmas el pedido?",
-    "chatbot.chat.user.confirm": "¡Sí, confirmo!",
-    "chatbot.chat.bot.success":
-      "¡Pedido confirmado! ✅ Tiempo estimado: 20 minutos. ¡Gracias!",
-    // Agile translations
-    "agile.hero.title": "Metodología Ágil",
-    "agile.hero.subtitle":
-      "Acelere sus proyectos con metodologías ágiles probadas y entregue resultados excepcionales.",
-    "agile.benefits.title": "Beneficios de la Metodología Ágil",
-    "agile.benefits.subtitle":
-      "Transforme la forma como desarrolla proyectos con nuestro enfoque ágil.",
-    "agile.benefits.delivery.title": "Entrega Rápida",
-    "agile.benefits.delivery.description":
-      "Entregas incrementales y frecuentes para resultados más rápidos.",
-    "agile.benefits.collaboration.title": "Colaboración",
-    "agile.benefits.collaboration.description":
-      "Trabajo en equipo eficiente con comunicación constante.",
-    "agile.benefits.flexibility.title": "Flexibilidad",
-    "agile.benefits.flexibility.description":
-      "Adaptación rápida a cambios y nuevos requisitos.",
-    "agile.benefits.quality.title": "Calidad",
-    "agile.benefits.quality.description":
-      "Enfoque en la calidad a través de pruebas continuas.",
-    "agile.process.title": "Nuestro Proceso Ágil",
-    "agile.process.subtitle":
-      "Seguimos un proceso estructurado para garantizar el éxito de su proyecto.",
-    "agile.process.planning.title": "Planificación",
-    "agile.process.planning.description":
-      "Definición clara de objetivos y alcance del proyecto.",
-    "agile.process.sprints.title": "Sprints",
-    "agile.process.sprints.description":
-      "Desarrollo en ciclos cortos y enfocados.",
-    "agile.process.review.title": "Revisión",
-    "agile.process.review.description":
-      "Evaluación continua y retroalimentación constante.",
-    "agile.process.delivery.title": "Entrega",
-    "agile.process.delivery.description":
-      "Implementación y entrega de funcionalidades.",
-    // Development translations
-    "development.hero.title": "Desarrollo de Software",
-    "development.hero.subtitle":
-      "Creamos soluciones digitales innovadoras y escalables para impulsar su negocio.",
-    "development.services.title": "Nuestros Servicios",
-    "development.services.subtitle":
-      "Ofrecemos desarrollo completo para todas sus necesidades digitales.",
-    "development.services.carousel.website": "Desarrollo de Sitios Web",
-    "development.services.carousel.mobile": "Aplicaciones Móviles",
-    "development.services.carousel.corporate": "Sistemas Corporativos",
-    "development.services.carousel.apis": "Arquitectura de APIs",
-    "development.web.title": "Desarrollo Web",
-    "development.web.description":
-      "Sitios web y aplicaciones web modernas, responsivas y optimizadas.",
-    "development.mobile.title": "Apps Móviles",
-    "development.mobile.description":
-      "Aplicaciones nativas e híbridas para iOS y Android.",
-    "development.corporate.title": "Sistemas Corporativos",
-    "development.corporate.description":
-      "Soluciones empresariales robustas e integradas.",
-    "development.apis.title": "APIs e Integraciones",
-    "development.apis.description":
-      "Desarrollo de APIs RESTful e integraciones de sistemas.",
-    "development.why.title": "¿Por qué Elegir Nuestro Desarrollo?",
-    "development.why.subtitle":
-      "Combinamos tecnología de vanguardia con metodologías ágiles para entregar resultados excepcionales.",
-    "development.performance.title": "Alto Rendimiento",
-    "development.performance.description":
-      "Código optimizado para máxima velocidad y eficiencia.",
-    "development.security.title": "Seguridad Avanzada",
-    "development.security.description":
-      "Implementamos las mejores prácticas de seguridad digital.",
-    "development.ux.title": "UX/UI Excepcional",
-    "development.ux.description":
-      "Interfaces intuitivas y experiencias de usuario memorables.",
-    "development.quality.title": "Calidad Garantizada",
-    "development.quality.description":
-      "Pruebas rigurosas y control de calidad en cada etapa.",
-    "development.cta.title": "¿Listo para Desarrollar?",
-    "development.cta.subtitle":
-      "Transforme sus ideas en realidad con nuestra experiencia en desarrollo.",
-    "development.cta.button": "Solicitar Cotización",
-    // Landing Pages translations
-    "landingPages.hero.title": "Landing Pages de Alta Conversión",
-    "landingPages.hero.subtitle":
-      "Páginas optimizadas para maximizar sus conversiones e impulsar el crecimiento de su negocio.",
-    "landingPages.features.title": "Características Esenciales",
-    "landingPages.features.subtitle":
-      "Nuestras landing pages están desarrolladas con todos los elementos necesarios para maximizar sus conversiones y resultados.",
-    "landingPages.features.conversion.title": "Alta Conversión",
-    "landingPages.features.conversion.description":
-      "Landing pages optimizadas para maximizar sus conversiones.",
-    "landingPages.features.responsive.title": "Responsivo",
-    "landingPages.features.responsive.description":
-      "Diseño adaptable para todos los dispositivos y pantallas.",
-    "landingPages.features.seo.title": "SEO Optimizado",
-    "landingPages.features.seo.description":
-      "Optimización completa para motores de búsqueda.",
-    "landingPages.features.analytics.title": "Analytics",
-    "landingPages.features.analytics.description":
-      "Seguimiento detallado de métricas y rendimiento.",
-    "landingPages.benefits.title": "Por qué Elegir Nuestras Landing Pages",
-    "landingPages.benefits.subtitle":
-      "Combinamos diseño atractivo con estrategias de conversión para entregar resultados excepcionales.",
-    "landingPages.benefits.focus.title": "Enfoque en el Objetivo",
-    "landingPages.benefits.focus.description":
-      "Páginas dirigidas hacia una acción específica del usuario.",
-    "landingPages.benefits.sales.title": "Aumento de Ventas",
-    "landingPages.benefits.sales.description":
-      "Estrategias probadas para aumentar sus conversiones.",
-    "landingPages.benefits.design.title": "Diseño Atractivo",
-    "landingPages.benefits.design.description":
-      "Visual moderno y profesional que genera confianza.",
-    "landingPages.benefits.speed.title": "Carga Rápida",
-    "landingPages.benefits.speed.description":
-      "Optimización de rendimiento para mejor experiencia.",
-    "landingPages.cta.title": "Aumente sus Conversiones Hoy",
-    "landingPages.cta.subtitle":
-      "Tenga una landing page profesional que convierte visitantes en clientes e impulsa el crecimiento de su negocio.",
-    "landingPages.cta.button": "Solicitar Cotización",
-    // Outsourcing translations
-    "outsourcing.hero.title": "Tercerización de TI",
-    "outsourcing.hero.subtitle":
-      "Acelere sus proyectos con equipos especializados y dedicados a su éxito.",
-    "outsourcing.services.title": "Nuestros Servicios",
-    "outsourcing.services.subtitle":
-      "Ofrecemos soluciones completas de tercerización para satisfacer todas sus necesidades tecnológicas.",
-    "outsourcing.services.dedicated.title": "Equipos Dedicados",
-    "outsourcing.services.dedicated.description":
-      "Equipos especializados trabajando exclusivamente en su proyecto.",
-    "outsourcing.services.offshore.title": "Desarrollo Offshore",
-    "outsourcing.services.offshore.description":
-      "Acceso a talento global con costos optimizados.",
-    "outsourcing.services.support.title": "Soporte 24/7",
-    "outsourcing.services.support.description":
-      "Cobertura completa con equipos en diferentes zonas horarias.",
-    "outsourcing.services.specialists.title": "Especialistas Certificados",
-    "outsourcing.services.specialists.description":
-      "Profesionales con certificaciones en las principales tecnologías.",
-    "outsourcing.benefits.title": "Ventajas de la Tercerización",
-    "outsourcing.benefits.subtitle":
-      "Descubra cómo la tercerización puede transformar su operación y acelerar sus resultados.",
-    "outsourcing.benefits.costs.title": "Reducción de Costos",
-    "outsourcing.benefits.costs.description":
-      "Ahorre hasta 60% en costos operacionales y de desarrollo.",
-    "outsourcing.benefits.scalability.title": "Escalabilidad Rápida",
-    "outsourcing.benefits.scalability.description":
-      "Aumente o disminuya su equipo según la demanda del proyecto.",
-    "outsourcing.benefits.quality.title": "Calidad Garantizada",
-    "outsourcing.benefits.quality.description":
-      "Procesos rigurosos de control de calidad y pruebas.",
-    "outsourcing.benefits.focus.title": "Enfoque en el Core Business",
-    "outsourcing.benefits.focus.description":
-      "Concéntrese en su negocio principal mientras nosotros cuidamos la tecnología.",
-    "outsourcing.process.title": "Cómo Funciona",
-    "outsourcing.process.subtitle":
-      "Nuestro proceso estructurado garantiza la formación del equipo ideal para su proyecto.",
-    "outsourcing.process.analysis.title": "Análisis de Necesidades",
-    "outsourcing.process.analysis.description":
-      "Entendemos sus necesidades específicas y definimos el perfil ideal del equipo.",
-    "outsourcing.process.selection.title": "Selección de Talentos",
-    "outsourcing.process.selection.description":
-      "Reclutamos y seleccionamos los mejores profesionales para componer su equipo.",
-    "outsourcing.process.integration.title": "Integración y Gestión",
-    "outsourcing.process.integration.description":
-      "Integramos el equipo a su proyecto y proporcionamos gestión continua.",
-    "outsourcing.cta.title": "Acelere sus Proyectos",
-    "outsourcing.cta.subtitle":
-      "Forme su equipo de desarrollo ideal y acelere la entrega de sus proyectos con calidad garantizada.",
-    "outsourcing.cta.button": "Solicitar Propuesta",
-    // System Integration translations
-    "systemIntegration.hero.title": "Integración de Sistemas",
-    "systemIntegration.hero.subtitle":
-      "Conecte todos sus sistemas y aplicaciones para crear un entorno tecnológico unificado y eficiente.",
-    "systemIntegration.benefits.title": "Beneficios de la Integración",
-    "systemIntegration.benefits.subtitle":
-      "Transforme sistemas aislados en una solución unificada que potencia la eficiencia y productividad de su empresa.",
-    "systemIntegration.benefits.connectivity.title": "Conectividad Total",
-    "systemIntegration.benefits.connectivity.description":
-      "Integración completa entre todos sus sistemas y aplicaciones.",
-    "systemIntegration.benefits.automation.title": "Automatización",
-    "systemIntegration.benefits.automation.description":
-      "Automatización de procesos para mayor eficiencia operacional.",
-    "systemIntegration.benefits.data.title": "Datos Unificados",
-    "systemIntegration.benefits.data.description":
-      "Centralización y sincronización de datos en tiempo real.",
-    "systemIntegration.benefits.security.title": "Seguridad",
-    "systemIntegration.benefits.security.description":
-      "Protocolos de seguridad avanzados en todas las integraciones.",
-    "systemIntegration.solutions.title": "Soluciones de Integración",
-    "systemIntegration.solutions.subtitle":
-      "Ofrecemos soluciones personalizadas para conectar cualquier tipo de sistema, desde aplicaciones modernas hasta sistemas legados.",
-    "systemIntegration.solutions.apis.title": "APIs y Microservicios",
-    "systemIntegration.solutions.apis.description":
-      "Desarrollo de APIs robustas para comunicación entre sistemas.",
-    "systemIntegration.solutions.cloud.title": "Integración en la Nube",
-    "systemIntegration.solutions.cloud.description":
-      "Conexión de sistemas locales con soluciones en la nube.",
-    "systemIntegration.solutions.erp.title": "ERP y CRM",
-    "systemIntegration.solutions.erp.description":
-      "Integración de sistemas de gestión empresarial y relaciones.",
-    "systemIntegration.solutions.legacy.title": "Sistemas Legados",
-    "systemIntegration.solutions.legacy.description":
-      "Modernización e integración de sistemas antiguos.",
-    "systemIntegration.cta.title": "Unifique sus Sistemas",
-    "systemIntegration.cta.subtitle":
-      "Elimine silos de información y cree un entorno tecnológico integrado que impulse la eficiencia de su negocio.",
-    "systemIntegration.cta.button": "Evaluar Integración",
-    // Solar Energy translations
-    "solarEnergy.hero.title": "Energía Solar",
-    "solarEnergy.hero.subtitle":
-      "Soluciones completas de energía solar fotovoltaica. Proyectos residenciales, comerciales e industriales con máxima eficiencia energética.",
+    // Navbar
+    "nav.whatWeDo": "Qué Hacemos",
+    "nav.engineering": "Ingeniería",
+    "nav.industry": "Industria",
+    "nav.security": "Seguridad",
+    "nav.institutional": "Institucional",
+    "nav.about": "Acerca de",
+    "nav.careers": "Carreras",
+    "nav.contact": "Contacto",
+    "nav.home": "Inicio",
+
+    // Menu items
+    "menu.agile": "Ágil",
+    "menu.development": "Desarrollo",
+    "menu.chatbot": "Chatbot",
+    "menu.landing-pages": "Landing Pages",
+    "menu.outsourcing": "Tercerización",
+    "menu.system-integration": "Integración de Sistemas",
+    "menu.solar-energy": "Energía Solar",
+    "menu.railway": "Ferroviario",
+    "menu.road": "Carreteras",
+    "menu.education": "Educación",
+    "menu.government": "Gobierno",
+    "menu.manufacturing": "Manufactura",
+    "menu.financial": "Financieros",
+    "menu.retail": "Retail",
+    "menu.healthcare": "Salud",
+    "menu.cybersecurity": "Ciberseguridad",
+    "menu.backups": "Respaldos",
+    "menu.access": "Accesos",
+
+    // Footer
+    "footer.description":
+      "Transformamos ideas en soluciones digitales innovadoras. Expertos en desarrollo de software y consultoría en TI.",
+    "footer.services": "Servicios",
+    "footer.company": "Empresa",
+    "footer.contact": "Contacto",
+    "footer.rights": "Todos los derechos reservados.",
+    "footer.allRightsReserved": "Todos los derechos reservados.",
+
+    // Add more Spanish translations as needed...
   },
   fr: {
-    ...homeTranslations.fr,
-    ...navbarTranslations.fr,
-    ...careersTranslations.fr,
-    ...contactTranslations.fr,
-    ...aboutTranslations.fr,
-    // Chatbot translations
-    "chatbot.hero.title": "Chatbots Intelligents",
-    "chatbot.hero.subtitle":
-      "Automatisez le service client avec des chatbots intelligents qui offrent des réponses précises et une expérience exceptionnelle.",
-    "chatbot.hero.cta": "Créer Chatbot",
-    "chatbot.features.title": "Fonctionnalités Avancées",
-    "chatbot.features.subtitle":
-      "Nos chatbots utilisent l'intelligence artificielle de pointe pour fournir des expériences exceptionnelles.",
-    "chatbot.features.conversations.title": "Conversations Naturelles",
-    "chatbot.features.conversations.description":
-      "IA avancée pour des conversations fluides et naturelles avec vos clients.",
-    "chatbot.features.availability.title": "Disponibilité 24/7",
-    "chatbot.features.availability.description":
-      "Service automatisé disponible 24 heures sur 24, 7 jours sur 7.",
-    "chatbot.features.channels.title": "Canaux Multiples",
-    "chatbot.features.channels.description":
-      "Intégration avec WhatsApp, Facebook, Telegram et autres canaux.",
-    "chatbot.features.analytics.title": "Analytics Avancé",
-    "chatbot.features.analytics.description":
-      "Rapports détaillés sur les interactions et performances du chatbot.",
-    "chatbot.benefits.title": "Avantages pour votre Entreprise",
-    "chatbot.benefits.subtitle":
-      "Transformez le service client et optimisez les opérations avec notre technologie de chatbot.",
-    "chatbot.benefits.response.title": "Réponse Instantanée",
-    "chatbot.benefits.response.description":
-      "Réponses immédiates aux questions fréquentes des clients.",
-    "chatbot.benefits.costs.title": "Réduction des Coûts",
-    "chatbot.benefits.costs.description":
-      "Réduisez les coûts opérationnels avec un service automatisé.",
-    "chatbot.benefits.satisfaction.title": "Satisfaction Client",
-    "chatbot.benefits.satisfaction.description":
-      "Améliorez l'expérience client avec un service efficace.",
-    "chatbot.benefits.scalability.title": "Évolutivité",
-    "chatbot.benefits.scalability.description":
-      "Servez des milliers de clients simultanément sans limitations.",
-    "chatbot.demo.title": "Voir un Chatbot en Action",
-    "chatbot.demo.subtitle":
-      "Découvrez comment nos chatbots peuvent transformer le service de votre entreprise.",
-    "chatbot.demo.interactive.title": "Démo Interactive",
-    "chatbot.demo.interactive.description":
-      "Discutez avec notre chatbot de démonstration et voyez comment il peut aider vos clients.",
-    "chatbot.demo.cta": "Démarrer Démo",
-    "chatbot.cta.title": "Automatisez votre Service",
-    "chatbot.cta.subtitle":
-      "Implémentez un chatbot intelligent et révolutionnez la façon dont vous servez vos clients.",
-    "chatbot.cta.button": "Demander Démonstration",
-    "chatbot.chat.bot.greeting":
-      "Bonjour ! Comment puis-je vous aider aujourd'hui ?",
-    "chatbot.chat.user.order": "Salut ! J'aimerais commander un en-cas",
-    "chatbot.chat.bot.options":
-      "Parfait ! Nous avons des sandwichs, pizzas et salades. Que préférez-vous ?",
-    "chatbot.chat.user.choice": "Un sandwich au poulet, s'il vous plaît",
-    "chatbot.chat.bot.confirm":
-      "Excellent choix ! Sandwich au poulet - 15,00€. Confirmez-vous la commande ?",
-    "chatbot.chat.user.confirm": "Oui, je confirme !",
-    "chatbot.chat.bot.success":
-      "Commande confirmée ! ✅ Temps estimé : 20 minutes. Merci !",
-    // Agile translations
-    "agile.hero.title": "Méthodologie Agile",
-    "agile.hero.subtitle":
-      "Accélérez vos projets avec des méthodologies agiles éprouvées et livrez des résultats exceptionnels.",
-    "agile.benefits.title": "Avantages de la Méthodologie Agile",
-    "agile.benefits.subtitle":
-      "Transformez la façon dont vous développez des projets avec notre approche agile.",
-    "agile.benefits.delivery.title": "Livraison Rapide",
-    "agile.benefits.delivery.description":
-      "Livraisons incrémentales et fréquentes pour des résultats plus rapides.",
-    "agile.benefits.collaboration.title": "Collaboration",
-    "agile.benefits.collaboration.description":
-      "Travail d'équipe efficace avec communication constante.",
-    "agile.benefits.flexibility.title": "Flexibilité",
-    "agile.benefits.flexibility.description":
-      "Adaptation rapide aux changements et nouveaux besoins.",
-    "agile.benefits.quality.title": "Qualité",
-    "agile.benefits.quality.description":
-      "Focus sur la qualité grâce aux tests continus.",
-    "agile.process.title": "Notre Processus Agile",
-    "agile.process.subtitle":
-      "Nous suivons un processus structuré pour assurer le succès de votre projet.",
-    "agile.process.planning.title": "Planification",
-    "agile.process.planning.description":
-      "Définition claire des objectifs et de la portée du projet.",
-    "agile.process.sprints.title": "Sprints",
-    "agile.process.sprints.description":
-      "Développement en cycles courts et focalisés.",
-    "agile.process.review.title": "Révision",
-    "agile.process.review.description":
-      "Évaluation continue et feedback constant.",
-    "agile.process.delivery.title": "Livraison",
-    "agile.process.delivery.description":
-      "Implémentation et livraison de fonctionnalités.",
-    // Development translations
-    "development.hero.title": "Développement de Logiciels",
-    "development.hero.subtitle":
-      "Nous créons des solutions numériques innovantes et évolutives pour booster votre entreprise.",
-    "development.services.title": "Nos Services",
-    "development.services.subtitle":
-      "Nous offrons un développement complet pour tous vos besoins numériques.",
-    "development.services.carousel.website": "Développement de Sites Web",
-    "development.services.carousel.mobile": "Applications Mobiles",
-    "development.services.carousel.corporate": "Systèmes d'Entreprise",
-    "development.services.carousel.apis": "Architecture d'APIs",
-    "development.web.title": "Développement Web",
-    "development.web.description":
-      "Sites web et applications web modernes, responsives et optimisées.",
-    "development.mobile.title": "Apps Mobiles",
-    "development.mobile.description":
-      "Applications natives et hybrides pour iOS et Android.",
-    "development.corporate.title": "Systèmes d'Entreprise",
-    "development.corporate.description":
-      "Solutions d'entreprise robustes et intégrées.",
-    "development.apis.title": "APIs et Intégrations",
-    "development.apis.description":
-      "Développement d'APIs RESTful et intégrations de systèmes.",
-    "development.why.title": "Pourquoi Choisir Notre Développement?",
-    "development.why.subtitle":
-      "Nous combinons une technologie de pointe avec des méthodologies agiles pour livrer des résultats exceptionnels.",
-    "development.performance.title": "Haute Performance",
-    "development.performance.description":
-      "Code optimisé pour une vitesse et une efficacité maximales.",
-    "development.security.title": "Sécurité Avancée",
-    "development.security.description":
-      "Nous implémentons les meilleures pratiques de sécurité numérique.",
-    "development.ux.title": "UX/UI Exceptionnel",
-    "development.ux.description":
-      "Interfaces intuitives et expériences utilisateur mémorables.",
-    "development.quality.title": "Qualité Garantie",
-    "development.quality.description":
-      "Tests rigoureux et contrôle qualité à chaque étape.",
-    "development.cta.title": "Prêt à Développer?",
-    "development.cta.subtitle":
-      "Transformez vos idées en réalité avec notre expertise en développement.",
-    "development.cta.button": "Demander Devis",
-    // Landing Pages translations
-    "landingPages.hero.title": "Landing Pages à Haute Conversion",
-    "landingPages.hero.subtitle":
-      "Pages optimisées pour maximiser vos conversions et stimuler la croissance de votre entreprise.",
-    "landingPages.features.title": "Fonctionnalités Essentielles",
-    "landingPages.features.subtitle":
-      "Nos landing pages sont développées avec tous les éléments nécessaires pour maximiser vos conversions et résultats.",
-    "landingPages.features.conversion.title": "Haute Conversion",
-    "landingPages.features.conversion.description":
-      "Landing pages optimisées pour maximiser vos conversions.",
-    "landingPages.features.responsive.title": "Responsive",
-    "landingPages.features.responsive.description":
-      "Design adaptatif pour tous les appareils et écrans.",
-    "landingPages.features.seo.title": "SEO Optimisé",
-    "landingPages.features.seo.description":
-      "Optimisation complète pour les moteurs de recherche.",
-    "landingPages.features.analytics.title": "Analytics",
-    "landingPages.features.analytics.description":
-      "Suivi détaillé des métriques et performances.",
-    "landingPages.benefits.title": "Pourquoi Choisir Nos Landing Pages",
-    "landingPages.benefits.subtitle":
-      "Nous combinons un design attractif avec des stratégies de conversion pour livrer des résultats exceptionnels.",
-    "landingPages.benefits.focus.title": "Focus sur l'Objectif",
-    "landingPages.benefits.focus.description":
-      "Pages dirigées vers une action spécifique de l'utilisateur.",
-    "landingPages.benefits.sales.title": "Augmentation des Ventes",
-    "landingPages.benefits.sales.description":
-      "Stratégies prouvées pour augmenter vos conversions.",
-    "landingPages.benefits.design.title": "Design Attractif",
-    "landingPages.benefits.design.description":
-      "Visuel moderne et professionnel qui génère la confiance.",
-    "landingPages.benefits.speed.title": "Chargement Rapide",
-    "landingPages.benefits.speed.description":
-      "Optimisation des performances pour une meilleure expérience.",
-    "landingPages.cta.title": "Augmentez vos Conversions Aujourd'hui",
-    "landingPages.cta.subtitle":
-      "Ayez une landing page professionnelle qui convertit les visiteurs en clients et stimule la croissance de votre entreprise.",
-    "landingPages.cta.button": "Demander Devis",
-    // Outsourcing translations
-    "outsourcing.hero.title": "Externalisation IT",
-    "outsourcing.hero.subtitle":
-      "Accélérez vos projets avec des équipes spécialisées et dédiées à votre succès.",
-    "outsourcing.services.title": "Nos Services",
-    "outsourcing.services.subtitle":
-      "Nous offrons des solutions complètes d'externalisation pour répondre à tous vos besoins technologiques.",
-    "outsourcing.services.dedicated.title": "Équipes Dédiées",
-    "outsourcing.services.dedicated.description":
-      "Équipes spécialisées travaillant exclusivement sur votre projet.",
-    "outsourcing.services.offshore.title": "Développement Offshore",
-    "outsourcing.services.offshore.description":
-      "Accès aux talents mondiaux avec des coûts optimisés.",
-    "outsourcing.services.support.title": "Support 24/7",
-    "outsourcing.services.support.description":
-      "Couverture complète avec des équipes dans différents fuseaux horaires.",
-    "outsourcing.services.specialists.title": "Spécialistes Certifiés",
-    "outsourcing.services.specialists.description":
-      "Professionnels avec des certifications dans les principales technologies.",
-    "outsourcing.benefits.title": "Avantages de l'Externalisation",
-    "outsourcing.benefits.subtitle":
-      "Découvrez comment l'externalisation peut transformer votre opération et accélérer vos résultats.",
-    "outsourcing.benefits.costs.title": "Réduction des Coûts",
-    "outsourcing.benefits.costs.description":
-      "Économisez jusqu'à 60% sur les coûts opérationnels et de développement.",
-    "outsourcing.benefits.scalability.title": "Évolutivité Rapide",
-    "outsourcing.benefits.scalability.description":
-      "Augmentez ou diminuez votre équipe selon la demande du projet.",
-    "outsourcing.benefits.quality.title": "Qualité Garantie",
-    "outsourcing.benefits.quality.description":
-      "Processus rigoureux de contrôle qualité et de tests.",
-    "outsourcing.benefits.focus.title": "Focus sur le Core Business",
-    "outsourcing.benefits.focus.description":
-      "Concentrez-vous sur votre activité principale pendant que nous nous occupons de la technologie.",
-    "outsourcing.process.title": "Comment Ça Marche",
-    "outsourcing.process.subtitle":
-      "Notre processus structuré garantit la formation de l'équipe idéale pour votre projet.",
-    "outsourcing.process.analysis.title": "Analyse des Besoins",
-    "outsourcing.process.analysis.description":
-      "Nous comprenons vos besoins spécifiques et définissons le profil idéal de l'équipe.",
-    "outsourcing.process.selection.title": "Sélection des Talents",
-    "outsourcing.process.selection.description":
-      "Nous recrutons et sélectionnons les meilleurs professionnels pour composer votre équipe.",
-    "outsourcing.process.integration.title": "Intégration et Gestion",
-    "outsourcing.process.integration.description":
-      "Nous intégrons l'équipe à votre projet et fournissons une gestion continue.",
-    "outsourcing.cta.title": "Accélérez vos Projets",
-    "outsourcing.cta.subtitle":
-      "Formez votre équipe de développement idéale et accélérez la livraison de vos projets avec une qualité garantie.",
-    "outsourcing.cta.button": "Demander Proposition",
-    // System Integration translations
-    "systemIntegration.hero.title": "Intégration de Systèmes",
-    "systemIntegration.hero.subtitle":
-      "Connectez tous vos systèmes et applications pour créer un environnement technologique unifié et efficace.",
-    "systemIntegration.benefits.title": "Avantages de l'Intégration",
-    "systemIntegration.benefits.subtitle":
-      "Transformez les systèmes isolés en une solution unifiée qui améliore l'efficacité et la productivité de votre entreprise.",
-    "systemIntegration.benefits.connectivity.title": "Connectivité Totale",
-    "systemIntegration.benefits.connectivity.description":
-      "Intégration complète entre tous vos systèmes et applications.",
-    "systemIntegration.benefits.automation.title": "Automatisation",
-    "systemIntegration.benefits.automation.description":
-      "Automatisation des processus pour une plus grande efficacité opérationnelle.",
-    "systemIntegration.benefits.data.title": "Données Unifiées",
-    "systemIntegration.benefits.data.description":
-      "Centralisation et synchronisation des données en temps réel.",
-    "systemIntegration.benefits.security.title": "Sécurité",
-    "systemIntegration.benefits.security.description":
-      "Protocoles de sécurité avancés dans toutes les intégrations.",
-    "systemIntegration.solutions.title": "Solutions d'Intégration",
-    "systemIntegration.solutions.subtitle":
-      "Nous offrons des solutions personnalisées pour connecter tout type de système, des applications modernes aux systèmes hérités.",
-    "systemIntegration.solutions.apis.title": "APIs et Microservices",
-    "systemIntegration.solutions.apis.description":
-      "Développement d'APIs robustes pour la communication entre systèmes.",
-    "systemIntegration.solutions.cloud.title": "Intégration Cloud",
-    "systemIntegration.solutions.cloud.description":
-      "Connexion de systèmes locaux avec des solutions cloud.",
-    "systemIntegration.solutions.erp.title": "ERP et CRM",
-    "systemIntegration.solutions.erp.description":
-      "Intégration de systèmes de gestion d'entreprise et de relations.",
-    "systemIntegration.solutions.legacy.title": "Systèmes Hérités",
-    "systemIntegration.solutions.legacy.description":
-      "Modernisation et intégration de systèmes anciens.",
-    "systemIntegration.cta.title": "Unifiez vos Systèmes",
-    "systemIntegration.cta.subtitle":
-      "Éliminez les silos d'information et créez un environnement technologique intégré qui stimule l'efficacité de votre entreprise.",
-    "systemIntegration.cta.button": "Évaluer l'Intégration",
-    // Solar Energy translations
-    "solarEnergy.hero.title": "Énergie solaire",
-    "solarEnergy.hero.subtitle":
-      "Solutions complètes d'énergie solaire photovoltaïque. Projets résidentiels, commerciaux et industriels à efficacité énergétique maximale.",
+    // Navbar
+    "nav.whatWeDo": "Ce Que Nous Faisons",
+    "nav.engineering": "Ingénierie",
+    "nav.industry": "Industrie",
+    "nav.security": "Sécurité",
+    "nav.institutional": "Institutionnel",
+    "nav.about": "À Propos",
+    "nav.careers": "Carrières",
+    "nav.contact": "Contact",
+    "nav.home": "Accueil",
+
+    // Menu items
+    "menu.agile": "Agile",
+    "menu.development": "Développement",
+    "menu.chatbot": "Chatbot",
+    "menu.landing-pages": "Landing Pages",
+    "menu.outsourcing": "Externalisation",
+    "menu.system-integration": "Intégration de Systèmes",
+    "menu.solar-energy": "Énergie Solaire",
+    "menu.railway": "Ferroviaire",
+    "menu.road": "Routier",
+    "menu.education": "Éducation",
+    "menu.government": "Gouvernement",
+    "menu.manufacturing": "Fabrication",
+    "menu.financial": "Financiers",
+    "menu.retail": "Commerce de Détail",
+    "menu.healthcare": "Santé",
+    "menu.cybersecurity": "Cybersécurité",
+    "menu.backups": "Sauvegardes",
+    "menu.access": "Accès",
+
+    // Footer
+    "footer.description":
+      "Nous transformons les idées en solutions numériques innovantes. Experts en développement logiciel et conseil en TI.",
+    "footer.services": "Services",
+    "footer.company": "Entreprise",
+    "footer.contact": "Contact",
+    "footer.rights": "Tous droits réservés.",
+    "footer.allRightsReserved": "Tous droits réservés.",
+
+    // Add more French translations as needed...
   },
   de: {
-    ...homeTranslations.de,
-    ...navbarTranslations.de,
-    ...careersTranslations.de,
-    ...contactTranslations.de,
-    ...aboutTranslations.de,
-    // Chatbot translations
-    "chatbot.hero.title": "Intelligente Chatbots",
-    "chatbot.hero.subtitle":
-      "Automatisieren Sie den Kundenservice mit intelligenten Chatbots, die präzise Antworten und außergewöhnliche Erfahrungen bieten.",
-    "chatbot.hero.cta": "Chatbot Erstellen",
-    "chatbot.features.title": "Erweiterte Funktionen",
-    "chatbot.features.subtitle":
-      "Unsere Chatbots nutzen modernste künstliche Intelligenz, um außergewöhnliche Erfahrungen zu bieten.",
-    "chatbot.features.conversations.title": "Natürliche Gespräche",
-    "chatbot.features.conversations.description":
-      "Erweiterte KI für fließende und natürliche Gespräche mit Ihren Kunden.",
-    "chatbot.features.availability.title": "24/7 Verfügbarkeit",
-    "chatbot.features.availability.description":
-      "Automatisierter Service rund um die Uhr verfügbar, 7 Tage die Woche.",
-    "chatbot.features.channels.title": "Mehrere Kanäle",
-    "chatbot.features.channels.description":
-      "Integration mit WhatsApp, Facebook, Telegram und anderen Kanälen.",
-    "chatbot.features.analytics.title": "Erweiterte Analytics",
-    "chatbot.features.analytics.description":
-      "Detaillierte Berichte über Interaktionen und Chatbot-Performance.",
-    "chatbot.benefits.title": "Vorteile für Ihr Unternehmen",
-    "chatbot.benefits.subtitle":
-      "Transformieren Sie den Kundenservice und optimieren Sie Abläufe mit unserer Chatbot-Technologie.",
-    "chatbot.benefits.response.title": "Sofortige Antwort",
-    "chatbot.benefits.response.description":
-      "Sofortige Antworten auf häufig gestellte Kundenfragen.",
-    "chatbot.benefits.costs.title": "Kostenreduzierung",
-    "chatbot.benefits.costs.description":
-      "Reduzieren Sie Betriebskosten mit automatisiertem Service.",
-    "chatbot.benefits.satisfaction.title": "Kundenzufriedenheit",
-    "chatbot.benefits.satisfaction.description":
-      "Verbessern Sie die Kundenerfahrung mit effizientem Service.",
-    "chatbot.benefits.scalability.title": "Skalierbarkeit",
-    "chatbot.benefits.scalability.description":
-      "Bedienen Sie Tausende von Kunden gleichzeitig ohne Einschränkungen.",
-    "chatbot.demo.title": "Sehen Sie einen Chatbot in Aktion",
-    "chatbot.demo.subtitle":
-      "Erleben Sie, wie unsere Chatbots den Service Ihres Unternehmens transformieren können.",
-    "chatbot.demo.interactive.title": "Interaktive Demo",
-    "chatbot.demo.interactive.description":
-      "Chatten Sie mit unserem Demonstrations-Chatbot und sehen Sie, wie er Ihren Kunden helfen kann.",
-    "chatbot.demo.cta": "Demo Starten",
-    "chatbot.cta.title": "Automatisieren Sie Ihren Service",
-    "chatbot.cta.subtitle":
-      "Implementieren Sie einen intelligenten Chatbot und revolutionieren Sie die Art, wie Sie Ihre Kunden bedienen.",
-    "chatbot.cta.button": "Demonstration Anfordern",
-    "chatbot.chat.bot.greeting": "Hallo! Wie kann ich Ihnen heute helfen?",
-    "chatbot.chat.user.order": "Hallo! Ich möchte gerne einen Snack bestellen",
-    "chatbot.chat.bot.options":
-      "Perfekt! Wir haben Sandwiches, Pizzas und Salate. Was bevorzugen Sie?",
-    "chatbot.chat.user.choice": "Ein Hähnchen-Sandwich, bitte",
-    "chatbot.chat.bot.confirm":
-      "Ausgezeichnete Wahl! Hähnchen-Sandwich - 15,00€. Bestätigen Sie die Bestellung?",
-    "chatbot.chat.user.confirm": "Ja, ich bestätige!",
-    "chatbot.chat.bot.success":
-      "Bestellung bestätigt! ✅ Geschätzte Zeit: 20 Minuten. Danke!",
-    // Agile translations
-    "agile.hero.title": "Agile Methodik",
-    "agile.hero.subtitle":
-      "Beschleunigen Sie Ihre Projekte mit bewährten agilen Methoden und liefern Sie außergewöhnliche Ergebnisse.",
-    "agile.benefits.title": "Vorteile der Agilen Methodik",
-    "agile.benefits.subtitle":
-      "Transformieren Sie die Art, wie Sie Projekte entwickeln, mit unserem agilen Ansatz.",
-    "agile.benefits.delivery.title": "Schnelle Lieferung",
-    "agile.benefits.delivery.description":
-      "Inkrementelle und häufige Lieferungen für schnellere Ergebnisse.",
-    "agile.benefits.collaboration.title": "Zusammenarbeit",
-    "agile.benefits.collaboration.description":
-      "Effiziente Teamarbeit mit konstanter Kommunikation.",
-    "agile.benefits.flexibility.title": "Flexibilität",
-    "agile.benefits.flexibility.description":
-      "Schnelle Anpassung an Änderungen und neue Anforderungen.",
-    "agile.benefits.quality.title": "Qualität",
-    "agile.benefits.quality.description":
-      "Fokus auf Qualität durch kontinuierliche Tests.",
-    "agile.process.title": "Unser Agiler Prozess",
-    "agile.process.subtitle":
-      "Wir folgen einem strukturierten Prozess, um den Erfolg Ihres Projekts zu gewährleisten.",
-    "agile.process.planning.title": "Planung",
-    "agile.process.planning.description":
-      "Klare Definition von Projektzielen und -umfang.",
-    "agile.process.sprints.title": "Sprints",
-    "agile.process.sprints.description":
-      "Entwicklung in kurzen und fokussierten Zyklen.",
-    "agile.process.review.title": "Überprüfung",
-    "agile.process.review.description":
-      "Kontinuierliche Bewertung und konstantes Feedback.",
-    "agile.process.delivery.title": "Lieferung",
-    "agile.process.delivery.description":
-      "Implementierung und Lieferung von Funktionalitäten.",
-    // Development translations
-    "development.hero.title": "Software-Entwicklung",
-    "development.hero.subtitle":
-      "Wir erstellen innovative und skalierbare digitale Lösungen, um Ihr Unternehmen voranzubringen.",
-    "development.services.title": "Unsere Dienstleistungen",
-    "development.services.subtitle":
-      "Wir bieten vollständige Entwicklung für alle Ihre digitalen Bedürfnisse.",
-    "development.services.carousel.website": "Website-Entwicklung",
-    "development.services.carousel.mobile": "Mobile Anwendungen",
-    "development.services.carousel.corporate": "Unternehmenssysteme",
-    "development.services.carousel.apis": "API-Architektur",
-    "development.web.title": "Web-Entwicklung",
-    "development.web.description":
-      "Moderne, responsive und optimierte Websites und Webanwendungen.",
-    "development.mobile.title": "Mobile Apps",
-    "development.mobile.description":
-      "Native und hybride Anwendungen für iOS und Android.",
-    "development.corporate.title": "Unternehmenssysteme",
-    "development.corporate.description":
-      "Robuste und integrierte Unternehmenslösungen.",
-    "development.apis.title": "APIs und Integrationen",
-    "development.apis.description":
-      "RESTful API-Entwicklung und Systemintegrationen.",
-    "development.why.title": "Warum Unsere Entwicklung Wählen?",
-    "development.why.subtitle":
-      "Wir kombinieren modernste Technologie mit agilen Methoden, um außergewöhnliche Ergebnisse zu liefern.",
-    "development.performance.title": "Hohe Leistung",
-    "development.performance.description":
-      "Optimierter Code für maximale Geschwindigkeit und Effizienz.",
-    "development.security.title": "Erweiterte Sicherheit",
-    "development.security.description":
-      "Wir implementieren die besten digitalen Sicherheitspraktiken.",
-    "development.ux.title": "Außergewöhnliche UX/UI",
-    "development.ux.description":
-      "Intuitive Benutzeroberflächen und unvergessliche Benutzererfahrungen.",
-    "development.quality.title": "Garantierte Qualität",
-    "development.quality.description":
-      "Rigorose Tests und Qualitätskontrolle in jeder Phase.",
-    "development.cta.title": "Bereit zu Entwickeln?",
-    "development.cta.subtitle":
-      "Verwandeln Sie Ihre Ideen mit unserer Entwicklungsexpertise in die Realität.",
-    "development.cta.button": "Angebot Anfordern",
-    // Landing Pages translations
-    "landingPages.hero.title": "Hochkonvertierende Landing Pages",
-    "landingPages.hero.subtitle":
-      "Seiten optimiert, um Ihre Konversionen zu maximieren und Ihr Geschäftswachstum zu fördern.",
-    "landingPages.features.title": "Wesentliche Funktionen",
-    "landingPages.features.subtitle":
-      "Unsere Landing Pages werden mit allen notwendigen Elementen entwickelt, um Ihre Konversionen und Ergebnisse zu maximieren.",
-    "landingPages.features.conversion.title": "Hohe Konversion",
-    "landingPages.features.conversion.description":
-      "Landing Pages optimiert, um Ihre Konversionen zu maximieren.",
-    "landingPages.features.responsive.title": "Responsive",
-    "landingPages.features.responsive.description":
-      "Anpassbares Design für alle Geräte und Bildschirme.",
-    "landingPages.features.seo.title": "SEO Optimiert",
-    "landingPages.features.seo.description":
-      "Vollständige Optimierung für Suchmaschinen.",
-    "landingPages.features.analytics.title": "Analytics",
-    "landingPages.features.analytics.description":
-      "Detaillierte Verfolgung von Metriken und Leistung.",
-    "landingPages.benefits.title": "Warum Unsere Landing Pages Wählen",
-    "landingPages.benefits.subtitle":
-      "Wir kombinieren attraktives Design mit Konversionsstrategien, um außergewöhnliche Ergebnisse zu liefern.",
-    "landingPages.benefits.focus.title": "Zielfokus",
-    "landingPages.benefits.focus.description":
-      "Seiten auf eine spezifische Benutzeraktion ausgerichtet.",
-    "landingPages.benefits.sales.title": "Verkaufssteigerung",
-    "landingPages.benefits.sales.description":
-      "Bewährte Strategien zur Steigerung Ihrer Konversionen.",
-    "landingPages.benefits.design.title": "Attraktives Design",
-    "landingPages.benefits.design.description":
-      "Modernes und professionelles Erscheinungsbild, das Vertrauen schafft.",
-    "landingPages.benefits.speed.title": "Schnelles Laden",
-    "landingPages.benefits.speed.description":
-      "Leistungsoptimierung für bessere Erfahrung.",
-    "landingPages.cta.title": "Steigern Sie Ihre Konversionen Heute",
-    "landingPages.cta.subtitle":
-      "Haben Sie eine professionelle Landing Page, die Besucher in Kunden verwandelt und Ihr Geschäftswachstum fördert.",
-    "landingPages.cta.button": "Angebot Anfordern",
-    // Outsourcing translations
-    "outsourcing.hero.title": "IT-Outsourcing",
-    "outsourcing.hero.subtitle":
-      "Beschleunigen Sie Ihre Projekte mit spezialisierten Teams, die sich Ihrem Erfolg widmen.",
-    "outsourcing.services.title": "Unsere Dienstleistungen",
-    "outsourcing.services.subtitle":
-      "Wir bieten komplette Outsourcing-Lösungen für alle Ihre technologischen Bedürfnisse.",
-    "outsourcing.services.dedicated.title": "Dedizierte Teams",
-    "outsourcing.services.dedicated.description":
-      "Spezialisierte Teams, die ausschließlich an Ihrem Projekt arbeiten.",
-    "outsourcing.services.offshore.title": "Offshore-Entwicklung",
-    "outsourcing.services.offshore.description":
-      "Zugang zu globalen Talenten mit optimierten Kosten.",
-    "outsourcing.services.support.title": "24/7 Support",
-    "outsourcing.services.support.description":
-      "Vollständige Abdeckung mit Teams in verschiedenen Zeitzonen.",
-    "outsourcing.services.specialists.title": "Zertifizierte Spezialisten",
-    "outsourcing.services.specialists.description":
-      "Fachkräfte mit Zertifizierungen in führenden Technologien.",
-    "outsourcing.benefits.title": "Outsourcing-Vorteile",
-    "outsourcing.benefits.subtitle":
-      "Entdecken Sie, wie Outsourcing Ihren Betrieb transformieren und Ihre Ergebnisse beschleunigen kann.",
-    "outsourcing.benefits.costs.title": "Kostenreduzierung",
-    "outsourcing.benefits.costs.description":
-      "Sparen Sie bis zu 60% bei Betriebs- und Entwicklungskosten.",
-    "outsourcing.benefits.scalability.title": "Schnelle Skalierbarkeit",
-    "outsourcing.benefits.scalability.description":
-      "Vergrößern oder verkleinern Sie Ihr Team je nach Projektbedarf.",
-    "outsourcing.benefits.quality.title": "Garantierte Qualität",
-    "outsourcing.benefits.quality.description":
-      "Rigorose Qualitätskontroll- und Testprozesse.",
-    "outsourcing.benefits.focus.title": "Fokus auf Core Business",
-    "outsourcing.benefits.focus.description":
-      "Konzentrieren Sie sich auf Ihr Hauptgeschäft, während wir uns um die Technologie kümmern.",
-    "outsourcing.process.title": "Wie Es Funktioniert",
-    "outsourcing.process.subtitle":
-      "Unser strukturierter Prozess gewährleistet die Bildung des idealen Teams für Ihr Projekt.",
-    "outsourcing.process.analysis.title": "Bedarfsanalyse",
-    "outsourcing.process.analysis.description":
-      "Wir verstehen Ihre spezifischen Bedürfnisse und definieren das ideale Teamprofil.",
-    "outsourcing.process.selection.title": "Talentauswahl",
-    "outsourcing.process.selection.description":
-      "Wir rekrutieren und wählen die besten Fachkräfte für Ihr Team aus.",
-    "outsourcing.process.integration.title": "Integration und Management",
-    "outsourcing.process.integration.description":
-      "Wir integrieren das Team in Ihr Projekt und bieten kontinuierliches Management.",
-    "outsourcing.cta.title": "Beschleunigen Sie Ihre Projekte",
-    "outsourcing.cta.subtitle":
-      "Bilden Sie Ihr ideales Entwicklungsteam und beschleunigen Sie die Lieferung Ihrer Projekte mit garantierter Qualität.",
-    "outsourcing.cta.button": "Angebot Anfordern",
-    // System Integration translations
-    "systemIntegration.hero.title": "Systemintegration",
-    "systemIntegration.hero.subtitle":
-      "Verbinden Sie alle Ihre Systeme und Anwendungen, um eine einheitliche und effiziente technologische Umgebung zu schaffen.",
-    "systemIntegration.benefits.title": "Integrationsvorteile",
-    "systemIntegration.benefits.subtitle":
-      "Verwandeln Sie isolierte Systeme in eine einheitliche Lösung, die die Effizienz und Produktivität Ihres Unternehmens steigert.",
-    "systemIntegration.benefits.connectivity.title": "Totale Konnektivität",
-    "systemIntegration.benefits.connectivity.description":
-      "Vollständige Integration zwischen allen Ihren Systemen und Anwendungen.",
-    "systemIntegration.benefits.automation.title": "Automatisierung",
-    "systemIntegration.benefits.automation.description":
-      "Prozessautomatisierung für größere operative Effizienz.",
-    "systemIntegration.benefits.data.title": "Vereinheitlichte Daten",
-    "systemIntegration.benefits.data.description":
-      "Zentralisierung und Echtzeit-Datensynchronisation.",
-    "systemIntegration.benefits.security.title": "Sicherheit",
-    "systemIntegration.benefits.security.description":
-      "Erweiterte Sicherheitsprotokolle in allen Integrationen.",
-    "systemIntegration.solutions.title": "Integrationslösungen",
-    "systemIntegration.solutions.subtitle":
-      "Wir bieten maßgeschneiderte Lösungen zur Verbindung jeder Art von System, von modernen Anwendungen bis zu Legacy-Systemen.",
-    "systemIntegration.solutions.apis.title": "APIs und Microservices",
-    "systemIntegration.solutions.apis.description":
-      "Entwicklung robuster APIs für die Kommunikation zwischen Systemen.",
-    "systemIntegration.solutions.cloud.title": "Cloud-Integration",
-    "systemIntegration.solutions.cloud.description":
-      "Verbindung lokaler Systeme mit Cloud-Lösungen.",
-    "systemIntegration.solutions.erp.title": "ERP und CRM",
-    "systemIntegration.solutions.erp.description":
-      "Integration von Unternehmensmanagement- und Beziehungssystemen.",
-    "systemIntegration.solutions.legacy.title": "Legacy-Systeme",
-    "systemIntegration.solutions.legacy.description":
-      "Modernisierung und Integration alter Systeme.",
-    "systemIntegration.cta.title": "Vereinheitlichen Sie Ihre Systeme",
-    "systemIntegration.cta.subtitle":
-      "Beseitigen Sie Informationssilos und schaffen Sie eine integrierte technologische Umgebung, die die Effizienz Ihres Unternehmens vorantreibt.",
-    "systemIntegration.cta.button": "Integration Bewerten",
-    // Solar Energy translations
-    "solarEnergy.hero.title": "Solarenergie",
-    "solarEnergy.hero.subtitle":
-      "Komplettlösungen für Photovoltaik. Wohn-, Gewerbe- und Industrieprojekte mit maximaler Energieeffizienz.",
+    // Navbar
+    "nav.whatWeDo": "Was Wir Tun",
+    "nav.engineering": "Ingenieurwesen",
+    "nav.industry": "Industrie",
+    "nav.security": "Sicherheit",
+    "nav.institutional": "Institutionell",
+    "nav.about": "Über Uns",
+    "nav.careers": "Karriere",
+    "nav.contact": "Kontakt",
+    "nav.home": "Startseite",
+
+    // Menu items
+    "menu.agile": "Agil",
+    "menu.development": "Entwicklung",
+    "menu.chatbot": "Chatbot",
+    "menu.landing-pages": "Landing Pages",
+    "menu.outsourcing": "Outsourcing",
+    "menu.system-integration": "Systemintegration",
+    "menu.solar-energy": "Solarenergie",
+    "menu.railway": "Eisenbahn",
+    "menu.road": "Straße",
+    "menu.education": "Bildung",
+    "menu.government": "Regierung",
+    "menu.manufacturing": "Fertigung",
+    "menu.financial": "Finanzen",
+    "menu.retail": "Einzelhandel",
+    "menu.healthcare": "Gesundheitswesen",
+    "menu.cybersecurity": "Cybersicherheit",
+    "menu.backups": "Backups",
+    "menu.access": "Zugang",
+
+    // Footer
+    "footer.description":
+      "Wir verwandeln Ideen in innovative digitale Lösungen. Experten für Softwareentwicklung und IT-Beratung.",
+    "footer.services": "Dienstleistungen",
+    "footer.company": "Unternehmen",
+    "footer.contact": "Kontakt",
+    "footer.rights": "Alle Rechte vorbehalten.",
+    "footer.allRightsReserved": "Alle Rechte vorbehalten.",
+
+    // Add more German translations as needed...
   },
-};
+}
 
 export function TranslationProvider({ children }: { children: ReactNode }) {
-  const [language, setLanguage] = useState<Language>("pt");
+  const [language, setLanguage] = useState<Language>("pt")
 
   useEffect(() => {
     // Load language from localStorage on client side
-    const savedLanguage = localStorage.getItem("language") as Language;
-    if (
-      savedLanguage &&
-      ["pt", "en", "es", "fr", "de"].includes(savedLanguage)
-    ) {
-      setLanguage(savedLanguage);
+    const savedLanguage = localStorage.getItem("language") as Language
+    if (savedLanguage && ["pt", "en", "es", "fr", "de"].includes(savedLanguage)) {
+      setLanguage(savedLanguage)
     }
-  }, []);
+  }, [])
 
   const handleSetLanguage = (lang: Language) => {
-    setLanguage(lang);
-    localStorage.setItem("language", lang);
-  };
+    setLanguage(lang)
+    localStorage.setItem("language", lang)
+  }
 
   const t = (key: string): string => {
-    const translation =
-      allTranslations[language]?.[
-        key as keyof (typeof allTranslations)[typeof language]
-      ];
-    return translation || key;
-  };
+    const translation = allTranslations[language]?.[key as keyof (typeof allTranslations)[typeof language]]
+    return translation || key
+  }
 
   return (
-    <TranslationContext.Provider
-      value={{ language, setLanguage: handleSetLanguage, t }}
-    >
+    <TranslationContext.Provider value={{ language, setLanguage: handleSetLanguage, t }}>
       {children}
     </TranslationContext.Provider>
-  );
+  )
 }
 
 export function useTranslation() {
-  const context = useContext(TranslationContext);
+  const context = useContext(TranslationContext)
   if (context === undefined) {
-    throw new Error("useTranslation must be used within a TranslationProvider");
+    throw new Error("useTranslation must be used within a TranslationProvider")
   }
-  return context;
+  return context
 }

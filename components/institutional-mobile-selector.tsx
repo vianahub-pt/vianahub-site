@@ -16,9 +16,9 @@ export function InstitutionalMobileSelector() {
   }
 
   const menuItems = [
-    { key: "about-us", href: "/about", label: t("nav.about") },
-    { key: "careers", href: "/careers", label: t("nav.careers") },
-    { key: "contact-us", href: "/contact", label: t("nav.contact") },
+    { key: "about", href: "/about" },
+    { key: "careers", href: "/careers" },
+    { key: "contact", href: "/contact" },
   ]
 
   return (
@@ -39,7 +39,7 @@ export function InstitutionalMobileSelector() {
               onClick={() => handleNavigation(item.href)}
               className="block w-full text-left text-viana-white hover:bg-viana-orange/50 hover:text-viana-white px-3 py-2 rounded-md text-sm font-medium transition-all duration-75 drop-shadow-lg"
             >
-              {item.label}
+              {t(`nav.${item.key}`)}
             </button>
           ))}
         </div>

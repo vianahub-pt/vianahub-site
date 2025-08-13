@@ -1,11 +1,7 @@
 "use client"
 
 import { DialogTrigger } from "@/components/ui/dialog"
-import { Navbar } from "@/components/navbar"
-import { useTranslation } from "@/contexts/translation-context"
-
 import type React from "react"
-
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
@@ -16,7 +12,7 @@ import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
 import { Checkbox } from "@/components/ui/checkbox"
 import { Clock, Users, Briefcase, Heart, Trophy, Zap, FileText, Upload, User, GraduationCap } from "lucide-react"
-import { careersTranslations } from "./translation"
+import { useTranslation } from "@/contexts/translation-context"
 
 interface PositionMeta {
   id: string
@@ -50,7 +46,7 @@ const positionsMeta: PositionMeta[] = [
 ]
 
 export function CareersPageContent() {
-  const { language } = useTranslation()
+  const { language, t } = useTranslation()
   const [selectedPosition, setSelectedPosition] = useState<TranslatedPosition | null>(null)
   const [isApplicationOpen, setIsApplicationOpen] = useState(false)
   const [isTermsOpen, setIsTermsOpen] = useState(false)
@@ -64,11 +60,6 @@ export function CareersPageContent() {
     cv: null as File | null,
     termsAccepted: false,
   })
-
-  // Local translation function
-  const t = (key: string) => {
-    return careersTranslations[language]?.[key] || key
-  }
 
   const getWordCloudImage = () => {
     const imageMap = {
@@ -88,7 +79,7 @@ export function CareersPageContent() {
       const translatedList = []
       let i = 0
       // Loop until a translation key does not exist, indicating the end of the list
-      while (careersTranslations[language]?.[`${baseKey}.${listType}.${i}`] !== undefined) {
+      while (t(`${baseKey}.${listType}.${i}`) !== `${baseKey}.${listType}.${i}`) {
         translatedList.push(t(`${baseKey}.${listType}.${i}`))
         i++
       }
@@ -144,10 +135,7 @@ export function CareersPageContent() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-white">
-      {/* Navbar */}
-      <Navbar />
-
+    <>
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center">
         {/* Background Image */}
@@ -609,120 +597,6 @@ export function CareersPageContent() {
             <DialogTitle className="text-2xl font-bold text-viana-orange">{t("careers.terms.title")}</DialogTitle>
           </DialogHeader>
           <div className="space-y-6 mt-6 text-sm leading-relaxed">
-            <div>
-              <h3 className="text-lg font-bold text-viana-orange mb-3">{t("careers.terms.object.title")}</h3>
-              <p className="text-gray-700 mb-4">{t("careers.terms.object.description")}</p>
-            </div>
-
-            <div>
-              <h3 className="text-lg font-bold text-viana-orange mb-3">{t("careers.terms.personalData.title")}</h3>
-              <div className="space-y-3 text-gray-700">
-                <div>
-                  <h4 className="font-bold text-viana-orange">
-                    {t("careers.terms.personalData.collectionTreatment.title")}
-                  </h4>
-                  <p>{t("careers.terms.personalData.collectionTreatment.description")}</p>
-                  <ul className="list-disc list-inside ml-4 mt-2 space-y-1">
-                    <li>{t("careers.terms.personalData.collectionTreatment.item1")}</li>
-                    <li>{t("careers.terms.personalData.collectionTreatment.item2")}</li>
-                    <li>{t("careers.terms.personalData.collectionTreatment.item3")}</li>
-                    <li>{t("careers.terms.personalData.collectionTreatment.item4")}</li>
-                  </ul>
-                </div>
-
-                <div>
-                  <h4 className="font-bold text-viana-orange">{t("careers.terms.personalData.purpose.title")}</h4>
-                  <p>{t("careers.terms.personalData.purpose.description")}</p>
-                  <ul className="list-disc list-inside ml-4 mt-2 space-y-1">
-                    <li>{t("careers.terms.personalData.purpose.item1")}</li>
-                    <li>{t("careers.terms.personalData.purpose.item2")}</li>
-                    <li>{t("careers.terms.personalData.purpose.item3")}</li>
-                    <li>{t("careers.terms.personalData.purpose.item4")}</li>
-                  </ul>
-                </div>
-
-                <div>
-                  <h4 className="font-bold text-viana-orange">{t("careers.terms.personalData.retention.title")}</h4>
-                  <p>{t("careers.terms.personalData.retention.description")}</p>
-                </div>
-              </div>
-            </div>
-
-            <div>
-              <h3 className="text-lg font-bold text-viana-orange mb-3">{t("careers.terms.candidateRights.title")}</h3>
-              <div className="text-gray-700 space-y-2">
-                <p>{t("careers.terms.candidateRights.description")}</p>
-                <ul className="list-disc list-inside ml-4 space-y-1">
-                  <li>{t("careers.terms.candidateRights.item1")}</li>
-                  <li>{t("careers.terms.candidateRights.item2")}</li>
-                  <li>{t("careers.terms.candidateRights.item3")}</li>
-                  <li>{t("careers.terms.candidateRights.item4")}</li>
-                  <li>{t("careers.terms.candidateRights.item5")}</li>
-                  <li>{t("careers.terms.candidateRights.item6")}</li>
-                  <li>{t("careers.terms.candidateRights.item7")}</li>
-                </ul>
-              </div>
-            </div>
-
-            <div>
-              <h3 className="text-lg font-bold text-viana-orange mb-3">{t("careers.terms.selectionProcess.title")}</h3>
-              <div className="text-gray-700 space-y-3">
-                <div>
-                  <h4 className="font-bold text-viana-orange">{t("careers.terms.selectionProcess.phases.title")}</h4>
-                  <p>{t("careers.terms.selectionProcess.phases.description")}</p>
-                  <ul className="list-disc list-inside ml-4 mt-2 space-y-1">
-                    <li>{t("careers.terms.selectionProcess.phases.item1")}</li>
-                    <li>{t("careers.terms.selectionProcess.phases.item2")}</li>
-                    <li>{t("careers.terms.selectionProcess.phases.item3")}</li>
-                    <li>{t("careers.terms.selectionProcess.phases.item4")}</li>
-                  </ul>
-                </div>
-
-                <div>
-                  <h4 className="font-bold text-viana-orange">{t("careers.terms.selectionProcess.criteria.title")}</h4>
-                  <p>{t("careers.terms.selectionProcess.criteria.description")}</p>
-                </div>
-              </div>
-            </div>
-
-            <div>
-              <h3 className="text-lg font-bold text-viana-orange mb-3">{t("careers.terms.confidentiality.title")}</h3>
-              <p className="text-gray-700">{t("careers.terms.confidentiality.description")}</p>
-            </div>
-
-            <div>
-              <h3 className="text-lg font-bold text-viana-orange mb-3">{t("careers.terms.communications.title")}</h3>
-              <p className="text-gray-700">{t("careers.terms.communications.description")}</p>
-            </div>
-
-            <div>
-              <h3 className="text-lg font-bold text-viana-orange mb-3">{t("careers.terms.changes.title")}</h3>
-              <p className="text-gray-700">{t("careers.terms.changes.description")}</p>
-            </div>
-
-            <div>
-              <h3 className="text-lg font-bold text-viana-orange mb-3">{t("careers.terms.contacts.title")}</h3>
-              <div className="text-gray-700">
-                <p>{t("careers.terms.contacts.description")}</p>
-                <ul className="list-none ml-4 mt-2 space-y-1">
-                  <li>
-                    <strong>{t("careers.terms.contacts.email")}</strong> privacy@vianahub.pt
-                  </li>
-                  <li>
-                    <strong>{t("careers.terms.contacts.phone")}</strong> +351 XXX XXX XXX
-                  </li>
-                  <li>
-                    <strong>{t("careers.terms.contacts.address")}</strong> [Morada da VianaHub]
-                  </li>
-                </ul>
-              </div>
-            </div>
-
-            <div>
-              <h3 className="text-lg font-bold text-viana-orange mb-3">{t("careers.terms.applicableLaw.title")}</h3>
-              <p className="text-gray-700">{t("careers.terms.applicableLaw.description")}</p>
-            </div>
-
             <div className="pt-4 border-t">
               <Button
                 onClick={() => setIsTermsOpen(false)}
@@ -734,6 +608,6 @@ export function CareersPageContent() {
           </div>
         </DialogContent>
       </Dialog>
-    </div>
+    </>
   )
 }
