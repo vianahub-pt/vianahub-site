@@ -61,7 +61,7 @@ export function HeroSection() {
             <div className="space-y-6">
               <p className="text-4xl lg:text-7xl font-bold text-viana-white leading-tight drop-shadow-2xl">
                 <span className="block text-viana-white">{t("hero.title.line1")}</span>
-                <span className="block text-viana-white">{t("hero.title.line2")}</span>
+                <span className="block text-orange">{t("hero.title.line2")}</span>
                 <span className="block text-viana-white">{t("hero.title.line3")}</span>
               </p>
             </div>
