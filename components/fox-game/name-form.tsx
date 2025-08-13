@@ -26,7 +26,7 @@ export function NameForm({ onNameSubmit }: NameFormProps) {
 
   return (
     <div className="flex items-center justify-center min-h-screen bg-gradient-to-b from-yellow-200 to-orange-200 p-4">
-      <Card className="w-full max-w-md bg-white/90 backdrop-blur-sm shadow-2xl">
+      <Card className="w-full max-w-md bg-white/90 backdrop-blur-sm shadow-2xl border-none">
         <CardContent className="p-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -51,7 +51,7 @@ export function NameForm({ onNameSubmit }: NameFormProps) {
                   value={name}
                   onChange={(e) => setName(e.target.value)}
                   placeholder={t("foxGame.namePlaceholder")}
-                  className="w-full"
+                  className="w-full bg-white border-gray-200"
                   maxLength={20}
                   required
                 />
