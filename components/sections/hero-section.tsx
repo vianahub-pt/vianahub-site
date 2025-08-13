@@ -67,10 +67,10 @@ export function HeroSection() {
                 <span className="block text-viana-white">{t("hero.title.line3")}</span>
               </p>
               
+            </div>
               <p className="text-xl lg:text-2xl text-viana-white/95 max-w-3xl mx-auto leading-relaxed drop-shadow-lg font-kurale">
                 {t("hero.subtitle")}
               </p>
-            </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 pt-12 max-w-2xl mx-auto">
               <div className="text-center bg-black/30 backdrop-blur-sm rounded-lg p-6 shadow-xl">
