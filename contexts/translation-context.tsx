@@ -16,7 +16,7 @@ const TranslationContext = createContext<TranslationContextType | undefined>(und
 
 const translations = {
   pt: {
-    // Navigation
+    // Navigation Main
     "nav.whatWeDo": "O que Fazemos",
     "nav.engineering": "Engenharia",
     "nav.industry": "Indústria",
@@ -26,6 +26,7 @@ const translations = {
     "nav.careers": "Carreiras",
     "nav.contact": "Contacto",
 
+    // What We Do Items
     "nav.development": "Desenvolvimento",
     "nav.agile": "Metodologia Ágil",
     "nav.chatbot": "Chatbot Inteligente",
@@ -33,10 +34,12 @@ const translations = {
     "nav.outsourcing": "Outsourcing",
     "nav.system-integration": "Integração de Sistemas",
 
+    // Engineering Items
     "nav.solar-energy": "Energia Solar",
     "nav.railway": "Ferroviária",
     "nav.road": "Rodoviária",
 
+    // Industry Items
     "nav.education": "Educação",
     "nav.government": "Governo",
     "nav.manufacturing": "Manufatura",
@@ -44,10 +47,12 @@ const translations = {
     "nav.retail": "Varejo",
     "nav.healthcare": "Saúde",
 
+    // Security Items
     "nav.cybersecurity": "Cibersegurança",
     "nav.backups": "Backups",
     "nav.access": "Controle de Acesso",
 
+    // Institutional Items
     "nav.about-us": "Sobre Nós",
     "nav.our-mission": "Oportunidades",
     "nav.our-vision": "Nossa Visão",
@@ -149,7 +154,7 @@ const translations = {
     "engineering.solarEnergy.hero.subtitle": "Soluções sustentáveis em energia solar",
   },
   en: {
-    // Navigation
+    // Navigation Main
     "nav.whatWeDo": "What We Do",
     "nav.engineering": "Engineering",
     "nav.industry": "Industry",
@@ -159,6 +164,7 @@ const translations = {
     "nav.careers": "Careers",
     "nav.contact": "Contact",
 
+    // What We Do Items
     "nav.development": "Development",
     "nav.agile": "Agile Methodology",
     "nav.chatbot": "Smart Chatbot",
@@ -166,10 +172,12 @@ const translations = {
     "nav.outsourcing": "Outsourcing",
     "nav.system-integration": "System Integration",
 
+    // Engineering Items
     "nav.solar-energy": "Solar Energy",
     "nav.railway": "Railway",
     "nav.road": "Road",
 
+    // Industry Items
     "nav.education": "Education",
     "nav.government": "Government",
     "nav.manufacturing": "Manufacturing",
@@ -177,10 +185,12 @@ const translations = {
     "nav.retail": "Retail",
     "nav.healthcare": "Healthcare",
 
+    // Security Items
     "nav.cybersecurity": "Cybersecurity",
     "nav.backups": "Backups",
     "nav.access": "Access Control",
 
+    // Institutional Items
     "nav.about-us": "About Us",
     "nav.our-mission": "Our Mission",
     "nav.our-vision": "Our Vision",
@@ -281,7 +291,7 @@ const translations = {
     "engineering.solarEnergy.hero.subtitle": "Sustainable solar energy solutions",
   },
   es: {
-    // Navigation
+    // Navigation Main
     "nav.whatWeDo": "Qué Hacemos",
     "nav.engineering": "Ingeniería",
     "nav.industry": "Industria",
@@ -291,6 +301,7 @@ const translations = {
     "nav.careers": "Carreras",
     "nav.contact": "Contacto",
 
+    // What We Do Items
     "nav.development": "Desarrollo",
     "nav.agile": "Metodología Ágil",
     "nav.chatbot": "Chatbot Inteligente",
@@ -298,10 +309,12 @@ const translations = {
     "nav.outsourcing": "Outsourcing",
     "nav.system-integration": "Integración de Sistemas",
 
+    // Engineering Items
     "nav.solar-energy": "Energía Solar",
     "nav.railway": "Ferroviaria",
     "nav.road": "Carreteras",
 
+    // Industry Items
     "nav.education": "Educación",
     "nav.government": "Gobierno",
     "nav.manufacturing": "Manufactura",
@@ -309,10 +322,12 @@ const translations = {
     "nav.retail": "Retail",
     "nav.healthcare": "Salud",
 
+    // Security Items
     "nav.cybersecurity": "Ciberseguridad",
     "nav.backups": "Copias de Seguridad",
     "nav.access": "Control de Acceso",
 
+    // Institutional Items
     "nav.about-us": "Sobre Nosotros",
     "nav.our-mission": "Nuestra Misión",
     "nav.our-vision": "Nuestra Visión",
@@ -414,7 +429,7 @@ const translations = {
     "engineering.solarEnergy.hero.subtitle": "Soluciones sostenibles de energía solar",
   },
   fr: {
-    // Navigation
+    // Navigation Main
     "nav.whatWeDo": "Ce Que Nous Faisons",
     "nav.engineering": "Ingénierie",
     "nav.industry": "Industrie",
@@ -424,6 +439,7 @@ const translations = {
     "nav.careers": "Carrières",
     "nav.contact": "Contact",
 
+    // What We Do Items
     "nav.development": "Développement",
     "nav.agile": "Méthodologie Agile",
     "nav.chatbot": "Chatbot Intelligent",
@@ -431,10 +447,12 @@ const translations = {
     "nav.outsourcing": "Externalisation",
     "nav.system-integration": "Intégration de Systèmes",
 
+    // Engineering Items
     "nav.solar-energy": "Énergie Solaire",
     "nav.railway": "Ferroviaire",
     "nav.road": "Routier",
 
+    // Industry Items
     "nav.education": "Éducation",
     "nav.government": "Gouvernement",
     "nav.manufacturing": "Fabrication",
@@ -442,10 +460,12 @@ const translations = {
     "nav.retail": "Commerce de Détail",
     "nav.healthcare": "Santé",
 
+    // Security Items
     "nav.cybersecurity": "Cybersécurité",
     "nav.backups": "Sauvegardes",
     "nav.access": "Contrôle d'Accès",
 
+    // Institutional Items
     "nav.about-us": "À Propos de Nous",
     "nav.our-mission": "Notre Mission",
     "nav.our-vision": "Notre Vision",
@@ -549,7 +569,7 @@ const translations = {
     "engineering.solarEnergy.hero.subtitle": "Solutions durables d'énergie solaire",
   },
   de: {
-    // Navigation
+    // Navigation Main
     "nav.whatWeDo": "Was Wir Tun",
     "nav.engineering": "Ingenieurwesen",
     "nav.industry": "Branchen",
@@ -559,6 +579,7 @@ const translations = {
     "nav.careers": "Karrieren",
     "nav.contact": "Kontakt",
 
+    // What We Do Items
     "nav.development": "Entwicklung",
     "nav.agile": "Agile Methodik",
     "nav.chatbot": "Intelligenter Chatbot",
@@ -566,10 +587,12 @@ const translations = {
     "nav.outsourcing": "Outsourcing",
     "nav.system-integration": "Systemintegration",
 
+    // Engineering Items
     "nav.solar-energy": "Solarenergie",
     "nav.railway": "Eisenbahn",
     "nav.road": "Straße",
 
+    // Industry Items
     "nav.education": "Bildung",
     "nav.government": "Regierung",
     "nav.manufacturing": "Fertigung",
@@ -577,10 +600,12 @@ const translations = {
     "nav.retail": "Einzelhandel",
     "nav.healthcare": "Gesundheitswesen",
 
+    // Security Items
     "nav.cybersecurity": "Cybersicherheit",
     "nav.backups": "Backups",
     "nav.access": "Zugriffskontrolle",
 
+    // Institutional Items
     "nav.about-us": "Über Uns",
     "nav.our-mission": "Unsere Mission",
     "nav.our-vision": "Unsere Vision",

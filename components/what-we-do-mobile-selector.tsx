@@ -5,28 +5,33 @@ import { ChevronDown } from "lucide-react"
 import { useTranslation } from "@/contexts/translation-context"
 import { useRouter } from "next/navigation"
 
-const whatWeDoItems = [
-  { key: "development", href: "/what-we-do/development" },
-  { key: "agile", href: "/what-we-do/agile" },
-  { key: "chatbot", href: "/what-we-do/chatbot" },
-  { key: "landing-pages", href: "/what-we-do/landing-pages" },
-  { key: "outsourcing", href: "/what-we-do/outsourcing" },
-  { key: "system-integration", href: "/what-we-do/system-integration" },
-]
-
 export function WhatWeDoMobileSelector() {
   const { t } = useTranslation()
-  const [isOpen, setIsOpen] = useState(false)
   const router = useRouter()
+  const [isOpen, setIsOpen] = useState(false)
 
-  const handleItemClick = (href: string) => {
+  const handleNavigation = (href: string) => {
     router.push(href)
-    setIsOpen(false)
     window.scrollTo(0, 0)
   }
 
+  const serviceItems = [
+    { key: "development", href: "/what-we-do/development" },
+    { key: "agile", href: "/what-we-do/agile" },
+    { key: "outsourcing", href: "/what-we-do/outsourcing" },
+    { key: "chatbot", href: "/what-we-do/chatbot" },
+    { key: "landing-pages", href: "/what-we-do/landing-pages" },
+    { key: "system-integration", href: "/what-we-do/system-integration" },
+  ]
+
+  const engineeringItems = [
+    { key: "railway", href: "/engineering/railway" },
+    { key: "road", href: "/engineering/road" },
+    { key: "solar-energy", href: "/engineering/solar-energy" },
+  ]
+
   return (
-    <div>
+    <div className="space-y-1">
       <button
         onClick={() => setIsOpen(!isOpen)}
         className="flex items-center justify-between w-full text-viana-white hover:bg-viana-yellow/20 hover:text-viana-white px-3 py-2 rounded-md text-base font-medium transition-all duration-100 drop-shadow-lg"
@@ -36,12 +41,24 @@ export function WhatWeDoMobileSelector() {
       </button>
 
       {isOpen && (
-        <div className="ml-4 mt-2 space-y-1">
-          {whatWeDoItems.map((item) => (
+        <div className="pl-4 space-y-1">
+          {serviceItems.map((item) => (
             <button
               key={item.key}
-              onClick={() => handleItemClick(item.href)}
-              className="block w-full text-left px-3 py-2 text-sm text-viana-white hover:bg-viana-orange/50 hover:text-viana-white rounded-md transition-all duration-75 font-medium drop-shadow-lg"
+              onClick={() => handleNavigation(item.href)}
+              className="block w-full text-left text-viana-white hover:bg-viana-orange/50 hover:text-viana-white px-3 py-2 rounded-md text-sm font-medium transition-all duration-75 drop-shadow-lg"
+            >
+              {t(`nav.${item.key}`)}
+            </button>
+          ))}
+
+          <div className="border-t border-white/30 my-2 mx-3" />
+
+          {engineeringItems.map((item) => (
+            <button
+              key={item.key}
+              onClick={() => handleNavigation(item.href)}
+              className="block w-full text-left text-viana-white hover:bg-viana-orange/50 hover:text-viana-white px-3 py-2 rounded-md text-sm font-medium transition-all duration-75 drop-shadow-lg"
             >
               {t(`nav.${item.key}`)}
             </button>
