@@ -130,7 +130,7 @@ export function ProjectsSection() {
           onMouseLeave={() => setIsAutoPlaying(true)}
         >
           {/* Carousel Container */}
-          <div className="overflow-hidden rounded-2xl">
+          <div className="overflow-hidden">
             <div
               className="flex transition-transform duration-500 ease-in-out"
               style={{ transform: `translateX(-${currentIndex * 100}%)` }}
@@ -138,7 +138,7 @@ export function ProjectsSection() {
               {projects.map((project) => (
                 <div key={project.id} className="w-full flex-shrink-0">
                   <Card
-                    className="mx-4 cursor-pointer hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2"
+                    className="mx-4 cursor-pointer hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 bg-transparent"
                     onClick={() => handleProjectClick(project.url)}
                   >
                     <CardContent className="p-0">
