@@ -10,8 +10,10 @@ import { Badge } from "@/components/ui/badge"
 import { Users, Target, Globe, Heart, Lightbulb, Shield, Zap, ArrowRight, Mouse, Award, Rocket } from "lucide-react"
 import Link from "next/link"
 
+// Esta página será pré-renderizada em build time
 export default function AboutPageClient() {
-  const { language, t } = useTranslation()
+  const { language } = useTranslation()
+  const t = useTranslation().t
 
   useEffect(() => {
     window.scrollTo(0, 0)

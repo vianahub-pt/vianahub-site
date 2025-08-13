@@ -27,9 +27,9 @@ export function InstitutionalSelector() {
   }
 
   const menuItems = [
-    { key: "about", href: "/about" },
-    { key: "careers", href: "/careers" },
-    { key: "contact", href: "/contact" },
+    { key: "about-us", href: "/about", label: t("nav.about") },
+    { key: "careers", href: "/careers", label: t("nav.careers") },
+    { key: "contact-us", href: "/contact", label: t("nav.contact") },
   ]
 
   return (
@@ -59,7 +59,7 @@ export function InstitutionalSelector() {
                     onClick={() => handleNavigation(item.href)}
                     className="w-full text-left px-3 py-2 rounded-md hover:bg-viana-orange/50 hover:text-viana-white transition-all duration-75 text-sm font-medium drop-shadow-lg text-viana-white"
                   >
-                    {t(`nav.${item.key}`)}
+                    {item.label}
                   </button>
                 ))}
               </div>

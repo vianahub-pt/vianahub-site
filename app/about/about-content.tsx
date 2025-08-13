@@ -2,7 +2,6 @@
 
 import { useEffect } from "react"
 import { useTranslation } from "@/contexts/translation-context"
-import { aboutTranslations } from "./translation"
 import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
@@ -12,10 +11,7 @@ import Link from "next/link"
 export function AboutContent() {
   const { language } = useTranslation()
 
-  // Function to get translation from page-specific translations
-  const t = (key: string): string => {
-    return aboutTranslations[language][key as keyof (typeof aboutTranslations)[typeof language]] || key
-  }
+  const t = useTranslation().t
 
   useEffect(() => {
     window.scrollTo(0, 0)

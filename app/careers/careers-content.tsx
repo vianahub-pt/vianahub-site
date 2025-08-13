@@ -13,7 +13,6 @@ import { Textarea } from "@/components/ui/textarea"
 import { Checkbox } from "@/components/ui/checkbox"
 import { Clock, Users, Briefcase, Heart, Trophy, Zap, FileText, Upload, User, GraduationCap } from "lucide-react"
 import { useTranslation } from "@/contexts/translation-context"
-import { careersTranslations } from "./translation"
 
 interface PositionMeta {
   id: string
@@ -47,7 +46,7 @@ const positionsMeta: PositionMeta[] = [
 ]
 
 export function CareersContent() {
-  const { language } = useTranslation()
+  const { language, t } = useTranslation()
   const [selectedPosition, setSelectedPosition] = useState<TranslatedPosition | null>(null)
   const [isApplicationOpen, setIsApplicationOpen] = useState(false)
   const [isTermsOpen, setIsTermsOpen] = useState(false)
@@ -61,11 +60,6 @@ export function CareersContent() {
     cv: null as File | null,
     termsAccepted: false,
   })
-
-  // Local translation function
-  const t = (key: string) => {
-    return careersTranslations[language]?.[key] || key
-  }
 
   const getWordCloudImage = () => {
     const imageMap = {
@@ -81,17 +75,6 @@ export function CareersContent() {
   const getTranslatedPosition = (positionMeta: PositionMeta): TranslatedPosition => {
     const baseKey = `careers.positions.${positionMeta.id}`
 
-    const getTranslatedList = (listType: "requirements" | "responsibilities" | "benefits") => {
-      const translatedList = []
-      let i = 0
-      // Loop until a translation key does not exist, indicating the end of the list
-      while (careersTranslations[language]?.[`${baseKey}.${listType}.${i}`] !== undefined) {
-        translatedList.push(t(`${baseKey}.${listType}.${i}`))
-        i++
-      }
-      return translatedList
-    }
-
     return {
       ...positionMeta,
       title: t(`${baseKey}.title`),
@@ -99,9 +82,42 @@ export function CareersContent() {
       location: t(`${baseKey}.location`),
       type: t(`${baseKey}.type`),
       description: t(`${baseKey}.description`),
-      requirements: getTranslatedList("requirements"),
-      responsibilities: getTranslatedList("responsibilities"),
-      benefits: getTranslatedList("benefits"),
+      requirements: [
+        t(`${baseKey}.requirements.0`),
+        t(`${baseKey}.requirements.1`),
+        t(`${baseKey}.requirements.2`),
+        t(`${baseKey}.requirements.3`),
+        t(`${baseKey}.requirements.4`),
+        t(`${baseKey}.requirements.5`),
+        t(`${baseKey}.requirements.6`),
+        t(`${baseKey}.requirements.7`),
+        t(`${baseKey}.requirements.8`),
+        t(`${baseKey}.requirements.9`),
+      ].filter(Boolean),
+      responsibilities: [
+        t(`${baseKey}.responsibilities.0`),
+        t(`${baseKey}.responsibilities.1`),
+        t(`${baseKey}.responsibilities.2`),
+        t(`${baseKey}.responsibilities.3`),
+        t(`${baseKey}.responsibilities.4`),
+        t(`${baseKey}.responsibilities.5`),
+        t(`${baseKey}.responsibilities.6`),
+        t(`${baseKey}.responsibilities.7`),
+        t(`${baseKey}.responsibilities.8`),
+        t(`${baseKey}.responsibilities.9`),
+      ].filter(Boolean),
+      benefits: [
+        t(`${baseKey}.benefits.0`),
+        t(`${baseKey}.benefits.1`),
+        t(`${baseKey}.benefits.2`),
+        t(`${baseKey}.benefits.3`),
+        t(`${baseKey}.benefits.4`),
+        t(`${baseKey}.benefits.5`),
+        t(`${baseKey}.benefits.6`),
+        t(`${baseKey}.benefits.7`),
+        t(`${baseKey}.benefits.8`),
+        t(`${baseKey}.benefits.9`),
+      ].filter(Boolean),
     }
   }
 

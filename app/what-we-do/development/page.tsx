@@ -7,7 +7,7 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel"
 import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
-import { TranslationProvider, useTranslation } from "@/contexts/translation-context"
+import { useTranslation } from "@/contexts/translation-context"
 import { Code, Smartphone, Globe, Database, Zap, Shield, Palette, CheckCircle } from "lucide-react"
 import Autoplay from "embla-carousel-autoplay"
 import Link from "next/link"
@@ -234,9 +234,5 @@ function DevelopmentPageContent() {
 }
 
 export default function DevelopmentPage() {
-  return (
-    <TranslationProvider>
-      <DevelopmentPageContent />
-    </TranslationProvider>
-  )
+  return <DevelopmentPageContent />
 }
