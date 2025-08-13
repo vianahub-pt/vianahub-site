@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation"
 import { ChevronDown } from "lucide-react"
 import { useTranslation } from "@/components/translation-context"
 
-export function WhatWeDoDropdown() {
+export function EngineeringDropdown() {
   const [isOpen, setIsOpen] = useState(false)
   const router = useRouter()
   const { t } = useTranslation()
@@ -22,7 +22,7 @@ export function WhatWeDoDropdown() {
         onMouseLeave={() => setIsOpen(false)}
         className="flex items-center space-x-1 px-3 py-2 rounded-md transition-all duration-100 font-medium drop-shadow-lg cursor-pointer bg-transparent text-white hover:bg-yellow-500/20 hover:text-white text-sm"
       >
-        <span>{t("nav.whatWeDo")}</span>
+        <span>{t("nav.engineering")}</span>
         <ChevronDown className="h-4 w-4" />
       </button>
 
@@ -34,59 +34,40 @@ export function WhatWeDoDropdown() {
         >
           <div className="py-2">
             <button
-              onClick={() => handleNavigation("/what-we-do/development")}
+              onClick={() => handleNavigation("/industry/education")}
               className="block w-full text-left px-4 py-2 text-sm text-white hover:bg-yellow-500/20 transition-colors"
             >
-              {t("nav.development")}
+              {t("nav.education")}
             </button>
             <button
-              onClick={() => handleNavigation("/what-we-do/agile")}
+              onClick={() => handleNavigation("/industry/government")}
               className="block w-full text-left px-4 py-2 text-sm text-white hover:bg-yellow-500/20 transition-colors"
             >
-              {t("nav.agile")}
+              {t("nav.government")}
             </button>
             <button
-              onClick={() => handleNavigation("/what-we-do/outsourcing")}
+              onClick={() => handleNavigation("/industry/manufacturing")}
               className="block w-full text-left px-4 py-2 text-sm text-white hover:bg-yellow-500/20 transition-colors"
             >
-              {t("nav.outsourcing")}
+              {t("nav.manufacturing")}
             </button>
             <button
-              onClick={() => handleNavigation("/what-we-do/chatbot")}
+              onClick={() => handleNavigation("/industry/financial")}
               className="block w-full text-left px-4 py-2 text-sm text-white hover:bg-yellow-500/20 transition-colors"
             >
-              {t("nav.chatbot")}
+              {t("nav.financial")}
             </button>
             <button
-              onClick={() => handleNavigation("/what-we-do/landing-pages")}
+              onClick={() => handleNavigation("/industry/retail")}
               className="block w-full text-left px-4 py-2 text-sm text-white hover:bg-yellow-500/20 transition-colors"
             >
-              {t("nav.landingPages")}
+              {t("nav.retail")}
             </button>
             <button
-              onClick={() => handleNavigation("/what-we-do/system-integration")}
+              onClick={() => handleNavigation("/industry/healthcare")}
               className="block w-full text-left px-4 py-2 text-sm text-white hover:bg-yellow-500/20 transition-colors"
             >
-              {t("nav.systemIntegration")}
-            </button>
-            <div className="border-t border-gray-600 my-2"></div>
-            <button
-              onClick={() => handleNavigation("/engineering/railway")}
-              className="block w-full text-left px-4 py-2 text-sm text-white hover:bg-yellow-500/20 transition-colors"
-            >
-              {t("nav.railway")}
-            </button>
-            <button
-              onClick={() => handleNavigation("/engineering/road")}
-              className="block w-full text-left px-4 py-2 text-sm text-white hover:bg-yellow-500/20 transition-colors"
-            >
-              {t("nav.road")}
-            </button>
-            <button
-              onClick={() => handleNavigation("/engineering/solar-energy")}
-              className="block w-full text-left px-4 py-2 text-sm text-white hover:bg-yellow-500/20 transition-colors"
-            >
-              {t("nav.solarEnergy")}
+              {t("nav.healthcare")}
             </button>
           </div>
         </div>

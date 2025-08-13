@@ -6,6 +6,7 @@ import Image from "next/image"
 import { Menu, X } from "lucide-react"
 import { ThemeToggle } from "@/components/theme-toggle"
 import { WhatWeDoDropdown } from "@/components/what-we-do-dropdown"
+import { EngineeringDropdown } from "@/components/engineering-dropdown"
 import { LanguageSelector } from "@/components/language-selector"
 import { useTranslation } from "@/components/translation-context"
 
@@ -34,6 +35,7 @@ export function Navbar() {
           <div className="hidden lg:block">
             <div className="ml-10 flex items-baseline space-x-4">
               <WhatWeDoDropdown />
+              <EngineeringDropdown />
               <button
                 onClick={() => handleNavigation("/contact")}
                 className="flex items-center space-x-1 px-3 py-2 rounded-md transition-all duration-100 font-medium drop-shadow-lg cursor-pointer bg-transparent text-white hover:bg-yellow-500/20 hover:text-white text-sm"
