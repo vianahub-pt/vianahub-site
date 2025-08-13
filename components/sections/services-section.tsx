@@ -3,7 +3,6 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Code, Smartphone, Globe, Database, Shield, Zap } from "lucide-react"
-import { useTranslation } from "@/contexts/translation-context"
 import { useEffect, useRef, useState } from "react"
 
 const services = [
