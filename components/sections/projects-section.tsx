@@ -138,7 +138,7 @@ export function ProjectsSection() {
               {projects.map((project) => (
                 <div key={project.id} className="w-full flex-shrink-0">
                   <Card
-                    className="mx-4 cursor-pointer hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 bg-transparent"
+                    className="mx-4 cursor-pointer hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 bg-transparent border-none rounded-none"
                     onClick={() => handleProjectClick(project.url)}
                   >
                     <CardContent className="p-0">
