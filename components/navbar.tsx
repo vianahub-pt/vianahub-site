@@ -2,7 +2,6 @@
 
 import type React from "react"
 import { useRouter } from "next/navigation"
-import styles from "./navbar.module.css"
 
 const Navbar: React.FC = () => {
   const router = useRouter()
@@ -13,14 +12,14 @@ const Navbar: React.FC = () => {
   }
 
   return (
-    <nav className={styles.navbar}>
-      <button onClick={() => handleNavigation("/about")} className={styles.navLink}>
+    <nav className="navbar">
+      <button onClick={() => handleNavigation("/about")} className="nav-link">
         About
       </button>
-      <button onClick={() => handleNavigation("/careers")} className={styles.navLink}>
+      <button onClick={() => handleNavigation("/careers")} className="nav-link">
         Careers
       </button>
-      <button onClick={() => handleNavigation("/contact")} className={styles.navLink}>
+      <button onClick={() => handleNavigation("/contact")} className="nav-link">
         Contact
       </button>
       {/* rest of code here */}
