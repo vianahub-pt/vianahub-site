@@ -3,7 +3,7 @@ import type { Metadata } from "next"
 import { Inter } from "next/font/google"
 import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
-import { TranslationProviderWrapper } from "@/components/translation-provider-wrapper"
+import { TranslationProvider } from "@/contexts/translation-context"
 import { MenuProvider } from "@/components/menu-context"
 import { Toaster } from "@/components/ui/toaster"
 import { ClientLayout } from "./ClientLayout"
@@ -46,12 +46,12 @@ export default function RootLayout({
     <html lang="pt" suppressHydrationWarning>
       <body className={inter.className}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
-          <TranslationProviderWrapper>
+          <TranslationProvider>
             <MenuProvider>
               <ClientLayout>{children}</ClientLayout>
               <Toaster />
             </MenuProvider>
-          </TranslationProviderWrapper>
+          </TranslationProvider>
         </ThemeProvider>
       </body>
     </html>
