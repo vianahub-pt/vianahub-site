@@ -4,11 +4,11 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel"
+import { useTranslation } from "@/components/translation-context"
 import { Users, Briefcase, Clock } from "lucide-react"
 import Link from "next/link"
 import Autoplay from "embla-carousel-autoplay"
 import { useRef } from "react"
-import { useTranslation } from "@/components/translation-context"
 
 interface PositionMeta {
   id: string
