@@ -62,7 +62,7 @@ export function IndustrySelector() {
                     onClick={() => handleNavigation(item.href)}
                     className="w-full text-left px-3 py-2 rounded-md hover:bg-viana-orange/50 hover:text-viana-white transition-all duration-75 text-sm font-medium drop-shadow-lg text-viana-white"
                   >
-                    {t(`menu.${item.key}`)}
+                    {t(`nav.${item.key}`)}
                   </button>
                 ))}
               </div>

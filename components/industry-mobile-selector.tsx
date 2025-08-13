@@ -42,7 +42,7 @@ export function IndustryMobileSelector() {
               onClick={() => handleNavigation(item.href)}
               className="block w-full text-left text-viana-white hover:bg-viana-orange/50 hover:text-viana-white px-3 py-2 rounded-md text-sm font-medium transition-all duration-75 drop-shadow-lg"
             >
-              {t(`menu.${item.key}`)}
+              {t(`nav.${item.key}`)}
             </button>
           ))}
         </div>
