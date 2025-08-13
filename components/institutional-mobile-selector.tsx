@@ -32,13 +32,13 @@ export function InstitutionalMobileSelector() {
             onClick={() => handleNavigation("/about")}
             className="block w-full text-left px-3 py-2 text-sm text-viana-white hover:bg-viana-yellow/20 hover:text-viana-white rounded-md transition-colors"
           >
-            {t("menu.about")}
+            {t("nav.about")}
           </button>
           <button
             onClick={() => handleNavigation("/careers")}
             className="block w-full text-left px-3 py-2 text-sm text-viana-white hover:bg-viana-yellow/20 hover:text-viana-white rounded-md transition-colors"
           >
-            {t("menu.careers")}
+            {t("nav.careers")}
           </button>
         </div>
       )}

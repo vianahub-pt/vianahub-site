@@ -22,7 +22,7 @@ export function WhatWeDoSelector() {
         onClick={() => setIsOpen(!isOpen)}
         className="flex items-center space-x-1 px-3 py-2 rounded-md transition-all duration-100 font-medium drop-shadow-lg cursor-pointer bg-transparent text-viana-white hover:bg-viana-yellow/20 hover:text-viana-white text-sm"
       >
-        <span>{t("whatWeDo")}</span>
+        <span>{t("menu.whatWeDo")}</span>
         <ChevronDown className={`h-4 w-4 transition-transform ${isOpen ? "rotate-180" : ""}`} />
       </button>
 

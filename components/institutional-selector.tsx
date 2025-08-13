@@ -33,13 +33,13 @@ export function InstitutionalSelector() {
               onClick={() => handleNavigation("/about")}
               className="block w-full text-left px-4 py-2 text-sm text-viana-white hover:bg-viana-yellow/20 hover:text-viana-white transition-colors"
             >
-              {t("menu.about")}
+              {t("nav.about")}
             </button>
             <button
               onClick={() => handleNavigation("/careers")}
               className="block w-full text-left px-4 py-2 text-sm text-viana-white hover:bg-viana-yellow/20 hover:text-viana-white transition-colors"
             >
-              {t("menu.careers")}
+              {t("nav.careers")}
             </button>
           </div>
         </div>
