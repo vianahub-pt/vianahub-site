@@ -33,6 +33,10 @@ export function WhatWeDoSelector() {
     { key: "landing-pages", href: "/what-we-do/landing-pages" },
     { key: "outsourcing", href: "/what-we-do/outsourcing" },
     { key: "system-integration", href: "/what-we-do/system-integration" },
+    { key: "separator", href: "" },
+    { key: "solar-energy", href: "/engineering/solar-energy" },
+    { key: "railway", href: "/engineering/railway" },
+    { key: "road", href: "/engineering/road" },
   ]
 
   return (
@@ -56,15 +60,19 @@ export function WhatWeDoSelector() {
           <Card className="bg-black/80 dark:bg-black/80 backdrop-blur-md border border-white/30 dark:border-gray-400/30">
             <CardContent className="p-1">
               <div className="grid gap-1">
-                {menuItems.map((item) => (
-                  <button
-                    key={item.key}
-                    onClick={() => handleNavigation(item.href)}
-                    className="w-full text-left px-3 py-2 rounded-md hover:bg-viana-orange/50 hover:text-viana-white transition-all duration-75 text-sm font-medium drop-shadow-lg text-viana-white"
-                  >
-                    {t(`menu.${item.key}`)}
-                  </button>
-                ))}
+                {menuItems.map((item) =>
+                  item.key === "separator" ? (
+                    <div key="separator" className="h-px bg-white/20 my-1" />
+                  ) : (
+                    <button
+                      key={item.key}
+                      onClick={() => handleNavigation(item.href)}
+                      className="w-full text-left px-3 py-2 rounded-md hover:bg-viana-orange/50 hover:text-viana-white transition-all duration-75 text-sm font-medium drop-shadow-lg text-viana-white"
+                    >
+                      {t(`menu.${item.key}`)}
+                    </button>
+                  ),
+                )}
               </div>
             </CardContent>
           </Card>

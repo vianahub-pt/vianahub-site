@@ -22,6 +22,10 @@ export function WhatWeDoMobileSelector() {
     { key: "landing-pages", href: "/what-we-do/landing-pages" },
     { key: "outsourcing", href: "/what-we-do/outsourcing" },
     { key: "system-integration", href: "/what-we-do/system-integration" },
+    { key: "separator", href: "" },
+    { key: "solar-energy", href: "/engineering/solar-energy" },
+    { key: "railway", href: "/engineering/railway" },
+    { key: "road", href: "/engineering/road" },
   ]
 
   return (
@@ -36,15 +40,19 @@ export function WhatWeDoMobileSelector() {
 
       {isOpen && (
         <div className="pl-4 space-y-1">
-          {menuItems.map((item) => (
-            <button
-              key={item.key}
-              onClick={() => handleNavigation(item.href)}
-              className="block w-full text-left text-viana-white hover:bg-viana-orange/50 hover:text-viana-white px-3 py-2 rounded-md text-sm font-medium transition-all duration-75 drop-shadow-lg"
-            >
-              {t(`menu.${item.key}`)}
-            </button>
-          ))}
+          {menuItems.map((item) =>
+            item.key === "separator" ? (
+              <div key="separator" className="h-px bg-white/20 my-2 mx-3" />
+            ) : (
+              <button
+                key={item.key}
+                onClick={() => handleNavigation(item.href)}
+                className="block w-full text-left text-viana-white hover:bg-viana-orange/50 hover:text-viana-white px-3 py-2 rounded-md text-sm font-medium transition-all duration-75 drop-shadow-lg"
+              >
+                {t(`menu.${item.key}`)}
+              </button>
+            ),
+          )}
         </div>
       )}
     </div>

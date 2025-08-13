@@ -11,8 +11,6 @@ import { IndustrySelector } from "@/components/industry-selector"
 import { IndustryMobileSelector } from "@/components/industry-mobile-selector"
 import { SecuritySelector } from "@/components/security-selector"
 import { SecurityMobileSelector } from "@/components/security-mobile-selector"
-import { EngineeringSelector } from "@/components/engineering-selector"
-import { EngineeringMobileSelector } from "@/components/engineering-mobile-selector"
 import { InstitutionalSelector } from "@/components/institutional-selector"
 import { InstitutionalMobileSelector } from "@/components/institutional-mobile-selector"
 import { MobileMenu } from "@/components/mobile-menu"
@@ -41,7 +39,6 @@ export function Navbar() {
           <div className="hidden lg:block">
             <div className="ml-10 flex items-baseline space-x-4">
               <WhatWeDoSelector />
-              <EngineeringSelector />
               <IndustrySelector />
               <SecuritySelector />
               <InstitutionalSelector />
@@ -65,7 +62,6 @@ export function Navbar() {
       <div className="lg:hidden">
         <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-black/90 dark:bg-black/90 backdrop-blur-md border-t border-white/30 dark:border-gray-400/30">
           <WhatWeDoMobileSelector />
-          <EngineeringMobileSelector />
           <IndustryMobileSelector />
           <SecurityMobileSelector />
           <InstitutionalMobileSelector />
