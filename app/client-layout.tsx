@@ -4,25 +4,19 @@ import type React from "react"
 
 import { ThemeProvider } from "@/components/theme-provider"
 import { TranslationProvider } from "@/components/translation-context"
-import { Toaster } from "@/components/ui/toaster"
-import { Footer } from "@/components/footer"
 import { WhatsAppChat } from "@/components/whatsapp-chat"
 
-export default function ClientLayout({
-  children,
-}: {
-  children: React.ReactNode
-}) {
+const ClientLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
       <TranslationProvider>
-        <div className="min-h-screen flex flex-col">
-          <main className="flex-1">{children}</main>
-          <Footer />
+        <div className="min-h-screen bg-background font-sans antialiased">
+          {children}
           <WhatsAppChat />
-          <Toaster />
         </div>
       </TranslationProvider>
     </ThemeProvider>
   )
 }
+
+export default ClientLayout

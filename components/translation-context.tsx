@@ -5,26 +5,12 @@ import { createContext, useContext, useState, useEffect, type ReactNode } from "
 // Supported languages
 export type Language = "pt" | "en" | "es" | "fr" | "de"
 
-// Translation structure - empty for now, will be filled gradually
-const translations = {
-  pt: {
-    // Portuguese translations will be added here
-  },
-  en: {
-    // English translations will be added here
-  },
-  es: {
-    // Spanish translations will be added here
-  },
-  fr: {
-    // French translations will be added here
-  },
-  de: {
-    // German translations will be added here
-  },
+// Translation interface
+interface Translations {
+  [key: string]: any
 }
 
-// Translation context type
+// Translation context interface
 interface TranslationContextType {
   language: Language
   setLanguage: (lang: Language) => void
@@ -33,6 +19,15 @@ interface TranslationContextType {
 
 // Create context
 const TranslationContext = createContext<TranslationContextType | undefined>(undefined)
+
+// Translation data - empty for now, will be filled gradually
+const translations: Record<Language, Translations> = {
+  pt: {},
+  en: {},
+  es: {},
+  fr: {},
+  de: {},
+}
 
 // Translation provider component
 export function TranslationProvider({ children }: { children: ReactNode }) {
@@ -68,7 +63,7 @@ export function TranslationProvider({ children }: { children: ReactNode }) {
     return typeof value === "string" ? value : key
   }
 
-  const value = {
+  const value: TranslationContextType = {
     language,
     setLanguage,
     t,
@@ -77,7 +72,7 @@ export function TranslationProvider({ children }: { children: ReactNode }) {
   return <TranslationContext.Provider value={value}>{children}</TranslationContext.Provider>
 }
 
-// Custom hook to use translation
+// Custom hook to use translation context
 export function useTranslation() {
   const context = useContext(TranslationContext)
   if (context === undefined) {

@@ -2,7 +2,7 @@
 
 import Link from "next/link"
 import Image from "next/image"
-import { useTranslation } from "@/contexts/translation-context"
+import { useTranslation } from "@/components/translation-context"
 import { Facebook, Instagram, Linkedin, Twitter, Mail, Phone, MapPin } from "lucide-react"
 
 export function Footer() {
