@@ -16,7 +16,7 @@ export function InstitutionalMobileSelector() {
   }
 
   const menuItems = [
-    { key: "about", href: "/about" },
+    { key: "about-us", href: "/about" },
     { key: "careers", href: "/careers" },
   ]
 
@@ -26,7 +26,7 @@ export function InstitutionalMobileSelector() {
         onClick={() => setIsOpen(!isOpen)}
         className="flex items-center justify-between w-full text-viana-white hover:bg-viana-yellow/20 hover:text-viana-white px-3 py-2 rounded-md text-base font-medium transition-all duration-100 drop-shadow-lg"
       >
-        <span>{t("menu.institutional")}</span>
+        <span>{t("nav.institutional")}</span>
         <ChevronDown className={`h-4 w-4 transition-transform duration-100 ${isOpen ? "rotate-180" : ""}`} />
       </button>
 
