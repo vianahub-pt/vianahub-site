@@ -15,17 +15,19 @@ export function WhatWeDoMobileSelector() {
     window.scrollTo(0, 0)
   }
 
-  const menuItems = [
-    { key: "agile", href: "/what-we-do/agile" },
-    { key: "development", href: "/what-we-do/development" },
-    { key: "chatbot", href: "/what-we-do/chatbot" },
-    { key: "landing-pages", href: "/what-we-do/landing-pages" },
-    { key: "outsourcing", href: "/what-we-do/outsourcing" },
-    { key: "system-integration", href: "/what-we-do/system-integration" },
-    { key: "separator", href: "" },
-    { key: "solar-energy", href: "/engineering/solar-energy" },
-    { key: "railway", href: "/engineering/railway" },
-    { key: "road", href: "/engineering/road" },
+  const serviceItems = [
+    { key: "development", href: "/what-we-do/development", label: t("menu.development") },
+    { key: "agile", href: "/what-we-do/agile", label: t("menu.agile") },
+    { key: "outsourcing", href: "/what-we-do/outsourcing", label: t("menu.outsourcing") },
+    { key: "chatbot", href: "/what-we-do/chatbot", label: t("menu.chatbot") },
+    { key: "landing-pages", href: "/what-we-do/landing-pages", label: t("menu.landing-pages") },
+    { key: "system-integration", href: "/what-we-do/system-integration", label: t("menu.system-integration") },
+  ]
+
+  const engineeringItems = [
+    { key: "railway", href: "/engineering/railway", label: t("menu.railway") },
+    { key: "road", href: "/engineering/road", label: t("menu.road") },
+    { key: "solar-energy", href: "/engineering/solar-energy", label: t("menu.solar-energy") },
   ]
 
   return (
@@ -40,19 +42,28 @@ export function WhatWeDoMobileSelector() {
 
       {isOpen && (
         <div className="pl-4 space-y-1">
-          {menuItems.map((item) =>
-            item.key === "separator" ? (
-              <div key="separator" className="h-px bg-white/20 my-2 mx-3" />
-            ) : (
-              <button
-                key={item.key}
-                onClick={() => handleNavigation(item.href)}
-                className="block w-full text-left text-viana-white hover:bg-viana-orange/50 hover:text-viana-white px-3 py-2 rounded-md text-sm font-medium transition-all duration-75 drop-shadow-lg"
-              >
-                {t(`menu.${item.key}`)}
-              </button>
-            ),
-          )}
+          {serviceItems.map((item) => (
+            <button
+              key={item.key}
+              onClick={() => handleNavigation(item.href)}
+              className="block w-full text-left text-viana-white hover:bg-viana-orange/50 hover:text-viana-white px-3 py-2 rounded-md text-sm font-medium transition-all duration-75 drop-shadow-lg"
+            >
+              {item.label}
+            </button>
+          ))}
+
+          {/* Separador horizontal */}
+          <div className="border-t border-white/30 my-2 mx-3" />
+
+          {engineeringItems.map((item) => (
+            <button
+              key={item.key}
+              onClick={() => handleNavigation(item.href)}
+              className="block w-full text-left text-viana-white hover:bg-viana-orange/50 hover:text-viana-white px-3 py-2 rounded-md text-sm font-medium transition-all duration-75 drop-shadow-lg"
+            >
+              {item.label}
+            </button>
+          ))}
         </div>
       )}
     </div>

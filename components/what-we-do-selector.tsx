@@ -10,10 +10,10 @@ export function WhatWeDoSelector() {
   const { t } = useTranslation()
   const { activeMenu, setActiveMenu } = useMenu()
   const router = useRouter()
-  const isOpen = activeMenu === "whatWeDo"
+  const isOpen = activeMenu === "what-we-do"
 
   const handleMouseEnter = () => {
-    setActiveMenu("whatWeDo")
+    setActiveMenu("what-we-do")
   }
 
   const handleMouseLeave = () => {
@@ -26,17 +26,19 @@ export function WhatWeDoSelector() {
     setActiveMenu(null)
   }
 
-  const menuItems = [
-    { key: "agile", href: "/what-we-do/agile" },
-    { key: "development", href: "/what-we-do/development" },
-    { key: "chatbot", href: "/what-we-do/chatbot" },
-    { key: "landing-pages", href: "/what-we-do/landing-pages" },
-    { key: "outsourcing", href: "/what-we-do/outsourcing" },
-    { key: "system-integration", href: "/what-we-do/system-integration" },
-    { key: "separator", href: "" },
-    { key: "solar-energy", href: "/engineering/solar-energy" },
-    { key: "railway", href: "/engineering/railway" },
-    { key: "road", href: "/engineering/road" },
+  const serviceItems = [
+    { key: "development", href: "/what-we-do/development", label: t("menu.development") },
+    { key: "agile", href: "/what-we-do/agile", label: t("menu.agile") },
+    { key: "outsourcing", href: "/what-we-do/outsourcing", label: t("menu.outsourcing") },
+    { key: "chatbot", href: "/what-we-do/chatbot", label: t("menu.chatbot") },
+    { key: "landing-pages", href: "/what-we-do/landing-pages", label: t("menu.landing-pages") },
+    { key: "system-integration", href: "/what-we-do/system-integration", label: t("menu.system-integration") },
+  ]
+
+  const engineeringItems = [
+    { key: "railway", href: "/engineering/railway", label: t("menu.railway") },
+    { key: "road", href: "/engineering/road", label: t("menu.road") },
+    { key: "solar-energy", href: "/engineering/solar-energy", label: t("menu.solar-energy") },
   ]
 
   return (
@@ -60,19 +62,28 @@ export function WhatWeDoSelector() {
           <Card className="bg-black/80 dark:bg-black/80 backdrop-blur-md border border-white/30 dark:border-gray-400/30">
             <CardContent className="p-1">
               <div className="grid gap-1">
-                {menuItems.map((item) =>
-                  item.key === "separator" ? (
-                    <div key="separator" className="h-px bg-white/20 my-1" />
-                  ) : (
-                    <button
-                      key={item.key}
-                      onClick={() => handleNavigation(item.href)}
-                      className="w-full text-left px-3 py-2 rounded-md hover:bg-viana-orange/50 hover:text-viana-white transition-all duration-75 text-sm font-medium drop-shadow-lg text-viana-white"
-                    >
-                      {t(`menu.${item.key}`)}
-                    </button>
-                  ),
-                )}
+                {serviceItems.map((item) => (
+                  <button
+                    key={item.key}
+                    onClick={() => handleNavigation(item.href)}
+                    className="w-full text-left px-3 py-2 rounded-md hover:bg-viana-orange/50 hover:text-viana-white transition-all duration-75 text-sm font-medium drop-shadow-lg text-viana-white"
+                  >
+                    {item.label}
+                  </button>
+                ))}
+
+                {/* Separador horizontal */}
+                <div className="border-t border-white/30 my-1" />
+
+                {engineeringItems.map((item) => (
+                  <button
+                    key={item.key}
+                    onClick={() => handleNavigation(item.href)}
+                    className="w-full text-left px-3 py-2 rounded-md hover:bg-viana-orange/50 hover:text-viana-white transition-all duration-75 text-sm font-medium drop-shadow-lg text-viana-white"
+                  >
+                    {item.label}
+                  </button>
+                ))}
               </div>
             </CardContent>
           </Card>

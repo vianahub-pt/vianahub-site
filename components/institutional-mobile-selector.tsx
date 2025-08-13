@@ -18,7 +18,6 @@ export function InstitutionalMobileSelector() {
   const menuItems = [
     { key: "about-us", href: "/about", label: t("nav.about") },
     { key: "careers", href: "/careers", label: t("nav.careers") },
-    { key: "contact-us", href: "/contact", label: t("nav.contact") },
   ]
 
   return (
