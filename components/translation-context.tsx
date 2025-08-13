@@ -60,6 +60,11 @@ const translations = {
     "services.automation.title": "Automação",
     "services.automation.description": "Automatizamos processos para aumentar a produtividade",
     "services.cta": "Saber Mais",
+    // Projects Section
+    "projects.title.part1": "Nossos",
+    "projects.title.part2": "Projetos",
+    "projects.subtitle": "Conheça alguns dos projetos que desenvolvemos para nossos clientes",
+    "projects.cta": "Ver Todos os Projetos",
     // Entertainment Section
     "entertainment.title": "Entretenimento",
     "entertainment.subtitle": "Divirta-se com os nossos jogos interactivos",
@@ -153,6 +158,11 @@ const translations = {
     "services.automation.title": "Automation",
     "services.automation.description": "We automate processes to increase productivity",
     "services.cta": "Learn More",
+    // Projects Section
+    "projects.title.part1": "Our",
+    "projects.title.part2": "Projects",
+    "projects.subtitle": "See some of the projects we've developed for our clients",
+    "projects.cta": "See All Projects",
     // Entertainment Section
     "entertainment.title": "Entertainment",
     "entertainment.subtitle": "Have fun with our interactive games",
@@ -246,6 +256,11 @@ const translations = {
     "services.automation.title": "Automatización",
     "services.automation.description": "Automatizamos procesos para aumentar la productividad",
     "services.cta": "Saber Más",
+    // Projects Section
+    "projects.title.part1": "Nuestros",
+    "projects.title.part2": "Proyectos",
+    "projects.subtitle": "Vea algunos de los proyectos que hemos desarrollado para nuestros clientes",
+    "projects.cta": "Ver Todos los Proyectos",
     // Entertainment Section
     "entertainment.title": "Entretenimiento",
     "entertainment.subtitle": "Diviértete con nuestros juegos interactivos",
@@ -339,6 +354,11 @@ const translations = {
     "services.automation.title": "Automatisation",
     "services.automation.description": "Nous automatisons les processus pour augmenter la productivité",
     "services.cta": "En Savoir Plus",
+    // Projects Section
+    "projects.title.part1": "Nos",
+    "projects.title.part2": "Projets",
+    "projects.subtitle": "Découvrez quelques-uns des projets que nous avons développés pour nos clients",
+    "projects.cta": "Voir Tous les Projets",
     // Entertainment Section
     "entertainment.title": "Divertissement",
     "entertainment.subtitle": "Amusez-vous avec nos jeux interactifs",
@@ -432,6 +452,11 @@ const translations = {
     "services.automation.title": "Automatisierung",
     "services.automation.description": "Wir automatisieren Prozesse zur Steigerung der Produktivität",
     "services.cta": "Mehr Erfahren",
+    // Projects Section
+    "projects.title.part1": "Unsere",
+    "projects.title.part2": "Projekte",
+    "projects.subtitle": "Sehen Sie einige der Projekte, die wir für unsere Kunden entwickelt haben",
+    "projects.cta": "Alle Projekte Anzeigen",
     // Entertainment Section
     "entertainment.title": "Unterhaltung",
     "entertainment.subtitle": "Haben Sie Spaß mit unseren interaktiven Spielen",
