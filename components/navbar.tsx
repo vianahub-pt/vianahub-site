@@ -4,16 +4,7 @@ import { useRouter } from "next/navigation"
 import Link from "next/link"
 import Image from "next/image"
 import { useTranslation } from "@/contexts/translation-context"
-import { LanguageSelector } from "@/components/language-selector"
 import { ThemeToggle } from "@/components/theme-toggle"
-import { WhatWeDoSelector } from "@/components/what-we-do-selector"
-import { WhatWeDoMobileSelector } from "@/components/what-we-do-mobile-selector"
-import { IndustrySelector } from "@/components/industry-selector"
-import { IndustryMobileSelector } from "@/components/industry-mobile-selector"
-import { SecuritySelector } from "@/components/security-selector"
-import { SecurityMobileSelector } from "@/components/security-mobile-selector"
-import { InstitutionalSelector } from "@/components/institutional-selector"
-import { InstitutionalMobileSelector } from "@/components/institutional-mobile-selector"
 import { MobileMenu } from "@/components/mobile-menu"
 
 export function Navbar() {
@@ -39,16 +30,7 @@ export function Navbar() {
           {/* Desktop Navigation */}
           <div className="hidden lg:block">
             <div className="ml-10 flex items-baseline space-x-4">
-              <WhatWeDoSelector />
-              <IndustrySelector />
-              <SecuritySelector />
-              <InstitutionalSelector />
-              <button
-                onClick={() => handleNavigation("/contact")}
-                className="flex items-center space-x-1 px-3 py-2 rounded-md transition-all duration-100 font-medium drop-shadow-lg cursor-pointer bg-transparent text-viana-white hover:bg-viana-yellow/20 hover:text-viana-white text-sm"
-              >
-                {t("nav.contact")}
-              </button>
+
             </div>
           </div>
 
@@ -58,32 +40,9 @@ export function Navbar() {
             <ThemeToggle />
           </div>
 
-          {/* Mobile menu button */}
-          <div className="lg:hidden">
-            <MobileMenu />
-          </div>
         </div>
       </div>
 
-      {/* Mobile Navigation */}
-      <div className="lg:hidden">
-        <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-black/90 dark:bg-black/90 backdrop-blur-md border-t border-white/30 dark:border-gray-400/30">
-          <WhatWeDoMobileSelector />
-          <IndustryMobileSelector />
-          <SecurityMobileSelector />
-          <InstitutionalMobileSelector />
-          <button
-            onClick={() => handleNavigation("/contact")}
-            className="flex items-center justify-between w-full text-viana-white hover:bg-viana-yellow/20 hover:text-viana-white px-3 py-2 rounded-md text-base font-medium transition-all duration-100 drop-shadow-lg"
-          >
-            <span>{t("nav.contact")}</span>
-          </button>
-          <div className="flex items-center space-x-4 px-3 py-2">
-            <LanguageSelector />
-            <ThemeToggle />
-          </div>
-        </div>
-      </div>
     </nav>
   )
 }
