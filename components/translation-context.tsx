@@ -22,6 +22,9 @@ const translations: Record<Language, Record<string, string>> = {
     "nav.chatbot": "Chatbot",
     "nav.landingPages": "Páginas de Destino",
     "nav.systemIntegration": "Integração de Sistemas",
+    "nav.railway": "Ferroviário",
+    "nav.road": "Rodoviário",
+    "nav.solarEnergy": "Energia Solar",
   },
   en: {
     "nav.contact": "Contact",
@@ -32,6 +35,9 @@ const translations: Record<Language, Record<string, string>> = {
     "nav.chatbot": "Chatbot",
     "nav.landingPages": "Landing Pages",
     "nav.systemIntegration": "System Integration",
+    "nav.railway": "Railway",
+    "nav.road": "Road",
+    "nav.solarEnergy": "Solar Energy",
   },
   es: {
     "nav.contact": "Contacto",
@@ -42,6 +48,9 @@ const translations: Record<Language, Record<string, string>> = {
     "nav.chatbot": "Chatbot",
     "nav.landingPages": "Landing Pages",
     "nav.systemIntegration": "Integración de Sistemas",
+    "nav.railway": "Ferroviario",
+    "nav.road": "Carreteras",
+    "nav.solarEnergy": "Energía Solar",
   },
   fr: {
     "nav.contact": "Contact",
@@ -52,6 +61,9 @@ const translations: Record<Language, Record<string, string>> = {
     "nav.chatbot": "Chatbot",
     "nav.landingPages": "Pages de Destination",
     "nav.systemIntegration": "Intégration de Systèmes",
+    "nav.railway": "Ferroviaire",
+    "nav.road": "Routier",
+    "nav.solarEnergy": "Énergie Solaire",
   },
   de: {
     "nav.contact": "Kontakt",
@@ -62,6 +74,9 @@ const translations: Record<Language, Record<string, string>> = {
     "nav.chatbot": "Chatbot",
     "nav.landingPages": "Landing Pages",
     "nav.systemIntegration": "Systemintegration",
+    "nav.railway": "Eisenbahn",
+    "nav.road": "Straße",
+    "nav.solarEnergy": "Solarenergie",
   },
 }
 

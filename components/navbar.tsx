@@ -1,7 +1,7 @@
 "use client"
 
-import { useState } from "react"
-import { useRouter } from "next/navigation"
+import { useState, useEffect } from "react"
+import Link from "next/link"
 import Image from "next/image"
 import { Menu, X } from "lucide-react"
 import { ThemeToggle } from "@/components/theme-toggle"
@@ -10,106 +10,115 @@ import { LanguageSelector } from "@/components/language-selector"
 import { useTranslation } from "@/components/translation-context"
 
 export function Navbar() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
-  const router = useRouter()
+  const [isScrolled, setIsScrolled] = useState(false)
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const { t } = useTranslation()
 
-  const handleNavigation = (path: string) => {
-    router.push(path)
-    setIsMenuOpen(false)
-  }
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50)
+    }
+
+    window.addEventListener("scroll", handleScroll)
+    return () => window.removeEventListener("scroll", handleScroll)
+  }, [])
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-black/80 dark:bg-black/80 backdrop-blur-md border-b border-white/30 dark:border-gray-400/30">
+    <nav
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        isScrolled ? "bg-black/80 backdrop-blur-md shadow-lg" : "bg-transparent"
+      }`}
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
+        <div className="flex justify-between items-center h-16">
           {/* Logo */}
-          <div className="flex-shrink-0">
-            <button onClick={() => handleNavigation("/")} className="flex items-center cursor-pointer">
-              <Image src="/logo.png" alt="VianaHub" width={40} height={40} className="h-10 w-auto" />
-            </button>
-          </div>
+          <Link href="/" className="flex items-center space-x-2">
+            <Image src="/logo.png" alt="VianaHub" width={40} height={40} className="rounded-lg" />
+            <span className="text-xl font-bold text-white">VianaHub</span>
+          </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden lg:block">
-            <div className="ml-10 flex items-baseline space-x-4">
-              <WhatWeDoDropdown />
-              <button
-                onClick={() => handleNavigation("/contact")}
-                className="flex items-center space-x-1 px-3 py-2 rounded-md transition-all duration-100 font-medium drop-shadow-lg cursor-pointer bg-transparent text-white hover:bg-yellow-500/20 hover:text-white text-sm"
-              >
-                {t("nav.contact")}
-              </button>
-            </div>
+          <div className="hidden md:flex items-center space-x-8">
+            <Link
+              href="/"
+              className="px-3 py-2 rounded-md transition-all duration-100 font-medium drop-shadow-lg cursor-pointer bg-transparent text-white hover:bg-yellow-500/20 hover:text-white text-sm"
+            >
+              Home
+            </Link>
+            <Link
+              href="/about"
+              className="px-3 py-2 rounded-md transition-all duration-100 font-medium drop-shadow-lg cursor-pointer bg-transparent text-white hover:bg-yellow-500/20 hover:text-white text-sm"
+            >
+              About
+            </Link>
+            <WhatWeDoDropdown />
+            <Link
+              href="/careers"
+              className="px-3 py-2 rounded-md transition-all duration-100 font-medium drop-shadow-lg cursor-pointer bg-transparent text-white hover:bg-yellow-500/20 hover:text-white text-sm"
+            >
+              Careers
+            </Link>
+            <Link
+              href="/contact"
+              className="px-3 py-2 rounded-md transition-all duration-100 font-medium drop-shadow-lg cursor-pointer bg-transparent text-white hover:bg-yellow-500/20 hover:text-white text-sm"
+            >
+              {t("nav.contact")}
+            </Link>
           </div>
 
-          {/* Right side - Language selector and theme toggle */}
-          <div className="hidden lg:flex items-center space-x-4">
+          {/* Theme Toggle and Language Selector */}
+          <div className="hidden md:flex items-center space-x-4">
             <LanguageSelector />
             <ThemeToggle />
           </div>
 
           {/* Mobile menu button */}
-          <div className="lg:hidden flex items-center space-x-2">
-            <ThemeToggle />
+          <div className="md:hidden">
             <button
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="inline-flex items-center justify-center p-2 rounded-md text-white hover:bg-yellow-500/20 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              className="text-white hover:text-yellow-500 transition-colors"
             >
-              {isMenuOpen ? <X className="block h-6 w-6" /> : <Menu className="block h-6 w-6" />}
+              {isMobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             </button>
           </div>
         </div>
 
-        {/* Mobile Menu */}
-        {isMenuOpen && (
-          <div className="lg:hidden">
-            <div className="px-2 pt-2 pb-3 space-y-1 bg-black/80 backdrop-blur-md rounded-md mt-2">
-              <div className="space-y-1">
-                <div className="px-3 py-2 text-white font-medium text-sm">{t("nav.whatWeDo")}</div>
-                <button
-                  onClick={() => handleNavigation("/what-we-do/development")}
-                  className="block px-6 py-2 text-sm text-white hover:bg-yellow-500/20 w-full text-left"
-                >
-                  {t("nav.development")}
-                </button>
-                <button
-                  onClick={() => handleNavigation("/what-we-do/agile")}
-                  className="block px-6 py-2 text-sm text-white hover:bg-yellow-500/20 w-full text-left"
-                >
-                  {t("nav.agile")}
-                </button>
-                <button
-                  onClick={() => handleNavigation("/what-we-do/outsourcing")}
-                  className="block px-6 py-2 text-sm text-white hover:bg-yellow-500/20 w-full text-left"
-                >
-                  {t("nav.outsourcing")}
-                </button>
-                <button
-                  onClick={() => handleNavigation("/what-we-do/chatbot")}
-                  className="block px-6 py-2 text-sm text-white hover:bg-yellow-500/20 w-full text-left"
-                >
-                  {t("nav.chatbot")}
-                </button>
-                <button
-                  onClick={() => handleNavigation("/what-we-do/landing-pages")}
-                  className="block px-6 py-2 text-sm text-white hover:bg-yellow-500/20 w-full text-left"
-                >
-                  {t("nav.landingPages")}
-                </button>
-                <button
-                  onClick={() => handleNavigation("/what-we-do/system-integration")}
-                  className="block px-6 py-2 text-sm text-white hover:bg-yellow-500/20 w-full text-left"
-                >
-                  {t("nav.systemIntegration")}
-                </button>
-              </div>
-              <button
-                onClick={() => handleNavigation("/contact")}
-                className="block px-3 py-2 text-white hover:bg-yellow-500/20 w-full text-left font-medium"
+        {/* Mobile Navigation */}
+        {isMobileMenuOpen && (
+          <div className="md:hidden bg-black/90 backdrop-blur-md rounded-lg mt-2 p-4">
+            <div className="flex flex-col space-y-4">
+              <Link
+                href="/"
+                className="text-white hover:text-yellow-500 transition-colors"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                Home
+              </Link>
+              <Link
+                href="/about"
+                className="text-white hover:text-yellow-500 transition-colors"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                About
+              </Link>
+              <Link
+                href="/careers"
+                className="text-white hover:text-yellow-500 transition-colors"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                Careers
+              </Link>
+              <Link
+                href="/contact"
+                className="text-white hover:text-yellow-500 transition-colors"
+                onClick={() => setIsMobileMenuOpen(false)}
               >
                 {t("nav.contact")}
-              </button>
+              </Link>
+              <div className="flex items-center justify-between pt-4 border-t border-gray-700">
+                <LanguageSelector />
+                <ThemeToggle />
+              </div>
             </div>
           </div>
         )}

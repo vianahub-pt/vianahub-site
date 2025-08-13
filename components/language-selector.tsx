@@ -1,21 +1,21 @@
 "use client"
 
 import { useState } from "react"
-import Image from "next/image"
 import { ChevronDown } from "lucide-react"
 import { useTranslation, type Language } from "@/components/translation-context"
+import Image from "next/image"
+
+const languages = [
+  { code: "pt" as Language, name: "Português", flag: "/flags/pt.svg" },
+  { code: "en" as Language, name: "English", flag: "/flags/us.svg" },
+  { code: "es" as Language, name: "Español", flag: "/flags/es.svg" },
+  { code: "fr" as Language, name: "Français", flag: "/flags/fr.svg" },
+  { code: "de" as Language, name: "Deutsch", flag: "/flags/de.svg" },
+]
 
 export function LanguageSelector() {
   const [isOpen, setIsOpen] = useState(false)
   const { language, setLanguage } = useTranslation()
-
-  const languages = [
-    { code: "pt" as Language, name: "Português", flag: "/flags/pt.svg" },
-    { code: "en" as Language, name: "English", flag: "/flags/us.svg" },
-    { code: "es" as Language, name: "Español", flag: "/flags/es.svg" },
-    { code: "fr" as Language, name: "Français", flag: "/flags/fr.svg" },
-    { code: "de" as Language, name: "Deutsch", flag: "/flags/de.svg" },
-  ]
 
   const currentLanguage = languages.find((lang) => lang.code === language) || languages[0]
 
@@ -32,7 +32,7 @@ export function LanguageSelector() {
           alt={currentLanguage.name}
           width={20}
           height={15}
-          className="w-5 h-4 object-cover rounded-sm"
+          className="rounded-sm"
         />
         <span>{currentLanguage.name}</span>
         <ChevronDown className={`h-4 w-4 transition-transform duration-200 ${isOpen ? "rotate-180" : ""}`} />
@@ -46,7 +46,7 @@ export function LanguageSelector() {
               onClick={() => handleLanguageChange(lang.code)}
               className={`flex items-center space-x-2 w-full text-left px-4 py-2 text-sm transition-colors duration-150 ${
                 language === lang.code
-                  ? "bg-yellow-500/20 text-white"
+                  ? "bg-yellow-500/30 text-white"
                   : "text-white hover:bg-yellow-500/20 hover:text-white"
               }`}
             >
@@ -55,7 +55,7 @@ export function LanguageSelector() {
                 alt={lang.name}
                 width={20}
                 height={15}
-                className="w-5 h-4 object-cover rounded-sm"
+                className="rounded-sm"
               />
               <span>{lang.name}</span>
             </button>

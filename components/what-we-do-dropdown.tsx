@@ -24,6 +24,12 @@ export function WhatWeDoDropdown() {
     { key: "nav.systemIntegration", path: "/what-we-do/system-integration" },
   ]
 
+  const engineeringItems = [
+    { key: "nav.railway", path: "/engineering/railway" },
+    { key: "nav.road", path: "/engineering/road" },
+    { key: "nav.solarEnergy", path: "/engineering/solar-energy" },
+  ]
+
   return (
     <div className="relative" onMouseEnter={() => setIsOpen(true)} onMouseLeave={() => setIsOpen(false)}>
       <button className="flex items-center space-x-1 px-3 py-2 rounded-md transition-all duration-100 font-medium drop-shadow-lg cursor-pointer bg-transparent text-white hover:bg-yellow-500/20 hover:text-white text-sm">
@@ -34,6 +40,18 @@ export function WhatWeDoDropdown() {
       {isOpen && (
         <div className="absolute top-full left-0 bg-black/80 backdrop-blur-md rounded-md shadow-lg py-2 min-w-[200px] z-50">
           {menuItems.map((item) => (
+            <button
+              key={item.key}
+              onClick={() => handleNavigation(item.path)}
+              className="block w-full text-left px-4 py-2 text-sm text-white hover:bg-yellow-500/20 hover:text-white transition-colors duration-150"
+            >
+              {t(item.key)}
+            </button>
+          ))}
+
+          <div className="border-t border-gray-600 my-2"></div>
+
+          {engineeringItems.map((item) => (
             <button
               key={item.key}
               onClick={() => handleNavigation(item.path)}
