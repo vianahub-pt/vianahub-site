@@ -5,7 +5,7 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { ChevronLeft, ChevronRight, ExternalLink } from "lucide-react"
 import Image from "next/image"
-import { useTranslation } from "@/contexts/translation-context"
+import { useTranslation } from "@/components/translation-context"
 
 const projects = [
   {
