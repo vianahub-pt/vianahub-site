@@ -12,7 +12,7 @@ interface TranslationContextType {
 }
 
 // Traduções vazias - serão preenchidas gradualmente
-const translations: Record<Language, Record<string, any>> = {
+const translations: Record<Language, Record<string, string>> = {
   pt: {
     "nav.contact": "Contacto",
   },
@@ -50,21 +50,21 @@ export function TranslationProvider({ children }: { children: ReactNode }) {
     localStorage.setItem("language", language)
   }, [language])
 
-  // Função de tradução
+  // Função de tradução simplificada
   const t = (key: string): string => {
-    const keys = key.split(".")
-    let value: any = translations[language]
-
-    for (const k of keys) {
-      if (value && typeof value === "object" && k in value) {
-        value = value[k]
-      } else {
-        // Fallback: retorna a chave se não encontrar tradução
-        return key
-      }
+    const translation = translations[language]?.[key]
+    if (translation) {
+      return translation
     }
 
-    return typeof value === "string" ? value : key
+    // Fallback para português se não encontrar no idioma atual
+    const fallback = translations.pt?.[key]
+    if (fallback) {
+      return fallback
+    }
+
+    // Se não encontrar em lugar nenhum, retorna a chave
+    return key
   }
 
   return <TranslationContext.Provider value={{ language, setLanguage, t }}>{children}</TranslationContext.Provider>
