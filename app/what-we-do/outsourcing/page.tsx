@@ -5,7 +5,6 @@ import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
 import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
-import { TranslationProvider, useTranslation } from "@/contexts/translation-context"
 import { Users, Globe, DollarSign, Clock, Shield, Award, TrendingUp, CheckCircle } from "lucide-react"
 
 function OutsourcingPageContent() {
