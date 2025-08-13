@@ -1,10 +1,10 @@
 "use client"
 
-import { useRouter } from "next/navigation"
 import Link from "next/link"
 import Image from "next/image"
-import { Facebook, Twitter, Linkedin, Instagram, Mail, Phone, MapPin } from "lucide-react"
+import { useRouter } from "next/navigation"
 import { useTranslation } from "@/contexts/translation-context"
+import { Facebook, Twitter, Linkedin, Instagram, Mail, Phone, MapPin } from "lucide-react"
 
 export function Footer() {
   const router = useRouter()
@@ -17,28 +17,28 @@ export function Footer() {
 
   return (
     <footer className="bg-gray-900 text-white">
-      <div className="container mx-auto px-4 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Company Info */}
           <div className="space-y-4">
-            <div className="flex items-center space-x-2">
-              <Image src="/logo.png" alt="VianaHub" width={32} height={32} />
-              <span className="text-xl font-bold">VianaHub</span>
-            </div>
+            <Link href="/" className="flex items-center">
+              <Image src="/logo.png" alt="VianaHub" width={40} height={40} className="h-10 w-auto" />
+              <span className="ml-2 text-xl font-bold">VianaHub</span>
+            </Link>
             <p className="text-gray-300 text-sm">{t("footer.description")}</p>
             <div className="flex space-x-4">
-              <Link href="#" className="text-gray-400 hover:text-white transition-colors">
+              <a href="#" className="text-gray-400 hover:text-white transition-colors">
                 <Facebook className="h-5 w-5" />
-              </Link>
-              <Link href="#" className="text-gray-400 hover:text-white transition-colors">
+              </a>
+              <a href="#" className="text-gray-400 hover:text-white transition-colors">
                 <Twitter className="h-5 w-5" />
-              </Link>
-              <Link href="#" className="text-gray-400 hover:text-white transition-colors">
+              </a>
+              <a href="#" className="text-gray-400 hover:text-white transition-colors">
                 <Linkedin className="h-5 w-5" />
-              </Link>
-              <Link href="#" className="text-gray-400 hover:text-white transition-colors">
+              </a>
+              <a href="#" className="text-gray-400 hover:text-white transition-colors">
                 <Instagram className="h-5 w-5" />
-              </Link>
+              </a>
             </div>
           </div>
 
@@ -51,15 +51,7 @@ export function Footer() {
                   onClick={() => handleNavigation("/what-we-do/development")}
                   className="text-gray-300 hover:text-white transition-colors"
                 >
-                  {t("footer.webDevelopment")}
-                </button>
-              </li>
-              <li>
-                <button
-                  onClick={() => handleNavigation("/what-we-do/system-integration")}
-                  className="text-gray-300 hover:text-white transition-colors"
-                >
-                  {t("footer.systemIntegration")}
+                  {t("menu.development")}
                 </button>
               </li>
               <li>
@@ -67,7 +59,15 @@ export function Footer() {
                   onClick={() => handleNavigation("/what-we-do/chatbot")}
                   className="text-gray-300 hover:text-white transition-colors"
                 >
-                  {t("footer.chatbot")}
+                  {t("menu.chatbot")}
+                </button>
+              </li>
+              <li>
+                <button
+                  onClick={() => handleNavigation("/what-we-do/agile")}
+                  className="text-gray-300 hover:text-white transition-colors"
+                >
+                  {t("menu.agile")}
                 </button>
               </li>
               <li>
@@ -75,7 +75,7 @@ export function Footer() {
                   onClick={() => handleNavigation("/what-we-do/outsourcing")}
                   className="text-gray-300 hover:text-white transition-colors"
                 >
-                  {t("footer.outsourcing")}
+                  {t("menu.outsourcing")}
                 </button>
               </li>
             </ul>
@@ -90,7 +90,7 @@ export function Footer() {
                   onClick={() => handleNavigation("/about")}
                   className="text-gray-300 hover:text-white transition-colors"
                 >
-                  {t("footer.about")}
+                  {t("nav.about")}
                 </button>
               </li>
               <li>
@@ -98,7 +98,7 @@ export function Footer() {
                   onClick={() => handleNavigation("/careers")}
                   className="text-gray-300 hover:text-white transition-colors"
                 >
-                  {t("footer.careers")}
+                  {t("nav.careers")}
                 </button>
               </li>
               <li>
@@ -106,7 +106,7 @@ export function Footer() {
                   onClick={() => handleNavigation("/contact")}
                   className="text-gray-300 hover:text-white transition-colors"
                 >
-                  {t("footer.contact")}
+                  {t("nav.contact")}
                 </button>
               </li>
             </ul>
@@ -114,26 +114,26 @@ export function Footer() {
 
           {/* Contact */}
           <div className="space-y-4">
-            <h3 className="text-lg font-semibold">{t("footer.contactInfo")}</h3>
-            <div className="space-y-2 text-sm">
-              <div className="flex items-center space-x-2">
+            <h3 className="text-lg font-semibold">{t("footer.contact")}</h3>
+            <ul className="space-y-2 text-sm">
+              <li className="flex items-center space-x-2">
                 <Mail className="h-4 w-4" />
-                <span className="text-gray-300">contato@vianahub.com</span>
-              </div>
-              <div className="flex items-center space-x-2">
+                <span className="text-gray-300">info@vianahub.com</span>
+              </li>
+              <li className="flex items-center space-x-2">
                 <Phone className="h-4 w-4" />
-                <span className="text-gray-300">+55 (11) 9999-9999</span>
-              </div>
-              <div className="flex items-center space-x-2">
+                <span className="text-gray-300">+351 123 456 789</span>
+              </li>
+              <li className="flex items-center space-x-2">
                 <MapPin className="h-4 w-4" />
-                <span className="text-gray-300">São Paulo, Brasil</span>
-              </div>
-            </div>
+                <span className="text-gray-300">Lisboa, Portugal</span>
+              </li>
+            </ul>
           </div>
         </div>
 
-        <div className="border-t border-gray-800 mt-8 pt-8 text-center text-sm text-gray-400">
-          <p>&copy; 2024 VianaHub. {t("footer.allRightsReserved")}</p>
+        <div className="border-t border-gray-800 mt-8 pt-8 text-center">
+          <p className="text-gray-400 text-sm">© 2024 VianaHub. {t("footer.rights")}</p>
         </div>
       </div>
     </footer>

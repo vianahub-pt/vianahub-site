@@ -1,56 +1,52 @@
 "use client"
-import { useRouter } from "next/navigation"
+
+import { useState } from "react"
+import { ChevronDown } from "lucide-react"
 import { useTranslation } from "@/contexts/translation-context"
-import { Button } from "@/components/ui/button"
+import { useRouter } from "next/navigation"
 
 export function IndustryMobileSelector() {
-  const router = useRouter()
   const { t } = useTranslation()
+  const router = useRouter()
+  const [isOpen, setIsOpen] = useState(false)
 
   const handleNavigation = (href: string) => {
     router.push(href)
     window.scrollTo(0, 0)
   }
 
-  const industries = [
-    {
-      title: t("industries.healthcare"),
-      href: "/industry/healthcare",
-    },
-    {
-      title: t("industries.education"),
-      href: "/industry/education",
-    },
-    {
-      title: t("industries.financial"),
-      href: "/industry/financial",
-    },
-    {
-      title: t("industries.retail"),
-      href: "/industry/retail",
-    },
-    {
-      title: t("industries.manufacturing"),
-      href: "/industry/manufacturing",
-    },
-    {
-      title: t("industries.government"),
-      href: "/industry/government",
-    },
+  const menuItems = [
+    { key: "education", href: "/industry/education" },
+    { key: "government", href: "/industry/government" },
+    { key: "manufacturing", href: "/industry/manufacturing" },
+    { key: "financial", href: "/industry/financial" },
+    { key: "retail", href: "/industry/retail" },
+    { key: "healthcare", href: "/industry/healthcare" },
   ]
 
   return (
-    <div className="space-y-2">
-      {industries.map((industry, index) => (
-        <Button
-          key={index}
-          variant="ghost"
-          className="w-full justify-start"
-          onClick={() => handleNavigation(industry.href)}
-        >
-          {industry.title}
-        </Button>
-      ))}
+    <div className="space-y-1">
+      <button
+        onClick={() => setIsOpen(!isOpen)}
+        className="flex items-center justify-between w-full text-viana-white hover:bg-viana-yellow/20 hover:text-viana-white px-3 py-2 rounded-md text-base font-medium transition-all duration-100 drop-shadow-lg"
+      >
+        <span>{t("nav.industry")}</span>
+        <ChevronDown className={`h-4 w-4 transition-transform duration-100 ${isOpen ? "rotate-180" : ""}`} />
+      </button>
+
+      {isOpen && (
+        <div className="pl-4 space-y-1">
+          {menuItems.map((item) => (
+            <button
+              key={item.key}
+              onClick={() => handleNavigation(item.href)}
+              className="block w-full text-left text-viana-white hover:bg-viana-orange/50 hover:text-viana-white px-3 py-2 rounded-md text-sm font-medium transition-all duration-75 drop-shadow-lg"
+            >
+              {t(`menu.${item.key}`)}
+            </button>
+          ))}
+        </div>
+      )}
     </div>
   )
 }

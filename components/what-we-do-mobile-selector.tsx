@@ -1,56 +1,52 @@
 "use client"
-import { useRouter } from "next/navigation"
+
+import { useState } from "react"
+import { ChevronDown } from "lucide-react"
 import { useTranslation } from "@/contexts/translation-context"
-import { Button } from "@/components/ui/button"
+import { useRouter } from "next/navigation"
 
 export function WhatWeDoMobileSelector() {
-  const router = useRouter()
   const { t } = useTranslation()
+  const router = useRouter()
+  const [isOpen, setIsOpen] = useState(false)
 
   const handleNavigation = (href: string) => {
     router.push(href)
     window.scrollTo(0, 0)
   }
 
-  const services = [
-    {
-      title: t("services.development"),
-      href: "/what-we-do/development",
-    },
-    {
-      title: t("services.chatbot"),
-      href: "/what-we-do/chatbot",
-    },
-    {
-      title: t("services.outsourcing"),
-      href: "/what-we-do/outsourcing",
-    },
-    {
-      title: t("services.agile"),
-      href: "/what-we-do/agile",
-    },
-    {
-      title: t("services.landingPages"),
-      href: "/what-we-do/landing-pages",
-    },
-    {
-      title: t("services.systemIntegration"),
-      href: "/what-we-do/system-integration",
-    },
+  const menuItems = [
+    { key: "agile", href: "/what-we-do/agile" },
+    { key: "development", href: "/what-we-do/development" },
+    { key: "chatbot", href: "/what-we-do/chatbot" },
+    { key: "landing-pages", href: "/what-we-do/landing-pages" },
+    { key: "outsourcing", href: "/what-we-do/outsourcing" },
+    { key: "system-integration", href: "/what-we-do/system-integration" },
   ]
 
   return (
-    <div className="space-y-2">
-      {services.map((service, index) => (
-        <Button
-          key={index}
-          variant="ghost"
-          className="w-full justify-start"
-          onClick={() => handleNavigation(service.href)}
-        >
-          {service.title}
-        </Button>
-      ))}
+    <div className="space-y-1">
+      <button
+        onClick={() => setIsOpen(!isOpen)}
+        className="flex items-center justify-between w-full text-viana-white hover:bg-viana-yellow/20 hover:text-viana-white px-3 py-2 rounded-md text-base font-medium transition-all duration-100 drop-shadow-lg"
+      >
+        <span>{t("nav.whatWeDo")}</span>
+        <ChevronDown className={`h-4 w-4 transition-transform duration-100 ${isOpen ? "rotate-180" : ""}`} />
+      </button>
+
+      {isOpen && (
+        <div className="pl-4 space-y-1">
+          {menuItems.map((item) => (
+            <button
+              key={item.key}
+              onClick={() => handleNavigation(item.href)}
+              className="block w-full text-left text-viana-white hover:bg-viana-orange/50 hover:text-viana-white px-3 py-2 rounded-md text-sm font-medium transition-all duration-75 drop-shadow-lg"
+            >
+              {t(`menu.${item.key}`)}
+            </button>
+          ))}
+        </div>
+      )}
     </div>
   )
 }

@@ -1,61 +1,72 @@
 "use client"
-import { useRouter } from "next/navigation"
-import Image from "next/image"
+
+import { ChevronDown } from "lucide-react"
+import { Card, CardContent } from "@/components/ui/card"
 import { useTranslation } from "@/contexts/translation-context"
+import { useMenu } from "./menu-context"
+import { useRouter } from "next/navigation"
 
 export function SecuritySelector() {
-  const router = useRouter()
   const { t } = useTranslation()
+  const { activeMenu, setActiveMenu } = useMenu()
+  const router = useRouter()
+  const isOpen = activeMenu === "security"
+
+  const handleMouseEnter = () => {
+    setActiveMenu("security")
+  }
+
+  const handleMouseLeave = () => {
+    setActiveMenu(null)
+  }
 
   const handleNavigation = (href: string) => {
     router.push(href)
     window.scrollTo(0, 0)
+    setActiveMenu(null)
   }
 
-  const securityServices = [
-    {
-      title: t("security.cyberSecurity"),
-      description: t("security.cyberSecurityDesc"),
-      href: "/security/cyber-security",
-      image: "/pages/cybersecurity.jpg",
-    },
-    {
-      title: t("security.access"),
-      description: t("security.accessDesc"),
-      href: "/security/access",
-      image: "/pages/access.jpg",
-    },
-    {
-      title: t("security.backups"),
-      description: t("security.backupsDesc"),
-      href: "/security/backups",
-      image: "/pages/backups.jpg",
-    },
+  const menuItems = [
+    { key: "cybersecurity", href: "/security/cyber-security" },
+    { key: "backups", href: "/security/backups" },
+    { key: "access", href: "/security/access" },
   ]
 
   return (
-    <div className="grid grid-cols-1 gap-4 p-6 w-[400px]">
-      {securityServices.map((service, index) => (
+    <div className="relative" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+      <div className="flex items-center space-x-1 px-3 py-2 rounded-md transition-all duration-100 font-medium drop-shadow-lg cursor-pointer bg-transparent text-viana-white hover:bg-viana-yellow/20 hover:text-viana-white">
+        <span className="text-sm">{t("nav.security")}</span>
+        <ChevronDown className={`h-4 w-4 transition-transform duration-100 ${isOpen ? "rotate-180" : ""}`} />
+      </div>
+
+      {isOpen && (
         <div
-          key={index}
-          className="group cursor-pointer rounded-lg border p-4 hover:bg-accent transition-colors"
-          onClick={() => handleNavigation(service.href)}
+          className="absolute z-[9999] w-64 top-full animate-in fade-in-0 slide-in-from-top-1 duration-100"
+          style={{
+            left: "50%",
+            transform: "translateX(-50%)",
+            transformOrigin: "top center",
+          }}
         >
-          <div className="flex items-center space-x-3">
-            <Image
-              src={service.image || "/placeholder.svg"}
-              alt={service.title}
-              width={40}
-              height={40}
-              className="rounded-md"
-            />
-            <div>
-              <h3 className="font-medium group-hover:text-accent-foreground">{service.title}</h3>
-              <p className="text-sm text-muted-foreground">{service.description}</p>
-            </div>
-          </div>
+          <div className="h-1 w-full" />
+
+          <Card className="bg-black/80 dark:bg-black/80 backdrop-blur-md border border-white/30 dark:border-gray-400/30">
+            <CardContent className="p-1">
+              <div className="grid gap-1">
+                {menuItems.map((item) => (
+                  <button
+                    key={item.key}
+                    onClick={() => handleNavigation(item.href)}
+                    className="w-full text-left px-3 py-2 rounded-md hover:bg-viana-orange/50 hover:text-viana-white transition-all duration-75 text-sm font-medium drop-shadow-lg text-viana-white"
+                  >
+                    {t(`menu.${item.key}`)}
+                  </button>
+                ))}
+              </div>
+            </CardContent>
+          </Card>
         </div>
-      ))}
+      )}
     </div>
   )
 }

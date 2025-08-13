@@ -1,132 +1,116 @@
 "use client"
-
-import { useState } from "react"
 import { useRouter } from "next/navigation"
 import Link from "next/link"
 import Image from "next/image"
-import { Menu, X } from "lucide-react"
-import { Button } from "@/components/ui/button"
 import { useTranslation } from "@/contexts/translation-context"
 import { LanguageSelector } from "@/components/language-selector"
 import { ThemeToggle } from "@/components/theme-toggle"
-import {
-  NavigationMenu,
-  NavigationMenuContent,
-  NavigationMenuItem,
-  NavigationMenuList,
-  NavigationMenuTrigger,
-} from "@/components/ui/navigation-menu"
 import { WhatWeDoSelector } from "@/components/what-we-do-selector"
+import { WhatWeDoMobileSelector } from "@/components/what-we-do-mobile-selector"
 import { IndustrySelector } from "@/components/industry-selector"
+import { IndustryMobileSelector } from "@/components/industry-mobile-selector"
 import { SecuritySelector } from "@/components/security-selector"
+import { SecurityMobileSelector } from "@/components/security-mobile-selector"
 import { EngineeringSelector } from "@/components/engineering-selector"
+import { EngineeringMobileSelector } from "@/components/engineering-mobile-selector"
 import { InstitutionalSelector } from "@/components/institutional-selector"
+import { InstitutionalMobileSelector } from "@/components/institutional-mobile-selector"
+import { MobileMenu } from "@/components/mobile-menu"
 
 export function Navbar() {
   const router = useRouter()
   const { t } = useTranslation()
-  const [isOpen, setIsOpen] = useState(false)
 
   const handleNavigation = (href: string) => {
     router.push(href)
     window.scrollTo(0, 0)
-    setIsOpen(false)
   }
 
   return (
-    <nav className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="container flex h-16 items-center justify-between px-4">
-        <div className="flex items-center space-x-4">
-          <Link href="/" className="flex items-center space-x-2">
-            <Image src="/logo.png" alt="VianaHub" width={40} height={40} className="h-8 w-8" />
-            <span className="font-bold text-xl">VianaHub</span>
-          </Link>
-        </div>
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-black/80 dark:bg-black/80 backdrop-blur-md border-b border-white/30 dark:border-gray-400/30">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between h-16">
+          {/* Logo */}
+          <div className="flex-shrink-0">
+            <Link href="/" className="flex items-center">
+              <Image src="/logo.png" alt="VianaHub" width={40} height={40} className="h-10 w-auto" />
+            </Link>
+          </div>
 
-        {/* Desktop Navigation */}
-        <div className="hidden md:flex items-center space-x-6">
-          <NavigationMenu>
-            <NavigationMenuList>
-              <NavigationMenuItem>
-                <NavigationMenuTrigger>{t("navbar.whatWeDo")}</NavigationMenuTrigger>
-                <NavigationMenuContent>
-                  <WhatWeDoSelector />
-                </NavigationMenuContent>
-              </NavigationMenuItem>
+          {/* Desktop Navigation */}
+          <div className="hidden lg:block">
+            <div className="ml-10 flex items-baseline space-x-4">
+              <WhatWeDoSelector />
+              <EngineeringSelector />
+              <IndustrySelector />
+              <SecuritySelector />
+              <InstitutionalSelector />
+              <button
+                onClick={() => handleNavigation("/about")}
+                className="text-viana-white hover:bg-viana-yellow/20 hover:text-viana-white px-3 py-2 rounded-md text-sm font-medium transition-all duration-100 drop-shadow-lg"
+              >
+                {t("nav.about")}
+              </button>
+              <button
+                onClick={() => handleNavigation("/careers")}
+                className="text-viana-white hover:bg-viana-yellow/20 hover:text-viana-white px-3 py-2 rounded-md text-sm font-medium transition-all duration-100 drop-shadow-lg"
+              >
+                {t("nav.careers")}
+              </button>
+              <button
+                onClick={() => handleNavigation("/contact")}
+                className="text-viana-white hover:bg-viana-yellow/20 hover:text-viana-white px-3 py-2 rounded-md text-sm font-medium transition-all duration-100 drop-shadow-lg"
+              >
+                {t("nav.contact")}
+              </button>
+            </div>
+          </div>
 
-              <NavigationMenuItem>
-                <NavigationMenuTrigger>{t("navbar.industries")}</NavigationMenuTrigger>
-                <NavigationMenuContent>
-                  <IndustrySelector />
-                </NavigationMenuContent>
-              </NavigationMenuItem>
-
-              <NavigationMenuItem>
-                <NavigationMenuTrigger>{t("navbar.security")}</NavigationMenuTrigger>
-                <NavigationMenuContent>
-                  <SecuritySelector />
-                </NavigationMenuContent>
-              </NavigationMenuItem>
-
-              <NavigationMenuItem>
-                <NavigationMenuTrigger>{t("navbar.engineering")}</NavigationMenuTrigger>
-                <NavigationMenuContent>
-                  <EngineeringSelector />
-                </NavigationMenuContent>
-              </NavigationMenuItem>
-
-              <NavigationMenuItem>
-                <NavigationMenuTrigger>{t("navbar.institutional")}</NavigationMenuTrigger>
-                <NavigationMenuContent>
-                  <InstitutionalSelector />
-                </NavigationMenuContent>
-              </NavigationMenuItem>
-            </NavigationMenuList>
-          </NavigationMenu>
-
-          <Button variant="ghost" onClick={() => handleNavigation("/about")}>
-            {t("navbar.about")}
-          </Button>
-
-          <Button variant="ghost" onClick={() => handleNavigation("/careers")}>
-            {t("navbar.careers")}
-          </Button>
-
-          <Button variant="ghost" onClick={() => handleNavigation("/contact")}>
-            {t("navbar.contact")}
-          </Button>
-        </div>
-
-        {/* Right side controls */}
-        <div className="flex items-center space-x-2">
-          <LanguageSelector />
-          <ThemeToggle />
+          {/* Right side - Language selector and theme toggle */}
+          <div className="hidden lg:flex items-center space-x-4">
+            <LanguageSelector />
+            <ThemeToggle />
+          </div>
 
           {/* Mobile menu button */}
-          <Button variant="ghost" size="icon" className="md:hidden" onClick={() => setIsOpen(!isOpen)}>
-            {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-          </Button>
+          <div className="lg:hidden">
+            <MobileMenu />
+          </div>
         </div>
       </div>
 
       {/* Mobile Navigation */}
-      {isOpen && (
-        <div className="md:hidden border-t bg-background">
-          <div className="container px-4 py-4 space-y-4">
-            <Button variant="ghost" className="w-full justify-start" onClick={() => handleNavigation("/about")}>
-              {t("navbar.about")}
-            </Button>
-
-            <Button variant="ghost" className="w-full justify-start" onClick={() => handleNavigation("/careers")}>
-              {t("navbar.careers")}
-            </Button>
-
-            <Button variant="ghost" className="w-full justify-start" onClick={() => handleNavigation("/contact")}>
-              {t("navbar.contact")}
-            </Button>
+      <div className="lg:hidden">
+        <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-black/90 dark:bg-black/90 backdrop-blur-md border-t border-white/30 dark:border-gray-400/30">
+          <WhatWeDoMobileSelector />
+          <EngineeringMobileSelector />
+          <IndustryMobileSelector />
+          <SecurityMobileSelector />
+          <InstitutionalMobileSelector />
+          <button
+            onClick={() => handleNavigation("/about")}
+            className="text-viana-white hover:bg-viana-yellow/20 hover:text-viana-white block px-3 py-2 rounded-md text-base font-medium w-full text-left transition-all duration-100 drop-shadow-lg"
+          >
+            {t("nav.about")}
+          </button>
+          <button
+            onClick={() => handleNavigation("/careers")}
+            className="text-viana-white hover:bg-viana-yellow/20 hover:text-viana-white block px-3 py-2 rounded-md text-base font-medium w-full text-left transition-all duration-100 drop-shadow-lg"
+          >
+            {t("nav.careers")}
+          </button>
+          <button
+            onClick={() => handleNavigation("/contact")}
+            className="text-viana-white hover:bg-viana-yellow/20 hover:text-viana-white block px-3 py-2 rounded-md text-base font-medium w-full text-left transition-all duration-100 drop-shadow-lg"
+          >
+            {t("nav.contact")}
+          </button>
+          <div className="flex items-center space-x-4 px-3 py-2">
+            <LanguageSelector />
+            <ThemeToggle />
           </div>
         </div>
-      )}
+      </div>
     </nav>
   )
 }

@@ -1,44 +1,49 @@
 "use client"
-import { useRouter } from "next/navigation"
+
+import { useState } from "react"
+import { ChevronDown } from "lucide-react"
 import { useTranslation } from "@/contexts/translation-context"
-import { Button } from "@/components/ui/button"
+import { useRouter } from "next/navigation"
 
 export function SecurityMobileSelector() {
-  const router = useRouter()
   const { t } = useTranslation()
+  const router = useRouter()
+  const [isOpen, setIsOpen] = useState(false)
 
   const handleNavigation = (href: string) => {
     router.push(href)
     window.scrollTo(0, 0)
   }
 
-  const securityServices = [
-    {
-      title: t("security.cyberSecurity"),
-      href: "/security/cyber-security",
-    },
-    {
-      title: t("security.access"),
-      href: "/security/access",
-    },
-    {
-      title: t("security.backups"),
-      href: "/security/backups",
-    },
+  const menuItems = [
+    { key: "cybersecurity", href: "/security/cyber-security" },
+    { key: "backups", href: "/security/backups" },
+    { key: "access", href: "/security/access" },
   ]
 
   return (
-    <div className="space-y-2">
-      {securityServices.map((service, index) => (
-        <Button
-          key={index}
-          variant="ghost"
-          className="w-full justify-start"
-          onClick={() => handleNavigation(service.href)}
-        >
-          {service.title}
-        </Button>
-      ))}
+    <div className="space-y-1">
+      <button
+        onClick={() => setIsOpen(!isOpen)}
+        className="flex items-center justify-between w-full text-viana-white hover:bg-viana-yellow/20 hover:text-viana-white px-3 py-2 rounded-md text-base font-medium transition-all duration-100 drop-shadow-lg"
+      >
+        <span>{t("nav.security")}</span>
+        <ChevronDown className={`h-4 w-4 transition-transform duration-100 ${isOpen ? "rotate-180" : ""}`} />
+      </button>
+
+      {isOpen && (
+        <div className="pl-4 space-y-1">
+          {menuItems.map((item) => (
+            <button
+              key={item.key}
+              onClick={() => handleNavigation(item.href)}
+              className="block w-full text-left text-viana-white hover:bg-viana-orange/50 hover:text-viana-white px-3 py-2 rounded-md text-sm font-medium transition-all duration-75 drop-shadow-lg"
+            >
+              {t(`menu.${item.key}`)}
+            </button>
+          ))}
+        </div>
+      )}
     </div>
   )
 }
