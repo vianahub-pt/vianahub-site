@@ -13,7 +13,7 @@ export default function ClientLayout({
   children: React.ReactNode
 }) {
   return (
-    <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
+    <ThemeProvider attribute="class" defaultTheme="dark" enableSystem disableTransitionOnChange>
       <TranslationProvider>
         <div className="min-h-screen flex flex-col">
           <Navbar />
