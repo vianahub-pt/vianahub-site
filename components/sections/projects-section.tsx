@@ -218,7 +218,7 @@ export function ProjectsSection() {
             {projects.map((_, index) => (
               <button
                 key={index}
-                className={`w-3 h-3 rounded-full transition-colors ${
+                className={`w-3 h-3 transition-colors ${
                   index === currentIndex ? "bg-viana-orange" : "bg-viana-gray/30"
                 }`}
                 onClick={() => goToProject(index)}
