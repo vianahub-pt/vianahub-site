@@ -1,10 +1,5 @@
-import { ContactPageClient } from "./contact-page-client"
+import ContactPageClient from "./contact-page-client"
 
-// Define the ContactPage component
-const ContactPage = () => {
-  // Render the ContactPageClient component
+export default function ContactPage() {
   return <ContactPageClient />
 }
-
-// Export the ContactPage component as the default export
-export default ContactPage
