@@ -71,24 +71,6 @@ export function HeroSection() {
               </p>
             </div>
 
-            <div className="flex flex-col sm:flex-row gap-6 justify-center">
-              <Button
-                size="lg"
-                className="bg-viana-white text-viana-orange hover:bg-viana-yellow hover:text-viana-orange text-lg px-8 py-4 shadow-xl"
-              >
-                {t("hero.cta.start")}
-                <ArrowRight className="ml-2 h-6 w-6" />
-              </Button>
-              <Button
-                size="lg"
-                variant="outline"
-                className="border-2 border-viana-white text-viana-white hover:bg-viana-white hover:text-viana-orange text-lg px-8 py-4 bg-black/20 backdrop-blur-sm shadow-xl"
-              >
-                <Play className="mr-2 h-6 w-6" />
-                {t("hero.cta.demo")}
-              </Button>
-            </div>
-
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 pt-12 max-w-2xl mx-auto">
               <div className="text-center bg-black/30 backdrop-blur-sm rounded-lg p-6 shadow-xl">
                 <Counter
