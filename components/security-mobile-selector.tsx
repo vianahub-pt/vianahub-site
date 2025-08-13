@@ -1,23 +1,44 @@
 "use client"
-
-import type React from "react"
 import { useRouter } from "next/navigation"
+import { useTranslation } from "@/contexts/translation-context"
+import { Button } from "@/components/ui/button"
 
-const SecurityMobileSelector: React.FC = () => {
+export function SecurityMobileSelector() {
   const router = useRouter()
+  const { t } = useTranslation()
 
   const handleNavigation = (href: string) => {
     router.push(href)
     window.scrollTo(0, 0)
   }
 
+  const securityServices = [
+    {
+      title: t("security.cyberSecurity"),
+      href: "/security/cyber-security",
+    },
+    {
+      title: t("security.access"),
+      href: "/security/access",
+    },
+    {
+      title: t("security.backups"),
+      href: "/security/backups",
+    },
+  ]
+
   return (
-    <div>
-      <button onClick={() => handleNavigation("/security/mobile-selector/option1")}>Option 1</button>
-      <button onClick={() => handleNavigation("/security/mobile-selector/option2")}>Option 2</button>
-      {/* rest of code here */}
+    <div className="space-y-2">
+      {securityServices.map((service, index) => (
+        <Button
+          key={index}
+          variant="ghost"
+          className="w-full justify-start"
+          onClick={() => handleNavigation(service.href)}
+        >
+          {service.title}
+        </Button>
+      ))}
     </div>
   )
 }
-
-export default SecurityMobileSelector

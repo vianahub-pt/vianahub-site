@@ -1,22 +1,23 @@
-import AboutPageClient from "./AboutPageClient"
+import type { Metadata } from "next"
+import { TranslationProvider } from "@/contexts/translation-context"
+import { Navbar } from "@/components/navbar"
+import { Footer } from "@/components/footer"
+import { AboutPageClient } from "./AboutPageClient"
 
-export const metadata = {
-  title: "Sobre Nós - VianaHub",
+export const metadata: Metadata = {
+  title: "Sobre Nós - VianaHub | Soluções Tecnológicas Inovadoras",
   description:
-    "Conheça a história, missão e valores da VianaHub. Uma empresa dedicada à inovação tecnológica desde 2008.",
-  keywords: "sobre vianahub, história, missão, valores, equipe, tecnologia",
-  openGraph: {
-    title: "Sobre Nós - VianaHub",
-    description: "Conheça a história, missão e valores da VianaHub",
-    type: "website",
-    locale: "pt_PT",
-  },
+    "Conheça a VianaHub, nossa história, missão e a equipe que transforma ideias em soluções digitais de alta qualidade.",
 }
 
-// Força renderização estática
-export const dynamic = "force-static"
-export const revalidate = false
-
 export default function AboutPage() {
-  return <AboutPageClient />
+  return (
+    <TranslationProvider>
+      <div className="min-h-screen bg-viana-white">
+        <Navbar />
+        <AboutPageClient />
+        <Footer />
+      </div>
+    </TranslationProvider>
+  )
 }

@@ -1,24 +1,56 @@
 "use client"
-
-import type React from "react"
 import { useRouter } from "next/navigation"
+import { useTranslation } from "@/contexts/translation-context"
+import { Button } from "@/components/ui/button"
 
-const IndustryMobileSelector: React.FC = () => {
+export function IndustryMobileSelector() {
   const router = useRouter()
+  const { t } = useTranslation()
 
   const handleNavigation = (href: string) => {
     router.push(href)
     window.scrollTo(0, 0)
   }
 
+  const industries = [
+    {
+      title: t("industries.healthcare"),
+      href: "/industry/healthcare",
+    },
+    {
+      title: t("industries.education"),
+      href: "/industry/education",
+    },
+    {
+      title: t("industries.financial"),
+      href: "/industry/financial",
+    },
+    {
+      title: t("industries.retail"),
+      href: "/industry/retail",
+    },
+    {
+      title: t("industries.manufacturing"),
+      href: "/industry/manufacturing",
+    },
+    {
+      title: t("industries.government"),
+      href: "/industry/government",
+    },
+  ]
+
   return (
-    <div>
-      <button onClick={() => handleNavigation("/industry/technology")}>Technology</button>
-      <button onClick={() => handleNavigation("/industry/healthcare")}>Healthcare</button>
-      <button onClick={() => handleNavigation("/industry/finance")}>Finance</button>
-      {/* rest of code here */}
+    <div className="space-y-2">
+      {industries.map((industry, index) => (
+        <Button
+          key={index}
+          variant="ghost"
+          className="w-full justify-start"
+          onClick={() => handleNavigation(industry.href)}
+        >
+          {industry.title}
+        </Button>
+      ))}
     </div>
   )
 }
-
-export default IndustryMobileSelector

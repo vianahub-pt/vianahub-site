@@ -1,24 +1,44 @@
 "use client"
-
-import type React from "react"
 import { useRouter } from "next/navigation"
+import { useTranslation } from "@/contexts/translation-context"
+import { Button } from "@/components/ui/button"
 
-const EngineeringMobileSelector: React.FC = () => {
+export function EngineeringMobileSelector() {
   const router = useRouter()
+  const { t } = useTranslation()
 
   const handleNavigation = (href: string) => {
     router.push(href)
     window.scrollTo(0, 0)
   }
 
+  const engineeringServices = [
+    {
+      title: t("engineering.railway"),
+      href: "/engineering/railway",
+    },
+    {
+      title: t("engineering.road"),
+      href: "/engineering/road",
+    },
+    {
+      title: t("engineering.solarEnergy"),
+      href: "/engineering/solar-energy",
+    },
+  ]
+
   return (
-    <div>
-      <button onClick={() => handleNavigation("/engineering/design")}>Design</button>
-      <button onClick={() => handleNavigation("/engineering/development")}>Development</button>
-      <button onClick={() => handleNavigation("/engineering/project-management")}>Project Management</button>
-      {/* rest of code here */}
+    <div className="space-y-2">
+      {engineeringServices.map((service, index) => (
+        <Button
+          key={index}
+          variant="ghost"
+          className="w-full justify-start"
+          onClick={() => handleNavigation(service.href)}
+        >
+          {service.title}
+        </Button>
+      ))}
     </div>
   )
 }
-
-export default EngineeringMobileSelector

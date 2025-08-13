@@ -1,96 +1,82 @@
-"use client"
-
-import { Navbar } from "@/components/navbar"
-import { Breadcrumb } from "@/components/breadcrumb"
-import { Footer } from "@/components/footer"
+import type { Metadata } from "next"
 import { TranslationProvider } from "@/contexts/translation-context"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
-import { Car, MapPin, Construction, TrafficConeIcon as Traffic, ArrowRight } from "lucide-react"
+import { Navbar } from "@/components/navbar"
+import { Footer } from "@/components/footer"
+import { Breadcrumb } from "@/components/breadcrumb"
+import Image from "next/image"
+
+export const metadata: Metadata = {
+  title: "Engenharia Rodoviária - Soluções Tecnológicas | VianaHub",
+  description:
+    "Soluções tecnológicas para infraestrutura rodoviária. Sistemas inteligentes de gestão de tráfego e monitoramento de estradas.",
+}
 
 export default function RoadPage() {
-  const breadcrumbItems = [
-    { label: "Home", href: "/" },
-    { label: "Engenharia", href: "/engineering" },
-    { label: "Rodoviário" },
-  ]
-
   return (
     <TranslationProvider>
       <div className="min-h-screen bg-viana-white">
         <Navbar />
-        <Breadcrumb items={breadcrumbItems} />
-
-        <main className="pt-28">
-          {/* Hero Section */}
-          <section className="py-20 bg-gradient-to-br from-viana-orange to-viana-yellow">
-            <div className="container mx-auto px-4 text-center">
-              <h1 className="text-4xl lg:text-6xl font-bold text-viana-white mb-6">Engenharia Rodoviária</h1>
-              <p className="text-xl text-viana-white/90 max-w-3xl mx-auto mb-8">
-                Projetos rodoviários completos. Planejamento, construção e manutenção de rodovias e vias urbanas.
-              </p>
-              <Button
-                size="lg"
-                className="bg-viana-white text-viana-orange hover:bg-viana-yellow hover:text-viana-black"
-              >
-                Ver Projetos
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </Button>
-            </div>
-          </section>
-
-          {/* Features Section */}
-          <section className="py-20">
-            <div className="container mx-auto px-4">
-              <h2 className="text-3xl lg:text-4xl font-bold text-viana-black text-center mb-16">
-                Soluções Rodoviárias
-              </h2>
-              <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-                {[
-                  {
-                    icon: Car,
-                    title: "Rodovias",
-                    description: "Projetos de rodovias e estradas com alta qualidade.",
-                  },
-                  {
-                    icon: MapPin,
-                    title: "Planejamento",
-                    description: "Estudos de viabilidade e planejamento rodoviário.",
-                  },
-                  {
-                    icon: Construction,
-                    title: "Construção",
-                    description: "Execução de obras rodoviárias com tecnologia avançada.",
-                  },
-                  {
-                    icon: Traffic,
-                    title: "Sinalização",
-                    description: "Sistemas de sinalização e controle de tráfego.",
-                  },
-                ].map((feature, index) => (
-                  <Card key={index} className="text-center hover:shadow-lg transition-shadow">
-                    <CardHeader>
-                      <div className="w-16 h-16 bg-viana-orange rounded-full flex items-center justify-center mx-auto mb-4">
-                        <feature.icon className="h-8 w-8 text-viana-white" />
-                      </div>
-                      <CardTitle className="text-viana-black">{feature.title}</CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                      <CardDescription className="text-viana-gray">{feature.description}</CardDescription>
-                    </CardContent>
-                  </Card>
-                ))}
+        <main>
+          <div className="relative h-[400px] bg-gradient-to-r from-gray-600 to-gray-800">
+            <Image src="/pages/road.jpg" alt="Engenharia Rodoviária" fill className="object-cover opacity-30" />
+            <div className="absolute inset-0 flex items-center justify-center">
+              <div className="text-center text-white">
+                <h1 className="text-4xl md:text-6xl font-bold mb-4">Engenharia Rodoviária</h1>
+                <p className="text-xl md:text-2xl">Soluções tecnológicas para infraestrutura rodoviária</p>
               </div>
             </div>
-          </section>
-        </main>
+          </div>
 
+          <div className="container mx-auto px-4 py-12">
+            <Breadcrumb
+              items={[
+                { label: "Início", href: "/" },
+                { label: "Engenharia", href: "/" },
+                { label: "Rodoviária", href: "/engineering/road" },
+              ]}
+            />
+
+            <div className="max-w-4xl mx-auto">
+              <section className="mb-12">
+                <h2 className="text-3xl font-bold mb-6">Tecnologia para Infraestrutura Rodoviária</h2>
+                <p className="text-lg text-gray-600 mb-6">
+                  Desenvolvemos soluções tecnológicas inovadoras para modernizar a infraestrutura rodoviária e melhorar
+                  a segurança no trânsito.
+                </p>
+              </section>
+
+              <section className="mb-12">
+                <h3 className="text-2xl font-bold mb-6">Nossas Soluções</h3>
+                <div className="grid md:grid-cols-2 gap-8">
+                  <div className="bg-white p-6 rounded-lg shadow-lg">
+                    <h4 className="text-xl font-semibold mb-4">Gestão de Tráfego</h4>
+                    <p className="text-gray-600">
+                      Sistemas inteligentes de gestão de tráfego para otimizar o fluxo de veículos.
+                    </p>
+                  </div>
+                  <div className="bg-white p-6 rounded-lg shadow-lg">
+                    <h4 className="text-xl font-semibold mb-4">Monitoramento</h4>
+                    <p className="text-gray-600">Soluções de monitoramento em tempo real das condições das estradas.</p>
+                  </div>
+                  <div className="bg-white p-6 rounded-lg shadow-lg">
+                    <h4 className="text-xl font-semibold mb-4">Segurança</h4>
+                    <p className="text-gray-600">
+                      Sistemas de segurança avançados para prevenção de acidentes rodoviários.
+                    </p>
+                  </div>
+                  <div className="bg-white p-6 rounded-lg shadow-lg">
+                    <h4 className="text-xl font-semibold mb-4">Manutenção</h4>
+                    <p className="text-gray-600">
+                      Plataformas para gestão eficiente da manutenção de infraestrutura rodoviária.
+                    </p>
+                  </div>
+                </div>
+              </section>
+            </div>
+          </div>
+        </main>
         <Footer />
       </div>
     </TranslationProvider>
   )
 }
-
-// Força renderização estática
-export const dynamic = "force-static"
-export const revalidate = false

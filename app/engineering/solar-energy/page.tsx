@@ -1,128 +1,84 @@
-"use client"
-
-import { useState, useEffect } from "react"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import type { Metadata } from "next"
+import { TranslationProvider } from "@/contexts/translation-context"
 import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
-import { TranslationProvider, useTranslation } from "@/contexts/translation-context"
-import { Sun, Battery, Zap, TrendingUp, Users, Target } from "lucide-react"
+import { Breadcrumb } from "@/components/breadcrumb"
+import Image from "next/image"
 
-function SolarEnergyPageContent() {
-  const { t } = useTranslation()
-  const [mounted, setMounted] = useState(false)
-
-  useEffect(() => {
-    setMounted(true)
-  }, [])
-
-  const benefits = [
-    {
-      icon: <Zap className="h-8 w-8 text-viana-orange" />,
-      titleKey: "solarEnergy.benefits.panels.title",
-      descriptionKey: "solarEnergy.benefits.panels.description",
-    },
-    {
-      icon: <Users className="h-8 w-8 text-viana-orange" />,
-      titleKey: "solarEnergy.benefits.systems.title",
-      descriptionKey: "solarEnergy.benefits.systems.description",
-    },
-    {
-      icon: <Target className="h-8 w-8 text-viana-orange" />,
-      titleKey: "solarEnergy.benefits.inverters.title",
-      descriptionKey: "solarEnergy.benefits.inverters.description",
-    },
-    {
-      icon: <TrendingUp className="h-8 w-8 text-viana-orange" />,
-      titleKey: "solarEnergy.benefits.monitoring.title",
-      descriptionKey: "solarEnergy.benefits.monitoring.description",
-    },
-  ]
-
-  if (!mounted) {
-    return null
-  }
-
-  return (
-    <div className="min-h-screen bg-viana-white">
-      <Navbar />
-      <main className="pt-28">
-        {/* Hero Section */}
-        <section
-          className="relative pt-0 pb-0 bg-gradient-to-br from-viana-orange to-viana-yellow overflow-hidden h-[350px]"
-          style={{
-            backgroundImage: "url(/pages/solar-energy.jpg)",
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-          }}
-        >
-          <div className="absolute inset-0 bg-black/60 z-0" />
-          <div className="container mx-auto px-4 relative z-10 h-full flex items-center justify-center">
-            <div className="max-w-4xl mx-auto text-center text-white">
-              <h1 className="text-4xl lg:text-6xl font-bold mb-6">Energia Solar</h1>
-              <p className="text-xl lg:text-2xl mb-8 opacity-90">Soluções sustentáveis em energia solar</p>
-            </div>
-          </div>
-        </section>
-
-        {/* Features Section */}
-        <section className="py-20">
-          <div className="container mx-auto px-4">
-            <h2 className="text-3xl lg:text-4xl font-bold text-viana-black text-center mb-16">
-              Soluções em Energia Solar
-            </h2>
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-              {[
-                {
-                  icon: Sun,
-                  title: "Painéis Fotovoltaicos",
-                  description: "Painéis solares de alta eficiência com garantia estendida.",
-                },
-                {
-                  icon: Battery,
-                  title: "Sistemas de Armazenamento",
-                  description: "Baterias para armazenamento de energia solar.",
-                },
-                {
-                  icon: Zap,
-                  title: "Inversores",
-                  description: "Inversores de última geração para máxima conversão.",
-                },
-                {
-                  icon: TrendingUp,
-                  title: "Monitoramento",
-                  description: "Sistema de monitoramento em tempo real da produção.",
-                },
-              ].map((feature, index) => (
-                <Card key={index} className="text-center hover:shadow-lg transition-shadow">
-                  <CardHeader>
-                    <div className="w-16 h-16 bg-viana-orange rounded-full flex items-center justify-center mx-auto mb-4">
-                      <feature.icon className="h-8 w-8 text-viana-white" />
-                    </div>
-                    <CardTitle className="text-viana-black">{feature.title}</CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <CardDescription className="text-viana-gray">{feature.description}</CardDescription>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-          </div>
-        </section>
-      </main>
-
-      <Footer />
-    </div>
-  )
+export const metadata: Metadata = {
+  title: "Energia Solar - Soluções Tecnológicas | VianaHub",
+  description:
+    "Soluções tecnológicas para energia solar. Sistemas de monitoramento, gestão e otimização de instalações fotovoltaicas.",
 }
 
 export default function SolarEnergyPage() {
   return (
     <TranslationProvider>
-      <SolarEnergyPageContent />
+      <div className="min-h-screen bg-viana-white">
+        <Navbar />
+        <main>
+          <div className="relative h-[400px] bg-gradient-to-r from-yellow-600 to-orange-600">
+            <Image src="/pages/solar-energy.jpg" alt="Energia Solar" fill className="object-cover opacity-30" />
+            <div className="absolute inset-0 flex items-center justify-center">
+              <div className="text-center text-white">
+                <h1 className="text-4xl md:text-6xl font-bold mb-4">Energia Solar</h1>
+                <p className="text-xl md:text-2xl">Soluções tecnológicas para energia renovável</p>
+              </div>
+            </div>
+          </div>
+
+          <div className="container mx-auto px-4 py-12">
+            <Breadcrumb
+              items={[
+                { label: "Início", href: "/" },
+                { label: "Engenharia", href: "/" },
+                { label: "Energia Solar", href: "/engineering/solar-energy" },
+              ]}
+            />
+
+            <div className="max-w-4xl mx-auto">
+              <section className="mb-12">
+                <h2 className="text-3xl font-bold mb-6">Tecnologia para Energia Solar</h2>
+                <p className="text-lg text-gray-600 mb-6">
+                  Desenvolvemos soluções tecnológicas avançadas para otimizar a geração, monitoramento e gestão de
+                  energia solar.
+                </p>
+              </section>
+
+              <section className="mb-12">
+                <h3 className="text-2xl font-bold mb-6">Nossas Soluções</h3>
+                <div className="grid md:grid-cols-2 gap-8">
+                  <div className="bg-white p-6 rounded-lg shadow-lg">
+                    <h4 className="text-xl font-semibold mb-4">Monitoramento</h4>
+                    <p className="text-gray-600">
+                      Sistemas de monitoramento em tempo real da performance de instalações solares.
+                    </p>
+                  </div>
+                  <div className="bg-white p-6 rounded-lg shadow-lg">
+                    <h4 className="text-xl font-semibold mb-4">Otimização</h4>
+                    <p className="text-gray-600">
+                      Algoritmos inteligentes para maximizar a eficiência da geração solar.
+                    </p>
+                  </div>
+                  <div className="bg-white p-6 rounded-lg shadow-lg">
+                    <h4 className="text-xl font-semibold mb-4">Gestão de Energia</h4>
+                    <p className="text-gray-600">
+                      Plataformas para gestão inteligente do consumo e armazenamento de energia.
+                    </p>
+                  </div>
+                  <div className="bg-white p-6 rounded-lg shadow-lg">
+                    <h4 className="text-xl font-semibold mb-4">Manutenção Preditiva</h4>
+                    <p className="text-gray-600">
+                      Sistemas que preveem necessidades de manutenção em instalações solares.
+                    </p>
+                  </div>
+                </div>
+              </section>
+            </div>
+          </div>
+        </main>
+        <Footer />
+      </div>
     </TranslationProvider>
   )
 }
-
-// Força renderização estática
-export const dynamic = "force-static"
-export const revalidate = false

@@ -1,23 +1,61 @@
 "use client"
-
-import type React from "react"
 import { useRouter } from "next/navigation"
+import Image from "next/image"
+import { useTranslation } from "@/contexts/translation-context"
 
-const SecuritySelector: React.FC = () => {
+export function SecuritySelector() {
   const router = useRouter()
+  const { t } = useTranslation()
 
   const handleNavigation = (href: string) => {
     router.push(href)
     window.scrollTo(0, 0)
   }
 
+  const securityServices = [
+    {
+      title: t("security.cyberSecurity"),
+      description: t("security.cyberSecurityDesc"),
+      href: "/security/cyber-security",
+      image: "/pages/cybersecurity.jpg",
+    },
+    {
+      title: t("security.access"),
+      description: t("security.accessDesc"),
+      href: "/security/access",
+      image: "/pages/access.jpg",
+    },
+    {
+      title: t("security.backups"),
+      description: t("security.backupsDesc"),
+      href: "/security/backups",
+      image: "/pages/backups.jpg",
+    },
+  ]
+
   return (
-    <div>
-      <button onClick={() => handleNavigation("/security/option1")}>Option 1</button>
-      <button onClick={() => handleNavigation("/security/option2")}>Option 2</button>
-      <button onClick={() => handleNavigation("/security/option3")}>Option 3</button>
+    <div className="grid grid-cols-1 gap-4 p-6 w-[400px]">
+      {securityServices.map((service, index) => (
+        <div
+          key={index}
+          className="group cursor-pointer rounded-lg border p-4 hover:bg-accent transition-colors"
+          onClick={() => handleNavigation(service.href)}
+        >
+          <div className="flex items-center space-x-3">
+            <Image
+              src={service.image || "/placeholder.svg"}
+              alt={service.title}
+              width={40}
+              height={40}
+              className="rounded-md"
+            />
+            <div>
+              <h3 className="font-medium group-hover:text-accent-foreground">{service.title}</h3>
+              <p className="text-sm text-muted-foreground">{service.description}</p>
+            </div>
+          </div>
+        </div>
+      ))}
     </div>
   )
 }
-
-export default SecuritySelector

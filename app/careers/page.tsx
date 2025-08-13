@@ -1,23 +1,23 @@
+import type { Metadata } from "next"
+import { TranslationProvider } from "@/contexts/translation-context"
+import { Navbar } from "@/components/navbar"
+import { Footer } from "@/components/footer"
 import { CareersPageContent } from "./careers-page-content"
 
-// Metadados estáticos
-export const metadata = {
-  title: "Carreiras - VianaHub",
+export const metadata: Metadata = {
+  title: "Carreiras - Junte-se à Nossa Equipe | VianaHub",
   description:
-    "Junte-se à nossa equipe! Descubra oportunidades de carreira na VianaHub e faça parte da inovação tecnológica.",
-  keywords: "carreiras, empregos, vagas, tecnologia, desenvolvimento, oportunidades",
-  openGraph: {
-    title: "Carreiras - VianaHub",
-    description: "Junte-se à nossa equipe! Descubra oportunidades de carreira na VianaHub",
-    type: "website",
-    locale: "pt_PT",
-  },
+    "Descubra oportunidades de carreira na VianaHub. Faça parte de uma equipe inovadora e ajude-nos a transformar o futuro da tecnologia.",
 }
 
-// Força renderização estática
-export const dynamic = "force-static"
-export const revalidate = false
-
 export default function CareersPage() {
-  return <CareersPageContent />
+  return (
+    <TranslationProvider>
+      <div className="min-h-screen bg-viana-white">
+        <Navbar />
+        <CareersPageContent />
+        <Footer />
+      </div>
+    </TranslationProvider>
+  )
 }

@@ -1,24 +1,39 @@
 "use client"
-
-import type React from "react"
 import { useRouter } from "next/navigation"
+import { useTranslation } from "@/contexts/translation-context"
+import { Button } from "@/components/ui/button"
 
-const InstitutionalSelector: React.FC = () => {
+export function InstitutionalSelector() {
   const router = useRouter()
+  const { t } = useTranslation()
 
   const handleNavigation = (href: string) => {
     router.push(href)
     window.scrollTo(0, 0)
   }
 
+  const institutionalPages = [
+    {
+      title: t("navbar.about"),
+      href: "/about",
+    },
+    {
+      title: t("navbar.careers"),
+      href: "/careers",
+    },
+    {
+      title: t("navbar.contact"),
+      href: "/contact",
+    },
+  ]
+
   return (
-    <div>
-      <button onClick={() => handleNavigation("/institution1")}>Institution 1</button>
-      <button onClick={() => handleNavigation("/institution2")}>Institution 2</button>
-      <button onClick={() => handleNavigation("/institution3")}>Institution 3</button>
-      {/* rest of code here */}
+    <div className="grid grid-cols-1 gap-2 p-4 w-[200px]">
+      {institutionalPages.map((page, index) => (
+        <Button key={index} variant="ghost" className="justify-start" onClick={() => handleNavigation(page.href)}>
+          {page.title}
+        </Button>
+      ))}
     </div>
   )
 }
-
-export default InstitutionalSelector
