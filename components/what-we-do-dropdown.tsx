@@ -23,7 +23,7 @@ export function WhatWeDoDropdown() {
       </button>
 
       {isOpen && (
-        <div className="absolute top-full left-0 mt-1 w-56 bg-black/80 backdrop-blur-md rounded-md shadow-lg border border-gray-600 z-50">
+        <div className="absolute top-full left-0 w-56 bg-black/80 backdrop-blur-md rounded-md shadow-lg border border-gray-600 z-50">
           <div className="py-2">
             <button
               onClick={() => handleNavigation("/what-we-do/development")}
