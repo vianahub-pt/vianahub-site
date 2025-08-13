@@ -3,6 +3,7 @@
 import { Card, CardContent } from "@/components/ui/card"
 import { TrendingUp, Users, Lightbulb, Target } from "lucide-react"
 import { Counter } from "@/components/counter"
+import { useTranslation } from "@/components/translation-context"
 
 export function InsightsSection() {
   const { t } = useTranslation()
