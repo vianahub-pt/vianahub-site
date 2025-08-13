@@ -6,11 +6,7 @@ import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
 import { WhatsAppChat } from "@/components/whatsapp-chat"
 
-interface ClientLayoutProps {
-  children: React.ReactNode
-}
-
-export function ClientLayout({ children }: ClientLayoutProps) {
+export function ClientLayout({ children }: { children: React.ReactNode }) {
   return (
     <>
       <Navbar />

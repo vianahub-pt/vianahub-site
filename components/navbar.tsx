@@ -45,24 +45,6 @@ export function Navbar() {
               <IndustrySelector />
               <SecuritySelector />
               <InstitutionalSelector />
-              <button
-                onClick={() => handleNavigation("/about")}
-                className="text-viana-white hover:bg-viana-yellow/20 hover:text-viana-white px-3 py-2 rounded-md text-sm font-medium transition-all duration-100 drop-shadow-lg"
-              >
-                {t("nav.about")}
-              </button>
-              <button
-                onClick={() => handleNavigation("/careers")}
-                className="text-viana-white hover:bg-viana-yellow/20 hover:text-viana-white px-3 py-2 rounded-md text-sm font-medium transition-all duration-100 drop-shadow-lg"
-              >
-                {t("nav.careers")}
-              </button>
-              <button
-                onClick={() => handleNavigation("/contact")}
-                className="text-viana-white hover:bg-viana-yellow/20 hover:text-viana-white px-3 py-2 rounded-md text-sm font-medium transition-all duration-100 drop-shadow-lg"
-              >
-                {t("nav.contact")}
-              </button>
             </div>
           </div>
 
@@ -87,24 +69,6 @@ export function Navbar() {
           <IndustryMobileSelector />
           <SecurityMobileSelector />
           <InstitutionalMobileSelector />
-          <button
-            onClick={() => handleNavigation("/about")}
-            className="text-viana-white hover:bg-viana-yellow/20 hover:text-viana-white block px-3 py-2 rounded-md text-base font-medium w-full text-left transition-all duration-100 drop-shadow-lg"
-          >
-            {t("nav.about")}
-          </button>
-          <button
-            onClick={() => handleNavigation("/careers")}
-            className="text-viana-white hover:bg-viana-yellow/20 hover:text-viana-white block px-3 py-2 rounded-md text-base font-medium w-full text-left transition-all duration-100 drop-shadow-lg"
-          >
-            {t("nav.careers")}
-          </button>
-          <button
-            onClick={() => handleNavigation("/contact")}
-            className="text-viana-white hover:bg-viana-yellow/20 hover:text-viana-white block px-3 py-2 rounded-md text-base font-medium w-full text-left transition-all duration-100 drop-shadow-lg"
-          >
-            {t("nav.contact")}
-          </button>
           <div className="flex items-center space-x-4 px-3 py-2">
             <LanguageSelector />
             <ThemeToggle />
