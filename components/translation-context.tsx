@@ -60,6 +60,18 @@ const translations = {
     "services.automation.title": "Automação",
     "services.automation.description": "Automatizamos processos para aumentar a produtividade",
     "services.cta": "Saber Mais",
+    // Entertainment Section
+    "entertainment.title": "Entretenimento",
+    "entertainment.subtitle": "Divirta-se com os nossos jogos interactivos",
+    "entertainment.foxGame.title": "Jogo da Raposa",
+    "entertainment.foxGame.description": "Ajude a raposa a encontrar o caminho através do labirinto",
+    "entertainment.foxGame.cta": "Jogar Agora",
+    "entertainment.desertGame.title": "Aventura no Deserto",
+    "entertainment.desertGame.description": "Explore o deserto e descubra tesouros escondidos",
+    "entertainment.desertGame.cta": "Explorar",
+    "entertainment.oasisGame.title": "Oásis Perdido",
+    "entertainment.oasisGame.description": "Encontre o oásis perdido nesta aventura épica",
+    "entertainment.oasisGame.cta": "Descobrir",
   },
   en: {
     // Navigation
@@ -110,6 +122,18 @@ const translations = {
     "services.automation.title": "Automation",
     "services.automation.description": "We automate processes to increase productivity",
     "services.cta": "Learn More",
+    // Entertainment Section
+    "entertainment.title": "Entertainment",
+    "entertainment.subtitle": "Have fun with our interactive games",
+    "entertainment.foxGame.title": "Fox Game",
+    "entertainment.foxGame.description": "Help the fox find its way through the maze",
+    "entertainment.foxGame.cta": "Play Now",
+    "entertainment.desertGame.title": "Desert Adventure",
+    "entertainment.desertGame.description": "Explore the desert and discover hidden treasures",
+    "entertainment.desertGame.cta": "Explore",
+    "entertainment.oasisGame.title": "Lost Oasis",
+    "entertainment.oasisGame.description": "Find the lost oasis in this epic adventure",
+    "entertainment.oasisGame.cta": "Discover",
   },
   es: {
     // Navigation
@@ -160,6 +184,18 @@ const translations = {
     "services.automation.title": "Automatización",
     "services.automation.description": "Automatizamos procesos para aumentar la productividad",
     "services.cta": "Saber Más",
+    // Entertainment Section
+    "entertainment.title": "Entretenimiento",
+    "entertainment.subtitle": "Diviértete con nuestros juegos interactivos",
+    "entertainment.foxGame.title": "Juego del Zorro",
+    "entertainment.foxGame.description": "Ayuda al zorro a encontrar el camino a través del laberinto",
+    "entertainment.foxGame.cta": "Jugar Ahora",
+    "entertainment.desertGame.title": "Aventura en el Desierto",
+    "entertainment.desertGame.description": "Explora el desierto y descubre tesoros ocultos",
+    "entertainment.desertGame.cta": "Explorar",
+    "entertainment.oasisGame.title": "Oasis Perdido",
+    "entertainment.oasisGame.description": "Encuentra el oasis perdido en esta aventura épica",
+    "entertainment.oasisGame.cta": "Descubrir",
   },
   fr: {
     // Navigation
@@ -210,6 +246,18 @@ const translations = {
     "services.automation.title": "Automatisation",
     "services.automation.description": "Nous automatisons les processus pour augmenter la productivité",
     "services.cta": "En Savoir Plus",
+    // Entertainment Section
+    "entertainment.title": "Divertissement",
+    "entertainment.subtitle": "Amusez-vous avec nos jeux interactifs",
+    "entertainment.foxGame.title": "Jeu du Renard",
+    "entertainment.foxGame.description": "Aidez le renard à trouver son chemin à travers le labyrinthe",
+    "entertainment.foxGame.cta": "Jouer Maintenant",
+    "entertainment.desertGame.title": "Aventure dans le Désert",
+    "entertainment.desertGame.description": "Explorez le désert et découvrez des trésors cachés",
+    "entertainment.desertGame.cta": "Explorer",
+    "entertainment.oasisGame.title": "Oasis Perdue",
+    "entertainment.oasisGame.description": "Trouvez l'oasis perdue dans cette aventure épique",
+    "entertainment.oasisGame.cta": "Découvrir",
   },
   de: {
     // Navigation
@@ -260,6 +308,18 @@ const translations = {
     "services.automation.title": "Automatisierung",
     "services.automation.description": "Wir automatisieren Prozesse zur Steigerung der Produktivität",
     "services.cta": "Mehr Erfahren",
+    // Entertainment Section
+    "entertainment.title": "Unterhaltung",
+    "entertainment.subtitle": "Haben Sie Spaß mit unseren interaktiven Spielen",
+    "entertainment.foxGame.title": "Fuchs-Spiel",
+    "entertainment.foxGame.description": "Helfen Sie dem Fuchs, seinen Weg durch das Labyrinth zu finden",
+    "entertainment.foxGame.cta": "Jetzt Spielen",
+    "entertainment.desertGame.title": "Wüstenabenteuer",
+    "entertainment.desertGame.description": "Erkunden Sie die Wüste und entdecken Sie verborgene Schätze",
+    "entertainment.desertGame.cta": "Erkunden",
+    "entertainment.oasisGame.title": "Verlorene Oase",
+    "entertainment.oasisGame.description": "Finden Sie die verlorene Oase in diesem epischen Abenteuer",
+    "entertainment.oasisGame.cta": "Entdecken",
   },
 }
 
