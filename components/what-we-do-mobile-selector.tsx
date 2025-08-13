@@ -16,18 +16,18 @@ export function WhatWeDoMobileSelector() {
   }
 
   const serviceItems = [
-    { key: "development", href: "/what-we-do/development", label: t("menu.development") },
-    { key: "agile", href: "/what-we-do/agile", label: t("menu.agile") },
-    { key: "outsourcing", href: "/what-we-do/outsourcing", label: t("menu.outsourcing") },
-    { key: "chatbot", href: "/what-we-do/chatbot", label: t("menu.chatbot") },
-    { key: "landing-pages", href: "/what-we-do/landing-pages", label: t("menu.landing-pages") },
-    { key: "system-integration", href: "/what-we-do/system-integration", label: t("menu.system-integration") },
+    { key: "development", href: "/what-we-do/development" },
+    { key: "agile", href: "/what-we-do/agile" },
+    { key: "outsourcing", href: "/what-we-do/outsourcing" },
+    { key: "chatbot", href: "/what-we-do/chatbot" },
+    { key: "landingPages", href: "/what-we-do/landing-pages" },
+    { key: "systemIntegration", href: "/what-we-do/system-integration" },
   ]
 
   const engineeringItems = [
-    { key: "railway", href: "/engineering/railway", label: t("menu.railway") },
-    { key: "road", href: "/engineering/road", label: t("menu.road") },
-    { key: "solar-energy", href: "/engineering/solar-energy", label: t("menu.solar-energy") },
+    { key: "railway", href: "/engineering/railway" },
+    { key: "road", href: "/engineering/road" },
+    { key: "solarEnergy", href: "/engineering/solar-energy" },
   ]
 
   return (
@@ -36,7 +36,7 @@ export function WhatWeDoMobileSelector() {
         onClick={() => setIsOpen(!isOpen)}
         className="flex items-center justify-between w-full text-viana-white hover:bg-viana-yellow/20 hover:text-viana-white px-3 py-2 rounded-md text-base font-medium transition-all duration-100 drop-shadow-lg"
       >
-        <span>{t("menu.whatWeDo")}</span>
+        <span>{t("nav.whatWeDo")}</span>
         <ChevronDown className={`h-4 w-4 transition-transform duration-100 ${isOpen ? "rotate-180" : ""}`} />
       </button>
 
@@ -48,7 +48,7 @@ export function WhatWeDoMobileSelector() {
               onClick={() => handleNavigation(item.href)}
               className="block w-full text-left text-viana-white hover:bg-viana-orange/50 hover:text-viana-white px-3 py-2 rounded-md text-sm font-medium transition-all duration-75 drop-shadow-lg"
             >
-              {item.label}
+              {t(`nav.${item.key}`)}
             </button>
           ))}
 
@@ -61,7 +61,7 @@ export function WhatWeDoMobileSelector() {
               onClick={() => handleNavigation(item.href)}
               className="block w-full text-left text-viana-white hover:bg-viana-orange/50 hover:text-viana-white px-3 py-2 rounded-md text-sm font-medium transition-all duration-75 drop-shadow-lg"
             >
-              {item.label}
+              {t(`nav.${item.key}`)}
             </button>
           ))}
         </div>

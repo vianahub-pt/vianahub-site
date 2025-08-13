@@ -27,14 +27,14 @@ export function InstitutionalSelector() {
   }
 
   const menuItems = [
-    { key: "about-us", href: "/about", label: t("nav.about") },
-    { key: "careers", href: "/careers", label: t("nav.careers") },
+    { key: "about", href: "/about" },
+    { key: "careers", href: "/careers" },
   ]
 
   return (
     <div className="relative" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
       <div className="flex items-center space-x-1 px-3 py-2 rounded-md transition-all duration-100 font-medium drop-shadow-lg cursor-pointer bg-transparent text-viana-white hover:bg-viana-yellow/20 hover:text-viana-white">
-        <span className="text-sm">{t("menu.institutional")}</span>
+        <span className="text-sm">{t("nav.institutional")}</span>
         <ChevronDown className={`h-4 w-4 transition-transform duration-100 ${isOpen ? "rotate-180" : ""}`} />
       </div>
 
@@ -58,7 +58,7 @@ export function InstitutionalSelector() {
                     onClick={() => handleNavigation(item.href)}
                     className="w-full text-left px-3 py-2 rounded-md hover:bg-viana-orange/50 hover:text-viana-white transition-all duration-75 text-sm font-medium drop-shadow-lg text-viana-white"
                   >
-                    {item.label}
+                    {t(`nav.${item.key}`)}
                   </button>
                 ))}
               </div>
