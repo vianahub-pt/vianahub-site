@@ -24,8 +24,8 @@ export function ContactPageClient() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
     toast({
-      title: t("contact.messageSent"),
-      description: t("contact.messageDescription"),
+      title: t("contact.success.title"),
+      description: t("contact.success.message"),
     })
     setFormData({ name: "", email: "", company: "", message: "" })
   }
@@ -43,9 +43,9 @@ export function ContactPageClient() {
       <section className="relative py-20 px-4">
         <div className="container mx-auto text-center">
           <h1 className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-            {t("contact.title")}
+            {t("contact.hero.title")}
           </h1>
-          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">{t("contact.subtitle")}</p>
+          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">{t("contact.hero.subtitle")}</p>
         </div>
       </section>
 
@@ -56,20 +56,20 @@ export function ContactPageClient() {
             {/* Contact Form */}
             <Card className="shadow-xl">
               <CardHeader>
-                <CardTitle className="text-2xl">{t("contact.getInTouch")}</CardTitle>
+                <CardTitle className="text-2xl">{t("contact.form.title")}</CardTitle>
               </CardHeader>
               <CardContent>
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
                       <label htmlFor="name" className="block text-sm font-medium mb-2">
-                        {t("contact.name")}
+                        {t("contact.form.name")}
                       </label>
                       <Input id="name" name="name" value={formData.name} onChange={handleChange} required />
                     </div>
                     <div>
                       <label htmlFor="email" className="block text-sm font-medium mb-2">
-                        {t("contact.email")}
+                        {t("contact.form.email")}
                       </label>
                       <Input
                         id="email"
@@ -84,14 +84,14 @@ export function ContactPageClient() {
 
                   <div>
                     <label htmlFor="company" className="block text-sm font-medium mb-2">
-                      {t("contact.company")}
+                      {t("contact.form.company")}
                     </label>
                     <Input id="company" name="company" value={formData.company} onChange={handleChange} />
                   </div>
 
                   <div>
                     <label htmlFor="message" className="block text-sm font-medium mb-2">
-                      {t("contact.message")}
+                      {t("contact.form.message")}
                     </label>
                     <Textarea
                       id="message"
@@ -104,7 +104,7 @@ export function ContactPageClient() {
                   </div>
 
                   <Button type="submit" className="w-full">
-                    {t("contact.sendMessage")}
+                    {t("contact.form.submit")}
                   </Button>
                 </form>
               </CardContent>
@@ -114,13 +114,13 @@ export function ContactPageClient() {
             <div className="space-y-8">
               <Card className="shadow-xl">
                 <CardHeader>
-                  <CardTitle className="text-2xl">{t("contact.contactInfo")}</CardTitle>
+                  <CardTitle className="text-2xl">{t("contact.info.title")}</CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-6">
                   <div className="flex items-center space-x-4">
                     <Mail className="h-6 w-6 text-blue-600" />
                     <div>
-                      <p className="font-medium">Email</p>
+                      <p className="font-medium">{t("contact.info.email")}</p>
                       <p className="text-gray-600 dark:text-gray-300">contato@vianahub.com</p>
                     </div>
                   </div>
@@ -128,7 +128,7 @@ export function ContactPageClient() {
                   <div className="flex items-center space-x-4">
                     <Phone className="h-6 w-6 text-blue-600" />
                     <div>
-                      <p className="font-medium">{t("contact.phone")}</p>
+                      <p className="font-medium">{t("contact.info.phone")}</p>
                       <p className="text-gray-600 dark:text-gray-300">+55 (11) 9999-9999</p>
                     </div>
                   </div>
@@ -136,7 +136,7 @@ export function ContactPageClient() {
                   <div className="flex items-center space-x-4">
                     <MapPin className="h-6 w-6 text-blue-600" />
                     <div>
-                      <p className="font-medium">{t("contact.address")}</p>
+                      <p className="font-medium">{t("contact.info.address")}</p>
                       <p className="text-gray-600 dark:text-gray-300">São Paulo, Brasil</p>
                     </div>
                   </div>
@@ -144,8 +144,8 @@ export function ContactPageClient() {
                   <div className="flex items-center space-x-4">
                     <Clock className="h-6 w-6 text-blue-600" />
                     <div>
-                      <p className="font-medium">{t("contact.businessHours")}</p>
-                      <p className="text-gray-600 dark:text-gray-300">{t("contact.mondayToFriday")}: 9:00 - 18:00</p>
+                      <p className="font-medium">{t("contact.info.hours")}</p>
+                      <p className="text-gray-600 dark:text-gray-300">{t("contact.info.hours.weekdays")}</p>
                     </div>
                   </div>
                 </CardContent>
@@ -155,7 +155,7 @@ export function ContactPageClient() {
               <Card className="shadow-xl">
                 <CardContent className="p-0">
                   <div className="h-64 bg-gray-200 dark:bg-gray-700 rounded-lg flex items-center justify-center">
-                    <p className="text-gray-500 dark:text-gray-400">{t("contact.mapPlaceholder")}</p>
+                    <p className="text-gray-500 dark:text-gray-400">Mapa - São Paulo, Brasil</p>
                   </div>
                 </CardContent>
               </Card>

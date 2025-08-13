@@ -1,69 +1,101 @@
 "use client"
 
 import { useState } from "react"
-import { ChevronDown } from "lucide-react"
-import { useTranslation } from "@/contexts/translation-context"
+import { Button } from "@/components/ui/button"
+import { ChevronDown, ChevronRight } from "lucide-react"
 import { useRouter } from "next/navigation"
+import { useTranslation } from "@/contexts/translation-context"
 
-export function WhatWeDoMobileSelector() {
-  const { t } = useTranslation()
-  const router = useRouter()
+interface WhatWeDoMobileSelectorProps {
+  onClose: () => void
+}
+
+export function WhatWeDoMobileSelector({ onClose }: WhatWeDoMobileSelectorProps) {
   const [isOpen, setIsOpen] = useState(false)
+  const router = useRouter()
+  const { t } = useTranslation()
 
-  const handleNavigation = (href: string) => {
-    router.push(href)
+  const handleNavigation = (url: string) => {
+    router.push(url)
     window.scrollTo(0, 0)
+    onClose()
   }
-
-  const serviceItems = [
-    { key: "development", href: "/what-we-do/development", label: t("menu.development") },
-    { key: "agile", href: "/what-we-do/agile", label: t("menu.agile") },
-    { key: "outsourcing", href: "/what-we-do/outsourcing", label: t("menu.outsourcing") },
-    { key: "chatbot", href: "/what-we-do/chatbot", label: t("menu.chatbot") },
-    { key: "landing-pages", href: "/what-we-do/landing-pages", label: t("menu.landing-pages") },
-    { key: "system-integration", href: "/what-we-do/system-integration", label: t("menu.system-integration") },
-  ]
-
-  const engineeringItems = [
-    { key: "railway", href: "/engineering/railway", label: t("menu.railway") },
-    { key: "road", href: "/engineering/road", label: t("menu.road") },
-    { key: "solar-energy", href: "/engineering/solar-energy", label: t("menu.solar-energy") },
-  ]
 
   return (
     <div className="space-y-1">
-      <button
-        onClick={() => setIsOpen(!isOpen)}
-        className="flex items-center justify-between w-full text-viana-white hover:bg-viana-yellow/20 hover:text-viana-white px-3 py-2 rounded-md text-base font-medium transition-all duration-100 drop-shadow-lg"
-      >
-        <span>{t("menu.whatWeDo")}</span>
-        <ChevronDown className={`h-4 w-4 transition-transform duration-100 ${isOpen ? "rotate-180" : ""}`} />
-      </button>
+      <Button variant="ghost" className="w-full justify-between text-left" onClick={() => setIsOpen(!isOpen)}>
+        {t("menu.whatWeDo")}
+        {isOpen ? <ChevronDown className="h-4 w-4" /> : <ChevronRight className="h-4 w-4" />}
+      </Button>
 
       {isOpen && (
         <div className="pl-4 space-y-1">
-          {serviceItems.map((item) => (
-            <button
-              key={item.key}
-              onClick={() => handleNavigation(item.href)}
-              className="block w-full text-left text-viana-white hover:bg-viana-orange/50 hover:text-viana-white px-3 py-2 rounded-md text-sm font-medium transition-all duration-75 drop-shadow-lg"
-            >
-              {item.label}
-            </button>
-          ))}
+          <Button
+            variant="ghost"
+            className="w-full justify-start text-sm"
+            onClick={() => handleNavigation("/what-we-do/development")}
+          >
+            {t("menu.development")}
+          </Button>
+          <Button
+            variant="ghost"
+            className="w-full justify-start text-sm"
+            onClick={() => handleNavigation("/what-we-do/chatbot")}
+          >
+            {t("menu.chatbot")}
+          </Button>
+          <Button
+            variant="ghost"
+            className="w-full justify-start text-sm"
+            onClick={() => handleNavigation("/what-we-do/agile")}
+          >
+            {t("menu.agile")}
+          </Button>
+          <Button
+            variant="ghost"
+            className="w-full justify-start text-sm"
+            onClick={() => handleNavigation("/what-we-do/system-integration")}
+          >
+            {t("menu.system-integration")}
+          </Button>
+          <Button
+            variant="ghost"
+            className="w-full justify-start text-sm"
+            onClick={() => handleNavigation("/what-we-do/landing-pages")}
+          >
+            {t("menu.landing-pages")}
+          </Button>
+          <Button
+            variant="ghost"
+            className="w-full justify-start text-sm"
+            onClick={() => handleNavigation("/what-we-do/outsourcing")}
+          >
+            {t("menu.outsourcing")}
+          </Button>
 
-          {/* Separador horizontal */}
-          <div className="border-t border-white/30 my-2 mx-3" />
+          <div className="border-t border-gray-200 dark:border-gray-700 my-2" />
 
-          {engineeringItems.map((item) => (
-            <button
-              key={item.key}
-              onClick={() => handleNavigation(item.href)}
-              className="block w-full text-left text-viana-white hover:bg-viana-orange/50 hover:text-viana-white px-3 py-2 rounded-md text-sm font-medium transition-all duration-75 drop-shadow-lg"
-            >
-              {item.label}
-            </button>
-          ))}
+          <Button
+            variant="ghost"
+            className="w-full justify-start text-sm"
+            onClick={() => handleNavigation("/engineering/railway")}
+          >
+            {t("menu.railway")}
+          </Button>
+          <Button
+            variant="ghost"
+            className="w-full justify-start text-sm"
+            onClick={() => handleNavigation("/engineering/road")}
+          >
+            {t("menu.road")}
+          </Button>
+          <Button
+            variant="ghost"
+            className="w-full justify-start text-sm"
+            onClick={() => handleNavigation("/engineering/solar-energy")}
+          >
+            {t("menu.solar-energy")}
+          </Button>
         </div>
       )}
     </div>

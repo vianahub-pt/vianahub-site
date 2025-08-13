@@ -1,46 +1,41 @@
 "use client"
 
 import { useState } from "react"
-import { ChevronDown } from "lucide-react"
-import { useTranslation } from "@/contexts/translation-context"
+import { Button } from "@/components/ui/button"
+import { ChevronDown, ChevronRight } from "lucide-react"
 import { useRouter } from "next/navigation"
+import { useTranslation } from "@/contexts/translation-context"
 
-export function InstitutionalMobileSelector() {
-  const { t } = useTranslation()
-  const router = useRouter()
+interface InstitutionalMobileSelectorProps {
+  onClose: () => void
+}
+
+export function InstitutionalMobileSelector({ onClose }: InstitutionalMobileSelectorProps) {
   const [isOpen, setIsOpen] = useState(false)
+  const router = useRouter()
+  const { t } = useTranslation()
 
-  const handleNavigation = (href: string) => {
-    router.push(href)
+  const handleNavigation = (url: string) => {
+    router.push(url)
     window.scrollTo(0, 0)
+    onClose()
   }
-
-  const menuItems = [
-    { key: "about-us", href: "/about", label: t("nav.about") },
-    { key: "careers", href: "/careers", label: t("nav.careers") },
-  ]
 
   return (
     <div className="space-y-1">
-      <button
-        onClick={() => setIsOpen(!isOpen)}
-        className="flex items-center justify-between w-full text-viana-white hover:bg-viana-yellow/20 hover:text-viana-white px-3 py-2 rounded-md text-base font-medium transition-all duration-100 drop-shadow-lg"
-      >
-        <span>{t("menu.institutional")}</span>
-        <ChevronDown className={`h-4 w-4 transition-transform duration-100 ${isOpen ? "rotate-180" : ""}`} />
-      </button>
+      <Button variant="ghost" className="w-full justify-between text-left" onClick={() => setIsOpen(!isOpen)}>
+        {t("menu.institutional")}
+        {isOpen ? <ChevronDown className="h-4 w-4" /> : <ChevronRight className="h-4 w-4" />}
+      </Button>
 
       {isOpen && (
         <div className="pl-4 space-y-1">
-          {menuItems.map((item) => (
-            <button
-              key={item.key}
-              onClick={() => handleNavigation(item.href)}
-              className="block w-full text-left text-viana-white hover:bg-viana-orange/50 hover:text-viana-white px-3 py-2 rounded-md text-sm font-medium transition-all duration-75 drop-shadow-lg"
-            >
-              {item.label}
-            </button>
-          ))}
+          <Button variant="ghost" className="w-full justify-start text-sm" onClick={() => handleNavigation("/about")}>
+            {t("nav.about")}
+          </Button>
+          <Button variant="ghost" className="w-full justify-start text-sm" onClick={() => handleNavigation("/careers")}>
+            {t("nav.careers")}
+          </Button>
         </div>
       )}
     </div>
