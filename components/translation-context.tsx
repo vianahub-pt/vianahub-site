@@ -2,7 +2,7 @@
 
 import { createContext, useContext, useState, useEffect, type ReactNode } from "react"
 
-type Language = "pt" | "en" | "es" | "fr" | "de"
+export type Language = "pt" | "en" | "es" | "fr" | "de"
 
 interface TranslationContextType {
   language: Language
@@ -15,6 +15,7 @@ const translations = {
     // Navigation
     "nav.whatWeDo": "O que Fazemos",
     "nav.engineering": "Engenharia",
+    "nav.security": "Segurança",
     "nav.contact": "Contacto",
     "nav.development": "Desenvolvimento",
     "nav.agile": "Metodologia Ágil",
@@ -31,11 +32,15 @@ const translations = {
     "nav.financial": "Financeiro",
     "nav.retail": "Retalho",
     "nav.healthcare": "Saúde",
+    "nav.cybersecurity": "Cibersegurança",
+    "nav.backupSolutions": "Soluções de Backup",
+    "nav.accessControl": "Controlo de Acesso",
   },
   en: {
     // Navigation
     "nav.whatWeDo": "What We Do",
     "nav.engineering": "Engineering",
+    "nav.security": "Security",
     "nav.contact": "Contact",
     "nav.development": "Development",
     "nav.agile": "Agile Methodology",
@@ -52,11 +57,15 @@ const translations = {
     "nav.financial": "Financial",
     "nav.retail": "Retail",
     "nav.healthcare": "Healthcare",
+    "nav.cybersecurity": "Cybersecurity",
+    "nav.backupSolutions": "Backup Solutions",
+    "nav.accessControl": "Access Control",
   },
   es: {
     // Navigation
     "nav.whatWeDo": "Lo que Hacemos",
     "nav.engineering": "Ingeniería",
+    "nav.security": "Seguridad",
     "nav.contact": "Contacto",
     "nav.development": "Desarrollo",
     "nav.agile": "Metodología Ágil",
@@ -73,11 +82,15 @@ const translations = {
     "nav.financial": "Financiero",
     "nav.retail": "Comercio",
     "nav.healthcare": "Salud",
+    "nav.cybersecurity": "Ciberseguridad",
+    "nav.backupSolutions": "Soluciones de Respaldo",
+    "nav.accessControl": "Control de Acceso",
   },
   fr: {
     // Navigation
     "nav.whatWeDo": "Ce que Nous Faisons",
     "nav.engineering": "Ingénierie",
+    "nav.security": "Sécurité",
     "nav.contact": "Contact",
     "nav.development": "Développement",
     "nav.agile": "Méthodologie Agile",
@@ -94,11 +107,15 @@ const translations = {
     "nav.financial": "Financier",
     "nav.retail": "Commerce de Détail",
     "nav.healthcare": "Santé",
+    "nav.cybersecurity": "Cybersécurité",
+    "nav.backupSolutions": "Solutions de Sauvegarde",
+    "nav.accessControl": "Contrôle d'Accès",
   },
   de: {
     // Navigation
     "nav.whatWeDo": "Was Wir Tun",
     "nav.engineering": "Ingenieurwesen",
+    "nav.security": "Sicherheit",
     "nav.contact": "Kontakt",
     "nav.development": "Entwicklung",
     "nav.agile": "Agile Methodik",
@@ -115,6 +132,9 @@ const translations = {
     "nav.financial": "Finanzen",
     "nav.retail": "Einzelhandel",
     "nav.healthcare": "Gesundheitswesen",
+    "nav.cybersecurity": "Cybersicherheit",
+    "nav.backupSolutions": "Backup-Lösungen",
+    "nav.accessControl": "Zugriffskontrolle",
   },
 }
 
