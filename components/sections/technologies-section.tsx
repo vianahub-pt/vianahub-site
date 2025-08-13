@@ -1,7 +1,6 @@
 "use client"
 
 import { Card, CardContent } from "@/components/ui/card"
-import { useTranslation } from "@/contexts/translation-context"
 import { Badge } from "@/components/ui/badge"
 import { Code2, Smartphone, Globe, Database, Cloud, Shield, Zap, Palette } from "lucide-react"
 
