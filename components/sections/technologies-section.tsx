@@ -3,6 +3,7 @@
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Code2, Smartphone, Globe, Database, Cloud, Shield, Zap, Palette } from "lucide-react"
+import { useTranslation } from "@/components/translation-context"
 
 export function TechnologiesSection() {
   const { t } = useTranslation()
