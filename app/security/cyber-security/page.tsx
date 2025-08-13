@@ -2,7 +2,6 @@
 
 import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
-import { TranslationProvider } from "@/contexts/translation-context"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Shield, Lock, Eye, AlertTriangle, ArrowRight } from "lucide-react"
