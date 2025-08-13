@@ -116,7 +116,7 @@ export function ServicesSection() {
               }}
             >
               <CardHeader className="text-center">
-                <CardTitle className="flex items-center justify-center gap-3 text-xl font-bold text-gray-900 mb-4">
+                <CardTitle className="flex items-center justify-center gap-3 text-xl font-bold text-orange-500 mb-4">
                   {service.icon}
                   {t(service.titleKey)}
                 </CardTitle>
