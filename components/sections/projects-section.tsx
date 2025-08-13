@@ -138,7 +138,7 @@ export function ProjectsSection() {
               {projects.map((project) => (
                 <div key={project.id} className="w-full flex-shrink-0">
                   <Card
-                    className="mx-4 cursor-pointer transition-all duration-300 transform hover:-translate-y-2 bg-transparent border-none rounded-none"
+                    className="mx-4 cursor-pointer bg-transparent border-none rounded-none"
                     onClick={() => handleProjectClick(project.url)}
                   >
                     <CardContent className="p-0">
@@ -218,8 +218,8 @@ export function ProjectsSection() {
             {projects.map((_, index) => (
               <button
                 key={index}
-                className={`w-3 h-3 transition-colors ${
-                  index === currentIndex ? "bg-viana-orange" : "bg-viana-gray/30"
+                className={`w-3 h-3 rounded-full transition-colors ${
+                  index === currentIndex ? "bg-viana-orange" : "bg-gray-300"
                 }`}
                 onClick={() => goToProject(index)}
               />
