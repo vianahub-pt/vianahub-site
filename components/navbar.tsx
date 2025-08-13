@@ -4,9 +4,7 @@ import { useRouter } from "next/navigation"
 import Link from "next/link"
 import Image from "next/image"
 import { useTranslation } from "@/components/translation-context"
-import { LanguageSelector } from "@/components/language-selector"
 import { ThemeToggle } from "@/components/theme-toggle"
-import { MobileMenu } from "@/components/mobile-menu"
 
 export function Navbar() {
   const router = useRouter()
@@ -33,22 +31,32 @@ export function Navbar() {
             <div className="ml-10 flex items-baseline space-x-4">
               <button
                 onClick={() => handleNavigation("/contact")}
-                className="flex items-center space-x-1 px-3 py-2 rounded-md transition-all duration-100 font-medium drop-shadow-lg cursor-pointer bg-transparent text-viana-white hover:bg-viana-yellow/20 hover:text-viana-white text-sm"
+                className="flex items-center space-x-1 px-3 py-2 rounded-md transition-all duration-100 font-medium drop-shadow-lg cursor-pointer bg-transparent text-white hover:bg-yellow-500/20 hover:text-white text-sm"
               >
                 {t("nav.contact")}
               </button>
             </div>
           </div>
 
-          {/* Right side - Language selector and theme toggle */}
+          {/* Right side - Theme toggle */}
           <div className="hidden lg:flex items-center space-x-4">
-            <LanguageSelector />
             <ThemeToggle />
           </div>
 
           {/* Mobile menu button */}
           <div className="lg:hidden">
-            <MobileMenu />
+            <button className="inline-flex items-center justify-center p-2 rounded-md text-white hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
+              <span className="sr-only">Open main menu</span>
+              <svg
+                className="block h-6 w-6"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
+            </button>
           </div>
         </div>
       </div>
