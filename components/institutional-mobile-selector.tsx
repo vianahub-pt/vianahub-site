@@ -5,23 +5,24 @@ import { ChevronDown } from "lucide-react"
 import { useTranslation } from "@/contexts/translation-context"
 import { useRouter } from "next/navigation"
 
+const institutionalItems = [
+  { key: "about-us", href: "/about" },
+  { key: "our-mission", href: "/careers" },
+]
+
 export function InstitutionalMobileSelector() {
   const { t } = useTranslation()
-  const router = useRouter()
   const [isOpen, setIsOpen] = useState(false)
+  const router = useRouter()
 
-  const handleNavigation = (href: string) => {
+  const handleItemClick = (href: string) => {
     router.push(href)
+    setIsOpen(false)
     window.scrollTo(0, 0)
   }
 
-  const menuItems = [
-    { key: "about-us", href: "/about" },
-    { key: "careers", href: "/careers" },
-  ]
-
   return (
-    <div className="space-y-1">
+    <div>
       <button
         onClick={() => setIsOpen(!isOpen)}
         className="flex items-center justify-between w-full text-viana-white hover:bg-viana-yellow/20 hover:text-viana-white px-3 py-2 rounded-md text-base font-medium transition-all duration-100 drop-shadow-lg"
@@ -31,12 +32,12 @@ export function InstitutionalMobileSelector() {
       </button>
 
       {isOpen && (
-        <div className="pl-4 space-y-1">
-          {menuItems.map((item) => (
+        <div className="ml-4 mt-2 space-y-1">
+          {institutionalItems.map((item) => (
             <button
               key={item.key}
-              onClick={() => handleNavigation(item.href)}
-              className="block w-full text-left text-viana-white hover:bg-viana-orange/50 hover:text-viana-white px-3 py-2 rounded-md text-sm font-medium transition-all duration-75 drop-shadow-lg"
+              onClick={() => handleItemClick(item.href)}
+              className="block w-full text-left px-3 py-2 text-sm text-viana-white hover:bg-viana-orange/50 hover:text-viana-white rounded-md transition-all duration-75 font-medium drop-shadow-lg"
             >
               {t(`nav.${item.key}`)}
             </button>
