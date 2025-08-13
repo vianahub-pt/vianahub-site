@@ -38,6 +38,10 @@ const translations = {
     "nav.accessControl": "Controlo de Acesso",
     "nav.aboutUs": "Sobre Nós",
     "nav.opportunities": "Oportunidades",
+    // Hero Section
+    "hero.title.line1": "Soluções que",
+    "hero.title.line2": "Transformam",
+    "hero.title.line3": "O Seu Negócio",
   },
   en: {
     // Navigation
@@ -66,6 +70,10 @@ const translations = {
     "nav.accessControl": "Access Control",
     "nav.aboutUs": "About Us",
     "nav.opportunities": "Opportunities",
+    // Hero Section
+    "hero.title.line1": "Solutions that",
+    "hero.title.line2": "Transform",
+    "hero.title.line3": "Your Business",
   },
   es: {
     // Navigation
@@ -94,6 +102,10 @@ const translations = {
     "nav.accessControl": "Control de Acceso",
     "nav.aboutUs": "Sobre Nosotros",
     "nav.opportunities": "Oportunidades",
+    // Hero Section
+    "hero.title.line1": "Soluciones que",
+    "hero.title.line2": "Transforman",
+    "hero.title.line3": "Su Negocio",
   },
   fr: {
     // Navigation
@@ -122,6 +134,10 @@ const translations = {
     "nav.accessControl": "Contrôle d'Accès",
     "nav.aboutUs": "À Propos de Nous",
     "nav.opportunities": "Opportunités",
+    // Hero Section
+    "hero.title.line1": "Solutions qui",
+    "hero.title.line2": "Transforment",
+    "hero.title.line3": "Votre Entreprise",
   },
   de: {
     // Navigation
@@ -150,6 +166,10 @@ const translations = {
     "nav.accessControl": "Zugriffskontrolle",
     "nav.aboutUs": "Über Uns",
     "nav.opportunities": "Möglichkeiten",
+    // Hero Section
+    "hero.title.line1": "Lösungen die",
+    "hero.title.line2": "Transformieren",
+    "hero.title.line3": "Ihr Unternehmen",
   },
 }
 
