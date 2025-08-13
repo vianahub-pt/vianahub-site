@@ -7,7 +7,7 @@ export function EntertainmentSection() {
   const { t } = useTranslation()
 
   return (
-    <section className="w-full bg-white dark:bg-gray-900">
+    <section>
           <FoxMazeGame />
     </section>
   )
