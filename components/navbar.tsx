@@ -46,7 +46,7 @@ export function Navbar() {
                 onClick={() => handleNavigation("/contact")}
                 className="flex items-center space-x-1 px-3 py-2 rounded-md transition-all duration-100 font-medium drop-shadow-lg cursor-pointer bg-transparent text-viana-white hover:bg-viana-yellow/20 hover:text-viana-white text-sm"
               >
-                {t("nav.contact")}
+                {t("menu.contact")}
               </button>
             </div>
           </div>
@@ -75,7 +75,7 @@ export function Navbar() {
             onClick={() => handleNavigation("/contact")}
             className="flex items-center justify-between w-full text-viana-white hover:bg-viana-yellow/20 hover:text-viana-white px-3 py-2 rounded-md text-base font-medium transition-all duration-100 drop-shadow-lg"
           >
-            <span>{t("nav.contact")}</span>
+            <span>{t("menu.contact")}</span>
           </button>
           <div className="flex items-center space-x-4 px-3 py-2">
             <LanguageSelector />
