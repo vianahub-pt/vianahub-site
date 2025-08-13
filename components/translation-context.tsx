@@ -1,145 +1,8 @@
 "use client"
 
-import type React from "react"
-import { createContext, useContext, useState, useEffect } from "react"
+import { createContext, useContext, useState, useEffect, type ReactNode } from "react"
 
 type Language = "pt" | "en" | "es" | "fr" | "de"
-
-interface Translations {
-  [key: string]: {
-    [lang in Language]: string
-  }
-}
-
-const translations: Translations = {
-  // Navigation
-  "nav.whatWeDo": {
-    pt: "O que Fazemos",
-    en: "What We Do",
-    es: "Qué Hacemos",
-    fr: "Ce Que Nous Faisons",
-    de: "Was Wir Tun",
-  },
-  "nav.engineering": {
-    pt: "Engenharia",
-    en: "Engineering",
-    es: "Ingeniería",
-    fr: "Ingénierie",
-    de: "Ingenieurwesen",
-  },
-  "nav.contact": {
-    pt: "Contacto",
-    en: "Contact",
-    es: "Contacto",
-    fr: "Contact",
-    de: "Kontakt",
-  },
-  "nav.development": {
-    pt: "Desenvolvimento",
-    en: "Development",
-    es: "Desarrollo",
-    fr: "Développement",
-    de: "Entwicklung",
-  },
-  "nav.agile": {
-    pt: "Metodologia Ágil",
-    en: "Agile Methodology",
-    es: "Metodología Ágil",
-    fr: "Méthodologie Agile",
-    de: "Agile Methodik",
-  },
-  "nav.outsourcing": {
-    pt: "Outsourcing",
-    en: "Outsourcing",
-    es: "Externalización",
-    fr: "Externalisation",
-    de: "Outsourcing",
-  },
-  "nav.chatbot": {
-    pt: "Chatbot",
-    en: "Chatbot",
-    es: "Chatbot",
-    fr: "Chatbot",
-    de: "Chatbot",
-  },
-  "nav.landingPages": {
-    pt: "Landing Pages",
-    en: "Landing Pages",
-    es: "Páginas de Aterrizaje",
-    fr: "Pages d'Atterrissage",
-    de: "Landing Pages",
-  },
-  "nav.systemIntegration": {
-    pt: "Integração de Sistemas",
-    en: "System Integration",
-    es: "Integración de Sistemas",
-    fr: "Intégration de Systèmes",
-    de: "Systemintegration",
-  },
-  "nav.railway": {
-    pt: "Ferroviário",
-    en: "Railway",
-    es: "Ferroviario",
-    fr: "Ferroviaire",
-    de: "Eisenbahn",
-  },
-  "nav.road": {
-    pt: "Rodoviário",
-    en: "Road",
-    es: "Carreteras",
-    fr: "Routier",
-    de: "Straße",
-  },
-  "nav.solarEnergy": {
-    pt: "Energia Solar",
-    en: "Solar Energy",
-    es: "Energía Solar",
-    fr: "Énergie Solaire",
-    de: "Solarenergie",
-  },
-  "nav.education": {
-    pt: "Educação",
-    en: "Education",
-    es: "Educación",
-    fr: "Éducation",
-    de: "Bildung",
-  },
-  "nav.government": {
-    pt: "Governo",
-    en: "Government",
-    es: "Gobierno",
-    fr: "Gouvernement",
-    de: "Regierung",
-  },
-  "nav.manufacturing": {
-    pt: "Manufactura",
-    en: "Manufacturing",
-    es: "Manufactura",
-    fr: "Fabrication",
-    de: "Fertigung",
-  },
-  "nav.financial": {
-    pt: "Financeiro",
-    en: "Financial",
-    es: "Financiero",
-    fr: "Financier",
-    de: "Finanzen",
-  },
-  "nav.retail": {
-    pt: "Retalho",
-    en: "Retail",
-    es: "Comercio",
-    fr: "Commerce de Détail",
-    de: "Einzelhandel",
-  },
-  "nav.healthcare": {
-    pt: "Saúde",
-    en: "Healthcare",
-    es: "Salud",
-    fr: "Santé",
-    de: "Gesundheitswesen",
-  },
-}
 
 interface TranslationContextType {
   language: Language
@@ -147,14 +10,122 @@ interface TranslationContextType {
   t: (key: string) => string
 }
 
+const translations = {
+  pt: {
+    // Navigation
+    "nav.whatWeDo": "O que Fazemos",
+    "nav.engineering": "Engenharia",
+    "nav.contact": "Contacto",
+    "nav.development": "Desenvolvimento",
+    "nav.agile": "Metodologia Ágil",
+    "nav.outsourcing": "Outsourcing",
+    "nav.chatbot": "Chatbot",
+    "nav.landingPages": "Landing Pages",
+    "nav.systemIntegration": "Integração de Sistemas",
+    "nav.railway": "Ferroviário",
+    "nav.road": "Rodoviário",
+    "nav.solarEnergy": "Energia Solar",
+    "nav.education": "Educação",
+    "nav.government": "Governo",
+    "nav.manufacturing": "Manufactura",
+    "nav.financial": "Financeiro",
+    "nav.retail": "Retalho",
+    "nav.healthcare": "Saúde",
+  },
+  en: {
+    // Navigation
+    "nav.whatWeDo": "What We Do",
+    "nav.engineering": "Engineering",
+    "nav.contact": "Contact",
+    "nav.development": "Development",
+    "nav.agile": "Agile Methodology",
+    "nav.outsourcing": "Outsourcing",
+    "nav.chatbot": "Chatbot",
+    "nav.landingPages": "Landing Pages",
+    "nav.systemIntegration": "System Integration",
+    "nav.railway": "Railway",
+    "nav.road": "Road",
+    "nav.solarEnergy": "Solar Energy",
+    "nav.education": "Education",
+    "nav.government": "Government",
+    "nav.manufacturing": "Manufacturing",
+    "nav.financial": "Financial",
+    "nav.retail": "Retail",
+    "nav.healthcare": "Healthcare",
+  },
+  es: {
+    // Navigation
+    "nav.whatWeDo": "Lo que Hacemos",
+    "nav.engineering": "Ingeniería",
+    "nav.contact": "Contacto",
+    "nav.development": "Desarrollo",
+    "nav.agile": "Metodología Ágil",
+    "nav.outsourcing": "Outsourcing",
+    "nav.chatbot": "Chatbot",
+    "nav.landingPages": "Landing Pages",
+    "nav.systemIntegration": "Integración de Sistemas",
+    "nav.railway": "Ferroviario",
+    "nav.road": "Carreteras",
+    "nav.solarEnergy": "Energía Solar",
+    "nav.education": "Educación",
+    "nav.government": "Gobierno",
+    "nav.manufacturing": "Manufactura",
+    "nav.financial": "Financiero",
+    "nav.retail": "Comercio",
+    "nav.healthcare": "Salud",
+  },
+  fr: {
+    // Navigation
+    "nav.whatWeDo": "Ce que Nous Faisons",
+    "nav.engineering": "Ingénierie",
+    "nav.contact": "Contact",
+    "nav.development": "Développement",
+    "nav.agile": "Méthodologie Agile",
+    "nav.outsourcing": "Externalisation",
+    "nav.chatbot": "Chatbot",
+    "nav.landingPages": "Pages de Destination",
+    "nav.systemIntegration": "Intégration de Systèmes",
+    "nav.railway": "Ferroviaire",
+    "nav.road": "Routier",
+    "nav.solarEnergy": "Énergie Solaire",
+    "nav.education": "Éducation",
+    "nav.government": "Gouvernement",
+    "nav.manufacturing": "Fabrication",
+    "nav.financial": "Financier",
+    "nav.retail": "Commerce de Détail",
+    "nav.healthcare": "Santé",
+  },
+  de: {
+    // Navigation
+    "nav.whatWeDo": "Was Wir Tun",
+    "nav.engineering": "Ingenieurwesen",
+    "nav.contact": "Kontakt",
+    "nav.development": "Entwicklung",
+    "nav.agile": "Agile Methodik",
+    "nav.outsourcing": "Outsourcing",
+    "nav.chatbot": "Chatbot",
+    "nav.landingPages": "Landing Pages",
+    "nav.systemIntegration": "Systemintegration",
+    "nav.railway": "Eisenbahn",
+    "nav.road": "Straße",
+    "nav.solarEnergy": "Solarenergie",
+    "nav.education": "Bildung",
+    "nav.government": "Regierung",
+    "nav.manufacturing": "Fertigung",
+    "nav.financial": "Finanzen",
+    "nav.retail": "Einzelhandel",
+    "nav.healthcare": "Gesundheitswesen",
+  },
+}
+
 const TranslationContext = createContext<TranslationContextType | undefined>(undefined)
 
-export function TranslationProvider({ children }: { children: React.ReactNode }) {
+export function TranslationProvider({ children }: { children: ReactNode }) {
   const [language, setLanguage] = useState<Language>("pt")
 
   useEffect(() => {
     const savedLanguage = localStorage.getItem("language") as Language
-    if (savedLanguage && ["pt", "en", "es", "fr", "de"].includes(savedLanguage)) {
+    if (savedLanguage && translations[savedLanguage]) {
       setLanguage(savedLanguage)
     }
   }, [])
@@ -165,12 +136,7 @@ export function TranslationProvider({ children }: { children: React.ReactNode })
   }
 
   const t = (key: string): string => {
-    const translation = translations[key]
-    if (!translation) {
-      console.warn(`Translation key "${key}" not found`)
-      return key
-    }
-    return translation[language] || translation.pt || key
+    return translations[language][key] || translations.pt[key] || key
   }
 
   return (
