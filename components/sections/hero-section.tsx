@@ -1,6 +1,5 @@
 "use client"
 
-import { useTranslation } from "@/components/translation-context"
 import { Counter } from "@/components/counter"
 import { useEffect, useRef, useState } from "react"
 
