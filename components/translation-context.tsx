@@ -2,26 +2,17 @@
 
 import { createContext, useContext, useState, useEffect, type ReactNode } from "react"
 
-// Supported languages
-export type Language = "pt" | "en" | "es" | "fr" | "de"
+// Tipos
+type Language = "pt" | "en" | "es" | "fr" | "de"
 
-// Translation interface
-interface Translations {
-  [key: string]: any
-}
-
-// Translation context interface
 interface TranslationContextType {
   language: Language
   setLanguage: (lang: Language) => void
   t: (key: string) => string
 }
 
-// Create context
-const TranslationContext = createContext<TranslationContextType | undefined>(undefined)
-
-// Translation data - empty for now, will be filled gradually
-const translations: Record<Language, Translations> = {
+// Traduções vazias - serão preenchidas gradualmente
+const translations: Record<Language, Record<string, any>> = {
   pt: {},
   en: {},
   es: {},
@@ -29,11 +20,14 @@ const translations: Record<Language, Translations> = {
   de: {},
 }
 
-// Translation provider component
+// Context
+const TranslationContext = createContext<TranslationContextType | undefined>(undefined)
+
+// Provider
 export function TranslationProvider({ children }: { children: ReactNode }) {
   const [language, setLanguage] = useState<Language>("pt")
 
-  // Load language from localStorage on mount
+  // Carregar idioma do localStorage
   useEffect(() => {
     const savedLanguage = localStorage.getItem("language") as Language
     if (savedLanguage && ["pt", "en", "es", "fr", "de"].includes(savedLanguage)) {
@@ -41,12 +35,12 @@ export function TranslationProvider({ children }: { children: ReactNode }) {
     }
   }, [])
 
-  // Save language to localStorage when it changes
+  // Salvar idioma no localStorage
   useEffect(() => {
     localStorage.setItem("language", language)
   }, [language])
 
-  // Translation function
+  // Função de tradução
   const t = (key: string): string => {
     const keys = key.split(".")
     let value: any = translations[language]
@@ -55,7 +49,7 @@ export function TranslationProvider({ children }: { children: ReactNode }) {
       if (value && typeof value === "object" && k in value) {
         value = value[k]
       } else {
-        // Fallback: return the key if translation not found
+        // Fallback: retorna a chave se não encontrar tradução
         return key
       }
     }
@@ -63,16 +57,10 @@ export function TranslationProvider({ children }: { children: ReactNode }) {
     return typeof value === "string" ? value : key
   }
 
-  const value: TranslationContextType = {
-    language,
-    setLanguage,
-    t,
-  }
-
-  return <TranslationContext.Provider value={value}>{children}</TranslationContext.Provider>
+  return <TranslationContext.Provider value={{ language, setLanguage, t }}>{children}</TranslationContext.Provider>
 }
 
-// Custom hook to use translation context
+// Hook
 export function useTranslation() {
   const context = useContext(TranslationContext)
   if (context === undefined) {
