@@ -1,49 +1,32 @@
-import { TranslationProvider } from "@/contexts/translation-context"
 import { HeroSection } from "@/components/sections/hero-section"
-import { EntertainmentSection } from "@/components/sections/entertainment-section"
 import { ServicesSection } from "@/components/sections/services-section"
 import { IndustriesSection } from "@/components/sections/industries-section"
 import { ProjectsSection } from "@/components/sections/projects-section"
 import { TestimonialsSection } from "@/components/sections/testimonials-section"
 import { InsightsSection } from "@/components/sections/insights-section"
 import { CareersSection } from "@/components/sections/careers-section"
-import { ParallaxSection } from "@/components/sections/parallax-section"
-import { Navbar } from "@/components/navbar"
-import { Footer } from "@/components/footer"
+import { EntertainmentSection } from "@/components/sections/entertainment-section"
+import { TechnologiesSection } from "@/components/sections/technologies-section"
+import { ClientLayout } from "./ClientLayout"
 
-// Esta página será pré-renderizada em build time
-export default function HomePage() {
-  return (
-    <TranslationProvider>
-      <div className="min-h-screen bg-viana-white">
-        <Navbar />
-        <main>
-          <HeroSection />
-          <EntertainmentSection />
-          <ServicesSection />
-          <ParallaxSection />
-          <IndustriesSection />
-          <ProjectsSection />
-          <TestimonialsSection />
-          <InsightsSection />
-          <CareersSection />
-        </main>
-        <Footer />
-      </div>
-    </TranslationProvider>
-  )
-}
-
-// Metadados estáticos
 export const metadata = {
   title: "VianaHub - Soluções Tecnológicas Inovadoras",
   description:
-    "Transformamos ideias em soluções digitais. Desenvolvimento de software, consultoria em TI e soluções personalizadas para o seu negócio.",
-  keywords: "desenvolvimento software, consultoria TI, soluções digitais, tecnologia, inovação",
-  openGraph: {
-    title: "VianaHub - Soluções Tecnológicas Inovadoras",
-    description: "Transformamos ideias em soluções digitais",
-    type: "website",
-    locale: "pt_PT",
-  },
+    "Transformamos ideias em soluções digitais de alta qualidade. Desenvolvimento web, mobile, sistemas corporativos e consultoria em tecnologia.",
+}
+
+export default function HomePage() {
+  return (
+    <ClientLayout>
+      <HeroSection />
+      <ServicesSection />
+      <IndustriesSection />
+      <ProjectsSection />
+      <TestimonialsSection />
+      <TechnologiesSection />
+      <InsightsSection />
+      <CareersSection />
+      <EntertainmentSection />
+    </ClientLayout>
+  )
 }

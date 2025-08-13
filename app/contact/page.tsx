@@ -1,12 +1,16 @@
-import type { Metadata } from "next"
-import ContactPageClient from "./ContactPageClient"
+import { ClientLayout } from "../ClientLayout"
+import { ContactPageClient } from "./ContactPageClient"
 
-export const metadata: Metadata = {
-  title: "Contacto - Entre em Contacto Connosco | VianaHub",
+export const metadata = {
+  title: "Contato - VianaHub",
   description:
-    "Entre em contacto com a VianaHub. Estamos prontos para discutir o seu próximo projeto e como podemos ajudar a transformar as suas ideias em realidade.",
+    "Entre em contato conosco. Vamos conversar sobre como podemos ajudar seu negócio a crescer com tecnologia.",
 }
 
 export default function ContactPage() {
-  return <ContactPageClient />
+  return (
+    <ClientLayout>
+      <ContactPageClient />
+    </ClientLayout>
+  )
 }

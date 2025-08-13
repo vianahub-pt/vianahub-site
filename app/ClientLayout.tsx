@@ -2,31 +2,21 @@
 
 import type React from "react"
 
-import { Inter } from "next/font/google"
-import { ThemeProvider } from "@/components/theme-provider"
-import { TranslationProvider } from "@/contexts/translation-context"
-import { Toaster } from "@/components/ui/toaster"
-import { MenuProvider } from "@/components/menu-context"
+import { Navbar } from "@/components/navbar"
+import { Footer } from "@/components/footer"
+import { WhatsAppChat } from "@/components/whatsapp-chat"
 
-const inter = Inter({ subsets: ["latin"] })
-
-export default function ClientLayout({
-  children,
-}: {
+interface ClientLayoutProps {
   children: React.ReactNode
-}) {
+}
+
+export function ClientLayout({ children }: ClientLayoutProps) {
   return (
-    <html lang="pt-BR" suppressHydrationWarning>
-      <body className={inter.className}>
-        <ThemeProvider attribute="class" defaultTheme="light" enableSystem disableTransitionOnChange>
-          <TranslationProvider>
-            <MenuProvider>
-              {children}
-              <Toaster />
-            </MenuProvider>
-          </TranslationProvider>
-        </ThemeProvider>
-      </body>
-    </html>
+    <>
+      <Navbar />
+      <main className="min-h-screen">{children}</main>
+      <Footer />
+      <WhatsAppChat />
+    </>
   )
 }
