@@ -13,6 +13,10 @@ export const metadata = {
   },
 }
 
+// Força renderização estática
+export const dynamic = "force-static"
+export const revalidate = false
+
 export default function AboutPage() {
   return <AboutPageClient />
 }

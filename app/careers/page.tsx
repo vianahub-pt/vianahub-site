@@ -1,9 +1,5 @@
 import { CareersPageContent } from "./careers-page-content"
 
-export default function CareersPage() {
-  return <CareersPageContent />
-}
-
 // Metadados estáticos
 export const metadata = {
   title: "Carreiras - VianaHub",
@@ -16,4 +12,12 @@ export const metadata = {
     type: "website",
     locale: "pt_PT",
   },
+}
+
+// Força renderização estática
+export const dynamic = "force-static"
+export const revalidate = false
+
+export default function CareersPage() {
+  return <CareersPageContent />
 }

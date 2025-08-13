@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   title: "VianaHub - Soluções Tecnológicas Inovadoras",
   description:
     "Transformamos ideias em soluções digitais de alta qualidade. Desenvolvimento web, mobile, sistemas corporativos e consultoria em tecnologia.",
-  generator: "v0.dev",
+    generator: 'v0.dev'
 }
 
 export default function RootLayout({

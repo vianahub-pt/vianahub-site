@@ -197,3 +197,7 @@ export default function EducationPage() {
     </TranslationProvider>
   )
 }
+
+// Força renderização estática
+export const dynamic = "force-static"
+export const revalidate = false
