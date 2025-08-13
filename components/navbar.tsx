@@ -3,7 +3,8 @@
 import { useRouter } from "next/navigation"
 import Link from "next/link"
 import Image from "next/image"
-import { useTranslation } from "@/contexts/translation-context"
+import { useTranslation } from "@/components/translation-context"
+import { LanguageSelector } from "@/components/language-selector"
 import { ThemeToggle } from "@/components/theme-toggle"
 import { MobileMenu } from "@/components/mobile-menu"
 
@@ -30,7 +31,12 @@ export function Navbar() {
           {/* Desktop Navigation */}
           <div className="hidden lg:block">
             <div className="ml-10 flex items-baseline space-x-4">
-
+              <button
+                onClick={() => handleNavigation("/contact")}
+                className="flex items-center space-x-1 px-3 py-2 rounded-md transition-all duration-100 font-medium drop-shadow-lg cursor-pointer bg-transparent text-viana-white hover:bg-viana-yellow/20 hover:text-viana-white text-sm"
+              >
+                {t("nav.contact")}
+              </button>
             </div>
           </div>
 
@@ -40,9 +46,12 @@ export function Navbar() {
             <ThemeToggle />
           </div>
 
+          {/* Mobile menu button */}
+          <div className="lg:hidden">
+            <MobileMenu />
+          </div>
         </div>
       </div>
-
     </nav>
   )
 }
