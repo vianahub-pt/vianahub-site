@@ -1,9 +1,9 @@
 "use client"
 
 import { useState } from "react"
+import Image from "next/image"
 import { ChevronDown } from "lucide-react"
 import { useTranslation, type Language } from "@/components/translation-context"
-import Image from "next/image"
 
 const languages = [
   { code: "pt" as Language, name: "Português", flag: "/flags/pt.svg" },
@@ -39,14 +39,14 @@ export function LanguageSelector() {
       </button>
 
       {isOpen && (
-        <div className="absolute top-full right-0 bg-black/80 backdrop-blur-md rounded-md shadow-lg py-2 min-w-[160px] z-50">
+        <div className="absolute top-full left-0 bg-black/80 backdrop-blur-md rounded-md shadow-lg py-2 min-w-[160px] z-50">
           {languages.map((lang) => (
             <button
               key={lang.code}
               onClick={() => handleLanguageChange(lang.code)}
               className={`flex items-center space-x-2 w-full text-left px-4 py-2 text-sm transition-colors duration-150 ${
-                language === lang.code
-                  ? "bg-yellow-500/30 text-white"
+                lang.code === language
+                  ? "bg-yellow-500/20 text-white"
                   : "text-white hover:bg-yellow-500/20 hover:text-white"
               }`}
             >
