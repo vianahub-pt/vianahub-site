@@ -1,8 +1,14 @@
 "use client"
 
-import { createContext, useContext, useState, useEffect, type ReactNode } from "react"
+import type React from "react"
+import { createContext, useContext, useState, useEffect } from "react"
 
-type Language = "pt" | "en" | "es" | "fr" | "de"
+// Tipos para as traduções
+export type Language = "pt" | "en" | "es" | "fr" | "de"
+
+interface Translations {
+  [key: string]: string
+}
 
 interface TranslationContextType {
   language: Language
@@ -10,29 +16,21 @@ interface TranslationContextType {
   t: (key: string) => string
 }
 
-const translations = {
-  pt: {
-    // Traduções em português serão adicionadas gradualmente
-  },
-  en: {
-    // English translations will be added gradually
-  },
-  es: {
-    // Traducciones en español se añadirán gradualmente
-  },
-  fr: {
-    // Les traductions françaises seront ajoutées progressivement
-  },
-  de: {
-    // Deutsche Übersetzungen werden schrittweise hinzugefügt
-  },
+// Traduções vazias por enquanto - vamos preenchendo aos poucos
+const translations: Record<Language, Translations> = {
+  pt: {},
+  en: {},
+  es: {},
+  fr: {},
+  de: {},
 }
 
 const TranslationContext = createContext<TranslationContextType | undefined>(undefined)
 
-export function TranslationProvider({ children }: { children: ReactNode }) {
+export function TranslationProvider({ children }: { children: React.ReactNode }) {
   const [language, setLanguage] = useState<Language>("pt")
 
+  // Carregar idioma do localStorage na inicialização
   useEffect(() => {
     const savedLanguage = localStorage.getItem("language") as Language
     if (savedLanguage && ["pt", "en", "es", "fr", "de"].includes(savedLanguage)) {
@@ -40,37 +38,17 @@ export function TranslationProvider({ children }: { children: ReactNode }) {
     }
   }, [])
 
-  const handleSetLanguage = (lang: Language) => {
-    setLanguage(lang)
-    localStorage.setItem("language", lang)
-  }
+  // Salvar idioma no localStorage quando mudar
+  useEffect(() => {
+    localStorage.setItem("language", language)
+  }, [language])
 
+  // Função de tradução
   const t = (key: string): string => {
-    const keys = key.split(".")
-    let value: any = translations[language]
-
-    for (const k of keys) {
-      value = value?.[k]
-    }
-
-    if (typeof value === "string") {
-      return value
-    }
-
-    // Fallback to Portuguese if translation not found
-    value = translations.pt
-    for (const k of keys) {
-      value = value?.[k]
-    }
-
-    return typeof value === "string" ? value : key
+    return translations[language][key] || key
   }
 
-  return (
-    <TranslationContext.Provider value={{ language, setLanguage: handleSetLanguage, t }}>
-      {children}
-    </TranslationContext.Provider>
-  )
+  return <TranslationContext.Provider value={{ language, setLanguage, t }}>{children}</TranslationContext.Provider>
 }
 
 export function useTranslation() {
