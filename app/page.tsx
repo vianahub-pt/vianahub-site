@@ -14,6 +14,7 @@ export default function Home() {
     <div className="min-h-screen bg-background">
       <main>
         <HeroSection />
+        <EntertainmentSection />
         <ParallaxSection />
         <ServicesSection />
         <ProjectsSection />
@@ -22,7 +23,6 @@ export default function Home() {
         <InsightsSection />
         <TechnologiesSection />
         <CareersSection />
-        <EntertainmentSection />
       </main>
     </div>
   )
