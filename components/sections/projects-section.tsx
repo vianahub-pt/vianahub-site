@@ -115,7 +115,7 @@ export function ProjectsSection() {
 
   return (
     <section className="py-20 bg-gradient-to-br from-gray-50 to-orange-50">
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-3xl lg:text-4xl font-bold text-viana-black mb-4">
             <span className="text-gray-900">{t("projects.title.part1")}</span>{" "}
