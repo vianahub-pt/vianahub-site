@@ -1,6 +1,5 @@
 "use client"
 
-import { useTranslation } from "@/contexts/translation-context"
 import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
