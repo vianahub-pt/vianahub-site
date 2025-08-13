@@ -40,7 +40,7 @@ export function Level5({
         baseClass = "bg-gradient-to-br from-cyan-200 to-blue-300" // Fim - Oásis
         break
       default:
-        baseClass = "bg-gray-100" // Caminho livre
+        baseClass = "bg-blue-100" // Caminho livre
         break
     }
 
