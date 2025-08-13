@@ -1,9 +1,9 @@
 export const homeTranslations = {
   pt: {
     // Hero Section
-    "hero.title.line1": "Soluções Digitais",
-    "hero.title.line2": "que Transformam",
-    "hero.title.line3": "o seu Negócio",
+    "hero.title.line1": "Soluções que",
+    "hero.title.line2": "Transformam",
+    "hero.title.line3": "Negócios",
     "hero.subtitle":
       "Desenvolvemos tecnologias inovadoras que impulsionam o crescimento do seu negócio. Da concepção à implementação, criamos soluções personalizadas que fazem a diferença.",
     "hero.cta.start": "Começar Projeto",
