@@ -9,6 +9,7 @@ interface TranslationContextType {
   language: Language
   setLanguage: (lang: Language) => void
   t: (key: string) => string
+  getMetadata: (page: string) => any
 }
 
 const TranslationContext = createContext<TranslationContextType | undefined>(undefined)
@@ -129,6 +130,14 @@ const translations = {
     "careers.form.cover": "Carta de Apresentação",
     "careers.form.submit": "Enviar Candidatura",
     "careers.form.submitting": "A enviar...",
+
+    // Engineering Pages
+    "engineering.railway.hero.title": "Engenharia Ferroviária",
+    "engineering.railway.hero.subtitle": "Soluções especializadas para o setor ferroviário",
+    "engineering.road.hero.title": "Engenharia Rodoviária",
+    "engineering.road.hero.subtitle": "Projetos rodoviários completos",
+    "engineering.solarEnergy.hero.title": "Energia Solar",
+    "engineering.solarEnergy.hero.subtitle": "Soluções sustentáveis em energia solar",
   },
   en: {
     // Navigation
@@ -244,6 +253,14 @@ const translations = {
     "careers.form.cover": "Cover Letter",
     "careers.form.submit": "Submit Application",
     "careers.form.submitting": "Submitting...",
+
+    // Engineering Pages
+    "engineering.railway.hero.title": "Railway Engineering",
+    "engineering.railway.hero.subtitle": "Specialized solutions for the railway sector",
+    "engineering.road.hero.title": "Road Engineering",
+    "engineering.road.hero.subtitle": "Complete road projects",
+    "engineering.solarEnergy.hero.title": "Solar Energy",
+    "engineering.solarEnergy.hero.subtitle": "Sustainable solar energy solutions",
   },
   es: {
     // Navigation
@@ -360,6 +377,14 @@ const translations = {
     "careers.form.cover": "Carta de Presentación",
     "careers.form.submit": "Enviar Aplicación",
     "careers.form.submitting": "Enviando...",
+
+    // Engineering Pages
+    "engineering.railway.hero.title": "Ingeniería Ferroviaria",
+    "engineering.railway.hero.subtitle": "Soluciones especializadas para el sector ferroviario",
+    "engineering.road.hero.title": "Ingeniería de Carreteras",
+    "engineering.road.hero.subtitle": "Proyectos de carreteras completos",
+    "engineering.solarEnergy.hero.title": "Energía Solar",
+    "engineering.solarEnergy.hero.subtitle": "Soluciones sostenibles de energía solar",
   },
   fr: {
     // Navigation
@@ -478,6 +503,14 @@ const translations = {
     "careers.form.cover": "Lettre de Motivation",
     "careers.form.submit": "Soumettre la Candidature",
     "careers.form.submitting": "Soumission en cours...",
+
+    // Engineering Pages
+    "engineering.railway.hero.title": "Ingénierie Ferroviaire",
+    "engineering.railway.hero.subtitle": "Solutions spécialisées pour le secteur ferroviaire",
+    "engineering.road.hero.title": "Ingénierie Routière",
+    "engineering.road.hero.subtitle": "Projets routiers complets",
+    "engineering.solarEnergy.hero.title": "Énergie Solaire",
+    "engineering.solarEnergy.hero.subtitle": "Solutions durables d'énergie solaire",
   },
   de: {
     // Navigation
@@ -595,6 +628,262 @@ const translations = {
     "careers.form.cover": "Anschreiben",
     "careers.form.submit": "Bewerbung Senden",
     "careers.form.submitting": "Wird gesendet...",
+
+    // Engineering Pages
+    "engineering.railway.hero.title": "Eisenbahn-Ingenieurwesen",
+    "engineering.railway.hero.subtitle": "Spezialisierte Lösungen für den Eisenbahnsektor",
+    "engineering.road.hero.title": "Straßenbau-Ingenieurwesen",
+    "engineering.road.hero.subtitle": "Komplette Straßenbauprojekte",
+    "engineering.solarEnergy.hero.title": "Solarenergie",
+    "engineering.solarEnergy.hero.subtitle": "Nachhaltige Solarenergielösungen",
+  },
+}
+
+const metadata = {
+  pt: {
+    contact: {
+      title: "Contato - VianaHub",
+      description:
+        "Entre em contato conosco para discutir seu próximo projeto. Nossa equipe está pronta para transformar suas ideias em realidade.",
+      keywords: "contato, suporte, atendimento, consultoria, desenvolvimento",
+      openGraph: {
+        title: "Contato - VianaHub",
+        description: "Entre em contato conosco para discutir seu próximo projeto",
+        type: "website",
+        locale: "pt_PT",
+      },
+    },
+    railway: {
+      title: "Engenharia Ferroviária - VianaHub",
+      description:
+        "Soluções especializadas para o setor ferroviário. Projetos de infraestrutura, sinalização e sistemas de controle.",
+      keywords: "engenharia ferroviária, infraestrutura, sinalização, controle",
+      openGraph: {
+        title: "Engenharia Ferroviária - VianaHub",
+        description: "Soluções especializadas para o setor ferroviário",
+        type: "website",
+        locale: "pt_PT",
+      },
+    },
+    road: {
+      title: "Engenharia Rodoviária - VianaHub",
+      description: "Projetos rodoviários completos. Planejamento, construção e manutenção de rodovias e vias urbanas.",
+      keywords: "engenharia rodoviária, rodovias, planejamento, construção",
+      openGraph: {
+        title: "Engenharia Rodoviária - VianaHub",
+        description: "Projetos rodoviários completos",
+        type: "website",
+        locale: "pt_PT",
+      },
+    },
+    solarEnergy: {
+      title: "Energia Solar - VianaHub",
+      description:
+        "Soluções sustentáveis em energia solar. Painéis fotovoltaicos, sistemas de armazenamento e monitoramento.",
+      keywords: "energia solar, painéis fotovoltaicos, sustentabilidade, energia renovável",
+      openGraph: {
+        title: "Energia Solar - VianaHub",
+        description: "Soluções sustentáveis em energia solar",
+        type: "website",
+        locale: "pt_PT",
+      },
+    },
+  },
+  en: {
+    contact: {
+      title: "Contact - VianaHub",
+      description:
+        "Get in touch with us to discuss your next project. Our team is ready to transform your ideas into reality.",
+      keywords: "contact, support, service, consulting, development",
+      openGraph: {
+        title: "Contact - VianaHub",
+        description: "Get in touch with us to discuss your next project",
+        type: "website",
+        locale: "en_US",
+      },
+    },
+    railway: {
+      title: "Railway Engineering - VianaHub",
+      description:
+        "Specialized solutions for the railway sector. Infrastructure projects, signaling and control systems.",
+      keywords: "railway engineering, infrastructure, signaling, control",
+      openGraph: {
+        title: "Railway Engineering - VianaHub",
+        description: "Specialized solutions for the railway sector",
+        type: "website",
+        locale: "en_US",
+      },
+    },
+    road: {
+      title: "Road Engineering - VianaHub",
+      description: "Complete road projects. Planning, construction and maintenance of highways and urban roads.",
+      keywords: "road engineering, highways, planning, construction",
+      openGraph: {
+        title: "Road Engineering - VianaHub",
+        description: "Complete road projects",
+        type: "website",
+        locale: "en_US",
+      },
+    },
+    solarEnergy: {
+      title: "Solar Energy - VianaHub",
+      description: "Sustainable solar energy solutions. Photovoltaic panels, storage and monitoring systems.",
+      keywords: "solar energy, photovoltaic panels, sustainability, renewable energy",
+      openGraph: {
+        title: "Solar Energy - VianaHub",
+        description: "Sustainable solar energy solutions",
+        type: "website",
+        locale: "en_US",
+      },
+    },
+  },
+  es: {
+    contact: {
+      title: "Contacto - VianaHub",
+      description:
+        "Ponte en contacto con nosotros para discutir tu próximo proyecto. Nuestro equipo está listo para transformar tus ideas en realidad.",
+      keywords: "contacto, soporte, atención, consultoría, desarrollo",
+      openGraph: {
+        title: "Contacto - VianaHub",
+        description: "Ponte en contacto con nosotros para discutir tu próximo proyecto",
+        type: "website",
+        locale: "es_ES",
+      },
+    },
+    railway: {
+      title: "Ingeniería Ferroviaria - VianaHub",
+      description:
+        "Soluciones especializadas para el sector ferroviario. Proyectos de infraestructura, señalización y sistemas de control.",
+      keywords: "ingeniería ferroviaria, infraestructura, señalización, control",
+      openGraph: {
+        title: "Ingeniería Ferroviaria - VianaHub",
+        description: "Soluciones especializadas para el sector ferroviario",
+        type: "website",
+        locale: "es_ES",
+      },
+    },
+    road: {
+      title: "Ingeniería de Carreteras - VianaHub",
+      description:
+        "Proyectos de carreteras completos. Planificación, construcción y mantenimiento de autopistas y vías urbanas.",
+      keywords: "ingeniería de carreteras, autopistas, planificación, construcción",
+      openGraph: {
+        title: "Ingeniería de Carreteras - VianaHub",
+        description: "Proyectos de carreteras completos",
+        type: "website",
+        locale: "es_ES",
+      },
+    },
+    solarEnergy: {
+      title: "Energía Solar - VianaHub",
+      description:
+        "Soluciones sostenibles de energía solar. Paneles fotovoltaicos, sistemas de almacenamiento y monitoreo.",
+      keywords: "energía solar, paneles fotovoltaicos, sostenibilidad, energía renovable",
+      openGraph: {
+        title: "Energía Solar - VianaHub",
+        description: "Soluciones sostenibles de energía solar",
+        type: "website",
+        locale: "es_ES",
+      },
+    },
+  },
+  fr: {
+    contact: {
+      title: "Contact - VianaHub",
+      description:
+        "Contactez-nous pour discuter de votre prochain projet. Notre équipe est prête à transformer vos idées en réalité.",
+      keywords: "contact, support, service, conseil, développement",
+      openGraph: {
+        title: "Contact - VianaHub",
+        description: "Contactez-nous pour discuter de votre prochain projet",
+        type: "website",
+        locale: "fr_FR",
+      },
+    },
+    railway: {
+      title: "Ingénierie Ferroviaire - VianaHub",
+      description:
+        "Solutions spécialisées pour le secteur ferroviaire. Projets d'infrastructure, signalisation et systèmes de contrôle.",
+      keywords: "ingénierie ferroviaire, infrastructure, signalisation, contrôle",
+      openGraph: {
+        title: "Ingénierie Ferroviaire - VianaHub",
+        description: "Solutions spécialisées pour le secteur ferroviaire",
+        type: "website",
+        locale: "fr_FR",
+      },
+    },
+    road: {
+      title: "Ingénierie Routière - VianaHub",
+      description:
+        "Projets routiers complets. Planification, construction et maintenance d'autoroutes et de routes urbaines.",
+      keywords: "ingénierie routière, autoroutes, planification, construction",
+      openGraph: {
+        title: "Ingénierie Routière - VianaHub",
+        description: "Projets routiers complets",
+        type: "website",
+        locale: "fr_FR",
+      },
+    },
+    solarEnergy: {
+      title: "Énergie Solaire - VianaHub",
+      description:
+        "Solutions durables d'énergie solaire. Panneaux photovoltaïques, systèmes de stockage et de surveillance.",
+      keywords: "énergie solaire, panneaux photovoltaïques, durabilité, énergie renouvelable",
+      openGraph: {
+        title: "Énergie Solaire - VianaHub",
+        description: "Solutions durables d'énergie solaire",
+        type: "website",
+        locale: "fr_FR",
+      },
+    },
+  },
+  de: {
+    contact: {
+      title: "Kontakt - VianaHub",
+      description:
+        "Kontaktieren Sie uns, um Ihr nächstes Projekt zu besprechen. Unser Team ist bereit, Ihre Ideen in die Realität umzusetzen.",
+      keywords: "kontakt, support, service, beratung, entwicklung",
+      openGraph: {
+        title: "Kontakt - VianaHub",
+        description: "Kontaktieren Sie uns, um Ihr nächstes Projekt zu besprechen",
+        type: "website",
+        locale: "de_DE",
+      },
+    },
+    railway: {
+      title: "Eisenbahn-Ingenieurwesen - VianaHub",
+      description:
+        "Spezialisierte Lösungen für den Eisenbahnsektor. Infrastrukturprojekte, Signaltechnik und Kontrollsysteme.",
+      keywords: "eisenbahn-ingenieurwesen, infrastruktur, signaltechnik, kontrolle",
+      openGraph: {
+        title: "Eisenbahn-Ingenieurwesen - VianaHub",
+        description: "Spezialisierte Lösungen für den Eisenbahnsektor",
+        type: "website",
+        locale: "de_DE",
+      },
+    },
+    road: {
+      title: "Straßenbau-Ingenieurwesen - VianaHub",
+      description: "Komplette Straßenbauprojekte. Planung, Bau und Wartung von Autobahnen und Stadtstraßen.",
+      keywords: "straßenbau-ingenieurwesen, autobahnen, planung, bau",
+      openGraph: {
+        title: "Straßenbau-Ingenieurwesen - VianaHub",
+        description: "Komplette Straßenbauprojekte",
+        type: "website",
+        locale: "de_DE",
+      },
+    },
+    solarEnergy: {
+      title: "Solarenergie - VianaHub",
+      description: "Nachhaltige Solarenergielösungen. Photovoltaik-Panels, Speicher- und Überwachungssysteme.",
+      keywords: "solarenergie, photovoltaik-panels, nachhaltigkeit, erneuerbare energie",
+      openGraph: {
+        title: "Solarenergie - VianaHub",
+        description: "Nachhaltige Solarenergielösungen",
+        type: "website",
+        locale: "de_DE",
+      },
+    },
   },
 }
 
@@ -624,8 +913,12 @@ export function TranslationProvider({ children }: { children: React.ReactNode })
     return value || key
   }
 
+  const getMetadata = (page: string) => {
+    return metadata[language]?.[page] || metadata.pt[page]
+  }
+
   return (
-    <TranslationContext.Provider value={{ language, setLanguage: handleSetLanguage, t }}>
+    <TranslationContext.Provider value={{ language, setLanguage: handleSetLanguage, t, getMetadata }}>
       {children}
     </TranslationContext.Provider>
   )
