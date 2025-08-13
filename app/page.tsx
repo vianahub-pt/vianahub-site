@@ -8,14 +8,10 @@ import { TechnologiesSection } from "@/components/sections/technologies-section"
 import { CareersSection } from "@/components/sections/careers-section"
 import { EntertainmentSection } from "@/components/sections/entertainment-section"
 import { ParallaxSection } from "@/components/sections/parallax-section"
-import { Navbar } from "@/components/navbar"
-import { Footer } from "@/components/footer"
-import { WhatsAppChat } from "@/components/whatsapp-chat"
 
 export default function Home() {
   return (
     <div className="min-h-screen bg-background">
-      <Navbar />
       <main>
         <HeroSection />
         <ParallaxSection />
@@ -28,8 +24,6 @@ export default function Home() {
         <CareersSection />
         <EntertainmentSection />
       </main>
-      <Footer />
-      <WhatsAppChat />
     </div>
   )
 }

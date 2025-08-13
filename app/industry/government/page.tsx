@@ -1,7 +1,5 @@
 import type { Metadata } from "next"
-import { TranslationProvider } from "@/contexts/translation-context"
-import { Navbar } from "@/components/navbar"
-import { Footer } from "@/components/footer"
+import { TranslationProvider } from "@/components/translation-context"
 import { Breadcrumb } from "@/components/breadcrumb"
 import Image from "next/image"
 
@@ -15,7 +13,6 @@ export default function GovernmentPage() {
   return (
     <TranslationProvider>
       <div className="min-h-screen bg-viana-white">
-        <Navbar />
         <main>
           <div className="relative h-[400px] bg-gradient-to-r from-blue-600 to-blue-800">
             <Image src="/pages/government.jpg" alt="Governo" fill className="object-cover opacity-30" />
@@ -77,7 +74,6 @@ export default function GovernmentPage() {
             </div>
           </div>
         </main>
-        <Footer />
       </div>
     </TranslationProvider>
   )
