@@ -8,37 +8,37 @@ import { useTranslation } from "@/components/translation-context"
 
 const services = [
   {
-    icon: <Code className="h-8 w-8 text-viana-orange" />,
+    icon: <Code className="h-8 w-8 text-orange-500" />,
     titleKey: "services.web.title",
     descriptionKey: "services.web.description",
     href: "/what-we-do/development",
   },
   {
-    icon: <Smartphone className="h-8 w-8 text-viana-orange" />,
+    icon: <Smartphone className="h-8 w-8 text-orange-500" />,
     titleKey: "services.mobile.title",
     descriptionKey: "services.mobile.description",
     href: "/what-we-do/development",
   },
   {
-    icon: <Globe className="h-8 w-8 text-viana-orange" />,
+    icon: <Globe className="h-8 w-8 text-orange-500" />,
     titleKey: "services.landing.title",
     descriptionKey: "services.landing.description",
     href: "/what-we-do/landing-pages",
   },
   {
-    icon: <Database className="h-8 w-8 text-viana-orange" />,
+    icon: <Database className="h-8 w-8 text-orange-500" />,
     titleKey: "services.integration.title",
     descriptionKey: "services.integration.description",
     href: "/what-we-do/system-integration",
   },
   {
-    icon: <Shield className="h-8 w-8 text-viana-orange" />,
+    icon: <Shield className="h-8 w-8 text-orange-500" />,
     titleKey: "services.security.title",
     descriptionKey: "services.security.description",
     href: "/security/cyber-security",
   },
   {
-    icon: <Zap className="h-8 w-8 text-viana-orange" />,
+    icon: <Zap className="h-8 w-8 text-orange-500" />,
     titleKey: "services.automation.title",
     descriptionKey: "services.automation.description",
     href: "/what-we-do/development",
@@ -116,17 +116,16 @@ export function ServicesSection() {
               }}
             >
               <CardHeader className="text-center">
-                <CardTitle className="flex items-center justify-center gap-3 text-xl font-bold text-orange-500 mb-4">
+                <CardTitle className="flex items-center justify-center gap-3 text-xl font-bold text-black mb-4">
                   {service.icon}
                   {t(service.titleKey)}
                 </CardTitle>
               </CardHeader>
               <CardContent className="text-center">
-                <p className="text-gray-900 mb-6 leading-relaxed font-kurale">{t(service.descriptionKey)}</p>
+                <p className="text-orange-500 mb-6 leading-relaxed font-kurale">{t(service.descriptionKey)}</p>
                 <Button
                   size="sm"
-                  variant="outline"
-                  className="group-hover:bg-viana-orange group-hover:text-white group-hover:border-viana-orange transition-all duration-300 bg-transparent"
+                  className="bg-yellow-600 text-white hover:bg-yellow-700 border-0 transition-all duration-300"
                   asChild
                 >
                   <a href={service.href}>{t("services.cta")}</a>
