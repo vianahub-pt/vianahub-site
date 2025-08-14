@@ -161,8 +161,8 @@ export function ProjectsSection() {
 
                         {/* Content Section */}
                         <div className="p-8 flex flex-col justify-center bg-white">
-                          <h3 className="text-2xl font-bold text-viana-black mb-4">{t(project.title)}</h3>
-                          <p className="text-viana-gray mb-6 leading-relaxed">{t(project.description)}</p>
+                          <h3 className="text-2xl font-bold text-gray-900 mb-4">{t(project.title)}</h3>
+                          <p className="text-gray-900 mb-6 leading-relaxed">{t(project.description)}</p>
 
                           {/* Tech Stack */}
                           <div className="flex flex-wrap gap-2 mb-6">
