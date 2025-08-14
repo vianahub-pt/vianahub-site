@@ -1,5 +1,7 @@
 "use client"
 
+import type React from "react"
+
 import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { GraduationCap, Banknote, Building2, Heart, Factory, ShoppingCart, ArrowRight } from "lucide-react"
@@ -56,37 +58,37 @@ export function IndustriesSection() {
 
   const industries = [
     {
-      icon: <GraduationCap className="h-8 w-8 text-viana-orange !important" />,
+      icon: <GraduationCap className="h-8 w-8" style={{ color: "#FF8C00" }} />,
       title: t("industries.education.title"),
       description: t("industries.education.description"),
       href: "/industry/education",
     },
     {
-      icon: <Banknote className="h-8 w-8 text-viana-orange !important" />,
+      icon: <Banknote className="h-8 w-8" style={{ color: "#FF8C00" }} />,
       title: t("industries.financial.title"),
       description: t("industries.financial.description"),
       href: "/industry/financial",
     },
     {
-      icon: <Building2 className="h-8 w-8 text-viana-orange !important" />,
+      icon: <Building2 className="h-8 w-8" style={{ color: "#FF8C00" }} />,
       title: t("industries.government.title"),
       description: t("industries.government.description"),
       href: "/industry/government",
     },
     {
-      icon: <Heart className="h-8 w-8 text-viana-orange !important" />,
+      icon: <Heart className="h-8 w-8" style={{ color: "#FF8C00" }} />,
       title: t("industries.healthcare.title"),
       description: t("industries.healthcare.description"),
       href: "/industry/healthcare",
     },
     {
-      icon: <Factory className="h-8 w-8 text-viana-orange !important" />,
+      icon: <Factory className="h-8 w-8" style={{ color: "#FF8C00" }} />,
       title: t("industries.manufacturing.title"),
       description: t("industries.manufacturing.description"),
       href: "/industry/manufacturing",
     },
     {
-      icon: <ShoppingCart className="h-8 w-8 text-viana-orange !important" />,
+      icon: <ShoppingCart className="h-8 w-8" style={{ color: "#FF8C00" }} />,
       title: t("industries.retail.title"),
       description: t("industries.retail.description"),
       href: "/industry/retail",
@@ -99,7 +101,7 @@ export function IndustriesSection() {
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold mb-4">
             <span className="text-gray-900">{t("industries.title.part1")}</span>{" "}
-            <span className="text-viana-orange !important">{t("industries.title.part2")}</span>
+            <span style={{ color: "#FF8C00" }}>{t("industries.title.part2")}</span>
           </h2>
           <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto font-kurale">
             {t("industries.subtitle")}
@@ -119,14 +121,35 @@ export function IndustriesSection() {
               }}
             >
               <CardContent className="p-8 text-center">
-                <h3 className="text-xl font-bold mb-4 group-hover:text-viana-orange !important transition-colors">
+                <h3
+                  className="text-xl font-bold mb-4 transition-colors"
+                  style={
+                    {
+                      "--hover-color": "#FF8C00",
+                    } as React.CSSProperties
+                  }
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.color = "#FF8C00"
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.color = ""
+                  }}
+                >
                   {industry.icon} {industry.title}
                 </h3>
                 <p className="text-gray-600 dark:text-gray-300 mb-6 font-kurale">{industry.description}</p>
                 <Link href={industry.href}>
                   <Button
                     variant="outline"
-                    className="group-hover:bg-viana-orange !important group-hover:text-white !important transition-colors bg-transparent"
+                    className="transition-colors bg-transparent"
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.backgroundColor = "#FF8C00"
+                      e.currentTarget.style.color = "#FFFFFF"
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.backgroundColor = ""
+                      e.currentTarget.style.color = ""
+                    }}
                   >
                     {t("industries.cta")}
                     <ArrowRight className="ml-2 h-4 w-4" />
