@@ -153,7 +153,7 @@ export function ProjectsSection() {
                           />
                           <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
                           <div className="absolute top-4 right-4">
-                            <div className="bg-viana-orange text-white px-3 py-1 text-sm font-medium">
+                            <div className="!bg-viana-orange text-white px-3 py-1 text-sm font-medium">
                               {t(project.category)}
                             </div>
                           </div>
