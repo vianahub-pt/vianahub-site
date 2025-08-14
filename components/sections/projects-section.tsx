@@ -169,7 +169,7 @@ export function ProjectsSection() {
                             {project.tech.map((tech, index) => (
                               <span
                                 key={index}
-                                className="!bg-viana-orange/10 text-viana-orange px-3 py-1 text-sm font-medium"
+                                className="!bg-viana-orange/50 text-gray-900 px-3 py-1 text-sm font-medium"
                               >
                                 {tech}
                               </span>
