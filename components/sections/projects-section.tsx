@@ -195,24 +195,6 @@ export function ProjectsSection() {
             </div>
           </div>
 
-          {/* Navigation Arrows */}
-          <Button
-            variant="outline"
-            size="icon"
-            className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white border-viana-orange text-viana-orange hover:text-viana-orange z-10"
-            onClick={prevProject}
-          >
-            <ChevronLeft className="h-4 w-4" />
-          </Button>
-          <Button
-            variant="outline"
-            size="icon"
-            className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white border-viana-orange text-viana-orange hover:text-viana-orange z-10"
-            onClick={nextProject}
-          >
-            <ChevronRight className="h-4 w-4" />
-          </Button>
-
           {/* Dots Indicator */}
           <div className="flex justify-center mt-8 space-x-2">
             {projects.map((_, index) => (
