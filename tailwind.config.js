@@ -2,9 +2,10 @@
 module.exports = {
   darkMode: ["class"],
   content: [
-    "./pages/**/*.{js,ts,jsx,tsx,mdx}",
-    "./components/**/*.{js,ts,jsx,tsx,mdx}",
-    "./app/**/*.{js,ts,jsx,tsx,mdx}",
+    "./pages/**/*.{ts,tsx}",
+    "./components/**/*.{ts,tsx}",
+    "./app/**/*.{ts,tsx}",
+    "./src/**/*.{ts,tsx}",
     "*.{js,ts,jsx,tsx,mdx}",
   ],
   prefix: "",
@@ -17,41 +18,31 @@ module.exports = {
       },
     },
     extend: {
-      fontFamily: {
-        kurale: ["var(--font-kurale)"],
-      },
       colors: {
-        viana: {
-          orange: "#FF8C00",
-          white: "#FFFFFF",
-          black: "#000000",
-          gray: "#363636",
-          yellow: "#FFD700",
-        },
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
         primary: {
-          DEFAULT: "#FF8C00",
-          foreground: "#FFFFFF",
+          DEFAULT: "hsl(var(--primary))",
+          foreground: "hsl(var(--primary-foreground))",
         },
         secondary: {
-          DEFAULT: "#FFD700",
-          foreground: "#000000",
+          DEFAULT: "hsl(var(--secondary))",
+          foreground: "hsl(var(--secondary-foreground))",
         },
         destructive: {
           DEFAULT: "hsl(var(--destructive))",
           foreground: "hsl(var(--destructive-foreground))",
         },
         muted: {
-          DEFAULT: "#363636",
-          foreground: "#FFFFFF",
+          DEFAULT: "hsl(var(--muted))",
+          foreground: "hsl(var(--muted-foreground))",
         },
         accent: {
-          DEFAULT: "#FFD700",
-          foreground: "#000000",
+          DEFAULT: "hsl(var(--accent))",
+          foreground: "hsl(var(--accent-foreground))",
         },
         popover: {
           DEFAULT: "hsl(var(--popover))",
@@ -61,6 +52,16 @@ module.exports = {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+        "viana-orange": "#FF8C00",
+        "viana-blue": "#1E40AF",
+        "viana-green": "#10B981",
+        "viana-purple": "#8B5CF6",
+        "viana-red": "#EF4444",
+        "viana-yellow": "#F59E0B",
+        "viana-pink": "#EC4899",
+        "viana-indigo": "#6366F1",
+        "viana-gray": "#6B7280",
+        "viana-black": "#1F2937",
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -80,6 +81,9 @@ module.exports = {
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+      },
+      fontFamily: {
+        kurale: ["Kurale", "serif"],
       },
     },
   },
