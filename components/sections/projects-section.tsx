@@ -219,7 +219,7 @@ export function ProjectsSection() {
               <button
                 key={index}
                 className={`w-3 h-3 rounded-full transition-colors ${
-                  index === currentIndex ? "bg-orange-500" : "bg-gray-300"
+                  index === currentIndex ? "bg-viana-orange" : "bg-gray-300"
                 }`}
                 onClick={() => goToProject(index)}
               />
