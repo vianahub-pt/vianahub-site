@@ -51,7 +51,7 @@ export function NameForm({ onNameSubmit }: NameFormProps) {
                   value={name}
                   onChange={(e) => setName(e.target.value)}
                   placeholder={t("foxGame.namePlaceholder")}
-                  className="w-full bg-white border-gray-200"
+                  className="w-full bg-white"
                   maxLength={20}
                   required
                 />
