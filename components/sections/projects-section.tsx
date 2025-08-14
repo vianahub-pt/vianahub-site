@@ -169,7 +169,7 @@ export function ProjectsSection() {
                             {project.tech.map((tech, index) => (
                               <span
                                 key={index}
-                                className="bg-viana-orange/10 text-viana-orange px-3 py-1 text-sm font-medium"
+                                className="!bg-viana-orange/10 text-viana-orange px-3 py-1 text-sm font-medium"
                               >
                                 {tech}
                               </span>
@@ -177,7 +177,7 @@ export function ProjectsSection() {
                           </div>
 
                           <Button
-                            className="bg-viana-orange hover:bg-viana-yellow text-white hover:text-viana-black transition-colors w-fit"
+                            className="!bg-viana-orange hover:bg-viana-yellow text-white hover:text-viana-black transition-colors w-fit"
                             onClick={(e) => {
                               e.stopPropagation()
                               handleProjectClick(project.url)
