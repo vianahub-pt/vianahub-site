@@ -141,14 +141,20 @@ export function IndustriesSection() {
                 <Link href={industry.href}>
                   <Button
                     variant="outline"
-                    className="transition-colors bg-transparent"
+                    className="transition-all duration-300 bg-transparent"
+                    style={{
+                      backgroundColor: "transparent",
+                      borderColor: "#d1d5db",
+                    }}
                     onMouseEnter={(e) => {
                       e.currentTarget.style.backgroundColor = "#FF8C00"
                       e.currentTarget.style.color = "#FFFFFF"
+                      e.currentTarget.style.borderColor = "#FF8C00"
                     }}
                     onMouseLeave={(e) => {
-                      e.currentTarget.style.backgroundColor = ""
+                      e.currentTarget.style.backgroundColor = "transparent"
                       e.currentTarget.style.color = ""
+                      e.currentTarget.style.borderColor = "#d1d5db"
                     }}
                   >
                     {t("industries.cta")}
