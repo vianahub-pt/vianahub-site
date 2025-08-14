@@ -10,6 +10,95 @@ body {
   .text-balance {
     text-wrap: balance;
   }
+
+  /* Force Viana colors to work properly */
+  .text-viana-orange {
+    color: #ff8c00 !important;
+  }
+
+  .text-viana-yellow {
+    color: #ffd700 !important;
+  }
+
+  .text-viana-black {
+    color: #000000 !important;
+  }
+
+  .text-viana-gray {
+    color: #363636 !important;
+  }
+
+  .text-viana-white {
+    color: #ffffff !important;
+  }
+
+  .bg-viana-orange {
+    background-color: #ff8c00 !important;
+  }
+
+  .bg-viana-yellow {
+    background-color: #ffd700 !important;
+  }
+
+  .bg-viana-black {
+    background-color: #000000 !important;
+  }
+
+  .bg-viana-gray {
+    background-color: #363636 !important;
+  }
+
+  .bg-viana-white {
+    background-color: #ffffff !important;
+  }
+
+  .border-viana-orange {
+    border-color: #ff8c00 !important;
+  }
+
+  .border-viana-yellow {
+    border-color: #ffd700 !important;
+  }
+
+  .border-viana-black {
+    border-color: #000000 !important;
+  }
+
+  .border-viana-gray {
+    border-color: #363636 !important;
+  }
+
+  .border-viana-white {
+    border-color: #ffffff !important;
+  }
+
+  .hover\:text-viana-orange:hover {
+    color: #ff8c00 !important;
+  }
+
+  .hover\:text-viana-yellow:hover {
+    color: #ffd700 !important;
+  }
+
+  .hover\:bg-viana-orange:hover {
+    background-color: #ff8c00 !important;
+  }
+
+  .hover\:bg-viana-yellow:hover {
+    background-color: #ffd700 !important;
+  }
+
+  .group:hover .group-hover\:text-viana-orange {
+    color: #ff8c00 !important;
+  }
+
+  .group:hover .group-hover\:bg-viana-orange {
+    background-color: #ff8c00 !important;
+  }
+
+  .group:hover .group-hover\:text-white {
+    color: #ffffff !important;
+  }
 }
 
 @layer base {
@@ -181,6 +270,24 @@ body {
 
 .dark .hover\:text-viana-yellow:hover {
   color: #d4d4d4 !important;
+}
+
+/* Group hover states for light mode */
+.group:hover .group-hover\:text-viana-orange {
+  color: #ff8c00 !important;
+}
+
+.group:hover .group-hover\:bg-viana-orange {
+  background-color: #ff8c00 !important;
+}
+
+/* Group hover states for dark mode */
+.dark .group:hover .group-hover\:text-viana-orange {
+  color: #e5e5e5 !important;
+}
+
+.dark .group:hover .group-hover\:bg-viana-orange {
+  background-color: #404040 !important;
 }
 
 /* Cards e componentes no tema escuro */
