@@ -229,7 +229,7 @@ export function ProjectsSection() {
 
         {/* Call to Action */}
         <div className="text-center mt-16">
-          <Button size="lg" className="bg-viana-orange hover:bg-viana-yellow text-white hover:text-viana-black">
+          <Button size="lg" className="!bg-viana-orange hover:!bg-viana-yellow text-white hover:text-viana-black">
             {t("projects.cta")}
           </Button>
         </div>
