@@ -65,6 +65,38 @@ const translations = {
     "projects.title.part2": "Projetos",
     "projects.subtitle": "Conheça alguns dos projetos que desenvolvemos para nossos clientes",
     "projects.cta": "Ver Todos os Projetos",
+    "projects.viewProject": "Ver Projeto",
+    "projects.ecommerce.title": "Plataforma de E-commerce",
+    "projects.ecommerce.category": "E-commerce",
+    "projects.ecommerce.description":
+      "Sistema completo de vendas online com gestão de inventário, pagamentos e análises avançadas.",
+    "projects.hospital.title": "Sistema de Gestão Hospitalar",
+    "projects.hospital.category": "Saúde",
+    "projects.hospital.description":
+      "Plataforma integrada para gestão de pacientes, consultas, exames e recursos hospitalares.",
+    "projects.delivery.title": "App de Entrega de Comida",
+    "projects.delivery.category": "Delivery",
+    "projects.delivery.description":
+      "Aplicação móvel para pedidos de comida com rastreamento em tempo real e pagamentos integrados.",
+    "projects.banking.title": "Sistema Bancário Digital",
+    "projects.banking.category": "Financeiro",
+    "projects.banking.description":
+      "Plataforma bancária completa com transações seguras, gestão de contas e serviços digitais.",
+    "projects.education.title": "Plataforma Educacional",
+    "projects.education.category": "Educação",
+    "projects.education.description":
+      "Sistema de ensino online com videoconferências, gestão de cursos e avaliações automatizadas.",
+    "projects.logistics.title": "Sistema de Logística",
+    "projects.logistics.category": "Logística",
+    "projects.logistics.description":
+      "Solução completa para gestão de frotas, rastreamento de entregas e otimização de rotas.",
+    "projects.streaming.title": "Plataforma de Streaming",
+    "projects.streaming.category": "Entretenimento",
+    "projects.streaming.description": "Sistema de streaming de vídeo com CDN global e analytics avançados.",
+    "projects.crm.title": "Sistema CRM",
+    "projects.crm.category": "Gestão",
+    "projects.crm.description":
+      "Plataforma de gestão de relacionamento com clientes com automação de vendas e marketing.",
     // Entertainment Section
     "entertainment.title": "Entretenimento",
     "entertainment.subtitle": "Divirta-se com os nossos jogos interactivos",
@@ -163,6 +195,37 @@ const translations = {
     "projects.title.part2": "Projects",
     "projects.subtitle": "See some of the projects we've developed for our clients",
     "projects.cta": "See All Projects",
+    "projects.viewProject": "View Project",
+    "projects.ecommerce.title": "E-commerce Platform",
+    "projects.ecommerce.category": "E-commerce",
+    "projects.ecommerce.description":
+      "Complete online sales system with inventory management, payments and advanced analytics.",
+    "projects.hospital.title": "Hospital Management System",
+    "projects.hospital.category": "Healthcare",
+    "projects.hospital.description":
+      "Integrated platform for patient management, appointments, exams and hospital resources.",
+    "projects.delivery.title": "Food Delivery App",
+    "projects.delivery.category": "Delivery",
+    "projects.delivery.description":
+      "Mobile application for food orders with real-time tracking and integrated payments.",
+    "projects.banking.title": "Digital Banking System",
+    "projects.banking.category": "Financial",
+    "projects.banking.description":
+      "Complete banking platform with secure transactions, account management and digital services.",
+    "projects.education.title": "Educational Platform",
+    "projects.education.category": "Education",
+    "projects.education.description":
+      "Online learning system with video conferencing, course management and automated assessments.",
+    "projects.logistics.title": "Logistics System",
+    "projects.logistics.category": "Logistics",
+    "projects.logistics.description":
+      "Complete solution for fleet management, delivery tracking and route optimization.",
+    "projects.streaming.title": "Streaming Platform",
+    "projects.streaming.category": "Entertainment",
+    "projects.streaming.description": "Video streaming system with global CDN and advanced analytics.",
+    "projects.crm.title": "CRM System",
+    "projects.crm.category": "Management",
+    "projects.crm.description": "Customer relationship management platform with sales and marketing automation.",
     // Entertainment Section
     "entertainment.title": "Entertainment",
     "entertainment.subtitle": "Have fun with our interactive games",
@@ -261,6 +324,38 @@ const translations = {
     "projects.title.part2": "Proyectos",
     "projects.subtitle": "Vea algunos de los proyectos que hemos desarrollado para nuestros clientes",
     "projects.cta": "Ver Todos los Proyectos",
+    "projects.viewProject": "Ver Proyecto",
+    "projects.ecommerce.title": "Plataforma de E-commerce",
+    "projects.ecommerce.category": "E-commerce",
+    "projects.ecommerce.description":
+      "Sistema completo de ventas online con gestión de inventario, pagos y análisis avanzados.",
+    "projects.hospital.title": "Sistema de Gestión Hospitalaria",
+    "projects.hospital.category": "Salud",
+    "projects.hospital.description":
+      "Plataforma integrada para gestión de pacientes, citas, exámenes y recursos hospitalarios.",
+    "projects.delivery.title": "App de Entrega de Comida",
+    "projects.delivery.category": "Delivery",
+    "projects.delivery.description":
+      "Aplicación móvil para pedidos de comida con seguimiento en tiempo real y pagos integrados.",
+    "projects.banking.title": "Sistema Bancario Digital",
+    "projects.banking.category": "Financiero",
+    "projects.banking.description":
+      "Plataforma bancaria completa con transacciones seguras, gestión de cuentas y servicios digitales.",
+    "projects.education.title": "Plataforma Educacional",
+    "projects.education.category": "Educación",
+    "projects.education.description":
+      "Sistema de enseñanza online con videoconferencias, gestión de cursos y evaluaciones automatizadas.",
+    "projects.logistics.title": "Sistema de Logística",
+    "projects.logistics.category": "Logística",
+    "projects.logistics.description":
+      "Solución completa para gestión de flotas, seguimiento de entregas y optimización de rutas.",
+    "projects.streaming.title": "Plataforma de Streaming",
+    "projects.streaming.category": "Entretenimiento",
+    "projects.streaming.description": "Sistema de streaming de video con CDN global y analytics avanzados.",
+    "projects.crm.title": "Sistema CRM",
+    "projects.crm.category": "Gestión",
+    "projects.crm.description":
+      "Plataforma de gestión de relaciones con clientes con automatización de ventas y marketing.",
     // Entertainment Section
     "entertainment.title": "Entretenimiento",
     "entertainment.subtitle": "Diviértete con nuestros juegos interactivos",
@@ -359,6 +454,38 @@ const translations = {
     "projects.title.part2": "Projets",
     "projects.subtitle": "Découvrez quelques-uns des projets que nous avons développés pour nos clients",
     "projects.cta": "Voir Tous les Projets",
+    "projects.viewProject": "Voir le Projet",
+    "projects.ecommerce.title": "Plateforme E-commerce",
+    "projects.ecommerce.category": "E-commerce",
+    "projects.ecommerce.description":
+      "Système complet de vente en ligne avec gestion d'inventaire, paiements et analyses avancées.",
+    "projects.hospital.title": "Système de Gestion Hospitalière",
+    "projects.hospital.category": "Santé",
+    "projects.hospital.description":
+      "Plateforme intégrée pour la gestion des patients, rendez-vous, examens et ressources hospitalières.",
+    "projects.delivery.title": "App de Livraison de Nourriture",
+    "projects.delivery.category": "Livraison",
+    "projects.delivery.description":
+      "Application mobile pour commandes de nourriture avec suivi en temps réel et paiements intégrés.",
+    "projects.banking.title": "Système Bancaire Numérique",
+    "projects.banking.category": "Financier",
+    "projects.banking.description":
+      "Plateforme bancaire complète avec transactions sécurisées, gestion de comptes et services numériques.",
+    "projects.education.title": "Plateforme Éducative",
+    "projects.education.category": "Éducation",
+    "projects.education.description":
+      "Système d'apprentissage en ligne avec visioconférences, gestion de cours et évaluations automatisées.",
+    "projects.logistics.title": "Système de Logistique",
+    "projects.logistics.category": "Logistique",
+    "projects.logistics.description":
+      "Solution complète pour la gestion de flottes, suivi des livraisons et optimisation des itinéraires.",
+    "projects.streaming.title": "Plateforme de Streaming",
+    "projects.streaming.category": "Divertissement",
+    "projects.streaming.description": "Système de streaming vidéo avec CDN global et analyses avancées.",
+    "projects.crm.title": "Système CRM",
+    "projects.crm.category": "Gestion",
+    "projects.crm.description":
+      "Plateforme de gestion de la relation client avec automatisation des ventes et du marketing.",
     // Entertainment Section
     "entertainment.title": "Divertissement",
     "entertainment.subtitle": "Amusez-vous avec nos jeux interactifs",
@@ -457,6 +584,36 @@ const translations = {
     "projects.title.part2": "Projekte",
     "projects.subtitle": "Sehen Sie einige der Projekte, die wir für unsere Kunden entwickelt haben",
     "projects.cta": "Alle Projekte Anzeigen",
+    "projects.viewProject": "Projekt Ansehen",
+    "projects.ecommerce.title": "E-Commerce-Plattform",
+    "projects.ecommerce.category": "E-Commerce",
+    "projects.ecommerce.description":
+      "Komplettes Online-Verkaufssystem mit Bestandsverwaltung, Zahlungen und erweiterten Analysen.",
+    "projects.hospital.title": "Krankenhaus-Managementsystem",
+    "projects.hospital.category": "Gesundheitswesen",
+    "projects.hospital.description":
+      "Integrierte Plattform für Patientenverwaltung, Termine, Untersuchungen und Krankenhausressourcen.",
+    "projects.delivery.title": "Food-Delivery-App",
+    "projects.delivery.category": "Lieferung",
+    "projects.delivery.description":
+      "Mobile Anwendung für Essensbestellungen mit Echtzeit-Tracking und integrierten Zahlungen.",
+    "projects.banking.title": "Digitales Banking-System",
+    "projects.banking.category": "Finanzen",
+    "projects.banking.description":
+      "Komplette Banking-Plattform mit sicheren Transaktionen, Kontoverwaltung und digitalen Services.",
+    "projects.education.title": "Bildungsplattform",
+    "projects.education.category": "Bildung",
+    "projects.education.description":
+      "Online-Lernsystem mit Videokonferenzen, Kursverwaltung und automatisierten Bewertungen.",
+    "projects.logistics.title": "Logistiksystem",
+    "projects.logistics.category": "Logistik",
+    "projects.logistics.description": "Komplette Lösung für Flottenverwaltung, Lieferverfolgung und Routenoptimierung.",
+    "projects.streaming.title": "Streaming-Plattform",
+    "projects.streaming.category": "Unterhaltung",
+    "projects.streaming.description": "Video-Streaming-System mit globalem CDN und erweiterten Analysen.",
+    "projects.crm.title": "CRM-System",
+    "projects.crm.category": "Verwaltung",
+    "projects.crm.description": "Kundenbeziehungsmanagement-Plattform mit Vertriebs- und Marketing-Automatisierung.",
     // Entertainment Section
     "entertainment.title": "Unterhaltung",
     "entertainment.subtitle": "Haben Sie Spaß mit unseren interaktiven Spielen",
