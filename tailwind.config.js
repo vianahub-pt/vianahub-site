@@ -22,7 +22,7 @@ module.exports = {
       },
       colors: {
         viana: {
-          orange: "#FFA500",
+          orange: "#FF8C00",
           white: "#FFFFFF",
           black: "#000000",
           gray: "#363636",
@@ -34,7 +34,7 @@ module.exports = {
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
         primary: {
-          DEFAULT: "#FFA500",
+          DEFAULT: "#FF8C00",
           foreground: "#FFFFFF",
         },
         secondary: {
