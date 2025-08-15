@@ -251,7 +251,6 @@ export default function AgilePage() {
           </div>
         </section>
       </main>
-      <Footer />
     </div>
   )
 }
