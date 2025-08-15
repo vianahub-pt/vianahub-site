@@ -1,5 +1,4 @@
 import type { Metadata } from "next"
-import { Breadcrumb } from "@/components/breadcrumb"
 import Image from "next/image"
 
 export const metadata: Metadata = {
