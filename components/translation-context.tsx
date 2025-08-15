@@ -43,6 +43,9 @@ const translations = {
     "hero.title.line2": "Transformam",
     "hero.title.line3": "O Seu Negócio",
     "hero.subtitle": "Desenvolvemos tecnologias inovadoras que impulsionam o crescimento do seu negócio.",
+    "hero.stats.projects": "Projetos",
+    "hero.stats.clients": "Clientes",
+    "hero.stats.years": "Anos",
     // Services Section
     "services.title.part1": "Os Nossos",
     "services.title.part2": "Serviços",
@@ -230,6 +233,9 @@ const translations = {
     "hero.title.line2": "Transform",
     "hero.title.line3": "Your Business",
     "hero.subtitle": "We develop innovative technologies that drive your business growth.",
+    "hero.stats.projects": "Projects",
+    "hero.stats.clients": "Clients",
+    "hero.stats.years": "Years",
     // Services Section
     "services.title.part1": "Our",
     "services.title.part2": "Services",
@@ -416,6 +422,9 @@ const translations = {
     "hero.title.line2": "Transforman",
     "hero.title.line3": "Su Negocio",
     "hero.subtitle": "Desarrollamos tecnologías innovadoras que impulsan el crecimiento de su negocio.",
+    "hero.stats.projects": "Proyectos",
+    "hero.stats.clients": "Clientes",
+    "hero.stats.years": "Años",
     // Services Section
     "services.title.part1": "Nuestros",
     "services.title.part2": "Servicios",
@@ -604,6 +613,9 @@ const translations = {
     "hero.title.line2": "Transforment",
     "hero.title.line3": "Votre Entreprise",
     "hero.subtitle": "Nous développons des technologies innovantes qui stimulent la croissance de votre entreprise.",
+    "hero.stats.projects": "Projets",
+    "hero.stats.clients": "Clients",
+    "hero.stats.years": "Années",
     // Services Section
     "services.title.part1": "Nos",
     "services.title.part2": "Services",
@@ -792,6 +804,9 @@ const translations = {
     "hero.title.line2": "Transformieren",
     "hero.title.line3": "Ihr Unternehmen",
     "hero.subtitle": "Wir entwickeln innovative Technologien, die das Wachstum Ihres Unternehmens vorantreiben.",
+    "hero.stats.projects": "Projekte",
+    "hero.stats.clients": "Kunden",
+    "hero.stats.years": "Jahre",
     // Services Section
     "services.title.part1": "Unsere",
     "services.title.part2": "Dienstleistungen",
