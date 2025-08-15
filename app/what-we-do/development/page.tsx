@@ -98,7 +98,7 @@ function DevelopmentPageContent() {
     <div className="min-h-screen bg-viana-white">
         {/* Hero Section */}
         <section
-          className="relative pt-0 pb-0 bg-gradient-to-br from-viana-orange to-viana-yellow overflow-hidden h-[600px]"
+          className="relative pt-0 pb-0 bg-gradient-to-br from-viana-orange to-viana-yellow overflow-hidden h-[500px]"
           style={{
             backgroundImage: "url(/pages/development.jpg)",
             backgroundSize: "cover",
