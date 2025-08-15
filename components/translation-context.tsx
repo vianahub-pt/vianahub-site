@@ -804,6 +804,9 @@ const translations = {
     "hero.title.line2": "Transformieren",
     "hero.title.line3": "Ihr Unternehmen",
     "hero.subtitle": "Wir entwickeln innovative Technologien, die das Wachstum Ihres Unternehmens vorantreiben.",
+    "hero.stats.projects": "Projekte",
+    "hero.stats.clients": "Kunden",
+    "hero.stats.years":"Jahre",    
     // Services Section
     "services.title.part1": "Unsere",
     "services.title.part2": "Dienstleistungen",
