@@ -15,7 +15,6 @@ import { useTranslation } from "@/components/translation-context"
 export function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const router = useRouter()
-  const { t } = useTranslation()
 
   const handleNavigation = (path: string) => {
     router.push(path)
