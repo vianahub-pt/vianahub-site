@@ -15,8 +15,8 @@ export function Footer() {
           {/* Logo and Description */}
           <div className="space-y-4">
             <Link href="/" className="flex items-center">
-              <Image src="/logo.png" alt="VianaHub" width={40} height={40} className="h-10 w-auto" />
-              <span className="ml-2 text-xl font-bold">VianaHub</span>
+              <Image src="/logo.png" alt={t("footer.companyName")} width={40} height={40} className="h-10 w-auto" />
+              <span className="ml-2 text-xl font-bold">{t("footer.companyName")}</span>
             </Link>
             <p className="text-gray-300 text-sm">{t("footer.description")}</p>
             <div className="flex space-x-4">
@@ -101,19 +101,15 @@ export function Footer() {
             <ul className="space-y-2">
               <li className="flex items-center text-gray-300 text-sm">
                 <Mail className="h-4 w-4 mr-2" />
-                info@vianahub.com
+                {t("footer.email")}
               </li>
               <li className="flex items-center text-gray-300 text-sm">
                 <Phone className="h-4 w-4 mr-2" />
-                +351 123 456 789
+                {t("footer.phone")}
               </li>
               <li className="flex items-start text-gray-300 text-sm">
                 <MapPin className="h-4 w-4 mr-2 mt-0.5" />
-                <span>
-                  Rua da Inovação, 123
-                  <br />
-                  4000-000 Porto, Portugal
-                </span>
+                <span dangerouslySetInnerHTML={{ __html: t("footer.address") }} />
               </li>
             </ul>
           </div>
@@ -121,7 +117,7 @@ export function Footer() {
 
         <div className="border-t border-gray-800 mt-8 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
-            <p className="text-gray-400 text-sm">© 2024 VianaHub. {t("footer.rights")}</p>
+            <p className="text-gray-400 text-sm">{t("footer.copyright")}</p>
             <div className="flex space-x-6 mt-4 md:mt-0">
               <Link href="/privacy" className="text-gray-400 hover:text-white transition-colors text-sm">
                 {t("footer.privacy")}
