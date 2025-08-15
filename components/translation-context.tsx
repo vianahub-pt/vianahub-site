@@ -437,6 +437,21 @@ const translations = {
     "financial.solutions.compliance.title": "Conformidade",
     "financial.solutions.compliance.description":
       "Ferramentas para garantir a conformidade com regulamentações financeiras.",
+    // Retail Page
+    "retail.hero.title": "Setor de Varejo",
+    "retail.hero.subtitle": "Transformando a experiência de compra",
+    "retail.innovation.title": "Inovação no Varejo",
+    "retail.innovation.description":
+      "Desenvolvemos soluções tecnológicas que revolucionam a experiência de compra e otimizam operações comerciais.",
+    "retail.solutions.title": "Nossas Soluções",
+    "retail.solutions.ecommerce.title": "E-commerce",
+    "retail.solutions.ecommerce.description": "Plataformas de comércio eletrônico completas e personalizadas.",
+    "retail.solutions.inventory.title": "Gestão de Estoque",
+    "retail.solutions.inventory.description": "Sistemas inteligentes para controle e otimização de inventário.",
+    "retail.solutions.crm.title": "CRM",
+    "retail.solutions.crm.description": "Ferramentas para gestão de relacionamento com clientes e fidelização.",
+    "retail.solutions.analytics.title": "Analytics",
+    "retail.solutions.analytics.description": "Análise de dados para insights sobre comportamento do consumidor.",
   },
   en: {
     // Navigation
@@ -523,6 +538,21 @@ const translations = {
     "financial.solutions.risk.description": "Advanced systems for financial risk analysis and management.",
     "financial.solutions.compliance.title": "Compliance",
     "financial.solutions.compliance.description": "Tools to ensure compliance with financial regulations.",
+    // Retail Page
+    "retail.hero.title": "Retail Sector",
+    "retail.hero.subtitle": "Transforming the shopping experience",
+    "retail.innovation.title": "Innovation in Retail",
+    "retail.innovation.description":
+      "We develop technological solutions that revolutionize the shopping experience and optimize commercial operations.",
+    "retail.solutions.title": "Our Solutions",
+    "retail.solutions.ecommerce.title": "E-commerce",
+    "retail.solutions.ecommerce.description": "Complete and customized e-commerce platforms.",
+    "retail.solutions.inventory.title": "Inventory Management",
+    "retail.solutions.inventory.description": "Intelligent systems for inventory control and optimization.",
+    "retail.solutions.crm.title": "CRM",
+    "retail.solutions.crm.description": "Tools for customer relationship management and loyalty.",
+    "retail.solutions.analytics.title": "Analytics",
+    "retail.solutions.analytics.description": "Data analysis for insights into consumer behavior.",
   },
   es: {
     // Navigation
@@ -611,6 +641,21 @@ const translations = {
     "financial.solutions.compliance.title": "Cumplimiento",
     "financial.solutions.compliance.description":
       "Herramientas para garantizar el cumplimiento de las regulaciones financieras.",
+    // Retail Page
+    "retail.hero.title": "Sector de Comercio",
+    "retail.hero.subtitle": "Transformando la experiencia de compra",
+    "retail.innovation.title": "Innovación en el Comercio",
+    "retail.innovation.description":
+      "Desarrollamos soluciones tecnológicas que revolucionan la experiencia de compra y optimizan las operaciones comerciales.",
+    "retail.solutions.title": "Nuestras Soluciones",
+    "retail.solutions.ecommerce.title": "E-commerce",
+    "retail.solutions.ecommerce.description": "Plataformas de comercio electrónico completas y personalizadas.",
+    "retail.solutions.inventory.title": "Gestión de Inventario",
+    "retail.solutions.inventory.description": "Sistemas inteligentes para control y optimización de inventario.",
+    "retail.solutions.crm.title": "CRM",
+    "retail.solutions.crm.description": "Herramientas para gestión de relación con clientes y fidelización.",
+    "retail.solutions.analytics.title": "Analytics",
+    "retail.solutions.analytics.description": "Análisis de datos para insights sobre comportamiento del consumidor.",
   },
   fr: {
     // Navigation
@@ -698,6 +743,22 @@ const translations = {
     "financial.solutions.risk.description": "Systèmes avancés d'analyse et de gestion des risques financiers.",
     "financial.solutions.compliance.title": "Conformité",
     "financial.solutions.compliance.description": "Outils pour assurer la conformité aux réglementations financières.",
+    // Retail Page
+    "retail.hero.title": "Secteur de la Vente au Détail",
+    "retail.hero.subtitle": "Transformer l'expérience d'achat",
+    "retail.innovation.title": "Innovation dans la Vente au Détail",
+    "retail.innovation.description":
+      "Nous développons des solutions technologiques qui révolutionnent l'expérience d'achat et optimisent les opérations commerciales.",
+    "retail.solutions.title": "Nos Solutions",
+    "retail.solutions.ecommerce.title": "E-commerce",
+    "retail.solutions.ecommerce.description": "Plateformes de commerce électronique complètes et personnalisées.",
+    "retail.solutions.inventory.title": "Gestion des Stocks",
+    "retail.solutions.inventory.description": "Systèmes intelligents pour le contrôle et l'optimisation des stocks.",
+    "retail.solutions.crm.title": "CRM",
+    "retail.solutions.crm.description": "Outils pour la gestion de la relation client et la fidélisation.",
+    "retail.solutions.analytics.title": "Analytics",
+    "retail.solutions.analytics.description":
+      "Analyse de données pour des insights sur le comportement des consommateurs.",
   },
   de: {
     // Navigation
@@ -784,6 +845,21 @@ const translations = {
     "financial.solutions.risk.description": "Fortschrittliche Systeme für Finanzrisikoanalyse und -management.",
     "financial.solutions.compliance.title": "Compliance",
     "financial.solutions.compliance.description": "Tools zur Gewährleistung der Einhaltung von Finanzvorschriften.",
+    // Retail Page
+    "retail.hero.title": "Einzelhandelssektor",
+    "retail.hero.subtitle": "Das Einkaufserlebnis transformieren",
+    "retail.innovation.title": "Innovation im Einzelhandel",
+    "retail.innovation.description":
+      "Wir entwickeln technologische Lösungen, die das Einkaufserlebnis revolutionieren und Geschäftsabläufe optimieren.",
+    "retail.solutions.title": "Unsere Lösungen",
+    "retail.solutions.ecommerce.title": "E-Commerce",
+    "retail.solutions.ecommerce.description": "Vollständige und maßgeschneiderte E-Commerce-Plattformen.",
+    "retail.solutions.inventory.title": "Bestandsverwaltung",
+    "retail.solutions.inventory.description": "Intelligente Systeme für Bestandskontrolle und -optimierung.",
+    "retail.solutions.crm.title": "CRM",
+    "retail.solutions.crm.description": "Tools für Kundenbeziehungsmanagement und Kundenbindung.",
+    "retail.solutions.analytics.title": "Analytics",
+    "retail.solutions.analytics.description": "Datenanalyse für Einblicke in das Verbraucherverhalten.",
   },
 }
 
