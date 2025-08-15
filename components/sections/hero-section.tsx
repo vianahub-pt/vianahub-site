@@ -3,6 +3,7 @@
 import { Counter } from "@/components/counter"
 import { useEffect, useRef, useState } from "react"
 import { useTranslation } from "@/components/translation-context"
+import { ScrollIndicator } from "@/components/scroll-indicator"
 
 export function HeroSection() {
   const { t } = useTranslation()
