@@ -83,7 +83,7 @@ export function WhatWeDoDropdown() {
               {t("nav.road")}
             </button>
             <button
-              onClick={() => handleNavigation("/engineering/solar-energy")}
+              onClick={() => handleNavigation("/what-we-do/solar-energy")}
               className="flex items-center gap-3 w-full px-4 py-2 text-sm text-white hover:bg-yellow-500/20 transition-colors"
             >
               <Sun className="h-4 w-4 text-orange-500" />
