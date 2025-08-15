@@ -216,17 +216,6 @@ function DevelopmentPageContent() {
             </div>
           </div>
         </section>
-
-        {/* CTA Section */}
-        <section className="py-20 bg-primary text-primary-foreground">
-          <div className="container mx-auto px-4 text-center">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">{t("nav.contact")}</h2>
-            <p className="text-xl mb-8 max-w-3xl mx-auto opacity-90">{t("hero.subtitle")}</p>
-            <Button size="lg" variant="secondary" asChild>
-              <Link href="/contact">{t("nav.contact")}</Link>
-            </Button>
-          </div>
-        </section>
       </main>
     </div>
   )
