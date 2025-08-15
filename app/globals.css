@@ -147,6 +147,32 @@ body {
   .bg-viana-indigo {
     background-color: #6366f1 !important;
   }
+
+  /* Missing classes for Agile page */
+  .text-viana-black {
+    color: #000000 !important;
+  }
+
+  .text-viana-gray {
+    color: #363636 !important;
+  }
+
+  .bg-viana-white {
+    background-color: #ffffff !important;
+  }
+
+  /* Dark mode overrides for missing classes */
+  .dark .text-viana-black {
+    color: #fafafa !important;
+  }
+
+  .dark .text-viana-gray {
+    color: #a3a3a3 !important;
+  }
+
+  .dark .bg-viana-white {
+    background-color: #1a1a1a !important;
+  }
 }
 
 @layer base {
