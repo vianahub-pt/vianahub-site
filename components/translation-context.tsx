@@ -201,6 +201,7 @@ const translations = {
     "foxGame.instructions":
       "Use as setas do teclado para mover a raposa • Ou clique nas células para mover • Encontre o oásis em cada nível • Complete todos os 5 níveis o mais rápido possível!",
     // Footer
+    "footer.companyName": "VianaHub",
     "footer.description": "Desenvolvemos tecnologias inovadoras que impulsionam o crescimento do seu negócio.",
     "footer.services": "Serviços",
     "footer.industries": "Setores",
@@ -219,6 +220,14 @@ const translations = {
     "footer.financial": "Financeiro",
     "footer.education": "Educação",
     "footer.retail": "Retalho",
+    "footer.link.industry.healthcare": "Saúde",
+    "footer.link.industry.financial": "Financeiro",
+    "footer.link.industry.education": "Educação",
+    "footer.link.industry.retail": "Retalho",
+    "footer.whatWeDo.development": "Desenvolvimento",
+    "footer.whatWeDo.agile": "Metodologia Ágil",
+    "footer.whatWeDo.chatbot": "Chatbot",
+    "footer.whatWeDo.outsourcing": "Outsourcing",
   },
   en: {
     // Navigation
@@ -409,6 +418,7 @@ const translations = {
     "foxGame.instructions":
       "Use the arrow keys to move the fox • Or click on the cells to move • Find the oasis in each level • Complete all 5 levels as quickly as possible!",
     // Footer
+    "footer.companyName": "VianaHub",
     "footer.description": "We develop innovative technologies that drive your business growth.",
     "footer.services": "Services",
     "footer.industries": "Industries",
@@ -427,6 +437,14 @@ const translations = {
     "footer.financial": "Financial",
     "footer.education": "Education",
     "footer.retail": "Retail",
+    "footer.link.industry.healthcare": "Healthcare",
+    "footer.link.industry.financial": "Financial",
+    "footer.link.industry.education": "Education",
+    "footer.link.industry.retail": "Retail",
+    "footer.whatWeDo.development": "Development",
+    "footer.whatWeDo.agile": "Agile Methodology",
+    "footer.whatWeDo.chatbot": "Chatbot",
+    "footer.whatWeDo.outsourcing": "Outsourcing",
   },
   es: {
     // Navigation
@@ -619,13 +637,14 @@ const translations = {
     "foxGame.instructions":
       "Usa las flechas del teclado para mover el zorro • O haz clic en las celdas para moverte • Encuentra el oasis en cada nivel • ¡Completa todos los 5 niveles lo más rápido posible!",
     // Footer
+    "footer.companyName": "VianaHub",
     "footer.description": "Desarrollamos tecnologías innovadoras que impulsan el crecimiento de su negocio.",
     "footer.services": "Servicios",
     "footer.industries": "Sectores",
     "footer.contact": "Contacto",
     "footer.email": "info@vianahub.com",
     "footer.phone": "+351 123 456 789",
-    "footer.address": "Rua da Inovação, 123<br />4000-000 Porto, Portugal",
+    "footer.address": "Rua da Inovación, 123<br />4000-000 Porto, Portugal",
     "footer.copyright": "© 2024 VianaHub. Todos los derechos reservados.",
     "footer.privacy": "Privacidad",
     "footer.terms": "Términos",
@@ -641,6 +660,10 @@ const translations = {
     "footer.whatWeDo.agile": "Metodología Ágil",
     "footer.whatWeDo.chatbot": "Chatbot",
     "footer.whatWeDo.outsourcing": "Outsourcing",
+    "footer.link.industry.healthcare": "Salud",
+    "footer.link.industry.financial": "Financiero",
+    "footer.link.industry.education": "Educación",
+    "footer.link.industry.retail": "Comercio",
   },
   fr: {
     // Navigation
@@ -832,6 +855,7 @@ const translations = {
     "foxGame.instructions":
       "Utilisez les flèches du clavier pour déplacer le renard • Ou cliquez sur les cellules pour vous déplacer • Trouvez l'oasis à chaque niveau • Terminez tous les 5 niveaux le plus rapidement possible!",
     // Footer
+    "footer.companyName": "VianaHub",
     "footer.description":
       "Nous développons des technologies innovantes qui stimulent la croissance de votre entreprise.",
     "footer.services": "Services",
@@ -855,6 +879,10 @@ const translations = {
     "footer.whatWeDo.agile": "Méthodologie Agile",
     "footer.whatWeDo.chatbot": "Chatbot",
     "footer.whatWeDo.outsourcing": "Externalisation",
+    "footer.link.industry.healthcare": "Santé",
+    "footer.link.industry.financial": "Financier",
+    "footer.link.industry.education": "Éducation",
+    "footer.link.industry.retail": "Commerce",
   },
   de: {
     // Navigation
@@ -1042,6 +1070,7 @@ const translations = {
     "foxGame.instructions":
       "Verwenden Sie die Pfeiltasten, um den Fuchs zu bewegen • Oder klicken Sie auf die Zellen, um sich zu bewegen • Finden Sie die Oase in jedem Level • Schließen Sie alle 5 Level so schnell wie möglich ab!",
     // Footer
+    "footer.companyName": "VianaHub",
     "footer.description": "Wir entwickeln innovative Technologien, die das Wachstum Ihres Unternehmens vorantreiben.",
     "footer.services": "Dienstleistungen",
     "footer.industries": "Branchen",
@@ -1060,6 +1089,14 @@ const translations = {
     "footer.financial": "Finanzwesen",
     "footer.education": "Bildung",
     "footer.retail": "Einzelhandel",
+    "footer.whatWeDo.development": "Entwicklung",
+    "footer.whatWeDo.agile": "Agile Methodik",
+    "footer.whatWeDo.chatbot": "Chatbot",
+    "footer.whatWeDo.outsourcing": "Outsourcing",
+    "footer.link.industry.healthcare": "Gesundheitswesen",
+    "footer.link.industry.financial": "Finanzwesen",
+    "footer.link.industry.education": "Bildung",
+    "footer.link.industry.retail": "Einzelhandel",
     "footer.whatWeDo.development": "Entwicklung",
     "footer.whatWeDo.agile": "Agile Methodik",
     "footer.whatWeDo.chatbot": "Chatbot",
