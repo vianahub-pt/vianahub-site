@@ -107,7 +107,7 @@ export function IndustriesSection() {
             <span className="text-gray-900">{t("industries.title.part1")}</span>{" "}
             <span style={{ color: "#FF8C00" }}>{t("industries.title.part2")}</span>
           </h2>
-          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto font-kurale">
+          <p className="text-xl text-gray-900 dark:text-gray-900 max-w-3xl mx-auto font-kurale">
             {t("industries.subtitle")}
           </p>
         </div>
