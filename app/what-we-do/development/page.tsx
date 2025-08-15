@@ -201,14 +201,14 @@ function DevelopmentPageContent() {
               <h2 className="block text-orange-500 text-3xl md:text-4xl font-bold mb-4">
                 {t("services.title.part1") + " " + t("services.title.part2")}
               </h2>
-              <p className="text-xl text-muted-foreground max-w-3xl mx-auto">{t("services.subtitle")}</p>
+              <p className="text-xl text-gray-900 text-muted-foreground max-w-3xl mx-auto">{t("services.subtitle")}</p>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
               {features.map((feature, index) => (
                 <Card key={index} className="text-center">
                   <CardContent className="p-6">
-                    <feature.icon className="text-orange-500 h-12 w-12 text-primary mx-auto mb-4" />
+                    <feature.icon className="h-12 w-12 text-primary mx-auto mb-4" />
                     <h3 className="text-xl font-semibold mb-3">{feature.title}</h3>
                     <p className="text-muted-foreground">{feature.description}</p>
                   </CardContent>
