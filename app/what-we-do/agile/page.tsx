@@ -150,8 +150,6 @@ export default function AgilePage() {
 
   return (
     <div className="min-h-screen bg-viana-white">
-      <Navbar />
-      <main className="pt-28">
         {/* Hero Section */}
         <section className="relative pt-0 pb-0 bg-gradient-to-br from-viana-orange to-viana-yellow overflow-hidden h-[300px]">
           <div
@@ -250,7 +248,6 @@ export default function AgilePage() {
             </div>
           </div>
         </section>
-      </main>
     </div>
   )
 }
