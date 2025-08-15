@@ -6,7 +6,6 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel"
 import { Navbar } from "@/components/navbar"
-import { Footer } from "@/components/footer"
 import { Code, Smartphone, Globe, Database, Zap, Shield, Palette, CheckCircle } from "lucide-react"
 import Autoplay from "embla-carousel-autoplay"
 import Link from "next/link"
@@ -170,7 +169,7 @@ function DevelopmentPageContent() {
               {serviceDetails.map((service, index) => (
                 <Card key={index} className="text-center">
                   <CardContent className="p-6">
-                    <service.icon className="h-12 w-12 text-primary mx-auto mb-4" />
+                    <service.icon className="h-12 w-12 text-orange-500 mx-auto mb-4" />
                     <h3 className="text-xl font-semibold mb-3">{service.title}</h3>
                     <p className="text-muted-foreground">{service.description}</p>
                   </CardContent>
