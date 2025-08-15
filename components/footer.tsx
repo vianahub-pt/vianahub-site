@@ -16,7 +16,6 @@ export function Footer() {
           <div className="space-y-4">
             <Link href="/" className="flex items-center">
               <Image src="/logo.png" alt={t("footer.companyName")} width={40} height={40} className="h-10 w-auto" />
-              <span className="ml-2 text-xl font-bold">{t("footer.companyName")}</span>
             </Link>
             <p className="text-gray-300 text-sm">{t("footer.description")}</p>
             <div className="flex space-x-4">
