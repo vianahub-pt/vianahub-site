@@ -5,6 +5,7 @@ import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
 import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
+import { useTranslation } from "@/components/translation-context"
 import { Network, Database, Zap, Shield, Cloud, Settings, ArrowRightLeft, CheckCircle } from "lucide-react"
 
 function SystemIntegrationContent() {
