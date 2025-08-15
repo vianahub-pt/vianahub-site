@@ -201,7 +201,6 @@ const translations = {
     "foxGame.instructions":
       "Use as setas do teclado para mover a raposa • Ou clique nas células para mover • Encontre o oásis em cada nível • Complete todos os 5 níveis o mais rápido possível!",
     // Footer
-    "footer.companyName": "VianaHub",
     "footer.description": "Desenvolvemos tecnologias inovadoras que impulsionam o crescimento do seu negócio.",
     "footer.services": "Serviços",
     "footer.industries": "Setores",
