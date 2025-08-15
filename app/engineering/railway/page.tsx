@@ -6,6 +6,15 @@ import { Badge } from "@/components/ui/badge"
 import { Train, Zap, Shield, Settings, ArrowRight, CheckCircle } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
+import { useTranslation, TranslationProvider } from "@/components/translation-context"
+
+function SystemIntegrationContent() {
+  const { t } = useTranslation()
+
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
+
 
 const services = [
   {
