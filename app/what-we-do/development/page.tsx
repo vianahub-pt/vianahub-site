@@ -198,7 +198,7 @@ function DevelopmentPageContent() {
         <section className="py-20 bg-gray-50 dark:bg-gray-900">
           <div className="container mx-auto px-4">
             <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              <h2 className="block text-orange-500 text-3xl md:text-4xl font-bold mb-4">
                 {t("services.title.part1") + " " + t("services.title.part2")}
               </h2>
               <p className="text-xl text-muted-foreground max-w-3xl mx-auto">{t("services.subtitle")}</p>
