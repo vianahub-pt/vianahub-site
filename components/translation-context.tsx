@@ -637,6 +637,10 @@ const translations = {
     "footer.financial": "Financiero",
     "footer.education": "Educación",
     "footer.retail": "Comercio",
+		"footer.whatWeDo.development": "Desarrollo",
+		"footer.whatWeDo.agile": "Metodología Ágil"",
+		"footer.whatWeDo.chatbot": "Chatbot",
+		"footer.whatWeDo.outsourcing": "Outsourcing",    
   },
   fr: {
     // Navigation
