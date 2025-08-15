@@ -534,6 +534,20 @@ const translations = {
     "backups.features.automatic.description": "Agendamento automático de backups incrementais e completos.",
     "backups.features.recovery.title": "Recuperação",
     "backups.features.recovery.description": "Planos de recuperação de desastres e restore rápido.",
+    // Access Page
+    "access.hero.title": "Controle de Acessos",
+    "access.hero.subtitle":
+      "Sistemas avançados de controle de acesso. Biometria, cartões, senhas e monitoramento em tempo real.",
+    "access.hero.button": "Solicitar Demonstração",
+    "access.features.title": "Recursos de Segurança",
+    "access.features.biometrics.title": "Biometria",
+    "access.features.biometrics.description": "Reconhecimento de impressão digital e facial para máxima segurança.",
+    "access.features.rfid.title": "Cartões RFID",
+    "access.features.rfid.description": "Sistema de cartões inteligentes com criptografia avançada.",
+    "access.features.monitoring.title": "Monitoramento",
+    "access.features.monitoring.description": "Acompanhamento em tempo real de todos os acessos.",
+    "access.features.levels.title": "Níveis de Acesso",
+    "access.features.levels.description": "Controle granular de permissões por usuário e área.",
   },
   en: {
     // Navigation
@@ -680,6 +694,19 @@ const translations = {
     "backups.features.automatic.description": "Automatic scheduling of incremental and full backups.",
     "backups.features.recovery.title": "Recovery",
     "backups.features.recovery.description": "Disaster recovery plans and fast restore.",
+    // Access Page
+    "access.hero.title": "Access Control",
+    "access.hero.subtitle": "Advanced access control systems. Biometrics, cards, passwords and real-time monitoring.",
+    "access.hero.button": "Request Demo",
+    "access.features.title": "Security Features",
+    "access.features.biometrics.title": "Biometrics",
+    "access.features.biometrics.description": "Fingerprint and facial recognition for maximum security.",
+    "access.features.rfid.title": "RFID Cards",
+    "access.features.rfid.description": "Smart card system with advanced encryption.",
+    "access.features.monitoring.title": "Monitoring",
+    "access.features.monitoring.description": "Real-time tracking of all access.",
+    "access.features.levels.title": "Access Levels",
+    "access.features.levels.description": "Granular permission control by user and area.",
   },
   es: {
     // Navigation
@@ -829,6 +856,20 @@ const translations = {
     "backups.features.automatic.description": "Programación automática de respaldos incrementales y completos.",
     "backups.features.recovery.title": "Recuperación",
     "backups.features.recovery.description": "Planes de recuperación de desastres y restauración rápida.",
+    // Access Page
+    "access.hero.title": "Control de Acceso",
+    "access.hero.subtitle":
+      "Sistemas avanzados de control de acceso. Biometría, tarjetas, contraseñas y monitoreo en tiempo real.",
+    "access.hero.button": "Solicitar Demostración",
+    "access.features.title": "Características de Seguridad",
+    "access.features.biometrics.title": "Biometría",
+    "access.features.biometrics.description": "Reconocimiento de huella dactilar y facial para máxima seguridad.",
+    "access.features.rfid.title": "Tarjetas RFID",
+    "access.features.rfid.description": "Sistema de tarjetas inteligentes con cifrado avanzado.",
+    "access.features.monitoring.title": "Monitoreo",
+    "access.features.monitoring.description": "Seguimiento en tiempo real de todos los accesos.",
+    "access.features.levels.title": "Niveles de Acceso",
+    "access.features.levels.description": "Control granular de permisos por usuario y área.",
   },
   fr: {
     // Navigation
@@ -978,6 +1019,21 @@ const translations = {
     "backups.features.automatic.description": "Planification automatique de sauvegardes incrémentales et complètes.",
     "backups.features.recovery.title": "Récupération",
     "backups.features.recovery.description": "Plans de récupération après sinistre et restauration rapide.",
+    // Access Page
+    "access.hero.title": "Contrôle d'Accès",
+    "access.hero.subtitle":
+      "Systèmes avancés de contrôle d'accès. Biométrie, cartes, mots de passe et surveillance en temps réel.",
+    "access.hero.button": "Demander une Démo",
+    "access.features.title": "Fonctionnalités de Sécurité",
+    "access.features.biometrics.title": "Biométrie",
+    "access.features.biometrics.description":
+      "Reconnaissance d'empreintes digitales et faciale pour une sécurité maximale.",
+    "access.features.rfid.title": "Cartes RFID",
+    "access.features.rfid.description": "Système de cartes intelligentes avec chiffrement avancé.",
+    "access.features.monitoring.title": "Surveillance",
+    "access.features.monitoring.description": "Suivi en temps réel de tous les accès.",
+    "access.features.levels.title": "Niveaux d'Accès",
+    "access.features.levels.description": "Contrôle granulaire des permissions par utilisateur et zone.",
   },
   de: {
     // Navigation
@@ -1128,6 +1184,20 @@ const translations = {
     "backups.features.automatic.description": "Automatische Planung von inkrementellen und vollständigen Backups.",
     "backups.features.recovery.title": "Wiederherstellung",
     "backups.features.recovery.description": "Disaster-Recovery-Pläne und schnelle Wiederherstellung.",
+    // Access Page
+    "access.hero.title": "Zutrittskontrolle",
+    "access.hero.subtitle":
+      "Erweiterte Zutrittskontrollsysteme. Biometrie, Karten, Passwörter und Echtzeitüberwachung.",
+    "access.hero.button": "Demo Anfordern",
+    "access.features.title": "Sicherheitsmerkmale",
+    "access.features.biometrics.title": "Biometrie",
+    "access.features.biometrics.description": "Fingerabdruck- und Gesichtserkennung für maximale Sicherheit.",
+    "access.features.rfid.title": "RFID-Karten",
+    "access.features.rfid.description": "Smart-Card-System mit fortschrittlicher Verschlüsselung.",
+    "access.features.monitoring.title": "Überwachung",
+    "access.features.monitoring.description": "Echtzeitverfolgung aller Zugriffe.",
+    "access.features.levels.title": "Zugriffsebenen",
+    "access.features.levels.description": "Granulare Berechtigungskontrolle nach Benutzer und Bereich.",
   },
 }
 
