@@ -139,8 +139,6 @@ const translations = {
     "industries.healthcare.description": "Sistemas de gestão hospitalar e soluções para área da saúde",
     "industries.manufacturing.title": "Manufactura",
     "industries.manufacturing.description": "Automação e sistemas de gestão para o setor industrial",
-    "industries.retail.title": "Retalho",
-    "industries.retail.description": "E-commerce e soluções digitais para o setor de retalho",
     // Testimonials Section
     "testimonials.title.part1": "O que Dizem",
     "testimonials.title.part2": "Nossos Clientes",
@@ -442,6 +440,23 @@ const translations = {
     "government.solutions.security.title": "Segurança",
     "government.solutions.security.description":
       "Implementação de medidas de segurança robustas para proteger dados sensíveis.",
+    // Manufacturing Page
+    "manufacturing.hero.title": "Setor de Manufatura",
+    "manufacturing.hero.subtitle": "Tecnologia para a indústria 4.0",
+    "manufacturing.transformation.title": "Transformação Digital na Manufatura",
+    "manufacturing.transformation.description":
+      "Desenvolvemos soluções tecnológicas que modernizam processos industriais e impulsionam a eficiência produtiva.",
+    "manufacturing.solutions.title": "Nossas Soluções",
+    "manufacturing.solutions.automation.title": "Automação Industrial",
+    "manufacturing.solutions.automation.description": "Sistemas de automação para otimizar processos de produção.",
+    "manufacturing.solutions.iot.title": "IoT Industrial",
+    "manufacturing.solutions.iot.description":
+      "Soluções IoT para la surveillance et le contrôle des équipements industriels.",
+    "manufacturing.solutions.production.title": "Gestion de Production",
+    "manufacturing.solutions.production.description":
+      "Systèmes pour la planification et le contrôle efficace de la production.",
+    "manufacturing.solutions.quality.title": "Qualité",
+    "manufacturing.solutions.quality.description": "Outils pour le contrôle qualité et la traçabilité des produits.",
   },
   en: {
     // Navigation
@@ -497,6 +512,21 @@ const translations = {
     "government.solutions.security.title": "Security",
     "government.solutions.security.description":
       "Implementation of robust security measures to protect sensitive data.",
+    // Manufacturing Page
+    "manufacturing.hero.title": "Manufacturing Sector",
+    "manufacturing.hero.subtitle": "Technology for Industry 4.0",
+    "manufacturing.transformation.title": "Digital Transformation in Manufacturing",
+    "manufacturing.transformation.description":
+      "We develop technological solutions that modernize industrial processes and drive productive efficiency.",
+    "manufacturing.solutions.title": "Our Solutions",
+    "manufacturing.solutions.automation.title": "Industrial Automation",
+    "manufacturing.solutions.automation.description": "Automation systems to optimize production processes.",
+    "manufacturing.solutions.iot.title": "Industrial IoT",
+    "manufacturing.solutions.iot.description": "IoT solutions for monitoring and control of industrial equipment.",
+    "manufacturing.solutions.production.title": "Production Management",
+    "manufacturing.solutions.production.description": "Systems for efficient production planning and control.",
+    "manufacturing.solutions.quality.title": "Quality",
+    "manufacturing.solutions.quality.description": "Tools for quality control and product traceability.",
   },
   es: {
     // Navigation
@@ -552,6 +582,23 @@ const translations = {
     "government.solutions.security.title": "Seguridad",
     "government.solutions.security.description":
       "Implementación de medidas de seguridad robustas para proteger datos sensibles.",
+    // Manufacturing Page
+    "manufacturing.hero.title": "Sector de Manufactura",
+    "manufacturing.hero.subtitle": "Tecnología para la industria 4.0",
+    "manufacturing.transformation.title": "Transformación Digital en la Manufactura",
+    "manufacturing.transformation.description":
+      "Desarrollamos soluciones tecnológicas que modernizan procesos industriales e impulsan la eficiencia productiva.",
+    "manufacturing.solutions.title": "Nuestras Soluciones",
+    "manufacturing.solutions.automation.title": "Automatización Industrial",
+    "manufacturing.solutions.automation.description":
+      "Sistemas de automatización para optimizar procesos de producción.",
+    "manufacturing.solutions.iot.title": "IoT Industrial",
+    "manufacturing.solutions.iot.description": "Soluciones IoT para monitoreo y control de equipos industriales.",
+    "manufacturing.solutions.production.title": "Gestión de Producción",
+    "manufacturing.solutions.production.description":
+      "Sistemas para planificación y control eficiente de la producción.",
+    "manufacturing.solutions.quality.title": "Calidad",
+    "manufacturing.solutions.quality.description": "Herramientas para control de calidad y trazabilidad de productos.",
   },
   fr: {
     // Navigation
@@ -607,6 +654,24 @@ const translations = {
     "government.solutions.security.title": "Sécurité",
     "government.solutions.security.description":
       "Mise en œuvre de mesures de sécurité robustes pour protéger les données sensibles.",
+    // Manufacturing Page
+    "manufacturing.hero.title": "Secteur Manufacturier",
+    "manufacturing.hero.subtitle": "Technologie pour l'industrie 4.0",
+    "manufacturing.transformation.title": "Transformation Numérique dans la Fabrication",
+    "manufacturing.transformation.description":
+      "Nous développons des solutions technologiques qui modernisent les processus industriels et stimulent l'efficacité productive.",
+    "manufacturing.solutions.title": "Nos Solutions",
+    "manufacturing.solutions.automation.title": "Automatisation Industrielle",
+    "manufacturing.solutions.automation.description":
+      "Systèmes d'automatisation pour optimiser les processus de production.",
+    "manufacturing.solutions.iot.title": "IoT Industriel",
+    "manufacturing.solutions.iot.description":
+      "Solutions IoT pour la surveillance et le contrôle des équipements industriels.",
+    "manufacturing.solutions.production.title": "Gestion de Production",
+    "manufacturing.solutions.production.description":
+      "Systèmes pour la planification et le contrôle efficace de la production.",
+    "manufacturing.solutions.quality.title": "Qualité",
+    "manufacturing.solutions.quality.description": "Outils pour le contrôle qualité et la traçabilité des produits.",
   },
   de: {
     // Navigation
@@ -626,7 +691,7 @@ const translations = {
     "nav.solarEnergy": "Solarenergie",
     "nav.education": "Bildung",
     "nav.government": "Regierung",
-    "nav.manufacturing": "Herstellung",
+    "nav.manufacturing": "Fertigung",
     "nav.financial": "Finanzwesen",
     "nav.retail": "Einzelhandel",
     "nav.healthcare": "Gesundheitswesen",
@@ -662,6 +727,22 @@ const translations = {
     "government.solutions.security.title": "Sicherheit",
     "government.solutions.security.description":
       "Implementierung robuster Sicherheitsmaßnahmen zum Schutz sensibler Daten.",
+    // Manufacturing Page
+    "manufacturing.hero.title": "Fertigungssektor",
+    "manufacturing.hero.subtitle": "Technologie für Industrie 4.0",
+    "manufacturing.transformation.title": "Digitale Transformation in der Fertigung",
+    "manufacturing.transformation.description":
+      "Wir entwickeln technologische Lösungen, die industrielle Prozesse modernisieren und die Produktionseffizienz steigern.",
+    "manufacturing.solutions.title": "Unsere Lösungen",
+    "manufacturing.solutions.automation.title": "Industrielle Automatisierung",
+    "manufacturing.solutions.automation.description":
+      "Automatisierungssysteme zur Optimierung von Produktionsprozessen.",
+    "manufacturing.solutions.iot.title": "Industrielles IoT",
+    "manufacturing.solutions.iot.description": "IoT-Lösungen für Überwachung und Steuerung von Industrieanlagen.",
+    "manufacturing.solutions.production.title": "Produktionsmanagement",
+    "manufacturing.solutions.production.description": "Systeme für effiziente Produktionsplanung und -steuerung.",
+    "manufacturing.solutions.quality.title": "Qualität",
+    "manufacturing.solutions.quality.description": "Tools für Qualitätskontrolle und Produktrückverfolgbarkeit.",
   },
 }
 
