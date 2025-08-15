@@ -10,6 +10,7 @@ import { Footer } from "@/components/footer"
 import { Code, Smartphone, Globe, Database, Zap, Shield, Palette, CheckCircle } from "lucide-react"
 import Autoplay from "embla-carousel-autoplay"
 import Link from "next/link"
+import { useTranslation } from "@/components/translation-context"
 
 function DevelopmentPageContent() {
   const { t } = useTranslation()
@@ -25,22 +26,22 @@ function DevelopmentPageContent() {
 
   const services = [
     {
-      title: t("development.services.carousel.website"),
+      title: t("services.web.title"),
       image: "/pages/website-template.jpg",
       icon: Globe,
     },
     {
-      title: t("development.services.carousel.mobile"),
+      title: t("services.mobile.title"),
       image: "/pages/mobile-template.jpg",
       icon: Smartphone,
     },
     {
-      title: t("development.services.carousel.corporate"),
+      title: t("services.integration.title"),
       image: "/pages/admin-template.jpg",
       icon: Code,
     },
     {
-      title: t("development.services.carousel.apis"),
+      title: t("services.automation.title"),
       image: "/pages/integration-template.jpg",
       icon: Database,
     },
@@ -49,46 +50,46 @@ function DevelopmentPageContent() {
   const features = [
     {
       icon: Zap,
-      title: t("development.performance.title"),
-      description: t("development.performance.description"),
+      title: t("insights.results.title"),
+      description: t("insights.results.description"),
     },
     {
       icon: Shield,
-      title: t("development.security.title"),
-      description: t("development.security.description"),
+      title: t("services.security.title"),
+      description: t("services.security.description"),
     },
     {
       icon: Palette,
-      title: t("development.ux.title"),
-      description: t("development.ux.description"),
+      title: t("insights.innovation.title"),
+      description: t("insights.innovation.description"),
     },
     {
       icon: CheckCircle,
-      title: t("development.quality.title"),
-      description: t("development.quality.description"),
+      title: t("insights.experience.title"),
+      description: t("insights.experience.description"),
     },
   ]
 
   const serviceDetails = [
     {
       icon: Globe,
-      title: t("development.web.title"),
-      description: t("development.web.description"),
+      title: t("services.web.title"),
+      description: t("services.web.description"),
     },
     {
       icon: Smartphone,
-      title: t("development.mobile.title"),
-      description: t("development.mobile.description"),
+      title: t("services.mobile.title"),
+      description: t("services.mobile.description"),
     },
     {
       icon: Code,
-      title: t("development.corporate.title"),
-      description: t("development.corporate.description"),
+      title: t("services.integration.title"),
+      description: t("services.integration.description"),
     },
     {
       icon: Database,
-      title: t("development.apis.title"),
-      description: t("development.apis.description"),
+      title: t("services.automation.title"),
+      description: t("services.automation.description"),
     },
   ]
 
@@ -108,8 +109,8 @@ function DevelopmentPageContent() {
           <div className="absolute inset-0 bg-black/60 z-0" />
           <div className="container mx-auto px-4 relative z-10 h-full flex items-center justify-center">
             <div className="max-w-4xl mx-auto text-center text-white">
-              <h1 className="text-4xl lg:text-6xl font-bold mb-6">{t("development.hero.title")}</h1>
-              <p className="text-xl lg:text-2xl mb-8 opacity-90">{t("development.hero.subtitle")}</p>
+              <h1 className="text-4xl lg:text-6xl font-bold mb-6">{t("nav.development")}</h1>
+              <p className="text-xl lg:text-2xl mb-8 opacity-90">{t("services.web.description")}</p>
             </div>
           </div>
         </section>
@@ -197,8 +198,10 @@ function DevelopmentPageContent() {
         <section className="py-20 bg-gray-50 dark:bg-gray-900">
           <div className="container mx-auto px-4">
             <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold mb-4">{t("development.why.title")}</h2>
-              <p className="text-xl text-muted-foreground max-w-3xl mx-auto">{t("development.why.subtitle")}</p>
+              <h2 className="text-3xl md:text-4xl font-bold mb-4">
+                {t("services.title.part1") + " " + t("services.title.part2")}
+              </h2>
+              <p className="text-xl text-muted-foreground max-w-3xl mx-auto">{t("services.subtitle")}</p>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -218,10 +221,10 @@ function DevelopmentPageContent() {
         {/* CTA Section */}
         <section className="py-20 bg-primary text-primary-foreground">
           <div className="container mx-auto px-4 text-center">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">{t("development.cta.title")}</h2>
-            <p className="text-xl mb-8 max-w-3xl mx-auto opacity-90">{t("development.cta.subtitle")}</p>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">{t("nav.contact")}</h2>
+            <p className="text-xl mb-8 max-w-3xl mx-auto opacity-90">{t("hero.subtitle")}</p>
             <Button size="lg" variant="secondary" asChild>
-              <Link href="/contact">{t("development.cta.button")}</Link>
+              <Link href="/contact">{t("nav.contact")}</Link>
             </Button>
           </div>
         </section>
