@@ -15,7 +15,9 @@ export default function FinancialPage() {
     <TranslationProvider>
       <div className="min-h-screen bg-viana-white">
         <Navbar />
-        <main>{FinancialPageContent()}</main>
+        <main>
+          <FinancialPageContent />
+        </main>
         <Footer />
       </div>
     </TranslationProvider>
