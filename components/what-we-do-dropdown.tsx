@@ -69,7 +69,7 @@ export function WhatWeDoDropdown() {
             </button>
             <div className="border-t border-gray-600 my-2"></div>
             <button
-              onClick={() => handleNavigation("/engineering/railway")}
+              onClick={() => handleNavigation("/what-we-do/railway")}
               className="flex items-center gap-3 w-full px-4 py-2 text-sm text-white hover:bg-yellow-500/20 transition-colors"
             >
               <Train className="h-4 w-4 text-orange-500" />
