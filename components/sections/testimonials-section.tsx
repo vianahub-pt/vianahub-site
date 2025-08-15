@@ -54,7 +54,7 @@ export function TestimonialsSection() {
       <div className="container mx-auto px-4">
         <div className="text-center mb-20">
           <h2 className="text-3xl md:text-4xl font-bold text-orange-500 mb-6">Testemunhos</h2>
-          <p className="text-xl text-gray-600">O que os nossos clientes dizem sobre nós</p>
+          <p className="text-xl text-gray-900">O que os nossos clientes dizem sobre nós</p>
         </div>
 
         <div className="max-w-6xl mx-auto overflow-hidden py-8">
