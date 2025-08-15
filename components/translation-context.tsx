@@ -361,7 +361,7 @@ const translations = {
     "systemIntegration.benefits.automation.title": "Automação Avançada",
     "systemIntegration.benefits.automation.description": "Automatize processos e reduza trabalho manual repetitivo",
     "systemIntegration.benefits.data.title": "Dados Unificados",
-    "systemIntegration.benefits.data.description": "Centralize informações e tenha uma visão única do seu negócio",
+    "systemIntegration.benefits.data.description": "Centralize informações e tenha uma visão única de seu negócio",
     "systemIntegration.benefits.security.title": "Segurança Reforçada",
     "systemIntegration.benefits.security.description":
       "Implemente protocolos de segurança consistentes em todos os sistemas",
@@ -406,6 +406,23 @@ const translations = {
     "railway.cta.title": "Pronto para Modernizar?",
     "railway.cta.subtitle": "Entre em contato e descubra como podemos transformar sua infraestrutura ferroviária",
     "railway.cta.button": "Solicitar Consultoria",
+    // Education Page
+    "education.hero.title": "Setor Educacional",
+    "education.hero.subtitle": "Transformando a educação através da tecnologia",
+    "education.innovation.title": "Inovação na Educação",
+    "education.innovation.description":
+      "Desenvolvemos soluções tecnológicas que revolucionam o processo de ensino-aprendizagem, tornando a educação mais acessível e eficaz.",
+    "education.solutions.title": "Nossas Soluções",
+    "education.solutions.elearning.title": "Plataformas E-Learning",
+    "education.solutions.elearning.description":
+      "Sistemas completos de ensino à distância com recursos interativos e gamificação.",
+    "education.solutions.management.title": "Gestão Escolar",
+    "education.solutions.management.description": "Ferramentas para administração eficiente de instituições de ensino.",
+    "education.solutions.pedagogical.title": "Ferramentas Pedagógicas",
+    "education.solutions.pedagogical.description": "Recursos digitais que apoiam professores no processo de ensino.",
+    "education.solutions.analytics.title": "Análise de Desempenho",
+    "education.solutions.analytics.description":
+      "Sistemas de análise que ajudam a melhorar o desempenho dos estudantes.",
   },
   en: {
     // Navigation
@@ -790,6 +807,22 @@ const translations = {
     "railway.cta.title": "Ready to Modernize?",
     "railway.cta.subtitle": "Get in touch and discover how we can transform your railway infrastructure",
     "railway.cta.button": "Request Consultation",
+    // Education Page
+    "education.hero.title": "Education Sector",
+    "education.hero.subtitle": "Transforming education through technology",
+    "education.innovation.title": "Innovation in Education",
+    "education.innovation.description":
+      "We develop technological solutions that revolutionize the teaching-learning process, making education more accessible and effective.",
+    "education.solutions.title": "Our Solutions",
+    "education.solutions.elearning.title": "E-Learning Platforms",
+    "education.solutions.elearning.description":
+      "Complete distance learning systems with interactive features and gamification.",
+    "education.solutions.management.title": "School Management",
+    "education.solutions.management.description": "Tools for efficient administration of educational institutions.",
+    "education.solutions.pedagogical.title": "Pedagogical Tools",
+    "education.solutions.pedagogical.description": "Digital resources that support teachers in the teaching process.",
+    "education.solutions.analytics.title": "Performance Analysis",
+    "education.solutions.analytics.description": "Analysis systems that help improve student performance.",
   },
   es: {
     // Navigation
@@ -1186,6 +1219,25 @@ const translations = {
     "railway.cta.title": "¿Listo para Modernizar?",
     "railway.cta.subtitle": "Póngase en contacto y descubra cómo podemos transformar su infraestructura ferroviaria",
     "railway.cta.button": "Solicitar Consultoría",
+    // Education Page
+    "education.hero.title": "Sector Educativo",
+    "education.hero.subtitle": "Transformando la educación a través de la tecnología",
+    "education.innovation.title": "Innovación en la Educación",
+    "education.innovation.description":
+      "Desarrollamos soluciones tecnológicas que revolucionan el proceso de enseñanza-aprendizaje, haciendo la educación más accesible y eficaz.",
+    "education.solutions.title": "Nuestras Soluciones",
+    "education.solutions.elearning.title": "Plataformas E-Learning",
+    "education.solutions.elearning.description":
+      "Sistemas completos de enseñanza a distancia con recursos interactivos y gamificación.",
+    "education.solutions.management.title": "Gestión Escolar",
+    "education.solutions.management.description":
+      "Herramientas para administración eficiente de instituciones educativas.",
+    "education.solutions.pedagogical.title": "Herramientas Pedagógicas",
+    "education.solutions.pedagogical.description":
+      "Recursos digitales que apoyan a los profesores en el proceso de enseñanza.",
+    "education.solutions.analytics.title": "Análisis de Rendimiento",
+    "education.solutions.analytics.description":
+      "Sistemas de análisis que ayudan a mejorar el rendimiento de los estudiantes.",
   },
   fr: {
     // Navigation
@@ -1590,8 +1642,7 @@ const translations = {
     "railway.benefits.efficiency.title": "Efficacité Opérationnelle",
     "railway.benefits.efficiency.description": "Optimisation des itinéraires et gestion intelligente des ressources",
     "railway.benefits.reliability.title": "Fiabilité",
-    "railway.benefits.reliability.description":
-      "Systèmes robustes avec une haute disponibilité et une faible maintenance",
+    "railway.benefits.description": "Systèmes robustes avec une haute disponibilité et une faible maintenance",
     "railway.benefits.integration.title": "Intégration Totale",
     "railway.benefits.integration.description":
       "Connectivité avec les systèmes existants et les nouvelles technologies",
@@ -1599,6 +1650,25 @@ const translations = {
     "railway.cta.subtitle":
       "Contactez-nous et découvrez comment nous pouvons transformer votre infrastructure ferroviaire",
     "railway.cta.button": "Demander une Consultation",
+    // Education Page
+    "education.hero.title": "Secteur Éducatif",
+    "education.hero.subtitle": "Transformer l'éducation grâce à la technologie",
+    "education.innovation.title": "Innovation dans l'Éducation",
+    "education.innovation.description":
+      "Nous développons des solutions technologiques qui révolutionnent le processus d'enseignement-apprentissage, rendant l'éducation plus accessible et efficace.",
+    "education.solutions.title": "Nos Solutions",
+    "education.solutions.elearning.title": "Plateformes E-Learning",
+    "education.solutions.elearning.description":
+      "Systèmes complets d'enseignement à distance avec des fonctionnalités interactives et de gamification.",
+    "education.solutions.management.title": "Gestion Scolaire",
+    "education.solutions.management.description":
+      "Outils pour l'administration efficace des établissements d'enseignement.",
+    "education.solutions.pedagogical.title": "Outils Pédagogiques",
+    "education.solutions.pedagogical.description":
+      "Ressources numériques qui soutiennent les enseignants dans le processus d'enseignement.",
+    "education.solutions.analytics.title": "Analyse de Performance",
+    "education.solutions.analytics.description":
+      "Systèmes d'analyse qui aident à améliorer les performances des étudiants.",
   },
   de: {
     // Navigation
@@ -1931,13 +2001,13 @@ const translations = {
     "landingPages.benefits.title": "Vorteile von Landing Pages",
     "landingPages.benefits.subtitle": "Warum in professionelle Landing Pages investieren",
     "landingPages.benefits.focus.title": "Fokus auf das Ziel",
-    "landingPages.benefits.focus.description": "Seiten, die auf eine bestimmte Aktion ausgerichtet sind",
+    "landingPages.benefits.description": "Seiten, die auf eine bestimmte Aktion ausgerichtet sind",
     "landingPages.benefits.sales.title": "Umsatzsteigerung",
-    "landingPages.benefits.sales.description": "Verbessern Sie Ihre Conversion-Raten deutlich",
+    "landingPages.benefits.description": "Verbessern Sie Ihre Conversion-Raten deutlich",
     "landingPages.benefits.design.title": "Professionelles Design",
-    "landingPages.benefits.design.description": "Attraktives Erscheinungsbild, das Glaubwürdigkeit vermittelt",
+    "landingPages.benefits.description": "Attraktives Erscheinungsbild, das Glaubwürdigkeit vermittelt",
     "landingPages.benefits.speed.title": "Schnelles Laden",
-    "landingPages.benefits.speed.description": "Seiten optimiert für maximale Geschwindigkeit",
+    "landingPages.benefits.description": "Seiten optimiert für maximale Geschwindigkeit",
     "landingPages.cta.title": "Bereit, Ihre Conversions zu Steigern?",
     "landingPages.cta.subtitle":
       "Kontaktieren Sie uns und entdecken Sie, wie unsere Landing Pages Ihre Ergebnisse transformieren können",
@@ -1949,28 +2019,26 @@ const translations = {
     "systemIntegration.benefits.title": "Vorteile der Integration",
     "systemIntegration.benefits.subtitle": "Sehen Sie, wie die Systemintegration Ihre Abläufe transformieren kann",
     "systemIntegration.benefits.connectivity.title": "Totale Konnektivität",
-    "systemIntegration.benefits.connectivity.description":
+    "systemIntegration.benefits.description":
       "Verbinden Sie alle Ihre Systeme und Anwendungen auf einer einzigen Plattform",
     "systemIntegration.benefits.automation.title": "Erweiterte Automatisierung",
-    "systemIntegration.benefits.automation.description":
+    "systemIntegration.benefits.description":
       "Automatisieren Sie Prozesse und reduzieren Sie repetitive manuelle Arbeit",
     "systemIntegration.benefits.data.title": "Vereinheitlichte Daten",
-    "systemIntegration.benefits.data.description":
+    "systemIntegration.benefits.description":
       "Zentralisieren Sie Informationen und erhalten Sie eine einheitliche Sicht auf Ihr Geschäft",
     "systemIntegration.benefits.security.title": "Erhöhte Sicherheit",
-    "systemIntegration.benefits.security.description":
-      "Implementieren Sie konsistente Sicherheitsprotokolle in allen Systemen",
+    "systemIntegration.benefits.description": "Implementieren Sie konsistente Sicherheitsprotokolle in allen Systemen",
     "systemIntegration.solutions.title": "Unsere Lösungen",
     "systemIntegration.solutions.subtitle": "Technologien und Ansätze für eine effiziente Integration",
     "systemIntegration.solutions.apis.title": "Benutzerdefinierte APIs",
-    "systemIntegration.solutions.apis.description": "Entwicklung robuster APIs zur Verbindung verschiedener Systeme",
+    "systemIntegration.solutions.description": "Entwicklung robuster APIs zur Verbindung verschiedener Systeme",
     "systemIntegration.solutions.cloud.title": "Cloud-Integration",
-    "systemIntegration.solutions.cloud.description": "Verbinden Sie lokale Systeme mit Cloud-Lösungen",
+    "systemIntegration.solutions.description": "Verbinden Sie lokale Systeme mit Cloud-Lösungen",
     "systemIntegration.solutions.erp.title": "ERP-Integration",
-    "systemIntegration.solutions.erp.description": "Verbinden Sie Ihr ERP mit anderen Unternehmenssystemen",
+    "systemIntegration.solutions.description": "Verbinden Sie Ihr ERP mit anderen Unternehmenssystemen",
     "systemIntegration.solutions.legacy.title": "Legacy-Systeme",
-    "systemIntegration.solutions.legacy.description":
-      "Modernisieren und integrieren Sie alte Systeme mit neuen Technologien",
+    "systemIntegration.solutions.description": "Modernisieren und integrieren Sie alte Systeme mit neuen Technologien",
     "systemIntegration.cta.title": "Bereit zur Integration?",
     "systemIntegration.cta.subtitle": "Nehmen Sie Kontakt auf und entdecken Sie, wie wir Ihre Systeme verbinden können",
     "systemIntegration.cta.button": "Beratung Anfordern",
@@ -1980,28 +2048,44 @@ const translations = {
     "railway.solutions.title": "Unsere Eisenbahnlösungen",
     "railway.solutions.subtitle": "Spezialisierte Technologien für den Eisenbahnsektor",
     "railway.solutions.signaling.title": "Signalsysteme",
-    "railway.solutions.signaling.description":
-      "Steuerungs- und Signalsysteme für betriebliche Sicherheit und Effizienz",
+    "railway.solutions.description": "Steuerungs- und Signalsysteme für betriebliche Sicherheit und Effizienz",
     "railway.solutions.control.title": "Verkehrskontrolle",
-    "railway.solutions.control.description": "Zentralisierte Eisenbahnverkehrskontroll- und Überwachungssysteme",
+    "railway.solutions.description": "Zentralisierte Eisenbahnverkehrskontroll- und Überwachungssysteme",
     "railway.solutions.maintenance.title": "Vorausschauende Wartung",
-    "railway.solutions.maintenance.description": "Infrastrukturüberwachungs- und vorbeugende Wartungssysteme",
+    "railway.solutions.description": "Infrastrukturüberwachungs- und vorbeugende Wartungssysteme",
     "railway.solutions.passenger.title": "Passagiersysteme",
-    "railway.solutions.passenger.description": "Lösungen für Fahrgastinformation und -management in Bahnhöfen",
+    "railway.solutions.description": "Lösungen für Fahrgastinformation und -management in Bahnhöfen",
     "railway.benefits.title": "Vorteile Unserer Lösungen",
     "railway.benefits.subtitle": "Vorteile unserer Eisenbahntechnologie",
     "railway.benefits.safety.title": "Maximale Sicherheit",
-    "railway.benefits.safety.description": "Redundante Systeme und fortschrittliche Sicherheitsprotokolle",
+    "railway.benefits.description": "Redundante Systeme und fortschrittliche Sicherheitsprotokolle",
     "railway.benefits.efficiency.title": "Betriebliche Effizienz",
-    "railway.benefits.efficiency.description": "Routenoptimierung und intelligentes Ressourcenmanagement",
+    "railway.benefits.description": "Routenoptimierung und intelligentes Ressourcenmanagement",
     "railway.benefits.reliability.title": "Zuverlässigkeit",
-    "railway.benefits.reliability.description": "Robuste Systeme mit hoher Verfügbarkeit und geringem Wartungsaufwand",
+    "railway.benefits.description": "Robuste Systeme mit hoher Verfügbarkeit und geringem Wartungsaufwand",
     "railway.benefits.integration.title": "Totale Integration",
-    "railway.benefits.integration.description": "Konnektivität mit bestehenden Systemen und neuen Technologien",
+    "railway.benefits.description": "Konnektivität mit bestehenden Systemen und neuen Technologien",
     "railway.cta.title": "Bereit zur Modernisierung?",
     "railway.cta.subtitle":
       "Nehmen Sie Kontakt auf und entdecken Sie, wie wir Ihre Eisenbahninfrastruktur transformieren können",
     "railway.cta.button": "Beratung Anfordern",
+    // Education Page
+    "education.hero.title": "Bildungssektor",
+    "education.hero.subtitle": "Bildung durch Technologie transformieren",
+    "education.innovation.title": "Innovation in der Bildung",
+    "education.innovation.description":
+      "Wir entwickeln technologische Lösungen, die den Lehr-Lern-Prozess revolutionieren und Bildung zugänglicher und effektiver machen.",
+    "education.solutions.title": "Unsere Lösungen",
+    "education.solutions.elearning.title": "E-Learning-Plattformen",
+    "education.solutions.elearning.description":
+      "Komplette Fernlernsysteme mit interaktiven Funktionen und Gamification.",
+    "education.solutions.management.title": "Schulverwaltung",
+    "education.solutions.management.description": "Tools für die effiziente Verwaltung von Bildungseinrichtungen.",
+    "education.solutions.pedagogical.title": "Pädagogische Tools",
+    "education.solutions.pedagogical.description":
+      "Digitale Ressourcen, die Lehrer im Unterrichtsprozess unterstützen.",
+    "education.solutions.analytics.title": "Leistungsanalyse",
+    "education.solutions.analytics.description": "Analysesysteme, die helfen, die Leistung der Schüler zu verbessern.",
   },
 }
 
