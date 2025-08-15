@@ -114,6 +114,15 @@ function DevelopmentPageContent() {
             <p className="text-xl lg:text-2xl mb-8 opacity-90">{t("services.web.description")}</p>
           </div>
         </div>
+
+      {/* Indicador de scroll */}
+      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10">
+        <div className="animate-bounce">
+          <div className="w-6 h-10 border-2 border-viana-white rounded-full flex justify-center drop-shadow-lg">
+            <div className="w-1 h-3 bg-viana-white rounded-full mt-2 animate-pulse"></div>
+          </div>
+        </div>
+      </div>        
       </section>
 
       {/* Services Carousel Section */}
