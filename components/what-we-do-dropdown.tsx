@@ -76,7 +76,7 @@ export function WhatWeDoDropdown() {
               {t("nav.railway")}
             </button>
             <button
-              onClick={() => handleNavigation("/engineering/road")}
+              onClick={() => handleNavigation("/what-we-do/road")}
               className="flex items-center gap-3 w-full px-4 py-2 text-sm text-white hover:bg-yellow-500/20 transition-colors"
             >
               <Car className="h-4 w-4 text-orange-500" />
