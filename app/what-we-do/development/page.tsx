@@ -96,8 +96,6 @@ function DevelopmentPageContent() {
 
   return (
     <div className="min-h-screen bg-viana-white">
-      <Navbar />
-      <main className="pt-28">
         {/* Hero Section */}
         <section
           className="relative pt-0 pb-0 bg-gradient-to-br from-viana-orange to-viana-yellow overflow-hidden h-[600px]"
@@ -218,7 +216,6 @@ function DevelopmentPageContent() {
             </div>
           </div>
         </section>
-      </main>
     </div>
   )
 }
