@@ -4,7 +4,6 @@ import { ProjectsSection } from "@/components/sections/projects-section"
 import { IndustriesSection } from "@/components/sections/industries-section"
 import { TestimonialsSection } from "@/components/sections/testimonials-section"
 import { InsightsSection } from "@/components/sections/insights-section"
-import { TechnologiesSection } from "@/components/sections/technologies-section"
 import { CareersSection } from "@/components/sections/careers-section"
 import { EntertainmentSection } from "@/components/sections/entertainment-section"
 import { ParallaxSection } from "@/components/sections/parallax-section"
@@ -21,7 +20,6 @@ export default function Home() {
         <IndustriesSection />
         <TestimonialsSection />
         <InsightsSection />
-        <TechnologiesSection />
         <CareersSection />
       </main>
     </div>
