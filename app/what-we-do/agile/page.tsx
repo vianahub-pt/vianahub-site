@@ -161,7 +161,10 @@ export default function AgilePage() {
           <div className="absolute inset-0 bg-black/60 z-0" />
           <div className="container mx-auto px-4 relative z-10 h-full flex items-center justify-center">
             <div className="max-w-4xl mx-auto text-center text-white">
-              <h1 className="text-4xl lg:text-6xl font-bold mb-6">{t("agile.hero.title")}</h1>
+              <h1 className="text-4xl lg:text-6xl font-bold mb-6">
+              <Zap className="text-orange-500 w-12 h-12 lg:w-16 lg:h-16" />
+              {t("agile.hero.title")}
+              </h1>
               <p className="text-xl lg:text-2xl mb-8 opacity-90">{t("agile.hero.subtitle")}</p>
             </div>
           </div>
