@@ -96,7 +96,7 @@ export function IndustriesSection() {
   ]
 
   return (
-    <section ref={sectionRef} className="py-20">
+    <section ref={sectionRef} className="bg-gradient-to-b from-yellow-200 to-orange-200 py-20">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold mb-4">
