@@ -148,6 +148,40 @@ body {
     background-color: #6366f1 !important;
   }
 
+  /* Add opacity variants for viana colors */
+  .bg-viana-orange\/90 {
+    background-color: rgba(255, 140, 0, 0.9) !important;
+  }
+
+  .hover\:bg-viana-orange\/90:hover {
+    background-color: rgba(255, 140, 0, 0.9) !important;
+  }
+
+  .bg-viana-yellow\/90 {
+    background-color: rgba(255, 215, 0, 0.9) !important;
+  }
+
+  .hover\:bg-viana-yellow\/90:hover {
+    background-color: rgba(255, 215, 0, 0.9) !important;
+  }
+
+  /* Dark mode variants for opacity */
+  .dark .bg-viana-orange\/90 {
+    background-color: rgba(64, 64, 64, 0.9) !important;
+  }
+
+  .dark .hover\:bg-viana-orange\/90:hover {
+    background-color: rgba(64, 64, 64, 0.9) !important;
+  }
+
+  .dark .bg-viana-yellow\/90 {
+    background-color: rgba(82, 82, 82, 0.9) !important;
+  }
+
+  .dark .hover\:bg-viana-yellow\/90:hover {
+    background-color: rgba(82, 82, 82, 0.9) !important;
+  }
+
   /* Missing classes for Agile page */
   .text-viana-black {
     color: #000000 !important;
