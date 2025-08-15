@@ -520,6 +520,20 @@ const translations = {
     "cybersecurity.features.monitoring.description": "SOC 24/7 com detecção e resposta a ameaças em tempo real.",
     "cybersecurity.features.incident.title": "Resposta a Incidentes",
     "cybersecurity.features.incident.description": "Planos de resposta rápida a incidentes de segurança.",
+    // Backups Page
+    "backups.hero.title": "Soluções de Backup",
+    "backups.hero.subtitle":
+      "Proteja seus dados com soluções completas de backup. Backup automático, recuperação de desastres e armazenamento seguro.",
+    "backups.hero.button": "Proteger Dados",
+    "backups.features.title": "Recursos de Backup",
+    "backups.features.local.title": "Backup Local",
+    "backups.features.local.description": "Soluções de backup em servidores locais com alta velocidade.",
+    "backups.features.cloud.title": "Backup na Nuvem",
+    "backups.features.cloud.description": "Armazenamento seguro na nuvem com redundância geográfica.",
+    "backups.features.automatic.title": "Backup Automático",
+    "backups.features.automatic.description": "Agendamento automático de backups incrementais e completos.",
+    "backups.features.recovery.title": "Recuperação",
+    "backups.features.recovery.description": "Planos de recuperação de desastres e restore rápido.",
   },
   en: {
     // Navigation
@@ -652,6 +666,20 @@ const translations = {
     "cybersecurity.features.monitoring.description": "24/7 SOC with real-time threat detection and response.",
     "cybersecurity.features.incident.title": "Incident Response",
     "cybersecurity.features.incident.description": "Rapid response plans for security incidents.",
+    // Backups Page
+    "backups.hero.title": "Backup Solutions",
+    "backups.hero.subtitle":
+      "Protect your data with comprehensive backup solutions. Automatic backup, disaster recovery and secure storage.",
+    "backups.hero.button": "Protect Data",
+    "backups.features.title": "Backup Features",
+    "backups.features.local.title": "Local Backup",
+    "backups.features.local.description": "Local server backup solutions with high speed.",
+    "backups.features.cloud.title": "Cloud Backup",
+    "backups.features.cloud.description": "Secure cloud storage with geographic redundancy.",
+    "backups.features.automatic.title": "Automatic Backup",
+    "backups.features.automatic.description": "Automatic scheduling of incremental and full backups.",
+    "backups.features.recovery.title": "Recovery",
+    "backups.features.recovery.description": "Disaster recovery plans and fast restore.",
   },
   es: {
     // Navigation
@@ -787,6 +815,20 @@ const translations = {
     "cybersecurity.features.monitoring.description": "SOC 24/7 con detección y respuesta a amenazas en tiempo real.",
     "cybersecurity.features.incident.title": "Respuesta a Incidentes",
     "cybersecurity.features.incident.description": "Planes de respuesta rápida a incidentes de seguridad.",
+    // Backups Page
+    "backups.hero.title": "Soluciones de Respaldo",
+    "backups.hero.subtitle":
+      "Proteja sus datos con soluciones completas de respaldo. Respaldo automático, recuperación de desastres y almacenamiento seguro.",
+    "backups.hero.button": "Proteger Datos",
+    "backups.features.title": "Características de Respaldo",
+    "backups.features.local.title": "Respaldo Local",
+    "backups.features.local.description": "Soluciones de respaldo en servidores locales con alta velocidad.",
+    "backups.features.cloud.title": "Respaldo en la Nube",
+    "backups.features.cloud.description": "Almacenamiento seguro en la nube con redundancia geográfica.",
+    "backups.features.automatic.title": "Respaldo Automático",
+    "backups.features.automatic.description": "Programación automática de respaldos incrementales y completos.",
+    "backups.features.recovery.title": "Recuperación",
+    "backups.features.recovery.description": "Planes de recuperación de desastres y restauración rápida.",
   },
   fr: {
     // Navigation
@@ -922,6 +964,20 @@ const translations = {
     "cybersecurity.features.monitoring.description": "SOC 24/7 avec détection et réponse aux menaces en temps réel.",
     "cybersecurity.features.incident.title": "Réponse aux Incidents",
     "cybersecurity.features.incident.description": "Plans de réponse rapide aux incidents de sécurité.",
+    // Backups Page
+    "backups.hero.title": "Solutions de Sauvegarde",
+    "backups.hero.subtitle":
+      "Protégez vos données avec des solutions complètes de sauvegarde. Sauvegarde automatique, récupération après sinistre et stockage sécurisé.",
+    "backups.hero.button": "Protéger les Données",
+    "backups.features.title": "Fonctionnalités de Sauvegarde",
+    "backups.features.local.title": "Sauvegarde Locale",
+    "backups.features.local.description": "Solutions de sauvegarde sur serveurs locaux avec haute vitesse.",
+    "backups.features.cloud.title": "Sauvegarde Cloud",
+    "backups.features.cloud.description": "Stockage sécurisé dans le cloud avec redondance géographique.",
+    "backups.features.automatic.title": "Sauvegarde Automatique",
+    "backups.features.automatic.description": "Planification automatique de sauvegardes incrémentales et complètes.",
+    "backups.features.recovery.title": "Récupération",
+    "backups.features.recovery.description": "Plans de récupération après sinistre et restauration rapide.",
   },
   de: {
     // Navigation
@@ -1055,6 +1111,23 @@ const translations = {
     "cybersecurity.features.monitoring.description": "24/7 SOC mit Echtzeit-Bedrohungserkennung und -reaktion.",
     "cybersecurity.features.incident.title": "Incident Response",
     "cybersecurity.features.incident.description": "Schnelle Reaktionspläne für Sicherheitsvorfälle.",
+    // Backups Page
+    "backups.hero.title": "Backup-Lösungen",
+    "cybersecurity.features.incident.description": "Schnelle Reaktionspläne für Sicherheitsvorfälle.",
+    // Backups Page
+    "backups.hero.title": "Backup-Lösungen",
+    "backups.hero.subtitle":
+      "Schützen Sie Ihre Daten mit umfassenden Backup-Lösungen. Automatisches Backup, Disaster Recovery und sichere Speicherung.",
+    "backups.hero.button": "Daten Schützen",
+    "backups.features.title": "Backup-Funktionen",
+    "backups.features.local.title": "Lokales Backup",
+    "backups.features.local.description": "Lokale Server-Backup-Lösungen mit hoher Geschwindigkeit.",
+    "backups.features.cloud.title": "Cloud-Backup",
+    "backups.features.cloud.description": "Sichere Cloud-Speicherung mit geografischer Redundanz.",
+    "backups.features.automatic.title": "Automatisches Backup",
+    "backups.features.automatic.description": "Automatische Planung von inkrementellen und vollständigen Backups.",
+    "backups.features.recovery.title": "Wiederherstellung",
+    "backups.features.recovery.description": "Disaster-Recovery-Pläne und schnelle Wiederherstellung.",
   },
 }
 
