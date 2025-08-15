@@ -10,29 +10,29 @@ const testimonials = [
     company: "App NOZ!",
     text: "Nós, da App NOZ!, gostaríamos de aproveitar este momento para registrar os nossos profundos agradecimentos pelo incrível trabalho entregue na criação de nossa Landing Page.",
     rating: 4,
-    image: "/public/kayth-cristina.webp",
+    image: "/testimonials/kayth-cristina.webp",
   },
   {
     name: "Alan Antônio",
     company: "CSU Digital",
     text: "A CSU Digital expressa sincero agradecimento pelo trabalho de campanhas digitais; a equipa demonstrou ser eficiente, entregando um serviço de alta qualidade. Se busca ser visto no mercado a VianaHub é o parceiro certo.",
     rating: 5,
-    image: "/public/alan-antonio.webp",
+    image: "/testimonials/alan-antonio.webp",
   },
   {
     name: "Claudio Antunes",
     company: "Claudio Eletricista",
     text: "Sou Claudio Antunes, proprietário da Claudio Eletricista, onde gerimos projetos de energias e na construção civil em toda a região de Porto e Aveiro, em Portugal. Quero ressaltar o quão fundamental foi a VianaHub na criação do nosso site e implantação do nosso ERP Odoo.",
     rating: 4,
-    image: "/public/claudio-antunes.webp",
+    image: "/testimonials/claudio-antunes.webp",
   },
   {
     name: "Wellington Silva",
     company: "Diagnóstica S.A.",
     text: "Agradecemos por padronizar eficientemente a gestão da nossa infraestrutura com a poderosa ferramenta Terraform. A Labtest Diagnóstica S.A. teve uma experiência positiva com os serviços prestados e recomenda a VianaHub.",
     rating: 5,
-    image: "/public/wellington-silva.webp",
-  },  
+    image: "/testimonials/wellington-silva.webp",
+  },
 ]
 
 export default function TestimonialsSection() {
