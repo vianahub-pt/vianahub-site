@@ -142,6 +142,18 @@ const translations = {
     "testimonials.roberto.position": "CTO, FinanceHub",
     "testimonials.roberto.text":
       "Segurança, eficiência e inovação em um só lugar. O sistema bancário que desenvolveram atende todos os requisitos regulamentares com excelência técnica.",
+    // Insights Section
+    "insights.title.part1": "Nossos",
+    "insights.title.part2": "Insights",
+    "insights.subtitle": "Dados e estatísticas que demonstram nosso compromisso com a excelência",
+    "insights.growth.title": "Crescimento",
+    "insights.growth.description": "Aumento médio na eficiência dos nossos clientes",
+    "insights.experience.title": "Satisfação",
+    "insights.experience.description": "Taxa de satisfação dos nossos clientes",
+    "insights.innovation.title": "Inovação",
+    "insights.innovation.description": "Projetos entregues com tecnologias de ponta",
+    "insights.results.title": "Resultados",
+    "insights.results.description": "Taxa de sucesso nos projetos entregues",
     // Entertainment Section
     "entertainment.title": "Entretenimento",
     "entertainment.subtitle": "Divirta-se com os nossos jogos interactivos",
@@ -316,6 +328,18 @@ const translations = {
     "testimonials.roberto.position": "CTO, FinanceHub",
     "testimonials.roberto.text":
       "Security, efficiency and innovation in one place. The banking system they developed meets all regulatory requirements with technical excellence.",
+    // Insights Section
+    "insights.title.part1": "Our",
+    "insights.title.part2": "Insights",
+    "insights.subtitle": "Data and statistics that demonstrate our commitment to excellence",
+    "insights.growth.title": "Growth",
+    "insights.growth.description": "Average increase in our clients' efficiency",
+    "insights.experience.title": "Satisfaction",
+    "insights.experience.description": "Client satisfaction rate",
+    "insights.innovation.title": "Innovation",
+    "insights.innovation.description": "Projects delivered with cutting-edge technologies",
+    "insights.results.title": "Results",
+    "insights.results.description": "Success rate in delivered projects",
     // Entertainment Section
     "entertainment.title": "Entertainment",
     "entertainment.subtitle": "Have fun with our interactive games",
@@ -492,6 +516,18 @@ const translations = {
     "testimonials.roberto.position": "CTO, FinanceHub",
     "testimonials.roberto.text":
       "Seguridad, eficiencia e innovación en un solo lugar. El sistema bancario que desarrollaron cumple todos los requisitos regulatorios con excelencia técnica.",
+    // Insights Section
+    "insights.title.part1": "Nuestros",
+    "insights.title.part2": "Insights",
+    "insights.subtitle": "Datos y estadísticas que demuestran nuestro compromiso con la excelencia",
+    "insights.growth.title": "Crecimiento",
+    "insights.growth.description": "Aumento promedio en la eficiencia de nuestros clientes",
+    "insights.experience.title": "Satisfacción",
+    "insights.experience.description": "Tasa de satisfacción de nuestros clientes",
+    "insights.innovation.title": "Innovación",
+    "insights.innovation.description": "Proyectos entregados con tecnologías de vanguardia",
+    "insights.results.title": "Resultados",
+    "insights.results.description": "Tasa de éxito en proyectos entregados",
     // Entertainment Section
     "entertainment.title": "Entretenimiento",
     "entertainment.subtitle": "Diviértete con nuestros juegos interactivos",
@@ -668,6 +704,18 @@ const translations = {
     "testimonials.roberto.position": "CTO, FinanceHub",
     "testimonials.roberto.text":
       "Sécurité, efficacité et innovation en un seul endroit. Le système bancaire qu'ils ont développé répond à toutes les exigences réglementaires avec excellence technique.",
+    // Insights Section
+    "insights.title.part1": "Nos",
+    "insights.title.part2": "Insights",
+    "insights.subtitle": "Données et statistiques qui démontrent notre engagement envers l'excellence",
+    "insights.growth.title": "Croissance",
+    "insights.growth.description": "Augmentation moyenne de l'efficacité de nos clients",
+    "insights.experience.title": "Satisfaction",
+    "insights.experience.description": "Taux de satisfaction de nos clients",
+    "insights.innovation.title": "Innovation",
+    "insights.innovation.description": "Projets livrés avec des technologies de pointe",
+    "insights.results.title": "Résultats",
+    "insights.results.description": "Taux de réussite des projets livrés",
     // Entertainment Section
     "entertainment.title": "Divertissement",
     "entertainment.subtitle": "Amusez-vous avec nos jeux interactifs",
@@ -841,6 +889,18 @@ const translations = {
     "testimonials.roberto.position": "CTO, FinanceHub",
     "testimonials.roberto.text":
       "Sicherheit, Effizienz und Innovation an einem Ort. Das Banking-System, das sie entwickelten, erfüllt alle regulatorischen Anforderungen mit technischer Exzellenz.",
+    // Insights Section
+    "insights.title.part1": "Unsere",
+    "insights.title.part2": "Insights",
+    "insights.subtitle": "Daten und Statistiken, die unser Engagement für Exzellenz demonstrieren",
+    "insights.growth.title": "Wachstum",
+    "insights.growth.description": "Durchschnittliche Steigerung der Effizienz unserer Kunden",
+    "insights.experience.title": "Zufriedenheit",
+    "insights.experience.description": "Kundenzufriedenheitsrate",
+    "insights.innovation.title": "Innovation",
+    "insights.innovation.description": "Projekte mit modernsten Technologien geliefert",
+    "insights.results.title": "Ergebnisse",
+    "insights.results.description": "Erfolgsrate bei gelieferten Projekten",
     // Entertainment Section
     "entertainment.title": "Unterhaltung",
     "entertainment.subtitle": "Haben Sie Spaß mit unseren interaktiven Spielen",

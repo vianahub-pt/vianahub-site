@@ -52,7 +52,8 @@ export function InsightsSection() {
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold mb-4">
-            <span className="text-white">Nossos</span> <span className="text-viana-yellow">Insights</span>
+            <span className="text-black">{t("insights.title.part1")}</span>{" "}
+            <span className="text-viana-orange">{t("insights.title.part2")}</span>
           </h2>
           <p className="text-xl text-gray-100 max-w-3xl mx-auto font-kurale">{t("insights.subtitle")}</p>
         </div>
