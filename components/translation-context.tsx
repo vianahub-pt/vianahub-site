@@ -506,6 +506,20 @@ const translations = {
     "healthcare.solutions.analytics.title": "Análise de Dados",
     "healthcare.solutions.analytics.description":
       "Ferramentas de análise para apoiar decisões médicas baseadas em dados.",
+    // CyberSecurity Page
+    "cybersecurity.hero.title": "Segurança Cibernética",
+    "cybersecurity.hero.subtitle":
+      "Proteja sua empresa contra ameaças digitais. Firewall, antivírus, monitoramento 24/7 e resposta a incidentes.",
+    "cybersecurity.hero.button": "Avaliar Segurança",
+    "cybersecurity.features.title": "Soluções de Cibersegurança",
+    "cybersecurity.features.firewall.title": "Firewall",
+    "cybersecurity.features.firewall.description": "Proteção avançada de rede com firewall de nova geração.",
+    "cybersecurity.features.encryption.title": "Criptografia",
+    "cybersecurity.features.encryption.description": "Criptografia de dados em trânsito e em repouso.",
+    "cybersecurity.features.monitoring.title": "Monitoramento",
+    "cybersecurity.features.monitoring.description": "SOC 24/7 com detecção e resposta a ameaças em tempo real.",
+    "cybersecurity.features.incident.title": "Resposta a Incidentes",
+    "cybersecurity.features.incident.description": "Planos de resposta rápida a incidentes de segurança.",
   },
   en: {
     // Navigation
@@ -624,6 +638,20 @@ const translations = {
     "healthcare.solutions.patient.description": "Systems to optimize patient care and follow-up.",
     "healthcare.solutions.analytics.title": "Data Analysis",
     "healthcare.solutions.analytics.description": "Analysis tools to support data-driven medical decisions.",
+    // CyberSecurity Page
+    "cybersecurity.hero.title": "Cybersecurity",
+    "cybersecurity.hero.subtitle":
+      "Protect your company against digital threats. Firewall, antivirus, 24/7 monitoring and incident response.",
+    "cybersecurity.hero.button": "Security Assessment",
+    "cybersecurity.features.title": "Cybersecurity Solutions",
+    "cybersecurity.features.firewall.title": "Firewall",
+    "cybersecurity.features.firewall.description": "Advanced network protection with next-generation firewall.",
+    "cybersecurity.features.encryption.title": "Encryption",
+    "cybersecurity.features.encryption.description": "Data encryption in transit and at rest.",
+    "cybersecurity.features.monitoring.title": "Monitoring",
+    "cybersecurity.features.monitoring.description": "24/7 SOC with real-time threat detection and response.",
+    "cybersecurity.features.incident.title": "Incident Response",
+    "cybersecurity.features.incident.description": "Rapid response plans for security incidents.",
   },
   es: {
     // Navigation
@@ -745,6 +773,20 @@ const translations = {
     "healthcare.solutions.analytics.title": "Análisis de Datos",
     "healthcare.solutions.analytics.description":
       "Herramientas de análisis para apoyar decisiones médicas basadas en datos.",
+    // CyberSecurity Page
+    "cybersecurity.hero.title": "Ciberseguridad",
+    "cybersecurity.hero.subtitle":
+      "Proteja su empresa contra amenazas digitales. Firewall, antivirus, monitoreo 24/7 y respuesta a incidentes.",
+    "cybersecurity.hero.button": "Evaluación de Seguridad",
+    "cybersecurity.features.title": "Soluciones de Ciberseguridad",
+    "cybersecurity.features.firewall.title": "Firewall",
+    "cybersecurity.features.firewall.description": "Protección avanzada de red con firewall de nueva generación.",
+    "cybersecurity.features.encryption.title": "Cifrado",
+    "cybersecurity.features.encryption.description": "Cifrado de datos en tránsito y en reposo.",
+    "cybersecurity.features.monitoring.title": "Monitoreo",
+    "cybersecurity.features.monitoring.description": "SOC 24/7 con detección y respuesta a amenazas en tiempo real.",
+    "cybersecurity.features.incident.title": "Respuesta a Incidentes",
+    "cybersecurity.features.incident.description": "Planes de respuesta rápida a incidentes de seguridad.",
   },
   fr: {
     // Navigation
@@ -866,6 +908,20 @@ const translations = {
     "healthcare.solutions.analytics.title": "Analyse de Données",
     "healthcare.solutions.analytics.description":
       "Outils d'analyse pour soutenir les décisions médicales basées sur les données.",
+    // CyberSecurity Page
+    "cybersecurity.hero.title": "Cybersécurité",
+    "cybersecurity.hero.subtitle":
+      "Protégez votre entreprise contre les menaces numériques. Pare-feu, antivirus, surveillance 24/7 et réponse aux incidents.",
+    "cybersecurity.hero.button": "Évaluation de Sécurité",
+    "cybersecurity.features.title": "Solutions de Cybersécurité",
+    "cybersecurity.features.firewall.title": "Pare-feu",
+    "cybersecurity.features.firewall.description": "Protection réseau avancée avec pare-feu de nouvelle génération.",
+    "cybersecurity.features.encryption.title": "Chiffrement",
+    "cybersecurity.features.encryption.description": "Chiffrement des données en transit et au repos.",
+    "cybersecurity.features.monitoring.title": "Surveillance",
+    "cybersecurity.features.monitoring.description": "SOC 24/7 avec détection et réponse aux menaces en temps réel.",
+    "cybersecurity.features.incident.title": "Réponse aux Incidents",
+    "cybersecurity.features.incident.description": "Plans de réponse rapide aux incidents de sécurité.",
   },
   de: {
     // Navigation
@@ -985,6 +1041,20 @@ const translations = {
     "healthcare.solutions.analytics.title": "Datenanalyse",
     "healthcare.solutions.analytics.description":
       "Analysetools zur Unterstützung datengestützter medizinischer Entscheidungen.",
+    // CyberSecurity Page
+    "cybersecurity.hero.title": "Cybersicherheit",
+    "cybersecurity.hero.subtitle":
+      "Schützen Sie Ihr Unternehmen vor digitalen Bedrohungen. Firewall, Antivirus, 24/7-Überwachung und Incident Response.",
+    "cybersecurity.hero.button": "Sicherheitsbewertung",
+    "cybersecurity.features.title": "Cybersicherheitslösungen",
+    "cybersecurity.features.firewall.title": "Firewall",
+    "cybersecurity.features.firewall.description": "Erweiterte Netzwerksicherheit mit Next-Generation-Firewall.",
+    "cybersecurity.features.encryption.title": "Verschlüsselung",
+    "cybersecurity.features.encryption.description": "Datenverschlüsselung bei der Übertragung und im Ruhezustand.",
+    "cybersecurity.features.monitoring.title": "Überwachung",
+    "cybersecurity.features.monitoring.description": "24/7 SOC mit Echtzeit-Bedrohungserkennung und -reaktion.",
+    "cybersecurity.features.incident.title": "Incident Response",
+    "cybersecurity.features.incident.description": "Schnelle Reaktionspläne für Sicherheitsvorfälle.",
   },
 }
 
