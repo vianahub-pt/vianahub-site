@@ -1,14 +1,8 @@
-import type { Metadata } from "next"
+"use client"
 import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
 import { TranslationProvider, useTranslation } from "@/components/translation-context"
 import Image from "next/image"
-
-export const metadata: Metadata = {
-  title: "Educação - Soluções Tecnológicas para o Ensino | VianaHub",
-  description:
-    "Soluções tecnológicas inovadoras para o setor educacional. Plataformas de e-learning, gestão escolar e ferramentas pedagógicas.",
-}
 
 function Breadcrumb({ items }: { items: { label: string; href: string }[] }) {
   return (

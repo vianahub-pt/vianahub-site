@@ -1,12 +1,6 @@
-import type { Metadata } from "next"
+"use client"
 import Image from "next/image"
 import { TranslationProvider, useTranslation } from "@/components/translation-context"
-
-export const metadata: Metadata = {
-  title: "Governo - Soluções Tecnológicas para o Setor Público | VianaHub",
-  description:
-    "Soluções tecnológicas especializadas para o setor público e governamental. Sistemas seguros, eficientes e transparentes.",
-}
 
 function GovernmentPageContent() {
   const { t } = useTranslation()

@@ -1,15 +1,9 @@
-import type { Metadata } from "next"
+"use client"
 import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
 import { TranslationProvider, useTranslation } from "@/components/translation-context"
 import { HealthcarePageContent } from "@/components/healthcare-page-content"
 import Image from "next/image"
-
-export const metadata: Metadata = {
-  title: "Saúde - Soluções Tecnológicas para o Setor de Saúde | VianaHub",
-  description:
-    "Soluções tecnológicas inovadoras para o setor de saúde. Sistemas hospitalares, telemedicina e gestão de pacientes.",
-}
 
 function HealthcareHero() {
   const { t } = useTranslation()
