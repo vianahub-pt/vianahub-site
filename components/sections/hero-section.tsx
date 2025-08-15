@@ -74,7 +74,7 @@ export function HeroSection() {
                 <Counter
                   end={500}
                   suffix="+"
-                  className="text-4xl lg:text-5xl font-bold text-yellow-900 mb-2 drop-shadow-lg"
+                  className="text-4xl lg:text-5xl font-bold text-yellow mb-2 drop-shadow-lg"
                 />
                 <div className="text-viana-white/90 text-lg drop-shadow-lg font-kurale">{t("hero.stats.projects")}</div>
               </div>
