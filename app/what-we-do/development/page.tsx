@@ -229,8 +229,6 @@ function DevelopmentPageContent() {
           </div>
         </section>
       </main>
-
-      <Footer />
     </div>
   )
 }
