@@ -43,17 +43,17 @@ export function Footer() {
                   href="/what-we-do/development"
                   className="text-gray-300 hover:text-white transition-colors text-sm"
                 >
-                  {t("footer.link.whatWeDo.development")}
+                  {t("footer.whatWeDo.development")}
                 </Link>
               </li>
               <li>
                 <Link href="/what-we-do/agile" className="text-gray-300 hover:text-white transition-colors text-sm">
-                  {t("footer.link.whatWeDo.agile")}
+                  {t("footer.whatWeDo.agile")}
                 </Link>
               </li>
               <li>
                 <Link href="/what-we-do/chatbot" className="text-gray-300 hover:text-white transition-colors text-sm">
-                  {t("footer.link.whatWeDo.chatbot")}
+                  {t("footer.whatWeDo.chatbot")}
                 </Link>
               </li>
               <li>
@@ -61,7 +61,7 @@ export function Footer() {
                   href="/what-we-do/outsourcing"
                   className="text-gray-300 hover:text-white transition-colors text-sm"
                 >
-                  {t("footer.link.whatWeDo.outsourcing")}
+                  {t("footer.whatWeDo.outsourcing")}
                 </Link>
               </li>
             </ul>

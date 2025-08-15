@@ -66,6 +66,59 @@ export function Navbar() {
             </button>
           </div>
         </div>
+
+        {/* Mobile Menu */}
+        {isMenuOpen && (
+          <div className="lg:hidden">
+            <div className="px-2 pt-2 pb-3 space-y-1 bg-black/80 backdrop-blur-md rounded-md mt-2">
+              <div className="space-y-1">
+                <div className="px-3 py-2 text-white font-medium text-sm">{t("nav.whatWeDo")}</div>
+                <button
+                  onClick={() => handleNavigation("/what-we-do/development")}
+                  className="block px-6 py-2 text-sm text-white hover:bg-yellow-500/20 w-full text-left"
+                >
+                  {t("nav.development")}
+                </button>
+                <button
+                  onClick={() => handleNavigation("/what-we-do/agile")}
+                  className="block px-6 py-2 text-sm text-white hover:bg-yellow-500/20 w-full text-left"
+                >
+                  {t("nav.agile")}
+                </button>
+                <button
+                  onClick={() => handleNavigation("/what-we-do/outsourcing")}
+                  className="block px-6 py-2 text-sm text-white hover:bg-yellow-500/20 w-full text-left"
+                >
+                  {t("nav.outsourcing")}
+                </button>
+                <button
+                  onClick={() => handleNavigation("/what-we-do/chatbot")}
+                  className="block px-6 py-2 text-sm text-white hover:bg-yellow-500/20 w-full text-left"
+                >
+                  {t("nav.chatbot")}
+                </button>
+                <button
+                  onClick={() => handleNavigation("/what-we-do/landing-pages")}
+                  className="block px-6 py-2 text-sm text-white hover:bg-yellow-500/20 w-full text-left"
+                >
+                  {t("nav.landingPages")}
+                </button>
+                <button
+                  onClick={() => handleNavigation("/what-we-do/system-integration")}
+                  className="block px-6 py-2 text-sm text-white hover:bg-yellow-500/20 w-full text-left"
+                >
+                  {t("nav.systemIntegration")}
+                </button>
+              </div>
+              <button
+                onClick={() => handleNavigation("/contact")}
+                className="block px-3 py-2 text-white hover:bg-yellow-500/20 w-full text-left font-medium"
+              >
+                {t("nav.contact")}
+              </button>
+            </div>
+          </div>
+        )}
       </div>
     </nav>
   )
