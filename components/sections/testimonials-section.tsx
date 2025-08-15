@@ -80,10 +80,10 @@ export function TestimonialsSection() {
                       className={`rounded-lg p-6 shadow-md transition-all duration-700 ease-in-out mx-auto max-w-sm ${
                         isCenterCard
                           ? "transform scale-110 shadow-2xl border-2 border-orange-200"
-                          : "transform scale-90 opacity-80 bg-gray-50"
+                          : "transform scale-90 opacity-80"
                       }`}
                       style={{
-                        backgroundColor: isCenterCard ? "rgba(255, 255, 0, 0.05)" : undefined,
+                        backgroundColor: "rgba(255, 255, 0, 0.05)",
                       }}
                     >
                       <div className="flex flex-col items-center mb-4">
