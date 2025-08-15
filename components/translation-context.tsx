@@ -401,7 +401,6 @@ const translations = {
     "foxGame.instructions":
       "Use the arrow keys to move the fox • Or click on the cells to move • Find the oasis in each level • Complete all 5 levels as quickly as possible!",
     // Footer
-    "footer.companyName": "VianaHub",
     "footer.description": "We develop innovative technologies that drive your business growth.",
     "footer.services": "Services",
     "footer.industries": "Industries",
@@ -604,7 +603,6 @@ const translations = {
     "foxGame.instructions":
       "Usa las flechas del teclado para mover el zorro • O haz clic en las celdas para moverte • Encuentra el oasis en cada nivel • ¡Completa todos los 5 niveles lo más rápido posible!",
     // Footer
-    "footer.companyName": "VianaHub",
     "footer.description": "Desarrollamos tecnologías innovadoras que impulsan el crecimiento de su negocio.",
     "footer.services": "Servicios",
     "footer.industries": "Sectores",
@@ -807,7 +805,6 @@ const translations = {
     "foxGame.instructions":
       "Utilisez les flèches du clavier pour déplacer le renard • Ou cliquez sur les cellules pour vous déplacer • Trouvez l'oasis à chaque niveau • Terminez tous les 5 niveaux le plus rapidement possible!",
     // Footer
-    "footer.companyName": "VianaHub",
     "footer.description":
       "Nous développons des technologies innovantes qui stimulent la croissance de votre entreprise.",
     "footer.services": "Services",
@@ -1008,7 +1005,6 @@ const translations = {
     "foxGame.instructions":
       "Verwenden Sie die Pfeiltasten, um den Fuchs zu bewegen • Oder klicken Sie auf die Zellen, um sich zu bewegen • Finden Sie die Oase in jedem Level • Schließen Sie alle 5 Level so schnell wie möglich ab!",
     // Footer
-    "footer.companyName": "VianaHub",
     "footer.description": "Wir entwickeln innovative Technologien, die das Wachstum Ihres Unternehmens vorantreiben.",
     "footer.services": "Dienstleistungen",
     "footer.industries": "Branchen",
