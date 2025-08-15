@@ -3,7 +3,7 @@ import type { Metadata } from "next"
 import { Inter } from "next/font/google"
 import "./globals.css"
 import ClientLayout from "./client-layout"
-import Providers from ".providers"
+import Providers from "./providers"
 
 const inter = Inter({ subsets: ["latin"] })
 
@@ -66,7 +66,7 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
-    generator: 'v0.app'
+  generator: "v0.app",
 }
 
 export default function RootLayout({
@@ -77,8 +77,8 @@ export default function RootLayout({
   return (
     <html lang="pt" suppressHydrationWarning>
       <body className={inter.className}>
-        <<Providers>
-        <ClientLayout>{children}</ClientLayout>
+        <Providers>
+          <ClientLayout>{children}</ClientLayout>
         </Providers>
       </body>
     </html>
