@@ -1055,6 +1055,10 @@ const translations = {
     "footer.financial": "Finanzwesen",
     "footer.education": "Bildung",
     "footer.retail": "Einzelhandel",
+    "footer.whatWeDo.development": "Entwicklung",
+    "footer.whatWeDo.agile": "Agile Methodik"",
+    "footer.whatWeDo.chatbot": "Chatbot",
+    "footer.whatWeDo.outsourcing": "Externalisation",    
   },
 }
 
