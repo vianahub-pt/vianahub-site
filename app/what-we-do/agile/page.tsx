@@ -151,7 +151,7 @@ export default function AgilePage() {
   return (
     <div className="min-h-screen bg-viana-white">
         {/* Hero Section */}
-        <section className="relative pt-0 pb-0 bg-gradient-to-br from-viana-orange to-viana-yellow overflow-hidden h-[300px]">
+        <section className="relative pt-0 pb-0 bg-gradient-to-br from-viana-orange to-viana-yellow overflow-hidden h-[500px]">
           <div
             className="absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat"
             style={{
