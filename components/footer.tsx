@@ -43,17 +43,17 @@ export function Footer() {
                   href="/what-we-do/development"
                   className="text-gray-300 hover:text-white transition-colors text-sm"
                 >
-                  {t("nav.whatWeDo.development")}
+                  {t("footer.link.whatWeDo.development")}
                 </Link>
               </li>
               <li>
                 <Link href="/what-we-do/agile" className="text-gray-300 hover:text-white transition-colors text-sm">
-                  {t("nav.whatWeDo.agile")}
+                  {t("footer.link.whatWeDo.agile")}
                 </Link>
               </li>
               <li>
                 <Link href="/what-we-do/chatbot" className="text-gray-300 hover:text-white transition-colors text-sm">
-                  {t("nav.whatWeDo.chatbot")}
+                  {t("footer.link.whatWeDo.chatbot")}
                 </Link>
               </li>
               <li>
@@ -61,7 +61,7 @@ export function Footer() {
                   href="/what-we-do/outsourcing"
                   className="text-gray-300 hover:text-white transition-colors text-sm"
                 >
-                  {t("nav.whatWeDo.outsourcing")}
+                  {t("footer.link.whatWeDo.outsourcing")}
                 </Link>
               </li>
             </ul>
@@ -73,22 +73,22 @@ export function Footer() {
             <ul className="space-y-2">
               <li>
                 <Link href="/industry/healthcare" className="text-gray-300 hover:text-white transition-colors text-sm">
-                  {t("nav.industry.healthcare")}
+                  {t("footer.link.industry.healthcare")}
                 </Link>
               </li>
               <li>
                 <Link href="/industry/financial" className="text-gray-300 hover:text-white transition-colors text-sm">
-                  {t("nav.industry.financial")}
+                  {t("footer.link.industry.financial")}
                 </Link>
               </li>
               <li>
                 <Link href="/industry/education" className="text-gray-300 hover:text-white transition-colors text-sm">
-                  {t("nav.industry.education")}
+                  {t("footer.link.industry.education")}
                 </Link>
               </li>
               <li>
                 <Link href="/industry/retail" className="text-gray-300 hover:text-white transition-colors text-sm">
-                  {t("nav.industry.retail")}
+                  {t("footer.link.industry.retail")}
                 </Link>
               </li>
             </ul>
