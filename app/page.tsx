@@ -5,7 +5,6 @@ import { IndustriesSection } from "@/components/sections/industries-section"
 import { TestimonialsSection } from "@/components/sections/testimonials-section"
 import { InsightsSection } from "@/components/sections/insights-section"
 import { EntertainmentSection } from "@/components/sections/entertainment-section"
-import { Parallax } from "@/components/sections/parallax-section"
 
 export default function Home() {
   return (
