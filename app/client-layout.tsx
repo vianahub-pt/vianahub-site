@@ -16,9 +16,9 @@ export default function ClientLayout({
   return (
     <TranslationProvider>
       <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
-        <div className="min-h-screen bg-background">
+        <div className="min-h-screen flex flex-col">
           <Navbar />
-          <main>{children}</main>
+          <main className="flex-1 pt-16">{children}</main>
           <Footer />
         </div>
         <Toaster />
