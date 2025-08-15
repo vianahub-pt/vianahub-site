@@ -1,89 +1,98 @@
 "use client"
 
+import { useEffect } from "react"
 import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Train, Zap, Shield, Settings, ArrowRight, CheckCircle } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
-import { useTranslation, TranslationProvider } from "@/components/translation-context"
+import { useTranslation } from "@/components/translation-context"
 
-function SystemIntegrationContent() {
+export default function RailwayPage() {
   const { t } = useTranslation()
 
   useEffect(() => {
     window.scrollTo(0, 0)
   }, [])
 
+  const services = [
+    {
+      icon: Train,
+      title: t("railway.solutions.signaling.title"),
+      description: t("railway.solutions.signaling.description"),
+    },
+    {
+      icon: Zap,
+      title: t("railway.solutions.control.title"),
+      description: t("railway.solutions.control.description"),
+    },
+    {
+      icon: Shield,
+      title: t("railway.solutions.maintenance.title"),
+      description: t("railway.solutions.maintenance.description"),
+    },
+    {
+      icon: Settings,
+      title: t("railway.solutions.passenger.title"),
+      description: t("railway.solutions.passenger.description"),
+    },
+  ]
 
-const services = [
-  {
-    icon: Train,
-    title: "Infraestrutura Ferroviária",
-    description: "Projetos completos de infraestrutura ferroviária, incluindo vias, pontes e estações.",
-  },
-  {
-    icon: Zap,
-    title: "Sistemas de Sinalização",
-    description: "Implementação de sistemas modernos de sinalização e controle de tráfego ferroviário.",
-  },
-  {
-    icon: Shield,
-    title: "Segurança Ferroviária",
-    description: "Soluções avançadas de segurança para operações ferroviárias seguras e eficientes.",
-  },
-  {
-    icon: Settings,
-    title: "Manutenção e Monitoramento",
-    description: "Sistemas de monitoramento em tempo real e manutenção preditiva.",
-  },
-]
+  const projects = [
+    {
+      title: "Modernização da Linha do Norte",
+      description: "Atualização completa dos sistemas de sinalização em 150km de linha férrea.",
+      image: "/pages/railway.jpg",
+      status: "Concluído",
+      year: "2023",
+    },
+    {
+      title: "Estação Central do Porto",
+      description: "Renovação da infraestrutura e sistemas de informação ao passageiro.",
+      image: "/pages/railway.jpg",
+      status: "Em Andamento",
+      year: "2024",
+    },
+  ]
 
-const projects = [
-  {
-    title: "Modernização da Linha do Norte",
-    description: "Atualização completa dos sistemas de sinalização em 150km de linha férrea.",
-    image: "/pages/railway.jpg",
-    status: "Concluído",
-    year: "2023",
-  },
-  {
-    title: "Estação Central do Porto",
-    description: "Renovação da infraestrutura e sistemas de informação ao passageiro.",
-    image: "/pages/railway.jpg",
-    status: "Em Andamento",
-    year: "2024",
-  },
-]
-
-export default function RailwayPage() {
-  const { t, getMetadata } = useTranslation()
-  const metadata = getMetadata("railway")
+  const benefits = [
+    {
+      title: t("railway.benefits.safety.title"),
+      description: t("railway.benefits.safety.description"),
+    },
+    {
+      title: t("railway.benefits.efficiency.title"),
+      description: t("railway.benefits.efficiency.description"),
+    },
+    {
+      title: t("railway.benefits.reliability.title"),
+      description: t("railway.benefits.reliability.description"),
+    },
+    {
+      title: t("railway.benefits.integration.title"),
+      description: t("railway.benefits.integration.description"),
+    },
+  ]
 
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
       <section className="relative h-[70vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
-          <Image
-            src="/pages/railway.jpg"
-            alt={t("engineering.railway.hero.title")}
-            fill
-            className="object-cover"
-            priority
-          />
+          <Image src="/pages/railway.jpg" alt={t("railway.hero.title")} fill className="object-cover" priority />
           <div className="absolute inset-0 bg-black/60" />
         </div>
         <div className="relative z-10 text-center text-white max-w-4xl mx-auto px-4">
           <Badge variant="secondary" className="mb-4">
-            {t("nav.engineering")}
+            {t("nav.whatWeDo")}
           </Badge>
-          <h1 className="text-4xl md:text-6xl font-bold mb-6">{t("engineering.railway.hero.title")}</h1>
-          <p className="text-xl md:text-2xl opacity-90 mb-8">{t("engineering.railway.hero.subtitle")}</p>
+          <h1 className="text-4xl md:text-6xl font-bold mb-6">{t("railway.hero.title")}</h1>
+          <p className="text-xl md:text-2xl opacity-90 mb-8">{t("railway.hero.subtitle")}</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button size="lg" asChild>
               <Link href="/contact">
-                Solicitar Orçamento
+                {t("railway.cta.button")}
                 <ArrowRight className="ml-2 w-4 h-4" />
               </Link>
             </Button>
@@ -98,8 +107,8 @@ export default function RailwayPage() {
       <section className="py-20 px-4">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Nossos Serviços</h2>
-            <p className="text-xl text-gray-600">Soluções completas para o setor ferroviário</p>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">{t("railway.solutions.title")}</h2>
+            <p className="text-xl text-gray-600">{t("railway.solutions.subtitle")}</p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -152,8 +161,32 @@ export default function RailwayPage() {
         </div>
       </section>
 
-      {/* Features Section */}
+      {/* Benefits Section */}
       <section className="py-20 px-4">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">{t("railway.benefits.title")}</h2>
+            <p className="text-xl text-gray-600">{t("railway.benefits.subtitle")}</p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {benefits.map((benefit, index) => (
+              <Card key={index} className="text-center hover:shadow-lg transition-shadow">
+                <CardContent className="p-6">
+                  <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <CheckCircle className="w-8 h-8 text-green-600" />
+                  </div>
+                  <h3 className="text-lg font-bold mb-3">{benefit.title}</h3>
+                  <p className="text-gray-600 text-sm">{benefit.description}</p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Features Section */}
+      <section className="py-20 px-4 bg-gray-50">
         <div className="max-w-6xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
@@ -187,17 +220,12 @@ export default function RailwayPage() {
       {/* CTA Section */}
       <section className="py-20 px-4 bg-blue-600 text-white">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">
-            Pronto para Modernizar Sua Infraestrutura Ferroviária?
-          </h2>
-          <p className="text-xl opacity-90 mb-8">
-            Entre em contato conosco e descubra como podemos ajudar a transformar seus projetos ferroviários com
-            tecnologia de ponta.
-          </p>
+          <h2 className="text-3xl md:text-4xl font-bold mb-6">{t("railway.cta.title")}</h2>
+          <p className="text-xl opacity-90 mb-8">{t("railway.cta.subtitle")}</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button size="lg" variant="secondary" asChild>
               <Link href="/contact">
-                Falar com Especialista
+                {t("railway.cta.button")}
                 <ArrowRight className="ml-2 w-4 h-4" />
               </Link>
             </Button>
