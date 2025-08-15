@@ -12,6 +12,7 @@ function SystemIntegrationContent() {
   useEffect(() => {
     window.scrollTo(0, 0)
   }, [])
+  
 const services = [
   {
     icon: MapPin,
