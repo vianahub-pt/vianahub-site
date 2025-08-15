@@ -1,11 +1,10 @@
 "use client"
 
 import { useEffect, useRef, useState } from "react"
-import { Navbar } from "@/components/navbar"
-import { Footer } from "@/components/footer"
 import { Card, CardContent } from "@/components/ui/card"
 import { Zap, Users, Target, TrendingUp, Calendar, Timer, Eye, Truck } from "lucide-react"
 import { useTranslation } from "@/components/translation-context"
+import { ScrollIndicator } from "@/components/scroll-indicator"
 
 export default function AgilePage() {
   const { t } = useTranslation()
@@ -150,116 +149,109 @@ export default function AgilePage() {
 
   return (
     <div className="min-h-screen bg-viana-white">
-        {/* Hero Section */}
-        <section className="relative pt-0 pb-0 bg-gradient-to-br from-viana-orange to-viana-yellow overflow-hidden h-[500px]">
-          <div
-            className="absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat"
-            style={{
-              backgroundImage: "url('/pages/agile.jpg')",
-            }}
-          />
-          <div className="absolute inset-0 bg-black/60 z-0" />
-          <div className="container mx-auto px-4 relative z-10 h-full flex items-center justify-center">
-            <div className="max-w-4xl mx-auto text-center text-white">
-              <h1 className="text-4xl lg:text-6xl font-bold mb-6 flex items-center justify-center gap-4">
+      {/* Hero Section */}
+      <section className="relative pt-0 pb-0 bg-gradient-to-br from-viana-orange to-viana-yellow overflow-hidden h-[500px]">
+        <div
+          className="absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat"
+          style={{
+            backgroundImage: "url('/pages/agile.jpg')",
+          }}
+        />
+        <div className="absolute inset-0 bg-black/60 z-0" />
+        <div className="container mx-auto px-4 relative z-10 h-full flex items-center justify-center">
+          <div className="max-w-4xl mx-auto text-center text-white">
+            <h1 className="text-4xl lg:text-6xl font-bold mb-6 flex items-center justify-center gap-4">
               <Zap className="text-orange-500 w-12 h-12 lg:w-16 lg:h-16" />
               {t("agile.hero.title")}
-              </h1>
-              <p className="text-xl lg:text-2xl mb-8 opacity-90">{t("agile.hero.subtitle")}</p>
-            </div>
+            </h1>
+            <p className="text-xl lg:text-2xl mb-8 opacity-90">{t("agile.hero.subtitle")}</p>
           </div>
-
-        {/* Indicador de scroll */}
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20">
-          <div className="animate-bounce">
-            <div className="w-6 h-10 border-2 border-viana-white rounded-full flex justify-center drop-shadow-lg">
-              <div className="w-1 h-3 bg-viana-white text-orange-500 rounded-full mt-2 animate-pulse">|</div>
-            </div>
-          </div>
-        </div>          
-        </section>
-
-        {/* Benefits Section */}
-        <section ref={benefitsRef} className="py-20 bg-white">
-          <div className="container mx-auto px-4">
-            <div className="text-center mb-16">
-              <h2 className="text-3xl lg:text-4xl font-bold text-viana-black mb-4">{t("agile.benefits.title")}</h2>
-              <p className="text-xl text-viana-gray max-w-3xl mx-auto">{t("agile.benefits.subtitle")}</p>
-            </div>
-
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-              {benefits.map((benefit, index) => (
-                <Card
-                  key={index}
-                  data-index={index}
-                  className={`benefit-card text-center hover:shadow-lg transition-all duration-1000 ease-out border-none transform ${
-                    visibleBenefits[index]
-                      ? "opacity-100 translate-x-0"
-                      : `opacity-0 ${index < 2 ? "-translate-x-full" : "translate-x-full"}`
-                  }`}
-                  style={{
-                    transitionDelay: visibleBenefits[index] ? `${index * 200}ms` : "0ms",
-                  }}
-                >
-                  <CardContent className="p-6">
-                    <div className="flex justify-center mb-4">{benefit.icon}</div>
-                    <h3 className="text-xl font-bold text-viana-black mb-3">{t(benefit.titleKey)}</h3>
-                    <p className="text-viana-gray">{t(benefit.descriptionKey)}</p>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Parallax Section */}
-        <div
-          className="relative h-[500px] overflow-hidden"
-          style={{
-            backgroundImage: "url('/pages/agile-parallax.jpg')",
-            backgroundAttachment: "fixed",
-            backgroundPosition: "center center",
-            backgroundRepeat: "no-repeat",
-            backgroundSize: "cover",
-          }}
-        >
-          <div className="absolute inset-0 bg-gradient-to-b from-black/5 to-black/10" />
         </div>
 
-        {/* Methodologies Section */}
-        <section ref={processRef} className="py-20 bg-gray-50">
-          <div className="container mx-auto px-4">
-            <div className="text-center mb-16">
-              <h2 className="text-3xl lg:text-4xl font-bold text-viana-black mb-4">{t("agile.process.title")}</h2>
-              <p className="text-xl text-viana-gray max-w-3xl mx-auto">{t("agile.process.subtitle")}</p>
-            </div>
+        <ScrollIndicator />
+      </section>
 
-            <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-              {methodologies.map((methodology, index) => (
-                <Card
-                  key={index}
-                  data-index={index}
-                  className={`process-card hover:shadow-lg border-none transform transition-all duration-1000 ease-out ${
-                    visibleCards[index] ? "opacity-100 translate-y-0 scale-100" : "opacity-0 translate-y-12 scale-95"
-                  }`}
-                  style={{
-                    transitionDelay: visibleCards[index] ? `${index * 200}ms` : "0ms",
-                  }}
-                >
-                  <CardContent className="p-6">
-                    <div className="flex items-start space-x-4">
-                      <div className="flex-shrink-0">{methodology.icon}</div>
-                      <div>
-                        <h3 className="text-xl font-bold text-viana-black mb-2">{t(methodology.nameKey)}</h3>
-                        <p className="text-viana-gray">{t(methodology.descriptionKey)}</p>
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
+      {/* Benefits Section */}
+      <section ref={benefitsRef} className="py-20 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl lg:text-4xl font-bold text-viana-black mb-4">{t("agile.benefits.title")}</h2>
+            <p className="text-xl text-viana-gray max-w-3xl mx-auto">{t("agile.benefits.subtitle")}</p>
           </div>
-        </section>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {benefits.map((benefit, index) => (
+              <Card
+                key={index}
+                data-index={index}
+                className={`benefit-card text-center hover:shadow-lg transition-all duration-1000 ease-out border-none transform ${
+                  visibleBenefits[index]
+                    ? "opacity-100 translate-x-0"
+                    : `opacity-0 ${index < 2 ? "-translate-x-full" : "translate-x-full"}`
+                }`}
+                style={{
+                  transitionDelay: visibleBenefits[index] ? `${index * 200}ms` : "0ms",
+                }}
+              >
+                <CardContent className="p-6">
+                  <div className="flex justify-center mb-4">{benefit.icon}</div>
+                  <h3 className="text-xl font-bold text-viana-black mb-3">{t(benefit.titleKey)}</h3>
+                  <p className="text-viana-gray">{t(benefit.descriptionKey)}</p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Parallax Section */}
+      <div
+        className="relative h-[500px] overflow-hidden"
+        style={{
+          backgroundImage: "url('/pages/agile-parallax.jpg')",
+          backgroundAttachment: "fixed",
+          backgroundPosition: "center center",
+          backgroundRepeat: "no-repeat",
+          backgroundSize: "cover",
+        }}
+      >
+        <div className="absolute inset-0 bg-gradient-to-b from-black/5 to-black/10" />
+      </div>
+
+      {/* Methodologies Section */}
+      <section ref={processRef} className="py-20 bg-gray-50">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl lg:text-4xl font-bold text-viana-black mb-4">{t("agile.process.title")}</h2>
+            <p className="text-xl text-viana-gray max-w-3xl mx-auto">{t("agile.process.subtitle")}</p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            {methodologies.map((methodology, index) => (
+              <Card
+                key={index}
+                data-index={index}
+                className={`process-card hover:shadow-lg border-none transform transition-all duration-1000 ease-out ${
+                  visibleCards[index] ? "opacity-100 translate-y-0 scale-100" : "opacity-0 translate-y-12 scale-95"
+                }`}
+                style={{
+                  transitionDelay: visibleCards[index] ? `${index * 200}ms` : "0ms",
+                }}
+              >
+                <CardContent className="p-6">
+                  <div className="flex items-start space-x-4">
+                    <div className="flex-shrink-0">{methodology.icon}</div>
+                    <div>
+                      <h3 className="text-xl font-bold text-viana-black mb-2">{t(methodology.nameKey)}</h3>
+                      <p className="text-viana-gray">{t(methodology.descriptionKey)}</p>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
     </div>
   )
 }
