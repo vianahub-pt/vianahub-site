@@ -1,478 +1,1095 @@
 "use client"
 
-import type React from "react"
-import { createContext, useContext, useState } from "react"
+import { createContext, useContext, useState, useEffect, type ReactNode } from "react"
+
+export type Language = "pt" | "en" | "es" | "fr" | "de"
 
 interface TranslationContextType {
-  language: string
-  setLanguage: (language: string) => void
-  translations: {
-    pt: {
-      footer: {
-        companyName: string
-        description: string
-        services: string
-        industries: string
-        contact: string
-        email: string
-        phone: string
-        address: string
-        copyright: string
-        privacy: string
-        terms: string
-        link: {
-          whatWeDo: {
-            development: string
-            agile: string
-            chatbot: string
-            outsourcing: string
-          }
-          industry: {
-            healthcare: string
-            financial: string
-            education: string
-            retail: string
-          }
-        }
-      }
-    }
-    en: {
-      footer: {
-        companyName: string
-        description: string
-        services: string
-        industries: string
-        contact: string
-        email: string
-        phone: string
-        address: string
-        copyright: string
-        privacy: string
-        terms: string
-        link: {
-          whatWeDo: {
-            development: string
-            agile: string
-            chatbot: string
-            outsourcing: string
-          }
-          industry: {
-            healthcare: string
-            financial: string
-            education: string
-            retail: string
-          }
-        }
-      }
-    }
-    es: {
-      footer: {
-        companyName: string
-        description: string
-        services: string
-        industries: string
-        contact: string
-        email: string
-        phone: string
-        address: string
-        copyright: string
-        privacy: string
-        terms: string
-        link: {
-          whatWeDo: {
-            development: string
-            agile: string
-            chatbot: string
-            outsourcing: string
-          }
-          industry: {
-            healthcare: string
-            financial: string
-            education: string
-            retail: string
-          }
-        }
-      }
-    }
-    fr: {
-      footer: {
-        companyName: string
-        description: string
-        services: string
-        industries: string
-        contact: string
-        email: string
-        phone: string
-        address: string
-        copyright: string
-        privacy: string
-        terms: string
-        link: {
-          whatWeDo: {
-            development: string
-            agile: string
-            chatbot: string
-            outsourcing: string
-          }
-          industry: {
-            healthcare: string
-            financial: string
-            education: string
-            retail: string
-          }
-        }
-      }
-    }
-    de: {
-      footer: {
-        companyName: string
-        description: string
-        services: string
-        industries: string
-        contact: string
-        email: string
-        phone: string
-        address: string
-        copyright: string
-        privacy: string
-        terms: string
-        link: {
-          whatWeDo: {
-            development: string
-            agile: string
-            chatbot: string
-            outsourcing: string
-          }
-          industry: {
-            healthcare: string
-            financial: string
-            education: string
-            retail: string
-          }
-        }
-      }
-    }
-  }
+  language: Language
+  setLanguage: (lang: Language) => void
+  t: (key: string) => string
 }
 
-const TranslationContext = createContext<TranslationContextType>({
-  language: "en",
-  setLanguage: () => {},
-  translations: {
-    pt: {
-      footer: {
-        companyName: "VianaHub",
-        description:
-          "Transformamos ideias em soluções digitais inovadoras. Especialistas em desenvolvimento de software, consultoria tecnológica e soluções personalizadas para o seu negócio.",
-        services: "Serviços",
-        industries: "Indústrias",
-        contact: "Contacto",
-        email: "info@vianahub.com",
-        phone: "+351 123 456 789",
-        address: "Rua da Inovação, 123<br />4000-000 Porto, Portugal",
-        copyright: "© 2024 VianaHub. Todos os direitos reservados.",
-        privacy: "Privacidade",
-        terms: "Termos",
-        link: {
-          whatWeDo: {
-            development: "Desenvolvimento",
-            agile: "Metodologia Ágil",
-            chatbot: "Chatbot",
-            outsourcing: "Outsourcing",
-          },
-          industry: {
-            healthcare: "Saúde",
-            financial: "Financeiro",
-            education: "Educação",
-            retail: "Retalho",
-          },
-        },
-      },
-    },
-    en: {
-      footer: {
-        companyName: "VianaHub",
-        description:
-          "We transform ideas into innovative digital solutions. Experts in software development, technology consulting and customized solutions for your business.",
-        services: "Services",
-        industries: "Industries",
-        contact: "Contact",
-        email: "info@vianahub.com",
-        phone: "+351 123 456 789",
-        address: "Innovation Street, 123<br />4000-000 Porto, Portugal",
-        copyright: "© 2024 VianaHub. All rights reserved.",
-        privacy: "Privacy",
-        terms: "Terms",
-        link: {
-          whatWeDo: {
-            development: "Development",
-            agile: "Agile Methodology",
-            chatbot: "Chatbot",
-            outsourcing: "Outsourcing",
-          },
-          industry: {
-            healthcare: "Healthcare",
-            financial: "Financial",
-            education: "Education",
-            retail: "Retail",
-          },
-        },
-      },
-    },
-    es: {
-      footer: {
-        companyName: "VianaHub",
-        description:
-          "Transformamos ideas en soluciones digitales innovadoras. Expertos en desarrollo de software, consultoría tecnológica y soluciones personalizadas para su negocio.",
-        services: "Servicios",
-        industries: "Industrias",
-        contact: "Contacto",
-        email: "info@vianahub.com",
-        phone: "+351 123 456 789",
-        address: "Calle de la Innovación, 123<br />4000-000 Oporto, Portugal",
-        copyright: "© 2024 VianaHub. Todos los derechos reservados.",
-        privacy: "Privacidad",
-        terms: "Términos",
-        link: {
-          whatWeDo: {
-            development: "Desarrollo",
-            agile: "Metodología Ágil",
-            chatbot: "Chatbot",
-            outsourcing: "Outsourcing",
-          },
-          industry: {
-            healthcare: "Salud",
-            financial: "Financiero",
-            education: "Educación",
-            retail: "Comercio",
-          },
-        },
-      },
-    },
-    fr: {
-      footer: {
-        companyName: "VianaHub",
-        description:
-          "Nous transformons les idées en solutions numériques innovantes. Experts en développement logiciel, conseil technologique et solutions personnalisées pour votre entreprise.",
-        services: "Services",
-        industries: "Industries",
-        contact: "Contact",
-        email: "info@vianahub.com",
-        phone: "+351 123 456 789",
-        address: "Rue de l'Innovation, 123<br />4000-000 Porto, Portugal",
-        copyright: "© 2024 VianaHub. Tous droits réservés.",
-        privacy: "Confidentialité",
-        terms: "Conditions",
-        link: {
-          whatWeDo: {
-            development: "Développement",
-            agile: "Méthodologie Agile",
-            chatbot: "Chatbot",
-            outsourcing: "Externalisation",
-          },
-          industry: {
-            healthcare: "Santé",
-            financial: "Financier",
-            education: "Éducation",
-            retail: "Commerce",
-          },
-        },
-      },
-    },
-    de: {
-      footer: {
-        companyName: "VianaHub",
-        description:
-          "Wir verwandeln Ideen in innovative digitale Lösungen. Experten für Softwareentwicklung, Technologieberatung und maßgeschneiderte Lösungen für Ihr Unternehmen.",
-        services: "Dienstleistungen",
-        industries: "Branchen",
-        contact: "Kontakt",
-        email: "info@vianahub.com",
-        phone: "+351 123 456 789",
-        address: "Innovationsstraße, 123<br />4000-000 Porto, Portugal",
-        copyright: "© 2024 VianaHub. Alle Rechte vorbehalten.",
-        privacy: "Datenschutz",
-        terms: "Bedingungen",
-        link: {
-          whatWeDo: {
-            development: "Entwicklung",
-            agile: "Agile Methodik",
-            chatbot: "Chatbot",
-            outsourcing: "Outsourcing",
-          },
-          industry: {
-            healthcare: "Gesundheitswesen",
-            financial: "Finanzwesen",
-            education: "Bildung",
-            retail: "Einzelhandel",
-          },
-        },
-      },
-    },
+const translations = {
+  pt: {
+    // Navigation
+    "nav.whatWeDo": "O que Fazemos",
+    "nav.engineering": "Engenharia",
+    "nav.security": "Segurança",
+    "nav.institutional": "Institucional",
+    "nav.contact": "Contacto",
+    "nav.development": "Desenvolvimento",
+    "nav.agile": "Metodologia Ágil",
+    "nav.outsourcing": "Outsourcing",
+    "nav.chatbot": "Chatbot",
+    "nav.landingPages": "Landing Pages",
+    "nav.systemIntegration": "Integração de Sistemas",
+    "nav.railway": "Ferroviário",
+    "nav.road": "Rodoviário",
+    "nav.solarEnergy": "Energia Solar",
+    "nav.education": "Educação",
+    "nav.government": "Governo",
+    "nav.manufacturing": "Manufactura",
+    "nav.financial": "Financeiro",
+    "nav.retail": "Retalho",
+    "nav.healthcare": "Saúde",
+    "nav.cybersecurity": "Cibersegurança",
+    "nav.backupSolutions": "Soluções de Backup",
+    "nav.accessControl": "Controlo de Acesso",
+    "nav.aboutUs": "Sobre Nós",
+    "nav.opportunities": "Oportunidades",
+    // Hero Section
+    "hero.title.line1": "Soluções que",
+    "hero.title.line2": "Transformam",
+    "hero.title.line3": "O Seu Negócio",
+    "hero.subtitle": "Desenvolvemos tecnologias inovadoras que impulsionam o crescimento do seu negócio.",
+    "hero.stats.projects": "Projetos",
+    "hero.stats.clients": "Clientes",
+    "hero.stats.years": "Anos",
+    // Services Section
+    "services.title.part1": "Os Nossos",
+    "services.title.part2": "Serviços",
+    "services.subtitle": "Oferecemos soluções tecnológicas completas para transformar o seu negócio",
+    "services.web.title": "Desenvolvimento Web",
+    "services.web.description": "Criamos websites modernos e responsivos que elevam a sua presença digital",
+    "services.mobile.title": "Aplicações Móveis",
+    "services.mobile.description": "Desenvolvemos apps nativas e híbridas para iOS e Android",
+    "services.landing.title": "Landing Pages",
+    "services.landing.description": "Páginas optimizadas para conversão e geração de leads",
+    "services.integration.title": "Integração de Sistemas",
+    "services.integration.description": "Conectamos os seus sistemas para maior eficiência operacional",
+    "services.security.title": "Segurança Digital",
+    "services.security.description": "Protegemos os seus dados com as melhores práticas de segurança",
+    "services.automation.title": "Automação",
+    "services.automation.description": "Automatizamos processos para aumentar a produtividade",
+    "services.cta": "Saber Mais",
+    // Projects Section
+    "projects.title.part1": "Nossos",
+    "projects.title.part2": "Projetos",
+    "projects.subtitle": "Conheça alguns dos projetos que desenvolvemos para nossos clientes",
+    "projects.cta": "Ver Todos os Projetos",
+    "projects.viewProject": "Ver Projeto",
+    "projects.ecommerce.title": "Plataforma de E-commerce",
+    "projects.ecommerce.category": "E-commerce",
+    "projects.ecommerce.description":
+      "Sistema completo de vendas online com gestão de inventário, pagamentos e análises avançadas.",
+    "projects.hospital.title": "Sistema de Gestão Hospitalar",
+    "projects.hospital.category": "Saúde",
+    "projects.hospital.description":
+      "Plataforma integrada para gestão de pacientes, consultas, exames e recursos hospitalares.",
+    "projects.delivery.title": "App de Entrega de Comida",
+    "projects.delivery.category": "Delivery",
+    "projects.delivery.description":
+      "Aplicação móvel para pedidos de comida com rastreamento em tempo real e pagamentos integrados.",
+    "projects.banking.title": "Sistema Bancário Digital",
+    "projects.banking.category": "Financeiro",
+    "projects.banking.description":
+      "Plataforma bancária completa com transações seguras, gestão de contas e serviços digitais.",
+    "projects.education.title": "Plataforma Educacional",
+    "projects.education.category": "Educação",
+    "projects.education.description":
+      "Sistema de ensino online com videoconferências, gestão de cursos e avaliações automatizadas.",
+    "projects.logistics.title": "Sistema de Logística",
+    "projects.logistics.category": "Logística",
+    "projects.logistics.description":
+      "Solução completa para gestão de frotas, rastreamento de entregas e otimização de rotas.",
+    "projects.streaming.title": "Plataforma de Streaming",
+    "projects.streaming.category": "Entretenimento",
+    "projects.streaming.description": "Sistema de streaming de vídeo com CDN global e analytics avançados.",
+    "projects.crm.title": "Sistema CRM",
+    "projects.crm.category": "Gestão",
+    "projects.crm.description":
+      "Plataforma de gestão de relacionamento com clientes com automação de vendas e marketing.",
+    // Industries Section
+    "industries.title.part1": "Setores que",
+    "industries.title.part2": "Servimos",
+    "industries.subtitle": "Oferecemos soluções especializadas para diversos setores da economia",
+    "industries.cta": "Saber Mais",
+    "industries.education.title": "Educação",
+    "industries.education.description": "Soluções tecnológicas para instituições de ensino e plataformas educacionais",
+    "industries.financial.title": "Financeiro",
+    "industries.financial.description": "Sistemas seguros para bancos, fintechs e instituições financeiras",
+    "industries.government.title": "Governo",
+    "industries.government.description": "Plataformas digitais para modernização de serviços públicos",
+    "industries.healthcare.title": "Saúde",
+    "industries.healthcare.description": "Sistemas de gestão hospitalar e soluções para área da saúde",
+    "industries.manufacturing.title": "Indústria",
+    "industries.manufacturing.description": "Automação e sistemas de gestão para o setor industrial",
+    "industries.retail.title": "Retalho",
+    "industries.retail.description": "E-commerce e soluções digitais para o setor de retalho",
+    // Testimonials Section
+    "testimonials.title.part1": "O que Dizem",
+    "testimonials.title.part2": "Nossos Clientes",
+    "testimonials.subtitle": "Veja o que nossos clientes falam sobre nossos serviços e soluções",
+    "testimonials.maria.name": "Maria Silva",
+    "testimonials.maria.position": "CEO, TechStart",
+    "testimonials.maria.text":
+      "A VianaHub transformou completamente nossa presença digital. O sistema que desenvolveram aumentou nossa eficiência em 300% e a qualidade do suporte é excepcional.",
+    "testimonials.joao.name": "João Santos",
+    "testimonials.joao.position": "Diretor de TI, HealthCorp",
+    "testimonials.joao.text":
+      "Profissionais extremamente competentes e dedicados. O projeto foi entregue no prazo e superou todas as nossas expectativas. Recomendo sem hesitação.",
+    "testimonials.ana.name": "Ana Costa",
+    "testimonials.ana.position": "Fundadora, EduTech",
+    "testimonials.ana.text":
+      "A plataforma educacional que criaram revolucionou nossa forma de ensinar. Interface intuitiva, funcionalidades avançadas e suporte técnico impecável.",
+    "testimonials.carlos.name": "Carlos Oliveira",
+    "testimonials.carlos.position": "Gerente de Operações, LogiFlow",
+    "testimonials.carlos.text":
+      "O sistema de logística desenvolvido otimizou completamente nossas operações. Reduzimos custos em 40% e melhoramos significativamente o atendimento ao cliente.",
+    "testimonials.lucia.name": "Lúcia Ferreira",
+    "testimonials.lucia.position": "Diretora Comercial, RetailMax",
+    "testimonials.lucia.text":
+      "A solução de e-commerce que implementaram triplicou nossas vendas online. Equipe profissional, prazos cumpridos e resultados excepcionais.",
+    "testimonials.roberto.name": "Roberto Lima",
+    "testimonials.roberto.position": "CTO, FinanceHub",
+    "testimonials.roberto.text":
+      "Segurança, eficiência e inovação em um só lugar. O sistema bancário que desenvolveram atende todos os requisitos regulamentares com excelência técnica.",
+    // Insights Section
+    "insights.title.part1": "Nossos",
+    "insights.title.part2": "Insights",
+    "insights.subtitle": "Dados e estatísticas que demonstram nosso compromisso com a excelência",
+    "insights.growth.title": "Crescimento",
+    "insights.growth.description": "Aumento médio na eficiência dos nossos clientes",
+    "insights.experience.title": "Satisfação",
+    "insights.experience.description": "Taxa de satisfação dos nossos clientes",
+    "insights.innovation.title": "Inovação",
+    "insights.innovation.description": "Projetos entregues com tecnologias de ponta",
+    "insights.results.title": "Resultados",
+    "insights.results.description": "Taxa de sucesso nos projetos entregues",
+    // Entertainment Section
+    "entertainment.title": "Entretenimento",
+    "entertainment.subtitle": "Divirta-se com os nossos jogos interactivos",
+    "entertainment.foxGame.title": "Jogo da Raposa",
+    "entertainment.foxGame.description": "Ajude a raposa a encontrar o caminho através do labirinto",
+    "entertainment.foxGame.cta": "Jogar Agora",
+    "entertainment.desertGame.title": "Aventura no Deserto",
+    "entertainment.desertGame.description": "Explore o deserto e descubra tesouros escondidos",
+    "entertainment.desertGame.cta": "Explorar",
+    "entertainment.oasisGame.title": "Oásis Perdido",
+    "entertainment.oasisGame.description": "Encontre o oásis perdido nesta aventura épica",
+    "entertainment.oasisGame.cta": "Descobrir",
+    // Fox Game
+    "foxGame.title": "Aventura da Raposa no Deserto",
+    "foxGame.subtitle": "Ajude a raposa a encontrar o oásis através do labirinto!",
+    "foxGame.instructions": "Use as setas do teclado para mover a raposa através do labirinto",
+    "foxGame.level": "Nível",
+    "foxGame.score": "Pontuação",
+    "foxGame.time": "Tempo",
+    "foxGame.lives": "Vidas",
+    "foxGame.gameOver": "Fim de Jogo",
+    "foxGame.levelComplete": "Nível Completo!",
+    "foxGame.gameComplete": "Parabéns! Jogo Completo!",
+    "foxGame.playAgain": "Jogar Novamente",
+    "foxGame.nextLevel": "Próximo Nível",
+    "foxGame.startGame": "Iniciar Jogo",
+    "foxGame.pause": "Pausar",
+    "foxGame.resume": "Continuar",
+    "foxGame.restart": "Reiniciar",
+    "foxGame.enterName": "Digite o seu nome",
+    "foxGame.submit": "Submeter",
+    "foxGame.ranking": "Classificação",
+    "foxGame.position": "Posição",
+    "foxGame.player": "Jogador",
+    "foxGame.points": "Pontos",
+    "foxGame.completedIn": "Completado em",
+    "foxGame.seconds": "segundos",
+    "foxGame.nameLabel": "Digite seu nome para começar:",
+    "foxGame.namePlaceholder": "Seu nome",
+    "foxGame.startButton": "Começar Aventura!",
+    "foxGame.howToPlay": "Como jogar:",
+    "foxGame.instructions":
+      "Use as setas do teclado para mover a raposa • Ou clique nas células para mover • Encontre o oásis em cada nível • Complete todos os 5 níveis o mais rápido possível!",
+    // Footer
+    "footer.description": "Desenvolvemos tecnologias inovadoras que impulsionam o crescimento do seu negócio.",
+    "footer.services": "Serviços",
+    "footer.industries": "Setores",
+    "footer.contact": "Contacto",
+    "footer.email": "info@vianahub.com",
+    "footer.phone": "+351 123 456 789",
+    "footer.address": "Rua da Inovação, 123<br />4000-000 Porto, Portugal",
+    "footer.copyright": "© 2024 VianaHub. Todos os direitos reservados.",
+    "footer.privacy": "Privacidade",
+    "footer.terms": "Termos",
+    "footer.development": "Desenvolvimento",
+    "footer.agile": "Metodologia Ágil",
+    "footer.chatbot": "Chatbot",
+    "footer.outsourcing": "Outsourcing",
+    "footer.healthcare": "Saúde",
+    "footer.financial": "Financeiro",
+    "footer.education": "Educação",
+    "footer.retail": "Retalho",
   },
-})
+  en: {
+    // Navigation
+    "nav.whatWeDo": "What We Do",
+    "nav.engineering": "Engineering",
+    "nav.security": "Security",
+    "nav.institutional": "Institutional",
+    "nav.contact": "Contact",
+    "nav.development": "Development",
+    "nav.agile": "Agile Methodology",
+    "nav.outsourcing": "Outsourcing",
+    "nav.chatbot": "Chatbot",
+    "nav.landingPages": "Landing Pages",
+    "nav.systemIntegration": "System Integration",
+    "nav.railway": "Railway",
+    "nav.road": "Road",
+    "nav.solarEnergy": "Solar Energy",
+    "nav.education": "Education",
+    "nav.government": "Government",
+    "nav.manufacturing": "Manufacturing",
+    "nav.financial": "Financial",
+    "nav.retail": "Retail",
+    "nav.healthcare": "Healthcare",
+    "nav.cybersecurity": "Cybersecurity",
+    "nav.backupSolutions": "Backup Solutions",
+    "nav.accessControl": "Access Control",
+    "nav.aboutUs": "About Us",
+    "nav.opportunities": "Opportunities",
+    // Hero Section
+    "hero.title.line1": "Solutions that",
+    "hero.title.line2": "Transform",
+    "hero.title.line3": "Your Business",
+    "hero.subtitle": "We develop innovative technologies that drive your business growth.",
+    "hero.stats.projects": "Projects",
+    "hero.stats.clients": "Clients",
+    "hero.stats.years": "Years",
+    // Services Section
+    "services.title.part1": "Our",
+    "services.title.part2": "Services",
+    "services.subtitle": "We offer complete technological solutions to transform your business",
+    "services.web.title": "Web Development",
+    "services.web.description": "We create modern and responsive websites that elevate your digital presence",
+    "services.mobile.title": "Mobile Applications",
+    "services.mobile.description": "We develop native and hybrid apps for iOS and Android",
+    "services.landing.title": "Landing Pages",
+    "services.landing.description": "Pages optimized for conversion and lead generation",
+    "services.integration.title": "System Integration",
+    "services.integration.description": "We connect your systems for greater operational efficiency",
+    "services.security.title": "Digital Security",
+    "services.security.description": "We protect your data with the best security practices",
+    "services.automation.title": "Automation",
+    "services.automation.description": "We automate processes to increase productivity",
+    "services.cta": "Learn More",
+    // Projects Section
+    "projects.title.part1": "Our",
+    "projects.title.part2": "Projects",
+    "projects.subtitle": "See some of the projects we've developed for our clients",
+    "projects.cta": "See All Projects",
+    "projects.viewProject": "View Project",
+    "projects.ecommerce.title": "E-commerce Platform",
+    "projects.ecommerce.category": "E-commerce",
+    "projects.ecommerce.description":
+      "Complete online sales system with inventory management, payments and advanced analytics.",
+    "projects.hospital.title": "Hospital Management System",
+    "projects.hospital.category": "Healthcare",
+    "projects.hospital.description":
+      "Integrated platform for patient management, appointments, exams and hospital resources.",
+    "projects.delivery.title": "Food Delivery App",
+    "projects.delivery.category": "Delivery",
+    "projects.delivery.description":
+      "Mobile application for food orders with real-time tracking and integrated payments.",
+    "projects.banking.title": "Digital Banking System",
+    "projects.banking.category": "Financial",
+    "projects.banking.description":
+      "Complete banking platform with secure transactions, account management and digital services.",
+    "projects.education.title": "Educational Platform",
+    "projects.education.category": "Education",
+    "projects.education.description":
+      "Online learning system with video conferencing, course management and automated assessments.",
+    "projects.logistics.title": "Logistics System",
+    "projects.logistics.category": "Logistics",
+    "projects.logistics.description":
+      "Complete solution for fleet management, delivery tracking and route optimization.",
+    "projects.streaming.title": "Streaming Platform",
+    "projects.streaming.category": "Entertainment",
+    "projects.streaming.description": "Video streaming system with global CDN and advanced analytics.",
+    "projects.crm.title": "CRM System",
+    "projects.crm.category": "Management",
+    "projects.crm.description": "Customer relationship management platform with sales and marketing automation.",
+    // Industries Section
+    "industries.title.part1": "Industries We",
+    "industries.title.part2": "Serve",
+    "industries.subtitle": "We offer specialized solutions for various sectors of the economy",
+    "industries.cta": "Learn More",
+    "industries.education.title": "Education",
+    "industries.education.description": "Technology solutions for educational institutions and learning platforms",
+    "industries.financial.title": "Financial",
+    "industries.financial.description": "Secure systems for banks, fintechs and financial institutions",
+    "industries.government.title": "Government",
+    "industries.government.description": "Digital platforms for modernizing public services",
+    "industries.healthcare.title": "Healthcare",
+    "industries.healthcare.description": "Hospital management systems and healthcare solutions",
+    "industries.manufacturing.title": "Manufacturing",
+    "industries.manufacturing.description": "Automation and management systems for the industrial sector",
+    "industries.retail.title": "Retail",
+    "industries.retail.description": "E-commerce and digital solutions for the retail sector",
+    // Testimonials Section
+    "testimonials.title.part1": "What Our",
+    "testimonials.title.part2": "Clients Say",
+    "testimonials.subtitle": "See what our clients say about our services and solutions",
+    "testimonials.maria.name": "Maria Silva",
+    "testimonials.maria.position": "CEO, TechStart",
+    "testimonials.maria.text":
+      "VianaHub completely transformed our digital presence. The system they developed increased our efficiency by 300% and the quality of support is exceptional.",
+    "testimonials.joao.name": "João Santos",
+    "testimonials.joao.position": "IT Director, HealthCorp",
+    "testimonials.joao.text":
+      "Extremely competent and dedicated professionals. The project was delivered on time and exceeded all our expectations. I recommend without hesitation.",
+    "testimonials.ana.name": "Ana Costa",
+    "testimonials.ana.position": "Founder, EduTech",
+    "testimonials.ana.text":
+      "The educational platform they created revolutionized our way of teaching. Intuitive interface, advanced features and impeccable technical support.",
+    "testimonials.carlos.name": "Carlos Oliveira",
+    "testimonials.carlos.position": "Operations Manager, LogiFlow",
+    "testimonials.carlos.text":
+      "The logistics system developed completely optimized our operations. We reduced costs by 40% and significantly improved customer service.",
+    "testimonials.lucia.name": "Lúcia Ferreira",
+    "testimonials.lucia.position": "Commercial Director, RetailMax",
+    "testimonials.lucia.text":
+      "The e-commerce solution they implemented tripled our online sales. Professional team, deadlines met and exceptional results.",
+    "testimonials.roberto.name": "Roberto Lima",
+    "testimonials.roberto.position": "CTO, FinanceHub",
+    "testimonials.roberto.text":
+      "Security, efficiency and innovation in one place. The banking system they developed meets all regulatory requirements with technical excellence.",
+    // Insights Section
+    "insights.title.part1": "Our",
+    "insights.title.part2": "Insights",
+    "insights.subtitle": "Data and statistics that demonstrate our commitment to excellence",
+    "insights.growth.title": "Growth",
+    "insights.growth.description": "Average increase in our clients' efficiency",
+    "insights.experience.title": "Satisfaction",
+    "insights.experience.description": "Client satisfaction rate",
+    "insights.innovation.title": "Innovation",
+    "insights.innovation.description": "Projects delivered with cutting-edge technologies",
+    "insights.results.title": "Results",
+    "insights.results.description": "Success rate in delivered projects",
+    // Entertainment Section
+    "entertainment.title": "Entertainment",
+    "entertainment.subtitle": "Have fun with our interactive games",
+    "entertainment.foxGame.title": "Fox Game",
+    "entertainment.foxGame.description": "Help the fox find its way through the maze",
+    "entertainment.foxGame.cta": "Play Now",
+    "entertainment.desertGame.title": "Desert Adventure",
+    "entertainment.desertGame.description": "Explore the desert and discover hidden treasures",
+    "entertainment.desertGame.cta": "Explore",
+    "entertainment.oasisGame.title": "Lost Oasis",
+    "entertainment.oasisGame.description": "Find the lost oasis in this epic adventure",
+    "entertainment.oasisGame.cta": "Discover",
+    // Fox Game
+    "foxGame.title": "Fox Desert Adventure",
+    "foxGame.subtitle": "Help the fox find the oasis through the maze!",
+    "foxGame.instructions": "Use arrow keys to move the fox through the maze",
+    "foxGame.level": "Level",
+    "foxGame.score": "Score",
+    "foxGame.time": "Time",
+    "foxGame.lives": "Lives",
+    "foxGame.gameOver": "Game Over",
+    "foxGame.levelComplete": "Level Complete!",
+    "foxGame.gameComplete": "Congratulations! Game Complete!",
+    "foxGame.playAgain": "Play Again",
+    "foxGame.nextLevel": "Next Level",
+    "foxGame.startGame": "Start Game",
+    "foxGame.pause": "Pause",
+    "foxGame.resume": "Resume",
+    "foxGame.restart": "Restart",
+    "foxGame.enterName": "Enter your name",
+    "foxGame.submit": "Submit",
+    "foxGame.ranking": "Ranking",
+    "foxGame.position": "Position",
+    "foxGame.player": "Player",
+    "foxGame.points": "Points",
+    "foxGame.completedIn": "Completed in",
+    "foxGame.seconds": "seconds",
+    "foxGame.nameLabel": "Enter your name to begin:",
+    "foxGame.namePlaceholder": "Your name",
+    "foxGame.startButton": "Start Adventure!",
+    "foxGame.howToPlay": "How to play:",
+    "foxGame.instructions":
+      "Use the arrow keys to move the fox • Or click on the cells to move • Find the oasis in each level • Complete all 5 levels as quickly as possible!",
+    // Footer
+    "footer.description": "We develop innovative technologies that drive your business growth.",
+    "footer.services": "Services",
+    "footer.industries": "Industries",
+    "footer.contact": "Contact",
+    "footer.email": "info@vianahub.com",
+    "footer.phone": "+351 123 456 789",
+    "footer.address": "Rua da Inovação, 123<br />4000-000 Porto, Portugal",
+    "footer.copyright": "© 2024 VianaHub. All rights reserved.",
+    "footer.privacy": "Privacy",
+    "footer.terms": "Terms",
+    "footer.development": "Development",
+    "footer.agile": "Agile Methodology",
+    "footer.chatbot": "Chatbot",
+    "footer.outsourcing": "Outsourcing",
+    "footer.healthcare": "Healthcare",
+    "footer.financial": "Financial",
+    "footer.education": "Education",
+    "footer.retail": "Retail",
+  },
+  es: {
+    // Navigation
+    "nav.whatWeDo": "Lo que Hacemos",
+    "nav.engineering": "Ingeniería",
+    "nav.security": "Seguridad",
+    "nav.institutional": "Institucional",
+    "nav.contact": "Contacto",
+    "nav.development": "Desarrollo",
+    "nav.agile": "Metodología Ágil",
+    "nav.outsourcing": "Outsourcing",
+    "nav.chatbot": "Chatbot",
+    "nav.landingPages": "Landing Pages",
+    "nav.systemIntegration": "Integración de Sistemas",
+    "nav.railway": "Ferroviario",
+    "nav.road": "Carreteras",
+    "nav.solarEnergy": "Energía Solar",
+    "nav.education": "Educación",
+    "nav.government": "Gobierno",
+    "nav.manufacturing": "Manufactura",
+    "nav.financial": "Financiero",
+    "nav.retail": "Comercio",
+    "nav.healthcare": "Salud",
+    "nav.cybersecurity": "Ciberseguridad",
+    "nav.backupSolutions": "Soluciones de Respaldo",
+    "nav.accessControl": "Control de Acceso",
+    "nav.aboutUs": "Sobre Nosotros",
+    "nav.opportunities": "Oportunidades",
+    // Hero Section
+    "hero.title.line1": "Soluciones que",
+    "hero.title.line2": "Transforman",
+    "hero.title.line3": "Su Negocio",
+    "hero.subtitle": "Desarrollamos tecnologías innovadoras que impulsan el crecimiento de su negocio.",
+    "hero.stats.projects": "Proyectos",
+    "hero.stats.clients": "Clientes",
+    "hero.stats.years": "Años",
+    // Services Section
+    "services.title.part1": "Nuestros",
+    "services.title.part2": "Servicios",
+    "services.subtitle": "Ofrecemos soluciones tecnológicas completas para transformar su negocio",
+    "services.web.title": "Desarrollo Web",
+    "services.web.description": "Creamos sitios web modernos y responsivos que elevan su presencia digital",
+    "services.mobile.title": "Aplicaciones Móviles",
+    "services.mobile.description": "Desarrollamos apps nativas e híbridas para iOS y Android",
+    "services.landing.title": "Landing Pages",
+    "services.landing.description": "Páginas optimizadas para conversión y generación de leads",
+    "services.integration.title": "Integración de Sistemas",
+    "services.integration.description": "Conectamos sus sistemas para mayor eficiencia operacional",
+    "services.security.title": "Seguridad Digital",
+    "services.security.description": "Protegemos sus datos con las mejores prácticas de seguridad",
+    "services.automation.title": "Automatización",
+    "services.automation.description": "Automatizamos procesos para aumentar la productividad",
+    "services.cta": "Saber Más",
+    // Projects Section
+    "projects.title.part1": "Nuestros",
+    "projects.title.part2": "Proyectos",
+    "projects.subtitle": "Vea algunos de los proyectos que hemos desarrollado para nuestros clientes",
+    "projects.cta": "Ver Todos los Proyectos",
+    "projects.viewProject": "Ver Proyecto",
+    "projects.ecommerce.title": "Plataforma de E-commerce",
+    "projects.ecommerce.category": "E-commerce",
+    "projects.ecommerce.description":
+      "Sistema completo de ventas online con gestión de inventario, pagos y análisis avanzados.",
+    "projects.hospital.title": "Sistema de Gestión Hospitalaria",
+    "projects.hospital.category": "Salud",
+    "projects.hospital.description":
+      "Plataforma integrada para gestión de pacientes, citas, exámenes y recursos hospitalarios.",
+    "projects.delivery.title": "App de Entrega de Comida",
+    "projects.delivery.category": "Delivery",
+    "projects.delivery.description":
+      "Aplicación móvil para pedidos de comida con seguimiento en tiempo real y pagos integrados.",
+    "projects.banking.title": "Sistema Bancario Digital",
+    "projects.banking.category": "Financiero",
+    "projects.banking.description":
+      "Plataforma bancaria completa con transacciones seguras, gestión de cuentas y servicios digitales.",
+    "projects.education.title": "Plataforma Educacional",
+    "projects.education.category": "Educación",
+    "projects.education.description":
+      "Sistema de enseñanza online con videoconferencias, gestión de cursos y evaluaciones automatizadas.",
+    "projects.logistics.title": "Sistema de Logística",
+    "projects.logistics.category": "Logística",
+    "projects.logistics.description":
+      "Solución completa para gestión de flotas, seguimiento de entregas y optimización de rutas.",
+    "projects.streaming.title": "Plataforma de Streaming",
+    "projects.streaming.category": "Entretenimiento",
+    "projects.streaming.description": "Sistema de streaming de video con CDN global y analytics avanzados.",
+    "projects.crm.title": "Sistema CRM",
+    "projects.crm.category": "Gestión",
+    "projects.crm.description":
+      "Plataforma de gestión de relaciones con clientes con automatización de ventas y marketing.",
+    // Industries Section
+    "industries.title.part1": "Sectores que",
+    "industries.title.part2": "Servimos",
+    "industries.subtitle": "Ofrecemos soluciones especializadas para diversos sectores de la economía",
+    "industries.cta": "Saber Más",
+    "industries.education.title": "Educación",
+    "industries.education.description":
+      "Soluciones tecnológicas para instituciones educativas y plataformas de aprendizaje",
+    "industries.financial.title": "Financiero",
+    "industries.financial.description": "Sistemas seguros para bancos, fintechs e instituciones financieras",
+    "industries.government.title": "Gobierno",
+    "industries.government.description": "Plataformas digitales para modernización de servicios públicos",
+    "industries.healthcare.title": "Salud",
+    "industries.healthcare.description": "Sistemas de gestión hospitalaria y soluciones para el sector salud",
+    "industries.manufacturing.title": "Manufactura",
+    "industries.manufacturing.description": "Automatización y sistemas de gestión para el sector industrial",
+    "industries.retail.title": "Comercio",
+    "industries.retail.description": "E-commerce y soluciones digitales para el sector comercial",
+    // Testimonials Section
+    "testimonials.title.part1": "Lo que Dicen",
+    "testimonials.title.part2": "Nuestros Clientes",
+    "testimonials.subtitle": "Vea lo que nuestros clientes dicen sobre nuestros servicios y soluciones",
+    "testimonials.maria.name": "Maria Silva",
+    "testimonials.maria.position": "CEO, TechStart",
+    "testimonials.maria.text":
+      "VianaHub transformó completamente nuestra presencia digital. El sistema que desarrollaron aumentó nuestra eficiencia en 300% y la calidad del soporte es excepcional.",
+    "testimonials.joao.name": "João Santos",
+    "testimonials.joao.position": "Director de TI, HealthCorp",
+    "testimonials.joao.text":
+      "Profesionales extremadamente competentes y dedicados. El proyecto fue entregado a tiempo y superó todas nuestras expectativas. Recomiendo sin dudarlo.",
+    "testimonials.ana.name": "Ana Costa",
+    "testimonials.ana.position": "Fundadora, EduTech",
+    "testimonials.ana.text":
+      "La plataforma educativa que crearon revolucionó nuestra forma de enseñar. Interfaz intuitiva, funcionalidades avanzadas y soporte técnico impecable.",
+    "testimonials.carlos.name": "Carlos Oliveira",
+    "testimonials.carlos.position": "Gerente de Operaciones, LogiFlow",
+    "testimonials.carlos.text":
+      "El sistema de logística desarrollado optimizó completamente nuestras operaciones. Redujimos costos en 40% y mejoramos significativamente la atención al cliente.",
+    "testimonials.lucia.name": "Lúcia Ferreira",
+    "testimonials.lucia.position": "Directora Comercial, RetailMax",
+    "testimonials.lucia.text":
+      "La solución de e-commerce que implementaron triplicó nuestras ventas online. Equipo profesional, plazos cumplidos y resultados excepcionales.",
+    "testimonials.roberto.name": "Roberto Lima",
+    "testimonials.roberto.position": "CTO, FinanceHub",
+    "testimonials.roberto.text":
+      "Seguridad, eficiencia e innovación en un solo lugar. El sistema bancario que desarrollaron cumple todos los requisitos regulatorios con excelencia técnica.",
+    // Insights Section
+    "insights.title.part1": "Nuestros",
+    "insights.title.part2": "Insights",
+    "insights.subtitle": "Datos y estadísticas que demuestran nuestro compromiso con la excelencia",
+    "insights.growth.title": "Crecimiento",
+    "insights.growth.description": "Aumento promedio en la eficiencia de nuestros clientes",
+    "insights.experience.title": "Satisfacción",
+    "insights.experience.description": "Tasa de satisfacción de nuestros clientes",
+    "insights.innovation.title": "Innovación",
+    "insights.innovation.description": "Proyectos entregados con tecnologías de vanguardia",
+    "insights.results.title": "Resultados",
+    "insights.results.description": "Tasa de éxito en proyectos entregados",
+    // Entertainment Section
+    "entertainment.title": "Entretenimiento",
+    "entertainment.subtitle": "Diviértete con nuestros juegos interactivos",
+    "entertainment.foxGame.title": "Juego del Zorro",
+    "entertainment.foxGame.description": "Ayuda al zorro a encontrar el camino a través del laberinto",
+    "entertainment.foxGame.cta": "Jugar Ahora",
+    "entertainment.desertGame.title": "Aventura en el Desierto",
+    "entertainment.desertGame.description": "Explora el desierto y descubre tesoros ocultos",
+    "entertainment.desertGame.cta": "Explorar",
+    "entertainment.oasisGame.title": "Oasis Perdido",
+    "entertainment.oasisGame.description": "Encuentra el oasis perdido en esta aventura épica",
+    "entertainment.oasisGame.cta": "Descubrir",
+    // Fox Game
+    "foxGame.title": "Aventura del Zorro en el Desierto",
+    "foxGame.subtitle": "¡Ayuda al zorro a encontrar el oasis a través del laberinto!",
+    "foxGame.instructions": "Usa las flechas del teclado para mover el zorro por el laberinto",
+    "foxGame.level": "Nivel",
+    "foxGame.score": "Puntuación",
+    "foxGame.time": "Tiempo",
+    "foxGame.lives": "Vidas",
+    "foxGame.gameOver": "Fin del Juego",
+    "foxGame.levelComplete": "¡Nivel Completo!",
+    "foxGame.gameComplete": "¡Felicidades! ¡Juego Completo!",
+    "foxGame.playAgain": "Jugar de Nuevo",
+    "foxGame.nextLevel": "Siguiente Nivel",
+    "foxGame.startGame": "Iniciar Juego",
+    "foxGame.pause": "Pausar",
+    "foxGame.resume": "Continuar",
+    "foxGame.restart": "Reiniciar",
+    "foxGame.enterName": "Ingresa tu nombre",
+    "foxGame.submit": "Enviar",
+    "foxGame.ranking": "Clasificación",
+    "foxGame.position": "Posición",
+    "foxGame.player": "Jugador",
+    "foxGame.points": "Puntos",
+    "foxGame.completedIn": "Completado en",
+    "foxGame.seconds": "segundos",
+    "foxGame.nameLabel": "Ingresa tu nombre para comenzar:",
+    "foxGame.namePlaceholder": "Tu nombre",
+    "foxGame.startButton": "¡Comenzar Aventura!",
+    "foxGame.howToPlay": "Cómo jugar:",
+    "foxGame.instructions":
+      "Usa las flechas del teclado para mover el zorro • O haz clic en las celdas para moverte • Encuentra el oasis en cada nivel • ¡Completa todos los 5 niveles lo más rápido posible!",
+    // Footer
+    "footer.description": "Desarrollamos tecnologías innovadoras que impulsan el crecimiento de su negocio.",
+    "footer.services": "Servicios",
+    "footer.industries": "Sectores",
+    "footer.contact": "Contacto",
+    "footer.email": "info@vianahub.com",
+    "footer.phone": "+351 123 456 789",
+    "footer.address": "Rua da Inovação, 123<br />4000-000 Porto, Portugal",
+    "footer.copyright": "© 2024 VianaHub. Todos los derechos reservados.",
+    "footer.privacy": "Privacidad",
+    "footer.terms": "Términos",
+    "footer.development": "Desarrollo",
+    "footer.agile": "Metodología Ágil",
+    "footer.chatbot": "Chatbot",
+    "footer.outsourcing": "Outsourcing",
+    "footer.healthcare": "Salud",
+    "footer.financial": "Financiero",
+    "footer.education": "Educación",
+    "footer.retail": "Comercio",
+  },
+  fr: {
+    // Navigation
+    "nav.whatWeDo": "Ce que Nous Faisons",
+    "nav.engineering": "Ingénierie",
+    "nav.security": "Sécurité",
+    "nav.institutional": "Institutionnel",
+    "nav.contact": "Contact",
+    "nav.development": "Développement",
+    "nav.agile": "Méthodologie Agile",
+    "nav.outsourcing": "Externalisation",
+    "nav.chatbot": "Chatbot",
+    "nav.landingPages": "Pages de Destination",
+    "nav.systemIntegration": "Intégration de Systèmes",
+    "nav.railway": "Ferroviaire",
+    "nav.road": "Routier",
+    "nav.solarEnergy": "Énergie Solaire",
+    "nav.education": "Éducation",
+    "nav.government": "Gouvernement",
+    "nav.manufacturing": "Fabrication",
+    "nav.financial": "Financier",
+    "nav.retail": "Commerce de Détail",
+    "nav.healthcare": "Santé",
+    "nav.cybersecurity": "Cybersécurité",
+    "nav.backupSolutions": "Solutions de Sauvegarde",
+    "nav.accessControl": "Contrôle d'Accès",
+    "nav.aboutUs": "À Propos de Nous",
+    "nav.opportunities": "Opportunités",
+    // Hero Section
+    "hero.title.line1": "Solutions qui",
+    "hero.title.line2": "Transforment",
+    "hero.title.line3": "Votre Entreprise",
+    "hero.subtitle": "Nous développons des technologies innovantes qui stimulent la croissance de votre entreprise.",
+    "hero.stats.projects": "Projets",
+    "hero.stats.clients": "Clients",
+    "hero.stats.years": "Années",
+    // Services Section
+    "services.title.part1": "Nos",
+    "services.title.part2": "Services",
+    "services.subtitle": "Nous offrons des solutions technologiques complètes pour transformer votre entreprise",
+    "services.web.title": "Développement Web",
+    "services.web.description": "Nous créons des sites web modernes et responsifs qui élèvent votre présence numérique",
+    "services.mobile.title": "Applications Mobiles",
+    "services.mobile.description": "Nous développons des apps natives et hybrides pour iOS et Android",
+    "services.landing.title": "Pages de Destination",
+    "services.landing.description": "Pages optimisées pour la conversion et la génération de leads",
+    "services.integration.title": "Intégration de Systèmes",
+    "services.integration.description": "Nous connectons vos systèmes pour une plus grande efficacité opérationnelle",
+    "services.security.title": "Sécurité Numérique",
+    "services.security.description": "Nous protégeons vos données avec les meilleures pratiques de sécurité",
+    "services.automation.title": "Automatisation",
+    "services.automation.description": "Nous automatisons les processus pour augmenter la productivité",
+    "services.cta": "En Savoir Plus",
+    // Projects Section
+    "projects.title.part1": "Nos",
+    "projects.title.part2": "Projets",
+    "projects.subtitle": "Découvrez quelques-uns des projets que nous avons développés pour nos clients",
+    "projects.cta": "Voir Tous les Projets",
+    "projects.viewProject": "Voir le Projet",
+    "projects.ecommerce.title": "Plateforme E-commerce",
+    "projects.ecommerce.category": "E-commerce",
+    "projects.ecommerce.description":
+      "Système complet de vente en ligne avec gestion d'inventaire, paiements et analyses avancées.",
+    "projects.hospital.title": "Système de Gestion Hospitalière",
+    "projects.hospital.category": "Santé",
+    "projects.hospital.description":
+      "Plateforme intégrée pour la gestion des patients, rendez-vous, examens et ressources hospitalières.",
+    "projects.delivery.title": "App de Livraison de Nourriture",
+    "projects.delivery.category": "Livraison",
+    "projects.delivery.description":
+      "Application mobile pour commandes de nourriture avec suivi en temps réel et paiements intégrés.",
+    "projects.banking.title": "Système Bancaire Numérique",
+    "projects.banking.category": "Financier",
+    "projects.banking.description":
+      "Plateforme bancaire complète avec transactions sécurisées, gestion de comptes et services numériques.",
+    "projects.education.title": "Plateforme Éducative",
+    "projects.education.category": "Éducation",
+    "projects.education.description":
+      "Système d'apprentissage en ligne avec visioconférences, gestion de cours et évaluations automatisées.",
+    "projects.logistics.title": "Système de Logistique",
+    "projects.logistics.category": "Logistique",
+    "projects.logistics.description":
+      "Solution complète pour la gestion de flottes, suivi des livraisons et optimisation des itinéraires.",
+    "projects.streaming.title": "Plateforme de Streaming",
+    "projects.streaming.category": "Divertissement",
+    "projects.streaming.description": "Système de streaming vidéo avec CDN global et analyses avancées.",
+    "projects.crm.title": "Système CRM",
+    "projects.crm.category": "Gestion",
+    "projects.crm.description":
+      "Plateforme de gestion de la relation client avec automatisation des ventes et du marketing.",
+    // Industries Section
+    "industries.title.part1": "Secteurs que Nous",
+    "industries.title.part2": "Servons",
+    "industries.subtitle": "Nous offrons des solutions spécialisées pour divers secteurs de l'économie",
+    "industries.cta": "En Savoir Plus",
+    "industries.education.title": "Éducation",
+    "industries.education.description":
+      "Solutions technologiques pour institutions éducatives et plateformes d'apprentissage",
+    "industries.financial.title": "Financier",
+    "industries.financial.description": "Systèmes sécurisés pour banques, fintechs et institutions financières",
+    "industries.government.title": "Gouvernement",
+    "industries.government.description": "Plateformes numériques pour la modernisation des services publics",
+    "industries.healthcare.title": "Santé",
+    "industries.healthcare.description": "Systèmes de gestion hospitalière et solutions pour le secteur de la santé",
+    "industries.manufacturing.title": "Fabrication",
+    "industries.manufacturing.description": "Automatisation et systèmes de gestion pour le secteur industriel",
+    "industries.retail.title": "Commerce de Détail",
+    "industries.retail.description": "E-commerce et solutions numériques pour le secteur du commerce de détail",
+    // Testimonials Section
+    "testimonials.title.part1": "Ce que Disent",
+    "testimonials.title.part2": "Nos Clients",
+    "testimonials.subtitle": "Découvrez ce que nos clients disent de nos services et solutions",
+    "testimonials.maria.name": "Maria Silva",
+    "testimonials.maria.position": "PDG, TechStart",
+    "testimonials.maria.text":
+      "VianaHub a complètement transformé notre présence numérique. Le système qu'ils ont développé a augmenté notre efficacité de 300% et la qualité du support est exceptionnelle.",
+    "testimonials.joao.name": "João Santos",
+    "testimonials.joao.position": "Directeur IT, HealthCorp",
+    "testimonials.joao.text":
+      "Professionnels extrêmement compétents et dévoués. Le projet a été livré à temps et a dépassé toutes nos attentes. Je recommande sans hésitation.",
+    "testimonials.ana.name": "Ana Costa",
+    "testimonials.ana.position": "Fondatrice, EduTech",
+    "testimonials.ana.text":
+      "La plateforme éducative qu'ils ont créée a révolutionné notre façon d'enseigner. Interface intuitive, fonctionnalités avancées et support technique impeccable.",
+    "testimonials.carlos.name": "Carlos Oliveira",
+    "testimonials.carlos.position": "Responsable des Opérations, LogiFlow",
+    "testimonials.carlos.text":
+      "Le système logistique développé a complètement optimisé nos opérations. Nous avons réduit les coûts de 40% et amélioré significativement le service client.",
+    "testimonials.lucia.name": "Lúcia Ferreira",
+    "testimonials.lucia.position": "Directrice Commerciale, RetailMax",
+    "testimonials.lucia.text":
+      "La solution e-commerce qu'ils ont implémentée a triplé nos ventes en ligne. Équipe professionnelle, délais respectés et résultats exceptionnels.",
+    "testimonials.roberto.name": "Roberto Lima",
+    "testimonials.roberto.position": "CTO, FinanceHub",
+    "testimonials.roberto.text":
+      "Sécurité, efficacité et innovation en un seul endroit. Le système bancaire qu'ils ont développé répond à toutes les exigences réglementaires avec excellence technique.",
+    // Insights Section
+    "insights.title.part1": "Nos",
+    "insights.title.part2": "Insights",
+    "insights.subtitle": "Données et statistiques qui démontrent notre engagement envers l'excellence",
+    "insights.growth.title": "Croissance",
+    "insights.growth.description": "Augmentation moyenne de l'efficacité de nos clients",
+    "insights.experience.title": "Satisfaction",
+    "insights.experience.description": "Taux de satisfaction de nos clients",
+    "insights.innovation.title": "Innovation",
+    "insights.innovation.description": "Projets livrés avec des technologies de pointe",
+    "insights.results.title": "Résultats",
+    "insights.results.description": "Taux de réussite des projets livrés",
+    // Entertainment Section
+    "entertainment.title": "Divertissement",
+    "entertainment.subtitle": "Amusez-vous avec nos jeux interactifs",
+    "entertainment.foxGame.title": "Jeu du Renard",
+    "entertainment.foxGame.description": "Aidez le renard à trouver son chemin à travers le labyrinthe",
+    "entertainment.foxGame.cta": "Jouer Maintenant",
+    "entertainment.desertGame.title": "Aventure dans le Désert",
+    "entertainment.desertGame.description": "Explorez le désert et découvrez des trésors cachés",
+    "entertainment.desertGame.cta": "Explorer",
+    "entertainment.oasisGame.title": "Oasis Perdue",
+    "entertainment.oasisGame.description": "Trouvez l'oasis perdue dans cette aventure épique",
+    "entertainment.oasisGame.cta": "Découvrir",
+    // Fox Game
+    "foxGame.title": "Aventure du Renard dans le Désert",
+    "foxGame.subtitle": "Aidez le renard à trouver l'oasis à travers le labyrinthe!",
+    "foxGame.instructions": "Utilisez les flèches du clavier pour déplacer le renard dans le labyrinthe",
+    "foxGame.level": "Niveau",
+    "foxGame.score": "Score",
+    "foxGame.time": "Temps",
+    "foxGame.lives": "Vies",
+    "foxGame.gameOver": "Fin du Jeu",
+    "foxGame.levelComplete": "Niveau Terminé!",
+    "foxGame.gameComplete": "Félicitations! Jeu Terminé!",
+    "foxGame.playAgain": "Rejouer",
+    "foxGame.nextLevel": "Niveau Suivant",
+    "foxGame.startGame": "Commencer le Jeu",
+    "foxGame.pause": "Pause",
+    "foxGame.resume": "Reprendre",
+    "foxGame.restart": "Redémarrer",
+    "foxGame.enterName": "Entrez votre nom",
+    "foxGame.submit": "Soumettre",
+    "foxGame.ranking": "Classement",
+    "foxGame.position": "Position",
+    "foxGame.player": "Joueur",
+    "foxGame.points": "Points",
+    "foxGame.completedIn": "Terminé en",
+    "foxGame.seconds": "secondes",
+    "foxGame.nameLabel": "Entrez votre nom pour commencer:",
+    "foxGame.namePlaceholder": "Votre nom",
+    "foxGame.startButton": "Commencer l'Aventure!",
+    "foxGame.howToPlay": "Comment jouer:",
+    "foxGame.instructions":
+      "Utilisez les flèches du clavier pour déplacer le renard • Ou cliquez sur les cellules pour vous déplacer • Trouvez l'oasis à chaque niveau • Terminez tous les 5 niveaux le plus rapidement possible!",
+    // Footer
+    "footer.description":
+      "Nous développons des technologies innovantes qui stimulent la croissance de votre entreprise.",
+    "footer.services": "Services",
+    "footer.industries": "Secteurs",
+    "footer.contact": "Contact",
+    "footer.email": "info@vianahub.com",
+    "footer.phone": "+351 123 456 789",
+    "footer.address": "Rua da Inovação, 123<br />4000-000 Porto, Portugal",
+    "footer.copyright": "© 2024 VianaHub. Tous droits réservés.",
+    "footer.privacy": "Confidentialité",
+    "footer.terms": "Conditions",
+    "footer.development": "Développement",
+    "footer.agile": "Méthodologie Agile",
+    "footer.chatbot": "Chatbot",
+    "footer.outsourcing": "Externalisation",
+    "footer.healthcare": "Santé",
+    "footer.financial": "Financier",
+    "footer.education": "Éducation",
+    "footer.retail": "Commerce",
+  },
+  de: {
+    // Navigation
+    "nav.whatWeDo": "Was Wir Tun",
+    "nav.engineering": "Ingenieurwesen",
+    "nav.security": "Sicherheit",
+    "nav.institutional": "Institutionell",
+    "nav.contact": "Kontakt",
+    "nav.development": "Entwicklung",
+    "nav.agile": "Agile Methodik",
+    "nav.outsourcing": "Outsourcing",
+    "nav.chatbot": "Chatbot",
+    "nav.landingPages": "Landing Pages",
+    "nav.systemIntegration": "Systemintegration",
+    "nav.railway": "Eisenbahn",
+    "nav.road": "Straße",
+    "nav.solarEnergy": "Solarenergie",
+    "nav.education": "Bildung",
+    "nav.government": "Regierung",
+    "nav.manufacturing": "Fertigung",
+    "nav.financial": "Finanzen",
+    "nav.retail": "Einzelhandel",
+    "nav.healthcare": "Gesundheitswesen",
+    "nav.cybersecurity": "Cybersicherheit",
+    "nav.backupSolutions": "Backup-Lösungen",
+    "nav.accessControl": "Zugriffskontrolle",
+    "nav.aboutUs": "Über Uns",
+    "nav.opportunities": "Möglichkeiten",
+    // Hero Section
+    "hero.title.line1": "Lösungen die",
+    "hero.title.line2": "Transformieren",
+    "hero.title.line3": "Ihr Unternehmen",
+    "hero.subtitle": "Wir entwickeln innovative Technologien, die das Wachstum Ihres Unternehmens vorantreiben.",
+    "hero.stats.projects": "Projekte",
+    "hero.stats.clients": "Kunden",
+    "hero.stats.years": "Jahre",
+    // Services Section
+    "services.title.part1": "Unsere",
+    "services.title.part2": "Dienstleistungen",
+    "services.subtitle": "Wir bieten komplette technologische Lösungen zur Transformation Ihres Unternehmens",
+    "services.web.title": "Webentwicklung",
+    "services.web.description": "Wir erstellen moderne und responsive Websites, die Ihre digitale Präsenz verbessern",
+    "services.mobile.title": "Mobile Anwendungen",
+    "services.mobile.description": "Wir entwickeln native und hybride Apps für iOS und Android",
+    "services.landing.title": "Landing Pages",
+    "services.landing.description": "Für Konversion und Lead-Generierung optimierte Seiten",
+    "services.integration.title": "Systemintegration",
+    "services.integration.description": "Wir verbinden Ihre Systeme für größere operative Effizienz",
+    "services.security.title": "Digitale Sicherheit",
+    "services.security.description": "Wir schützen Ihre Daten mit den besten Sicherheitspraktiken",
+    "services.automation.title": "Automatisierung",
+    "services.automation.description": "Wir automatisieren Prozesse zur Steigerung der Produktivität",
+    "services.cta": "Mehr Erfahren",
+    // Projects Section
+    "projects.title.part1": "Unsere",
+    "projects.title.part2": "Projekte",
+    "projects.subtitle": "Sehen Sie einige der Projekte, die wir für unsere Kunden entwickelt haben",
+    "projects.cta": "Alle Projekte Anzeigen",
+    "projects.viewProject": "Projekt Ansehen",
+    "projects.ecommerce.title": "E-Commerce-Plattform",
+    "projects.ecommerce.category": "E-Commerce",
+    "projects.ecommerce.description":
+      "Komplettes Online-Verkaufssystem mit Bestandsverwaltung, Zahlungen und erweiterten Analysen.",
+    "projects.hospital.title": "Krankenhaus-Managementsystem",
+    "projects.hospital.category": "Gesundheitswesen",
+    "projects.hospital.description":
+      "Integrierte Plattform für Patientenverwaltung, Termine, Untersuchungen und Krankenhausressourcen.",
+    "projects.delivery.title": "Food-Delivery-App",
+    "projects.delivery.category": "Lieferung",
+    "projects.delivery.description":
+      "Mobile Anwendung für Essensbestellungen mit Echtzeit-Tracking und integrierten Zahlungen.",
+    "projects.banking.title": "Digitales Banking-System",
+    "projects.banking.category": "Finanzen",
+    "projects.banking.description":
+      "Komplette Banking-Plattform mit sicheren Transaktionen, Kontoverwaltung und digitalen Services.",
+    "projects.education.title": "Bildungsplattform",
+    "projects.education.category": "Bildung",
+    "projects.education.description":
+      "Online-Lernsystem mit Videokonferenzen, Kursverwaltung und automatisierten Bewertungen.",
+    "projects.logistics.title": "Logistiksystem",
+    "projects.logistics.category": "Logistik",
+    "projects.logistics.description": "Komplette Lösung für Flottenverwaltung, Lieferverfolgung und Routenoptimierung.",
+    "projects.streaming.title": "Streaming-Plattform",
+    "projects.streaming.category": "Unterhaltung",
+    "projects.streaming.description": "Video-Streaming-System mit globalem CDN und erweiterten Analysen.",
+    "projects.crm.title": "CRM-System",
+    "projects.crm.category": "Verwaltung",
+    "projects.crm.description": "Kundenbeziehungsmanagement-Plattform mit Vertriebs- und Marketing-Automatisierung.",
+    // Industries Section
+    "industries.title.part1": "Branchen die Wir",
+    "industries.title.part2": "Bedienen",
+    "industries.subtitle": "Wir bieten spezialisierte Lösungen für verschiedene Wirtschaftssektoren",
+    "industries.cta": "Mehr Erfahren",
+    "industries.education.title": "Bildung",
+    "industries.education.description": "Technologielösungen für Bildungseinrichtungen und Lernplattformen",
+    "industries.financial.title": "Finanzen",
+    "industries.financial.description": "Sichere Systeme für Banken, Fintechs und Finanzinstitute",
+    "industries.government.title": "Regierung",
+    "industries.government.description": "Digitale Plattformen zur Modernisierung öffentlicher Dienstleistungen",
+    "industries.healthcare.title": "Gesundheitswesen",
+    "industries.healthcare.description": "Krankenhaus-Managementsysteme und Lösungen für das Gesundheitswesen",
+    "industries.manufacturing.title": "Fertigung",
+    "industries.manufacturing.description": "Automatisierung und Managementsysteme für den Industriesektor",
+    "industries.retail.title": "Einzelhandel",
+    "industries.retail.description": "E-Commerce und digitale Lösungen für den Einzelhandelssektor",
+    // Testimonials Section
+    "testimonials.title.part1": "Was Unsere",
+    "testimonials.title.part2": "Kunden Sagen",
+    "testimonials.subtitle": "Sehen Sie, was unsere Kunden über unsere Dienstleistungen und Lösungen sagen",
+    "testimonials.maria.name": "Maria Silva",
+    "testimonials.maria.position": "CEO, TechStart",
+    "testimonials.maria.text":
+      "VianaHub hat unsere digitale Präsenz vollständig transformiert. Das System, das sie entwickelt haben, steigerte unsere Effizienz um 300% und die Qualität des Supports ist außergewöhnlich.",
+    "testimonials.joao.name": "João Santos",
+    "testimonials.joao.position": "IT-Direktor, HealthCorp",
+    "testimonials.joao.text":
+      "Äußerst kompetente und engagierte Fachkräfte. Das Projekt wurde pünktlich geliefert und übertraf alle unsere Erwartungen. Ich empfehle ohne zu zögern.",
+    "testimonials.ana.name": "Ana Costa",
+    "testimonials.ana.position": "Gründerin, EduTech",
+    "testimonials.ana.text":
+      "Die Bildungsplattform, die sie erstellt haben, revolutionierte unsere Art zu unterrichten. Intuitive Benutzeroberfläche, erweiterte Funktionen und tadelloser technischer Support.",
+    "testimonials.carlos.name": "Carlos Oliveira",
+    "testimonials.carlos.position": "Betriebsleiter, LogiFlow",
+    "testimonials.carlos.text":
+      "Das entwickelte Logistiksystem optimierte unsere Abläufe vollständig. Wir reduzierten die Kosten um 40% und verbesserten den Kundenservice erheblich.",
+    "testimonials.lucia.name": "Lúcia Ferreira",
+    "testimonials.lucia.position": "Vertriebsleiterin, RetailMax",
+    "testimonials.lucia.text":
+      "Die E-Commerce-Lösung, die sie implementierten, verdreifachte unsere Online-Verkäufe. Professionelles Team, eingehaltene Fristen und außergewöhnliche Ergebnisse.",
+    "testimonials.roberto.name": "Roberto Lima",
+    "testimonials.roberto.position": "CTO, FinanceHub",
+    "testimonials.roberto.text":
+      "Sicherheit, Effizienz und Innovation an einem Ort. Das Banking-System, das sie entwickelten, erfüllt alle regulatorischen Anforderungen mit technischer Exzellenz.",
+    // Insights Section
+    "insights.title.part1": "Unsere",
+    "insights.title.part2": "Insights",
+    "insights.subtitle": "Daten und Statistiken, die unser Engagement für Exzellenz demonstrieren",
+    "insights.growth.title": "Wachstum",
+    "insights.growth.description": "Durchschnittliche Steigerung der Effizienz unserer Kunden",
+    "insights.experience.title": "Zufriedenheit",
+    "insights.experience.description": "Kundenzufriedenheitsrate",
+    "insights.innovation.title": "Innovation",
+    "insights.innovation.description": "Projekte mit modernsten Technologien geliefert",
+    "insights.results.title": "Ergebnisse",
+    "insights.results.description": "Erfolgsrate bei gelieferten Projekten",
+    // Entertainment Section
+    "entertainment.title": "Unterhaltung",
+    "entertainment.subtitle": "Haben Sie Spaß mit unseren interaktiven Spielen",
+    "entertainment.foxGame.title": "Fuchs-Spiel",
+    "entertainment.foxGame.description": "Helfen Sie dem Fuchs, seinen Weg durch das Labyrinth zu finden",
+    "entertainment.foxGame.cta": "Jetzt Spielen",
+    "entertainment.desertGame.title": "Wüstenabenteuer",
+    "entertainment.desertGame.description": "Erkunden Sie die Wüste und entdecken Sie verborgene Schätze",
+    "entertainment.desertGame.cta": "Erkunden",
+    "entertainment.oasisGame.title": "Verlorene Oase",
+    "entertainment.oasisGame.description": "Finden Sie die verlorene Oase in diesem epischen Abenteuer",
+    "entertainment.oasisGame.cta": "Entdecken",
+    // Fox Game
+    "foxGame.title": "Fuchs-Wüstenabenteuer",
+    "foxGame.subtitle": "Helfen Sie dem Fuchs, die Oase durch das Labyrinth zu finden!",
+    "foxGame.instructions": "Verwenden Sie die Pfeiltasten, um den Fuchs durch das Labyrinth zu bewegen",
+    "foxGame.level": "Level",
+    "foxGame.score": "Punkte",
+    "foxGame.time": "Zeit",
+    "foxGame.lives": "Leben",
+    "foxGame.gameOver": "Spiel Vorbei",
+    "foxGame.levelComplete": "Level Abgeschlossen!",
+    "foxGame.gameComplete": "Glückwunsch! Spiel Abgeschlossen!",
+    "foxGame.playAgain": "Nochmal Spielen",
+    "foxGame.nextLevel": "Nächstes Level",
+    "foxGame.startGame": "Spiel Starten",
+    "foxGame.pause": "Pause",
+    "foxGame.resume": "Fortsetzen",
+    "foxGame.restart": "Neustart",
+    "foxGame.enterName": "Geben Sie Ihren Namen ein",
+    "foxGame.submit": "Senden",
+    "foxGame.ranking": "Rangliste",
+    "foxGame.position": "Position",
+    "foxGame.player": "Spieler",
+    "foxGame.points": "Punkte",
+    "foxGame.completedIn": "Abgeschlossen in",
+    "foxGame.seconds": "Sekunden",
+    "foxGame.nameLabel": "Geben Sie Ihren Namen ein, um zu beginnen:",
+    "foxGame.namePlaceholder": "Ihr Name",
+    "foxGame.startButton": "Abenteuer Starten!",
+    "foxGame.howToPlay": "Wie man spielt:",
+    "foxGame.instructions":
+      "Verwenden Sie die Pfeiltasten, um den Fuchs zu bewegen • Oder klicken Sie auf die Zellen, um sich zu bewegen • Finden Sie die Oase in jedem Level • Schließen Sie alle 5 Level so schnell wie möglich ab!",
+    // Footer
+    "footer.description": "Wir entwickeln innovative Technologien, die das Wachstum Ihres Unternehmens vorantreiben.",
+    "footer.services": "Dienstleistungen",
+    "footer.industries": "Branchen",
+    "footer.contact": "Kontakt",
+    "footer.email": "info@vianahub.com",
+    "footer.phone": "+351 123 456 789",
+    "footer.address": "Rua da Inovação, 123<br />4000-000 Porto, Portugal",
+    "footer.copyright": "© 2024 VianaHub. Alle Rechte vorbehalten.",
+    "footer.privacy": "Datenschutz",
+    "footer.terms": "Bedingungen",
+    "footer.development": "Entwicklung",
+    "footer.agile": "Agile Methodik",
+    "footer.chatbot": "Chatbot",
+    "footer.outsourcing": "Outsourcing",
+    "footer.healthcare": "Gesundheitswesen",
+    "footer.financial": "Finanzwesen",
+    "footer.education": "Bildung",
+    "footer.retail": "Einzelhandel",
+  },
+}
 
-export const useTranslation = () => useContext(TranslationContext)
+const TranslationContext = createContext<TranslationContextType | undefined>(undefined)
 
-export const TranslationProvider: React.FC = ({ children }) => {
-  const [language, setLanguage] = useState("en")
+export function TranslationProvider({ children }: { children: ReactNode }) {
+  const [language, setLanguage] = useState<Language>("pt")
 
-  const translations = {
-    pt: {
-      footer: {
-        companyName: "VianaHub",
-        description:
-          "Transformamos ideias em soluções digitais inovadoras. Especialistas em desenvolvimento de software, consultoria tecnológica e soluções personalizadas para o seu negócio.",
-        services: "Serviços",
-        industries: "Indústrias",
-        contact: "Contacto",
-        email: "info@vianahub.com",
-        phone: "+351 123 456 789",
-        address: "Rua da Inovação, 123<br />4000-000 Porto, Portugal",
-        copyright: "© 2024 VianaHub. Todos os direitos reservados.",
-        privacy: "Privacidade",
-        terms: "Termos",
-        link: {
-          whatWeDo: {
-            development: "Desenvolvimento",
-            agile: "Metodologia Ágil",
-            chatbot: "Chatbot",
-            outsourcing: "Outsourcing",
-          },
-          industry: {
-            healthcare: "Saúde",
-            financial: "Financeiro",
-            education: "Educação",
-            retail: "Retalho",
-          },
-        },
-      },
-    },
-    en: {
-      footer: {
-        companyName: "VianaHub",
-        description:
-          "We transform ideas into innovative digital solutions. Experts in software development, technology consulting and customized solutions for your business.",
-        services: "Services",
-        industries: "Industries",
-        contact: "Contact",
-        email: "info@vianahub.com",
-        phone: "+351 123 456 789",
-        address: "Innovation Street, 123<br />4000-000 Porto, Portugal",
-        copyright: "© 2024 VianaHub. All rights reserved.",
-        privacy: "Privacy",
-        terms: "Terms",
-        link: {
-          whatWeDo: {
-            development: "Development",
-            agile: "Agile Methodology",
-            chatbot: "Chatbot",
-            outsourcing: "Outsourcing",
-          },
-          industry: {
-            healthcare: "Healthcare",
-            financial: "Financial",
-            education: "Education",
-            retail: "Retail",
-          },
-        },
-      },
-    },
-    es: {
-      footer: {
-        companyName: "VianaHub",
-        description:
-          "Transformamos ideas en soluciones digitales innovadoras. Expertos en desarrollo de software, consultoría tecnológica y soluciones personalizadas para su negocio.",
-        services: "Servicios",
-        industries: "Industrias",
-        contact: "Contacto",
-        email: "info@vianahub.com",
-        phone: "+351 123 456 789",
-        address: "Calle de la Innovación, 123<br />4000-000 Oporto, Portugal",
-        copyright: "© 2024 VianaHub. Todos los derechos reservados.",
-        privacy: "Privacidad",
-        terms: "Términos",
-        link: {
-          whatWeDo: {
-            development: "Desarrollo",
-            agile: "Metodología Ágil",
-            chatbot: "Chatbot",
-            outsourcing: "Outsourcing",
-          },
-          industry: {
-            healthcare: "Salud",
-            financial: "Financiero",
-            education: "Educación",
-            retail: "Comercio",
-          },
-        },
-      },
-    },
-    fr: {
-      footer: {
-        companyName: "VianaHub",
-        description:
-          "Nous transformons les idées en solutions numériques innovantes. Experts en développement logiciel, conseil technologique et solutions personnalisées pour votre entreprise.",
-        services: "Services",
-        industries: "Industries",
-        contact: "Contact",
-        email: "info@vianahub.com",
-        phone: "+351 123 456 789",
-        address: "Rue de l'Innovation, 123<br />4000-000 Porto, Portugal",
-        copyright: "© 2024 VianaHub. Tous droits réservés.",
-        privacy: "Confidentialité",
-        terms: "Conditions",
-        link: {
-          whatWeDo: {
-            development: "Développement",
-            agile: "Méthodologie Agile",
-            chatbot: "Chatbot",
-            outsourcing: "Externalisation",
-          },
-          industry: {
-            healthcare: "Santé",
-            financial: "Financier",
-            education: "Éducation",
-            retail: "Commerce",
-          },
-        },
-      },
-    },
-    de: {
-      footer: {
-        companyName: "VianaHub",
-        description:
-          "Wir verwandeln Ideen in innovative digitale Lösungen. Experten für Softwareentwicklung, Technologieberatung und maßgeschneiderte Lösungen für Ihr Unternehmen.",
-        services: "Dienstleistungen",
-        industries: "Branchen",
-        contact: "Kontakt",
-        email: "info@vianahub.com",
-        phone: "+351 123 456 789",
-        address: "Innovationsstraße, 123<br />4000-000 Porto, Portugal",
-        copyright: "© 2024 VianaHub. Alle Rechte vorbehalten.",
-        privacy: "Datenschutz",
-        terms: "Bedingungen",
-        link: {
-          whatWeDo: {
-            development: "Entwicklung",
-            agile: "Agile Methodik",
-            chatbot: "Chatbot",
-            outsourcing: "Outsourcing",
-          },
-          industry: {
-            healthcare: "Gesundheitswesen",
-            financial: "Finanzwesen",
-            education: "Bildung",
-            retail: "Einzelhandel",
-          },
-        },
-      },
-    },
+  useEffect(() => {
+    const savedLanguage = localStorage.getItem("language") as Language
+    if (savedLanguage && translations[savedLanguage]) {
+      setLanguage(savedLanguage)
+    }
+  }, [])
+
+  const handleSetLanguage = (lang: Language) => {
+    setLanguage(lang)
+    localStorage.setItem("language", lang)
+  }
+
+  const t = (key: string): string => {
+    return translations[language][key] || translations.pt[key] || key
   }
 
   return (
-    <TranslationContext.Provider value={{ language, setLanguage, translations }}>
+    <TranslationContext.Provider value={{ language, setLanguage: handleSetLanguage, t }}>
       {children}
     </TranslationContext.Provider>
   )
+}
+
+export function useTranslation() {
+  const context = useContext(TranslationContext)
+  if (context === undefined) {
+    throw new Error("useTranslation must be used within a TranslationProvider")
+  }
+  return context
 }
