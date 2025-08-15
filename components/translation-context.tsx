@@ -45,7 +45,7 @@ const translations = {
     "hero.subtitle": "Desenvolvemos tecnologias inovadoras que impulsionam o crescimento do seu negócio.",
     "hero.stats.projects": "Projetos",
     "hero.stats.clients": "Clientes",
-    "hero.stats.years":"Anos",
+    "hero.stats.years": "Anos",
     // Services Section
     "services.title.part1": "Os Nossos",
     "services.title.part2": "Serviços",
@@ -200,6 +200,18 @@ const translations = {
     "foxGame.howToPlay": "Como jogar:",
     "foxGame.instructions":
       "Use as setas do teclado para mover a raposa • Ou clique nas células para mover • Encontre o oásis em cada nível • Complete todos os 5 níveis o mais rápido possível!",
+    // Footer
+    "footer.companyName": "VianaHub",
+    "footer.description": "Desenvolvemos tecnologias inovadoras que impulsionam o crescimento do seu negócio.",
+    "footer.services": "Serviços",
+    "footer.industries": "Setores",
+    "footer.contact": "Contacto",
+    "footer.email": "info@vianahub.com",
+    "footer.phone": "+351 123 456 789",
+    "footer.address": "Rua da Inovação, 123<br />4000-000 Porto, Portugal",
+    "footer.copyright": "© 2024 VianaHub. Todos os direitos reservados.",
+    "footer.privacy": "Privacidade",
+    "footer.terms": "Termos",
   },
   en: {
     // Navigation
@@ -235,7 +247,7 @@ const translations = {
     "hero.subtitle": "We develop innovative technologies that drive your business growth.",
     "hero.stats.projects": "Projects",
     "hero.stats.clients": "Clients",
-    "hero.stats.years":"Years",    
+    "hero.stats.years": "Years",
     // Services Section
     "services.title.part1": "Our",
     "services.title.part2": "Services",
@@ -389,6 +401,18 @@ const translations = {
     "foxGame.howToPlay": "How to play:",
     "foxGame.instructions":
       "Use the arrow keys to move the fox • Or click on the cells to move • Find the oasis in each level • Complete all 5 levels as quickly as possible!",
+    // Footer
+    "footer.companyName": "VianaHub",
+    "footer.description": "We develop innovative technologies that drive your business growth.",
+    "footer.services": "Services",
+    "footer.industries": "Industries",
+    "footer.contact": "Contact",
+    "footer.email": "info@vianahub.com",
+    "footer.phone": "+351 123 456 789",
+    "footer.address": "Rua da Inovação, 123<br />4000-000 Porto, Portugal",
+    "footer.copyright": "© 2024 VianaHub. All rights reserved.",
+    "footer.privacy": "Privacy",
+    "footer.terms": "Terms",
   },
   es: {
     // Navigation
@@ -424,7 +448,7 @@ const translations = {
     "hero.subtitle": "Desarrollamos tecnologías innovadoras que impulsan el crecimiento de su negocio.",
     "hero.stats.projects": "Proyectos",
     "hero.stats.clients": "Clientes",
-    "hero.stats.years":"Años",    
+    "hero.stats.years": "Años",
     // Services Section
     "services.title.part1": "Nuestros",
     "services.title.part2": "Servicios",
@@ -580,6 +604,18 @@ const translations = {
     "foxGame.howToPlay": "Cómo jugar:",
     "foxGame.instructions":
       "Usa las flechas del teclado para mover el zorro • O haz clic en las celdas para moverte • Encuentra el oasis en cada nivel • ¡Completa todos los 5 niveles lo más rápido posible!",
+    // Footer
+    "footer.companyName": "VianaHub",
+    "footer.description": "Desarrollamos tecnologías innovadoras que impulsan el crecimiento de su negocio.",
+    "footer.services": "Servicios",
+    "footer.industries": "Sectores",
+    "footer.contact": "Contacto",
+    "footer.email": "info@vianahub.com",
+    "footer.phone": "+351 123 456 789",
+    "footer.address": "Rua da Inovação, 123<br />4000-000 Porto, Portugal",
+    "footer.copyright": "© 2024 VianaHub. Todos los derechos reservados.",
+    "footer.privacy": "Privacidad",
+    "footer.terms": "Términos",
   },
   fr: {
     // Navigation
@@ -615,7 +651,7 @@ const translations = {
     "hero.subtitle": "Nous développons des technologies innovantes qui stimulent la croissance de votre entreprise.",
     "hero.stats.projects": "Projets",
     "hero.stats.clients": "Clients",
-    "hero.stats.years":"Années",    
+    "hero.stats.years": "Années",
     // Services Section
     "services.title.part1": "Nos",
     "services.title.part2": "Services",
@@ -771,6 +807,19 @@ const translations = {
     "foxGame.howToPlay": "Comment jouer:",
     "foxGame.instructions":
       "Utilisez les flèches du clavier pour déplacer le renard • Ou cliquez sur les cellules pour vous déplacer • Trouvez l'oasis à chaque niveau • Terminez tous les 5 niveaux le plus rapidement possible!",
+    // Footer
+    "footer.companyName": "VianaHub",
+    "footer.description":
+      "Nous développons des technologies innovantes qui stimulent la croissance de votre entreprise.",
+    "footer.services": "Services",
+    "footer.industries": "Secteurs",
+    "footer.contact": "Contact",
+    "footer.email": "info@vianahub.com",
+    "footer.phone": "+351 123 456 789",
+    "footer.address": "Rua da Inovação, 123<br />4000-000 Porto, Portugal",
+    "footer.copyright": "© 2024 VianaHub. Tous droits réservés.",
+    "footer.privacy": "Confidentialité",
+    "footer.terms": "Conditions",
   },
   de: {
     // Navigation
@@ -806,7 +855,7 @@ const translations = {
     "hero.subtitle": "Wir entwickeln innovative Technologien, die das Wachstum Ihres Unternehmens vorantreiben.",
     "hero.stats.projects": "Projekte",
     "hero.stats.clients": "Kunden",
-    "hero.stats.years":"Jahre",    
+    "hero.stats.years": "Jahre",
     // Services Section
     "services.title.part1": "Unsere",
     "services.title.part2": "Dienstleistungen",
@@ -959,6 +1008,18 @@ const translations = {
     "foxGame.howToPlay": "Wie man spielt:",
     "foxGame.instructions":
       "Verwenden Sie die Pfeiltasten, um den Fuchs zu bewegen • Oder klicken Sie auf die Zellen, um sich zu bewegen • Finden Sie die Oase in jedem Level • Schließen Sie alle 5 Level so schnell wie möglich ab!",
+    // Footer
+    "footer.companyName": "VianaHub",
+    "footer.description": "Wir entwickeln innovative Technologien, die das Wachstum Ihres Unternehmens vorantreiben.",
+    "footer.services": "Dienstleistungen",
+    "footer.industries": "Branchen",
+    "footer.contact": "Kontakt",
+    "footer.email": "info@vianahub.com",
+    "footer.phone": "+351 123 456 789",
+    "footer.address": "Rua da Inovação, 123<br />4000-000 Porto, Portugal",
+    "footer.copyright": "© 2024 VianaHub. Alle Rechte vorbehalten.",
+    "footer.privacy": "Datenschutz",
+    "footer.terms": "Bedingungen",
   },
 }
 
