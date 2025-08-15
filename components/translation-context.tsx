@@ -46,6 +46,24 @@ const translations = {
     "hero.stats.projects": "Projetos",
     "hero.stats.clients": "Clientes",
     "hero.stats.years": "Anos",
+    // About Page
+    "about.hero.title": "Sobre Nós",
+    "about.hero.subtitle": "Conheça a nossa história, missão e a equipa que torna tudo possível",
+    "about.mission.title": "Missão",
+    "about.mission.description":
+      "Transformar negócios através de soluções tecnológicas inovadoras que geram valor real e impacto positivo.",
+    "about.vision.title": "Visão",
+    "about.vision.description":
+      "Ser a empresa de referência em transformação digital, reconhecida pela excelência e inovação.",
+    "about.values.title": "Valores",
+    "about.values.innovation": "Inovação",
+    "about.values.innovation.description": "Buscamos constantemente novas formas de resolver problemas",
+    "about.values.quality": "Qualidade",
+    "about.values.quality.description": "Comprometemo-nos com a excelência em tudo o que fazemos",
+    "about.values.collaboration": "Colaboração",
+    "about.values.collaboration.description": "Trabalhamos em equipa para alcançar objetivos comuns",
+    "about.team.title": "Nossa Equipa",
+    "about.team.subtitle": "Conheça os profissionais que fazem a diferença",
     // Agile Page
     "agile.hero.title": "Metodologia Ágil",
     "agile.hero.subtitle": "Transforme o seu negócio com práticas ágeis eficientes e resultados rápidos",
@@ -584,6 +602,24 @@ const translations = {
     "hero.stats.projects": "Projects",
     "hero.stats.clients": "Clients",
     "hero.stats.years": "Years",
+    // About Page
+    "about.hero.title": "About Us",
+    "about.hero.subtitle": "Learn about our story, mission and the team that makes it all possible",
+    "about.mission.title": "Mission",
+    "about.mission.description":
+      "Transform businesses through innovative technology solutions that generate real value and positive impact.",
+    "about.vision.title": "Vision",
+    "about.vision.description":
+      "To be the leading company in digital transformation, recognized for excellence and innovation.",
+    "about.values.title": "Values",
+    "about.values.innovation": "Innovation",
+    "about.values.innovation.description": "We constantly seek new ways to solve problems",
+    "about.values.quality": "Quality",
+    "about.values.quality.description": "We are committed to excellence in everything we do",
+    "about.values.collaboration": "Collaboration",
+    "about.values.collaboration.description": "We work as a team to achieve common goals",
+    "about.team.title": "Our Team",
+    "about.team.subtitle": "Meet the professionals who make the difference",
     // Government Page
     "government.hero.title": "Government Sector",
     "government.hero.subtitle": "Technology solutions for the public sector",
@@ -743,6 +779,24 @@ const translations = {
     "hero.stats.projects": "Proyectos",
     "hero.stats.clients": "Clientes",
     "hero.stats.years": "Años",
+    // About Page
+    "about.hero.title": "Sobre Nosotros",
+    "about.hero.subtitle": "Conoce nuestra historia, misión y el equipo que hace todo posible",
+    "about.mission.title": "Misión",
+    "about.mission.description":
+      "Transformar negocios a través de soluciones tecnológicas innovadoras que generen valor real e impacto positivo.",
+    "about.vision.title": "Visión",
+    "about.vision.description":
+      "Ser la empresa líder en transformación digital, reconocida por la excelencia e innovación.",
+    "about.values.title": "Valores",
+    "about.values.innovation": "Innovación",
+    "about.values.innovation.description": "Buscamos constantemente nuevas formas de resolver problemas",
+    "about.values.quality": "Calidad",
+    "about.values.quality.description": "Nos comprometemos con la excelencia en todo lo que hacemos",
+    "about.values.collaboration": "Colaboración",
+    "about.values.collaboration.description": "Trabajamos en equipo para alcanzar objetivos comunes",
+    "about.team.title": "Nuestro Equipo",
+    "about.team.subtitle": "Conoce a los profesionales que marcan la diferencia",
     // Government Page
     "government.hero.title": "Sector Gubernamental",
     "government.hero.subtitle": "Soluciones tecnológicas para el sector público",
@@ -906,6 +960,24 @@ const translations = {
     "hero.stats.projects": "Projets",
     "hero.stats.clients": "Clients",
     "hero.stats.years": "Années",
+    // About Page
+    "about.hero.title": "À Propos de Nous",
+    "about.hero.subtitle": "Découvrez notre histoire, notre mission et l'équipe qui rend tout possible",
+    "about.mission.title": "Mission",
+    "about.mission.description":
+      "Transformer les entreprises grâce à des solutions technologiques innovantes qui génèrent une valeur réelle et un impact positif.",
+    "about.vision.title": "Vision",
+    "about.vision.description":
+      "Être l'entreprise leader en transformation numérique, reconnue pour l'excellence et l'innovation.",
+    "about.values.title": "Valeurs",
+    "about.values.innovation": "Innovation",
+    "about.values.innovation.description": "Nous cherchons constamment de nouvelles façons de résoudre les problèmes",
+    "about.values.quality": "Qualité",
+    "about.values.quality.description": "Nous nous engageons à l'excellence dans tout ce que nous faisons",
+    "about.values.collaboration": "Collaboration",
+    "about.values.collaboration.description": "Nous travaillons en équipe pour atteindre des objectifs communs",
+    "about.team.title": "Notre Équipe",
+    "about.team.subtitle": "Rencontrez les professionnels qui font la différence",
     // Government Page
     "government.hero.title": "Secteur Gouvernemental",
     "government.hero.subtitle": "Solutions technologiques pour le secteur public",
@@ -1070,6 +1142,24 @@ const translations = {
     "hero.stats.projects": "Projekte",
     "hero.stats.clients": "Kunden",
     "hero.stats.years": "Jahre",
+    // About Page
+    "about.hero.title": "Über Uns",
+    "about.hero.subtitle": "Erfahren Sie mehr über unsere Geschichte, Mission und das Team, das alles möglich macht",
+    "about.mission.title": "Mission",
+    "about.mission.description":
+      "Unternehmen durch innovative Technologielösungen transformieren, die echten Wert und positive Auswirkungen schaffen.",
+    "about.vision.title": "Vision",
+    "about.vision.description":
+      "Das führende Unternehmen in der digitalen Transformation zu sein, anerkannt für Exzellenz und Innovation.",
+    "about.values.title": "Werte",
+    "about.values.innovation": "Innovation",
+    "about.values.innovation.description": "Wir suchen ständig nach neuen Wegen, Probleme zu lösen",
+    "about.values.quality": "Qualität",
+    "about.values.quality.description": "Wir verpflichten uns zur Exzellenz in allem, was wir tun",
+    "about.values.collaboration": "Zusammenarbeit",
+    "about.values.collaboration.description": "Wir arbeiten als Team, um gemeinsame Ziele zu erreichen",
+    "about.team.title": "Unser Team",
+    "about.team.subtitle": "Lernen Sie die Fachkräfte kennen, die den Unterschied machen",
     // Government Page
     "government.hero.title": "Regierungssektor",
     "government.hero.subtitle": "Technologielösungen für den öffentlichen Sektor",
@@ -1166,9 +1256,6 @@ const translations = {
     "cybersecurity.features.monitoring.title": "Überwachung",
     "cybersecurity.features.monitoring.description": "24/7 SOC mit Echtzeit-Bedrohungserkennung und -reaktion.",
     "cybersecurity.features.incident.title": "Incident Response",
-    "cybersecurity.features.incident.description": "Schnelle Reaktionspläne für Sicherheitsvorfälle.",
-    // Backups Page
-    "backups.hero.title": "Backup-Lösungen",
     "cybersecurity.features.incident.description": "Schnelle Reaktionspläne für Sicherheitsvorfälle.",
     // Backups Page
     "backups.hero.title": "Backup-Lösungen",

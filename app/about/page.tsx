@@ -4,6 +4,7 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Users, Target, Eye, Lightbulb, Award, Handshake } from "lucide-react"
 import Image from "next/image"
+import { TranslationProvider, useTranslation } from "@/components/translation-context"
 
 const teamMembers = [
   {
@@ -44,7 +45,7 @@ const teamMembers = [
   },
 ]
 
-export default function AboutPage() {
+function AboutPageContent() {
   const { t, language } = useTranslation()
 
   const getLocalizedImage = () => {
@@ -172,5 +173,13 @@ export default function AboutPage() {
         </div>
       </section>
     </div>
+  )
+}
+
+export default function AboutPage() {
+  return (
+    <TranslationProvider>
+      <AboutPageContent />
+    </TranslationProvider>
   )
 }
