@@ -4,8 +4,14 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Sun, Battery, Zap, BarChart3, ArrowRight, CheckCircle } from "lucide-react"
-import Image from "next/image"
-import Link from "next/link"
+import { useTranslation, TranslationProvider } from "@/components/translation-context"
+
+function SystemIntegrationContent() {
+  const { t } = useTranslation()
+
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
 
 const services = [
   {
