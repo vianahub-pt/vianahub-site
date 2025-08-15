@@ -6,6 +6,7 @@ import { Badge } from "@/components/ui/badge"
 import { Train, Zap, Shield, Settings, ArrowRight, CheckCircle } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
+import { useTranslation } from "@/components/translation-context"
 
 const services = [
   {
@@ -48,29 +49,22 @@ const projects = [
 ]
 
 export default function RailwayPage() {
-  const { t, getMetadata } = useTranslation()
-  const metadata = getMetadata("railway")
+  const { t } = useTranslation()
 
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
       <section className="relative h-[70vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
-          <Image
-            src="/pages/railway.jpg"
-            alt={t("engineering.railway.hero.title")}
-            fill
-            className="object-cover"
-            priority
-          />
+          <Image src="/pages/railway.jpg" alt="Railway Engineering" fill className="object-cover" priority />
           <div className="absolute inset-0 bg-black/60" />
         </div>
         <div className="relative z-10 text-center text-white max-w-4xl mx-auto px-4">
           <Badge variant="secondary" className="mb-4">
             {t("nav.engineering")}
           </Badge>
-          <h1 className="text-4xl md:text-6xl font-bold mb-6">{t("engineering.railway.hero.title")}</h1>
-          <p className="text-xl md:text-2xl opacity-90 mb-8">{t("engineering.railway.hero.subtitle")}</p>
+          <h1 className="text-4xl md:text-6xl font-bold mb-6">Engenharia Ferroviária</h1>
+          <p className="text-xl md:text-2xl opacity-90 mb-8">Descubra nossas soluções para o setor ferroviário</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button size="lg" asChild>
               <Link href="/contact">
