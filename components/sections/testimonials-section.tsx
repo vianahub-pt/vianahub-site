@@ -42,7 +42,7 @@ export function TestimonialsSection() {
   const { t } = useTranslation()
 
   return (
-    <section className="py-20 bg-gray-50">
+     <section className="py-20 bg-gradient-to-br from-gray-50 to-orange-50">
       <style jsx>{`
         @keyframes float1 {
           0%, 100% { transform: translateY(0px) rotate(0deg); }
