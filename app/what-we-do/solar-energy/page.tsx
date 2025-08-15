@@ -1,84 +1,77 @@
 "use client"
 
+import { useEffect } from "react"
+import Image from "next/image"
+import Link from "next/link"
 import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Sun, Battery, Zap, BarChart3, ArrowRight, CheckCircle } from "lucide-react"
 import { useTranslation, TranslationProvider } from "@/components/translation-context"
 
-function SystemIntegrationContent() {
+function SolarEnergyContent() {
   const { t } = useTranslation()
 
   useEffect(() => {
     window.scrollTo(0, 0)
   }, [])
 
-const services = [
-  {
-    icon: Sun,
-    title: "Painéis Fotovoltaicos",
-    description: "Instalação de sistemas fotovoltaicos residenciais, comerciais e industriais.",
-  },
-  {
-    icon: Battery,
-    title: "Sistemas de Armazenamento",
-    description: "Baterias e sistemas de armazenamento de energia para máxima eficiência.",
-  },
-  {
-    icon: Zap,
-    title: "Microgeração",
-    description: "Soluções de microgeração para autoconsumo e venda à rede elétrica.",
-  },
-  {
-    icon: BarChart3,
-    title: "Monitoramento",
-    description: "Sistemas de monitoramento em tempo real para otimização da produção.",
-  },
-]
+  const services = [
+    {
+      icon: Sun,
+      title: "Painéis Fotovoltaicos",
+      description: "Instalação de sistemas fotovoltaicos residenciais, comerciais e industriais.",
+    },
+    {
+      icon: Battery,
+      title: "Sistemas de Armazenamento",
+      description: "Baterias e sistemas de armazenamento de energia para máxima eficiência.",
+    },
+    {
+      icon: Zap,
+      title: "Microgeração",
+      description: "Soluções de microgeração para autoconsumo e venda à rede elétrica.",
+    },
+    {
+      icon: BarChart3,
+      title: "Monitoramento",
+      description: "Sistemas de monitoramento em tempo real para otimização da produção.",
+    },
+  ]
 
-const projects = [
-  {
-    title: "Parque Solar Industrial - Aveiro",
-    description: "Instalação de 500kW em painéis solares para complexo industrial.",
-    image: "/pages/solar-energy.jpg",
-    status: "Concluído",
-    year: "2023",
-    capacity: "500kW",
-  },
-  {
-    title: "Comunidade Solar Residencial",
-    description: "Projeto de energia solar para 150 habitações em condomínio.",
-    image: "/pages/solar-energy.jpg",
-    status: "Em Andamento",
-    year: "2024",
-    capacity: "300kW",
-  },
-]
-
-export default function SolarEnergyPage() {
-  const { t, getMetadata } = useTranslation()
-  const metadata = getMetadata("solarEnergy")
+  const projects = [
+    {
+      title: "Parque Solar Industrial - Aveiro",
+      description: "Instalação de 500kW em painéis solares para complexo industrial.",
+      image: "/pages/solar-energy.jpg",
+      status: "Concluído",
+      year: "2023",
+      capacity: "500kW",
+    },
+    {
+      title: "Comunidade Solar Residencial",
+      description: "Projeto de energia solar para 150 habitações em condomínio.",
+      image: "/pages/solar-energy.jpg",
+      status: "Em Andamento",
+      year: "2024",
+      capacity: "300kW",
+    },
+  ]
 
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
       <section className="relative h-[70vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
-          <Image
-            src="/pages/solar-energy.jpg"
-            alt={t("engineering.solarEnergy.hero.title")}
-            fill
-            className="object-cover"
-            priority
-          />
+          <Image src="/pages/solar-energy.jpg" alt="Energia Solar" fill className="object-cover" priority />
           <div className="absolute inset-0 bg-black/60" />
         </div>
         <div className="relative z-10 text-center text-white max-w-4xl mx-auto px-4">
           <Badge variant="secondary" className="mb-4">
-            {t("nav.engineering")}
+            {t("nav.whatWeDo")}
           </Badge>
-          <h1 className="text-4xl md:text-6xl font-bold mb-6">{t("engineering.solarEnergy.hero.title")}</h1>
-          <p className="text-xl md:text-2xl opacity-90 mb-8">{t("engineering.solarEnergy.hero.subtitle")}</p>
+          <h1 className="text-4xl md:text-6xl font-bold mb-6">Energia Solar</h1>
+          <p className="text-xl md:text-2xl opacity-90 mb-8">Soluções sustentáveis em energia solar para o futuro</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button size="lg" asChild>
               <Link href="/contact">
@@ -249,5 +242,13 @@ export default function SolarEnergyPage() {
         </div>
       </section>
     </div>
+  )
+}
+
+export default function SolarEnergyPage() {
+  return (
+    <TranslationProvider>
+      <SolarEnergyContent />
+    </TranslationProvider>
   )
 }
