@@ -97,7 +97,7 @@ function DevelopmentPageContent() {
     <div className="min-h-screen bg-viana-white">
       {/* Hero Section */}
       <section
-        className="relative pt-0 pb-0 bg-gradient-to-br from-viana-orange to-viana-yellow overflow-hidden h-[500px]"
+        className="relative pt-0 pb-0 bg-gradient-to-br from-viana-orange to-viana-yellow h-[500px]"
         style={{
           backgroundImage: "url(/pages/development.jpg)",
           backgroundSize: "cover",
@@ -115,14 +115,14 @@ function DevelopmentPageContent() {
           </div>
         </div>
 
-      {/* Indicador de scroll */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10">
-        <div className="animate-bounce">
-          <div className="w-6 h-10 border-2 border-viana-white rounded-full flex justify-center drop-shadow-lg">
-            <div className="w-1 h-3 bg-viana-white rounded-full mt-2 animate-pulse"></div>
+        {/* Indicador de scroll */}
+        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20">
+          <div className="animate-bounce">
+            <div className="w-6 h-10 border-2 border-viana-white rounded-full flex justify-center drop-shadow-lg">
+              <div className="w-1 h-3 bg-viana-white rounded-full mt-2 animate-pulse"></div>
+            </div>
           </div>
         </div>
-      </div>        
       </section>
 
       {/* Services Carousel Section */}
