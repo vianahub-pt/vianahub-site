@@ -421,6 +421,42 @@ const translations = {
     "education.solutions.analytics.title": "Análise de Desempenho",
     "education.solutions.analytics.description":
       "Sistemas de análise que ajudam a melhorar o desempenho dos estudantes.",
+    // Government Page
+    "government.hero.title": "Setor Governamental",
+    "government.hero.subtitle": "Soluções tecnológicas para o setor público",
+    "government.transformation.title": "Transformação Digital no Setor Público",
+    "government.transformation.description":
+      "Desenvolvemos soluções tecnológicas que modernizam os serviços públicos, aumentam a transparência e melhoram a experiência dos cidadãos.",
+    "government.solutions.title": "Nossas Soluções",
+    "government.solutions.portals.title": "Portais de Serviços",
+    "government.solutions.portals.description":
+      "Plataformas digitais que centralizam serviços públicos, facilitando o acesso dos cidadãos.",
+    "government.solutions.management.title": "Sistemas de Gestão",
+    "government.solutions.management.description":
+      "Ferramentas para otimizar processos internos e melhorar a eficiência administrativa.",
+    "government.solutions.transparency.title": "Transparência",
+    "government.solutions.transparency.description":
+      "Soluções que promovem a transparência e accountability no setor público.",
+    "government.solutions.security.title": "Segurança",
+    "government.solutions.security.description":
+      "Implementação de medidas de segurança robustas para proteger dados sensíveis.",
+    // Manufacturing Page
+    "manufacturing.hero.title": "Setor de Manufatura",
+    "manufacturing.hero.subtitle": "Tecnologia para a indústria 4.0",
+    "manufacturing.transformation.title": "Transformação Digital na Manufatura",
+    "manufacturing.transformation.description":
+      "Desenvolvemos soluções tecnológicas que modernizam processos industriais e impulsionam a eficiência produtiva.",
+    "manufacturing.solutions.title": "Nossas Soluções",
+    "manufacturing.solutions.automation.title": "Automação Industrial",
+    "manufacturing.solutions.automation.description": "Sistemas de automação para otimizar processos de produção.",
+    "manufacturing.solutions.iot.title": "IoT Industrial",
+    "manufacturing.solutions.iot.description":
+      "Soluções IoT para monitoramento e controle de equipamentos industriais.",
+    "manufacturing.solutions.production.title": "Gestão de Produção",
+    "manufacturing.solutions.production.description": "Sistemas para planificação e controle eficiente da produção.",
+    "manufacturing.solutions.quality.title": "Qualidade",
+    "manufacturing.solutions.quality.description":
+      "Ferramentas para controle de qualidade e rastreabilidade de produtos.",
     // Financial Page
     "financial.hero.title": "Setor Financeiro",
     "financial.hero.subtitle": "Soluções tecnológicas seguras e inovadoras para o setor financeiro",
@@ -452,6 +488,24 @@ const translations = {
     "retail.solutions.crm.description": "Ferramentas para gestão de relacionamento com clientes e fidelização.",
     "retail.solutions.analytics.title": "Analytics",
     "retail.solutions.analytics.description": "Análise de dados para insights sobre comportamento do consumidor.",
+    // Healthcare Page
+    "healthcare.hero.title": "Setor de Saúde",
+    "healthcare.hero.subtitle": "Tecnologia a serviço da saúde e bem-estar",
+    "healthcare.innovation.title": "Inovação na Área da Saúde",
+    "healthcare.innovation.description":
+      "Desenvolvemos soluções tecnológicas que melhoram o atendimento médico, otimizam processos hospitalares e promovem o bem-estar.",
+    "healthcare.solutions.title": "Nossas Soluções",
+    "healthcare.solutions.hospital.title": "Sistemas Hospitalares",
+    "healthcare.solutions.hospital.description":
+      "Plataformas completas para gestão hospitalar e prontuários eletrônicos.",
+    "healthcare.solutions.telemedicine.title": "Telemedicina",
+    "healthcare.solutions.telemedicine.description":
+      "Soluções para consultas remotas e monitoramento de pacientes à distância.",
+    "healthcare.solutions.patient.title": "Gestão de Pacientes",
+    "healthcare.solutions.patient.description": "Sistemas para otimizar o atendimento e acompanhamento de pacientes.",
+    "healthcare.solutions.analytics.title": "Análise de Dados",
+    "healthcare.solutions.analytics.description":
+      "Ferramentas de análise para apoiar decisões médicas baseadas em dados.",
   },
   en: {
     // Navigation
@@ -553,6 +607,23 @@ const translations = {
     "retail.solutions.crm.description": "Tools for customer relationship management and loyalty.",
     "retail.solutions.analytics.title": "Analytics",
     "retail.solutions.analytics.description": "Data analysis for insights into consumer behavior.",
+    // Healthcare Page
+    "healthcare.hero.title": "Healthcare Sector",
+    "healthcare.hero.subtitle": "Technology at the service of health and well-being",
+    "healthcare.innovation.title": "Innovation in Healthcare",
+    "healthcare.innovation.description":
+      "We develop technological solutions that improve medical care, optimize hospital processes and promote well-being.",
+    "healthcare.solutions.title": "Our Solutions",
+    "healthcare.solutions.hospital.title": "Hospital Systems",
+    "healthcare.solutions.hospital.description":
+      "Complete platforms for hospital management and electronic medical records.",
+    "healthcare.solutions.telemedicine.title": "Telemedicine",
+    "healthcare.solutions.telemedicine.description":
+      "Solutions for remote consultations and remote patient monitoring.",
+    "healthcare.solutions.patient.title": "Patient Management",
+    "healthcare.solutions.patient.description": "Systems to optimize patient care and follow-up.",
+    "healthcare.solutions.analytics.title": "Data Analysis",
+    "healthcare.solutions.analytics.description": "Analysis tools to support data-driven medical decisions.",
   },
   es: {
     // Navigation
@@ -656,6 +727,24 @@ const translations = {
     "retail.solutions.crm.description": "Herramientas para gestión de relación con clientes y fidelización.",
     "retail.solutions.analytics.title": "Analytics",
     "retail.solutions.analytics.description": "Análisis de datos para insights sobre comportamiento del consumidor.",
+    // Healthcare Page
+    "healthcare.hero.title": "Sector de Salud",
+    "healthcare.hero.subtitle": "Tecnología al servicio de la salud y el bienestar",
+    "healthcare.innovation.title": "Innovación en el Área de la Salud",
+    "healthcare.innovation.description":
+      "Desarrollamos soluciones tecnológicas que mejoran la atención médica, optimizan procesos hospitalarios y promueven el bienestar.",
+    "healthcare.solutions.title": "Nuestras Soluciones",
+    "healthcare.solutions.hospital.title": "Sistemas Hospitalarios",
+    "healthcare.solutions.hospital.description":
+      "Plataformas completas para gestión hospitalaria y registros médicos electrónicos.",
+    "healthcare.solutions.telemedicine.title": "Telemedicina",
+    "healthcare.solutions.telemedicine.description":
+      "Soluciones para consultas remotas y monitoreo de pacientes a distancia.",
+    "healthcare.solutions.patient.title": "Gestión de Pacientes",
+    "healthcare.solutions.patient.description": "Sistemas para optimizar la atención y seguimiento de pacientes.",
+    "healthcare.solutions.analytics.title": "Análisis de Datos",
+    "healthcare.solutions.analytics.description":
+      "Herramientas de análisis para apoyar decisiones médicas basadas en datos.",
   },
   fr: {
     // Navigation
@@ -759,6 +848,24 @@ const translations = {
     "retail.solutions.analytics.title": "Analytics",
     "retail.solutions.analytics.description":
       "Analyse de données pour des insights sur le comportement des consommateurs.",
+    // Healthcare Page
+    "healthcare.hero.title": "Secteur de la Santé",
+    "healthcare.hero.subtitle": "Technologie au service de la santé et du bien-être",
+    "healthcare.innovation.title": "Innovation dans le Domaine de la Santé",
+    "healthcare.innovation.description":
+      "Nous développons des solutions technologiques qui améliorent les soins médicaux, optimisent les processus hospitaliers et favorisent le bien-être.",
+    "healthcare.solutions.title": "Nos Solutions",
+    "healthcare.solutions.hospital.title": "Systèmes Hospitaliers",
+    "healthcare.solutions.hospital.description":
+      "Plateformes complètes pour la gestion hospitalière et les dossiers médicaux électroniques.",
+    "healthcare.solutions.telemedicine.title": "Télémédecine",
+    "healthcare.solutions.telemedicine.description":
+      "Solutions pour les consultations à distance et la surveillance des patients à distance.",
+    "healthcare.solutions.patient.title": "Gestion des Patients",
+    "healthcare.solutions.patient.description": "Systèmes pour optimiser les soins et le suivi des patients.",
+    "healthcare.solutions.analytics.title": "Analyse de Données",
+    "healthcare.solutions.analytics.description":
+      "Outils d'analyse pour soutenir les décisions médicales basées sur les données.",
   },
   de: {
     // Navigation
@@ -860,6 +967,24 @@ const translations = {
     "retail.solutions.crm.description": "Tools für Kundenbeziehungsmanagement und Kundenbindung.",
     "retail.solutions.analytics.title": "Analytics",
     "retail.solutions.analytics.description": "Datenanalyse für Einblicke in das Verbraucherverhalten.",
+    // Healthcare Page
+    "healthcare.hero.title": "Gesundheitssektor",
+    "healthcare.hero.subtitle": "Technologie im Dienste der Gesundheit und des Wohlbefindens",
+    "healthcare.innovation.title": "Innovation im Gesundheitswesen",
+    "healthcare.innovation.description":
+      "Wir entwickeln technologische Lösungen, die die medizinische Versorgung verbessern, Krankenhausprozesse optimieren und das Wohlbefinden fördern.",
+    "healthcare.solutions.title": "Unsere Lösungen",
+    "healthcare.solutions.hospital.title": "Krankenhaus-Systeme",
+    "healthcare.solutions.hospital.description":
+      "Vollständige Plattformen für Krankenhausmanagement und elektronische Patientenakten.",
+    "healthcare.solutions.telemedicine.title": "Telemedizin",
+    "healthcare.solutions.telemedicine.description":
+      "Lösungen für Fernkonsultationen und Fernüberwachung von Patienten.",
+    "healthcare.solutions.patient.title": "Patientenmanagement",
+    "healthcare.solutions.patient.description": "Systeme zur Optimierung der Patientenbetreuung und -nachsorge.",
+    "healthcare.solutions.analytics.title": "Datenanalyse",
+    "healthcare.solutions.analytics.description":
+      "Analysetools zur Unterstützung datengestützter medizinischer Entscheidungen.",
   },
 }
 
