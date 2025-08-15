@@ -2,13 +2,11 @@
 
 import { useState, useEffect } from "react"
 import Image from "next/image"
-import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel"
 import { Navbar } from "@/components/navbar"
 import { Code, Smartphone, Globe, Database, Zap, Shield, Palette, CheckCircle } from "lucide-react"
 import Autoplay from "embla-carousel-autoplay"
-import Link from "next/link"
 import { useTranslation } from "@/components/translation-context"
 
 function DevelopmentPageContent() {
@@ -17,6 +15,10 @@ function DevelopmentPageContent() {
 
   useEffect(() => {
     setMounted(true)
+  }, [])
+
+  useEffect(() => {
+    window.scrollTo(0, 0)
   }, [])
 
   if (!mounted) {
