@@ -77,11 +77,14 @@ export function TestimonialsSection() {
                     style={{ width: "400px" }}
                   >
                     <div
-                      className={`bg-gray-50 rounded-lg p-6 shadow-md transition-all duration-700 ease-in-out mx-auto max-w-sm ${
+                      className={`rounded-lg p-6 shadow-md transition-all duration-700 ease-in-out mx-auto max-w-sm ${
                         isCenterCard
-                          ? "transform scale-110 shadow-2xl bg-white border-2 border-orange-200"
-                          : "transform scale-90 opacity-80"
+                          ? "transform scale-110 shadow-2xl border-2 border-orange-200"
+                          : "transform scale-90 opacity-80 bg-gray-50"
                       }`}
+                      style={{
+                        backgroundColor: isCenterCard ? "rgba(255, 255, 0, 0.05)" : undefined,
+                      }}
                     >
                       <div className="flex flex-col items-center mb-4">
                         <div className="relative w-20 h-20 rounded-full overflow-hidden mb-4">
