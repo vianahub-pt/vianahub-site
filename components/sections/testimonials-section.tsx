@@ -22,7 +22,7 @@ const testimonials = [
   {
     name: "Claudio Antunes",
     company: "Claudio Eletricista",
-    text: "Sou Claudio Antunes, proprietário da Claudio Eletricista, onde gerimos projetos de energias e na construção civil em toda a região de Porto e Aveiro, em Portugal. Quero ressaltar o quão fundamental foi a VianaHub na criação do nosso site e implantação do nosso ERP Odoo.",
+    text: "Sou Claudio Antunes, da Claudio Eletricista, onde gerimos projetos de energias e construção civil em toda a região de Porto e Aveiro, em Portugal. Quero ressaltar o quão fundamental foi a VianaHub na criação do nosso site e implantação do nosso ERP Odoo.",
     rating: 4,
     image: "/testimonials/claudio-antunes.webp",
   },
