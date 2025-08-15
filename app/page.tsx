@@ -4,24 +4,18 @@ import { ProjectsSection } from "@/components/sections/projects-section"
 import { IndustriesSection } from "@/components/sections/industries-section"
 import { TestimonialsSection } from "@/components/sections/testimonials-section"
 import { InsightsSection } from "@/components/sections/insights-section"
-import { CareersSection } from "@/components/sections/careers-section"
 import { EntertainmentSection } from "@/components/sections/entertainment-section"
-import { ParallaxSection } from "@/components/sections/parallax-section"
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-background">
-      <main>
-        <HeroSection />
-        <EntertainmentSection />
-        <ParallaxSection />
-        <ServicesSection />
-        <ProjectsSection />
-        <IndustriesSection />
-        <TestimonialsSection />
-        <InsightsSection />
-        <CareersSection />
-      </main>
+    <div className="flex flex-col min-h-screen">
+      <HeroSection />
+      <ServicesSection />
+      <ProjectsSection />
+      <IndustriesSection />
+      <TestimonialsSection />
+      <InsightsSection />
+      <EntertainmentSection />
     </div>
   )
 }

@@ -14,15 +14,15 @@ export default function ClientLayout({
   children: React.ReactNode
 }) {
   return (
-    <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
-      <TranslationProvider>
-        <div className="min-h-screen flex flex-col">
+    <TranslationProvider>
+      <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
+        <div className="min-h-screen bg-background">
           <Navbar />
-          <main className="flex-1 pt-16">{children}</main>
+          <main>{children}</main>
           <Footer />
-          <Toaster />
         </div>
-      </TranslationProvider>
-    </ThemeProvider>
+        <Toaster />
+      </ThemeProvider>
+    </TranslationProvider>
   )
 }
