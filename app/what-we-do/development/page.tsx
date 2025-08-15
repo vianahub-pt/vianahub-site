@@ -209,7 +209,7 @@ function DevelopmentPageContent() {
                 <Card key={index} className="text-center">
                   <CardContent className="p-6">
                     <feature.icon className="h-12 w-12 text-primary mx-auto mb-4" />
-                    <h3 className="text-xl font-semibold mb-3">{feature.title}</h3>
+                    <h3 className="block text-orange-500 text-xl font-semibold mb-3">{feature.title}</h3>
                     <p className="text-muted-foreground">{feature.description}</p>
                   </CardContent>
                 </Card>
