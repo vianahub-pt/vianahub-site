@@ -350,6 +350,34 @@ const translations = {
     "landingPages.cta.subtitle":
       "Entre em contato e descubra como nossas landing pages podem transformar seus resultados",
     "landingPages.cta.button": "Solicitar Orçamento",
+    // System Integration Page
+    "systemIntegration.hero.title": "Integração de Sistemas",
+    "systemIntegration.hero.subtitle": "Conecte e otimize todos os seus sistemas para máxima eficiência operacional",
+    "systemIntegration.benefits.title": "Benefícios da Integração",
+    "systemIntegration.benefits.subtitle": "Veja como a integração de sistemas pode transformar sua operação",
+    "systemIntegration.benefits.connectivity.title": "Conectividade Total",
+    "systemIntegration.benefits.connectivity.description":
+      "Conecte todos os seus sistemas e aplicações em uma única plataforma",
+    "systemIntegration.benefits.automation.title": "Automação Avançada",
+    "systemIntegration.benefits.automation.description": "Automatize processos e reduza trabalho manual repetitivo",
+    "systemIntegration.benefits.data.title": "Dados Unificados",
+    "systemIntegration.benefits.data.description": "Centralize informações e tenha uma visão única do seu negócio",
+    "systemIntegration.benefits.security.title": "Segurança Reforçada",
+    "systemIntegration.benefits.security.description":
+      "Implemente protocolos de segurança consistentes em todos os sistemas",
+    "systemIntegration.solutions.title": "Nossas Soluções",
+    "systemIntegration.solutions.subtitle": "Tecnologias e abordagens para integração eficiente",
+    "systemIntegration.solutions.apis.title": "APIs Personalizadas",
+    "systemIntegration.solutions.apis.description": "Desenvolvimento de APIs robustas para conectar sistemas diversos",
+    "systemIntegration.solutions.cloud.title": "Integração Cloud",
+    "systemIntegration.solutions.cloud.description": "Conecte sistemas locais com soluções em nuvem",
+    "systemIntegration.solutions.erp.title": "Integração ERP",
+    "systemIntegration.solutions.erp.description": "Conecte seu ERP com outros sistemas empresariais",
+    "systemIntegration.solutions.legacy.title": "Sistemas Legados",
+    "systemIntegration.solutions.legacy.description": "Modernize e integre sistemas antigos com novas tecnologias",
+    "systemIntegration.cta.title": "Pronto para Integrar?",
+    "systemIntegration.cta.subtitle": "Entre em contato e descubra como podemos conectar seus sistemas",
+    "systemIntegration.cta.button": "Solicitar Consultoria",
   },
   en: {
     // Navigation
@@ -682,6 +710,33 @@ const translations = {
     "landingPages.cta.title": "Ready to Increase Your Conversions?",
     "landingPages.cta.subtitle": "Get in touch and discover how our landing pages can transform your results",
     "landingPages.cta.button": "Request Quote",
+    // System Integration Page
+    "systemIntegration.hero.title": "System Integration",
+    "systemIntegration.hero.subtitle": "Connect and optimize all your systems for maximum operational efficiency",
+    "systemIntegration.benefits.title": "Integration Benefits",
+    "systemIntegration.benefits.subtitle": "See how system integration can transform your operation",
+    "systemIntegration.benefits.connectivity.title": "Total Connectivity",
+    "systemIntegration.benefits.connectivity.description":
+      "Connect all your systems and applications in a single platform",
+    "systemIntegration.benefits.automation.title": "Advanced Automation",
+    "systemIntegration.benefits.automation.description": "Automate processes and reduce repetitive manual work",
+    "systemIntegration.benefits.data.title": "Unified Data",
+    "systemIntegration.benefits.data.description": "Centralize information and have a single view of your business",
+    "systemIntegration.benefits.security.title": "Enhanced Security",
+    "systemIntegration.benefits.security.description": "Implement consistent security protocols across all systems",
+    "systemIntegration.solutions.title": "Our Solutions",
+    "systemIntegration.solutions.subtitle": "Technologies and approaches for efficient integration",
+    "systemIntegration.solutions.apis.title": "Custom APIs",
+    "systemIntegration.solutions.apis.description": "Development of robust APIs to connect diverse systems",
+    "systemIntegration.solutions.cloud.title": "Cloud Integration",
+    "systemIntegration.solutions.cloud.description": "Connect on-premise systems with cloud solutions",
+    "systemIntegration.solutions.erp.title": "ERP Integration",
+    "systemIntegration.solutions.erp.description": "Connect your ERP with other enterprise systems",
+    "systemIntegration.solutions.legacy.title": "Legacy Systems",
+    "systemIntegration.solutions.legacy.description": "Modernize and integrate old systems with new technologies",
+    "systemIntegration.cta.title": "Ready to Integrate?",
+    "systemIntegration.cta.subtitle": "Get in touch and discover how we can connect your systems",
+    "systemIntegration.cta.button": "Request Consultation",
   },
   es: {
     // Navigation
@@ -827,7 +882,7 @@ const translations = {
     "testimonials.text":
       "Profesionales extremadamente competentes y dedicados. El proyecto fue entregado a tiempo y superó todas nuestras expectativas. Recomiendo sin dudarlo.",
     "testimonials.ana.name": "Ana Costa",
-    "testimonials.position": "Fundadora, EduTech",
+    "testimonials.ana.position": "Fundadora, EduTech",
     "testimonials.text":
       "La plataforma educativa que crearon revolucionó nuestra forma de enseñar. Interfaz intuitiva, funcionalidades avanzadas y soporte técnico impecable.",
     "testimonials.carlos.name": "Carlos Oliveira",
@@ -1026,6 +1081,34 @@ const translations = {
     "landingPages.cta.subtitle":
       "Póngase en contacto y descubra cómo nuestras landing pages pueden transformar sus resultados",
     "landingPages.cta.button": "Solicitar Presupuesto",
+    // System Integration Page
+    "systemIntegration.hero.title": "Integración de Sistemas",
+    "systemIntegration.hero.subtitle": "Conecte y optimice todos sus sistemas para máxima eficiencia operacional",
+    "systemIntegration.benefits.title": "Beneficios de la Integración",
+    "systemIntegration.benefits.subtitle": "Vea cómo la integración de sistemas puede transformar su operación",
+    "systemIntegration.benefits.connectivity.title": "Conectividad Total",
+    "systemIntegration.benefits.connectivity.description":
+      "Conecte todos sus sistemas y aplicaciones en una sola plataforma",
+    "systemIntegration.benefits.automation.title": "Automatización Avanzada",
+    "systemIntegration.benefits.automation.description": "Automatice procesos y reduzca el trabajo manual repetitivo",
+    "systemIntegration.benefits.data.title": "Datos Unificados",
+    "systemIntegration.benefits.data.description": "Centralice información y tenga una vista única de su negocio",
+    "systemIntegration.benefits.security.title": "Seguridad Reforzada",
+    "systemIntegration.benefits.security.description":
+      "Implemente protocolos de seguridad consistentes en todos los sistemas",
+    "systemIntegration.solutions.title": "Nuestras Soluciones",
+    "systemIntegration.solutions.subtitle": "Tecnologías y enfoques para integración eficiente",
+    "systemIntegration.solutions.apis.title": "APIs Personalizadas",
+    "systemIntegration.solutions.apis.description": "Desarrollo de APIs robustas para conectar sistemas diversos",
+    "systemIntegration.solutions.cloud.title": "Integración Cloud",
+    "systemIntegration.solutions.cloud.description": "Conecte sistemas locales con soluciones en la nube",
+    "systemIntegration.solutions.erp.title": "Integración ERP",
+    "systemIntegration.solutions.erp.description": "Conecte su ERP con otros sistemas empresariales",
+    "systemIntegration.solutions.legacy.title": "Sistemas Legados",
+    "systemIntegration.solutions.legacy.description": "Modernice e integre sistemas antiguos con nuevas tecnologías",
+    "systemIntegration.cta.title": "¿Listo para Integrar?",
+    "systemIntegration.cta.subtitle": "Póngase en contacto y descubra cómo podemos conectar sus sistemas",
+    "systemIntegration.cta.button": "Solicitar Consultoría",
   },
   fr: {
     // Navigation
@@ -1375,6 +1458,38 @@ const translations = {
     "landingPages.cta.subtitle":
       "Contactez-nous et découvrez comment nos pages d'atterrissage peuvent transformer vos résultats",
     "landingPages.cta.button": "Demander un Devis",
+    // System Integration Page
+    "systemIntegration.hero.title": "Intégration de Systèmes",
+    "systemIntegration.hero.subtitle":
+      "Connectez et optimisez tous vos systèmes pour une efficacité opérationnelle maximale",
+    "systemIntegration.benefits.title": "Avantages de l'Intégration",
+    "systemIntegration.benefits.subtitle": "Voyez comment l'intégration de systèmes peut transformer votre opération",
+    "systemIntegration.benefits.connectivity.title": "Connectivité Totale",
+    "systemIntegration.benefits.connectivity.description":
+      "Connectez tous vos systèmes et applications en une seule plateforme",
+    "systemIntegration.benefits.automation.title": "Automatisation Avancée",
+    "systemIntegration.benefits.automation.description":
+      "Automatisez les processus et réduisez le travail manuel répétitif",
+    "systemIntegration.benefits.data.title": "Données Unifiées",
+    "systemIntegration.benefits.data.description":
+      "Centralisez les informations et ayez une vue unique de votre entreprise",
+    "systemIntegration.benefits.security.title": "Sécurité Renforcée",
+    "systemIntegration.benefits.security.description":
+      "Implémentez des protocoles de sécurité cohérents sur tous les systèmes",
+    "systemIntegration.solutions.title": "Nos Solutions",
+    "systemIntegration.solutions.subtitle": "Technologies et approches pour une intégration efficace",
+    "systemIntegration.solutions.apis.title": "APIs Personnalisées",
+    "systemIntegration.solutions.apis.description": "Développement d'APIs robustes pour connecter des systèmes divers",
+    "systemIntegration.solutions.cloud.title": "Intégration Cloud",
+    "systemIntegration.solutions.cloud.description": "Connectez les systèmes sur site avec les solutions cloud",
+    "systemIntegration.solutions.erp.title": "Intégration ERP",
+    "systemIntegration.solutions.erp.description": "Connectez votre ERP avec d'autres systèmes d'entreprise",
+    "systemIntegration.solutions.legacy.title": "Systèmes Hérités",
+    "systemIntegration.solutions.legacy.description":
+      "Modernisez et intégrez les anciens systèmes avec les nouvelles technologies",
+    "systemIntegration.cta.title": "Prêt à Intégrer?",
+    "systemIntegration.cta.subtitle": "Contactez-nous et découvrez comment nous pouvons connecter vos systèmes",
+    "systemIntegration.cta.button": "Demander une Consultation",
   },
   de: {
     // Navigation
@@ -1719,6 +1834,38 @@ const translations = {
     "landingPages.cta.subtitle":
       "Kontaktieren Sie uns und entdecken Sie, wie unsere Landing Pages Ihre Ergebnisse transformieren können",
     "landingPages.cta.button": "Angebot Anfordern",
+    // System Integration Page
+    "systemIntegration.hero.title": "Systemintegration",
+    "systemIntegration.hero.subtitle":
+      "Verbinden und optimieren Sie alle Ihre Systeme für maximale operative Effizienz",
+    "systemIntegration.benefits.title": "Vorteile der Integration",
+    "systemIntegration.benefits.subtitle": "Sehen Sie, wie Systemintegration Ihren Betrieb transformieren kann",
+    "systemIntegration.benefits.connectivity.title": "Totale Konnektivität",
+    "systemIntegration.benefits.connectivity.description":
+      "Verbinden Sie alle Ihre Systeme und Anwendungen in einer einzigen Plattform",
+    "systemIntegration.benefits.automation.title": "Erweiterte Automatisierung",
+    "systemIntegration.benefits.automation.description":
+      "Automatisieren Sie Prozesse und reduzieren Sie repetitive manuelle Arbeit",
+    "systemIntegration.benefits.data.title": "Vereinheitlichte Daten",
+    "systemIntegration.benefits.data.description":
+      "Zentralisieren Sie Informationen und haben Sie eine einheitliche Sicht auf Ihr Geschäft",
+    "systemIntegration.benefits.security.title": "Verstärkte Sicherheit",
+    "systemIntegration.benefits.security.description":
+      "Implementieren Sie konsistente Sicherheitsprotokolle in allen Systemen",
+    "systemIntegration.solutions.title": "Unsere Lösungen",
+    "systemIntegration.solutions.subtitle": "Technologien und Ansätze für effiziente Integration",
+    "systemIntegration.solutions.apis.title": "Maßgeschneiderte APIs",
+    "systemIntegration.solutions.apis.description": "Entwicklung robuster APIs zur Verbindung verschiedener Systeme",
+    "systemIntegration.solutions.cloud.title": "Cloud-Integration",
+    "systemIntegration.solutions.cloud.description": "Verbinden Sie lokale Systeme mit Cloud-Lösungen",
+    "systemIntegration.solutions.erp.title": "ERP-Integration",
+    "systemIntegration.solutions.erp.description": "Verbinden Sie Ihr ERP mit anderen Unternehmenssystemen",
+    "systemIntegration.solutions.legacy.title": "Legacy-Systeme",
+    "systemIntegration.solutions.legacy.description":
+      "Modernisieren und integrieren Sie alte Systeme mit neuen Technologien",
+    "systemIntegration.cta.title": "Bereit zur Integration?",
+    "systemIntegration.cta.subtitle": "Kontaktieren Sie uns und entdecken Sie, wie wir Ihre Systeme verbinden können",
+    "systemIntegration.cta.button": "Beratung Anfordern",
   },
 }
 
