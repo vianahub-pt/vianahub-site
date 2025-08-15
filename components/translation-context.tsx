@@ -421,42 +421,22 @@ const translations = {
     "education.solutions.analytics.title": "Análise de Desempenho",
     "education.solutions.analytics.description":
       "Sistemas de análise que ajudam a melhorar o desempenho dos estudantes.",
-    // Government Page
-    "government.hero.title": "Setor Governamental",
-    "government.hero.subtitle": "Soluções tecnológicas para o setor público",
-    "government.transformation.title": "Transformação Digital no Setor Público",
-    "government.transformation.description":
-      "Desenvolvemos soluções tecnológicas que modernizam os serviços públicos, aumentam a transparência e melhoram a experiência dos cidadãos.",
-    "government.solutions.title": "Nossas Soluções",
-    "government.solutions.portals.title": "Portais de Serviços",
-    "government.solutions.portals.description":
-      "Plataformas digitais que centralizam serviços públicos, facilitando o acesso dos cidadãos.",
-    "government.solutions.management.title": "Sistemas de Gestão",
-    "government.solutions.management.description":
-      "Ferramentas para otimizar processos internos e melhorar a eficiência administrativa.",
-    "government.solutions.transparency.title": "Transparência",
-    "government.solutions.transparency.description":
-      "Soluções que promovem a transparência e accountability no setor público.",
-    "government.solutions.security.title": "Segurança",
-    "government.solutions.security.description":
-      "Implementação de medidas de segurança robustas para proteger dados sensíveis.",
-    // Manufacturing Page
-    "manufacturing.hero.title": "Setor de Manufatura",
-    "manufacturing.hero.subtitle": "Tecnologia para a indústria 4.0",
-    "manufacturing.transformation.title": "Transformação Digital na Manufatura",
-    "manufacturing.transformation.description":
-      "Desenvolvemos soluções tecnológicas que modernizam processos industriais e impulsionam a eficiência produtiva.",
-    "manufacturing.solutions.title": "Nossas Soluções",
-    "manufacturing.solutions.automation.title": "Automação Industrial",
-    "manufacturing.solutions.automation.description": "Sistemas de automação para otimizar processos de produção.",
-    "manufacturing.solutions.iot.title": "IoT Industrial",
-    "manufacturing.solutions.iot.description":
-      "Soluções IoT para la surveillance et le contrôle des équipements industriels.",
-    "manufacturing.solutions.production.title": "Gestion de Production",
-    "manufacturing.solutions.production.description":
-      "Systèmes pour la planification et le contrôle efficace de la production.",
-    "manufacturing.solutions.quality.title": "Qualité",
-    "manufacturing.solutions.quality.description": "Outils pour le contrôle qualité et la traçabilité des produits.",
+    // Financial Page
+    "financial.hero.title": "Setor Financeiro",
+    "financial.hero.subtitle": "Soluções tecnológicas seguras e inovadoras para o setor financeiro",
+    "financial.innovation.title": "Tecnologia Financeira Avançada",
+    "financial.innovation.description":
+      "Desenvolvemos soluções tecnológicas seguras e inovadoras que transformam a experiência bancária e financeira.",
+    "financial.solutions.title": "Nossas Soluções",
+    "financial.solutions.banking.title": "Sistemas Bancários",
+    "financial.solutions.banking.description": "Plataformas bancárias completas com alta segurança e performance.",
+    "financial.solutions.fintech.title": "Soluções Fintech",
+    "financial.solutions.fintech.description": "Soluções innovadoras para startups e empresas do setor financeiro.",
+    "financial.solutions.risk.title": "Gestão de Riscos",
+    "financial.solutions.risk.description": "Sistemas avançados de análise e gestão de riscos financeiros.",
+    "financial.solutions.compliance.title": "Conformidade",
+    "financial.solutions.compliance.description":
+      "Ferramentas para garantir a conformidade com regulamentações financeiras.",
   },
   en: {
     // Navigation
@@ -527,6 +507,22 @@ const translations = {
     "manufacturing.solutions.production.description": "Systems for efficient production planning and control.",
     "manufacturing.solutions.quality.title": "Quality",
     "manufacturing.solutions.quality.description": "Tools for quality control and product traceability.",
+    // Financial Page
+    "financial.hero.title": "Financial Sector",
+    "financial.hero.subtitle": "Secure and innovative technology solutions for the financial sector",
+    "financial.innovation.title": "Advanced Financial Technology",
+    "financial.innovation.description":
+      "We develop secure and innovative technology solutions that transform the banking and financial experience.",
+    "financial.solutions.title": "Our Solutions",
+    "financial.solutions.banking.title": "Banking Systems",
+    "financial.solutions.banking.description": "Complete banking platforms with high security and performance.",
+    "financial.solutions.fintech.title": "Fintech Solutions",
+    "financial.solutions.fintech.description":
+      "Innovative solutions for startups and companies in the financial sector.",
+    "financial.solutions.risk.title": "Risk Management",
+    "financial.solutions.risk.description": "Advanced systems for financial risk analysis and management.",
+    "financial.solutions.compliance.title": "Compliance",
+    "financial.solutions.compliance.description": "Tools to ensure compliance with financial regulations.",
   },
   es: {
     // Navigation
@@ -599,6 +595,22 @@ const translations = {
       "Sistemas para planificación y control eficiente de la producción.",
     "manufacturing.solutions.quality.title": "Calidad",
     "manufacturing.solutions.quality.description": "Herramientas para control de calidad y trazabilidad de productos.",
+    // Financial Page
+    "financial.hero.title": "Sector Financiero",
+    "financial.hero.subtitle": "Soluciones tecnológicas seguras e innovadoras para el sector financiero",
+    "financial.innovation.title": "Tecnología Financiera Avanzada",
+    "financial.innovation.description":
+      "Desarrollamos soluciones tecnológicas seguras e innovadoras que transforman la experiencia bancaria y financiera.",
+    "financial.solutions.title": "Nuestras Soluciones",
+    "financial.solutions.banking.title": "Sistemas Bancarios",
+    "financial.solutions.banking.description": "Plataformas bancarias completas con alta seguridad y rendimiento.",
+    "financial.solutions.fintech.title": "Soluciones Fintech",
+    "financial.solutions.fintech.description": "Soluciones innovadoras para startups y empresas del sector financiero.",
+    "financial.solutions.risk.title": "Gestión de Riesgos",
+    "financial.solutions.risk.description": "Sistemas avanzados de análisis y gestión de riesgos financieros.",
+    "financial.solutions.compliance.title": "Cumplimiento",
+    "financial.solutions.compliance.description":
+      "Herramientas para garantizar el cumplimiento de las regulaciones financieras.",
   },
   fr: {
     // Navigation
@@ -670,8 +682,22 @@ const translations = {
     "manufacturing.solutions.production.title": "Gestion de Production",
     "manufacturing.solutions.production.description":
       "Systèmes pour la planification et le contrôle efficace de la production.",
-    "manufacturing.solutions.quality.title": "Qualité",
-    "manufacturing.solutions.quality.description": "Outils pour le contrôle qualité et la traçabilité des produits.",
+    // Financial Page
+    "financial.hero.title": "Secteur Financier",
+    "financial.hero.subtitle": "Solutions technologiques sécurisées et innovantes pour le secteur financier",
+    "financial.innovation.title": "Technologie Financière Avancée",
+    "financial.innovation.description":
+      "Nous développons des solutions technologiques sécurisées et innovantes qui transforment l'expérience bancaire et financière.",
+    "financial.solutions.title": "Nos Solutions",
+    "financial.solutions.banking.title": "Systèmes Bancaires",
+    "financial.solutions.banking.description": "Plateformes bancaires complètes avec haute sécurité et performance.",
+    "financial.solutions.fintech.title": "Solutions Fintech",
+    "financial.solutions.fintech.description":
+      "Solutions innovantes pour les startups et entreprises du secteur financier.",
+    "financial.solutions.risk.title": "Gestion des Risques",
+    "financial.solutions.risk.description": "Systèmes avancés d'analyse et de gestion des risques financiers.",
+    "financial.solutions.compliance.title": "Conformité",
+    "financial.solutions.compliance.description": "Outils pour assurer la conformité aux réglementations financières.",
   },
   de: {
     // Navigation
@@ -743,6 +769,21 @@ const translations = {
     "manufacturing.solutions.production.description": "Systeme für effiziente Produktionsplanung und -steuerung.",
     "manufacturing.solutions.quality.title": "Qualität",
     "manufacturing.solutions.quality.description": "Tools für Qualitätskontrolle und Produktrückverfolgbarkeit.",
+    // Financial Page
+    "financial.hero.title": "Finanzsektor",
+    "financial.hero.subtitle": "Sichere und innovative Technologielösungen für den Finanzsektor",
+    "financial.innovation.title": "Fortschrittliche Finanztechnologie",
+    "financial.innovation.description":
+      "Wir entwickeln sichere und innovative Technologielösungen, die das Bank- und Finanzwesen transformieren.",
+    "financial.solutions.title": "Unsere Lösungen",
+    "financial.solutions.banking.title": "Bankensysteme",
+    "financial.solutions.banking.description": "Vollständige Bankplattformen mit hoher Sicherheit und Leistung.",
+    "financial.solutions.fintech.title": "Fintech-Lösungen",
+    "financial.solutions.fintech.description": "Innovative Lösungen für Startups und Unternehmen im Finanzsektor.",
+    "financial.solutions.risk.title": "Risikomanagement",
+    "financial.solutions.risk.description": "Fortschrittliche Systeme für Finanzrisikoanalyse und -management.",
+    "financial.solutions.compliance.title": "Compliance",
+    "financial.solutions.compliance.description": "Tools zur Gewährleistung der Einhaltung von Finanzvorschriften.",
   },
 }
 
