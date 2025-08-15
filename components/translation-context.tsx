@@ -1,13 +1,19 @@
-"use client"
+"use client";
 
-import { createContext, useContext, useState, useEffect, type ReactNode } from "react"
+import {
+  createContext,
+  useContext,
+  useState,
+  useEffect,
+  type ReactNode,
+} from "react";
 
-export type Language = "pt" | "en" | "es" | "fr" | "de"
+export type Language = "pt" | "en" | "es" | "fr" | "de";
 
 interface TranslationContextType {
-  language: Language
-  setLanguage: (lang: Language) => void
-  t: (key: string) => string
+  language: Language;
+  setLanguage: (lang: Language) => void;
+  t: (key: string) => string;
 }
 
 const translations = {
@@ -42,31 +48,40 @@ const translations = {
     "hero.title.line1": "Soluções que",
     "hero.title.line2": "Transformam",
     "hero.title.line3": "O Seu Negócio",
-    "hero.subtitle": "Desenvolvemos tecnologias inovadoras que impulsionam o crescimento do seu negócio.",
+    "hero.subtitle":
+      "Desenvolvemos tecnologias inovadoras que impulsionam o crescimento do seu negócio.",
     "hero.stats.projects": "Projetos",
     "hero.stats.clients": "Clientes",
     "hero.stats.years": "Anos",
     // Services Section
     "services.title.part1": "Os Nossos",
     "services.title.part2": "Serviços",
-    "services.subtitle": "Oferecemos soluções tecnológicas completas para transformar o seu negócio",
+    "services.subtitle":
+      "Oferecemos soluções tecnológicas completas para transformar o seu negócio",
     "services.web.title": "Desenvolvimento Web",
-    "services.web.description": "Criamos websites modernos e responsivos que elevam a sua presença digital",
+    "services.web.description":
+      "Criamos websites modernos e responsivos que elevam a sua presença digital",
     "services.mobile.title": "Aplicações Móveis",
-    "services.mobile.description": "Desenvolvemos apps nativas e híbridas para iOS e Android",
+    "services.mobile.description":
+      "Desenvolvemos apps nativas e híbridas para iOS e Android",
     "services.landing.title": "Landing Pages",
-    "services.landing.description": "Páginas optimizadas para conversão e geração de leads",
+    "services.landing.description":
+      "Páginas optimizadas para conversão e geração de leads",
     "services.integration.title": "Integração de Sistemas",
-    "services.integration.description": "Conectamos os seus sistemas para maior eficiência operacional",
+    "services.integration.description":
+      "Conectamos os seus sistemas para maior eficiência operacional",
     "services.security.title": "Segurança Digital",
-    "services.security.description": "Protegemos os seus dados com as melhores práticas de segurança",
+    "services.security.description":
+      "Protegemos os seus dados com as melhores práticas de segurança",
     "services.automation.title": "Automação",
-    "services.automation.description": "Automatizamos processos para aumentar a produtividade",
+    "services.automation.description":
+      "Automatizamos processos para aumentar a produtividade",
     "services.cta": "Saber Mais",
     // Projects Section
     "projects.title.part1": "Nossos",
     "projects.title.part2": "Projetos",
-    "projects.subtitle": "Conheça alguns dos projetos que desenvolvemos para nossos clientes",
+    "projects.subtitle":
+      "Conheça alguns dos projetos que desenvolvemos para nossos clientes",
     "projects.cta": "Ver Todos os Projetos",
     "projects.viewProject": "Ver Projeto",
     "projects.ecommerce.title": "Plataforma de E-commerce",
@@ -95,7 +110,8 @@ const translations = {
       "Solução completa para gestão de frotas, rastreamento de entregas e otimização de rotas.",
     "projects.streaming.title": "Plataforma de Streaming",
     "projects.streaming.category": "Entretenimento",
-    "projects.streaming.description": "Sistema de streaming de vídeo com CDN global e analytics avançados.",
+    "projects.streaming.description":
+      "Sistema de streaming de vídeo com CDN global e analytics avançados.",
     "projects.crm.title": "Sistema CRM",
     "projects.crm.category": "Gestão",
     "projects.crm.description":
@@ -103,24 +119,32 @@ const translations = {
     // Industries Section
     "industries.title.part1": "Setores que",
     "industries.title.part2": "Servimos",
-    "industries.subtitle": "Oferecemos soluções especializadas para diversos setores da economia",
+    "industries.subtitle":
+      "Oferecemos soluções especializadas para diversos setores da economia",
     "industries.cta": "Saber Mais",
     "industries.education.title": "Educação",
-    "industries.education.description": "Soluções tecnológicas para instituições de ensino e plataformas educacionais",
+    "industries.education.description":
+      "Soluções tecnológicas para instituições de ensino e plataformas educacionais",
     "industries.financial.title": "Financeiro",
-    "industries.financial.description": "Sistemas seguros para bancos, fintechs e instituições financeiras",
+    "industries.financial.description":
+      "Sistemas seguros para bancos, fintechs e instituições financeiras",
     "industries.government.title": "Governo",
-    "industries.government.description": "Plataformas digitais para modernização de serviços públicos",
+    "industries.government.description":
+      "Plataformas digitais para modernização de serviços públicos",
     "industries.healthcare.title": "Saúde",
-    "industries.healthcare.description": "Sistemas de gestão hospitalar e soluções para área da saúde",
+    "industries.healthcare.description":
+      "Sistemas de gestão hospitalar e soluções para área da saúde",
     "industries.manufacturing.title": "Indústria",
-    "industries.manufacturing.description": "Automação e sistemas de gestão para o setor industrial",
+    "industries.manufacturing.description":
+      "Automação e sistemas de gestão para o setor industrial",
     "industries.retail.title": "Retalho",
-    "industries.retail.description": "E-commerce e soluções digitais para o setor de retalho",
+    "industries.retail.description":
+      "E-commerce e soluções digitais para o setor de retalho",
     // Testimonials Section
     "testimonials.title.part1": "O que Dizem",
     "testimonials.title.part2": "Nossos Clientes",
-    "testimonials.subtitle": "Veja o que nossos clientes falam sobre nossos serviços e soluções",
+    "testimonials.subtitle":
+      "Veja o que nossos clientes falam sobre nossos serviços e soluções",
     "testimonials.maria.name": "Maria Silva",
     "testimonials.maria.position": "CEO, TechStart",
     "testimonials.maria.text":
@@ -148,31 +172,39 @@ const translations = {
     // Insights Section
     "insights.title.part1": "Nossos",
     "insights.title.part2": "Insights",
-    "insights.subtitle": "Dados e estatísticas que demonstram nosso compromisso com a excelência",
+    "insights.subtitle":
+      "Dados e estatísticas que demonstram nosso compromisso com a excelência",
     "insights.growth.title": "Crescimento",
-    "insights.growth.description": "Aumento médio na eficiência dos nossos clientes",
+    "insights.growth.description":
+      "Aumento médio na eficiência dos nossos clientes",
     "insights.experience.title": "Satisfação",
     "insights.experience.description": "Taxa de satisfação dos nossos clientes",
     "insights.innovation.title": "Inovação",
-    "insights.innovation.description": "Projetos entregues com tecnologias de ponta",
+    "insights.innovation.description":
+      "Projetos entregues com tecnologias de ponta",
     "insights.results.title": "Resultados",
     "insights.results.description": "Taxa de sucesso nos projetos entregues",
     // Entertainment Section
     "entertainment.title": "Entretenimento",
     "entertainment.subtitle": "Divirta-se com os nossos jogos interactivos",
     "entertainment.foxGame.title": "Jogo da Raposa",
-    "entertainment.foxGame.description": "Ajude a raposa a encontrar o caminho através do labirinto",
+    "entertainment.foxGame.description":
+      "Ajude a raposa a encontrar o caminho através do labirinto",
     "entertainment.foxGame.cta": "Jogar Agora",
     "entertainment.desertGame.title": "Aventura no Deserto",
-    "entertainment.desertGame.description": "Explore o deserto e descubra tesouros escondidos",
+    "entertainment.desertGame.description":
+      "Explore o deserto e descubra tesouros escondidos",
     "entertainment.desertGame.cta": "Explorar",
     "entertainment.oasisGame.title": "Oásis Perdido",
-    "entertainment.oasisGame.description": "Encontre o oásis perdido nesta aventura épica",
+    "entertainment.oasisGame.description":
+      "Encontre o oásis perdido nesta aventura épica",
     "entertainment.oasisGame.cta": "Descobrir",
     // Fox Game
     "foxGame.title": "Aventura da Raposa no Deserto",
-    "foxGame.subtitle": "Ajude a raposa a encontrar o oásis através do labirinto!",
-    "foxGame.instructions": "Use as setas do teclado para mover a raposa através do labirinto",
+    "foxGame.subtitle":
+      "Ajude a raposa a encontrar o oásis através do labirinto!",
+    "foxGame.instructions":
+      "Use as setas do teclado para mover a raposa através do labirinto",
     "foxGame.level": "Nível",
     "foxGame.score": "Pontuação",
     "foxGame.time": "Tempo",
@@ -198,10 +230,9 @@ const translations = {
     "foxGame.namePlaceholder": "Seu nome",
     "foxGame.startButton": "Começar Aventura!",
     "foxGame.howToPlay": "Como jogar:",
-    "foxGame.instructions":
-      "Use as setas do teclado para mover a raposa • Ou clique nas células para mover • Encontre o oásis em cada nível • Complete todos os 5 níveis o mais rápido possível!",
     // Footer
-    "footer.description": "Desenvolvemos tecnologias inovadoras que impulsionam o crescimento do seu negócio.",
+    "footer.description":
+      "Desenvolvemos tecnologias inovadoras que impulsionam o crescimento do seu negócio.",
     "footer.services": "Serviços",
     "footer.industries": "Setores",
     "footer.contact": "Contacto",
@@ -251,31 +282,40 @@ const translations = {
     "hero.title.line1": "Solutions that",
     "hero.title.line2": "Transform",
     "hero.title.line3": "Your Business",
-    "hero.subtitle": "We develop innovative technologies that drive your business growth.",
+    "hero.subtitle":
+      "We develop innovative technologies that drive your business growth.",
     "hero.stats.projects": "Projects",
     "hero.stats.clients": "Clients",
     "hero.stats.years": "Years",
     // Services Section
     "services.title.part1": "Our",
     "services.title.part2": "Services",
-    "services.subtitle": "We offer complete technological solutions to transform your business",
+    "services.subtitle":
+      "We offer complete technological solutions to transform your business",
     "services.web.title": "Web Development",
-    "services.web.description": "We create modern and responsive websites that elevate your digital presence",
+    "services.web.description":
+      "We create modern and responsive websites that elevate your digital presence",
     "services.mobile.title": "Mobile Applications",
-    "services.mobile.description": "We develop native and hybrid apps for iOS and Android",
+    "services.mobile.description":
+      "We develop native and hybrid apps for iOS and Android",
     "services.landing.title": "Landing Pages",
-    "services.landing.description": "Pages optimized for conversion and lead generation",
+    "services.landing.description":
+      "Pages optimized for conversion and lead generation",
     "services.integration.title": "System Integration",
-    "services.integration.description": "We connect your systems for greater operational efficiency",
+    "services.integration.description":
+      "We connect your systems for greater operational efficiency",
     "services.security.title": "Digital Security",
-    "services.security.description": "We protect your data with the best security practices",
+    "services.security.description":
+      "We protect your data with the best security practices",
     "services.automation.title": "Automation",
-    "services.automation.description": "We automate processes to increase productivity",
+    "services.automation.description":
+      "We automate processes to increase productivity",
     "services.cta": "Learn More",
     // Projects Section
     "projects.title.part1": "Our",
     "projects.title.part2": "Projects",
-    "projects.subtitle": "See some of the projects we've developed for our clients",
+    "projects.subtitle":
+      "See some of the projects we've developed for our clients",
     "projects.cta": "See All Projects",
     "projects.viewProject": "View Project",
     "projects.ecommerce.title": "E-commerce Platform",
@@ -304,31 +344,41 @@ const translations = {
       "Complete solution for fleet management, delivery tracking and route optimization.",
     "projects.streaming.title": "Streaming Platform",
     "projects.streaming.category": "Entertainment",
-    "projects.streaming.description": "Video streaming system with global CDN and advanced analytics.",
+    "projects.streaming.description":
+      "Video streaming system with global CDN and advanced analytics.",
     "projects.crm.title": "CRM System",
     "projects.crm.category": "Management",
-    "projects.crm.description": "Customer relationship management platform with sales and marketing automation.",
+    "projects.crm.description":
+      "Customer relationship management platform with sales and marketing automation.",
     // Industries Section
     "industries.title.part1": "Industries We",
     "industries.title.part2": "Serve",
-    "industries.subtitle": "We offer specialized solutions for various sectors of the economy",
+    "industries.subtitle":
+      "We offer specialized solutions for various sectors of the economy",
     "industries.cta": "Learn More",
     "industries.education.title": "Education",
-    "industries.education.description": "Technology solutions for educational institutions and learning platforms",
+    "industries.education.description":
+      "Technology solutions for educational institutions and learning platforms",
     "industries.financial.title": "Financial",
-    "industries.financial.description": "Secure systems for banks, fintechs and financial institutions",
+    "industries.financial.description":
+      "Secure systems for banks, fintechs and financial institutions",
     "industries.government.title": "Government",
-    "industries.government.description": "Digital platforms for modernizing public services",
+    "industries.government.description":
+      "Digital platforms for modernizing public services",
     "industries.healthcare.title": "Healthcare",
-    "industries.healthcare.description": "Hospital management systems and healthcare solutions",
+    "industries.healthcare.description":
+      "Hospital management systems and healthcare solutions",
     "industries.manufacturing.title": "Manufacturing",
-    "industries.manufacturing.description": "Automation and management systems for the industrial sector",
+    "industries.manufacturing.description":
+      "Automation and management systems for the industrial sector",
     "industries.retail.title": "Retail",
-    "industries.retail.description": "E-commerce and digital solutions for the retail sector",
+    "industries.retail.description":
+      "E-commerce and digital solutions for the retail sector",
     // Testimonials Section
     "testimonials.title.part1": "What Our",
     "testimonials.title.part2": "Clients Say",
-    "testimonials.subtitle": "See what our clients say about our services and solutions",
+    "testimonials.subtitle":
+      "See what our clients say about our services and solutions",
     "testimonials.maria.name": "Maria Silva",
     "testimonials.maria.position": "CEO, TechStart",
     "testimonials.maria.text":
@@ -356,26 +406,32 @@ const translations = {
     // Insights Section
     "insights.title.part1": "Our",
     "insights.title.part2": "Insights",
-    "insights.subtitle": "Data and statistics that demonstrate our commitment to excellence",
+    "insights.subtitle":
+      "Data and statistics that demonstrate our commitment to excellence",
     "insights.growth.title": "Growth",
-    "insights.growth.description": "Average increase in our clients' efficiency",
+    "insights.growth.description":
+      "Average increase in our clients' efficiency",
     "insights.experience.title": "Satisfaction",
     "insights.experience.description": "Client satisfaction rate",
     "insights.innovation.title": "Innovation",
-    "insights.innovation.description": "Projects delivered with cutting-edge technologies",
+    "insights.innovation.description":
+      "Projects delivered with cutting-edge technologies",
     "insights.results.title": "Results",
     "insights.results.description": "Success rate in delivered projects",
     // Entertainment Section
     "entertainment.title": "Entertainment",
     "entertainment.subtitle": "Have fun with our interactive games",
     "entertainment.foxGame.title": "Fox Game",
-    "entertainment.foxGame.description": "Help the fox find its way through the maze",
+    "entertainment.foxGame.description":
+      "Help the fox find its way through the maze",
     "entertainment.foxGame.cta": "Play Now",
     "entertainment.desertGame.title": "Desert Adventure",
-    "entertainment.desertGame.description": "Explore the desert and discover hidden treasures",
+    "entertainment.desertGame.description":
+      "Explore the desert and discover hidden treasures",
     "entertainment.desertGame.cta": "Explore",
     "entertainment.oasisGame.title": "Lost Oasis",
-    "entertainment.oasisGame.description": "Find the lost oasis in this epic adventure",
+    "entertainment.oasisGame.description":
+      "Find the lost oasis in this epic adventure",
     "entertainment.oasisGame.cta": "Discover",
     // Fox Game
     "foxGame.title": "Fox Desert Adventure",
@@ -406,10 +462,9 @@ const translations = {
     "foxGame.namePlaceholder": "Your name",
     "foxGame.startButton": "Start Adventure!",
     "foxGame.howToPlay": "How to play:",
-    "foxGame.instructions":
-      "Use the arrow keys to move the fox • Or click on the cells to move • Find the oasis in each level • Complete all 5 levels as quickly as possible!",
     // Footer
-    "footer.description": "We develop innovative technologies that drive your business growth.",
+    "footer.description":
+      "We develop innovative technologies that drive your business growth.",
     "footer.services": "Services",
     "footer.industries": "Industries",
     "footer.contact": "Contact",
@@ -459,31 +514,40 @@ const translations = {
     "hero.title.line1": "Soluciones que",
     "hero.title.line2": "Transforman",
     "hero.title.line3": "Su Negocio",
-    "hero.subtitle": "Desarrollamos tecnologías innovadoras que impulsan el crecimiento de su negocio.",
+    "hero.subtitle":
+      "Desarrollamos tecnologías innovadoras que impulsan el crecimiento de su negocio.",
     "hero.stats.projects": "Proyectos",
     "hero.stats.clients": "Clientes",
     "hero.stats.years": "Años",
     // Services Section
     "services.title.part1": "Nuestros",
     "services.title.part2": "Servicios",
-    "services.subtitle": "Ofrecemos soluciones tecnológicas completas para transformar su negocio",
+    "services.subtitle":
+      "Ofrecemos soluciones tecnológicas completas para transformar su negocio",
     "services.web.title": "Desarrollo Web",
-    "services.web.description": "Creamos sitios web modernos y responsivos que elevan su presencia digital",
+    "services.web.description":
+      "Creamos sitios web modernos y responsivos que elevan su presencia digital",
     "services.mobile.title": "Aplicaciones Móviles",
-    "services.mobile.description": "Desarrollamos apps nativas e híbridas para iOS y Android",
+    "services.mobile.description":
+      "Desarrollamos apps nativas e híbridas para iOS y Android",
     "services.landing.title": "Landing Pages",
-    "services.landing.description": "Páginas optimizadas para conversión y generación de leads",
+    "services.landing.description":
+      "Páginas optimizadas para conversión y generación de leads",
     "services.integration.title": "Integración de Sistemas",
-    "services.integration.description": "Conectamos sus sistemas para mayor eficiencia operacional",
+    "services.integration.description":
+      "Conectamos sus sistemas para mayor eficiencia operacional",
     "services.security.title": "Seguridad Digital",
-    "services.security.description": "Protegemos sus datos con las mejores prácticas de seguridad",
+    "services.security.description":
+      "Protegemos sus datos con las mejores prácticas de seguridad",
     "services.automation.title": "Automatización",
-    "services.automation.description": "Automatizamos procesos para aumentar la productividad",
+    "services.automation.description":
+      "Automatizamos procesos para aumentar la productividad",
     "services.cta": "Saber Más",
     // Projects Section
     "projects.title.part1": "Nuestros",
     "projects.title.part2": "Proyectos",
-    "projects.subtitle": "Vea algunos de los proyectos que hemos desarrollado para nuestros clientes",
+    "projects.subtitle":
+      "Vea algunos de los proyectos que hemos desarrollado para nuestros clientes",
     "projects.cta": "Ver Todos los Proyectos",
     "projects.viewProject": "Ver Proyecto",
     "projects.ecommerce.title": "Plataforma de E-commerce",
@@ -512,7 +576,8 @@ const translations = {
       "Solución completa para gestión de flotas, seguimiento de entregas y optimización de rutas.",
     "projects.streaming.title": "Plataforma de Streaming",
     "projects.streaming.category": "Entretenimiento",
-    "projects.streaming.description": "Sistema de streaming de video con CDN global y analytics avanzados.",
+    "projects.streaming.description":
+      "Sistema de streaming de video con CDN global y analytics avanzados.",
     "projects.crm.title": "Sistema CRM",
     "projects.crm.category": "Gestión",
     "projects.crm.description":
@@ -520,25 +585,32 @@ const translations = {
     // Industries Section
     "industries.title.part1": "Sectores que",
     "industries.title.part2": "Servimos",
-    "industries.subtitle": "Ofrecemos soluciones especializadas para diversos sectores de la economía",
+    "industries.subtitle":
+      "Ofrecemos soluciones especializadas para diversos sectores de la economía",
     "industries.cta": "Saber Más",
     "industries.education.title": "Educación",
     "industries.education.description":
       "Soluciones tecnológicas para instituciones educativas y plataformas de aprendizaje",
     "industries.financial.title": "Financiero",
-    "industries.financial.description": "Sistemas seguros para bancos, fintechs e instituciones financieras",
+    "industries.financial.description":
+      "Sistemas seguros para bancos, fintechs e instituciones financieras",
     "industries.government.title": "Gobierno",
-    "industries.government.description": "Plataformas digitales para modernización de servicios públicos",
+    "industries.government.description":
+      "Plataformas digitales para modernización de servicios públicos",
     "industries.healthcare.title": "Salud",
-    "industries.healthcare.description": "Sistemas de gestión hospitalaria y soluciones para el sector salud",
+    "industries.healthcare.description":
+      "Sistemas de gestión hospitalaria y soluciones para el sector salud",
     "industries.manufacturing.title": "Manufactura",
-    "industries.manufacturing.description": "Automatización y sistemas de gestión para el sector industrial",
+    "industries.manufacturing.description":
+      "Automatización y sistemas de gestión para el sector industrial",
     "industries.retail.title": "Comercio",
-    "industries.retail.description": "E-commerce y soluciones digitales para el sector comercial",
+    "industries.retail.description":
+      "E-commerce y soluciones digitales para el sector comercial",
     // Testimonials Section
     "testimonials.title.part1": "Lo que Dicen",
     "testimonials.title.part2": "Nuestros Clientes",
-    "testimonials.subtitle": "Vea lo que nuestros clientes dicen sobre nuestros servicios y soluciones",
+    "testimonials.subtitle":
+      "Vea lo que nuestros clientes dicen sobre nuestros servicios y soluciones",
     "testimonials.maria.name": "Maria Silva",
     "testimonials.maria.position": "CEO, TechStart",
     "testimonials.maria.text":
@@ -566,31 +638,40 @@ const translations = {
     // Insights Section
     "insights.title.part1": "Nuestros",
     "insights.title.part2": "Insights",
-    "insights.subtitle": "Datos y estadísticas que demuestran nuestro compromiso con la excelencia",
+    "insights.subtitle":
+      "Datos y estadísticas que demuestran nuestro compromiso con la excelencia",
     "insights.growth.title": "Crecimiento",
-    "insights.growth.description": "Aumento promedio en la eficiencia de nuestros clientes",
+    "insights.growth.description":
+      "Aumento promedio en la eficiencia de nuestros clientes",
     "insights.experience.title": "Satisfacción",
-    "insights.experience.description": "Tasa de satisfacción de nuestros clientes",
+    "insights.experience.description":
+      "Tasa de satisfacción de nuestros clientes",
     "insights.innovation.title": "Innovación",
-    "insights.innovation.description": "Proyectos entregados con tecnologías de vanguardia",
+    "insights.innovation.description":
+      "Proyectos entregados con tecnologías de vanguardia",
     "insights.results.title": "Resultados",
     "insights.results.description": "Tasa de éxito en proyectos entregados",
     // Entertainment Section
     "entertainment.title": "Entretenimiento",
     "entertainment.subtitle": "Diviértete con nuestros juegos interactivos",
     "entertainment.foxGame.title": "Juego del Zorro",
-    "entertainment.foxGame.description": "Ayuda al zorro a encontrar el camino a través del laberinto",
+    "entertainment.foxGame.description":
+      "Ayuda al zorro a encontrar el camino a través del laberinto",
     "entertainment.foxGame.cta": "Jugar Ahora",
     "entertainment.desertGame.title": "Aventura en el Desierto",
-    "entertainment.desertGame.description": "Explora el desierto y descubre tesoros ocultos",
+    "entertainment.desertGame.description":
+      "Explora el desierto y descubre tesoros ocultos",
     "entertainment.desertGame.cta": "Explorar",
     "entertainment.oasisGame.title": "Oasis Perdido",
-    "entertainment.oasisGame.description": "Encuentra el oasis perdido en esta aventura épica",
+    "entertainment.oasisGame.description":
+      "Encuentra el oasis perdido en esta aventura épica",
     "entertainment.oasisGame.cta": "Descubrir",
     // Fox Game
     "foxGame.title": "Aventura del Zorro en el Desierto",
-    "foxGame.subtitle": "¡Ayuda al zorro a encontrar el oasis a través del laberinto!",
-    "foxGame.instructions": "Usa las flechas del teclado para mover el zorro por el laberinto",
+    "foxGame.subtitle":
+      "¡Ayuda al zorro a encontrar el oasis a través del laberinto!",
+    "foxGame.instructions":
+      "Usa las flechas del teclado para mover el zorro por el laberinto",
     "foxGame.level": "Nivel",
     "foxGame.score": "Puntuación",
     "foxGame.time": "Tiempo",
@@ -616,10 +697,9 @@ const translations = {
     "foxGame.namePlaceholder": "Tu nombre",
     "foxGame.startButton": "¡Comenzar Aventura!",
     "foxGame.howToPlay": "Cómo jugar:",
-    "foxGame.instructions":
-      "Usa las flechas del teclado para mover el zorro • O haz clic en las celdas para moverte • Encuentra el oasis en cada nivel • ¡Completa todos los 5 niveles lo más rápido posible!",
     // Footer
-    "footer.description": "Desarrollamos tecnologías innovadoras que impulsan el crecimiento de su negocio.",
+    "footer.description":
+      "Desarrollamos tecnologías innovadoras que impulsan el crecimiento de su negocio.",
     "footer.services": "Servicios",
     "footer.industries": "Sectores",
     "footer.contact": "Contacto",
@@ -637,10 +717,10 @@ const translations = {
     "footer.financial": "Financiero",
     "footer.education": "Educación",
     "footer.retail": "Comercio",
-		"footer.whatWeDo.development": "Desarrollo",
-		"footer.whatWeDo.agile": "Metodología Ágil"",
-		"footer.whatWeDo.chatbot": "Chatbot",
-		"footer.whatWeDo.outsourcing": "Outsourcing",    
+    "footer.whatWeDo.development": "Desarrollo",
+    "footer.whatWeDo.agile": "Metodología Ágil",
+    "footer.whatWeDo.chatbot": "Chatbot",
+    "footer.whatWeDo.outsourcing": "Outsourcing",
   },
   fr: {
     // Navigation
@@ -673,31 +753,40 @@ const translations = {
     "hero.title.line1": "Solutions qui",
     "hero.title.line2": "Transforment",
     "hero.title.line3": "Votre Entreprise",
-    "hero.subtitle": "Nous développons des technologies innovantes qui stimulent la croissance de votre entreprise.",
+    "hero.subtitle":
+      "Nous développons des technologies innovantes qui stimulent la croissance de votre entreprise.",
     "hero.stats.projects": "Projets",
     "hero.stats.clients": "Clients",
     "hero.stats.years": "Années",
     // Services Section
     "services.title.part1": "Nos",
     "services.title.part2": "Services",
-    "services.subtitle": "Nous offrons des solutions technologiques complètes pour transformer votre entreprise",
+    "services.subtitle":
+      "Nous offrons des solutions technologiques complètes pour transformer votre entreprise",
     "services.web.title": "Développement Web",
-    "services.web.description": "Nous créons des sites web modernes et responsifs qui élèvent votre présence numérique",
+    "services.web.description":
+      "Nous créons des sites web modernes et responsifs qui élèvent votre présence numérique",
     "services.mobile.title": "Applications Mobiles",
-    "services.mobile.description": "Nous développons des apps natives et hybrides pour iOS et Android",
+    "services.mobile.description":
+      "Nous développons des apps natives et hybrides pour iOS et Android",
     "services.landing.title": "Pages de Destination",
-    "services.landing.description": "Pages optimisées pour la conversion et la génération de leads",
+    "services.landing.description":
+      "Pages optimisées pour la conversion et la génération de leads",
     "services.integration.title": "Intégration de Systèmes",
-    "services.integration.description": "Nous connectons vos systèmes pour une plus grande efficacité opérationnelle",
+    "services.integration.description":
+      "Nous connectons vos systèmes pour une plus grande efficacité opérationnelle",
     "services.security.title": "Sécurité Numérique",
-    "services.security.description": "Nous protégeons vos données avec les meilleures pratiques de sécurité",
+    "services.security.description":
+      "Nous protégeons vos données avec les meilleures pratiques de sécurité",
     "services.automation.title": "Automatisation",
-    "services.automation.description": "Nous automatisons les processus pour augmenter la productivité",
+    "services.automation.description":
+      "Nous automatisons les processus pour augmenter la productivité",
     "services.cta": "En Savoir Plus",
     // Projects Section
     "projects.title.part1": "Nos",
     "projects.title.part2": "Projets",
-    "projects.subtitle": "Découvrez quelques-uns des projets que nous avons développés pour nos clients",
+    "projects.subtitle":
+      "Découvrez quelques-uns des projets que nous avons développés pour nos clients",
     "projects.cta": "Voir Tous les Projets",
     "projects.viewProject": "Voir le Projet",
     "projects.ecommerce.title": "Plateforme E-commerce",
@@ -726,7 +815,8 @@ const translations = {
       "Solution complète pour la gestion de flottes, suivi des livraisons et optimisation des itinéraires.",
     "projects.streaming.title": "Plateforme de Streaming",
     "projects.streaming.category": "Divertissement",
-    "projects.streaming.description": "Système de streaming vidéo avec CDN global et analyses avancées.",
+    "projects.streaming.description":
+      "Système de streaming vidéo avec CDN global et analyses avancées.",
     "projects.crm.title": "Système CRM",
     "projects.crm.category": "Gestion",
     "projects.crm.description":
@@ -734,25 +824,32 @@ const translations = {
     // Industries Section
     "industries.title.part1": "Secteurs que Nous",
     "industries.title.part2": "Servons",
-    "industries.subtitle": "Nous offrons des solutions spécialisées pour divers secteurs de l'économie",
+    "industries.subtitle":
+      "Nous offrons des solutions spécialisées pour divers secteurs de l'économie",
     "industries.cta": "En Savoir Plus",
     "industries.education.title": "Éducation",
     "industries.education.description":
       "Solutions technologiques pour institutions éducatives et plateformes d'apprentissage",
     "industries.financial.title": "Financier",
-    "industries.financial.description": "Systèmes sécurisés pour banques, fintechs et institutions financières",
+    "industries.financial.description":
+      "Systèmes sécurisés pour banques, fintechs et institutions financières",
     "industries.government.title": "Gouvernement",
-    "industries.government.description": "Plateformes numériques pour la modernisation des services publics",
+    "industries.government.description":
+      "Plateformes numériques pour la modernisation des services publics",
     "industries.healthcare.title": "Santé",
-    "industries.healthcare.description": "Systèmes de gestion hospitalière et solutions pour le secteur de la santé",
+    "industries.healthcare.description":
+      "Systèmes de gestion hospitalière et solutions pour le secteur de la santé",
     "industries.manufacturing.title": "Fabrication",
-    "industries.manufacturing.description": "Automatisation et systèmes de gestion pour le secteur industriel",
+    "industries.manufacturing.description":
+      "Automatisation et systèmes de gestion pour le secteur industriel",
     "industries.retail.title": "Commerce de Détail",
-    "industries.retail.description": "E-commerce et solutions numériques pour le secteur du commerce de détail",
+    "industries.retail.description":
+      "E-commerce et solutions numériques pour le secteur du commerce de détail",
     // Testimonials Section
     "testimonials.title.part1": "Ce que Disent",
     "testimonials.title.part2": "Nos Clients",
-    "testimonials.subtitle": "Découvrez ce que nos clients disent de nos services et solutions",
+    "testimonials.subtitle":
+      "Découvrez ce que nos clients disent de nos services et solutions",
     "testimonials.maria.name": "Maria Silva",
     "testimonials.maria.position": "PDG, TechStart",
     "testimonials.maria.text":
@@ -780,31 +877,39 @@ const translations = {
     // Insights Section
     "insights.title.part1": "Nos",
     "insights.title.part2": "Insights",
-    "insights.subtitle": "Données et statistiques qui démontrent notre engagement envers l'excellence",
+    "insights.subtitle":
+      "Données et statistiques qui démontrent notre engagement envers l'excellence",
     "insights.growth.title": "Croissance",
-    "insights.growth.description": "Augmentation moyenne de l'efficacité de nos clients",
+    "insights.growth.description":
+      "Augmentation moyenne de l'efficacité de nos clients",
     "insights.experience.title": "Satisfaction",
     "insights.experience.description": "Taux de satisfaction de nos clients",
     "insights.innovation.title": "Innovation",
-    "insights.innovation.description": "Projets livrés avec des technologies de pointe",
+    "insights.innovation.description":
+      "Projets livrés avec des technologies de pointe",
     "insights.results.title": "Résultats",
     "insights.results.description": "Taux de réussite des projets livrés",
     // Entertainment Section
     "entertainment.title": "Divertissement",
     "entertainment.subtitle": "Amusez-vous avec nos jeux interactifs",
     "entertainment.foxGame.title": "Jeu du Renard",
-    "entertainment.foxGame.description": "Aidez le renard à trouver son chemin à travers le labyrinthe",
+    "entertainment.foxGame.description":
+      "Aidez le renard à trouver son chemin à travers le labyrinthe",
     "entertainment.foxGame.cta": "Jouer Maintenant",
     "entertainment.desertGame.title": "Aventure dans le Désert",
-    "entertainment.desertGame.description": "Explorez le désert et découvrez des trésors cachés",
+    "entertainment.desertGame.description":
+      "Explorez le désert et découvrez des trésors cachés",
     "entertainment.desertGame.cta": "Explorer",
     "entertainment.oasisGame.title": "Oasis Perdue",
-    "entertainment.oasisGame.description": "Trouvez l'oasis perdue dans cette aventure épique",
+    "entertainment.oasisGame.description":
+      "Trouvez l'oasis perdue dans cette aventure épique",
     "entertainment.oasisGame.cta": "Découvrir",
     // Fox Game
     "foxGame.title": "Aventure du Renard dans le Désert",
-    "foxGame.subtitle": "Aidez le renard à trouver l'oasis à travers le labyrinthe!",
-    "foxGame.instructions": "Utilisez les flèches du clavier pour déplacer le renard dans le labyrinthe",
+    "foxGame.subtitle":
+      "Aidez le renard à trouver l'oasis à travers le labyrinthe!",
+    "foxGame.instructions":
+      "Utilisez les flèches du clavier pour déplacer le renard dans le labyrinthe",
     "foxGame.level": "Niveau",
     "foxGame.score": "Score",
     "foxGame.time": "Temps",
@@ -830,8 +935,6 @@ const translations = {
     "foxGame.namePlaceholder": "Votre nom",
     "foxGame.startButton": "Commencer l'Aventure!",
     "foxGame.howToPlay": "Comment jouer:",
-    "foxGame.instructions":
-      "Utilisez les flèches du clavier pour déplacer le renard • Ou cliquez sur les cellules pour vous déplacer • Trouvez l'oasis à chaque niveau • Terminez tous les 5 niveaux le plus rapidement possible!",
     // Footer
     "footer.description":
       "Nous développons des technologies innovantes qui stimulent la croissance de votre entreprise.",
@@ -852,10 +955,10 @@ const translations = {
     "footer.financial": "Financier",
     "footer.education": "Éducation",
     "footer.retail": "Commerce",
-		"footer.whatWeDo.development": "Développement",
-		"footer.whatWeDo.agile": "Méthodologie Agile"",
-		"footer.whatWeDo.chatbot": "Chatbot",
-		"footer.whatWeDo.outsourcing": "Externalisation",    
+    "footer.whatWeDo.development": "Développement",
+    "footer.whatWeDo.agile": "Méthodologie Agile",
+    "footer.whatWeDo.chatbot": "Chatbot",
+    "footer.whatWeDo.outsourcing": "Externalisation",
   },
   de: {
     // Navigation
@@ -888,31 +991,40 @@ const translations = {
     "hero.title.line1": "Lösungen die",
     "hero.title.line2": "Transformieren",
     "hero.title.line3": "Ihr Unternehmen",
-    "hero.subtitle": "Wir entwickeln innovative Technologien, die das Wachstum Ihres Unternehmens vorantreiben.",
+    "hero.subtitle":
+      "Wir entwickeln innovative Technologien, die das Wachstum Ihres Unternehmens vorantreiben.",
     "hero.stats.projects": "Projekte",
     "hero.stats.clients": "Kunden",
     "hero.stats.years": "Jahre",
     // Services Section
     "services.title.part1": "Unsere",
     "services.title.part2": "Dienstleistungen",
-    "services.subtitle": "Wir bieten komplette technologische Lösungen zur Transformation Ihres Unternehmens",
+    "services.subtitle":
+      "Wir bieten komplette technologische Lösungen zur Transformation Ihres Unternehmens",
     "services.web.title": "Webentwicklung",
-    "services.web.description": "Wir erstellen moderne und responsive Websites, die Ihre digitale Präsenz verbessern",
+    "services.web.description":
+      "Wir erstellen moderne und responsive Websites, die Ihre digitale Präsenz verbessern",
     "services.mobile.title": "Mobile Anwendungen",
-    "services.mobile.description": "Wir entwickeln native und hybride Apps für iOS und Android",
+    "services.mobile.description":
+      "Wir entwickeln native und hybride Apps für iOS und Android",
     "services.landing.title": "Landing Pages",
-    "services.landing.description": "Für Konversion und Lead-Generierung optimierte Seiten",
+    "services.landing.description":
+      "Für Konversion und Lead-Generierung optimierte Seiten",
     "services.integration.title": "Systemintegration",
-    "services.integration.description": "Wir verbinden Ihre Systeme für größere operative Effizienz",
+    "services.integration.description":
+      "Wir verbinden Ihre Systeme für größere operative Effizienz",
     "services.security.title": "Digitale Sicherheit",
-    "services.security.description": "Wir schützen Ihre Daten mit den besten Sicherheitspraktiken",
+    "services.security.description":
+      "Wir schützen Ihre Daten mit den besten Sicherheitspraktiken",
     "services.automation.title": "Automatisierung",
-    "services.automation.description": "Wir automatisieren Prozesse zur Steigerung der Produktivität",
+    "services.automation.description":
+      "Wir automatisieren Prozesse zur Steigerung der Produktivität",
     "services.cta": "Mehr Erfahren",
     // Projects Section
     "projects.title.part1": "Unsere",
     "projects.title.part2": "Projekte",
-    "projects.subtitle": "Sehen Sie einige der Projekte, die wir für unsere Kunden entwickelt haben",
+    "projects.subtitle":
+      "Sehen Sie einige der Projekte, die wir für unsere Kunden entwickelt haben",
     "projects.cta": "Alle Projekte Anzeigen",
     "projects.viewProject": "Projekt Ansehen",
     "projects.ecommerce.title": "E-Commerce-Plattform",
@@ -937,34 +1049,45 @@ const translations = {
       "Online-Lernsystem mit Videokonferenzen, Kursverwaltung und automatisierten Bewertungen.",
     "projects.logistics.title": "Logistiksystem",
     "projects.logistics.category": "Logistik",
-    "projects.logistics.description": "Komplette Lösung für Flottenverwaltung, Lieferverfolgung und Routenoptimierung.",
+    "projects.logistics.description":
+      "Komplette Lösung für Flottenverwaltung, Lieferverfolgung und Routenoptimierung.",
     "projects.streaming.title": "Streaming-Plattform",
     "projects.streaming.category": "Unterhaltung",
-    "projects.streaming.description": "Video-Streaming-System mit globalem CDN und erweiterten Analysen.",
+    "projects.streaming.description":
+      "Video-Streaming-System mit globalem CDN und erweiterten Analysen.",
     "projects.crm.title": "CRM-System",
     "projects.crm.category": "Verwaltung",
-    "projects.crm.description": "Kundenbeziehungsmanagement-Plattform mit Vertriebs- und Marketing-Automatisierung.",
+    "projects.crm.description":
+      "Kundenbeziehungsmanagement-Plattform mit Vertriebs- und Marketing-Automatisierung.",
     // Industries Section
     "industries.title.part1": "Branchen die Wir",
     "industries.title.part2": "Bedienen",
-    "industries.subtitle": "Wir bieten spezialisierte Lösungen für verschiedene Wirtschaftssektoren",
+    "industries.subtitle":
+      "Wir bieten spezialisierte Lösungen für verschiedene Wirtschaftssektoren",
     "industries.cta": "Mehr Erfahren",
     "industries.education.title": "Bildung",
-    "industries.education.description": "Technologielösungen für Bildungseinrichtungen und Lernplattformen",
+    "industries.education.description":
+      "Technologielösungen für Bildungseinrichtungen und Lernplattformen",
     "industries.financial.title": "Finanzen",
-    "industries.financial.description": "Sichere Systeme für Banken, Fintechs und Finanzinstitute",
+    "industries.financial.description":
+      "Sichere Systeme für Banken, Fintechs und Finanzinstitute",
     "industries.government.title": "Regierung",
-    "industries.government.description": "Digitale Plattformen zur Modernisierung öffentlicher Dienstleistungen",
+    "industries.government.description":
+      "Digitale Plattformen zur Modernisierung öffentlicher Dienstleistungen",
     "industries.healthcare.title": "Gesundheitswesen",
-    "industries.healthcare.description": "Krankenhaus-Managementsysteme und Lösungen für das Gesundheitswesen",
+    "industries.healthcare.description":
+      "Krankenhaus-Managementsysteme und Lösungen für das Gesundheitswesen",
     "industries.manufacturing.title": "Fertigung",
-    "industries.manufacturing.description": "Automatisierung und Managementsysteme für den Industriesektor",
+    "industries.manufacturing.description":
+      "Automatisierung und Managementsysteme für den Industriesektor",
     "industries.retail.title": "Einzelhandel",
-    "industries.retail.description": "E-Commerce und digitale Lösungen für den Einzelhandelssektor",
+    "industries.retail.description":
+      "E-Commerce und digitale Lösungen für den Einzelhandelssektor",
     // Testimonials Section
     "testimonials.title.part1": "Was Unsere",
     "testimonials.title.part2": "Kunden Sagen",
-    "testimonials.subtitle": "Sehen Sie, was unsere Kunden über unsere Dienstleistungen und Lösungen sagen",
+    "testimonials.subtitle":
+      "Sehen Sie, was unsere Kunden über unsere Dienstleistungen und Lösungen sagen",
     "testimonials.maria.name": "Maria Silva",
     "testimonials.maria.position": "CEO, TechStart",
     "testimonials.maria.text":
@@ -992,31 +1115,39 @@ const translations = {
     // Insights Section
     "insights.title.part1": "Unsere",
     "insights.title.part2": "Insights",
-    "insights.subtitle": "Daten und Statistiken, die unser Engagement für Exzellenz demonstrieren",
+    "insights.subtitle":
+      "Daten und Statistiken, die unser Engagement für Exzellenz demonstrieren",
     "insights.growth.title": "Wachstum",
-    "insights.growth.description": "Durchschnittliche Steigerung der Effizienz unserer Kunden",
+    "insights.growth.description":
+      "Durchschnittliche Steigerung der Effizienz unserer Kunden",
     "insights.experience.title": "Zufriedenheit",
     "insights.experience.description": "Kundenzufriedenheitsrate",
     "insights.innovation.title": "Innovation",
-    "insights.innovation.description": "Projekte mit modernsten Technologien geliefert",
+    "insights.innovation.description":
+      "Projekte mit modernsten Technologien geliefert",
     "insights.results.title": "Ergebnisse",
     "insights.results.description": "Erfolgsrate bei gelieferten Projekten",
     // Entertainment Section
     "entertainment.title": "Unterhaltung",
     "entertainment.subtitle": "Haben Sie Spaß mit unseren interaktiven Spielen",
     "entertainment.foxGame.title": "Fuchs-Spiel",
-    "entertainment.foxGame.description": "Helfen Sie dem Fuchs, seinen Weg durch das Labyrinth zu finden",
+    "entertainment.foxGame.description":
+      "Helfen Sie dem Fuchs, seinen Weg durch das Labyrinth zu finden",
     "entertainment.foxGame.cta": "Jetzt Spielen",
     "entertainment.desertGame.title": "Wüstenabenteuer",
-    "entertainment.desertGame.description": "Erkunden Sie die Wüste und entdecken Sie verborgene Schätze",
+    "entertainment.desertGame.description":
+      "Erkunden Sie die Wüste und entdecken Sie verborgene Schätze",
     "entertainment.desertGame.cta": "Erkunden",
     "entertainment.oasisGame.title": "Verlorene Oase",
-    "entertainment.oasisGame.description": "Finden Sie die verlorene Oase in diesem epischen Abenteuer",
+    "entertainment.oasisGame.description":
+      "Finden Sie die verlorene Oase in diesem epischen Abenteuer",
     "entertainment.oasisGame.cta": "Entdecken",
     // Fox Game
     "foxGame.title": "Fuchs-Wüstenabenteuer",
-    "foxGame.subtitle": "Helfen Sie dem Fuchs, die Oase durch das Labyrinth zu finden!",
-    "foxGame.instructions": "Verwenden Sie die Pfeiltasten, um den Fuchs durch das Labyrinth zu bewegen",
+    "foxGame.subtitle":
+      "Helfen Sie dem Fuchs, die Oase durch das Labyrinth zu finden!",
+    "foxGame.instructions":
+      "Verwenden Sie die Pfeiltasten, um den Fuchs durch das Labyrinth zu bewegen",
     "foxGame.level": "Level",
     "foxGame.score": "Punkte",
     "foxGame.time": "Zeit",
@@ -1042,10 +1173,9 @@ const translations = {
     "foxGame.namePlaceholder": "Ihr Name",
     "foxGame.startButton": "Abenteuer Starten!",
     "foxGame.howToPlay": "Wie man spielt:",
-    "foxGame.instructions":
-      "Verwenden Sie die Pfeiltasten, um den Fuchs zu bewegen • Oder klicken Sie auf die Zellen, um sich zu bewegen • Finden Sie die Oase in jedem Level • Schließen Sie alle 5 Level so schnell wie möglich ab!",
     // Footer
-    "footer.description": "Wir entwickeln innovative Technologien, die das Wachstum Ihres Unternehmens vorantreiben.",
+    "footer.description":
+      "Wir entwickeln innovative Technologien, die das Wachstum Ihres Unternehmens vorantreiben.",
     "footer.services": "Dienstleistungen",
     "footer.industries": "Branchen",
     "footer.contact": "Kontakt",
@@ -1064,44 +1194,48 @@ const translations = {
     "footer.education": "Bildung",
     "footer.retail": "Einzelhandel",
     "footer.whatWeDo.development": "Entwicklung",
-    "footer.whatWeDo.agile": "Agile Methodik"",
+    "footer.whatWeDo.agile": "Agile Methodik",
     "footer.whatWeDo.chatbot": "Chatbot",
-    "footer.whatWeDo.outsourcing": "Externalisation",    
+    "footer.whatWeDo.outsourcing": "Externalisation",
   },
-}
+};
 
-const TranslationContext = createContext<TranslationContextType | undefined>(undefined)
+const TranslationContext = createContext<TranslationContextType | undefined>(
+  undefined
+);
 
 export function TranslationProvider({ children }: { children: ReactNode }) {
-  const [language, setLanguage] = useState<Language>("pt")
+  const [language, setLanguage] = useState<Language>("pt");
 
   useEffect(() => {
-    const savedLanguage = localStorage.getItem("language") as Language
+    const savedLanguage = localStorage.getItem("language") as Language;
     if (savedLanguage && translations[savedLanguage]) {
-      setLanguage(savedLanguage)
+      setLanguage(savedLanguage);
     }
-  }, [])
+  }, []);
 
   const handleSetLanguage = (lang: Language) => {
-    setLanguage(lang)
-    localStorage.setItem("language", lang)
-  }
+    setLanguage(lang);
+    localStorage.setItem("language", lang);
+  };
 
   const t = (key: string): string => {
-    return translations[language][key] || translations.pt[key] || key
-  }
+    return translations[language][key] || translations.pt[key] || key;
+  };
 
   return (
-    <TranslationContext.Provider value={{ language, setLanguage: handleSetLanguage, t }}>
+    <TranslationContext.Provider
+      value={{ language, setLanguage: handleSetLanguage, t }}
+    >
       {children}
     </TranslationContext.Provider>
-  )
+  );
 }
 
 export function useTranslation() {
-  const context = useContext(TranslationContext)
+  const context = useContext(TranslationContext);
   if (context === undefined) {
-    throw new Error("useTranslation must be used within a TranslationProvider")
+    throw new Error("useTranslation must be used within a TranslationProvider");
   }
-  return context
+  return context;
 }
