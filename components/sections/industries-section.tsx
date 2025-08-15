@@ -100,7 +100,7 @@ export function IndustriesSection() {
   ]
 
   return (
-    <section ref={sectionRef} className="absolute inset-0 bg-black/30 py-20">
+    <section ref={sectionRef} className="bg-black/30 py-20">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold mb-4">
