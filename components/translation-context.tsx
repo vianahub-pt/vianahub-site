@@ -114,6 +114,34 @@ const translations = {
     "industries.manufacturing.description": "Automação e sistemas de gestão para o setor industrial",
     "industries.retail.title": "Retalho",
     "industries.retail.description": "E-commerce e soluções digitais para o setor de retalho",
+    // Testimonials Section
+    "testimonials.title.part1": "O que Dizem",
+    "testimonials.title.part2": "Nossos Clientes",
+    "testimonials.subtitle": "Veja o que nossos clientes falam sobre nossos serviços e soluções",
+    "testimonials.maria.name": "Maria Silva",
+    "testimonials.maria.position": "CEO, TechStart",
+    "testimonials.maria.text":
+      "A VianaHub transformou completamente nossa presença digital. O sistema que desenvolveram aumentou nossa eficiência em 300% e a qualidade do suporte é excepcional.",
+    "testimonials.joao.name": "João Santos",
+    "testimonials.joao.position": "Diretor de TI, HealthCorp",
+    "testimonials.joao.text":
+      "Profissionais extremamente competentes e dedicados. O projeto foi entregue no prazo e superou todas as nossas expectativas. Recomendo sem hesitação.",
+    "testimonials.ana.name": "Ana Costa",
+    "testimonials.ana.position": "Fundadora, EduTech",
+    "testimonials.ana.text":
+      "A plataforma educacional que criaram revolucionou nossa forma de ensinar. Interface intuitiva, funcionalidades avançadas e suporte técnico impecável.",
+    "testimonials.carlos.name": "Carlos Oliveira",
+    "testimonials.carlos.position": "Gerente de Operações, LogiFlow",
+    "testimonials.carlos.text":
+      "O sistema de logística desenvolvido otimizou completamente nossas operações. Reduzimos custos em 40% e melhoramos significativamente o atendimento ao cliente.",
+    "testimonials.lucia.name": "Lúcia Ferreira",
+    "testimonials.lucia.position": "Diretora Comercial, RetailMax",
+    "testimonials.lucia.text":
+      "A solução de e-commerce que implementaram triplicou nossas vendas online. Equipe profissional, prazos cumpridos e resultados excepcionais.",
+    "testimonials.roberto.name": "Roberto Lima",
+    "testimonials.roberto.position": "CTO, FinanceHub",
+    "testimonials.roberto.text":
+      "Segurança, eficiência e inovação em um só lugar. O sistema bancário que desenvolveram atende todos os requisitos regulamentares com excelência técnica.",
     // Entertainment Section
     "entertainment.title": "Entretenimento",
     "entertainment.subtitle": "Divirta-se com os nossos jogos interactivos",
@@ -260,6 +288,34 @@ const translations = {
     "industries.manufacturing.description": "Automation and management systems for the industrial sector",
     "industries.retail.title": "Retail",
     "industries.retail.description": "E-commerce and digital solutions for the retail sector",
+    // Testimonials Section
+    "testimonials.title.part1": "What Our",
+    "testimonials.title.part2": "Clients Say",
+    "testimonials.subtitle": "See what our clients say about our services and solutions",
+    "testimonials.maria.name": "Maria Silva",
+    "testimonials.maria.position": "CEO, TechStart",
+    "testimonials.maria.text":
+      "VianaHub completely transformed our digital presence. The system they developed increased our efficiency by 300% and the quality of support is exceptional.",
+    "testimonials.joao.name": "João Santos",
+    "testimonials.joao.position": "IT Director, HealthCorp",
+    "testimonials.joao.text":
+      "Extremely competent and dedicated professionals. The project was delivered on time and exceeded all our expectations. I recommend without hesitation.",
+    "testimonials.ana.name": "Ana Costa",
+    "testimonials.ana.position": "Founder, EduTech",
+    "testimonials.ana.text":
+      "The educational platform they created revolutionized our way of teaching. Intuitive interface, advanced features and impeccable technical support.",
+    "testimonials.carlos.name": "Carlos Oliveira",
+    "testimonials.carlos.position": "Operations Manager, LogiFlow",
+    "testimonials.carlos.text":
+      "The logistics system developed completely optimized our operations. We reduced costs by 40% and significantly improved customer service.",
+    "testimonials.lucia.name": "Lúcia Ferreira",
+    "testimonials.lucia.position": "Commercial Director, RetailMax",
+    "testimonials.lucia.text":
+      "The e-commerce solution they implemented tripled our online sales. Professional team, deadlines met and exceptional results.",
+    "testimonials.roberto.name": "Roberto Lima",
+    "testimonials.roberto.position": "CTO, FinanceHub",
+    "testimonials.roberto.text":
+      "Security, efficiency and innovation in one place. The banking system they developed meets all regulatory requirements with technical excellence.",
     // Entertainment Section
     "entertainment.title": "Entertainment",
     "entertainment.subtitle": "Have fun with our interactive games",
@@ -408,6 +464,34 @@ const translations = {
     "industries.manufacturing.description": "Automatización y sistemas de gestión para el sector industrial",
     "industries.retail.title": "Comercio",
     "industries.retail.description": "E-commerce y soluciones digitales para el sector comercial",
+    // Testimonials Section
+    "testimonials.title.part1": "Lo que Dicen",
+    "testimonials.title.part2": "Nuestros Clientes",
+    "testimonials.subtitle": "Vea lo que nuestros clientes dicen sobre nuestros servicios y soluciones",
+    "testimonials.maria.name": "Maria Silva",
+    "testimonials.maria.position": "CEO, TechStart",
+    "testimonials.maria.text":
+      "VianaHub transformó completamente nuestra presencia digital. El sistema que desarrollaron aumentó nuestra eficiencia en 300% y la calidad del soporte es excepcional.",
+    "testimonials.joao.name": "João Santos",
+    "testimonials.joao.position": "Director de TI, HealthCorp",
+    "testimonials.joao.text":
+      "Profesionales extremadamente competentes y dedicados. El proyecto fue entregado a tiempo y superó todas nuestras expectativas. Recomiendo sin dudarlo.",
+    "testimonials.ana.name": "Ana Costa",
+    "testimonials.ana.position": "Fundadora, EduTech",
+    "testimonials.ana.text":
+      "La plataforma educativa que crearon revolucionó nuestra forma de enseñar. Interfaz intuitiva, funcionalidades avanzadas y soporte técnico impecable.",
+    "testimonials.carlos.name": "Carlos Oliveira",
+    "testimonials.carlos.position": "Gerente de Operaciones, LogiFlow",
+    "testimonials.carlos.text":
+      "El sistema de logística desarrollado optimizó completamente nuestras operaciones. Redujimos costos en 40% y mejoramos significativamente la atención al cliente.",
+    "testimonials.lucia.name": "Lúcia Ferreira",
+    "testimonials.lucia.position": "Directora Comercial, RetailMax",
+    "testimonials.lucia.text":
+      "La solución de e-commerce que implementaron triplicó nuestras ventas online. Equipo profesional, plazos cumplidos y resultados excepcionales.",
+    "testimonials.roberto.name": "Roberto Lima",
+    "testimonials.roberto.position": "CTO, FinanceHub",
+    "testimonials.roberto.text":
+      "Seguridad, eficiencia e innovación en un solo lugar. El sistema bancario que desarrollaron cumple todos los requisitos regulatorios con excelencia técnica.",
     // Entertainment Section
     "entertainment.title": "Entretenimiento",
     "entertainment.subtitle": "Diviértete con nuestros juegos interactivos",
@@ -556,6 +640,34 @@ const translations = {
     "industries.manufacturing.description": "Automatisation et systèmes de gestion pour le secteur industriel",
     "industries.retail.title": "Commerce de Détail",
     "industries.retail.description": "E-commerce et solutions numériques pour le secteur du commerce de détail",
+    // Testimonials Section
+    "testimonials.title.part1": "Ce que Disent",
+    "testimonials.title.part2": "Nos Clients",
+    "testimonials.subtitle": "Découvrez ce que nos clients disent de nos services et solutions",
+    "testimonials.maria.name": "Maria Silva",
+    "testimonials.maria.position": "PDG, TechStart",
+    "testimonials.maria.text":
+      "VianaHub a complètement transformé notre présence numérique. Le système qu'ils ont développé a augmenté notre efficacité de 300% et la qualité du support est exceptionnelle.",
+    "testimonials.joao.name": "João Santos",
+    "testimonials.joao.position": "Directeur IT, HealthCorp",
+    "testimonials.joao.text":
+      "Professionnels extrêmement compétents et dévoués. Le projet a été livré à temps et a dépassé toutes nos attentes. Je recommande sans hésitation.",
+    "testimonials.ana.name": "Ana Costa",
+    "testimonials.ana.position": "Fondatrice, EduTech",
+    "testimonials.ana.text":
+      "La plateforme éducative qu'ils ont créée a révolutionné notre façon d'enseigner. Interface intuitive, fonctionnalités avancées et support technique impeccable.",
+    "testimonials.carlos.name": "Carlos Oliveira",
+    "testimonials.carlos.position": "Responsable des Opérations, LogiFlow",
+    "testimonials.carlos.text":
+      "Le système logistique développé a complètement optimisé nos opérations. Nous avons réduit les coûts de 40% et amélioré significativement le service client.",
+    "testimonials.lucia.name": "Lúcia Ferreira",
+    "testimonials.lucia.position": "Directrice Commerciale, RetailMax",
+    "testimonials.lucia.text":
+      "La solution e-commerce qu'ils ont implémentée a triplé nos ventes en ligne. Équipe professionnelle, délais respectés et résultats exceptionnels.",
+    "testimonials.roberto.name": "Roberto Lima",
+    "testimonials.roberto.position": "CTO, FinanceHub",
+    "testimonials.roberto.text":
+      "Sécurité, efficacité et innovation en un seul endroit. Le système bancaire qu'ils ont développé répond à toutes les exigences réglementaires avec excellence technique.",
     // Entertainment Section
     "entertainment.title": "Divertissement",
     "entertainment.subtitle": "Amusez-vous avec nos jeux interactifs",
@@ -701,6 +813,34 @@ const translations = {
     "industries.manufacturing.description": "Automatisierung und Managementsysteme für den Industriesektor",
     "industries.retail.title": "Einzelhandel",
     "industries.retail.description": "E-Commerce und digitale Lösungen für den Einzelhandelssektor",
+    // Testimonials Section
+    "testimonials.title.part1": "Was Unsere",
+    "testimonials.title.part2": "Kunden Sagen",
+    "testimonials.subtitle": "Sehen Sie, was unsere Kunden über unsere Dienstleistungen und Lösungen sagen",
+    "testimonials.maria.name": "Maria Silva",
+    "testimonials.maria.position": "CEO, TechStart",
+    "testimonials.maria.text":
+      "VianaHub hat unsere digitale Präsenz vollständig transformiert. Das System, das sie entwickelt haben, steigerte unsere Effizienz um 300% und die Qualität des Supports ist außergewöhnlich.",
+    "testimonials.joao.name": "João Santos",
+    "testimonials.joao.position": "IT-Direktor, HealthCorp",
+    "testimonials.joao.text":
+      "Äußerst kompetente und engagierte Fachkräfte. Das Projekt wurde pünktlich geliefert und übertraf alle unsere Erwartungen. Ich empfehle ohne zu zögern.",
+    "testimonials.ana.name": "Ana Costa",
+    "testimonials.ana.position": "Gründerin, EduTech",
+    "testimonials.ana.text":
+      "Die Bildungsplattform, die sie erstellt haben, revolutionierte unsere Art zu unterrichten. Intuitive Benutzeroberfläche, erweiterte Funktionen und tadelloser technischer Support.",
+    "testimonials.carlos.name": "Carlos Oliveira",
+    "testimonials.carlos.position": "Betriebsleiter, LogiFlow",
+    "testimonials.carlos.text":
+      "Das entwickelte Logistiksystem optimierte unsere Abläufe vollständig. Wir reduzierten die Kosten um 40% und verbesserten den Kundenservice erheblich.",
+    "testimonials.lucia.name": "Lúcia Ferreira",
+    "testimonials.lucia.position": "Vertriebsleiterin, RetailMax",
+    "testimonials.lucia.text":
+      "Die E-Commerce-Lösung, die sie implementierten, verdreifachte unsere Online-Verkäufe. Professionelles Team, eingehaltene Fristen und außergewöhnliche Ergebnisse.",
+    "testimonials.roberto.name": "Roberto Lima",
+    "testimonials.roberto.position": "CTO, FinanceHub",
+    "testimonials.roberto.text":
+      "Sicherheit, Effizienz und Innovation an einem Ort. Das Banking-System, das sie entwickelten, erfüllt alle regulatorischen Anforderungen mit technischer Exzellenz.",
     // Entertainment Section
     "entertainment.title": "Unterhaltung",
     "entertainment.subtitle": "Haben Sie Spaß mit unseren interaktiven Spielen",
