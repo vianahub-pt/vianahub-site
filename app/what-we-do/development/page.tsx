@@ -100,7 +100,7 @@ function DevelopmentPageContent() {
       <main className="pt-28">
         {/* Hero Section */}
         <section
-          className="relative pt-0 pb-0 bg-gradient-to-br from-viana-orange to-viana-yellow overflow-hidden h-[300px]"
+          className="relative pt-0 pb-0 bg-gradient-to-br from-viana-orange to-viana-yellow overflow-hidden h-[600px]"
           style={{
             backgroundImage: "url(/pages/development.jpg)",
             backgroundSize: "cover",
