@@ -5,6 +5,7 @@ import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
 import { Card, CardContent } from "@/components/ui/card"
 import { Zap, Users, Target, TrendingUp, Calendar, Timer, Eye, Truck } from "lucide-react"
+import { useTranslation } from "@/components/translation-context"
 
 export default function AgilePage() {
   const { t } = useTranslation()
