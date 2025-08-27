@@ -90,7 +90,7 @@ function OutsourcingPageContent() {
         <section className="py-20 bg-white">
           <div className="container mx-auto px-4">
             <div className="text-center mb-16">
-              <h2 className="text-3xl lg:text-4xl font-bold text-viana-black mb-4">
+              <h2 className="text-3xl lg:text-4xl font-bold text-orange-500 mb-4">
                 {t("outsourcing.services.title")}
               </h2>
               <p className="text-xl text-viana-gray max-w-3xl mx-auto">{t("outsourcing.services.subtitle")}</p>
