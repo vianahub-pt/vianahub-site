@@ -243,7 +243,7 @@ export default function AgilePage() {
                     <div className="flex-shrink-0 text-orange-500">{methodology.icon}</div>
                     <div>
                       <h3 className="text-xl font-bold text-orange-500 mb-2">{t(methodology.nameKey)}</h3>
-                      <p className="text-viana-gray">{t(methodology.descriptionKey)}</p>
+                      <p className="!text-gray-900">{t(methodology.descriptionKey)}</p>
                     </div>
                   </div>
                 </CardContent>
