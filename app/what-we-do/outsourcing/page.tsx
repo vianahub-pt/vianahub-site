@@ -101,7 +101,7 @@ function OutsourcingPageContent() {
                 <Card key={index} className="text-center hover:shadow-lg transition-shadow border-none">
                   <CardContent className="p-6">
                     <div className="flex justify-center mb-4">{service.icon}</div>
-                    <h3 className="text-xl font-bold text-viana-black mb-3">{service.title}</h3>
+                    <h3 className="text-xl font-bold text-orange-500 mb-3">{service.title}</h3>
                     <p className="text-viana-gray">{service.description}</p>
                   </CardContent>
                 </Card>
@@ -127,7 +127,7 @@ function OutsourcingPageContent() {
                     <div className="flex items-start space-x-4">
                       <div className="flex-shrink-0">{benefit.icon}</div>
                       <div>
-                        <h3 className="text-lg font-bold text-viana-black mb-2">{benefit.title}</h3>
+                        <h3 className="text-lg font-bold text-orange-500 mb-2">{benefit.title}</h3>
                         <p className="text-viana-gray text-sm">{benefit.description}</p>
                       </div>
                     </div>
@@ -151,7 +151,7 @@ function OutsourcingPageContent() {
                 <div className="w-16 h-16 bg-viana-orange rounded-full flex items-center justify-center text-white font-bold text-xl mx-auto mb-4">
                   1
                 </div>
-                <h3 className="text-xl font-bold text-viana-black mb-3">{t("outsourcing.process.analysis.title")}</h3>
+                <h3 className="text-xl font-bold text-orange-500 mb-3">{t("outsourcing.process.analysis.title")}</h3>
                 <p className="text-viana-gray">{t("outsourcing.process.analysis.description")}</p>
               </div>
 
@@ -159,7 +159,7 @@ function OutsourcingPageContent() {
                 <div className="w-16 h-16 bg-viana-orange rounded-full flex items-center justify-center text-white font-bold text-xl mx-auto mb-4">
                   2
                 </div>
-                <h3 className="text-xl font-bold text-viana-black mb-3">{t("outsourcing.process.selection.title")}</h3>
+                <h3 className="text-xl font-bold text-orange-500 mb-3">{t("outsourcing.process.selection.title")}</h3>
                 <p className="text-viana-gray">{t("outsourcing.process.selection.description")}</p>
               </div>
 
@@ -167,7 +167,7 @@ function OutsourcingPageContent() {
                 <div className="w-16 h-16 bg-viana-orange rounded-full flex items-center justify-center text-white font-bold text-xl mx-auto mb-4">
                   3
                 </div>
-                <h3 className="text-xl font-bold text-viana-black mb-3">
+                <h3 className="text-xl font-bold text-orange-500 mb-3">
                   {t("outsourcing.process.integration.title")}
                 </h3>
                 <p className="text-viana-gray">{t("outsourcing.process.integration.description")}</p>
