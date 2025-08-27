@@ -103,22 +103,22 @@ export default function AgilePage() {
 
   const benefits = [
     {
-      icon: <Zap className="h-8 w-8 text-viana-orange" />,
+      icon: <Zap className="h-8 w-8 !text-viana-orange" />,
       titleKey: "agile.benefits.delivery.title",
       descriptionKey: "agile.benefits.delivery.description",
     },
     {
-      icon: <Users className="h-8 w-8 text-viana-orange" />,
+      icon: <Users className="h-8 w-8 !text-viana-orange" />,
       titleKey: "agile.benefits.collaboration.title",
       descriptionKey: "agile.benefits.collaboration.description",
     },
     {
-      icon: <Target className="h-8 w-8 text-viana-orange" />,
+      icon: <Target className="h-8 w-8 !text-viana-orange" />,
       titleKey: "agile.benefits.flexibility.title",
       descriptionKey: "agile.benefits.flexibility.description",
     },
     {
-      icon: <TrendingUp className="h-8 w-8 text-viana-orange" />,
+      icon: <TrendingUp className="h-8 w-8 !text-viana-orange" />,
       titleKey: "agile.benefits.quality.title",
       descriptionKey: "agile.benefits.quality.description",
     },
