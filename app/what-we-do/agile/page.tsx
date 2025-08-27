@@ -172,14 +172,14 @@ export default function AgilePage() {
       </section>
 
       {/* Benefits Section */}
-      <section ref={benefitsRef} className="py-20 bg-white !bg-viana-orange">
+      <section ref={benefitsRef} className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-3xl lg:text-4xl font-bold text-orange-500 mb-4">{t("agile.benefits.title")}</h2>
             <p className="text-xl text-viana-gray max-w-3xl mx-auto">{t("agile.benefits.subtitle")}</p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 !bg-viana-orange">
             {benefits.map((benefit, index) => (
               <Card
                 key={index}
