@@ -231,7 +231,7 @@ export default function AgilePage() {
               <Card
                 key={index}
                 data-index={index}
-                className={`!bg-viana-orange process-card hover:shadow-lg border-none transform transition-all duration-1000 ease-out ${
+                className={`!bg-viana-orange/20 process-card hover:shadow-lg border-none transform transition-all duration-1000 ease-out ${
                   visibleCards[index] ? "opacity-100 translate-y-0 scale-100" : "opacity-0 translate-y-12 scale-95"
                 }`}
                 style={{
