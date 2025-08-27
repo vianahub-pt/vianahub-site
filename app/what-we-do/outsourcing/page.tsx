@@ -142,7 +142,7 @@ function OutsourcingPageContent() {
         <section className="py-20 bg-white">
           <div className="container mx-auto px-4">
             <div className="text-center mb-16">
-              <h2 className="text-3xl lg:text-4xl font-bold text-viana-black mb-4">{t("outsourcing.process.title")}</h2>
+              <h2 className="text-3xl lg:text-4xl font-bold text-orange-500 mb-4">{t("outsourcing.process.title")}</h2>
               <p className="text-xl text-viana-gray max-w-3xl mx-auto">{t("outsourcing.process.subtitle")}</p>
             </div>
 
@@ -179,7 +179,7 @@ function OutsourcingPageContent() {
         {/* CTA Section */}
         <section className="py-20 bg-viana-yellow">
           <div className="container mx-auto px-4 text-center">
-            <h2 className="text-3xl lg:text-4xl font-bold text-viana-black mb-6">{t("outsourcing.cta.title")}</h2>
+            <h2 className="text-3xl lg:text-4xl font-bold text-orange-500 mb-6">{t("outsourcing.cta.title")}</h2>
             <p className="text-xl text-viana-gray mb-8 max-w-2xl mx-auto">{t("outsourcing.cta.subtitle")}</p>
             <Button size="lg" className="bg-viana-orange hover:bg-viana-orange/90 text-white font-semibold px-8 py-3">
               {t("outsourcing.cta.button")}
