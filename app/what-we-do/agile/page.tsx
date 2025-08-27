@@ -240,9 +240,9 @@ export default function AgilePage() {
               >
                 <CardContent className="p-6">
                   <div className="flex items-start space-x-4">
-                    <div className="flex-shrink-0">{methodology.icon}</div>
+                    <div className="flex-shrink-0 text-orange-500">{methodology.icon}</div>
                     <div>
-                      <h3 className="text-xl font-bold text-viana-black mb-2">{t(methodology.nameKey)}</h3>
+                      <h3 className="text-xl font-bold text-orange-500 mb-2">{t(methodology.nameKey)}</h3>
                       <p className="text-viana-gray">{t(methodology.descriptionKey)}</p>
                     </div>
                   </div>
