@@ -196,7 +196,7 @@ export default function AgilePage() {
                 <CardContent className="bg-viana-orange p-6">
                   <div className="flex justify-center mb-4">{benefit.icon}</div>
                   <h3 className="text-xl font-bold text-viana-black mb-3">{t(benefit.titleKey)}</h3>
-                  <p className="text-gray-900">{t(benefit.descriptionKey)}</p>
+                  <p className="!text-gray-900">{t(benefit.descriptionKey)}</p>
                 </CardContent>
               </Card>
             ))}
