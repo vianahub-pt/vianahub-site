@@ -172,7 +172,7 @@ export default function AgilePage() {
       </section>
 
       {/* Benefits Section */}
-      <section ref={benefitsRef} className="py-20 bg-white">
+      <section ref={benefitsRef} className="py-20 bg-white !bg-viana-orange">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-3xl lg:text-4xl font-bold text-orange-500 mb-4">{t("agile.benefits.title")}</h2>
