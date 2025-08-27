@@ -193,7 +193,7 @@ export default function AgilePage() {
                   transitionDelay: visibleBenefits[index] ? `${index * 200}ms` : "0ms",
                 }}
               >
-                <CardContent className="p-6">
+                <CardContent className="bg-viana-orange p-6">
                   <div className="flex justify-center mb-4">{benefit.icon}</div>
                   <h3 className="text-xl font-bold text-viana-black mb-3">{t(benefit.titleKey)}</h3>
                   <p className="text-viana-gray">{t(benefit.descriptionKey)}</p>
