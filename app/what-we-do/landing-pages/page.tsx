@@ -7,6 +7,7 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { useTranslation } from "@/components/translation-context"
 import { Zap, Target, TrendingUp, Smartphone, Search, BarChart3, Palette, Rocket } from "lucide-react"
+import { ScrollIndicator } from "@/components/scroll-indicator"
 
 export default function LandingPagesPage() {
   const { t } = useTranslation()
