@@ -77,7 +77,7 @@ export default function LandingPagesPage() {
         <div className="container mx-auto px-4 relative z-10 h-full flex items-center justify-center">
           <div className="max-w-4xl mx-auto text-center text-white">
             <h1 className="text-4xl lg:text-6xl font-bold mb-6 flex items-center justify-center gap-4">
-              <MessageCircle className="text-orange-500 w-12 h-12 lg:w-16 lg:h-16" />
+              <Layout className="text-orange-500 w-12 h-12 lg:w-16 lg:h-16" />
               {t("landingPages.hero.title")}
             </h1>
             <p className="text-xl lg:text-2xl mb-8 opacity-90">{t("landingPages.hero.subtitle")}</p>
