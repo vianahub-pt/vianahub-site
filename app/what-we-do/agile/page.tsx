@@ -179,14 +179,14 @@ export default function AgilePage() {
             <p className="text-xl text-viana-gray max-w-3xl mx-auto">{t("agile.benefits.subtitle")}</p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 !bg-viana-orange">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {benefits.map((benefit, index) => (
               <Card
                 key={index}
                 data-index={index}
                 className={`benefit-card text-center hover:shadow-lg transition-all duration-1000 ease-out border-none transform ${
                   visibleBenefits[index]
-                    ? "opacity-100 translate-x-0"
+                    ? "opacity-100 translate-x-0 !bg-viana-orange"
                     : `opacity-0 ${index < 2 ? "-translate-x-full" : "translate-x-full"}`
                 }`}
                 style={{
