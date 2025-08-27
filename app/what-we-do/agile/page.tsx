@@ -184,10 +184,10 @@ export default function AgilePage() {
               <Card
                 key={index}
                 data-index={index}
-                className={`benefit-card text-center hover:shadow-lg transition-all duration-1000 ease-out border-none transform ${
+                className={`benefit-card text-center hover:shadow-lg transition-all duration-1000 ease-out border-none !bg-viana-orange transform ${
                   visibleBenefits[index]
                     ? "opacity-100 translate-x-0"
-                    : `!bg-viana-orange opacity-0 ${index < 2 ? "-translate-x-full" : "translate-x-full"}`
+                    : `opacity-0 ${index < 2 ? "-translate-x-full" : "translate-x-full"}`
                 }`}
                 style={{
                   transitionDelay: visibleBenefits[index] ? `${index * 200}ms` : "0ms",
