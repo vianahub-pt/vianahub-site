@@ -126,22 +126,22 @@ export default function AgilePage() {
 
   const methodologies = [
     {
-      icon: <Calendar className="h-6 w-6 text-viana-orange" />,
+      icon: <Calendar className="h-6 w-6 !text-viana-orange" />,
       nameKey: "agile.process.planning.title",
       descriptionKey: "agile.process.planning.description",
     },
     {
-      icon: <Timer className="h-6 w-6 text-viana-orange" />,
+      icon: <Timer className="h-6 w-6 !text-viana-orange" />,
       nameKey: "agile.process.sprints.title",
       descriptionKey: "agile.process.sprints.description",
     },
     {
-      icon: <Eye className="h-6 w-6 text-viana-orange" />,
+      icon: <Eye className="h-6 w-6 !text-viana-orange" />,
       nameKey: "agile.process.review.title",
       descriptionKey: "agile.process.review.description",
     },
     {
-      icon: <Truck className="h-6 w-6 text-viana-orange" />,
+      icon: <Truck className="h-6 w-6 !text-viana-orange" />,
       nameKey: "agile.process.delivery.title",
       descriptionKey: "agile.process.delivery.description",
     },
