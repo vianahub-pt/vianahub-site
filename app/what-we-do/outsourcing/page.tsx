@@ -65,27 +65,27 @@ function OutsourcingPageContent() {
     <div className="min-h-screen bg-viana-white">
       <Navbar />
       <main className="pt-28">
-      {/* Hero Section */}
-      <section className="relative pt-0 pb-0 bg-gradient-to-br from-viana-orange to-viana-yellow overflow-hidden h-[500px]">
-        <div
-          className="absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat"
-          style={{
-            backgroundImage: "url('/pages/outsourcing.jpg')",
-          }}
-        />
-        <div className="absolute inset-0 bg-black/60 z-0" />
-        <div className="container mx-auto px-4 relative z-10 h-full flex items-center justify-center">
-          <div className="max-w-4xl mx-auto text-center text-white">
-            <h1 className="text-4xl lg:text-6xl font-bold mb-6 flex items-center justify-center gap-4">
-              <Zap className="text-orange-500 w-12 h-12 lg:w-16 lg:h-16" />
-              {t("outsourcing.hero.title")}
-            </h1>
-            <p className="text-xl lg:text-2xl mb-8 opacity-90">{t("outsourcing.hero.subtitle")}</p>
+        {/* Hero Section */}
+        <section className="relative pt-0 pb-0 bg-gradient-to-br from-viana-orange to-viana-yellow overflow-hidden h-[500px]">
+          <div
+            className="absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat"
+            style={{
+              backgroundImage: "url('/pages/outsourcing.jpg')",
+            }}
+          />
+          <div className="absolute inset-0 bg-black/60 z-0" />
+          <div className="container mx-auto px-4 relative z-10 h-full flex items-center justify-center">
+            <div className="max-w-4xl mx-auto text-center text-white">
+              <h1 className="text-4xl lg:text-6xl font-bold mb-6 flex items-center justify-center gap-4">
+                <Zap className="text-orange-500 w-12 h-12 lg:w-16 lg:h-16" />
+                {t("outsourcing.hero.title")}
+              </h1>
+              <p className="text-xl lg:text-2xl mb-8 opacity-90">{t("outsourcing.hero.subtitle")}</p>
+            </div>
           </div>
-        </div>
 
-        <ScrollIndicator />
-      </section>
+          <ScrollIndicator />
+        </section>
 
         {/* Services Section */}
         <section className="py-20 bg-white">
