@@ -3,8 +3,9 @@
 import { useState, useEffect } from "react"
 import Image from "next/image"
 import { Card, CardContent } from "@/components/ui/card"
-import { Clock, Users, Zap, Award, CheckCircle, ArrowRight, Target, Repeat, Eye } from "lucide-react"
+import { Clock, Users, Zap, Award, CheckCircle, Target, Repeat, Eye } from "lucide-react"
 import { useTranslation } from "@/components/translation-context"
+import { ParallaxSection } from "@/components/parallax-section"
 
 function AgilePageContent() {
   const { t } = useTranslation()
@@ -107,6 +108,14 @@ function AgilePageContent() {
           </div>
         </div>
       </section>
+
+      {/* Parallax Section */}
+      <ParallaxSection imageUrl="/pages/agile-parallax.jpg" height="500px">
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="text-4xl md:text-5xl font-bold mb-6">{t("agile.parallax.title")}</h2>
+          <p className="text-xl md:text-2xl opacity-90">{t("agile.parallax.subtitle")}</p>
+        </div>
+      </ParallaxSection>
 
       {/* Process Section */}
       <section className="py-20 px-4 bg-gray-50">
