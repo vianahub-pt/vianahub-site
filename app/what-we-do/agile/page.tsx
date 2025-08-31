@@ -125,11 +125,6 @@ function AgilePageContent() {
                   </div>
                   <h3 className="text-xl font-bold mb-4 text-orange-500">{step.title}</h3>
                   <p className="!text-gray-900">{step.description}</p>
-                  {index < process.length - 1 && (
-                    <div className="hidden lg:block absolute top-1/2 -right-4 transform -translate-y-1/2">
-                      <ArrowRight className="w-6 h-6 text-viana-orange" />
-                    </div>
-                  )}
                 </CardContent>
               </Card>
             ))}
