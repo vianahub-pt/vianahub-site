@@ -118,7 +118,7 @@ function AgilePageContent() {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {process.map((step, index) => (
-              <Card key={index} className="bg-viana-white/90 hover:scale-105 transition-all duration-300">
+              <Card key={index} className="bg-viana-white/90 hover:scale-105 transition-all duration-300 relative">
                 <CardContent className="p-8 text-center">
                   <div className="w-16 h-16 mx-auto mb-6 flex items-center justify-center rounded-full bg-viana-orange/10">
                     <step.icon className="w-8 h-8 text-viana-orange" />
