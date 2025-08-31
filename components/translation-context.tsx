@@ -1,5 +1,7 @@
 "use client"
 
+import { createContext, useContext, useState, useEffect, type ReactNode } from "react"
+
 export type Language = "pt" | "en" | "es" | "fr" | "de"
 
 interface TranslationContextType {
@@ -440,33 +442,27 @@ const translations = {
     "railway.cta.subtitle":
       "Entre em contacto connosco para descobrir como podemos transformar seu sistema ferroviário",
     "railway.cta.button": "Contactar Agora",
-    // Railway Features Section
-    "railway.features.title": "Características das Nossas Soluções",
-    "railway.features.subtitle": "Tecnologias avançadas para o setor ferroviário",
-    "railway.features.automation.title": "Automação Completa",
-    "railway.features.automation.description": "Sistemas totalmente automatizados para operação ferroviária eficiente",
-    "railway.features.monitoring.title": "Monitoramento 24/7",
-    "railway.features.monitoring.description": "Supervisão contínua de toda a infraestrutura ferroviária",
-    "railway.features.integration.title": "Integração Total",
-    "railway.features.integration.description": "Compatibilidade com todos os sistemas ferroviários existentes",
-    "railway.features.safety.title": "Segurança Máxima",
-    "railway.features.safety.description": "Protocolos de segurança avançados e sistemas redundantes",
-
-    // Railway Projects Section
-    "railway.projects.title": "Projetos Ferroviários em Destaque",
-    "railway.projects.subtitle": "Conheça alguns dos nossos principais projetos no setor ferroviário",
-    "railway.projects.modernization.title": "Modernização da Linha do Norte",
-    "railway.projects.modernization.description": "Atualização completa dos sistemas de sinalização em 150km de linha férrea com tecnologia de ponta.",
-    "railway.projects.modernization.status": "Concluído",
-    "railway.projects.modernization.year": "2023",
-    "railway.projects.station.title": "Estação Central do Porto",
-    "railway.projects.station.description": "Renovação da infraestrutura e implementação de sistemas de informação ao passageiro.",
-    "railway.projects.station.status": "Em Andamento",
-    "railway.projects.station.year": "2024",
-    "railway.projects.metro.title": "Sistema Metro de Lisboa",
-    "railway.projects.metro.description": "Implementação de controle de tráfego inteligente e sinalização automatizada.",
-    "railway.projects.metro.status": "Planeamento",
-    "railway.projects.metro.year": "2025",
+    "railway.features.title": "Tecnologia de Ponta para o Futuro dos Transportes",
+    "railway.features.subtitle":
+      "Utilizamos as mais avançadas tecnologias para criar soluções ferroviárias seguras, eficientes e sustentáveis que atendem às necessidades do transporte moderno.",
+    "railway.features.automation": "Sistemas de controle automatizado",
+    "railway.features.monitoring": "Monitoramento em tempo real",
+    "railway.features.predictive": "Manutenção preditiva com IA",
+    "railway.features.integration": "Integração com sistemas existentes",
+    "railway.features.compliance": "Conformidade com normas internacionais",
+    "railway.projects.title": "Projetos em Destaque",
+    "railway.projects.subtitle": "Conheça alguns dos nossos trabalhos mais importantes",
+    "railway.projects.norte.title": "Modernização da Linha do Norte",
+    "railway.projects.norte.description": "Atualização completa dos sistemas de sinalização em 150km de linha férrea.",
+    "railway.projects.norte.status": "Concluído",
+    "railway.projects.norte.year": "2023",
+    "railway.projects.porto.title": "Estação Central do Porto",
+    "railway.projects.porto.description": "Renovação da infraestrutura e sistemas de informação ao passageiro.",
+    "railway.projects.porto.status": "Em Andamento",
+    "railway.projects.porto.year": "2024",
+    "railway.projects.status.completed": "Concluído",
+    "railway.projects.status.ongoing": "Em Andamento",
+    "railway.projects.viewDetails": "Ver Detalhes",
   },
   en: {
     // Navigation
@@ -698,6 +694,7 @@ const translations = {
     "footer.development": "Development",
     "footer.agile": "Agile Methodology",
     "footer.chatbot": "Chatbot",
+    "footer.outsourcing": "Outsourcing",
     // Outsourcing Page
     "outsourcing.hero.title": "Outsourcing",
     "outsourcing.hero.subtitle": "Expand your team with our qualified specialists",
@@ -863,33 +860,27 @@ const translations = {
     "railway.cta.title": "Modernize Your Railway Infrastructure",
     "railway.cta.subtitle": "Contact us to discover how we can transform your railway system",
     "railway.cta.button": "Contact Now",
-    // Railway Features Section
-    "railway.features.title": "Features of Our Solutions",
-    "railway.features.subtitle": "Advanced technologies for the railway sector",
-    "railway.features.automation.title": "Complete Automation",
-    "railway.features.automation.description": "Fully automated systems for efficient railway operation",
-    "railway.features.monitoring.title": "24/7 Monitoring",
-    "railway.features.monitoring.description": "Continuous supervision of the entire railway infrastructure",
-    "railway.features.integration.title": "Total Integration",
-    "railway.features.integration.description": "Compatibility with all existing railway systems",
-    "railway.features.safety.title": "Maximum Safety",
-    "railway.features.safety.description": "Advanced safety protocols and redundant systems",
-
-    // Railway Projects Section
-    "railway.projects.title": "Featured Railway Projects",
-    "railway.projects.subtitle": "Learn about some of our main projects in the railway sector",
-    "railway.projects.modernization.title": "North Line Modernization",
-    "railway.projects.modernization.description": "Complete update of signaling systems on 150km of railway line with cutting-edge technology.",
-    "railway.projects.modernization.status": "Completed",
-    "railway.projects.modernization.year": "2023",
-    "railway.projects.station.title": "Porto Central Station",
-    "railway.projects.station.description": "Infrastructure renovation and implementation of passenger information systems.",
-    "railway.projects.station.status": "In Progress",
-    "railway.projects.station.year": "2024",
-    "railway.projects.metro.title": "Lisbon Metro System",
-    "railway.projects.metro.description": "Implementation of intelligent traffic control and automated signaling.",
-    "railway.projects.metro.status": "Planning",
-    "railway.projects.metro.year": "2025",
+    "railway.features.title": "Cutting-Edge Technology for the Future of Transportation",
+    "railway.features.subtitle":
+      "We use the most advanced technologies to create safe, efficient and sustainable railway solutions that meet the needs of modern transportation.",
+    "railway.features.automation": "Automated control systems",
+    "railway.features.monitoring": "Real-time monitoring",
+    "railway.features.predictive": "Predictive maintenance with AI",
+    "railway.features.integration": "Integration with existing systems",
+    "railway.features.compliance": "Compliance with international standards",
+    "railway.projects.title": "Featured Projects",
+    "railway.projects.subtitle": "Learn about some of our most important works",
+    "railway.projects.norte.title": "Northern Line Modernization",
+    "railway.projects.norte.description": "Complete upgrade of signaling systems on 150km of railway line.",
+    "railway.projects.norte.status": "Completed",
+    "railway.projects.norte.year": "2023",
+    "railway.projects.porto.title": "Porto Central Station",
+    "railway.projects.porto.description": "Infrastructure renovation and passenger information systems.",
+    "railway.projects.porto.status": "Ongoing",
+    "railway.projects.porto.year": "2024",
+    "railway.projects.status.completed": "Completed",
+    "railway.projects.status.ongoing": "Ongoing",
+    "railway.projects.viewDetails": "View Details",
   },
   es: {
     // Navigation
@@ -1123,8 +1114,7 @@ const translations = {
     "footer.terms": "Términos",
     "footer.development": "Desarrollo",
     "footer.agile": "Metodología Ágil",
-    "footer.chatbot": "Chatbot",
-    "footer.outsourcing": "Outsourcing",
+    "footer.chatbot": "Outsourcing",
     // Outsourcing Page
     "outsourcing.hero.title": "Outsourcing",
     "outsourcing.hero.subtitle": "Expande tu equipo con nuestros especialistas cualificados",
@@ -1157,7 +1147,7 @@ const translations = {
     "outsourcing.process.integration.title": "Integración y Entrega",
     "outsourcing.process.integration.description": "Integramos el equipo y garantizamos entregas de calidad",
     "outsourcing.cta.title": "¿Listo para Expandir tu Equipo?",
-    "outsourcing.cta.subtitle": "Contáctanos y descubre cómo podemos ayudar a tu negocio a crecer",
+    "outsourcing.cta.subtitle": "Contáctanos y descubre cómo nuestro chatbot puede transformar tu negocio",
     "outsourcing.cta.button": "Contactar Ahora",
     // Chatbot Page
     "chatbot.hero.title": "Chatbot",
@@ -1282,33 +1272,28 @@ const translations = {
     "railway.cta.title": "Moderniza tu Infraestructura Ferroviaria",
     "railway.cta.subtitle": "Contáctanos para descubrir cómo podemos transformar tu sistema ferroviario",
     "railway.cta.button": "Contactar Ahora",
-    // Railway Features Section
-    "railway.features.title": "Características de Nuestras Soluciones",
-    "railway.features.subtitle": "Tecnologías avanzadas para el sector ferroviario",
-    "railway.features.automation.title": "Automatización Completa",
-    "railway.features.automation.description": "Sistemas totalmente automatizados para operación ferroviaria eficiente",
-    "railway.features.monitoring.title": "Monitoreo 24/7",
-    "railway.features.monitoring.description": "Supervisión continua de toda la infraestructura ferroviaria",
-    "railway.features.integration.title": "Integración Total",
-    "railway.features.integration.description": "Compatibilidad con todos los sistemas ferroviarios existentes",
-    "railway.features.safety.title": "Seguridad Máxima",
-    "railway.features.safety.description": "Protocolos de seguridad avanzados y sistemas redundantes",
-
-    // Railway Projects Section
-    "railway.projects.title": "Proyectos Ferroviarios Destacados",
-    "railway.projects.subtitle": "Conozca algunos de nuestros principales proyectos en el sector ferroviario",
-    "railway.projects.modernization.title": "Modernización de la Línea Norte",
-    "railway.projects.modernization.description": "Actualización completa de sistemas de señalización en 150km de línea férrea con tecnología de vanguardia.",
-    "railway.projects.modernization.status": "Completado",
-    "railway.projects.modernization.year": "2023",
-    "railway.projects.station.title": "Estación Central de Oporto",
-    "railway.projects.station.description": "Renovación de infraestructura e implementación de sistemas de información al pasajero.",
-    "railway.projects.station.status": "En Progreso",
-    "railway.projects.station.year": "2024",
-    "railway.projects.metro.title": "Sistema Metro de Lisboa",
-    "railway.projects.metro.description": "Implementación de control de tráfico inteligente y señalización automatizada.",
-    "railway.projects.metro.status": "Planificación",
-    "railway.projects.metro.year": "2025",
+    "railway.features.title": "Tecnología de Vanguardia para el Futuro del Transporte",
+    "railway.features.subtitle":
+      "Utilizamos las tecnologías más avanzadas para crear soluciones ferroviarias seguras, eficientes y sostenibles que satisfacen las necesidades del transporte moderno.",
+    "railway.features.automation": "Sistemas de control automatizado",
+    "railway.features.monitoring": "Monitoreo en tiempo real",
+    "railway.features.predictive": "Mantenimiento predictivo con IA",
+    "railway.features.integration": "Integración con sistemas existentes",
+    "railway.features.compliance": "Cumplimiento con normas internacionales",
+    "railway.projects.title": "Proyectos Destacados",
+    "railway.projects.subtitle": "Conozca algunos de nuestros trabajos más importantes",
+    "railway.projects.norte.title": "Modernización de la Línea Norte",
+    "railway.projects.norte.description":
+      "Actualización completa de los sistemas de señalización en 150km de línea férrea.",
+    "railway.projects.norte.status": "Completado",
+    "railway.projects.norte.year": "2023",
+    "railway.projects.porto.title": "Estación Central de Porto",
+    "railway.projects.porto.description": "Renovación de infraestructura y sistemas de información al pasajero.",
+    "railway.projects.porto.status": "En Curso",
+    "railway.projects.porto.year": "2024",
+    "railway.projects.status.completed": "Completado",
+    "railway.projects.status.ongoing": "En Curso",
+    "railway.projects.viewDetails": "Ver Detalles",
   },
   fr: {
     // Navigation
@@ -1709,33 +1694,28 @@ const translations = {
     "railway.cta.title": "Modernisez Votre Infrastructure Ferroviaire",
     "railway.cta.subtitle": "Contactez-nous pour découvrir comment nous pouvons transformer votre système ferroviaire",
     "railway.cta.button": "Contacter Maintenant",
-    // Railway Features Section
-    "railway.features.title": "Caractéristiques de Nos Solutions",
-    "railway.features.subtitle": "Technologies avancées pour le secteur ferroviaire",
-    "railway.features.automation.title": "Automatisation Complète",
-    "railway.features.automation.description": "Systèmes entièrement automatisés pour une exploitation ferroviaire efficace",
-    "railway.features.monitoring.title": "Surveillance 24/7",
-    "railway.features.monitoring.description": "Supervision continue de toute l'infrastructure ferroviaire",
-    "railway.features.integration.title": "Intégration Totale",
-    "railway.features.integration.description": "Compatibilité avec tous les systèmes ferroviaires existants",
-    "railway.features.safety.title": "Sécurité Maximale",
-    "railway.features.safety.description": "Protocoles de sécurité avancés et systèmes redondants",
-
-    // Railway Projects Section
-    "railway.projects.title": "Projets Ferroviaires en Vedette",
-    "railway.projects.subtitle": "Découvrez quelques-uns de nos principaux projets dans le secteur ferroviaire",
-    "railway.projects.modernization.title": "Modernisation de la Ligne Nord",
-    "railway.projects.modernization.description": "Mise à jour complète des systèmes de signalisation sur 150km de ligne ferroviaire avec une technologie de pointe.",
-    "railway.projects.modernization.status": "Terminé",
-    "railway.projects.modernization.year": "2023",
-    "railway.projects.station.title": "Gare Centrale de Porto",
-    "railway.projects.station.description": "Rénovation de l'infrastructure et mise en place de systèmes d'information voyageurs.",
-    "railway.projects.station.status": "En Cours",
-    "railway.projects.station.year": "2024",
-    "railway.projects.metro.title": "Système Métro de Lisbonne",
-    "railway.projects.metro.description": "Mise en place de contrôle de trafic intelligent et de signalisation automatisée.",
-    "railway.projects.metro.status": "Planification",
-    "railway.projects.metro.year": "2025",
+    "railway.features.title": "Technologie de Pointe pour l'Avenir du Transport",
+    "railway.features.subtitle":
+      "Nous utilisons les technologies les plus avancées pour créer des solutions ferroviaires sûres, efficaces et durables qui répondent aux besoins du transport moderne.",
+    "railway.features.automation": "Systèmes de contrôle automatisé",
+    "railway.features.monitoring": "Surveillance en temps réel",
+    "railway.features.predictive": "Maintenance prédictive avec IA",
+    "railway.features.integration": "Intégration avec les systèmes existants",
+    "railway.features.compliance": "Conformité aux normes internationales",
+    "railway.projects.title": "Projets en Vedette",
+    "railway.projects.subtitle": "Découvrez quelques-uns de nos travaux les plus importants",
+    "railway.projects.norte.title": "Modernisation de la Ligne Nord",
+    "railway.projects.norte.description":
+      "Mise à jour complète des systèmes de signalisation sur 150km de ligne ferroviaire.",
+    "railway.projects.norte.status": "Terminé",
+    "railway.projects.norte.year": "2023",
+    "railway.projects.porto.title": "Gare Centrale de Porto",
+    "railway.projects.porto.description": "Rénovation de l'infrastructure et des systèmes d'information voyageurs.",
+    "railway.projects.porto.status": "En Cours",
+    "railway.projects.porto.year": "2024",
+    "railway.projects.status.completed": "Terminé",
+    "railway.projects.status.ongoing": "En Cours",
+    "railway.projects.viewDetails": "Voir les Détails",
   },
   de: {
     // Navigation
@@ -2120,4 +2100,79 @@ const translations = {
     "railway.solutions.maintenance.title": "Vorausschauende Wartung",
     "railway.solutions.maintenance.description": "Überwachungssysteme für präventive Wartung",
     "railway.solutions.passenger.title": "Fahrgastinformation",
-    "railway.solutions.passenger.description": \"Information
+    "railway.solutions.passenger.description": "Informations- und Kommunikationssysteme für Fahrgäste",
+    "railway.benefits.title": "Vorteile Unserer Lösungen",
+    "railway.benefits.subtitle": "Vorteile der Eisenbahnmodernisierung",
+    "railway.benefits.safety.title": "Maximale Sicherheit",
+    "railway.benefits.safety.description": "Redundante Systeme und fortschrittliche Sicherheitsprotokolle",
+    "railway.benefits.efficiency.title": "Operative Effizienz",
+    "railway.benefits.efficiency.description": "Routenoptimierung und Reduzierung der Reisezeiten",
+    "railway.benefits.reliability.title": "Zuverlässigkeit",
+    "railway.benefits.reliability.description": "Robuste Systeme mit hoher Verfügbarkeit",
+    "railway.benefits.integration.title": "Vollständige Integration",
+    "railway.benefits.integration.description": "Kompatibilität mit bestehenden Systemen",
+    "railway.cta.title": "Modernisieren Sie Ihre Eisenbahninfrastruktur",
+    "railway.cta.subtitle": "Kontaktieren Sie uns, um zu erfahren, wie wir Ihr Eisenbahnsystem transformieren können",
+    "railway.cta.button": "Jetzt Kontaktieren",
+    "railway.features.title": "Spitzentechnologie für die Zukunft des Transports",
+    "railway.features.subtitle":
+      "Wir verwenden die fortschrittlichsten Technologien, um sichere, effiziente und nachhaltige Eisenbahnlösungen zu schaffen, die den Bedürfnissen des modernen Transports entsprechen.",
+    "railway.features.automation": "Automatisierte Steuerungssysteme",
+    "railway.features.monitoring": "Echtzeit-Überwachung",
+    "railway.features.predictive": "Vorausschauende Wartung mit KI",
+    "railway.features.integration": "Integration mit bestehenden Systemen",
+    "railway.features.compliance": "Konformität mit internationalen Standards",
+    "railway.projects.title": "Hervorgehobene Projekte",
+    "railway.projects.subtitle": "Erfahren Sie mehr über einige unserer wichtigsten Arbeiten",
+    "railway.projects.norte.title": "Modernisierung der Nordlinie",
+    "railway.projects.norte.description": "Vollständige Aktualisierung der Signalsysteme auf 150km Eisenbahnstrecke.",
+    "railway.projects.norte.status": "Abgeschlossen",
+    "railway.projects.norte.year": "2023",
+    "railway.projects.porto.title": "Hauptbahnhof Porto",
+    "railway.projects.porto.description": "Infrastrukturrenovierung und Fahrgastinformationssysteme.",
+    "railway.projects.porto.status": "Laufend",
+    "railway.projects.porto.year": "2024",
+    "railway.projects.status.completed": "Abgeschlossen",
+    "railway.projects.status.ongoing": "Laufend",
+    "railway.projects.viewDetails": "Details Anzeigen",
+  },
+}
+
+const TranslationContext = createContext<TranslationContextType>({
+  language: "pt",
+  setLanguage: () => {},
+  t: (key: string) => key,
+})
+
+interface TranslationProviderProps {
+  children: ReactNode
+}
+
+export const TranslationProvider = ({ children }: TranslationProviderProps) => {
+  const [language, setLanguage] = useState<Language>("pt")
+
+  // Load stored language on mount
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const storedLanguage = localStorage.getItem("language") as Language | null
+      if (storedLanguage && ["pt", "en", "es", "fr", "de"].includes(storedLanguage)) {
+        setLanguage(storedLanguage)
+      }
+    }
+  }, [])
+
+  // Save language to localStorage when it changes
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      localStorage.setItem("language", language)
+    }
+  }, [language])
+
+  const t = (key: string) => {
+    return translations[language][key] || key
+  }
+
+  return <TranslationContext.Provider value={{ language, setLanguage, t }}>{children}</TranslationContext.Provider>
+}
+
+export const useTranslation = () => useContext(TranslationContext)
