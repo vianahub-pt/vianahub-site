@@ -112,8 +112,10 @@ function AgilePageContent() {
       {/* Parallax Section */}
       <ParallaxSection imageUrl="/pages/agile-parallax.jpg" height="500px">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">{t("agile.parallax.title")}</h2>
-          <p className="text-xl md:text-2xl opacity-90">{t("agile.parallax.subtitle")}</p>
+          <h2 className="text-4xl md:text-5xl font-bold mb-6">Transform Your Vision into Reality</h2>
+          <p className="text-xl md:text-2xl opacity-90">
+            With agile methodology, your project comes to life quickly and efficiently
+          </p>
         </div>
       </ParallaxSection>
 
