@@ -111,7 +111,7 @@ export function ServicesSection() {
                   <p className="text-gray-600 mb-6 leading-relaxed">{t(service.descriptionKey)}</p>
                   <Button
                     variant="outline"
-                    className="group-hover:bg-orange-500 group-hover:text-white group-hover:border-orange-500 transition-colors duration-300 bg-transparent"
+                    className="bg-orange-300 group-hover:bg-orange-500 group-hover:text-white group-hover:border-orange-500 transition-colors duration-300 bg-transparent"
                   >
                     {t("services.cta")}
                   </Button>
