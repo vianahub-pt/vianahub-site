@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from "react"
 import { Card, CardContent } from "@/components/ui/card"
 import { Zap, Users, Target, TrendingUp, Calendar, Timer, Eye, Truck } from "lucide-react"
-import { useTranslation, TranslationProvider } from "@/components/translation-context"
+import { useTranslation } from "@/components/translation-context"
 import { ScrollIndicator } from "@/components/scroll-indicator"
 
 function AgilePageContent() {
