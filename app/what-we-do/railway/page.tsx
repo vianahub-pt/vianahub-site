@@ -149,11 +149,7 @@ export default function RailwayPage() {
                 <div className="relative h-48">
                   <Image src={project.image || "/placeholder.svg"} alt={project.title} fill className="object-cover" />
                   <div className="absolute top-4 right-4">
-                    <Badge
-                      variant={project.status === t("railway.projects.status.completed") ? "default" : "secondary"}
-                    >
-                      {project.status}
-                    </Badge>
+                    <Badge variant="secondary">{project.status}</Badge>
                   </div>
                 </div>
                 <CardContent className="p-6">
