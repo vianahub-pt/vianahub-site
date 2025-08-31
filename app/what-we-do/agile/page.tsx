@@ -112,8 +112,8 @@ function AgilePageContent() {
       <section className="py-20 px-4 bg-gray-50">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">{t("agile.process.title")}</h2>
-            <p className="text-xl text-gray-600">{t("agile.process.subtitle")}</p>
+            <h2 className="!text-orange-500 text-3xl md:text-4xl font-bold mb-4">{t("agile.process.title")}</h2>
+            <p className="text-xl">{t("agile.process.subtitle")}</p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
