@@ -356,6 +356,34 @@ const translations = {
     "chatbot.cta.title": "Pronto para Automatizar o Atendimento?",
     "chatbot.cta.subtitle": "Entre em contacto connosco e descubra como nosso chatbot pode transformar o seu negócio",
     "chatbot.cta.button": "Contactar Agora",
+    // Landing Pages
+    "landingPages.hero.title": "Landing Pages",
+    "landingPages.hero.subtitle": "Páginas de conversão otimizadas para gerar leads e aumentar vendas",
+    "landingPages.features.title": "Funcionalidades das Landing Pages",
+    "landingPages.features.subtitle": "Descubra como nossas landing pages podem maximizar suas conversões",
+    "landingPages.features.conversion.title": "Otimização de Conversão",
+    "landingPages.features.conversion.description":
+      "Design focado em conversão com elementos estratégicos para maximizar resultados",
+    "landingPages.features.responsive.title": "Design Responsivo",
+    "landingPages.features.responsive.description":
+      "Páginas que funcionam perfeitamente em todos os dispositivos e tamanhos de tela",
+    "landingPages.features.seo.title": "SEO Otimizado",
+    "landingPages.features.seo.description": "Estrutura otimizada para motores de busca e melhor visibilidade online",
+    "landingPages.features.analytics.title": "Análises Detalhadas",
+    "landingPages.features.analytics.description": "Acompanhamento completo de métricas e performance da página",
+    "landingPages.benefits.title": "Benefícios das Landing Pages",
+    "landingPages.benefits.subtitle": "Vantagens que nossas landing pages oferecem para o seu negócio",
+    "landingPages.benefits.focus.title": "Foco no Objetivo",
+    "landingPages.benefits.focus.description": "Páginas dedicadas com foco único na conversão do visitante",
+    "landingPages.benefits.sales.title": "Aumento de Vendas",
+    "landingPages.benefits.sales.description": "Estratégias comprovadas para aumentar taxa de conversão e vendas",
+    "landingPages.benefits.design.title": "Design Profissional",
+    "landingPages.benefits.design.description": "Visual atrativo e profissional que transmite credibilidade",
+    "landingPages.benefits.speed.title": "Carregamento Rápido",
+    "landingPages.benefits.speed.description": "Páginas otimizadas para carregamento rápido e melhor experiência",
+    "landingPages.cta.title": "Pronto para Criar sua Landing Page?",
+    "landingPages.cta.subtitle": "Entre em contacto connosco e descubra como podemos aumentar suas conversões",
+    "landingPages.cta.button": "Contactar Agora",
   },
   en: {
     // Navigation
@@ -669,6 +697,33 @@ const translations = {
     "chatbot.cta.title": "Ready to Automate Customer Service?",
     "chatbot.cta.subtitle": "Contact us and discover how our chatbot can transform your business",
     "chatbot.cta.button": "Contact Now",
+    // Landing Pages
+    "landingPages.hero.title": "Landing Pages",
+    "landingPages.hero.subtitle": "Conversion-optimized pages to generate leads and increase sales",
+    "landingPages.features.title": "Landing Page Features",
+    "landingPages.features.subtitle": "Discover how our landing pages can maximize your conversions",
+    "landingPages.features.conversion.title": "Conversion Optimization",
+    "landingPages.features.conversion.description":
+      "Conversion-focused design with strategic elements to maximize results",
+    "landingPages.features.responsive.title": "Responsive Design",
+    "landingPages.features.responsive.description": "Pages that work perfectly on all devices and screen sizes",
+    "landingPages.features.seo.title": "SEO Optimized",
+    "landingPages.features.seo.description": "Structure optimized for search engines and better online visibility",
+    "landingPages.features.analytics.title": "Detailed Analytics",
+    "landingPages.features.analytics.description": "Complete tracking of page metrics and performance",
+    "landingPages.benefits.title": "Landing Page Benefits",
+    "landingPages.benefits.subtitle": "Advantages our landing pages offer for your business",
+    "landingPages.benefits.focus.title": "Goal Focus",
+    "landingPages.benefits.focus.description": "Dedicated pages with single focus on visitor conversion",
+    "landingPages.benefits.sales.title": "Increased Sales",
+    "landingPages.benefits.sales.description": "Proven strategies to increase conversion rate and sales",
+    "landingPages.benefits.design.title": "Professional Design",
+    "landingPages.benefits.design.description": "Attractive and professional visual that conveys credibility",
+    "landingPages.benefits.speed.title": "Fast Loading",
+    "landingPages.benefits.speed.description": "Pages optimized for fast loading and better experience",
+    "landingPages.cta.title": "Ready to Create Your Landing Page?",
+    "landingPages.cta.subtitle": "Contact us and discover how we can increase your conversions",
+    "landingPages.cta.button": "Contact Now",
   },
   es: {
     // Navigation
@@ -974,6 +1029,35 @@ const translations = {
     "chatbot.cta.title": "¿Listo para Automatizar la Atención?",
     "chatbot.cta.subtitle": "Contáctanos y descubre cómo nuestro chatbot puede transformar tu negocio",
     "chatbot.cta.button": "Contactar Ahora",
+    // Landing Pages
+    "landingPages.hero.title": "Landing Pages",
+    "landingPages.hero.subtitle": "Páginas optimizadas para conversión para generar leads y aumentar ventas",
+    "landingPages.features.title": "Características de Landing Pages",
+    "landingPages.features.subtitle": "Descubre cómo nuestras landing pages pueden maximizar tus conversiones",
+    "landingPages.features.conversion.title": "Optimización de Conversión",
+    "landingPages.features.conversion.description":
+      "Diseño enfocado en conversión con elementos estratégicos para maximizar resultados",
+    "landingPages.features.responsive.title": "Diseño Responsivo",
+    "landingPages.features.responsive.description":
+      "Páginas que funcionan perfectamente en todos los dispositivos y tamaños de pantalla",
+    "landingPages.features.seo.title": "SEO Optimizado",
+    "landingPages.features.seo.description":
+      "Estructura optimizada para motores de búsqueda y mejor visibilidad online",
+    "landingPages.features.analytics.title": "Análisis Detallados",
+    "landingPages.features.analytics.description": "Seguimiento completo de métricas y rendimiento de la página",
+    "landingPages.benefits.title": "Beneficios de Landing Pages",
+    "landingPages.benefits.subtitle": "Ventajas que nuestras landing pages ofrecen para tu negocio",
+    "landingPages.benefits.focus.title": "Enfoque en el Objetivo",
+    "landingPages.benefits.focus.description": "Páginas dedicadas con enfoque único en la conversión del visitante",
+    "landingPages.benefits.sales.title": "Aumento de Ventas",
+    "landingPages.benefits.sales.description": "Estrategias probadas para aumentar la tasa de conversión y ventas",
+    "landingPages.benefits.design.title": "Diseño Profesional",
+    "landingPages.benefits.design.description": "Visual atractivo y profesional que transmite credibilidad",
+    "landingPages.benefits.speed.title": "Carga Rápida",
+    "landingPages.benefits.speed.description": "Páginas optimizadas para carga rápida y mejor experiencia",
+    "landingPages.cta.title": "¿Listo para Crear tu Landing Page?",
+    "landingPages.cta.subtitle": "Contáctanos y descubre cómo podemos aumentar tus conversiones",
+    "landingPages.cta.button": "Contactar Ahora",
   },
   fr: {
     // Navigation
@@ -1064,6 +1148,7 @@ const translations = {
     // Projects Section
     "projects.title.part1": "Nos",
     "projects.title.part2": "Projets",
+    "services.title.part2": "Projets",
     "projects.subtitle": "Découvrez quelques-uns des projets que nous avons développés pour nos clients",
     "projects.cta": "Voir Tous les Projets",
     "projects.viewProject": "Voir le Projet",
@@ -1281,6 +1366,36 @@ const translations = {
     "chatbot.cta.title": "Prêt à Automatiser le Service Client ?",
     "chatbot.cta.subtitle": "Contactez-nous et découvrez comment notre chatbot peut transformer votre entreprise",
     "chatbot.cta.button": "Contacter Maintenant",
+    // Landing Pages
+    "landingPages.hero.title": "Pages d'Atterrissage",
+    "landingPages.hero.subtitle": "Pages optimisées pour la conversion pour générer des leads et augmenter les ventes",
+    "landingPages.features.title": "Fonctionnalités des Pages d'Atterrissage",
+    "landingPages.features.subtitle": "Découvrez comment nos pages d'atterrissage peuvent maximiser vos conversions",
+    "landingPages.features.conversion.title": "Optimisation de Conversion",
+    "landingPages.features.conversion.description":
+      "Design axé sur la conversion avec des éléments stratégiques pour maximiser les résultats",
+    "landingPages.features.responsive.title": "Design Responsif",
+    "landingPages.features.responsive.description":
+      "Pages qui fonctionnent parfaitement sur tous les appareils et tailles d'écran",
+    "landingPages.features.seo.title": "SEO Optimisé",
+    "landingPages.features.seo.description":
+      "Structure optimisée pour les moteurs de recherche et une meilleure visibilité en ligne",
+    "landingPages.features.analytics.title": "Analyses Détaillées",
+    "landingPages.features.analytics.description": "Suivi complet des métriques et performances de la page",
+    "landingPages.benefits.title": "Avantages des Pages d'Atterrissage",
+    "landingPages.benefits.subtitle": "Avantages que nos pages d'atterrissage offrent pour votre entreprise",
+    "landingPages.benefits.focus.title": "Focus sur l'Objectif",
+    "landingPages.benefits.focus.description": "Pages dédiées avec un focus unique sur la conversion du visiteur",
+    "landingPages.benefits.sales.title": "Augmentation des Ventes",
+    "landingPages.benefits.sales.description":
+      "Stratégies éprouvées pour augmenter le taux de conversion et les ventes",
+    "landingPages.benefits.design.title": "Design Professionnel",
+    "landingPages.benefits.design.description": "Visuel attrayant et professionnel qui transmet la crédibilité",
+    "landingPages.benefits.speed.title": "Chargement Rapide",
+    "landingPages.benefits.speed.description": "Pages optimisées pour un chargement rapide et une meilleure expérience",
+    "landingPages.cta.title": "Prêt à Créer Votre Page d'Atterrissage ?",
+    "landingPages.cta.subtitle": "Contactez-nous et découvrez comment nous pouvons augmenter vos conversions",
+    "landingPages.cta.button": "Contacter Maintenant",
   },
   de: {
     // Navigation
@@ -1588,6 +1703,36 @@ const translations = {
     "chatbot.cta.subtitle":
       "Kontaktieren Sie uns und entdecken Sie, wie unser Chatbot Ihr Unternehmen transformieren kann",
     "chatbot.cta.button": "Jetzt Kontaktieren",
+    // Landing Pages
+    "landingPages.hero.title": "Landing Pages",
+    "landingPages.hero.subtitle": "Konversionsoptimierte Seiten zur Lead-Generierung und Umsatzsteigerung",
+    "landingPages.features.title": "Landing Page Funktionen",
+    "landingPages.features.subtitle": "Entdecken Sie, wie unsere Landing Pages Ihre Konversionen maximieren können",
+    "landingPages.features.conversion.title": "Konversionsoptimierung",
+    "landingPages.features.conversion.description":
+      "Konversionsfokussiertes Design mit strategischen Elementen zur Ergebnismaximierung",
+    "landingPages.features.responsive.title": "Responsives Design",
+    "landingPages.features.responsive.description":
+      "Seiten, die perfekt auf allen Geräten und Bildschirmgrößen funktionieren",
+    "landingPages.features.seo.title": "SEO Optimiert",
+    "landingPages.features.seo.description": "Für Suchmaschinen optimierte Struktur und bessere Online-Sichtbarkeit",
+    "landingPages.features.analytics.title": "Detaillierte Analysen",
+    "landingPages.features.analytics.description": "Vollständige Verfolgung von Seitenmetriken und -leistung",
+    "landingPages.benefits.title": "Landing Page Vorteile",
+    "landingPages.benefits.subtitle": "Vorteile, die unsere Landing Pages für Ihr Unternehmen bieten",
+    "landingPages.benefits.focus.title": "Zielfokus",
+    "landingPages.benefits.focus.description": "Dedizierte Seiten mit einzigartigem Fokus auf Besucherkonversion",
+    "landingPages.benefits.sales.title": "Umsatzsteigerung",
+    "landingPages.benefits.sales.description":
+      "Bewährte Strategien zur Steigerung der Konversionsrate und des Umsatzes",
+    "landingPages.benefits.design.title": "Professionelles Design",
+    "landingPages.benefits.design.description":
+      "Attraktives und professionelles Erscheinungsbild, das Glaubwürdigkeit vermittelt",
+    "landingPages.benefits.speed.title": "Schnelles Laden",
+    "landingPages.benefits.speed.description": "Für schnelles Laden und bessere Erfahrung optimierte Seiten",
+    "landingPages.cta.title": "Bereit, Ihre Landing Page zu Erstellen?",
+    "landingPages.cta.subtitle": "Kontaktieren Sie uns und entdecken Sie, wie wir Ihre Konversionen steigern können",
+    "landingPages.cta.button": "Jetzt Kontaktieren",
   },
 }
 
