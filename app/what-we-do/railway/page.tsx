@@ -16,88 +16,27 @@ export default function RailwayPage() {
     window.scrollTo(0, 0)
   }, [])
 
-  const services = [
-    {
-      icon: Train,
-      title: t("railway.solutions.signaling.title"),
-      description: t("railway.solutions.signaling.description"),
-    },
-    {
-      icon: Zap,
-      title: t("railway.solutions.control.title"),
-      description: t("railway.solutions.control.description"),
-    },
-    {
-      icon: Shield,
-      title: t("railway.solutions.maintenance.title"),
-      description: t("railway.solutions.maintenance.description"),
-    },
-    {
-      icon: Settings,
-      title: t("railway.solutions.passenger.title"),
-      description: t("railway.solutions.passenger.description"),
-    },
-  ]
-
-  const projects = [
-    {
-      title: t("railway.projects.norte.title"),
-      description: t("railway.projects.norte.description"),
-      status: t("railway.projects.norte.status"),
-      year: t("railway.projects.norte.year"),
-      image: "/pages/railway.jpg",
-    },
-    {
-      title: t("railway.projects.porto.title"),
-      description: t("railway.projects.porto.description"),
-      status: t("railway.projects.porto.status"),
-      year: t("railway.projects.porto.year"),
-      image: "/pages/railway.jpg",
-    },
-  ]
-
-  const benefits = [
-    {
-      title: t("railway.benefits.safety.title"),
-      description: t("railway.benefits.safety.description"),
-    },
-    {
-      title: t("railway.benefits.efficiency.title"),
-      description: t("railway.benefits.efficiency.description"),
-    },
-    {
-      title: t("railway.benefits.reliability.title"),
-      description: t("railway.benefits.reliability.description"),
-    },
-    {
-      title: t("railway.benefits.integration.title"),
-      description: t("railway.benefits.integration.description"),
-    },
-  ]
-
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
       <section className="relative h-[70vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
-          <Image src="/pages/railway.jpg" alt={t("railway.hero.title")} fill className="object-cover" priority />
+          <Image src="/pages/railway.jpg"  fill className="object-cover" priority />
           <div className="absolute inset-0 bg-black/60" />
         </div>
         <div className="relative z-10 text-center text-white max-w-4xl mx-auto px-4">
           <Badge variant="secondary" className="mb-4">
             {t("nav.whatWeDo")}
           </Badge>
-          <h1 className="text-4xl md:text-6xl font-bold mb-6">{t("railway.hero.title")}</h1>
-          <p className="text-xl md:text-2xl opacity-90 mb-8">{t("railway.hero.subtitle")}</p>
+          <h1 className="text-4xl md:text-6xl font-bold mb-6"></h1>
+          <p className="text-xl md:text-2xl opacity-90 mb-8"></p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button size="lg" asChild>
               <Link href="/contact">
-                {t("railway.cta.button")}
                 <ArrowRight className="ml-2 w-4 h-4" />
               </Link>
             </Button>
             <Button size="lg" variant="outline" className="bg-white/10 border-white/20 text-white hover:bg-white/20">
-              {t("railway.projects.viewAll")}
             </Button>
           </div>
         </div>
@@ -107,8 +46,8 @@ export default function RailwayPage() {
       <section className="py-20 px-4">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">{t("railway.solutions.title")}</h2>
-            <p className="text-xl text-gray-600">{t("railway.solutions.subtitle")}</p>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4"></h2>
+            <p className="text-xl text-gray-600"></p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -118,8 +57,8 @@ export default function RailwayPage() {
                   <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
                     <service.icon className="w-8 h-8 text-blue-600" />
                   </div>
-                  <h3 className="text-lg font-bold mb-3">{service.title}</h3>
-                  <p className="text-gray-600 text-sm">{service.description}</p>
+                  <h3 className="text-lg font-bold mb-3"></h3>
+                  <p className="text-gray-600 text-sm"></p>
                 </CardContent>
               </Card>
             ))}
@@ -131,29 +70,28 @@ export default function RailwayPage() {
       <section className="py-20 px-4 bg-gray-50">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">{t("railway.projects.title")}</h2>
-            <p className="text-xl text-gray-600">{t("railway.projects.subtitle")}</p>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4"></h2>
+            <p className="text-xl text-gray-600"></p>
           </div>
 
           <div className="grid lg:grid-cols-2 gap-8">
             {projects.map((project, index) => (
               <Card key={index} className="overflow-hidden hover:shadow-lg transition-shadow">
                 <div className="relative h-48">
-                  <Image src={project.image || "/placeholder.svg"} alt={project.title} fill className="object-cover" />
+                  <Image src={ || "/placeholder.svg"}  fill className="object-cover" />
                   <div className="absolute top-4 right-4">
-                    <Badge variant={project.status === t("railway.projects.norte.status") ? "default" : "secondary"}>
-                      {project.status}
+                    <Badge variant={ === t("") ? "default" : "secondary"}>
                     </Badge>
                   </div>
                 </div>
                 <CardContent className="p-6">
                   <div className="flex items-center justify-between mb-2">
-                    <h3 className="text-xl font-bold">{project.title}</h3>
-                    <span className="text-sm text-gray-500">{project.year}</span>
+                    <h3 className="text-xl font-bold"></h3>
+                    <span className="text-sm text-gray-500"></span>
                   </div>
-                  <p className="text-gray-600 mb-4">{project.description}</p>
+                  <p className="text-gray-600 mb-4"></p>
                   <Button variant="outline" size="sm">
-                    {t("railway.projects.viewDetails")}
+
                     <ArrowRight className="ml-2 w-4 h-4" />
                   </Button>
                 </CardContent>
@@ -167,8 +105,8 @@ export default function RailwayPage() {
       <section className="py-20 px-4">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">{t("railway.benefits.title")}</h2>
-            <p className="text-xl text-gray-600">{t("railway.benefits.subtitle")}</p>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4"></h2>
+            <p className="text-xl text-gray-600"></p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -178,8 +116,8 @@ export default function RailwayPage() {
                   <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
                     <CheckCircle className="w-8 h-8 text-green-600" />
                   </div>
-                  <h3 className="text-lg font-bold mb-3">{benefit.title}</h3>
-                  <p className="text-gray-600 text-sm">{benefit.description}</p>
+                  <h3 className="text-lg font-bold mb-3"></h3>
+                  <p className="text-gray-600 text-sm"></p>
                 </CardContent>
               </Card>
             ))}
@@ -192,15 +130,10 @@ export default function RailwayPage() {
         <div className="max-w-6xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
-              <h2 className="text-3xl md:text-4xl font-bold mb-6">{t("railway.features.title")}</h2>
-              <p className="text-lg text-gray-600 mb-8">{t("railway.features.subtitle")}</p>
+              <h2 className="text-3xl md:text-4xl font-bold mb-6"></h2>
+              <p className="text-lg text-gray-600 mb-8"></p>
               <div className="space-y-4">
                 {[
-                  t("railway.features.automation"),
-                  t("railway.features.monitoring"),
-                  t("railway.features.predictive"),
-                  t("railway.features.integration"),
-                  t("railway.features.compliance"),
                 ].map((feature, index) => (
                   <div key={index} className="flex items-center gap-3">
                     <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0" />
@@ -219,12 +152,11 @@ export default function RailwayPage() {
       {/* CTA Section */}
       <section className="py-20 px-4 bg-blue-600 text-white">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">{t("railway.cta.title")}</h2>
-          <p className="text-xl opacity-90 mb-8">{t("railway.cta.subtitle")}</p>
+          <h2 className="text-3xl md:text-4xl font-bold mb-6"></h2>
+          <p className="text-xl opacity-90 mb-8"></p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button size="lg" variant="secondary" asChild>
               <Link href="/contact">
-                {t("railway.cta.button")}
                 <ArrowRight className="ml-2 w-4 h-4" />
               </Link>
             </Button>
@@ -233,7 +165,6 @@ export default function RailwayPage() {
               variant="outline"
               className="border-white text-white hover:bg-white hover:text-blue-600 bg-transparent"
             >
-              {t("railway.cta.downloadBrochure")}
             </Button>
           </div>
         </div>
