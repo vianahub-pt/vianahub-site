@@ -1275,6 +1275,43 @@ const translations = {
     "services.automation.title": "Automatización",
     "services.automation.description": "Automatizamos procesos para aumentar la productividad",
     "services.cta": "Saber Más",
+    // Projects Section
+    "projects.title.part1": "Nuestros",
+    "projects.title.part2": "Proyectos",
+    "projects.subtitle": "Conozca algunos de los proyectos que desarrollamos para nuestros clientes",
+    "projects.cta": "Ver Todos los Proyectos",
+    "projects.viewProject": "Ver Proyecto",
+    "projects.ecommerce.title": "Plataforma de E-commerce",
+    "projects.ecommerce.category": "E-commerce",
+    "projects.ecommerce.description":
+      "Sistema completo de ventas online con gestión de inventario, pagos y análisis avanzados.",
+    "projects.hospital.title": "Sistema de Gestión Hospitalaria",
+    "projects.hospital.category": "Salud",
+    "projects.hospital.description":
+      "Plataforma integrada para gestión de pacientes, consultas, exámenes y recursos hospitalarios.",
+    "projects.delivery.title": "App de Entrega de Comida",
+    "projects.delivery.category": "Delivery",
+    "projects.delivery.description":
+      "Aplicación móvil para pedidos de comida con seguimiento en tiempo real y pagos integrados.",
+    "projects.banking.title": "Sistema Bancario Digital",
+    "projects.banking.category": "Financiero",
+    "projects.banking.description":
+      "Plataforma bancaria completa con transacciones seguras, gestión de cuentas y servicios digitales.",
+    "projects.education.title": "Plataforma Educacional",
+    "projects.education.category": "Educación",
+    "projects.education.description":
+      "Sistema de enseñanza online con videoconferencias, gestión de cursos y evaluaciones automatizadas.",
+    "projects.logistics.title": "Sistema de Logística",
+    "projects.logistics.category": "Logística",
+    "projects.logistics.description":
+      "Solución completa para gestión de flotas, seguimiento de entregas y optimización de rutas.",
+    "projects.streaming.title": "Plataforma de Streaming",
+    "projects.streaming.category": "Entretenimiento",
+    "projects.streaming.description": "Sistema de streaming de video con CDN global y analytics avanzados.",
+    "projects.crm.title": "Sistema CRM",
+    "projects.crm.category": "Gestión",
+    "projects.crm.description":
+      "Plataforma de gestión de relaciones con clientes con automatización de ventas y marketing.",
     // Fox Game
     "foxGame.title": "Aventura del Zorro en el Desierto",
     "foxGame.subtitle": "¡Ayuda al zorro a encontrar el oasis a través del laberinto!",
@@ -1409,6 +1446,43 @@ const translations = {
     "services.automation.title": "Automatisation",
     "services.automation.description": "Nous automatisons les processus pour augmenter la productivité",
     "services.cta": "En Savoir Plus",
+    // Projects Section
+    "projects.title.part1": "Nos",
+    "projects.title.part2": "Projets",
+    "projects.subtitle": "Découvrez quelques-uns des projets que nous avons développés pour nos clients",
+    "projects.cta": "Voir Tous les Projets",
+    "projects.viewProject": "Voir le Projet",
+    "projects.ecommerce.title": "Plateforme E-commerce",
+    "projects.ecommerce.category": "E-commerce",
+    "projects.ecommerce.description":
+      "Système complet de vente en ligne avec gestion d'inventaire, paiements et analyses avancées.",
+    "projects.hospital.title": "Système de Gestion Hospitalière",
+    "projects.hospital.category": "Santé",
+    "projects.hospital.description":
+      "Plateforme intégrée pour la gestion des patients, consultations, examens et ressources hospitalières.",
+    "projects.delivery.title": "App de Livraison de Nourriture",
+    "projects.delivery.category": "Livraison",
+    "projects.delivery.description":
+      "Application mobile pour commandes de nourriture avec suivi en temps réel et paiements intégrés.",
+    "projects.banking.title": "Système Bancaire Numérique",
+    "projects.banking.category": "Financier",
+    "projects.banking.description":
+      "Plateforme bancaire complète avec transactions sécurisées, gestion de comptes et services numériques.",
+    "projects.education.title": "Plateforme Éducationnelle",
+    "projects.education.category": "Éducation",
+    "projects.education.description":
+      "Système d'enseignement en ligne avec vidéoconférences, gestion de cours et évaluations automatisées.",
+    "projects.logistics.title": "Système de Logistique",
+    "projects.logistics.category": "Logistique",
+    "projects.logistics.description":
+      "Solution complète pour la gestion de flottes, suivi des livraisons et optimisation des itinéraires.",
+    "projects.streaming.title": "Plateforme de Streaming",
+    "projects.streaming.category": "Divertissement",
+    "projects.streaming.description": "Système de streaming vidéo avec CDN global et analyses avancées.",
+    "projects.crm.title": "Système CRM",
+    "projects.crm.category": "Gestion",
+    "projects.crm.description":
+      "Plateforme de gestion de la relation client avec automatisation des ventes et du marketing.",
     // Fox Game
     "foxGame.title": "Aventure du Renard dans le Désert",
     "foxGame.subtitle": "Aidez le renard à trouver l'oasis à travers le labyrinthe !",
@@ -1545,6 +1619,41 @@ const translations = {
     "services.automation.title": "Automatisierung",
     "services.automation.description": "Wir automatisieren Prozesse zur Steigerung der Produktivität",
     "services.cta": "Mehr Erfahren",
+    // Projects Section
+    "projects.title.part1": "Unsere",
+    "projects.title.part2": "Projekte",
+    "projects.subtitle": "Erfahren Sie mehr über einige der Projekte, die wir für unsere Kunden entwickelt haben",
+    "projects.cta": "Alle Projekte Anzeigen",
+    "projects.viewProject": "Projekt Anzeigen",
+    "projects.ecommerce.title": "E-Commerce-Plattform",
+    "projects.ecommerce.category": "E-Commerce",
+    "projects.ecommerce.description":
+      "Komplettes Online-Verkaufssystem mit Bestandsverwaltung, Zahlungen und erweiterten Analysen.",
+    "projects.hospital.title": "Krankenhaus-Managementsystem",
+    "projects.hospital.category": "Gesundheitswesen",
+    "projects.hospital.description":
+      "Integrierte Plattform für Patientenverwaltung, Termine, Untersuchungen und Krankenhausressourcen.",
+    "projects.delivery.title": "Food-Delivery-App",
+    "projects.delivery.category": "Lieferung",
+    "projects.delivery.description":
+      "Mobile Anwendung für Essensbestellungen mit Echtzeit-Tracking und integrierten Zahlungen.",
+    "projects.banking.title": "Digitales Banking-System",
+    "projects.banking.category": "Finanzwesen",
+    "projects.banking.description":
+      "Komplette Banking-Plattform mit sicheren Transaktionen, Kontoverwaltung und digitalen Services.",
+    "projects.education.title": "Bildungsplattform",
+    "projects.education.category": "Bildung",
+    "projects.education.description":
+      "Online-Lehrsystem mit Videokonferenzen, Kursverwaltung und automatisierten Bewertungen.",
+    "projects.logistics.title": "Logistiksystem",
+    "projects.logistics.category": "Logistik",
+    "projects.logistics.description": "Komplette Lösung für Flottenverwaltung, Lieferverfolgung und Routenoptimierung.",
+    "projects.streaming.title": "Streaming-Plattform",
+    "projects.streaming.category": "Unterhaltung",
+    "projects.streaming.description": "Video-Streaming-System mit globalem CDN und erweiterten Analysen.",
+    "projects.crm.title": "CRM-System",
+    "projects.crm.category": "Verwaltung",
+    "projects.crm.description": "Kundenbeziehungsmanagement-Plattform mit Vertriebs- und Marketing-Automatisierung.",
     // Fox Game
     "foxGame.title": "Fuchs-Wüstenabenteuer",
     "foxGame.subtitle": "Hilf dem Fuchs, die Oase durch das Labyrinth zu finden!",
