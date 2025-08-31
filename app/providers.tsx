@@ -1,12 +1,14 @@
-"use client";
+"use client"
 
-import { TranslationProvider } from "@/components/translation-context";
+import type React from "react"
+
+import { ThemeProvider } from "@/components/theme-provider"
+import { TranslationProvider } from "@/components/translation-context"
 
 export default function Providers({ children }: { children: React.ReactNode }) {
-  // Se quiser, detecte locale via cookies/headers e passe como prop
   return (
-    <TranslationProvider /* initialLocale="pt" */>
-      {children}
-    </TranslationProvider>
-  );
+    <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
+      <TranslationProvider>{children}</TranslationProvider>
+    </ThemeProvider>
+  )
 }
