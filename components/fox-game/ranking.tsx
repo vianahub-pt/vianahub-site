@@ -1,7 +1,7 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { useTranslation } from "@/contexts/translation-context"
+import { useTranslation } from "@/components/translation-context"
 
 export interface RankingEntry {
   name: string
