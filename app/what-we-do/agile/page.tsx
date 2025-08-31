@@ -1,10 +1,10 @@
 "use client"
 
 import { useState, useEffect } from "react"
+import Image from "next/image"
 import { Card, CardContent } from "@/components/ui/card"
-import { Zap, Users, Target, TrendingUp, Calendar, Timer, Eye, Truck } from "lucide-react"
+import { Clock, Users, Zap, Award, CheckCircle, ArrowRight, Target, Repeat, Eye } from "lucide-react"
 import { useTranslation } from "@/components/translation-context"
-import { ScrollIndicator } from "@/components/scroll-indicator"
 
 function AgilePageContent() {
   const { t } = useTranslation()
@@ -15,8 +15,10 @@ function AgilePageContent() {
   }, [])
 
   useEffect(() => {
-    window.scrollTo(0, 0)
-  }, [])
+    if (mounted) {
+      window.scrollTo(0, 0)
+    }
+  }, [mounted])
 
   if (!mounted) {
     return null
@@ -24,91 +26,80 @@ function AgilePageContent() {
 
   const benefits = [
     {
-      icon: <Zap className="h-8 w-8 !text-viana-orange" />,
+      icon: Clock,
       title: t("agile.benefits.delivery.title"),
       description: t("agile.benefits.delivery.description"),
     },
     {
-      icon: <Users className="h-8 w-8 !text-viana-orange" />,
+      icon: Users,
       title: t("agile.benefits.collaboration.title"),
       description: t("agile.benefits.collaboration.description"),
     },
     {
-      icon: <Target className="h-8 w-8 !text-viana-orange" />,
+      icon: Zap,
       title: t("agile.benefits.flexibility.title"),
       description: t("agile.benefits.flexibility.description"),
     },
     {
-      icon: <TrendingUp className="h-8 w-8 !text-viana-orange" />,
+      icon: Award,
       title: t("agile.benefits.quality.title"),
       description: t("agile.benefits.quality.description"),
     },
   ]
 
-  const methodologies = [
+  const process = [
     {
-      icon: <Calendar className="h-6 w-6 !text-viana-orange" />,
+      icon: Target,
       title: t("agile.process.planning.title"),
       description: t("agile.process.planning.description"),
     },
     {
-      icon: <Timer className="h-6 w-6 !text-viana-orange" />,
+      icon: Repeat,
       title: t("agile.process.sprints.title"),
       description: t("agile.process.sprints.description"),
     },
     {
-      icon: <Eye className="h-6 w-6 !text-viana-orange" />,
+      icon: Eye,
       title: t("agile.process.review.title"),
       description: t("agile.process.review.description"),
     },
     {
-      icon: <Truck className="h-6 w-6 !text-viana-orange" />,
+      icon: CheckCircle,
       title: t("agile.process.delivery.title"),
       description: t("agile.process.delivery.description"),
     },
   ]
 
   return (
-    <div className="min-h-screen bg-viana-white">
+    <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative pt-0 pb-0 bg-gradient-to-br from-viana-orange to-viana-yellow overflow-hidden h-[500px]">
-        <div
-          className="absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat"
-          style={{
-            backgroundImage: "url('/pages/agile.jpg')",
-          }}
-        />
-        <div className="absolute inset-0 bg-black/60 z-0" />
-        <div className="container mx-auto px-4 relative z-10 h-full flex items-center justify-center">
-          <div className="max-w-4xl mx-auto text-center text-white">
-            <h1 className="text-4xl lg:text-6xl font-bold mb-6 flex items-center justify-center gap-4">
-              <Zap className="text-orange-500 w-12 h-12 lg:w-16 lg:h-16" />
-              {t("agile.hero.title")}
-            </h1>
-            <p className="text-xl lg:text-2xl mb-8 opacity-90">{t("agile.hero.subtitle")}</p>
-          </div>
+      <section className="relative h-[60vh] flex items-center justify-center overflow-hidden">
+        <div className="absolute inset-0">
+          <Image src="/pages/agile.jpg" alt={t("agile.hero.title")} fill className="object-cover" priority />
+          <div className="absolute inset-0 bg-black/50" />
         </div>
-
-        <ScrollIndicator />
+        <div className="relative z-10 text-center text-white max-w-4xl mx-auto px-4">
+          <h1 className="text-4xl md:text-6xl font-bold mb-6">{t("agile.hero.title")}</h1>
+          <p className="text-xl md:text-2xl opacity-90">{t("agile.hero.subtitle")}</p>
+        </div>
       </section>
 
       {/* Benefits Section */}
-      <section className="py-20 bg-white">
-        <div className="container mx-auto px-4">
+      <section className="py-20 px-4">
+        <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-3xl lg:text-4xl font-bold text-orange-500 mb-4">{t("agile.benefits.title")}</h2>
-            <p className="text-xl text-viana-gray max-w-3xl mx-auto">{t("agile.benefits.subtitle")}</p>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">{t("agile.benefits.title")}</h2>
+            <p className="text-xl text-gray-600">{t("agile.benefits.subtitle")}</p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {benefits.map((benefit, index) => (
-              <Card
-                key={index}
-                className="text-center hover:shadow-lg transition-all duration-1000 ease-out border-none !bg-viana-orange transform hover:scale-105"
-              >
-                <CardContent className="bg-viana-orange p-6">
-                  <div className="flex justify-center mb-4">{benefit.icon}</div>
-                  <h3 className="text-xl font-bold text-orange-500 mb-3">{benefit.title}</h3>
+              <Card key={index} className="!bg-viana-orange hover:scale-105 transition-all duration-300 cursor-pointer">
+                <CardContent className="p-8 text-center">
+                  <div className="w-16 h-16 mx-auto mb-6 flex items-center justify-center rounded-full bg-white/20">
+                    <benefit.icon className="w-8 h-8 !text-viana-orange" />
+                  </div>
+                  <h3 className="text-xl font-bold mb-4 text-orange-500">{benefit.title}</h3>
                   <p className="!text-viana-white">{benefit.description}</p>
                 </CardContent>
               </Card>
@@ -117,42 +108,28 @@ function AgilePageContent() {
         </div>
       </section>
 
-      {/* Parallax Section */}
-      <div
-        className="relative h-[500px] overflow-hidden"
-        style={{
-          backgroundImage: "url('/pages/agile-parallax.jpg')",
-          backgroundAttachment: "fixed",
-          backgroundPosition: "center center",
-          backgroundRepeat: "no-repeat",
-          backgroundSize: "cover",
-        }}
-      >
-        <div className="absolute inset-0 bg-gradient-to-b from-black/5 to-black/10" />
-      </div>
-
-      {/* Methodologies Section */}
-      <section className="py-20 bg-gray-50">
-        <div className="container mx-auto px-4">
+      {/* Process Section */}
+      <section className="py-20 px-4 bg-gray-50">
+        <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-3xl lg:text-4xl font-bold text-orange-500 mb-4">{t("agile.process.title")}</h2>
-            <p className="text-xl text-viana-gray max-w-3xl mx-auto">{t("agile.process.subtitle")}</p>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">{t("agile.process.title")}</h2>
+            <p className="text-xl text-gray-600">{t("agile.process.subtitle")}</p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-            {methodologies.map((methodology, index) => (
-              <Card
-                key={index}
-                className="bg-viana-white/90 hover:shadow-lg border-none transform transition-all duration-300 ease-out hover:scale-105"
-              >
-                <CardContent className="p-6">
-                  <div className="flex items-start space-x-4">
-                    <div className="flex-shrink-0 text-orange-500">{methodology.icon}</div>
-                    <div>
-                      <h3 className="text-xl font-bold text-orange-500 mb-2">{methodology.title}</h3>
-                      <p className="!text-gray-900">{methodology.description}</p>
-                    </div>
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {process.map((step, index) => (
+              <Card key={index} className="bg-viana-white/90 hover:scale-105 transition-all duration-300">
+                <CardContent className="p-8 text-center">
+                  <div className="w-16 h-16 mx-auto mb-6 flex items-center justify-center rounded-full bg-viana-orange/10">
+                    <step.icon className="w-8 h-8 text-viana-orange" />
                   </div>
+                  <h3 className="text-xl font-bold mb-4 !text-gray-900">{step.title}</h3>
+                  <p className="!text-gray-900">{step.description}</p>
+                  {index < process.length - 1 && (
+                    <div className="hidden lg:block absolute top-1/2 -right-4 transform -translate-y-1/2">
+                      <ArrowRight className="w-6 h-6 text-viana-orange" />
+                    </div>
+                  )}
                 </CardContent>
               </Card>
             ))}
