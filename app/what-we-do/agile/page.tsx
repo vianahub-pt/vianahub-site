@@ -62,15 +62,15 @@ function AgilePageContent() {
     })
 
     return () => observer.disconnect()
-  }, [])
+  }, [mounted])
 
   useEffect(() => {
     const benefitElements = benefitsRef.current?.querySelectorAll(".benefit-card")
 
     if (!benefitElements) return
 
-    // Initialize all benefits as not visible
-    setVisibleBenefits(new Array(benefitElements.length).fill(false))
+    // Initialize all benefits as visible initially to ensure they show
+    setVisibleBenefits(new Array(benefitElements.length).fill(true))
 
     const observer = new IntersectionObserver(
       (entries) => {
@@ -83,19 +83,12 @@ function AgilePageContent() {
               newState[index] = true
               return newState
             })
-          } else {
-            // Reset animation when card leaves viewport
-            setVisibleBenefits((prev) => {
-              const newState = [...prev]
-              newState[index] = false
-              return newState
-            })
           }
         })
       },
       {
         threshold: 0.1,
-        rootMargin: "0px 0px -50px 0px",
+        rootMargin: "0px 0px -100px 0px",
       },
     )
 
@@ -104,7 +97,7 @@ function AgilePageContent() {
     })
 
     return () => observer.disconnect()
-  }, [])
+  }, [mounted])
 
   if (!mounted) {
     return null
@@ -193,14 +186,7 @@ function AgilePageContent() {
               <Card
                 key={index}
                 data-index={index}
-                className={`benefit-card text-center hover:shadow-lg transition-all duration-1000 ease-out border-none bg-viana-orange transform ${
-                  visibleBenefits[index]
-                    ? "opacity-100 translate-x-0"
-                    : `opacity-0 ${index < 2 ? "-translate-x-full" : "translate-x-full"}`
-                }`}
-                style={{
-                  transitionDelay: visibleBenefits[index] ? `${index * 200}ms` : "0ms",
-                }}
+                className={`benefit-card text-center hover:shadow-lg transition-all duration-500 ease-out border-none bg-viana-orange transform opacity-100 translate-x-0`}
               >
                 <CardContent className="p-6">
                   <div className="flex justify-center mb-4">{benefit.icon}</div>
