@@ -12,6 +12,11 @@ function AgilePageContent() {
   const benefitsRef = useRef<HTMLElement>(null)
   const [visibleCards, setVisibleCards] = useState<boolean[]>([])
   const [visibleBenefits, setVisibleBenefits] = useState<boolean[]>([])
+  const [mounted, setMounted] = useState(false)
+
+  useEffect(() => {
+    setMounted(true)
+  }, [])
 
   useEffect(() => {
     window.scrollTo(0, 0)
@@ -100,6 +105,10 @@ function AgilePageContent() {
 
     return () => observer.disconnect()
   }, [])
+
+  if (!mounted) {
+    return null
+  }
 
   const benefits = [
     {
@@ -257,9 +266,5 @@ function AgilePageContent() {
 }
 
 export default function AgilePage() {
-  return (
-    <TranslationProvider>
-      <AgilePageContent />
-    </TranslationProvider>
-  )
+  return <AgilePageContent />
 }
