@@ -39,22 +39,6 @@ export default function RailwayPage() {
     },
   ]
 
-  const projects = [
-    {
-      title: "Modernização da Linha do Norte",
-      description: "Atualização completa dos sistemas de sinalização em 150km de linha férrea.",
-      image: "/pages/railway.jpg",
-      status: "Concluído",
-      year: "2023",
-    },
-    {
-      title: "Estação Central do Porto",
-      description: "Renovação da infraestrutura e sistemas de informação ao passageiro.",
-      image: "/pages/railway.jpg",
-      status: "Em Andamento",
-      year: "2024",
-    },
-  ]
 
   const benefits = [
     {
