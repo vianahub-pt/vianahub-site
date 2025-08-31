@@ -7,9 +7,9 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Sun, Battery, Zap, BarChart3, ArrowRight, CheckCircle } from "lucide-react"
-import { useTranslation, TranslationProvider } from "@/components/translation-context"
+import { useTranslation } from "@/components/translation-context"
 
-function SolarEnergyContent() {
+export default function SolarEnergyPage() {
   const { t } = useTranslation()
 
   useEffect(() => {
@@ -242,13 +242,5 @@ function SolarEnergyContent() {
         </div>
       </section>
     </div>
-  )
-}
-
-export default function SolarEnergyPage() {
-  return (
-    <TranslationProvider>
-      <SolarEnergyContent />
-    </TranslationProvider>
   )
 }

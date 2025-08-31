@@ -4,10 +4,10 @@ import { useEffect } from "react"
 import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Users, Globe, DollarSign, Clock, Shield, Award, TrendingUp, CheckCircle } from "lucide-react"
-import { useTranslation, TranslationProvider } from "@/components/translation-context"
+import { useTranslation } from "@/components/translation-context"
 import { ScrollIndicator } from "@/components/scroll-indicator"
 
-function OutsourcingPageContent() {
+export default function OutsourcingPage() {
   const { t } = useTranslation()
 
   useEffect(() => {
@@ -179,13 +179,5 @@ function OutsourcingPageContent() {
         </div>
       </section>
     </div>
-  )
-}
-
-export default function OutsourcingPage() {
-  return (
-    <TranslationProvider>
-      <OutsourcingPageContent />
-    </TranslationProvider>
   )
 }

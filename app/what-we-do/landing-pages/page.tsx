@@ -1,12 +1,10 @@
 "use client"
 
 import { useEffect } from "react"
-import { Navbar } from "@/components/navbar"
-import { Footer } from "@/components/footer"
 import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { useTranslation } from "@/components/translation-context"
-import { Zap, Target, TrendingUp, Smartphone, Search, BarChart3, Palette, Rocket } from "lucide-react"
+import { Zap, Target, TrendingUp, Smartphone, Search, BarChart3, Palette, Rocket, Layout } from "lucide-react"
 import { ScrollIndicator } from "@/components/scroll-indicator"
 
 export default function LandingPagesPage() {
@@ -91,9 +89,7 @@ export default function LandingPagesPage() {
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-3xl lg:text-4xl font-bold text-viana-black mb-4">
-              {t("landingPages.features.title")}
-            </h2>
+            <h2 className="text-3xl lg:text-4xl font-bold text-viana-black mb-4">{t("landingPages.features.title")}</h2>
             <p className="text-xl text-viana-gray max-w-3xl mx-auto">{t("landingPages.features.subtitle")}</p>
           </div>
 
@@ -115,9 +111,7 @@ export default function LandingPagesPage() {
       <section className="py-20 bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-3xl lg:text-4xl font-bold text-viana-black mb-4">
-              {t("landingPages.benefits.title")}
-            </h2>
+            <h2 className="text-3xl lg:text-4xl font-bold text-viana-black mb-4">{t("landingPages.benefits.title")}</h2>
             <p className="text-xl text-viana-gray max-w-3xl mx-auto">{t("landingPages.benefits.subtitle")}</p>
           </div>
 

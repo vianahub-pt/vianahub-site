@@ -1,7 +1,7 @@
 "use client"
 import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
-import { TranslationProvider, useTranslation } from "@/components/translation-context"
+import { useTranslation } from "@/components/translation-context"
 import { HealthcarePageContent } from "@/components/healthcare-page-content"
 import Image from "next/image"
 
@@ -23,15 +23,13 @@ function HealthcareHero() {
 
 export default function HealthcarePage() {
   return (
-    <TranslationProvider>
-      <div className="min-h-screen bg-viana-white">
-        <Navbar />
-        <main>
-          <HealthcareHero />
-          <HealthcarePageContent />
-        </main>
-        <Footer />
-      </div>
-    </TranslationProvider>
+    <div className="min-h-screen bg-viana-white">
+      <Navbar />
+      <main>
+        <HealthcareHero />
+        <HealthcarePageContent />
+      </main>
+      <Footer />
+    </div>
   )
 }

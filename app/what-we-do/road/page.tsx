@@ -7,9 +7,9 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Signal, Wrench, Users, ArrowRight, CheckCircle, Shield, Zap, Settings } from "lucide-react"
-import { useTranslation, TranslationProvider } from "@/components/translation-context"
+import { useTranslation } from "@/components/translation-context"
 
-function RoadContent() {
+export default function RoadPage() {
   const { t } = useTranslation()
 
   useEffect(() => {
@@ -193,13 +193,5 @@ function RoadContent() {
         </div>
       </section>
     </div>
-  )
-}
-
-export default function RoadPage() {
-  return (
-    <TranslationProvider>
-      <RoadContent />
-    </TranslationProvider>
   )
 }

@@ -1,5 +1,4 @@
 "use client"
-import { TranslationProvider } from "@/components/translation-context"
 import CareersPageContent from "@/components/careers-page-content"
 
 const positions = [
@@ -48,9 +47,5 @@ const positions = [
 ]
 
 export default function CareersPage() {
-  return (
-    <TranslationProvider>
-      <CareersPageContent />
-    </TranslationProvider>
-  )
+  return <CareersPageContent />
 }

@@ -1,7 +1,7 @@
 "use client"
 import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
-import { TranslationProvider, useTranslation } from "@/components/translation-context"
+import { useTranslation } from "@/components/translation-context"
 import Image from "next/image"
 
 function Breadcrumb({ items }: { items: { label: string; href: string }[] }) {
@@ -39,7 +39,7 @@ function Breadcrumb({ items }: { items: { label: string; href: string }[] }) {
   )
 }
 
-function EducationPageContent() {
+export default function EducationPage() {
   const { t } = useTranslation()
 
   return (
@@ -97,13 +97,5 @@ function EducationPageContent() {
       </main>
       <Footer />
     </div>
-  )
-}
-
-export default function EducationPage() {
-  return (
-    <TranslationProvider>
-      <EducationPageContent />
-    </TranslationProvider>
   )
 }

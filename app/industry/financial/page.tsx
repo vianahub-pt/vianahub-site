@@ -1,7 +1,6 @@
 import type { Metadata } from "next"
 import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
-import { TranslationProvider } from "@/components/translation-context"
 import { FinancialPageContent } from "@/components/financial-page-content"
 
 export const metadata: Metadata = {
@@ -12,14 +11,12 @@ export const metadata: Metadata = {
 
 export default function FinancialPage() {
   return (
-    <TranslationProvider>
-      <div className="min-h-screen bg-viana-white">
-        <Navbar />
-        <main>
-          <FinancialPageContent />
-        </main>
-        <Footer />
-      </div>
-    </TranslationProvider>
+    <div className="min-h-screen bg-viana-white">
+      <Navbar />
+      <main>
+        <FinancialPageContent />
+      </main>
+      <Footer />
+    </div>
   )
 }

@@ -1,8 +1,8 @@
 "use client"
 import Image from "next/image"
-import { TranslationProvider, useTranslation } from "@/components/translation-context"
+import { useTranslation } from "@/components/translation-context"
 
-function GovernmentPageContent() {
+export default function GovernmentPage() {
   const { t } = useTranslation()
 
   return (
@@ -50,13 +50,5 @@ function GovernmentPageContent() {
         </div>
       </main>
     </div>
-  )
-}
-
-export default function GovernmentPage() {
-  return (
-    <TranslationProvider>
-      <GovernmentPageContent />
-    </TranslationProvider>
   )
 }
