@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect, useRef, useState } from "react"
+import { useEffect, useState } from "react"
 import { Card, CardContent } from "@/components/ui/card"
 import { Zap, Users, Target, TrendingUp, Calendar, Timer, Eye, Truck } from "lucide-react"
 import { useTranslation } from "@/components/translation-context"
@@ -8,82 +8,12 @@ import { ScrollIndicator } from "@/components/scroll-indicator"
 
 function AgilePageContent() {
   const { t } = useTranslation()
-  const processRef = useRef<HTMLElement>(null)
-  const benefitsRef = useRef<HTMLElement>(null)
-  const [visibleCards, setVisibleCards] = useState<boolean[]>([false, false, false, false])
-  const [visibleBenefits, setVisibleBenefits] = useState<boolean[]>([false, false, false, false])
   const [mounted, setMounted] = useState(false)
 
   useEffect(() => {
     setMounted(true)
     window.scrollTo(0, 0)
   }, [])
-
-  useEffect(() => {
-    if (!mounted) return
-
-    const cardElements = processRef.current?.querySelectorAll(".process-card")
-    if (!cardElements || cardElements.length === 0) return
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          const index = Number.parseInt(entry.target.getAttribute("data-index") || "0")
-
-          setVisibleCards((prev) => {
-            const newState = [...prev]
-            newState[index] = entry.isIntersecting
-            return newState
-          })
-        })
-      },
-      {
-        threshold: 0.1,
-        rootMargin: "0px 0px -50px 0px",
-      },
-    )
-
-    cardElements.forEach((card) => {
-      observer.observe(card)
-    })
-
-    return () => {
-      observer.disconnect()
-    }
-  }, [mounted])
-
-  useEffect(() => {
-    if (!mounted) return
-
-    const benefitElements = benefitsRef.current?.querySelectorAll(".benefit-card")
-    if (!benefitElements || benefitElements.length === 0) return
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          const index = Number.parseInt(entry.target.getAttribute("data-index") || "0")
-
-          setVisibleBenefits((prev) => {
-            const newState = [...prev]
-            newState[index] = entry.isIntersecting
-            return newState
-          })
-        })
-      },
-      {
-        threshold: 0.1,
-        rootMargin: "0px 0px -50px 0px",
-      },
-    )
-
-    benefitElements.forEach((card) => {
-      observer.observe(card)
-    })
-
-    return () => {
-      observer.disconnect()
-    }
-  }, [mounted])
 
   if (!mounted) {
     return null
@@ -160,7 +90,7 @@ function AgilePageContent() {
       </section>
 
       {/* Benefits Section */}
-      <section ref={benefitsRef} className="py-20 bg-white">
+      <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-3xl lg:text-4xl font-bold text-orange-500 mb-4">{t("agile.benefits.title")}</h2>
@@ -171,15 +101,7 @@ function AgilePageContent() {
             {benefits.map((benefit, index) => (
               <Card
                 key={index}
-                data-index={index}
-                className={`benefit-card text-center hover:shadow-lg transition-all duration-1000 ease-out border-none !bg-viana-orange transform ${
-                  visibleBenefits[index]
-                    ? "opacity-100 translate-x-0"
-                    : `opacity-0 ${index < 2 ? "-translate-x-full" : "translate-x-full"}`
-                }`}
-                style={{
-                  transitionDelay: visibleBenefits[index] ? `${index * 200}ms` : "0ms",
-                }}
+                className="text-center hover:shadow-lg transition-all duration-300 ease-out border-none !bg-viana-orange"
               >
                 <CardContent className="bg-viana-orange p-6">
                   <div className="flex justify-center mb-4">{benefit.icon}</div>
@@ -207,7 +129,7 @@ function AgilePageContent() {
       </div>
 
       {/* Methodologies Section */}
-      <section ref={processRef} className="py-20 bg-gray-50">
+      <section className="py-20 bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-3xl lg:text-4xl font-bold text-orange-500 mb-4">{t("agile.process.title")}</h2>
@@ -218,13 +140,7 @@ function AgilePageContent() {
             {methodologies.map((methodology, index) => (
               <Card
                 key={index}
-                data-index={index}
-                className={`bg-viana-white/90 process-card hover:shadow-lg border-none transform transition-all duration-1000 ease-out ${
-                  visibleCards[index] ? "opacity-100 translate-y-0 scale-100" : "opacity-0 translate-y-12 scale-95"
-                }`}
-                style={{
-                  transitionDelay: visibleCards[index] ? `${index * 200}ms` : "0ms",
-                }}
+                className="bg-viana-white/90 hover:shadow-lg border-none transition-all duration-300 ease-out"
               >
                 <CardContent className="p-6">
                   <div className="flex items-start space-x-4">
