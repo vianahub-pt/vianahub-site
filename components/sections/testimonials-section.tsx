@@ -3,39 +3,41 @@
 import Image from "next/image"
 import { Star } from "lucide-react"
 import { useEffect, useState } from "react"
+import { useTranslation } from "@/components/translation-context"
 
 const testimonials = [
   {
-    name: "Kayth Cristina",
-    company: "App NOZ!",
-    text: "Nós, da App NOZ!, gostaríamos de aproveitar este momento para registrar os nossos profundos agradecimentos pelo incrível trabalho entregue na criação de nossa Landing Page.",
+    nameKey: "testimonials.kayth.name",
+    companyKey: "testimonials.kayth.company",
+    textKey: "testimonials.kayth.text",
     rating: 4,
     image: "/testimonials/kayth-cristina.webp",
   },
   {
-    name: "Alan Antônio",
-    company: "CSU Digital",
-    text: "A CSU Digital expressa sincero agradecimento pelo trabalho de campanhas digitais; a equipa demonstrou ser eficiente, entregando um serviço de alta qualidade. Se busca ser visto no mercado a VianaHub é o parceiro certo.",
+    nameKey: "testimonials.alan.name",
+    companyKey: "testimonials.alan.company",
+    textKey: "testimonials.alan.text",
     rating: 5,
     image: "/testimonials/alan-antonio.webp",
   },
   {
-    name: "Claudio Antunes",
-    company: "Claudio Eletricista",
-    text: "Sou Claudio, da Claudio Eletricista, gerimos projetos de energias e construção civil em Portugal. Quero ressaltar o quão fundamental foi a VianaHub na criação do nosso site e implantação do nosso ERP Odoo.",
+    nameKey: "testimonials.claudio.name",
+    companyKey: "testimonials.claudio.company",
+    textKey: "testimonials.claudio.text",
     rating: 4,
     image: "/testimonials/claudio-antunes.webp",
   },
   {
-    name: "Wellington Silva",
-    company: "Diagnóstica S.A.",
-    text: "Agradecemos por padronizar eficientemente a gestão da nossa infraestrutura com a poderosa ferramenta Terraform. A Labtest Diagnóstica S.A. teve uma experiência positiva com os serviços prestados e recomenda a VianaHub.",
+    nameKey: "testimonials.wellington.name",
+    companyKey: "testimonials.wellington.company",
+    textKey: "testimonials.wellington.text",
     rating: 5,
     image: "/testimonials/wellington-silva.webp",
   },
 ]
 
 export function TestimonialsSection() {
+  const { t } = useTranslation()
   const [centerIndex, setCenterIndex] = useState(1)
 
   useEffect(() => {
@@ -53,8 +55,11 @@ export function TestimonialsSection() {
     <section className="py-32 bg-white">
       <div className="container mx-auto px-4">
         <div className="text-center mb-20">
-          <h2 className="text-3xl md:text-4xl font-bold text-orange-500 mb-6">Testemunhos</h2>
-          <p className="text-xl text-gray-900">O que os nossos clientes dizem sobre nós</p>
+          <h2 className="text-3xl md:text-4xl font-bold mb-6">
+            <span className="text-gray-900">{t("testimonials.title.part1")}</span>{" "}
+            <span className="text-orange-500">{t("testimonials.title.part2")}</span>
+          </h2>
+          <p className="text-xl text-gray-900">{t("testimonials.subtitle")}</p>
         </div>
 
         <div className="max-w-6xl mx-auto overflow-hidden py-8">
@@ -86,7 +91,7 @@ export function TestimonialsSection() {
                         <div className="relative w-20 h-20 rounded-full overflow-hidden mb-4">
                           <Image
                             src={testimonial.image || "/placeholder.svg"}
-                            alt={testimonial.name}
+                            alt={t(testimonial.nameKey)}
                             fill
                             className="object-cover"
                           />
@@ -99,12 +104,12 @@ export function TestimonialsSection() {
                       </div>
 
                       <blockquote className="text-gray-700 mb-4 text-center italic text-sm">
-                        "{testimonial.text}"
+                        "{t(testimonial.textKey)}"
                       </blockquote>
 
                       <div className="text-center">
-                        <p className="font-semibold text-gray-900">{testimonial.name}</p>
-                        <p className="text-gray-600 text-sm">{testimonial.company}</p>
+                        <p className="font-semibold text-gray-900">{t(testimonial.nameKey)}</p>
+                        <p className="text-gray-600 text-sm">{t(testimonial.companyKey)}</p>
                       </div>
                     </div>
                   </div>
