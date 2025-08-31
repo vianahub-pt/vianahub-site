@@ -10,13 +10,13 @@ pool:
 variables:
   - name: NODE_VERSION
     value: "18.x"
-  - group: NewSecrets
+  - group: VianaHubSecrets
 
 steps:
   - task: NodeTool@0
     inputs:
-      versionSpec: '18.x'
-    displayName: 'Install Node.js'
+      versionSpec: "18.x"
+    displayName: "Install Node.js"
 
   - script: npm install -g pnpm
     displayName: "Install pnpm"
@@ -36,12 +36,12 @@ steps:
 
   - script: |
       pnpm run build
-    displayName: 'Build project'
+    displayName: "Build project"
 
   - task: ArchiveFiles@2
-    displayName: 'Archive files'
+    displayName: "Archive files"
     inputs:
-      rootFolderOrFile: '$(System.DefaultWorkingDirectory)'
+      rootFolderOrFile: "$(System.DefaultWorkingDirectory)"
       includeRootFolder: false
       archiveType: zip
       archiveFile: $(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip
