@@ -97,7 +97,7 @@ function AgilePageContent() {
               <Card key={index} className="!bg-black/40 hover:scale-105 transition-all duration-300 cursor-pointer">
                 <CardContent className="p-8 text-center">
                   <div className="w-16 h-16 mx-auto mb-6 flex items-center justify-center rounded-full bg-white/20">
-                    <benefit.icon className="w-8 h-8 !text-viana-orange" />
+                    <benefit.icon className="w-8 h-8 !text-orange-500" />
                   </div>
                   <h3 className="text-xl font-bold mb-4 text-orange-500">{benefit.title}</h3>
                   <p className="!text-viana-white">{benefit.description}</p>
@@ -121,9 +121,9 @@ function AgilePageContent() {
               <Card key={index} className="bg-viana-white/90 hover:scale-105 transition-all duration-300 relative">
                 <CardContent className="p-8 text-center">
                   <div className="w-16 h-16 mx-auto mb-6 flex items-center justify-center rounded-full bg-viana-orange/10">
-                    <step.icon className="w-8 h-8 text-viana-orange" />
+                    <step.icon className="w-8 h-8 text-orange-500" />
                   </div>
-                  <h3 className="text-xl font-bold mb-4 !text-gray-900">{step.title}</h3>
+                  <h3 className="text-xl font-bold mb-4 text-orange-500">{step.title}</h3>
                   <p className="!text-gray-900">{step.description}</p>
                   {index < process.length - 1 && (
                     <div className="hidden lg:block absolute top-1/2 -right-4 transform -translate-y-1/2">
