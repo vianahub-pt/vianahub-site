@@ -3,10 +3,10 @@
 import { useEffect, useRef, useState } from "react"
 import { Card, CardContent } from "@/components/ui/card"
 import { Zap, Users, Target, TrendingUp, Calendar, Timer, Eye, Truck } from "lucide-react"
-import { useTranslation } from "@/components/translation-context"
+import { useTranslation, TranslationProvider } from "@/components/translation-context"
 import { ScrollIndicator } from "@/components/scroll-indicator"
 
-export default function AgilePage() {
+function AgilePageContent() {
   const { t } = useTranslation()
   const processRef = useRef<HTMLElement>(null)
   const benefitsRef = useRef<HTMLElement>(null)
@@ -253,5 +253,13 @@ export default function AgilePage() {
         </div>
       </section>
     </div>
+  )
+}
+
+export default function AgilePage() {
+  return (
+    <TranslationProvider>
+      <AgilePageContent />
+    </TranslationProvider>
   )
 }
