@@ -1,7 +1,7 @@
 "use client"
 
-import type React from "react"
-import { createContext, useContext, useState } from "react"
+import type { ReactNode } from "react"
+import { createContext, useContext, useState, useEffect } from "react"
 
 export type Language = "pt" | "en" | "es" | "fr" | "de"
 
@@ -596,6 +596,33 @@ const translations = {
     "careers.form.cover": "Carta de Apresentação",
     "careers.form.submit": "Enviar Candidatura",
     "careers.form.submitting": "A enviar...",
+    // Data List Component
+    "dataList.loading": "Carregando dados...",
+    "dataList.error": "Erro ao carregar dados",
+    "dataList.retry": "Tentar Novamente",
+    "dataList.title": "Lista de Posts",
+    "dataList.update": "Atualizar",
+    "dataList.author": "Usuário",
+    "dataList.by": "Por",
+    // Preferences Dialog Component
+    "preferences.title": "Preferências do Sistema",
+    "preferences.theme": "Tema",
+    "preferences.theme.description": "Escolha a aparência da interface",
+    "preferences.theme.default": "Padrão VianaHub",
+    "preferences.theme.default.description": "Tema oficial da empresa",
+    "preferences.theme.dark": "Escuro",
+    "preferences.theme.dark.description": "Tema escuro para baixa luminosidade",
+    "preferences.language": "Idioma",
+    "preferences.language.description": "Selecione seu idioma preferido",
+    "preferences.privacy": "Privacidade",
+    "preferences.privacy.description": "Gerencie suas preferências de privacidade",
+    "preferences.privacy.policy": "Política de Privacidade",
+    "preferences.cookies": "Configurações de Cookies",
+    "preferences.cancel": "Cancelar",
+    "preferences.apply": "Aplicar",
+    // Theme Toggle Component
+    "theme.switchToLight": "Mudar para tema claro",
+    "theme.switchToDark": "Mudar para tema escuro",
   },
   en: {
     // Navigation
@@ -802,6 +829,33 @@ const translations = {
     "careers.form.cover": "Cover Letter",
     "careers.form.submit": "Submit Application",
     "careers.form.submitting": "Submitting...",
+    // Data List Component
+    "dataList.loading": "Loading data...",
+    "dataList.error": "Error loading data",
+    "dataList.retry": "Try Again",
+    "dataList.title": "Posts List",
+    "dataList.update": "Update",
+    "dataList.author": "User",
+    "dataList.by": "By",
+    // Preferences Dialog Component
+    "preferences.title": "System Preferences",
+    "preferences.theme": "Theme",
+    "preferences.theme.description": "Choose interface appearance",
+    "preferences.theme.default": "VianaHub Default",
+    "preferences.theme.default.description": "Official company theme",
+    "preferences.theme.dark": "Dark",
+    "preferences.theme.dark.description": "Dark theme for low light",
+    "preferences.language": "Language",
+    "preferences.language.description": "Select your preferred language",
+    "preferences.privacy": "Privacy",
+    "preferences.privacy.description": "Manage your privacy preferences",
+    "preferences.privacy.policy": "Privacy Policy",
+    "preferences.cookies": "Cookie Settings",
+    "preferences.cancel": "Cancel",
+    "preferences.apply": "Apply",
+    // Theme Toggle Component
+    "theme.switchToLight": "Switch to light theme",
+    "theme.switchToDark": "Switch to dark theme",
   },
   es: {
     // Navigation
@@ -890,8 +944,6 @@ const translations = {
     "manufacturing.solutions.production.title": "Gestión de Producción",
     "manufacturing.solutions.production.description":
       "Sistemas para planificación y control eficiente de la producción.",
-    "manufacturing.solutions.quality.title": "Calidad",
-    "manufacturing.solutions.quality.description": "Herramientas para control de calidad y trazabilidad de productos.",
     // Financial Page
     "financial.hero.title": "Sector Financiero",
     "financial.hero.subtitle": "Soluciones tecnológicas seguras e innovadoras para el sector financiero",
@@ -1012,6 +1064,33 @@ const translations = {
     "careers.form.cover": "Carta de Presentación",
     "careers.form.submit": "Enviar Solicitud",
     "careers.form.submitting": "Enviando...",
+    // Data List Component
+    "dataList.loading": "Cargando datos...",
+    "dataList.error": "Error al cargar datos",
+    "dataList.retry": "Intentar de Nuevo",
+    "dataList.title": "Lista de Posts",
+    "dataList.update": "Actualizar",
+    "dataList.author": "Usuario",
+    "dataList.by": "Por",
+    // Preferences Dialog Component
+    "preferences.title": "Preferencias del Sistema",
+    "preferences.theme": "Tema",
+    "preferences.theme.description": "Elige la apariencia de la interfaz",
+    "preferences.theme.default": "VianaHub Predeterminado",
+    "preferences.theme.default.description": "Tema oficial de la empresa",
+    "preferences.theme.dark": "Oscuro",
+    "preferences.theme.dark.description": "Tema oscuro para poca luz",
+    "preferences.language": "Idioma",
+    "preferences.language.description": "Selecciona tu idioma preferido",
+    "preferences.privacy": "Privacidad",
+    "preferences.privacy.description": "Gestiona tus preferencias de privacidad",
+    "preferences.privacy.policy": "Política de Privacidad",
+    "preferences.cookies": "Configuración de Cookies",
+    "preferences.cancel": "Cancelar",
+    "preferences.apply": "Aplicar",
+    // Theme Toggle Component
+    "theme.switchToLight": "Cambiar a tema claro",
+    "theme.switchToDark": "Cambiar a tema oscuro",
   },
   fr: {
     // Navigation
@@ -1225,6 +1304,33 @@ const translations = {
     "careers.form.cover": "Lettre de Motivation",
     "careers.form.submit": "Soumettre la Candidature",
     "careers.form.submitting": "Envoi en cours...",
+    // Data List Component
+    "dataList.loading": "Chargement des données...",
+    "dataList.error": "Erreur lors du chargement des données",
+    "dataList.retry": "Réessayer",
+    "dataList.title": "Liste des Posts",
+    "dataList.update": "Mettre à jour",
+    "dataList.author": "Utilisateur",
+    "dataList.by": "Par",
+    // Preferences Dialog Component
+    "preferences.title": "Préférences Système",
+    "preferences.theme": "Thème",
+    "preferences.theme.description": "Choisissez l'apparence de l'interface",
+    "preferences.theme.default": "VianaHub Par Défaut",
+    "preferences.theme.default.description": "Thème officiel de l'entreprise",
+    "preferences.theme.dark": "Sombre",
+    "preferences.theme.dark.description": "Thème sombre pour faible luminosité",
+    "preferences.language": "Langue",
+    "preferences.language.description": "Sélectionnez votre langue préférée",
+    "preferences.privacy": "Confidentialité",
+    "preferences.privacy.description": "Gérez vos préférences de confidentialité",
+    "preferences.privacy.policy": "Politique de Confidentialité",
+    "preferences.cookies": "Paramètres des Cookies",
+    "preferences.cancel": "Annuler",
+    "preferences.apply": "Appliquer",
+    // Theme Toggle Component
+    "theme.switchToLight": "Passer au thème clair",
+    "theme.switchToDark": "Passer au thème sombre",
   },
   de: {
     // Navigation
@@ -1312,8 +1418,6 @@ const translations = {
     "manufacturing.solutions.iot.description": "IoT-Lösungen für Überwachung und Steuerung von Industrieanlagen.",
     "manufacturing.solutions.production.title": "Produktionsmanagement",
     "manufacturing.solutions.production.description": "Systeme für effiziente Produktionsplanung und -steuerung.",
-    "manufacturing.solutions.quality.title": "Qualität",
-    "manufacturing.solutions.quality.description": "Tools für Qualitätskontrolle und Produktrückverfolgbarkeit.",
     // Financial Page
     "financial.hero.title": "Finanzsektor",
     "financial.hero.subtitle": "Sichere und innovative Technologielösungen für den Finanzsektor",
@@ -1435,6 +1539,33 @@ const translations = {
     "careers.form.cover": "Anschreiben",
     "careers.form.submit": "Bewerbung Senden",
     "careers.form.submitting": "Wird gesendet...",
+    // Data List Component
+    "dataList.loading": "Daten werden geladen...",
+    "dataList.error": "Fehler beim Laden der Daten",
+    "dataList.retry": "Erneut Versuchen",
+    "dataList.title": "Posts Liste",
+    "dataList.update": "Aktualisieren",
+    "dataList.author": "Benutzer",
+    "dataList.by": "Von",
+    // Preferences Dialog Component
+    "preferences.title": "Systemeinstellungen",
+    "preferences.theme": "Design",
+    "preferences.theme.description": "Wählen Sie das Erscheinungsbild der Oberfläche",
+    "preferences.theme.default": "VianaHub Standard",
+    "preferences.theme.default.description": "Offizielles Unternehmensdesign",
+    "preferences.theme.dark": "Dunkel",
+    "preferences.theme.dark.description": "Dunkles Design für schwaches Licht",
+    "preferences.language": "Sprache",
+    "preferences.language.description": "Wählen Sie Ihre bevorzugte Sprache",
+    "preferences.privacy": "Datenschutz",
+    "preferences.privacy.description": "Verwalten Sie Ihre Datenschutzeinstellungen",
+    "preferences.privacy.policy": "Datenschutzrichtlinie",
+    "preferences.cookies": "Cookie-Einstellungen",
+    "preferences.cancel": "Abbrechen",
+    "preferences.apply": "Anwenden",
+    // Theme Toggle Component
+    "theme.switchToLight": "Zu hellem Design wechseln",
+    "theme.switchToDark": "Zu dunklem Design wechseln",
   },
 }
 
