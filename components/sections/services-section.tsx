@@ -108,7 +108,7 @@ export function ServicesSection() {
             <Card
               key={index}
               data-index={index}
-              className={`service-card group hover:shadow-2xl border-0 shadow-lg bg-white/80 backdrop-blur-sm rounded-tl-none rounded-tr-[25%] rounded-bl-[25%] rounded-br-none transform transition-all duration-1000 ease-out ${
+              className={`service-card group hover:shadow-2xl border-0 shadow-lg bg-white/80 backdrop-blur-sm rounded-tl-[25%] rounded-tr-[25%] rounded-bl-[25%] rounded-br-[25%] transform transition-all duration-1000 ease-out ${
                 visibleCards[index] ? "opacity-100 translate-y-0 scale-100" : "opacity-0 translate-y-12 scale-95"
               }`}
               style={{
