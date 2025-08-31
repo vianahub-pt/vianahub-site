@@ -11,12 +11,14 @@ import { Label } from "@/components/ui/label"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Settings, Monitor, Moon, Globe, Shield, Cookie } from "lucide-react"
 import Link from "next/link"
+import { useTranslation } from "@/components/translation-context"
 
 interface PreferencesDialogProps {
   children: React.ReactNode
 }
 
 export function PreferencesDialog({ children }: PreferencesDialogProps) {
+  const { t } = useTranslation()
   const [theme, setTheme] = useState("default")
   const [language, setLanguage] = useState("pt-PT")
   const [isOpen, setIsOpen] = useState(false)
@@ -48,11 +50,10 @@ export function PreferencesDialog({ children }: PreferencesDialogProps) {
     <Dialog open={isOpen} onOpenChange={setIsOpen}>
       <DialogTrigger asChild>{children}</DialogTrigger>
       <DialogContent className="max-w-md bg-viana-white border-2 border-viana-gray shadow-2xl">
-        {/* Barra de título estilo Windows */}
         <div className="flex items-center justify-between bg-viana-orange px-4 py-2 -mt-6 -mx-6 mb-4">
           <div className="flex items-center space-x-2">
             <Settings className="h-4 w-4 text-viana-white" />
-            <span className="text-viana-white font-medium text-sm">Preferências do Sistema</span>
+            <span className="text-viana-white font-medium text-sm">{t("preferences.title")}</span>
           </div>
           <div className="flex space-x-1">
             <div className="w-3 h-3 bg-viana-yellow rounded-sm"></div>
@@ -61,14 +62,13 @@ export function PreferencesDialog({ children }: PreferencesDialogProps) {
         </div>
 
         <div className="space-y-6">
-          {/* Seção Tema */}
           <Card className="border-viana-gray/20">
             <CardHeader className="pb-3">
               <CardTitle className="flex items-center text-viana-black text-lg">
                 <Monitor className="h-5 w-5 mr-2 text-viana-orange" />
-                Tema
+                {t("preferences.theme")}
               </CardTitle>
-              <CardDescription className="text-viana-gray">Escolha a aparência da interface</CardDescription>
+              <CardDescription className="text-viana-gray">{t("preferences.theme.description")}</CardDescription>
             </CardHeader>
             <CardContent>
               <RadioGroup value={theme} onValueChange={setTheme} className="space-y-3">
@@ -77,8 +77,8 @@ export function PreferencesDialog({ children }: PreferencesDialogProps) {
                   <Label htmlFor="theme-default" className="flex items-center cursor-pointer flex-1">
                     <div className="w-6 h-6 bg-viana-orange rounded mr-3"></div>
                     <div>
-                      <div className="font-medium text-viana-black">Padrão VianaHub</div>
-                      <div className="text-sm text-viana-gray">Tema oficial da empresa</div>
+                      <div className="font-medium text-viana-black">{t("preferences.theme.default")}</div>
+                      <div className="text-sm text-viana-gray">{t("preferences.theme.default.description")}</div>
                     </div>
                   </Label>
                 </div>
@@ -87,8 +87,8 @@ export function PreferencesDialog({ children }: PreferencesDialogProps) {
                   <Label htmlFor="theme-dark" className="flex items-center cursor-pointer flex-1">
                     <Moon className="w-6 h-6 text-viana-gray mr-3" />
                     <div>
-                      <div className="font-medium text-viana-black">Escuro</div>
-                      <div className="text-sm text-viana-gray">Tema escuro para baixa luminosidade</div>
+                      <div className="font-medium text-viana-black">{t("preferences.theme.dark")}</div>
+                      <div className="text-sm text-viana-gray">{t("preferences.theme.dark.description")}</div>
                     </div>
                   </Label>
                 </div>
@@ -96,14 +96,13 @@ export function PreferencesDialog({ children }: PreferencesDialogProps) {
             </CardContent>
           </Card>
 
-          {/* Seção Idioma */}
           <Card className="border-viana-gray/20">
             <CardHeader className="pb-3">
               <CardTitle className="flex items-center text-viana-black text-lg">
                 <Globe className="h-5 w-5 mr-2 text-viana-orange" />
-                Idioma
+                {t("preferences.language")}
               </CardTitle>
-              <CardDescription className="text-viana-gray">Selecione seu idioma preferido</CardDescription>
+              <CardDescription className="text-viana-gray">{t("preferences.language.description")}</CardDescription>
             </CardHeader>
             <CardContent>
               <Select value={language} onValueChange={setLanguage}>
@@ -124,14 +123,13 @@ export function PreferencesDialog({ children }: PreferencesDialogProps) {
             </CardContent>
           </Card>
 
-          {/* Seção Privacidade */}
           <Card className="border-viana-gray/20">
             <CardHeader className="pb-3">
               <CardTitle className="flex items-center text-viana-black text-lg">
                 <Shield className="h-5 w-5 mr-2 text-viana-orange" />
-                Privacidade
+                {t("preferences.privacy")}
               </CardTitle>
-              <CardDescription className="text-viana-gray">Gerencie suas preferências de privacidade</CardDescription>
+              <CardDescription className="text-viana-gray">{t("preferences.privacy.description")}</CardDescription>
             </CardHeader>
             <CardContent className="space-y-3">
               <Link
@@ -139,33 +137,32 @@ export function PreferencesDialog({ children }: PreferencesDialogProps) {
                 className="flex items-center p-2 rounded-lg hover:bg-viana-yellow/10 transition-colors"
               >
                 <Shield className="h-4 w-4 mr-3 text-viana-orange" />
-                <span className="text-viana-black hover:text-viana-orange">Política de Privacidade</span>
+                <span className="text-viana-black hover:text-viana-orange">{t("preferences.privacy.policy")}</span>
               </Link>
               <Link
                 href="/cookies"
                 className="flex items-center p-2 rounded-lg hover:bg-viana-yellow/10 transition-colors"
               >
                 <Cookie className="h-4 w-4 mr-3 text-viana-orange" />
-                <span className="text-viana-black hover:text-viana-orange">Configurações de Cookies</span>
+                <span className="text-viana-black hover:text-viana-orange">{t("preferences.cookies")}</span>
               </Link>
             </CardContent>
           </Card>
         </div>
 
-        {/* Botões de ação estilo Windows */}
         <div className="flex justify-end space-x-2 pt-4 border-t border-viana-gray/20">
           <Button
             variant="outline"
             onClick={() => setIsOpen(false)}
             className="border-viana-gray text-viana-gray hover:bg-viana-gray hover:text-viana-white"
           >
-            Cancelar
+            {t("preferences.cancel")}
           </Button>
           <Button
             onClick={handleSavePreferences}
             className="bg-viana-orange text-viana-white hover:bg-viana-yellow hover:text-viana-black"
           >
-            Aplicar
+            {t("preferences.apply")}
           </Button>
         </div>
       </DialogContent>

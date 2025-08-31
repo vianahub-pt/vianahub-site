@@ -4,6 +4,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Button } from "@/components/ui/button"
 import { Loader2, RefreshCw } from "lucide-react"
 import { useClientData } from "@/hooks/use-client-data"
+import { useTranslation } from "@/components/translation-context"
 
 interface Post {
   id: number
@@ -20,6 +21,7 @@ interface DataItem {
 }
 
 export function DataList() {
+  const { t } = useTranslation()
   const { data, loading, error, refetch } = useClientData<DataItem>({
     url: "https://jsonplaceholder.typicode.com/posts?_limit=9",
     transform: (posts: Post[]) =>
@@ -27,7 +29,7 @@ export function DataList() {
         id: post.id,
         title: post.title,
         description: post.body.substring(0, 120) + "...",
-        author: `Usuário ${post.userId}`,
+        author: `${t("dataList.author")} ${post.userId}`,
       })),
   })
 
@@ -36,7 +38,7 @@ export function DataList() {
       <div className="flex items-center justify-center py-12">
         <div className="flex items-center gap-2">
           <Loader2 className="h-5 w-5 animate-spin" />
-          <span>Carregando dados...</span>
+          <span>{t("dataList.loading")}</span>
         </div>
       </div>
     )
@@ -46,13 +48,13 @@ export function DataList() {
     return (
       <Card className="w-full max-w-md mx-auto">
         <CardHeader>
-          <CardTitle className="text-red-600">Erro ao carregar dados</CardTitle>
+          <CardTitle className="text-red-600">{t("dataList.error")}</CardTitle>
           <CardDescription>{error}</CardDescription>
         </CardHeader>
         <CardContent>
           <Button onClick={refetch} className="w-full">
             <RefreshCw className="h-4 w-4 mr-2" />
-            Tentar Novamente
+            {t("dataList.retry")}
           </Button>
         </CardContent>
       </Card>
@@ -62,10 +64,10 @@ export function DataList() {
   return (
     <div className="space-y-6">
       <div className="flex items-center justify-between">
-        <h2 className="text-2xl font-bold">Lista de Posts</h2>
+        <h2 className="text-2xl font-bold">{t("dataList.title")}</h2>
         <Button onClick={refetch} variant="outline" size="sm">
           <RefreshCw className="h-4 w-4 mr-2" />
-          Atualizar
+          {t("dataList.update")}
         </Button>
       </div>
 
@@ -74,7 +76,9 @@ export function DataList() {
           <Card key={item.id} className="h-full">
             <CardHeader>
               <CardTitle className="text-lg line-clamp-2">{item.title}</CardTitle>
-              <CardDescription>Por {item.author}</CardDescription>
+              <CardDescription>
+                {t("dataList.by")} {item.author}
+              </CardDescription>
             </CardHeader>
             <CardContent>
               <p className="text-sm text-muted-foreground">{item.description}</p>

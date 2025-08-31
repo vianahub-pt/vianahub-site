@@ -709,8 +709,6 @@ const translations = {
     "manufacturing.solutions.iot.description": "IoT solutions for monitoring and control of industrial equipment.",
     "manufacturing.solutions.production.title": "Production Management",
     "manufacturing.solutions.production.description": "Systems for efficient production planning and control.",
-    "manufacturing.solutions.quality.title": "Quality",
-    "manufacturing.solutions.quality.description": "Tools for quality control and product traceability.",
     // Financial Page
     "financial.hero.title": "Financial Sector",
     "financial.hero.subtitle": "Secure and innovative technology solutions for the financial sector",
@@ -765,6 +763,20 @@ const translations = {
       "Protect your company against digital threats. Firewall, antivirus, 24/7 monitoring and incident response.",
     "cybersecurity.hero.button": "Security Assessment",
     "cybersecurity.features.title": "Cybersecurity Solutions",
+    "cybersecurity.features.firewall.title": "Firewall",
+    "cybersecurity.features.firewall.description": "Advanced network protection with next-generation firewall.",
+    "cybersecurity.features.encryption.title": "Encryption",
+    "cybersecurity.features.encryption.description": "Data encryption in transit and at rest.",
+    "cybersecurity.features.monitoring.title": "Monitoring",
+    "cybersecurity.features.monitoring.description": "24/7 SOC with real-time threat detection and response.",
+    "cybersecurity.features.incident.title": "Incident Response",
+    "cybersecurity.features.incident.description": "Rapid response plans for security incidents.",
+    // Backups Page
+    "backups.hero.title": "Backup Solutions",
+    "backups.hero.subtitle":
+      "Protect your data with comprehensive backup solutions. Automatic backup, disaster recovery and secure storage.",
+    "backups.hero.button": "Protect Data",
+    "backups.features.title": "Backup Features",
     "cybersecurity.features.firewall.title": "Firewall",
     "cybersecurity.features.firewall.description": "Advanced network protection with next-generation firewall.",
     "cybersecurity.features.encryption.title": "Encryption",
@@ -1588,10 +1600,10 @@ export const TranslationProvider = ({ children }: TranslationProviderProps) => {
       if (storedLanguage && ["pt", "en", "es", "fr", "de"].includes(storedLanguage)) {
         setLanguage(storedLanguage)
       } else {
-        localStorage.setItem("language", language)
+        localStorage.setItem("language", "pt")
       }
     }
-  }, [language])
+  }, []) // Empty dependency array - only runs once on mount
 
   useEffect(() => {
     if (typeof window !== "undefined") {
