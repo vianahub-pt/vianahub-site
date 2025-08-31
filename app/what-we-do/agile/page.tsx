@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect, useRef, useState } from "react"
+import { useState, useEffect } from "react"
 import { Card, CardContent } from "@/components/ui/card"
 import { Zap, Users, Target, TrendingUp, Calendar, Timer, Eye, Truck } from "lucide-react"
 import { useTranslation } from "@/components/translation-context"
@@ -8,10 +8,6 @@ import { ScrollIndicator } from "@/components/scroll-indicator"
 
 function AgilePageContent() {
   const { t } = useTranslation()
-  const processRef = useRef<HTMLElement>(null)
-  const benefitsRef = useRef<HTMLElement>(null)
-  const [visibleCards, setVisibleCards] = useState<boolean[]>([])
-  const [visibleBenefits, setVisibleBenefits] = useState<boolean[]>([])
   const [mounted, setMounted] = useState(false)
 
   useEffect(() => {
@@ -19,161 +15,56 @@ function AgilePageContent() {
   }, [])
 
   useEffect(() => {
-    if (mounted) {
-      window.scrollTo(0, 0)
-    }
-  }, [mounted])
+    window.scrollTo(0, 0)
+  }, [])
 
-  useEffect(() => {
-    if (!mounted) return
-
-    const cardElements = processRef.current?.querySelectorAll(".process-card")
-
-    if (!cardElements) return
-
-    // Initialize all cards as not visible
-    setVisibleCards(new Array(cardElements.length).fill(false))
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          const index = Number.parseInt(entry.target.getAttribute("data-index") || "0")
-
-          if (entry.isIntersecting) {
-            setVisibleCards((prev) => {
-              const newState = [...prev]
-              newState[index] = true
-              return newState
-            })
-          } else {
-            // Reset animation when card leaves viewport
-            setVisibleCards((prev) => {
-              const newState = [...prev]
-              newState[index] = false
-              return newState
-            })
-          }
-        })
-      },
-      {
-        threshold: 0.1,
-        rootMargin: "0px 0px -50px 0px",
-      },
-    )
-
-    cardElements.forEach((card) => {
-      observer.observe(card)
-    })
-
-    return () => observer.disconnect()
-  }, [mounted])
-
-  useEffect(() => {
-    if (!mounted) return
-
-    const benefitElements = benefitsRef.current?.querySelectorAll(".benefit-card")
-
-    if (!benefitElements) return
-
-    // Initialize all benefits as not visible
-    setVisibleBenefits(new Array(benefitElements.length).fill(false))
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          const index = Number.parseInt(entry.target.getAttribute("data-index") || "0")
-
-          if (entry.isIntersecting) {
-            setVisibleBenefits((prev) => {
-              const newState = [...prev]
-              newState[index] = true
-              return newState
-            })
-          } else {
-            // Reset animation when card leaves viewport
-            setVisibleBenefits((prev) => {
-              const newState = [...prev]
-              newState[index] = false
-              return newState
-            })
-          }
-        })
-      },
-      {
-        threshold: 0.1,
-        rootMargin: "0px 0px -50px 0px",
-      },
-    )
-
-    benefitElements.forEach((card) => {
-      observer.observe(card)
-    })
-
-    return () => observer.disconnect()
-  }, [mounted])
-
-  // Don't render anything until mounted to prevent hydration mismatch
   if (!mounted) {
-    return (
-      <div className="min-h-screen bg-viana-white">
-        <section className="relative pt-0 pb-0 bg-gradient-to-br from-viana-orange to-viana-yellow overflow-hidden h-[500px]">
-          <div className="absolute inset-0 bg-black/60 z-0" />
-          <div className="container mx-auto px-4 relative z-10 h-full flex items-center justify-center">
-            <div className="max-w-4xl mx-auto text-center text-white">
-              <h1 className="text-4xl lg:text-6xl font-bold mb-6 flex items-center justify-center gap-4">
-                <Zap className="text-orange-500 w-12 h-12 lg:w-16 lg:h-16" />
-                Loading...
-              </h1>
-            </div>
-          </div>
-        </section>
-      </div>
-    )
+    return null
   }
 
   const benefits = [
     {
       icon: <Zap className="h-8 w-8 !text-viana-orange" />,
-      titleKey: "agile.benefits.delivery.title",
-      descriptionKey: "agile.benefits.delivery.description",
+      title: t("agile.benefits.delivery.title"),
+      description: t("agile.benefits.delivery.description"),
     },
     {
       icon: <Users className="h-8 w-8 !text-viana-orange" />,
-      titleKey: "agile.benefits.collaboration.title",
-      descriptionKey: "agile.benefits.collaboration.description",
+      title: t("agile.benefits.collaboration.title"),
+      description: t("agile.benefits.collaboration.description"),
     },
     {
       icon: <Target className="h-8 w-8 !text-viana-orange" />,
-      titleKey: "agile.benefits.flexibility.title",
-      descriptionKey: "agile.benefits.flexibility.description",
+      title: t("agile.benefits.flexibility.title"),
+      description: t("agile.benefits.flexibility.description"),
     },
     {
       icon: <TrendingUp className="h-8 w-8 !text-viana-orange" />,
-      titleKey: "agile.benefits.quality.title",
-      descriptionKey: "agile.benefits.quality.description",
+      title: t("agile.benefits.quality.title"),
+      description: t("agile.benefits.quality.description"),
     },
   ]
 
   const methodologies = [
     {
       icon: <Calendar className="h-6 w-6 !text-viana-orange" />,
-      nameKey: "agile.process.planning.title",
-      descriptionKey: "agile.process.planning.description",
+      title: t("agile.process.planning.title"),
+      description: t("agile.process.planning.description"),
     },
     {
       icon: <Timer className="h-6 w-6 !text-viana-orange" />,
-      nameKey: "agile.process.sprints.title",
-      descriptionKey: "agile.process.sprints.description",
+      title: t("agile.process.sprints.title"),
+      description: t("agile.process.sprints.description"),
     },
     {
       icon: <Eye className="h-6 w-6 !text-viana-orange" />,
-      nameKey: "agile.process.review.title",
-      descriptionKey: "agile.process.review.description",
+      title: t("agile.process.review.title"),
+      description: t("agile.process.review.description"),
     },
     {
       icon: <Truck className="h-6 w-6 !text-viana-orange" />,
-      nameKey: "agile.process.delivery.title",
-      descriptionKey: "agile.process.delivery.description",
+      title: t("agile.process.delivery.title"),
+      description: t("agile.process.delivery.description"),
     },
   ]
 
@@ -202,7 +93,7 @@ function AgilePageContent() {
       </section>
 
       {/* Benefits Section */}
-      <section ref={benefitsRef} className="py-20 bg-white">
+      <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-3xl lg:text-4xl font-bold text-orange-500 mb-4">{t("agile.benefits.title")}</h2>
@@ -213,20 +104,12 @@ function AgilePageContent() {
             {benefits.map((benefit, index) => (
               <Card
                 key={index}
-                data-index={index}
-                className={`benefit-card text-center hover:shadow-lg transition-all duration-1000 ease-out border-none !bg-viana-orange transform ${
-                  visibleBenefits[index]
-                    ? "opacity-100 translate-x-0"
-                    : `opacity-0 ${index < 2 ? "-translate-x-full" : "translate-x-full"}`
-                }`}
-                style={{
-                  transitionDelay: visibleBenefits[index] ? `${index * 200}ms` : "0ms",
-                }}
+                className="text-center hover:shadow-lg transition-all duration-1000 ease-out border-none !bg-viana-orange transform hover:scale-105"
               >
                 <CardContent className="bg-viana-orange p-6">
                   <div className="flex justify-center mb-4">{benefit.icon}</div>
-                  <h3 className="text-xl font-bold text-orange-500 mb-3">{t(benefit.titleKey)}</h3>
-                  <p className="!text-viana-white">{t(benefit.descriptionKey)}</p>
+                  <h3 className="text-xl font-bold text-orange-500 mb-3">{benefit.title}</h3>
+                  <p className="!text-viana-white">{benefit.description}</p>
                 </CardContent>
               </Card>
             ))}
@@ -249,7 +132,7 @@ function AgilePageContent() {
       </div>
 
       {/* Methodologies Section */}
-      <section ref={processRef} className="py-20 bg-gray-50">
+      <section className="py-20 bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-3xl lg:text-4xl font-bold text-orange-500 mb-4">{t("agile.process.title")}</h2>
@@ -260,20 +143,14 @@ function AgilePageContent() {
             {methodologies.map((methodology, index) => (
               <Card
                 key={index}
-                data-index={index}
-                className={`bg-viana-white/90 process-card hover:shadow-lg border-none transform transition-all duration-1000 ease-out ${
-                  visibleCards[index] ? "opacity-100 translate-y-0 scale-100" : "opacity-0 translate-y-12 scale-95"
-                }`}
-                style={{
-                  transitionDelay: visibleCards[index] ? `${index * 200}ms` : "0ms",
-                }}
+                className="bg-viana-white/90 hover:shadow-lg border-none transform transition-all duration-300 ease-out hover:scale-105"
               >
                 <CardContent className="p-6">
                   <div className="flex items-start space-x-4">
                     <div className="flex-shrink-0 text-orange-500">{methodology.icon}</div>
                     <div>
-                      <h3 className="text-xl font-bold text-orange-500 mb-2">{t(methodology.nameKey)}</h3>
-                      <p className="!text-gray-900">{t(methodology.descriptionKey)}</p>
+                      <h3 className="text-xl font-bold text-orange-500 mb-2">{methodology.title}</h3>
+                      <p className="!text-gray-900">{methodology.description}</p>
                     </div>
                   </div>
                 </CardContent>
