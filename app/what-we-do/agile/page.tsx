@@ -112,22 +112,22 @@ function AgilePageContent() {
 
   const benefits = [
     {
-      icon: <Zap className="h-8 w-8 !text-viana-orange" />,
+      icon: <Zap className="h-8 w-8 text-white" />,
       titleKey: "agile.benefits.delivery.title",
       descriptionKey: "agile.benefits.delivery.description",
     },
     {
-      icon: <Users className="h-8 w-8 !text-viana-orange" />,
+      icon: <Users className="h-8 w-8 text-white" />,
       titleKey: "agile.benefits.collaboration.title",
       descriptionKey: "agile.benefits.collaboration.description",
     },
     {
-      icon: <Target className="h-8 w-8 !text-viana-orange" />,
+      icon: <Target className="h-8 w-8 text-white" />,
       titleKey: "agile.benefits.flexibility.title",
       descriptionKey: "agile.benefits.flexibility.description",
     },
     {
-      icon: <TrendingUp className="h-8 w-8 !text-viana-orange" />,
+      icon: <TrendingUp className="h-8 w-8 text-white" />,
       titleKey: "agile.benefits.quality.title",
       descriptionKey: "agile.benefits.quality.description",
     },
@@ -135,22 +135,22 @@ function AgilePageContent() {
 
   const methodologies = [
     {
-      icon: <Calendar className="h-6 w-6 !text-viana-orange" />,
+      icon: <Calendar className="h-6 w-6 text-viana-orange" />,
       nameKey: "agile.process.planning.title",
       descriptionKey: "agile.process.planning.description",
     },
     {
-      icon: <Timer className="h-6 w-6 !text-viana-orange" />,
+      icon: <Timer className="h-6 w-6 text-viana-orange" />,
       nameKey: "agile.process.sprints.title",
       descriptionKey: "agile.process.sprints.description",
     },
     {
-      icon: <Eye className="h-6 w-6 !text-viana-orange" />,
+      icon: <Eye className="h-6 w-6 text-viana-orange" />,
       nameKey: "agile.process.review.title",
       descriptionKey: "agile.process.review.description",
     },
     {
-      icon: <Truck className="h-6 w-6 !text-viana-orange" />,
+      icon: <Truck className="h-6 w-6 text-viana-orange" />,
       nameKey: "agile.process.delivery.title",
       descriptionKey: "agile.process.delivery.description",
     },
@@ -193,7 +193,7 @@ function AgilePageContent() {
               <Card
                 key={index}
                 data-index={index}
-                className={`benefit-card text-center hover:shadow-lg transition-all duration-1000 ease-out border-none !bg-viana-orange transform ${
+                className={`benefit-card text-center hover:shadow-lg transition-all duration-1000 ease-out border-none bg-viana-orange transform ${
                   visibleBenefits[index]
                     ? "opacity-100 translate-x-0"
                     : `opacity-0 ${index < 2 ? "-translate-x-full" : "translate-x-full"}`
@@ -202,10 +202,10 @@ function AgilePageContent() {
                   transitionDelay: visibleBenefits[index] ? `${index * 200}ms` : "0ms",
                 }}
               >
-                <CardContent className="bg-viana-orange p-6">
+                <CardContent className="p-6">
                   <div className="flex justify-center mb-4">{benefit.icon}</div>
-                  <h3 className="text-xl font-bold text-orange-500 mb-3">{t(benefit.titleKey)}</h3>
-                  <p className="!text-viana-white">{t(benefit.descriptionKey)}</p>
+                  <h3 className="text-xl font-bold text-white mb-3">{t(benefit.titleKey)}</h3>
+                  <p className="text-white">{t(benefit.descriptionKey)}</p>
                 </CardContent>
               </Card>
             ))}
@@ -240,7 +240,7 @@ function AgilePageContent() {
               <Card
                 key={index}
                 data-index={index}
-                className={`bg-viana-white/90 process-card hover:shadow-lg border-none transform transition-all duration-1000 ease-out ${
+                className={`bg-white process-card hover:shadow-lg border-none transform transition-all duration-1000 ease-out ${
                   visibleCards[index] ? "opacity-100 translate-y-0 scale-100" : "opacity-0 translate-y-12 scale-95"
                 }`}
                 style={{
@@ -249,10 +249,10 @@ function AgilePageContent() {
               >
                 <CardContent className="p-6">
                   <div className="flex items-start space-x-4">
-                    <div className="flex-shrink-0 text-orange-500">{methodology.icon}</div>
+                    <div className="flex-shrink-0">{methodology.icon}</div>
                     <div>
                       <h3 className="text-xl font-bold text-orange-500 mb-2">{t(methodology.nameKey)}</h3>
-                      <p className="!text-gray-900">{t(methodology.descriptionKey)}</p>
+                      <p className="text-gray-900">{t(methodology.descriptionKey)}</p>
                     </div>
                   </div>
                 </CardContent>
