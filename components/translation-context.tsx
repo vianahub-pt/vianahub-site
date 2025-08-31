@@ -26,11 +26,11 @@ const translations = {
 
     // What We Do Dropdown
     "nav.whatWeDo.development": "Desenvolvimento",
+    "nav.whatWeDo.agile": "Metodologia Ágil",
+    "nav.whatWeDo.outsourcing": "Outsourcing",
     "nav.whatWeDo.systemIntegration": "Integração de Sistemas",
-    "nav.whatWeDo.outsourcing": "Terceirização",
     "nav.whatWeDo.landingPages": "Landing Pages",
     "nav.whatWeDo.chatbot": "Chatbot",
-    "nav.whatWeDo.agile": "Metodologia Ágil",
     "nav.whatWeDo.solarEnergy": "Energia Solar",
     "nav.whatWeDo.railway": "Ferroviário",
     "nav.whatWeDo.road": "Rodoviário",
@@ -48,6 +48,12 @@ const translations = {
     "nav.security.access": "Controle de Acesso",
     "nav.security.backups": "Backups",
 
+    // Engineering Dropdown
+    "nav.engineering.title": "Engenharia",
+    "nav.engineering.software": "Software",
+    "nav.engineering.systems": "Sistemas",
+    "nav.engineering.infrastructure": "Infraestrutura",
+
     // Hero Section
     "hero.title": "Transformando Ideias em Soluções Digitais",
     "hero.subtitle":
@@ -57,145 +63,119 @@ const translations = {
 
     // Services Section
     "services.title": "Nossos Serviços",
-    "services.subtitle": "Oferecemos soluções completas em tecnologia para transformar seu negócio",
-    "services.development.title": "Desenvolvimento de Software",
-    "services.development.description":
-      "Criamos aplicações web e mobile personalizadas usando as mais modernas tecnologias",
-    "services.integration.title": "Integração de Sistemas",
-    "services.integration.description":
-      "Conectamos seus sistemas existentes para otimizar processos e melhorar a eficiência",
-    "services.outsourcing.title": "Terceirização de TI",
-    "services.outsourcing.description": "Equipe especializada para gerenciar e manter sua infraestrutura tecnológica",
-    "services.consulting.title": "Consultoria Tecnológica",
-    "services.consulting.description": "Orientação estratégica para escolher as melhores soluções para seu negócio",
+    "services.subtitle": "Oferecemos soluções completas em tecnologia",
+    "services.development.title": "Desenvolvimento",
+    "services.development.description": "Criamos aplicações web e mobile personalizadas",
+    "services.consulting.title": "Consultoria",
+    "services.consulting.description": "Orientação estratégica em tecnologia",
+    "services.integration.title": "Integração",
+    "services.integration.description": "Conectamos seus sistemas e processos",
+    "services.support.title": "Suporte",
+    "services.support.description": "Manutenção e suporte técnico contínuo",
 
     // Industries Section
     "industries.title": "Indústrias que Atendemos",
     "industries.subtitle": "Experiência especializada em diversos setores",
     "industries.healthcare.title": "Saúde",
-    "industries.healthcare.description": "Sistemas hospitalares e telemedicina",
+    "industries.healthcare.description": "Soluções digitais para hospitais e clínicas",
     "industries.education.title": "Educação",
-    "industries.education.description": "Plataformas de ensino e gestão acadêmica",
-    "industries.financial.title": "Financeiro",
-    "industries.financial.description": "Soluções fintech e sistemas bancários",
+    "industries.education.description": "Plataformas educacionais e sistemas de gestão",
+    "industries.finance.title": "Financeiro",
+    "industries.finance.description": "Sistemas bancários e de pagamento seguros",
     "industries.government.title": "Governo",
-    "industries.government.description": "Sistemas públicos e e-gov",
+    "industries.government.description": "Soluções para administração pública",
     "industries.manufacturing.title": "Manufatura",
-    "industries.manufacturing.description": "Automação e controle industrial",
+    "industries.manufacturing.description": "Automação e controle de processos industriais",
     "industries.retail.title": "Varejo",
-    "industries.retail.description": "E-commerce e gestão de vendas",
+    "industries.retail.description": "E-commerce e sistemas de gestão comercial",
+
+    // Testimonials Section
+    "testimonials.title": "O que Nossos Clientes Dizem",
+    "testimonials.subtitle": "Depoimentos de quem confia em nosso trabalho",
+
+    // Insights Section
+    "insights.title": "Insights e Inovação",
+    "insights.subtitle": "Descubra as últimas tendências em tecnologia",
+    "insights.ai.title": "Inteligência Artificial",
+    "insights.ai.description": "Como a IA está transformando os negócios modernos",
+    "insights.cloud.title": "Computação em Nuvem",
+    "insights.cloud.description": "Benefícios da migração para a nuvem",
+    "insights.security.title": "Cibersegurança",
+    "insights.security.description": "Protegendo dados em um mundo digital",
+    "insights.mobile.title": "Desenvolvimento Mobile",
+    "insights.mobile.description": "Tendências em aplicativos móveis",
 
     // Projects Section
     "projects.title": "Nossos Projetos",
-    "projects.subtitle": "Conheça alguns dos projetos que desenvolvemos",
-    "projects.banking.title": "Sistema Bancário",
-    "projects.banking.description": "Plataforma completa para gestão bancária com segurança avançada",
-    "projects.ecommerce.title": "Plataforma E-commerce",
-    "projects.ecommerce.description": "Solução completa para vendas online com integração de pagamentos",
-    "projects.hospital.title": "Sistema Hospitalar",
-    "projects.hospital.description": "Gestão completa de pacientes e recursos hospitalares",
-    "projects.education.title": "Plataforma Educacional",
-    "projects.education.description": "Sistema de ensino à distância com recursos interativos",
-    "projects.logistics.title": "Sistema de Logística",
-    "projects.logistics.description": "Controle completo de estoque e distribuição",
-    "projects.streaming.title": "Plataforma de Streaming",
-    "projects.streaming.description": "Solução para transmissão de vídeo com alta qualidade",
+    "projects.subtitle": "Conheça alguns dos nossos trabalhos mais recentes",
+    "projects.viewAll": "Ver Todos os Projetos",
 
-    // Testimonials Section
-    "testimonials.title": "O que nossos clientes dizem",
-    "testimonials.subtitle": "Depoimentos de quem confia em nosso trabalho",
-    "testimonials.client1.name": "Alan Antônio",
-    "testimonials.client1.company": "TechCorp Solutions",
-    "testimonials.client1.text":
-      "A VianaHub transformou completamente nossa operação digital. O sistema que desenvolveram superou todas as nossas expectativas em funcionalidade e performance.",
-    "testimonials.client2.name": "Cláudio Antunes",
-    "testimonials.client2.company": "InnovateX",
-    "testimonials.client2.text":
-      "Profissionalismo excepcional e entrega no prazo. A equipe da VianaHub entendeu perfeitamente nossas necessidades e entregou uma solução robusta e escalável.",
-    "testimonials.client3.name": "Kayth Cristina",
-    "testimonials.client3.company": "Digital Dynamics",
-    "testimonials.client3.text":
-      "Parceria estratégica que gerou resultados extraordinários. O conhecimento técnico e a dedicação da equipe fizeram toda a diferença no sucesso do projeto.",
-    "testimonials.client4.name": "Wellington Silva",
-    "testimonials.client4.company": "FutureTech Enterprises",
-    "testimonials.client4.text":
-      "Inovação e qualidade em cada detalhe. A VianaHub não apenas desenvolveu nossa plataforma, mas também nos orientou nas melhores práticas do mercado.",
-
-    // Insights Section
-    "insights.title": "Insights e Tendências",
-    "insights.subtitle": "Mantenha-se atualizado com as últimas novidades em tecnologia",
-    "insights.ai.title": "Inteligência Artificial no Desenvolvimento",
-    "insights.ai.description":
-      "Como a IA está revolucionando o processo de desenvolvimento de software e criando novas oportunidades de negócio.",
-    "insights.cloud.title": "Migração para a Nuvem",
-    "insights.cloud.description":
-      "Estratégias eficazes para migrar sistemas legados para arquiteturas cloud-native com segurança e eficiência.",
-    "insights.security.title": "Cibersegurança em 2024",
-    "insights.security.description":
-      "As principais ameaças digitais e como proteger sua empresa com as melhores práticas de segurança.",
+    // Careers Section
+    "careers.title": "Junte-se à Nossa Equipe",
+    "careers.subtitle": "Faça parte de uma empresa inovadora",
+    "careers.cta": "Ver Vagas",
 
     // Footer
     "footer.company": "Empresa",
     "footer.services": "Serviços",
     "footer.industries": "Indústrias",
     "footer.contact": "Contato",
+    "footer.followUs": "Siga-nos",
     "footer.rights": "Todos os direitos reservados.",
-    "footer.privacy": "Política de Privacidade",
-    "footer.terms": "Termos de Uso",
 
     // Contact Page
     "contact.title": "Entre em Contato",
     "contact.subtitle": "Vamos conversar sobre seu próximo projeto",
     "contact.form.name": "Nome",
-    "contact.form.email": "E-mail",
+    "contact.form.email": "Email",
     "contact.form.company": "Empresa",
     "contact.form.message": "Mensagem",
     "contact.form.send": "Enviar Mensagem",
     "contact.info.address": "Endereço",
     "contact.info.phone": "Telefone",
-    "contact.info.email": "E-mail",
+    "contact.info.email": "Email",
 
     // About Page
     "about.title": "Sobre a VianaHub",
-    "about.subtitle": "Conheça nossa história e nossa missão",
-    "about.mission": "Nossa Missão",
-    "about.vision": "Nossa Visão",
-    "about.values": "Nossos Valores",
-
-    // Careers Page
-    "careers.title": "Carreiras",
-    "careers.subtitle": "Junte-se à nossa equipe de inovadores",
-    "careers.openPositions": "Vagas Abertas",
-    "careers.benefits": "Benefícios",
-    "careers.culture": "Nossa Cultura",
+    "about.subtitle": "Conheça nossa história e valores",
+    "about.mission.title": "Nossa Missão",
+    "about.mission.description": "Transformar ideias em soluções digitais inovadoras",
+    "about.vision.title": "Nossa Visão",
+    "about.vision.description": "Ser referência em desenvolvimento de software",
+    "about.values.title": "Nossos Valores",
+    "about.values.description": "Inovação, qualidade e compromisso com o cliente",
 
     // Agile Page
     "agile.hero.title": "Metodologia Ágil",
-    "agile.hero.subtitle": "Desenvolvimento eficiente com entregas rápidas e qualidade garantida",
+    "agile.hero.subtitle": "Desenvolvimento eficiente e colaborativo",
     "agile.benefits.title": "Benefícios da Metodologia Ágil",
-    "agile.benefits.subtitle": "Por que escolher o desenvolvimento ágil para seu projeto",
-    "agile.benefits.delivery.title": "Entregas Rápidas",
-    "agile.benefits.delivery.description": "Ciclos curtos de desenvolvimento com entregas frequentes e incrementais",
-    "agile.benefits.collaboration.title": "Colaboração Intensa",
-    "agile.benefits.collaboration.description":
-      "Comunicação constante entre equipe e cliente para alinhamento perfeito",
-    "agile.benefits.flexibility.title": "Flexibilidade Total",
-    "agile.benefits.flexibility.description":
-      "Adaptação rápida a mudanças e novos requisitos durante o desenvolvimento",
-    "agile.benefits.quality.title": "Alta Qualidade",
-    "agile.benefits.quality.description": "Testes contínuos e revisões frequentes garantem excelência no produto final",
+    "agile.benefits.subtitle": "Por que escolher o desenvolvimento ágil",
+    "agile.benefits.delivery.title": "Entrega Rápida",
+    "agile.benefits.delivery.description": "Entregas frequentes e incrementais de valor",
+    "agile.benefits.collaboration.title": "Colaboração",
+    "agile.benefits.collaboration.description": "Trabalho em equipe e comunicação constante",
+    "agile.benefits.flexibility.title": "Flexibilidade",
+    "agile.benefits.flexibility.description": "Adaptação rápida a mudanças e feedback",
+    "agile.benefits.quality.title": "Qualidade",
+    "agile.benefits.quality.description": "Foco na qualidade através de testes contínuos",
     "agile.parallax.title": "Transforme Sua Visão em Realidade",
     "agile.parallax.subtitle": "Com metodologia ágil, seu projeto ganha vida de forma rápida e eficiente",
     "agile.process.title": "Nosso Processo Ágil",
-    "agile.process.subtitle": "Como trabalhamos para entregar resultados excepcionais",
+    "agile.process.subtitle": "Como trabalhamos com metodologia ágil",
     "agile.process.planning.title": "Planejamento",
-    "agile.process.planning.description": "Definição clara de objetivos, escopo e prioridades do projeto",
+    "agile.process.planning.description": "Definição de objetivos e prioridades do projeto",
     "agile.process.sprints.title": "Sprints",
-    "agile.process.sprints.description": "Desenvolvimento em ciclos curtos com entregas funcionais a cada iteração",
+    "agile.process.sprints.description": "Desenvolvimento em ciclos curtos e focados",
     "agile.process.review.title": "Revisão",
-    "agile.process.review.description": "Avaliação contínua do progresso com feedback constante do cliente",
+    "agile.process.review.description": "Avaliação contínua e ajustes necessários",
     "agile.process.delivery.title": "Entrega",
-    "agile.process.delivery.description": "Implementação e deploy de funcionalidades testadas e aprovadas",
+    "agile.process.delivery.description": "Entrega de valor incremental ao cliente",
+
+    // Common
+    "common.readMore": "Leia Mais",
+    "common.learnMore": "Saiba Mais",
+    "common.getStarted": "Começar",
+    "common.contactUs": "Fale Conosco",
   },
   en: {
     // Navigation
@@ -209,11 +189,11 @@ const translations = {
 
     // What We Do Dropdown
     "nav.whatWeDo.development": "Development",
-    "nav.whatWeDo.systemIntegration": "System Integration",
+    "nav.whatWeDo.agile": "Agile Methodology",
     "nav.whatWeDo.outsourcing": "Outsourcing",
+    "nav.whatWeDo.systemIntegration": "System Integration",
     "nav.whatWeDo.landingPages": "Landing Pages",
     "nav.whatWeDo.chatbot": "Chatbot",
-    "nav.whatWeDo.agile": "Agile Methodology",
     "nav.whatWeDo.solarEnergy": "Solar Energy",
     "nav.whatWeDo.railway": "Railway",
     "nav.whatWeDo.road": "Road",
@@ -231,6 +211,12 @@ const translations = {
     "nav.security.access": "Access Control",
     "nav.security.backups": "Backups",
 
+    // Engineering Dropdown
+    "nav.engineering.title": "Engineering",
+    "nav.engineering.software": "Software",
+    "nav.engineering.systems": "Systems",
+    "nav.engineering.infrastructure": "Infrastructure",
+
     // Hero Section
     "hero.title": "Transforming Ideas into Digital Solutions",
     "hero.subtitle": "We develop custom software and innovative technology solutions to boost your business",
@@ -239,90 +225,65 @@ const translations = {
 
     // Services Section
     "services.title": "Our Services",
-    "services.subtitle": "We offer complete technology solutions to transform your business",
-    "services.development.title": "Software Development",
-    "services.development.description":
-      "We create custom web and mobile applications using the most modern technologies",
-    "services.integration.title": "System Integration",
-    "services.integration.description": "We connect your existing systems to optimize processes and improve efficiency",
-    "services.outsourcing.title": "IT Outsourcing",
-    "services.outsourcing.description": "Specialized team to manage and maintain your technological infrastructure",
-    "services.consulting.title": "Technology Consulting",
-    "services.consulting.description": "Strategic guidance to choose the best solutions for your business",
+    "services.subtitle": "We offer complete technology solutions",
+    "services.development.title": "Development",
+    "services.development.description": "We create custom web and mobile applications",
+    "services.consulting.title": "Consulting",
+    "services.consulting.description": "Strategic guidance in technology",
+    "services.integration.title": "Integration",
+    "services.integration.description": "We connect your systems and processes",
+    "services.support.title": "Support",
+    "services.support.description": "Continuous maintenance and technical support",
 
     // Industries Section
     "industries.title": "Industries We Serve",
     "industries.subtitle": "Specialized experience across various sectors",
     "industries.healthcare.title": "Healthcare",
-    "industries.healthcare.description": "Hospital systems and telemedicine",
+    "industries.healthcare.description": "Digital solutions for hospitals and clinics",
     "industries.education.title": "Education",
-    "industries.education.description": "Teaching platforms and academic management",
-    "industries.financial.title": "Financial",
-    "industries.financial.description": "Fintech solutions and banking systems",
+    "industries.education.description": "Educational platforms and management systems",
+    "industries.finance.title": "Finance",
+    "industries.finance.description": "Secure banking and payment systems",
     "industries.government.title": "Government",
-    "industries.government.description": "Public systems and e-government",
+    "industries.government.description": "Solutions for public administration",
     "industries.manufacturing.title": "Manufacturing",
-    "industries.manufacturing.description": "Automation and industrial control",
+    "industries.manufacturing.description": "Industrial process automation and control",
     "industries.retail.title": "Retail",
-    "industries.retail.description": "E-commerce and sales management",
+    "industries.retail.description": "E-commerce and commercial management systems",
+
+    // Testimonials Section
+    "testimonials.title": "What Our Clients Say",
+    "testimonials.subtitle": "Testimonials from those who trust our work",
+
+    // Insights Section
+    "insights.title": "Insights and Innovation",
+    "insights.subtitle": "Discover the latest trends in technology",
+    "insights.ai.title": "Artificial Intelligence",
+    "insights.ai.description": "How AI is transforming modern business",
+    "insights.cloud.title": "Cloud Computing",
+    "insights.cloud.description": "Benefits of migrating to the cloud",
+    "insights.security.title": "Cybersecurity",
+    "insights.security.description": "Protecting data in a digital world",
+    "insights.mobile.title": "Mobile Development",
+    "insights.mobile.description": "Trends in mobile applications",
 
     // Projects Section
     "projects.title": "Our Projects",
-    "projects.subtitle": "Discover some of the projects we've developed",
-    "projects.banking.title": "Banking System",
-    "projects.banking.description": "Complete platform for banking management with advanced security",
-    "projects.ecommerce.title": "E-commerce Platform",
-    "projects.ecommerce.description": "Complete solution for online sales with payment integration",
-    "projects.hospital.title": "Hospital System",
-    "projects.hospital.description": "Complete management of patients and hospital resources",
-    "projects.education.title": "Educational Platform",
-    "projects.education.description": "Distance learning system with interactive resources",
-    "projects.logistics.title": "Logistics System",
-    "projects.logistics.description": "Complete control of inventory and distribution",
-    "projects.streaming.title": "Streaming Platform",
-    "projects.streaming.description": "High-quality video streaming solution",
+    "projects.subtitle": "Learn about some of our most recent work",
+    "projects.viewAll": "View All Projects",
 
-    // Testimonials Section
-    "testimonials.title": "What our clients say",
-    "testimonials.subtitle": "Testimonials from those who trust our work",
-    "testimonials.client1.name": "Alan Antonio",
-    "testimonials.client1.company": "TechCorp Solutions",
-    "testimonials.client1.text":
-      "VianaHub completely transformed our digital operation. The system they developed exceeded all our expectations in functionality and performance.",
-    "testimonials.client2.name": "Claudio Antunes",
-    "testimonials.client2.company": "InnovateX",
-    "testimonials.client2.text":
-      "Exceptional professionalism and on-time delivery. VianaHub's team perfectly understood our needs and delivered a robust and scalable solution.",
-    "testimonials.client3.name": "Kayth Cristina",
-    "testimonials.client3.company": "Digital Dynamics",
-    "testimonials.client3.text":
-      "Strategic partnership that generated extraordinary results. The technical knowledge and team dedication made all the difference in the project's success.",
-    "testimonials.client4.name": "Wellington Silva",
-    "testimonials.client4.company": "FutureTech Enterprises",
-    "testimonials.client4.text":
-      "Innovation and quality in every detail. VianaHub not only developed our platform but also guided us in market best practices.",
-
-    // Insights Section
-    "insights.title": "Insights and Trends",
-    "insights.subtitle": "Stay updated with the latest technology news",
-    "insights.ai.title": "Artificial Intelligence in Development",
-    "insights.ai.description":
-      "How AI is revolutionizing the software development process and creating new business opportunities.",
-    "insights.cloud.title": "Cloud Migration",
-    "insights.cloud.description":
-      "Effective strategies to migrate legacy systems to cloud-native architectures with security and efficiency.",
-    "insights.security.title": "Cybersecurity in 2024",
-    "insights.security.description":
-      "The main digital threats and how to protect your company with security best practices.",
+    // Careers Section
+    "careers.title": "Join Our Team",
+    "careers.subtitle": "Be part of an innovative company",
+    "careers.cta": "View Jobs",
 
     // Footer
     "footer.company": "Company",
     "footer.services": "Services",
     "footer.industries": "Industries",
     "footer.contact": "Contact",
+    "footer.followUs": "Follow Us",
     "footer.rights": "All rights reserved.",
-    "footer.privacy": "Privacy Policy",
-    "footer.terms": "Terms of Use",
 
     // Contact Page
     "contact.title": "Get in Touch",
@@ -338,44 +299,45 @@ const translations = {
 
     // About Page
     "about.title": "About VianaHub",
-    "about.subtitle": "Learn about our history and mission",
-    "about.mission": "Our Mission",
-    "about.vision": "Our Vision",
-    "about.values": "Our Values",
-
-    // Careers Page
-    "careers.title": "Careers",
-    "careers.subtitle": "Join our team of innovators",
-    "careers.openPositions": "Open Positions",
-    "careers.benefits": "Benefits",
-    "careers.culture": "Our Culture",
+    "about.subtitle": "Learn about our history and values",
+    "about.mission.title": "Our Mission",
+    "about.mission.description": "Transform ideas into innovative digital solutions",
+    "about.vision.title": "Our Vision",
+    "about.vision.description": "Be a reference in software development",
+    "about.values.title": "Our Values",
+    "about.values.description": "Innovation, quality and commitment to the client",
 
     // Agile Page
     "agile.hero.title": "Agile Methodology",
-    "agile.hero.subtitle": "Efficient development with fast deliveries and guaranteed quality",
+    "agile.hero.subtitle": "Efficient and collaborative development",
     "agile.benefits.title": "Benefits of Agile Methodology",
-    "agile.benefits.subtitle": "Why choose agile development for your project",
-    "agile.benefits.delivery.title": "Fast Deliveries",
-    "agile.benefits.delivery.description": "Short development cycles with frequent and incremental deliveries",
-    "agile.benefits.collaboration.title": "Intense Collaboration",
-    "agile.benefits.collaboration.description": "Constant communication between team and client for perfect alignment",
-    "agile.benefits.flexibility.title": "Total Flexibility",
-    "agile.benefits.flexibility.description": "Quick adaptation to changes and new requirements during development",
-    "agile.benefits.quality.title": "High Quality",
-    "agile.benefits.quality.description":
-      "Continuous testing and frequent reviews ensure excellence in the final product",
+    "agile.benefits.subtitle": "Why choose agile development",
+    "agile.benefits.delivery.title": "Fast Delivery",
+    "agile.benefits.delivery.description": "Frequent and incremental value deliveries",
+    "agile.benefits.collaboration.title": "Collaboration",
+    "agile.benefits.collaboration.description": "Teamwork and constant communication",
+    "agile.benefits.flexibility.title": "Flexibility",
+    "agile.benefits.flexibility.description": "Quick adaptation to changes and feedback",
+    "agile.benefits.quality.title": "Quality",
+    "agile.benefits.quality.description": "Focus on quality through continuous testing",
     "agile.parallax.title": "Transform Your Vision into Reality",
     "agile.parallax.subtitle": "With agile methodology, your project comes to life quickly and efficiently",
     "agile.process.title": "Our Agile Process",
-    "agile.process.subtitle": "How we work to deliver exceptional results",
+    "agile.process.subtitle": "How we work with agile methodology",
     "agile.process.planning.title": "Planning",
-    "agile.process.planning.description": "Clear definition of project objectives, scope and priorities",
+    "agile.process.planning.description": "Definition of project objectives and priorities",
     "agile.process.sprints.title": "Sprints",
-    "agile.process.sprints.description": "Development in short cycles with functional deliveries at each iteration",
+    "agile.process.sprints.description": "Development in short and focused cycles",
     "agile.process.review.title": "Review",
-    "agile.process.review.description": "Continuous progress evaluation with constant client feedback",
+    "agile.process.review.description": "Continuous evaluation and necessary adjustments",
     "agile.process.delivery.title": "Delivery",
-    "agile.process.delivery.description": "Implementation and deployment of tested and approved functionalities",
+    "agile.process.delivery.description": "Incremental value delivery to the client",
+
+    // Common
+    "common.readMore": "Read More",
+    "common.learnMore": "Learn More",
+    "common.getStarted": "Get Started",
+    "common.contactUs": "Contact Us",
   },
   es: {
     // Navigation
@@ -389,11 +351,11 @@ const translations = {
 
     // What We Do Dropdown
     "nav.whatWeDo.development": "Desarrollo",
+    "nav.whatWeDo.agile": "Metodología Ágil",
+    "nav.whatWeDo.outsourcing": "Outsourcing",
     "nav.whatWeDo.systemIntegration": "Integración de Sistemas",
-    "nav.whatWeDo.outsourcing": "Externalización",
     "nav.whatWeDo.landingPages": "Landing Pages",
     "nav.whatWeDo.chatbot": "Chatbot",
-    "nav.whatWeDo.agile": "Metodología Ágil",
     "nav.whatWeDo.solarEnergy": "Energía Solar",
     "nav.whatWeDo.railway": "Ferroviario",
     "nav.whatWeDo.road": "Carreteras",
@@ -411,6 +373,12 @@ const translations = {
     "nav.security.access": "Control de Acceso",
     "nav.security.backups": "Respaldos",
 
+    // Engineering Dropdown
+    "nav.engineering.title": "Ingeniería",
+    "nav.engineering.software": "Software",
+    "nav.engineering.systems": "Sistemas",
+    "nav.engineering.infrastructure": "Infraestructura",
+
     // Hero Section
     "hero.title": "Transformando Ideas en Soluciones Digitales",
     "hero.subtitle":
@@ -420,91 +388,65 @@ const translations = {
 
     // Services Section
     "services.title": "Nuestros Servicios",
-    "services.subtitle": "Ofrecemos soluciones tecnológicas completas para transformar tu negocio",
-    "services.development.title": "Desarrollo de Software",
-    "services.development.description":
-      "Creamos aplicaciones web y móviles personalizadas usando las tecnologías más modernas",
-    "services.integration.title": "Integración de Sistemas",
-    "services.integration.description":
-      "Conectamos tus sistemas existentes para optimizar procesos y mejorar la eficiencia",
-    "services.outsourcing.title": "Externalización de TI",
-    "services.outsourcing.description": "Equipo especializado para gestionar y mantener tu infraestructura tecnológica",
-    "services.consulting.title": "Consultoría Tecnológica",
-    "services.consulting.description": "Orientación estratégica para elegir las mejores soluciones para tu negocio",
+    "services.subtitle": "Ofrecemos soluciones tecnológicas completas",
+    "services.development.title": "Desarrollo",
+    "services.development.description": "Creamos aplicaciones web y móviles personalizadas",
+    "services.consulting.title": "Consultoría",
+    "services.consulting.description": "Orientación estratégica en tecnología",
+    "services.integration.title": "Integración",
+    "services.integration.description": "Conectamos tus sistemas y procesos",
+    "services.support.title": "Soporte",
+    "services.support.description": "Mantenimiento y soporte técnico continuo",
 
     // Industries Section
     "industries.title": "Industrias que Atendemos",
     "industries.subtitle": "Experiencia especializada en diversos sectores",
     "industries.healthcare.title": "Salud",
-    "industries.healthcare.description": "Sistemas hospitalarios y telemedicina",
+    "industries.healthcare.description": "Soluciones digitales para hospitales y clínicas",
     "industries.education.title": "Educación",
-    "industries.education.description": "Plataformas de enseñanza y gestión académica",
-    "industries.financial.title": "Financiero",
-    "industries.financial.description": "Soluciones fintech y sistemas bancarios",
+    "industries.education.description": "Plataformas educativas y sistemas de gestión",
+    "industries.finance.title": "Financiero",
+    "industries.finance.description": "Sistemas bancarios y de pago seguros",
     "industries.government.title": "Gobierno",
-    "industries.government.description": "Sistemas públicos y gobierno electrónico",
+    "industries.government.description": "Soluciones para administración pública",
     "industries.manufacturing.title": "Manufactura",
-    "industries.manufacturing.description": "Automatización y control industrial",
+    "industries.manufacturing.description": "Automatización y control de procesos industriales",
     "industries.retail.title": "Retail",
-    "industries.retail.description": "E-commerce y gestión de ventas",
+    "industries.retail.description": "E-commerce y sistemas de gestión comercial",
+
+    // Testimonials Section
+    "testimonials.title": "Lo que Dicen Nuestros Clientes",
+    "testimonials.subtitle": "Testimonios de quienes confían en nuestro trabajo",
+
+    // Insights Section
+    "insights.title": "Insights e Innovación",
+    "insights.subtitle": "Descubre las últimas tendencias en tecnología",
+    "insights.ai.title": "Inteligencia Artificial",
+    "insights.ai.description": "Cómo la IA está transformando los negocios modernos",
+    "insights.cloud.title": "Computación en la Nube",
+    "insights.cloud.description": "Beneficios de migrar a la nube",
+    "insights.security.title": "Ciberseguridad",
+    "insights.security.description": "Protegiendo datos en un mundo digital",
+    "insights.mobile.title": "Desarrollo Móvil",
+    "insights.mobile.description": "Tendencias en aplicaciones móviles",
 
     // Projects Section
     "projects.title": "Nuestros Proyectos",
-    "projects.subtitle": "Conoce algunos de los proyectos que hemos desarrollado",
-    "projects.banking.title": "Sistema Bancario",
-    "projects.banking.description": "Plataforma completa para gestión bancaria con seguridad avanzada",
-    "projects.ecommerce.title": "Plataforma E-commerce",
-    "projects.ecommerce.description": "Solución completa para ventas online con integración de pagos",
-    "projects.hospital.title": "Sistema Hospitalario",
-    "projects.hospital.description": "Gestión completa de pacientes y recursos hospitalarios",
-    "projects.education.title": "Plataforma Educativa",
-    "projects.education.description": "Sistema de enseñanza a distancia con recursos interactivos",
-    "projects.logistics.title": "Sistema de Logística",
-    "projects.logistics.description": "Control completo de inventario y distribución",
-    "projects.streaming.title": "Plataforma de Streaming",
-    "projects.streaming.description": "Solución para transmisión de video de alta calidad",
+    "projects.subtitle": "Conoce algunos de nuestros trabajos más recientes",
+    "projects.viewAll": "Ver Todos los Proyectos",
 
-    // Testimonials Section
-    "testimonials.title": "Lo que dicen nuestros clientes",
-    "testimonials.subtitle": "Testimonios de quienes confían en nuestro trabajo",
-    "testimonials.client1.name": "Alan Antonio",
-    "testimonials.client1.company": "TechCorp Solutions",
-    "testimonials.client1.text":
-      "VianaHub transformó completamente nuestra operación digital. El sistema que desarrollaron superó todas nuestras expectativas en funcionalidad y rendimiento.",
-    "testimonials.client2.name": "Claudio Antunes",
-    "testimonials.client2.company": "InnovateX",
-    "testimonials.client2.text":
-      "Profesionalismo excepcional y entrega a tiempo. El equipo de VianaHub entendió perfectamente nuestras necesidades y entregó una solución robusta y escalable.",
-    "testimonials.client3.name": "Kayth Cristina",
-    "testimonials.client3.company": "Digital Dynamics",
-    "testimonials.client3.text":
-      "Asociación estratégica que generó resultados extraordinarios. El conocimiento técnico y la dedicación del equipo marcaron la diferencia en el éxito del proyecto.",
-    "testimonials.client4.name": "Wellington Silva",
-    "testimonials.client4.company": "FutureTech Enterprises",
-    "testimonials.client4.text":
-      "Innovación y calidad en cada detalle. VianaHub no solo desarrolló nuestra plataforma, sino que también nos orientó en las mejores prácticas del mercado.",
-
-    // Insights Section
-    "insights.title": "Insights y Tendencias",
-    "insights.subtitle": "Mantente actualizado con las últimas novedades en tecnología",
-    "insights.ai.title": "Inteligencia Artificial en el Desarrollo",
-    "insights.ai.description":
-      "Cómo la IA está revolucionando el proceso de desarrollo de software y creando nuevas oportunidades de negocio.",
-    "insights.cloud.title": "Migración a la Nube",
-    "insights.cloud.description":
-      "Estrategias efectivas para migrar sistemas legacy a arquitecturas cloud-native con seguridad y eficiencia.",
-    "insights.security.title": "Ciberseguridad en 2024",
-    "insights.security.description":
-      "Las principales amenazas digitales y cómo proteger tu empresa con las mejores prácticas de seguridad.",
+    // Careers Section
+    "careers.title": "Únete a Nuestro Equipo",
+    "careers.subtitle": "Sé parte de una empresa innovadora",
+    "careers.cta": "Ver Empleos",
 
     // Footer
     "footer.company": "Empresa",
     "footer.services": "Servicios",
     "footer.industries": "Industrias",
     "footer.contact": "Contacto",
+    "footer.followUs": "Síguenos",
     "footer.rights": "Todos los derechos reservados.",
-    "footer.privacy": "Política de Privacidad",
-    "footer.terms": "Términos de Uso",
 
     // Contact Page
     "contact.title": "Ponte en Contacto",
@@ -520,51 +462,51 @@ const translations = {
 
     // About Page
     "about.title": "Acerca de VianaHub",
-    "about.subtitle": "Conoce nuestra historia y misión",
-    "about.mission": "Nuestra Misión",
-    "about.vision": "Nuestra Visión",
-    "about.values": "Nuestros Valores",
-
-    // Careers Page
-    "careers.title": "Carreras",
-    "careers.subtitle": "Únete a nuestro equipo de innovadores",
-    "careers.openPositions": "Posiciones Abiertas",
-    "careers.benefits": "Beneficios",
-    "careers.culture": "Nuestra Cultura",
+    "about.subtitle": "Conoce nuestra historia y valores",
+    "about.mission.title": "Nuestra Misión",
+    "about.mission.description": "Transformar ideas en soluciones digitales innovadoras",
+    "about.vision.title": "Nuestra Visión",
+    "about.vision.description": "Ser referencia en desarrollo de software",
+    "about.values.title": "Nuestros Valores",
+    "about.values.description": "Innovación, calidad y compromiso con el cliente",
 
     // Agile Page
     "agile.hero.title": "Metodología Ágil",
-    "agile.hero.subtitle": "Desarrollo eficiente con entregas rápidas y calidad garantizada",
+    "agile.hero.subtitle": "Desarrollo eficiente y colaborativo",
     "agile.benefits.title": "Beneficios de la Metodología Ágil",
-    "agile.benefits.subtitle": "Por qué elegir desarrollo ágil para tu proyecto",
-    "agile.benefits.delivery.title": "Entregas Rápidas",
-    "agile.benefits.delivery.description": "Ciclos cortos de desarrollo con entregas frecuentes e incrementales",
-    "agile.benefits.collaboration.title": "Colaboración Intensa",
-    "agile.benefits.collaboration.description":
-      "Comunicación constante entre equipo y cliente para alineación perfecta",
-    "agile.benefits.flexibility.title": "Flexibilidad Total",
-    "agile.benefits.flexibility.description": "Adaptación rápida a cambios y nuevos requisitos durante el desarrollo",
-    "agile.benefits.quality.title": "Alta Calidad",
-    "agile.benefits.quality.description":
-      "Pruebas continuas y revisiones frecuentes garantizan excelencia en el producto final",
+    "agile.benefits.subtitle": "Por qué elegir el desarrollo ágil",
+    "agile.benefits.delivery.title": "Entrega Rápida",
+    "agile.benefits.delivery.description": "Entregas frecuentes e incrementales de valor",
+    "agile.benefits.collaboration.title": "Colaboración",
+    "agile.benefits.collaboration.description": "Trabajo en equipo y comunicación constante",
+    "agile.benefits.flexibility.title": "Flexibilidad",
+    "agile.benefits.flexibility.description": "Adaptación rápida a cambios y feedback",
+    "agile.benefits.quality.title": "Calidad",
+    "agile.benefits.quality.description": "Enfoque en la calidad a través de pruebas continuas",
     "agile.parallax.title": "Transforma Tu Visión en Realidad",
     "agile.parallax.subtitle": "Con metodología ágil, tu proyecto cobra vida de forma rápida y eficiente",
     "agile.process.title": "Nuestro Proceso Ágil",
-    "agile.process.subtitle": "Cómo trabajamos para entregar resultados excepcionales",
+    "agile.process.subtitle": "Cómo trabajamos con metodología ágil",
     "agile.process.planning.title": "Planificación",
-    "agile.process.planning.description": "Definición clara de objetivos, alcance y prioridades del proyecto",
+    "agile.process.planning.description": "Definición de objetivos y prioridades del proyecto",
     "agile.process.sprints.title": "Sprints",
-    "agile.process.sprints.description": "Desarrollo en ciclos cortos con entregas funcionales en cada iteración",
+    "agile.process.sprints.description": "Desarrollo en ciclos cortos y enfocados",
     "agile.process.review.title": "Revisión",
-    "agile.process.review.description": "Evaluación continua del progreso con retroalimentación constante del cliente",
+    "agile.process.review.description": "Evaluación continua y ajustes necesarios",
     "agile.process.delivery.title": "Entrega",
-    "agile.process.delivery.description": "Implementación y despliegue de funcionalidades probadas y aprobadas",
+    "agile.process.delivery.description": "Entrega de valor incremental al cliente",
+
+    // Common
+    "common.readMore": "Leer Más",
+    "common.learnMore": "Saber Más",
+    "common.getStarted": "Comenzar",
+    "common.contactUs": "Contáctanos",
   },
   fr: {
     // Navigation
     "nav.home": "Accueil",
-    "nav.about": "À propos",
-    "nav.whatWeDo": "Ce que nous faisons",
+    "nav.about": "À Propos",
+    "nav.whatWeDo": "Ce Que Nous Faisons",
     "nav.industries": "Industries",
     "nav.security": "Sécurité",
     "nav.careers": "Carrières",
@@ -572,11 +514,11 @@ const translations = {
 
     // What We Do Dropdown
     "nav.whatWeDo.development": "Développement",
-    "nav.whatWeDo.systemIntegration": "Intégration de Systèmes",
+    "nav.whatWeDo.agile": "Méthodologie Agile",
     "nav.whatWeDo.outsourcing": "Externalisation",
+    "nav.whatWeDo.systemIntegration": "Intégration de Systèmes",
     "nav.whatWeDo.landingPages": "Pages d'Atterrissage",
     "nav.whatWeDo.chatbot": "Chatbot",
-    "nav.whatWeDo.agile": "Méthodologie Agile",
     "nav.whatWeDo.solarEnergy": "Énergie Solaire",
     "nav.whatWeDo.railway": "Ferroviaire",
     "nav.whatWeDo.road": "Routier",
@@ -594,6 +536,12 @@ const translations = {
     "nav.security.access": "Contrôle d'Accès",
     "nav.security.backups": "Sauvegardes",
 
+    // Engineering Dropdown
+    "nav.engineering.title": "Ingénierie",
+    "nav.engineering.software": "Logiciel",
+    "nav.engineering.systems": "Systèmes",
+    "nav.engineering.infrastructure": "Infrastructure",
+
     // Hero Section
     "hero.title": "Transformer les Idées en Solutions Numériques",
     "hero.subtitle":
@@ -603,92 +551,65 @@ const translations = {
 
     // Services Section
     "services.title": "Nos Services",
-    "services.subtitle": "Nous offrons des solutions technologiques complètes pour transformer votre entreprise",
-    "services.development.title": "Développement de Logiciels",
-    "services.development.description":
-      "Nous créons des applications web et mobiles personnalisées en utilisant les technologies les plus modernes",
-    "services.integration.title": "Intégration de Systèmes",
-    "services.integration.description":
-      "Nous connectons vos systèmes existants pour optimiser les processus et améliorer l'efficacité",
-    "services.outsourcing.title": "Externalisation IT",
-    "services.outsourcing.description": "Équipe spécialisée pour gérer et maintenir votre infrastructure technologique",
-    "services.consulting.title": "Conseil Technologique",
-    "services.consulting.description":
-      "Orientation stratégique pour choisir les meilleures solutions pour votre entreprise",
+    "services.subtitle": "Nous offrons des solutions technologiques complètes",
+    "services.development.title": "Développement",
+    "services.development.description": "Nous créons des applications web et mobiles personnalisées",
+    "services.consulting.title": "Conseil",
+    "services.consulting.description": "Orientation stratégique en technologie",
+    "services.integration.title": "Intégration",
+    "services.integration.description": "Nous connectons vos systèmes et processus",
+    "services.support.title": "Support",
+    "services.support.description": "Maintenance et support technique continu",
 
     // Industries Section
     "industries.title": "Industries que Nous Servons",
     "industries.subtitle": "Expérience spécialisée dans divers secteurs",
     "industries.healthcare.title": "Santé",
-    "industries.healthcare.description": "Systèmes hospitaliers et télémédecine",
+    "industries.healthcare.description": "Solutions numériques pour hôpitaux et cliniques",
     "industries.education.title": "Éducation",
-    "industries.education.description": "Plateformes d'enseignement et gestion académique",
-    "industries.financial.title": "Financier",
-    "industries.financial.description": "Solutions fintech et systèmes bancaires",
+    "industries.education.description": "Plateformes éducatives et systèmes de gestion",
+    "industries.finance.title": "Finance",
+    "industries.finance.description": "Systèmes bancaires et de paiement sécurisés",
     "industries.government.title": "Gouvernement",
-    "industries.government.description": "Systèmes publics et e-gouvernement",
+    "industries.government.description": "Solutions pour l'administration publique",
     "industries.manufacturing.title": "Fabrication",
-    "industries.manufacturing.description": "Automatisation et contrôle industriel",
+    "industries.manufacturing.description": "Automatisation et contrôle des processus industriels",
     "industries.retail.title": "Commerce de Détail",
-    "industries.retail.description": "E-commerce et gestion des ventes",
+    "industries.retail.description": "E-commerce et systèmes de gestion commerciale",
+
+    // Testimonials Section
+    "testimonials.title": "Ce Que Disent Nos Clients",
+    "testimonials.subtitle": "Témoignages de ceux qui font confiance à notre travail",
+
+    // Insights Section
+    "insights.title": "Insights et Innovation",
+    "insights.subtitle": "Découvrez les dernières tendances en technologie",
+    "insights.ai.title": "Intelligence Artificielle",
+    "insights.ai.description": "Comment l'IA transforme les entreprises modernes",
+    "insights.cloud.title": "Informatique en Nuage",
+    "insights.cloud.description": "Avantages de la migration vers le cloud",
+    "insights.security.title": "Cybersécurité",
+    "insights.security.description": "Protéger les données dans un monde numérique",
+    "insights.mobile.title": "Développement Mobile",
+    "insights.mobile.description": "Tendances dans les applications mobiles",
 
     // Projects Section
     "projects.title": "Nos Projets",
-    "projects.subtitle": "Découvrez quelques-uns des projets que nous avons développés",
-    "projects.banking.title": "Système Bancaire",
-    "projects.banking.description": "Plateforme complète pour la gestion bancaire avec sécurité avancée",
-    "projects.ecommerce.title": "Plateforme E-commerce",
-    "projects.ecommerce.description": "Solution complète pour les ventes en ligne avec intégration de paiements",
-    "projects.hospital.title": "Système Hospitalier",
-    "projects.hospital.description": "Gestion complète des patients et des ressources hospitalières",
-    "projects.education.title": "Plateforme Éducative",
-    "projects.education.description": "Système d'enseignement à distance avec ressources interactives",
-    "projects.logistics.title": "Système de Logistique",
-    "projects.logistics.description": "Contrôle complet des stocks et de la distribution",
-    "projects.streaming.title": "Plateforme de Streaming",
-    "projects.streaming.description": "Solution de streaming vidéo haute qualité",
+    "projects.subtitle": "Découvrez certains de nos travaux les plus récents",
+    "projects.viewAll": "Voir Tous les Projets",
 
-    // Testimonials Section
-    "testimonials.title": "Ce que disent nos clients",
-    "testimonials.subtitle": "Témoignages de ceux qui font confiance à notre travail",
-    "testimonials.client1.name": "Alan Antonio",
-    "testimonials.client1.company": "TechCorp Solutions",
-    "testimonials.client1.text":
-      "VianaHub a complètement transformé notre opération numérique. Le système qu'ils ont développé a dépassé toutes nos attentes en fonctionnalité et performance.",
-    "testimonials.client2.name": "Claudio Antunes",
-    "testimonials.client2.company": "InnovateX",
-    "testimonials.client2.text":
-      "Professionnalisme exceptionnel et livraison dans les délais. L'équipe de VianaHub a parfaitement compris nos besoins et a livré une solution robuste et évolutive.",
-    "testimonials.client3.name": "Kayth Cristina",
-    "testimonials.client3.company": "Digital Dynamics",
-    "testimonials.client3.text":
-      "Partenariat stratégique qui a généré des résultats extraordinaires. Les connaissances techniques et le dévouement de l'équipe ont fait toute la différence dans le succès du projet.",
-    "testimonials.client4.name": "Wellington Silva",
-    "testimonials.client4.company": "FutureTech Enterprises",
-    "testimonials.client4.text":
-      "Innovation et qualité dans chaque détail. VianaHub n'a pas seulement développé notre plateforme, mais nous a aussi guidés dans les meilleures pratiques du marché.",
-
-    // Insights Section
-    "insights.title": "Insights et Tendances",
-    "insights.subtitle": "Restez à jour avec les dernières nouvelles technologiques",
-    "insights.ai.title": "Intelligence Artificielle dans le Développement",
-    "insights.ai.description":
-      "Comment l'IA révolutionne le processus de développement logiciel et crée de nouvelles opportunités commerciales.",
-    "insights.cloud.title": "Migration vers le Cloud",
-    "insights.cloud.description":
-      "Stratégies efficaces pour migrer les systèmes legacy vers des architectures cloud-native avec sécurité et efficacité.",
-    "insights.security.title": "Cybersécurité en 2024",
-    "insights.security.description":
-      "Les principales menaces numériques et comment protéger votre entreprise avec les meilleures pratiques de sécurité.",
+    // Careers Section
+    "careers.title": "Rejoignez Notre Équipe",
+    "careers.subtitle": "Faites partie d'une entreprise innovante",
+    "careers.cta": "Voir les Emplois",
 
     // Footer
     "footer.company": "Entreprise",
     "footer.services": "Services",
     "footer.industries": "Industries",
     "footer.contact": "Contact",
+    "footer.followUs": "Suivez-nous",
     "footer.rights": "Tous droits réservés.",
-    "footer.privacy": "Politique de Confidentialité",
-    "footer.terms": "Conditions d'Utilisation",
 
     // Contact Page
     "contact.title": "Entrer en Contact",
@@ -703,55 +624,52 @@ const translations = {
     "contact.info.email": "Email",
 
     // About Page
-    "about.title": "À propos de VianaHub",
-    "about.subtitle": "Découvrez notre histoire et notre mission",
-    "about.mission": "Notre Mission",
-    "about.vision": "Notre Vision",
-    "about.values": "Nos Valeurs",
-
-    // Careers Page
-    "careers.title": "Carrières",
-    "careers.subtitle": "Rejoignez notre équipe d'innovateurs",
-    "careers.openPositions": "Postes Ouverts",
-    "careers.benefits": "Avantages",
-    "careers.culture": "Notre Culture",
+    "about.title": "À Propos de VianaHub",
+    "about.subtitle": "Découvrez notre histoire et nos valeurs",
+    "about.mission.title": "Notre Mission",
+    "about.mission.description": "Transformer les idées en solutions numériques innovantes",
+    "about.vision.title": "Notre Vision",
+    "about.vision.description": "Être une référence en développement de logiciels",
+    "about.values.title": "Nos Valeurs",
+    "about.values.description": "Innovation, qualité et engagement envers le client",
 
     // Agile Page
     "agile.hero.title": "Méthodologie Agile",
-    "agile.hero.subtitle": "Développement efficace avec des livraisons rapides et une qualité garantie",
+    "agile.hero.subtitle": "Développement efficace et collaboratif",
     "agile.benefits.title": "Avantages de la Méthodologie Agile",
-    "agile.benefits.subtitle": "Pourquoi choisir le développement agile pour votre projet",
-    "agile.benefits.delivery.title": "Livraisons Rapides",
-    "agile.benefits.delivery.description":
-      "Cycles de développement courts avec des livraisons fréquentes et incrémentales",
-    "agile.benefits.collaboration.title": "Collaboration Intense",
-    "agile.benefits.collaboration.description":
-      "Communication constante entre l'équipe et le client pour un alignement parfait",
-    "agile.benefits.flexibility.title": "Flexibilité Totale",
-    "agile.benefits.flexibility.description":
-      "Adaptation rapide aux changements et nouveaux besoins pendant le développement",
-    "agile.benefits.quality.title": "Haute Qualité",
-    "agile.benefits.quality.description":
-      "Tests continus et révisions fréquentes garantissent l'excellence du produit final",
+    "agile.benefits.subtitle": "Pourquoi choisir le développement agile",
+    "agile.benefits.delivery.title": "Livraison Rapide",
+    "agile.benefits.delivery.description": "Livraisons fréquentes et incrémentales de valeur",
+    "agile.benefits.collaboration.title": "Collaboration",
+    "agile.benefits.collaboration.description": "Travail d'équipe et communication constante",
+    "agile.benefits.flexibility.title": "Flexibilité",
+    "agile.benefits.flexibility.description": "Adaptation rapide aux changements et feedback",
+    "agile.benefits.quality.title": "Qualité",
+    "agile.benefits.quality.description": "Focus sur la qualité grâce aux tests continus",
     "agile.parallax.title": "Transformez Votre Vision en Réalité",
     "agile.parallax.subtitle": "Avec la méthodologie agile, votre projet prend vie rapidement et efficacement",
     "agile.process.title": "Notre Processus Agile",
-    "agile.process.subtitle": "Comment nous travaillons pour livrer des résultats exceptionnels",
+    "agile.process.subtitle": "Comment nous travaillons avec la méthodologie agile",
     "agile.process.planning.title": "Planification",
-    "agile.process.planning.description": "Définition claire des objectifs, portée et priorités du projet",
+    "agile.process.planning.description": "Définition des objectifs et priorités du projet",
     "agile.process.sprints.title": "Sprints",
-    "agile.process.sprints.description":
-      "Développement en cycles courts avec des livraisons fonctionnelles à chaque itération",
+    "agile.process.sprints.description": "Développement en cycles courts et focalisés",
     "agile.process.review.title": "Révision",
-    "agile.process.review.description": "Évaluation continue du progrès avec feedback constant du client",
+    "agile.process.review.description": "Évaluation continue et ajustements nécessaires",
     "agile.process.delivery.title": "Livraison",
-    "agile.process.delivery.description": "Implémentation et déploiement de fonctionnalités testées et approuvées",
+    "agile.process.delivery.description": "Livraison de valeur incrémentale au client",
+
+    // Common
+    "common.readMore": "Lire Plus",
+    "common.learnMore": "En Savoir Plus",
+    "common.getStarted": "Commencer",
+    "common.contactUs": "Contactez-nous",
   },
   de: {
     // Navigation
     "nav.home": "Startseite",
-    "nav.about": "Über uns",
-    "nav.whatWeDo": "Was wir tun",
+    "nav.about": "Über Uns",
+    "nav.whatWeDo": "Was Wir Tun",
     "nav.industries": "Branchen",
     "nav.security": "Sicherheit",
     "nav.careers": "Karriere",
@@ -759,11 +677,11 @@ const translations = {
 
     // What We Do Dropdown
     "nav.whatWeDo.development": "Entwicklung",
-    "nav.whatWeDo.systemIntegration": "Systemintegration",
+    "nav.whatWeDo.agile": "Agile Methodik",
     "nav.whatWeDo.outsourcing": "Outsourcing",
+    "nav.whatWeDo.systemIntegration": "Systemintegration",
     "nav.whatWeDo.landingPages": "Landing Pages",
     "nav.whatWeDo.chatbot": "Chatbot",
-    "nav.whatWeDo.agile": "Agile Methodik",
     "nav.whatWeDo.solarEnergy": "Solarenergie",
     "nav.whatWeDo.railway": "Eisenbahn",
     "nav.whatWeDo.road": "Straße",
@@ -781,6 +699,12 @@ const translations = {
     "nav.security.access": "Zugriffskontrolle",
     "nav.security.backups": "Backups",
 
+    // Engineering Dropdown
+    "nav.engineering.title": "Ingenieurwesen",
+    "nav.engineering.software": "Software",
+    "nav.engineering.systems": "Systeme",
+    "nav.engineering.infrastructure": "Infrastruktur",
+
     // Hero Section
     "hero.title": "Ideen in Digitale Lösungen Verwandeln",
     "hero.subtitle":
@@ -790,95 +714,68 @@ const translations = {
 
     // Services Section
     "services.title": "Unsere Dienstleistungen",
-    "services.subtitle": "Wir bieten komplette Technologielösungen zur Transformation Ihres Unternehmens",
-    "services.development.title": "Softwareentwicklung",
-    "services.development.description":
-      "Wir erstellen maßgeschneiderte Web- und Mobile-Anwendungen mit modernsten Technologien",
-    "services.integration.title": "Systemintegration",
-    "services.integration.description":
-      "Wir verbinden Ihre bestehenden Systeme zur Prozessoptimierung und Effizienzsteigerung",
-    "services.outsourcing.title": "IT-Outsourcing",
-    "services.outsourcing.description":
-      "Spezialisiertes Team zur Verwaltung und Wartung Ihrer technologischen Infrastruktur",
-    "services.consulting.title": "Technologieberatung",
-    "services.consulting.description": "Strategische Beratung zur Auswahl der besten Lösungen für Ihr Unternehmen",
+    "services.subtitle": "Wir bieten komplette Technologielösungen",
+    "services.development.title": "Entwicklung",
+    "services.development.description": "Wir erstellen maßgeschneiderte Web- und Mobile-Anwendungen",
+    "services.consulting.title": "Beratung",
+    "services.consulting.description": "Strategische Beratung in der Technologie",
+    "services.integration.title": "Integration",
+    "services.integration.description": "Wir verbinden Ihre Systeme und Prozesse",
+    "services.support.title": "Support",
+    "services.support.description": "Kontinuierliche Wartung und technischer Support",
 
     // Industries Section
-    "industries.title": "Branchen, die wir bedienen",
+    "industries.title": "Branchen, die Wir Bedienen",
     "industries.subtitle": "Spezialisierte Erfahrung in verschiedenen Sektoren",
     "industries.healthcare.title": "Gesundheitswesen",
-    "industries.healthcare.description": "Krankenhaus-Systeme und Telemedizin",
+    "industries.healthcare.description": "Digitale Lösungen für Krankenhäuser und Kliniken",
     "industries.education.title": "Bildung",
-    "industries.education.description": "Lehrplattformen und akademisches Management",
-    "industries.financial.title": "Finanzwesen",
-    "industries.financial.description": "Fintech-Lösungen und Bankensysteme",
+    "industries.education.description": "Bildungsplattformen und Managementsysteme",
+    "industries.finance.title": "Finanzwesen",
+    "industries.finance.description": "Sichere Bank- und Zahlungssysteme",
     "industries.government.title": "Regierung",
-    "industries.government.description": "Öffentliche Systeme und E-Government",
+    "industries.government.description": "Lösungen für die öffentliche Verwaltung",
     "industries.manufacturing.title": "Fertigung",
-    "industries.manufacturing.description": "Automatisierung und Industriesteuerung",
+    "industries.manufacturing.description": "Automatisierung und Kontrolle industrieller Prozesse",
     "industries.retail.title": "Einzelhandel",
-    "industries.retail.description": "E-Commerce und Verkaufsmanagement",
+    "industries.retail.description": "E-Commerce und kommerzielle Managementsysteme",
+
+    // Testimonials Section
+    "testimonials.title": "Was Unsere Kunden Sagen",
+    "testimonials.subtitle": "Testimonials von denen, die unserer Arbeit vertrauen",
+
+    // Insights Section
+    "insights.title": "Einblicke und Innovation",
+    "insights.subtitle": "Entdecken Sie die neuesten Trends in der Technologie",
+    "insights.ai.title": "Künstliche Intelligenz",
+    "insights.ai.description": "Wie KI moderne Unternehmen transformiert",
+    "insights.cloud.title": "Cloud Computing",
+    "insights.cloud.description": "Vorteile der Migration in die Cloud",
+    "insights.security.title": "Cybersicherheit",
+    "insights.security.description": "Datenschutz in einer digitalen Welt",
+    "insights.mobile.title": "Mobile Entwicklung",
+    "insights.mobile.description": "Trends in mobilen Anwendungen",
 
     // Projects Section
     "projects.title": "Unsere Projekte",
-    "projects.subtitle": "Entdecken Sie einige der Projekte, die wir entwickelt haben",
-    "projects.banking.title": "Bankensystem",
-    "projects.banking.description": "Komplette Plattform für Bankmanagement mit fortschrittlicher Sicherheit",
-    "projects.ecommerce.title": "E-Commerce-Plattform",
-    "projects.ecommerce.description": "Komplettlösung für Online-Verkäufe mit Zahlungsintegration",
-    "projects.hospital.title": "Krankenhaus-System",
-    "projects.hospital.description": "Komplettes Management von Patienten und Krankenhausressourcen",
-    "projects.education.title": "Bildungsplattform",
-    "projects.education.description": "Fernlernsystem mit interaktiven Ressourcen",
-    "projects.logistics.title": "Logistiksystem",
-    "projects.logistics.description": "Vollständige Kontrolle von Inventar und Vertrieb",
-    "projects.streaming.title": "Streaming-Plattform",
-    "projects.streaming.description": "Hochwertige Video-Streaming-Lösung",
+    "projects.subtitle": "Erfahren Sie mehr über einige unserer neuesten Arbeiten",
+    "projects.viewAll": "Alle Projekte Anzeigen",
 
-    // Testimonials Section
-    "testimonials.title": "Was unsere Kunden sagen",
-    "testimonials.subtitle": "Testimonials von denen, die unserer Arbeit vertrauen",
-    "testimonials.client1.name": "Alan Antonio",
-    "testimonials.client1.company": "TechCorp Solutions",
-    "testimonials.client1.text":
-      "VianaHub hat unsere digitale Operation vollständig transformiert. Das System, das sie entwickelt haben, übertraf alle unsere Erwartungen in Funktionalität und Leistung.",
-    "testimonials.client2.name": "Claudio Antunes",
-    "testimonials.client2.company": "InnovateX",
-    "testimonials.client2.text":
-      "Außergewöhnliche Professionalität und pünktliche Lieferung. Das Team von VianaHub verstand unsere Bedürfnisse perfekt und lieferte eine robuste und skalierbare Lösung.",
-    "testimonials.client3.name": "Kayth Cristina",
-    "testimonials.client3.company": "Digital Dynamics",
-    "testimonials.client3.text":
-      "Strategische Partnerschaft, die außergewöhnliche Ergebnisse erzielte. Das technische Wissen und die Hingabe des Teams machten den Unterschied im Projekterfolg aus.",
-    "testimonials.client4.name": "Wellington Silva",
-    "testimonials.client4.company": "FutureTech Enterprises",
-    "testimonials.client4.text":
-      "Innovation und Qualität in jedem Detail. VianaHub entwickelte nicht nur unsere Plattform, sondern führte uns auch zu den besten Marktpraktiken.",
-
-    // Insights Section
-    "insights.title": "Insights und Trends",
-    "insights.subtitle": "Bleiben Sie auf dem Laufenden mit den neuesten Technologie-News",
-    "insights.ai.title": "Künstliche Intelligenz in der Entwicklung",
-    "insights.ai.description":
-      "Wie KI den Softwareentwicklungsprozess revolutioniert und neue Geschäftsmöglichkeiten schafft.",
-    "insights.cloud.title": "Cloud-Migration",
-    "insights.cloud.description":
-      "Effektive Strategien zur Migration von Legacy-Systemen zu Cloud-nativen Architekturen mit Sicherheit und Effizienz.",
-    "insights.security.title": "Cybersicherheit 2024",
-    "insights.security.description":
-      "Die wichtigsten digitalen Bedrohungen und wie Sie Ihr Unternehmen mit den besten Sicherheitspraktiken schützen.",
+    // Careers Section
+    "careers.title": "Treten Sie Unserem Team Bei",
+    "careers.subtitle": "Werden Sie Teil eines innovativen Unternehmens",
+    "careers.cta": "Jobs Anzeigen",
 
     // Footer
     "footer.company": "Unternehmen",
     "footer.services": "Dienstleistungen",
     "footer.industries": "Branchen",
     "footer.contact": "Kontakt",
+    "footer.followUs": "Folgen Sie uns",
     "footer.rights": "Alle Rechte vorbehalten.",
-    "footer.privacy": "Datenschutzrichtlinie",
-    "footer.terms": "Nutzungsbedingungen",
 
     // Contact Page
-    "contact.title": "Kontakt aufnehmen",
+    "contact.title": "Kontakt Aufnehmen",
     "contact.subtitle": "Lassen Sie uns über Ihr nächstes Projekt sprechen",
     "contact.form.name": "Name",
     "contact.form.email": "E-Mail",
@@ -891,90 +788,79 @@ const translations = {
 
     // About Page
     "about.title": "Über VianaHub",
-    "about.subtitle": "Erfahren Sie mehr über unsere Geschichte und Mission",
-    "about.mission": "Unsere Mission",
-    "about.vision": "Unsere Vision",
-    "about.values": "Unsere Werte",
-
-    // Careers Page
-    "careers.title": "Karriere",
-    "careers.subtitle": "Werden Sie Teil unseres Innovatorenteams",
-    "careers.openPositions": "Offene Stellen",
-    "careers.benefits": "Vorteile",
-    "careers.culture": "Unsere Kultur",
+    "about.subtitle": "Erfahren Sie mehr über unsere Geschichte und Werte",
+    "about.mission.title": "Unsere Mission",
+    "about.mission.description": "Ideen in innovative digitale Lösungen verwandeln",
+    "about.vision.title": "Unsere Vision",
+    "about.vision.description": "Eine Referenz in der Softwareentwicklung sein",
+    "about.values.title": "Unsere Werte",
+    "about.values.description": "Innovation, Qualität und Engagement für den Kunden",
 
     // Agile Page
     "agile.hero.title": "Agile Methodik",
-    "agile.hero.subtitle": "Effiziente Entwicklung mit schnellen Lieferungen und garantierter Qualität",
+    "agile.hero.subtitle": "Effiziente und kollaborative Entwicklung",
     "agile.benefits.title": "Vorteile der Agilen Methodik",
-    "agile.benefits.subtitle": "Warum agile Entwicklung für Ihr Projekt wählen",
-    "agile.benefits.delivery.title": "Schnelle Lieferungen",
-    "agile.benefits.delivery.description": "Kurze Entwicklungszyklen mit häufigen und inkrementellen Lieferungen",
-    "agile.benefits.collaboration.title": "Intensive Zusammenarbeit",
-    "agile.benefits.collaboration.description":
-      "Konstante Kommunikation zwischen Team und Kunde für perfekte Abstimmung",
-    "agile.benefits.flexibility.title": "Totale Flexibilität",
-    "agile.benefits.flexibility.description":
-      "Schnelle Anpassung an Änderungen und neue Anforderungen während der Entwicklung",
-    "agile.benefits.quality.title": "Hohe Qualität",
-    "agile.benefits.quality.description":
-      "Kontinuierliche Tests und häufige Überprüfungen gewährleisten Exzellenz im Endprodukt",
+    "agile.benefits.subtitle": "Warum agile Entwicklung wählen",
+    "agile.benefits.delivery.title": "Schnelle Lieferung",
+    "agile.benefits.delivery.description": "Häufige und inkrementelle Wertlieferungen",
+    "agile.benefits.collaboration.title": "Zusammenarbeit",
+    "agile.benefits.collaboration.description": "Teamarbeit und konstante Kommunikation",
+    "agile.benefits.flexibility.title": "Flexibilität",
+    "agile.benefits.flexibility.description": "Schnelle Anpassung an Änderungen und Feedback",
+    "agile.benefits.quality.title": "Qualität",
+    "agile.benefits.quality.description": "Fokus auf Qualität durch kontinuierliche Tests",
     "agile.parallax.title": "Verwandeln Sie Ihre Vision in Realität",
     "agile.parallax.subtitle": "Mit agiler Methodik wird Ihr Projekt schnell und effizient zum Leben erweckt",
     "agile.process.title": "Unser Agiler Prozess",
-    "agile.process.subtitle": "Wie wir arbeiten, um außergewöhnliche Ergebnisse zu liefern",
+    "agile.process.subtitle": "Wie wir mit agiler Methodik arbeiten",
     "agile.process.planning.title": "Planung",
-    "agile.process.planning.description": "Klare Definition von Projektzielen, Umfang und Prioritäten",
+    "agile.process.planning.description": "Definition von Projektzielen und Prioritäten",
     "agile.process.sprints.title": "Sprints",
-    "agile.process.sprints.description":
-      "Entwicklung in kurzen Zyklen mit funktionalen Lieferungen bei jeder Iteration",
+    "agile.process.sprints.description": "Entwicklung in kurzen und fokussierten Zyklen",
     "agile.process.review.title": "Überprüfung",
-    "agile.process.review.description": "Kontinuierliche Fortschrittsbewertung mit konstantem Kundenfeedback",
+    "agile.process.review.description": "Kontinuierliche Bewertung und notwendige Anpassungen",
     "agile.process.delivery.title": "Lieferung",
-    "agile.process.delivery.description":
-      "Implementierung und Bereitstellung getesteter und genehmigter Funktionalitäten",
+    "agile.process.delivery.description": "Inkrementelle Wertlieferung an den Kunden",
+
+    // Common
+    "common.readMore": "Mehr Lesen",
+    "common.learnMore": "Mehr Erfahren",
+    "common.getStarted": "Loslegen",
+    "common.contactUs": "Kontaktieren Sie uns",
   },
 }
 
 export function TranslationProvider({ children }: { children: React.ReactNode }) {
   const [language, setLanguage] = useState<Language>("pt")
-  const [mounted, setMounted] = useState(false)
 
   useEffect(() => {
-    setMounted(true)
     const savedLanguage = localStorage.getItem("language") as Language
     if (savedLanguage && ["pt", "en", "es", "fr", "de"].includes(savedLanguage)) {
       setLanguage(savedLanguage)
     }
   }, [])
 
-  useEffect(() => {
-    if (mounted) {
-      localStorage.setItem("language", language)
-    }
-  }, [language, mounted])
+  const handleSetLanguage = (lang: Language) => {
+    setLanguage(lang)
+    localStorage.setItem("language", lang)
+  }
 
   const t = (key: string): string => {
     const keys = key.split(".")
     let value: any = translations[language]
 
     for (const k of keys) {
-      if (value && typeof value === "object" && k in value) {
-        value = value[k]
-      } else {
-        console.warn(`Translation key "${key}" not found for language "${language}"`)
-        return key
-      }
+      value = value?.[k]
     }
 
-    return typeof value === "string" ? value : key
+    return value || key
   }
 
-  if (!mounted) {
-    return null
-  }
-
-  return <TranslationContext.Provider value={{ language, setLanguage, t }}>{children}</TranslationContext.Provider>
+  return (
+    <TranslationContext.Provider value={{ language, setLanguage: handleSetLanguage, t }}>
+      {children}
+    </TranslationContext.Provider>
+  )
 }
 
 export function useTranslation() {
