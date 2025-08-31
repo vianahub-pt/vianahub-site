@@ -39,6 +39,22 @@ export default function RailwayPage() {
     },
   ]
 
+  const projects = [
+    {
+      title: t("railway.projects.norte.title"),
+      description: t("railway.projects.norte.description"),
+      status: t("railway.projects.norte.status"),
+      year: t("railway.projects.norte.year"),
+      image: "/pages/railway.jpg",
+    },
+    {
+      title: t("railway.projects.porto.title"),
+      description: t("railway.projects.porto.description"),
+      status: t("railway.projects.porto.status"),
+      year: t("railway.projects.porto.year"),
+      image: "/pages/railway.jpg",
+    },
+  ]
 
   const benefits = [
     {
@@ -81,7 +97,7 @@ export default function RailwayPage() {
               </Link>
             </Button>
             <Button size="lg" variant="outline" className="bg-white/10 border-white/20 text-white hover:bg-white/20">
-              Ver Projetos
+              {t("railway.projects.viewAll")}
             </Button>
           </div>
         </div>
@@ -116,7 +132,7 @@ export default function RailwayPage() {
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">{t("railway.projects.title")}</h2>
-            <p className="text-xl text-gray-600">{t("railway.projects.subtitle")}</p>            
+            <p className="text-xl text-gray-600">{t("railway.projects.subtitle")}</p>
           </div>
 
           <div className="grid lg:grid-cols-2 gap-8">
@@ -125,7 +141,9 @@ export default function RailwayPage() {
                 <div className="relative h-48">
                   <Image src={project.image || "/placeholder.svg"} alt={project.title} fill className="object-cover" />
                   <div className="absolute top-4 right-4">
-                    <Badge variant={project.status === "Concluído" ? "default" : "secondary"}>{project.status}</Badge>
+                    <Badge variant={project.status === t("railway.projects.norte.status") ? "default" : "secondary"}>
+                      {project.status}
+                    </Badge>
                   </div>
                 </div>
                 <CardContent className="p-6">
@@ -135,7 +153,7 @@ export default function RailwayPage() {
                   </div>
                   <p className="text-gray-600 mb-4">{project.description}</p>
                   <Button variant="outline" size="sm">
-                    Ver Detalhes
+                    {t("railway.projects.viewDetails")}
                     <ArrowRight className="ml-2 w-4 h-4" />
                   </Button>
                 </CardContent>
@@ -174,18 +192,15 @@ export default function RailwayPage() {
         <div className="max-w-6xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
-              <h2 className="text-3xl md:text-4xl font-bold mb-6">Tecnologia de Ponta para o Futuro dos Transportes</h2>
-              <p className="text-lg text-gray-600 mb-8">
-                Utilizamos as mais avançadas tecnologias para criar soluções ferroviárias seguras, eficientes e
-                sustentáveis que atendem às necessidades do transporte moderno.
-              </p>
+              <h2 className="text-3xl md:text-4xl font-bold mb-6">{t("railway.features.title")}</h2>
+              <p className="text-lg text-gray-600 mb-8">{t("railway.features.subtitle")}</p>
               <div className="space-y-4">
                 {[
-                  "Sistemas de controle automatizado",
-                  "Monitoramento em tempo real",
-                  "Manutenção preditiva com IA",
-                  "Integração com sistemas existentes",
-                  "Conformidade com normas internacionais",
+                  t("railway.features.automation"),
+                  t("railway.features.monitoring"),
+                  t("railway.features.predictive"),
+                  t("railway.features.integration"),
+                  t("railway.features.compliance"),
                 ].map((feature, index) => (
                   <div key={index} className="flex items-center gap-3">
                     <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0" />
@@ -218,7 +233,7 @@ export default function RailwayPage() {
               variant="outline"
               className="border-white text-white hover:bg-white hover:text-blue-600 bg-transparent"
             >
-              Download Brochura
+              {t("railway.cta.downloadBrochure")}
             </Button>
           </div>
         </div>
