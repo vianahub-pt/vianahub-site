@@ -63,11 +63,7 @@ export function InsightsSection() {
             <Card key={index} className="bg-white/10 backdrop-blur-sm border-white/20 text-white">
               <CardContent className="p-8 text-center">
                 <div className="flex justify-center mb-4">{insight.icon}</div>
-                <Counter
-                  end={insight.value}
-                  suffix={insight.suffix}
-                  className="text-4xl font-bold text-black mb-2"
-                />
+                <Counter end={insight.value} suffix={insight.suffix} className="text-4xl font-bold text-black mb-2" />
                 <h3 className="text-xl font-bold mb-3">{insight.title}</h3>
                 <p className="text-gray-100 font-kurale">{insight.description}</p>
               </CardContent>

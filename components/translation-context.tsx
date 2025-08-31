@@ -419,6 +419,18 @@ const translations = {
     "testimonials.wellington.company": "Diagnóstica S.A.",
     "testimonials.wellington.text":
       "We thank you for efficiently standardizing the management of our infrastructure with the powerful Terraform tool. Labtest Diagnóstica S.A. had a positive experience with the services provided and recommends VianaHub.",
+    // Insights Section
+    "insights.title.part1": "Our",
+    "insights.title.part2": "Insights",
+    "insights.subtitle": "Data and statistics that demonstrate our commitment to excellence",
+    "insights.growth.title": "Growth",
+    "insights.growth.description": "Average increase in our clients' efficiency",
+    "insights.experience.title": "Satisfaction",
+    "insights.experience.description": "Customer satisfaction rate",
+    "insights.innovation.title": "Innovation",
+    "insights.innovation.description": "Projects delivered with cutting-edge technologies",
+    "insights.results.title": "Results",
+    "insights.results.description": "Success rate in delivered projects",
     // Fox Game
     "foxGame.title": "Fox Desert Adventure",
     "foxGame.subtitle": "Help the fox find the oasis through the maze!",
@@ -628,6 +640,18 @@ const translations = {
     "testimonials.wellington.company": "Diagnóstica S.A.",
     "testimonials.wellington.text":
       "Agradecemos por estandarizar eficientemente la gestión de nuestra infraestructura con la poderosa herramienta Terraform. Labtest Diagnóstica S.A. tuvo una experiencia positiva con los servicios prestados y recomienda VianaHub.",
+    // Insights Section
+    "insights.title.part1": "Nuestros",
+    "insights.title.part2": "Insights",
+    "insights.subtitle": "Datos y estadísticas que demuestran nuestro compromiso con la excelencia",
+    "insights.growth.title": "Crecimiento",
+    "insights.growth.description": "Aumento promedio en la eficiencia de nuestros clientes",
+    "insights.experience.title": "Satisfacción",
+    "insights.experience.description": "Tasa de satisfacción de nuestros clientes",
+    "insights.innovation.title": "Innovación",
+    "insights.innovation.description": "Proyectos entregados con tecnologías de vanguardia",
+    "insights.results.title": "Resultados",
+    "insights.results.description": "Tasa de éxito en proyectos entregados",
     // Fox Game
     "foxGame.title": "Aventura del Zorro en el Desierto",
     "foxGame.subtitle": "¡Ayuda al zorro a encontrar el oasis a través del laberinto!",
@@ -837,6 +861,18 @@ const translations = {
     "testimonials.wellington.company": "Diagnóstica S.A.",
     "testimonials.wellington.text":
       "Nous vous remercions d'avoir standardisé efficacement la gestion de notre infrastructure avec le puissant outil Terraform. Labtest Diagnóstica S.A. a eu une expérience positive avec les services fournis et recommande VianaHub.",
+    // Insights Section
+    "insights.title.part1": "Nos",
+    "insights.title.part2": "Insights",
+    "insights.subtitle": "Données et statistiques qui démontrent notre engagement envers l'excellence",
+    "insights.growth.title": "Croissance",
+    "insights.growth.description": "Augmentation moyenne de l'efficacité de nos clients",
+    "insights.experience.title": "Satisfaction",
+    "insights.experience.description": "Taux de satisfaction de nos clients",
+    "insights.innovation.title": "Innovation",
+    "insights.innovation.description": "Projets livrés avec des technologies de pointe",
+    "insights.results.title": "Résultats",
+    "insights.results.description": "Taux de réussite des projets livrés",
     // Fox Game
     "foxGame.title": "Aventure du Renard dans le Désert",
     "foxGame.subtitle": "Aidez le renard à trouver l'oasis à travers le labyrinthe !",
@@ -1045,6 +1081,18 @@ const translations = {
     "testimonials.wellington.company": "Diagnóstica S.A.",
     "testimonials.wellington.text":
       "Wir danken Ihnen für die effiziente Standardisierung der Verwaltung unserer Infrastruktur mit dem mächtigen Terraform-Tool. Labtest Diagnóstica S.A. hatte eine positive Erfahrung mit den erbrachten Dienstleistungen und empfiehlt VianaHub.",
+    // Insights Section
+    "insights.title.part1": "Unsere",
+    "insights.title.part2": "Insights",
+    "insights.subtitle": "Daten und Statistiken, die unser Engagement für Exzellenz demonstrieren",
+    "insights.growth.title": "Wachstum",
+    "insights.growth.description": "Durchschnittliche Steigerung der Effizienz unserer Kunden",
+    "insights.experience.title": "Zufriedenheit",
+    "insights.experience.description": "Kundenzufriedenheitsrate",
+    "insights.innovation.title": "Innovation",
+    "insights.innovation.description": "Projekte mit modernsten Technologien geliefert",
+    "insights.results.title": "Ergebnisse",
+    "insights.results.description": "Erfolgsrate bei gelieferten Projekten",
     // Fox Game
     "foxGame.title": "Fuchs-Wüstenabenteuer",
     "foxGame.subtitle": "Hilf dem Fuchs, die Oase durch das Labyrinth zu finden!",
