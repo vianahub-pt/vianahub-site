@@ -75,7 +75,7 @@ const translations = {
     "agile.benefits.collaboration.title": "Colaboração",
     "agile.benefits.collaboration.description": "Trabalho em equipa eficiente com comunicação constante e transparente",
     "agile.benefits.flexibility.title": "Flexibilidade",
-    "agile.benefits.flexibility.description": "Adaptação rápida a mudanças e requisitos em constante evolução",
+    "agile.benefits.flexibility.description": "Adaptação rápida e eficiente a mudanças e requisitos em constante evolução",
     "agile.benefits.quality.title": "Qualidade",
     "agile.benefits.quality.description": "Foco na qualidade através de testes contínuos e feedback constante",
     "agile.process.title": "Nosso Processo Ágil",
