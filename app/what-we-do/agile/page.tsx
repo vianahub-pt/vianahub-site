@@ -10,15 +10,12 @@ function AgilePageContent() {
   const { t } = useTranslation()
   const processRef = useRef<HTMLElement>(null)
   const benefitsRef = useRef<HTMLElement>(null)
-  const [visibleCards, setVisibleCards] = useState<boolean[]>([])
-  const [visibleBenefits, setVisibleBenefits] = useState<boolean[]>([])
+  const [visibleCards, setVisibleCards] = useState<boolean[]>([false, false, false, false])
+  const [visibleBenefits, setVisibleBenefits] = useState<boolean[]>([false, false, false, false])
   const [mounted, setMounted] = useState(false)
 
   useEffect(() => {
     setMounted(true)
-  }, [])
-
-  useEffect(() => {
     window.scrollTo(0, 0)
   }, [])
 
@@ -26,31 +23,18 @@ function AgilePageContent() {
     if (!mounted) return
 
     const cardElements = processRef.current?.querySelectorAll(".process-card")
-
-    if (!cardElements) return
-
-    // Initialize all cards as not visible
-    setVisibleCards(new Array(cardElements.length).fill(false))
+    if (!cardElements || cardElements.length === 0) return
 
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           const index = Number.parseInt(entry.target.getAttribute("data-index") || "0")
 
-          if (entry.isIntersecting) {
-            setVisibleCards((prev) => {
-              const newState = [...prev]
-              newState[index] = true
-              return newState
-            })
-          } else {
-            // Reset animation when card leaves viewport
-            setVisibleCards((prev) => {
-              const newState = [...prev]
-              newState[index] = false
-              return newState
-            })
-          }
+          setVisibleCards((prev) => {
+            const newState = [...prev]
+            newState[index] = entry.isIntersecting
+            return newState
+          })
         })
       },
       {
@@ -63,38 +47,27 @@ function AgilePageContent() {
       observer.observe(card)
     })
 
-    return () => observer.disconnect()
+    return () => {
+      observer.disconnect()
+    }
   }, [mounted])
 
   useEffect(() => {
     if (!mounted) return
 
     const benefitElements = benefitsRef.current?.querySelectorAll(".benefit-card")
-
-    if (!benefitElements) return
-
-    // Initialize all benefits as not visible
-    setVisibleBenefits(new Array(benefitElements.length).fill(false))
+    if (!benefitElements || benefitElements.length === 0) return
 
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           const index = Number.parseInt(entry.target.getAttribute("data-index") || "0")
 
-          if (entry.isIntersecting) {
-            setVisibleBenefits((prev) => {
-              const newState = [...prev]
-              newState[index] = true
-              return newState
-            })
-          } else {
-            // Reset animation when card leaves viewport
-            setVisibleBenefits((prev) => {
-              const newState = [...prev]
-              newState[index] = false
-              return newState
-            })
-          }
+          setVisibleBenefits((prev) => {
+            const newState = [...prev]
+            newState[index] = entry.isIntersecting
+            return newState
+          })
         })
       },
       {
@@ -107,7 +80,9 @@ function AgilePageContent() {
       observer.observe(card)
     })
 
-    return () => observer.disconnect()
+    return () => {
+      observer.disconnect()
+    }
   }, [mounted])
 
   if (!mounted) {
