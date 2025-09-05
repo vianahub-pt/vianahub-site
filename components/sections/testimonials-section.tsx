@@ -1,65 +1,71 @@
-"use client"
+"use client";
 
-import Image from "next/image"
-import { Star } from "lucide-react"
-import { useEffect, useState } from "react"
-import { useTranslation } from "@/components/translation-context"
+import Image from "next/image";
+import { Star } from "lucide-react";
+import { useEffect, useState } from "react";
+import { useTranslation } from "@/components/translation-context";
 
 const testimonials = [
   {
-    nameKey: "testimonials.kayth.name",
-    companyKey: "testimonials.kayth.company",
-    textKey: "testimonials.kayth.text",
+    nameKey: "home.section.testimonials.kayth.name",
+    companyKey: "home.section.testimonials.kayth.company",
+    textKey: "home.section.testimonials.kayth.text",
     rating: 4,
     image: "/testimonials/kayth-cristina.webp",
   },
   {
-    nameKey: "testimonials.alan.name",
-    companyKey: "testimonials.alan.company",
-    textKey: "testimonials.alan.text",
+    nameKey: "home.section.testimonials.alan.name",
+    companyKey: "home.section.testimonials.alan.company",
+    textKey: "home.section.testimonials.alan.text",
     rating: 5,
     image: "/testimonials/alan-antonio.webp",
   },
   {
-    nameKey: "testimonials.claudio.name",
-    companyKey: "testimonials.claudio.company",
-    textKey: "testimonials.claudio.text",
+    nameKey: "home.section.testimonials.claudio.name",
+    companyKey: "home.section.testimonials.claudio.company",
+    textKey: "home.section.testimonials.claudio.text",
     rating: 4,
     image: "/testimonials/claudio-antunes.webp",
   },
   {
-    nameKey: "testimonials.wellington.name",
-    companyKey: "testimonials.wellington.company",
-    textKey: "testimonials.wellington.text",
+    nameKey: "home.section.testimonials.wellington.name",
+    companyKey: "home.section.testimonials.wellington.company",
+    textKey: "home.section.testimonials.wellington.text",
     rating: 5,
     image: "/testimonials/wellington-silva.webp",
   },
-]
+];
 
 export function TestimonialsSection() {
-  const { t } = useTranslation()
-  const [centerIndex, setCenterIndex] = useState(1)
+  const { t } = useTranslation();
+  const [centerIndex, setCenterIndex] = useState(1);
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setCenterIndex((prev) => (prev + 1) % testimonials.length)
-    }, 10000)
+      setCenterIndex((prev) => (prev + 1) % testimonials.length);
+    }, 10000);
 
-    return () => clearInterval(interval)
-  }, [])
+    return () => clearInterval(interval);
+  }, []);
 
   // Duplicar os testemunhos para criar loop infinito
-  const infiniteTestimonials = [...testimonials, ...testimonials]
+  const infiniteTestimonials = [...testimonials, ...testimonials];
 
   return (
     <section className="py-32 bg-white">
       <div className="container mx-auto px-4">
         <div className="text-center mb-20">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">
-            <span className="text-gray-900">{t("testimonials.title.part1")}</span>{" "}
-            <span className="text-orange-500">{t("testimonials.title.part2")}</span>
+            <span className="text-gray-900">
+              {t("home.section.testimonials.title.part1")}
+            </span>{" "}
+            <span className="text-orange-400">
+              {t("home.section.testimonials.title.part2")}
+            </span>
           </h2>
-          <p className="text-xl text-gray-900">{t("testimonials.subtitle")}</p>
+          <p className="text-xl text-gray-900">
+            {t("home.section.testimonials.subtitle")}
+          </p>
         </div>
 
         <div className="max-w-6xl mx-auto overflow-hidden py-8">
@@ -72,12 +78,14 @@ export function TestimonialsSection() {
               }}
             >
               {infiniteTestimonials.map((testimonial, index) => {
-                const actualIndex = index % testimonials.length
-                const isCenterCard = actualIndex === centerIndex
+                const actualIndex = index % testimonials.length;
+                const isCenterCard = actualIndex === centerIndex;
 
                 return (
                   <div
-                    key={`${actualIndex}-${Math.floor(index / testimonials.length)}`}
+                    key={`${actualIndex}-${Math.floor(
+                      index / testimonials.length
+                    )}`}
                     className="flex-shrink-0 px-4"
                     style={{ width: "400px" }}
                   >
@@ -98,7 +106,10 @@ export function TestimonialsSection() {
                         </div>
                         <div className="flex mb-2">
                           {[...Array(testimonial.rating)].map((_, i) => (
-                            <Star key={i} className="w-4 h-4 text-yellow-400 fill-current" />
+                            <Star
+                              key={i}
+                              className="w-4 h-4 text-yellow-400 fill-current"
+                            />
                           ))}
                         </div>
                       </div>
@@ -108,12 +119,16 @@ export function TestimonialsSection() {
                       </blockquote>
 
                       <div className="text-center">
-                        <p className="font-semibold text-gray-900">{t(testimonial.nameKey)}</p>
-                        <p className="text-gray-600 text-sm">{t(testimonial.companyKey)}</p>
+                        <p className="font-semibold text-gray-900">
+                          {t(testimonial.nameKey)}
+                        </p>
+                        <p className="text-gray-600 text-sm">
+                          {t(testimonial.companyKey)}
+                        </p>
                       </div>
                     </div>
                   </div>
-                )
+                );
               })}
             </div>
           </div>
@@ -131,5 +146,5 @@ export function TestimonialsSection() {
         `}</style>
       </div>
     </section>
-  )
+  );
 }

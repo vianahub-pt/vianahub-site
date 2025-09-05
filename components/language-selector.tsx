@@ -1,31 +1,41 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import { ChevronDown } from "lucide-react"
-import Image from "next/image"
-import { useTranslation, type Language } from "@/components/translation-context"
+import { useState } from "react";
+import { ChevronDown } from "lucide-react";
+import Image from "next/image";
+import {
+  useTranslation,
+  type Language,
+} from "@/components/translation-context";
 
 const languages = [
-  { code: "pt" as Language, name: "Português", flag: "/flags/pt.svg" },
-  { code: "en" as Language, name: "English", flag: "/flags/us.svg" },
-  { code: "es" as Language, name: "Español", flag: "/flags/es.svg" },
-  { code: "fr" as Language, name: "Français", flag: "/flags/fr.svg" },
-  { code: "de" as Language, name: "Deutsch", flag: "/flags/de.svg" },
-]
+  { code: "pt-BR" as Language, name: "Português", flag: "/flags/br.svg" },
+  { code: "pt-PT" as Language, name: "Português", flag: "/flags/pt.svg" },
+  { code: "en-US" as Language, name: "English", flag: "/flags/us.svg" },
+  { code: "es-ES" as Language, name: "Español", flag: "/flags/es.svg" },
+  { code: "fr-FR" as Language, name: "Français", flag: "/flags/fr.svg" },
+  { code: "de-DE" as Language, name: "Deutsch", flag: "/flags/de.svg" },
+  { code: "it-IT" as Language, name: "Italian", flag: "/flags/it.svg" },
+];
 
 export function LanguageSelector() {
-  const [isOpen, setIsOpen] = useState(false)
-  const { language, setLanguage } = useTranslation()
+  const [isOpen, setIsOpen] = useState(false);
+  const { language, setLanguage } = useTranslation();
 
-  const currentLanguage = languages.find((lang) => lang.code === language) || languages[0]
+  const currentLanguage =
+    languages.find((lang) => lang.code === language) || languages[0];
 
   const handleLanguageChange = (langCode: Language) => {
-    setLanguage(langCode)
-    setIsOpen(false)
-  }
+    setLanguage(langCode);
+    setIsOpen(false);
+  };
 
   return (
-    <div className="relative" onMouseEnter={() => setIsOpen(true)} onMouseLeave={() => setIsOpen(false)}>
+    <div
+      className="relative"
+      onMouseEnter={() => setIsOpen(true)}
+      onMouseLeave={() => setIsOpen(false)}
+    >
       <button className="flex items-center space-x-2 px-3 py-2 rounded-md transition-all duration-100 font-medium drop-shadow-lg cursor-pointer bg-transparent text-white hover:bg-yellow-500/20 hover:text-white text-sm">
         <Image
           src={currentLanguage.flag || "/placeholder.svg"}
@@ -35,7 +45,11 @@ export function LanguageSelector() {
           className="w-5 h-4 object-cover rounded-sm"
         />
         <span>{currentLanguage.name}</span>
-        <ChevronDown className={`h-4 w-4 transition-transform duration-200 ${isOpen ? "rotate-180" : ""}`} />
+        <ChevronDown
+          className={`h-4 w-4 transition-transform duration-200 ${
+            isOpen ? "rotate-180" : ""
+          }`}
+        />
       </button>
 
       {isOpen && (
@@ -63,5 +77,5 @@ export function LanguageSelector() {
         </div>
       )}
     </div>
-  )
+  );
 }

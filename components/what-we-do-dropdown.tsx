@@ -1,22 +1,39 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import { useRouter } from "next/navigation"
-import { ChevronDown, Code, Zap, Users, MessageCircle, Layout, Settings, Train, Car, Sun } from "lucide-react"
-import { useTranslation } from "@/components/translation-context"
+import { useState } from "react";
+import { useRouter } from "next/navigation";
+import {
+  Bot,
+  ChevronDown,
+  Code,
+  Zap,
+  Users,
+  MessageCircle,
+  Layout,
+  Settings,
+  Train,
+  Car,
+  Sun,
+  Truck,
+} from "lucide-react";
+import { useTranslation } from "@/components/translation-context";
 
 export function WhatWeDoDropdown() {
-  const [isOpen, setIsOpen] = useState(false)
-  const router = useRouter()
-  const { t } = useTranslation()
+  const [isOpen, setIsOpen] = useState(false);
+  const router = useRouter();
+  const { t } = useTranslation();
 
   const handleNavigation = (path: string) => {
-    router.push(path)
-    setIsOpen(false)
-  }
+    router.push(path);
+    setIsOpen(false);
+  };
 
   return (
-    <div className="relative" onMouseEnter={() => setIsOpen(true)} onMouseLeave={() => setIsOpen(false)}>
+    <div
+      className="relative"
+      onMouseEnter={() => setIsOpen(true)}
+      onMouseLeave={() => setIsOpen(false)}
+    >
       <button className="flex items-center space-x-1 px-3 py-2 rounded-md transition-all duration-100 font-medium drop-shadow-lg cursor-pointer bg-transparent text-white hover:bg-yellow-500/20 hover:text-white text-sm">
         <span>{t("nav.whatWeDo")}</span>
         <ChevronDown className="h-4 w-4" />
@@ -29,42 +46,42 @@ export function WhatWeDoDropdown() {
               onClick={() => handleNavigation("/what-we-do/development")}
               className="flex items-center gap-3 w-full px-4 py-2 text-sm text-white hover:bg-yellow-500/20 transition-colors"
             >
-              <Code className="h-4 w-4 text-orange-500" />
+              <Code className="h-4 w-4 text-orange-400" />
               {t("nav.development")}
             </button>
             <button
               onClick={() => handleNavigation("/what-we-do/agile")}
               className="flex items-center gap-3 w-full px-4 py-2 text-sm text-white hover:bg-yellow-500/20 transition-colors"
             >
-              <Zap className="h-4 w-4 text-orange-500" />
+              <Zap className="h-4 w-4 text-orange-400" />
               {t("nav.agile")}
             </button>
             <button
               onClick={() => handleNavigation("/what-we-do/outsourcing")}
               className="flex items-center gap-3 w-full px-4 py-2 text-sm text-white hover:bg-yellow-500/20 transition-colors"
             >
-              <Users className="h-4 w-4 text-orange-500" />
+              <Users className="h-4 w-4 text-orange-400" />
               {t("nav.outsourcing")}
             </button>
             <button
               onClick={() => handleNavigation("/what-we-do/chatbot")}
               className="flex items-center gap-3 w-full px-4 py-2 text-sm text-white hover:bg-yellow-500/20 transition-colors"
             >
-              <MessageCircle className="h-4 w-4 text-orange-500" />
+              <Bot className="h-4 w-4 text-orange-400" />
               {t("nav.chatbot")}
             </button>
             <button
               onClick={() => handleNavigation("/what-we-do/landing-pages")}
               className="flex items-center gap-3 w-full px-4 py-2 text-sm text-white hover:bg-yellow-500/20 transition-colors"
             >
-              <Layout className="h-4 w-4 text-orange-500" />
+              <Layout className="h-4 w-4 text-orange-400" />
               {t("nav.landingPages")}
             </button>
             <button
               onClick={() => handleNavigation("/what-we-do/system-integration")}
               className="flex items-center gap-3 w-full px-4 py-2 text-sm text-white hover:bg-yellow-500/20 transition-colors"
             >
-              <Settings className="h-4 w-4 text-orange-500" />
+              <Settings className="h-4 w-4 text-orange-400" />
               {t("nav.systemIntegration")}
             </button>
             <div className="border-t border-gray-600 my-2"></div>
@@ -72,26 +89,26 @@ export function WhatWeDoDropdown() {
               onClick={() => handleNavigation("/what-we-do/railway")}
               className="flex items-center gap-3 w-full px-4 py-2 text-sm text-white hover:bg-yellow-500/20 transition-colors"
             >
-              <Train className="h-4 w-4 text-orange-500" />
+              <Train className="h-4 w-4 text-orange-400" />
               {t("nav.railway")}
             </button>
             <button
               onClick={() => handleNavigation("/what-we-do/road")}
               className="flex items-center gap-3 w-full px-4 py-2 text-sm text-white hover:bg-yellow-500/20 transition-colors"
             >
-              <Car className="h-4 w-4 text-orange-500" />
+              <Truck className="h-4 w-4 text-orange-400" />
               {t("nav.road")}
             </button>
             <button
               onClick={() => handleNavigation("/what-we-do/solar-energy")}
               className="flex items-center gap-3 w-full px-4 py-2 text-sm text-white hover:bg-yellow-500/20 transition-colors"
             >
-              <Sun className="h-4 w-4 text-orange-500" />
+              <Sun className="h-4 w-4 text-orange-400" />
               {t("nav.solarEnergy")}
             </button>
           </div>
         </div>
       )}
     </div>
-  )
+  );
 }
