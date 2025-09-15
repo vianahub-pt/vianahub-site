@@ -5,13 +5,14 @@ import { useRouter } from "next/navigation";
 import {
   ChevronDown,
   GraduationCap,
-  Building,
+  Landmark,
   Factory,
   DollarSign,
   ShoppingCart,
   Heart,
 } from "lucide-react";
 import { useTranslation } from "@/components/translation-context";
+import { color } from "framer-motion";
 
 export function EngineeringDropdown() {
   const [isOpen, setIsOpen] = useState(false);
@@ -24,16 +25,42 @@ export function EngineeringDropdown() {
   };
 
   const menuItems = [
-    { key: "nav.education", path: "/industry/education", icon: GraduationCap },
-    { key: "nav.government", path: "/industry/government", icon: Building },
     {
-      key: "nav.manufacturing",
+      key: "nav.engineering.education.title",
+      path: "/industry/education",
+      icon: GraduationCap,
+      color: "#3B82F6",
+    },
+    {
+      key: "nav.engineering.government.title",
+      path: "/industry/government",
+      icon: Landmark,
+      color: "#FFFFFF",
+    },
+    {
+      key: "nav.engineering.manufacturing.title",
       path: "/industry/manufacturing",
       icon: Factory,
+      color: "#9CA3AF",
     },
-    { key: "nav.financial", path: "/industry/financial", icon: DollarSign },
-    { key: "nav.retail", path: "/industry/retail", icon: ShoppingCart },
-    { key: "nav.healthcare", path: "/industry/healthcare", icon: Heart },
+    {
+      key: "nav.engineering.financial.title",
+      path: "/industry/financial",
+      icon: DollarSign,
+      color: "#22C55E",
+    },
+    {
+      key: "nav.engineering.retail.title",
+      path: "/industry/retail",
+      icon: ShoppingCart,
+      color: "#E11D48",
+    },
+    {
+      key: "nav.engineering.healthcare.title",
+      path: "/industry/healthcare",
+      icon: Heart,
+      color: "#EC4899",
+    },
   ];
 
   return (
@@ -42,8 +69,8 @@ export function EngineeringDropdown() {
       onMouseEnter={() => setIsOpen(true)}
       onMouseLeave={() => setIsOpen(false)}
     >
-      <button className="flex items-center space-x-1 px-3 py-2 rounded-md transition-all duration-100 font-medium drop-shadow-lg cursor-pointer bg-transparent text-white hover:bg-yellow-500/20 hover:text-white text-sm">
-        <span>{t("nav.engineering")}</span>
+      <button className="flex items-center space-x-1 px-3 py-2 rounded-md transition-all duration-100 font-medium drop-shadow-lg cursor-pointer bg-transparent text-orange-400 hover:bg-yellow-500/20 hover:text-white text-sm">
+        <span>{t("nav.engineering.title")}</span>
         <ChevronDown
           className={`h-4 w-4 transition-transform duration-200 ${
             isOpen ? "rotate-180" : ""
@@ -59,9 +86,12 @@ export function EngineeringDropdown() {
               <button
                 key={item.key}
                 onClick={() => handleNavigation(item.path)}
-                className="flex items-center gap-3 w-full text-left px-4 py-2 text-sm text-white hover:bg-yellow-500/20 hover:text-white transition-colors duration-150"
+                className="flex items-center gap-3 w-full text-left px-4 py-2 text-sm text-orange-400 hover:bg-yellow-500/20 hover:text-white transition-colors duration-150"
               >
-                <IconComponent className="h-4 w-4 text-orange-400" />
+                <IconComponent
+                  className="h-4 w-4"
+                  style={{ color: item.color }}
+                />
                 {t(item.key)}
               </button>
             );

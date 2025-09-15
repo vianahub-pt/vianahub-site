@@ -13,6 +13,8 @@ import {
 } from "@/components/ui/carousel";
 import {
   Code,
+  Code2,
+  CheckCircle,
   BrainCircuit,
   Database,
   Globe,
@@ -30,22 +32,14 @@ import {
 import Autoplay from "embla-carousel-autoplay";
 import { useTranslation } from "@/components/translation-context";
 import { ScrollIndicator } from "@/components/scroll-indicator";
+import { motion } from "framer-motion";
 
 function DevelopmentPageContent() {
   const { t } = useTranslation();
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
-
-  if (!mounted) {
-    return null;
-  }
 
   const carousels = [
     {
@@ -133,26 +127,69 @@ function DevelopmentPageContent() {
     },
   ];
 
+  const technologies = [
+    { description: t("development.technology.website.description") },
+    { description: t("development.technology.api.description") },
+    { description: t("development.technology.erp.description") },
+    { description: t("development.technology.crm.description") },
+    { description: t("development.technology.bpm.description") },
+  ];
+
+  interface CardProps {
+    service: {
+      icon: React.ComponentType<any>;
+      title: string;
+      description: string;
+    };
+    index: number;
+  }
+
+  function ServiceCard({ service, index }: CardProps) {
+    const Icon = service.icon;
+    return (
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: false, amount: 0.2 }}
+        transition={{ delay: index * 0.2, duration: 0.6 }}
+        className="h-full"
+      >
+        <Card className="text-center bg-orange-400 hover:scale-105 transition-all duration-300 relative border-none h-full">
+          <CardContent className="p-6 flex flex-col h-full">
+            <Icon className="h-12 w-12 text-white mx-auto mb-4" />
+            <h3 className="text-gray-900 text-xl font-semibold mb-3">
+              {service.title}
+            </h3>
+            <p className="text-md mt-auto">{service.description}</p>
+          </CardContent>
+        </Card>
+      </motion.div>
+    );
+  }
+
   return (
     <div className="flex flex-col min-h-screen">
       {/* Hero Section */}
       <section
-        className="relative pt-0 pb-0 h-[500px]"
+        className="relative pt-0 pb-0 h-[600px]"
         style={{
-          backgroundImage: "url(/pages/development.jpg)",
+          backgroundImage: "url(/pages/hero-development.jpg)",
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
       >
         <div className="absolute inset-0 bg-black/60 z-0" />
         <div className="container mx-auto px-4 relative z-10 h-full flex items-center justify-center">
-          <div className="max-w-4xl mx-auto text-center ">
+          <div className="max-w-4xl mx-auto text-center bg-black/20 backdrop-blur-sm rounded-lg p-6">
             <h1 className="text-orange-400 text-4xl lg:text-6xl font-bold mb-6 flex items-center justify-center">
-              <Code className=" w-12 h-12 lg:w-16 lg:h-16" />
+              <Code2
+                className=" w-12 h-12 lg:w-16 lg:h-16"
+                style={{ color: "#9333EA" }}
+              />
               &nbsp;{t("development.hero.title")}
             </h1>
 
-            <p className="text-xl items-center justify-center mx-auto bg-black/20 backdrop-blur-sm rounded-lg p-6">
+            <p className="text-xl items-center justify-center mx-auto ">
               {t("development.hero.subtitle")}
             </p>
           </div>
@@ -227,7 +264,7 @@ function DevelopmentPageContent() {
       <div
         className="relative h-[500px] overflow-hidden"
         style={{
-          backgroundImage: "url('/pages/development-parallax.jpg')",
+          backgroundImage: "url('/pages/parallax-development.jpg')",
           backgroundAttachment: "fixed",
           backgroundPosition: "center center",
           backgroundRepeat: "no-repeat",
@@ -238,7 +275,7 @@ function DevelopmentPageContent() {
       </div>
 
       {/* Service Section */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-white/90">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="block text-orange-400 text-3xl md:text-4xl font-bold mb-4">
@@ -249,18 +286,55 @@ function DevelopmentPageContent() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
             {services.map((service, index) => (
-              <Card key={index} className="text-center">
-                <CardContent className="p-6">
-                  <service.icon className="h-12 w-12 text-orange-400 mx-auto mb-4" />
-                  <h3 className="text-xl font-semibold mb-3">
-                    {service.title}
-                  </h3>
-                  <p className="text-muted-foreground">{service.description}</p>
-                </CardContent>
-              </Card>
+              <ServiceCard key={index} service={service} index={index} />
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Technology Section */}
+      <section className="py-20 px-4 bg-white">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <h2 className="text-orange-400 text-3xl md:text-4xl font-bold mb-6">
+                {t("development.technology.title")}
+              </h2>
+              <p className="text-lg text-gray-900 max-w-2xl mx-auto">
+                {t("development.technology.subtitle")}
+              </p>
+              <br />
+              <div className="space-y-4">
+                {technologies.map((feature, index) => (
+                  <div
+                    key={index}
+                    className="text-orange-400 flex items-center gap-3"
+                  >
+                    <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0" />
+                    <span>{feature.description}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div className="relative">
+              <motion.div
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 2, y: 0 }}
+                transition={{ duration: 3.5, ease: "easeOut" }}
+                viewport={{ once: false, amount: 0.5 }}
+              >
+                <div className="aspect-[16/9] w-full max-w-3xl mx-auto">
+                  <Image
+                    src="/pages/development-technology.jpg"
+                    alt="Development Technology"
+                    fill
+                    className="rounded-lg shadow-2xl object-cover"
+                  />
+                </div>
+              </motion.div>
+            </div>
           </div>
         </div>
       </section>
@@ -277,7 +351,7 @@ function DevelopmentPageContent() {
           <div className="my-8"></div>
           <Button
             size="lg"
-            className="bg-orange-500 hover:bg-viana-orange/90 text-white font-semibold px-8 py-3"
+            className="bg-orange-400 hover:bg-orange-500 text-white font-semibold px-8 py-3"
           >
             {t("development.cta.button")}
           </Button>

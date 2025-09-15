@@ -13,9 +13,9 @@ import {
   Headphones,
   CheckCircle,
 } from "lucide-react";
-import Link from "next/link";
 import { useTranslation } from "@/components/translation-context";
 import { ScrollIndicator } from "@/components/scroll-indicator";
+import { motion } from "framer-motion";
 
 export default function ChatbotPage() {
   const { t } = useTranslation();
@@ -26,22 +26,22 @@ export default function ChatbotPage() {
 
   const features = [
     {
-      icon: <MessageCircle className="h-8 w-8 text-viana-orange" />,
+      icon: MessageCircle,
       title: t("chatbot.features.conversations.title"),
       description: t("chatbot.features.conversations.description"),
     },
     {
-      icon: <Clock className="h-8 w-8 text-viana-orange" />,
+      icon: Clock,
       title: t("chatbot.features.availability.title"),
       description: t("chatbot.features.availability.description"),
     },
     {
-      icon: <Users className="h-8 w-8 text-viana-orange" />,
+      icon: Users,
       title: t("chatbot.features.channels.title"),
       description: t("chatbot.features.channels.description"),
     },
     {
-      icon: <BarChart className="h-8 w-8 text-viana-orange" />,
+      icon: BarChart,
       title: t("chatbot.features.analytics.title"),
       description: t("chatbot.features.analytics.description"),
     },
@@ -49,84 +49,121 @@ export default function ChatbotPage() {
 
   const benefits = [
     {
-      icon: <Zap className="h-6 w-6 text-viana-orange" />,
+      icon: Zap,
       title: t("chatbot.benefits.response.title"),
       description: t("chatbot.benefits.response.description"),
     },
     {
-      icon: <Headphones className="h-6 w-6 text-viana-orange" />,
+      icon: Headphones,
       title: t("chatbot.benefits.costs.title"),
       description: t("chatbot.benefits.costs.description"),
     },
     {
-      icon: <Users className="h-6 w-6 text-viana-orange" />,
+      icon: Users,
       title: t("chatbot.benefits.satisfaction.title"),
       description: t("chatbot.benefits.satisfaction.description"),
     },
     {
-      icon: <CheckCircle className="h-6 w-6 text-viana-orange" />,
+      icon: CheckCircle,
       title: t("chatbot.benefits.scalability.title"),
       description: t("chatbot.benefits.scalability.description"),
     },
   ];
 
+  interface CardProps {
+    service: {
+      icon: React.ComponentType<any>;
+      title: string;
+      description: string;
+    };
+    index: number;
+  }
+
+  function BenefitsCard({ service, index }: CardProps) {
+    const Icon = service.icon;
+    return (
+      <motion.div
+        initial={{ opacity: 0, scale: 0.8, rotate: -10 }}
+        whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
+        viewport={{ once: false, amount: 0.2 }}
+        transition={{
+          delay: index * 0.15,
+          duration: 0.8,
+          type: "spring",
+          stiffness: 120,
+        }}
+        className="h-full"
+      >
+        <Card className="text-center bg-orange-400 hover:scale-105 transition-all duration-300 relative border-none h-full">
+          <CardContent className="p-6 flex flex-col h-full">
+            <Icon className="h-12 w-12 text-white mx-auto mb-4" />
+            <h3 className="text-gray-900 text-xl font-semibold mb-3">
+              {service.title}
+            </h3>
+            <p className="text-md mt-auto">{service.description}</p>
+          </CardContent>
+        </Card>
+      </motion.div>
+    );
+  }
+
+  function FeaturesCard({ service, index }: CardProps) {
+    const Icon = service.icon;
+    return (
+      <motion.div
+        initial={{ opacity: 0, x: -100 }} // começa 100px à esquerda
+        whileInView={{ opacity: 1, x: 0 }} // desliza para a posição normal
+        viewport={{ once: false, amount: 0.2 }}
+        transition={{
+          delay: index * 0.15, // animação em cascata
+          duration: 0.8,
+          type: "spring",
+          stiffness: 120,
+        }}
+        className="h-full"
+      >
+        <Card className="text-center hover:scale-105 transition-all duration-300 relative border-none h-full">
+          <CardContent className="p-6 flex flex-col h-full">
+            <Icon className="h-12 w-12 text-white mx-auto mb-4" />
+            <h3 className="text-orange-500 text-xl font-semibold mb-3">
+              {service.title}
+            </h3>
+            <p className="text-md mt-auto">{service.description}</p>
+          </CardContent>
+        </Card>
+      </motion.div>
+    );
+  }
+
   return (
     <div className="flex flex-col min-h-screen">
       {/* Hero Section */}
       <section
-        className="relative pt-0 pb-0 h-[500px]"
+        className="relative pt-0 pb-0 h-[600px]"
         style={{
-          backgroundImage: "url(/pages/chatbot.jpg)",
+          backgroundImage: "url(/pages/hero-chatbot.jpg)",
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
       >
         <div className="absolute inset-0 bg-black/60 z-0" />
         <div className="container mx-auto px-4 relative z-10 h-full flex items-center justify-center">
-          <div className="max-w-4xl mx-auto text-center ">
+          <div className="max-w-4xl mx-auto text-center bg-black/20 backdrop-blur-sm rounded-lg p-6">
             <h1 className="text-orange-400 text-4xl lg:text-6xl font-bold mb-6 flex items-center justify-center">
-              <Bot className=" w-12 h-12 lg:w-16 lg:h-16" />
+              <Bot
+                className=" w-12 h-12 lg:w-16 lg:h-16"
+                style={{ color: "#DB2777" }}
+              />
               &nbsp;{t("chatbot.hero.title")}
             </h1>
 
-            <p className="text-xl items-center justify-center mx-auto bg-black/20 backdrop-blur-sm rounded-lg p-6">
+            <p className="text-xl items-center justify-center mx-auto ">
               {t("chatbot.hero.subtitle")}
             </p>
           </div>
         </div>
 
         <ScrollIndicator />
-      </section>
-
-      {/* Features Section */}
-      <section className="py-20 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="block text-orange-400 text-3xl md:text-4xl font-bold mb-4">
-              {t("chatbot.features.title")}
-            </h2>
-            <p className="text-lg text-gray-900 max-w-2xl mx-auto">
-              {t("chatbot.features.subtitle")}
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {features.map((feature, index) => (
-              <Card
-                key={index}
-                className="text-center hover:shadow-lg transition-shadow border-none"
-              >
-                <CardContent className="p-6">
-                  <div className="flex justify-center mb-4">{feature.icon}</div>
-                  <h3 className="text-xl font-bold text-viana-black mb-3">
-                    {feature.title}
-                  </h3>
-                  <p className="text-viana-gray">{feature.description}</p>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
       </section>
 
       {/* Benefits Section */}
@@ -141,26 +178,42 @@ export default function ChatbotPage() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {benefits.map((benefit, index) => (
-              <Card
-                key={index}
-                className="hover:shadow-lg transition-shadow border-none"
-              >
-                <CardContent className="p-6">
-                  <div className="flex items-start space-x-4">
-                    <div className="flex-shrink-0">{benefit.icon}</div>
-                    <div>
-                      <h3 className="text-lg font-bold text-viana-black mb-2">
-                        {benefit.title}
-                      </h3>
-                      <p className="text-viana-gray text-sm">
-                        {benefit.description}
-                      </p>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+            {benefits.map((service, index) => (
+              <BenefitsCard key={index} service={service} index={index} />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Parallax Section */}
+      <div
+        className="relative h-[500px] overflow-hidden"
+        style={{
+          backgroundImage: "url('/pages/parallax-chatbot.jpg')",
+          backgroundAttachment: "fixed",
+          backgroundPosition: "center center",
+          backgroundRepeat: "no-repeat",
+          backgroundSize: "cover",
+        }}
+      >
+        <div className="absolute inset-0 bg-gradient-to-b from-black/5 to-black/10" />
+      </div>
+
+      {/* Features Section */}
+      <section className="py-20 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="block text-orange-400 text-3xl md:text-4xl font-bold mb-4">
+              {t("chatbot.features.title")}
+            </h2>
+            <p className="text-lg text-gray-900 max-w-2xl mx-auto">
+              {t("chatbot.features.subtitle")}
+            </p>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+            {benefits.map((service, index) => (
+              <FeaturesCard key={index} service={service} index={index} />
             ))}
           </div>
         </div>
@@ -179,16 +232,16 @@ export default function ChatbotPage() {
               </p>
             </div>
 
-            <div className="bg-gray-50 rounded-lg p-8">
-              <Bot className="h-16 w-16 text-viana-orange mx-auto mb-6" />
+            <div className="bg-orange-100 rounded-lg p-8">
+              <Bot className="h-16 w-16 text-orange-400 mx-auto mb-6" />
 
               {/* Chat Animation */}
-              <div className="max-w-md mx-auto bg-white rounded-lg shadow-lg overflow-hidden">
-                <div className="bg-viana-orange text-white p-3 text-center font-semibold">
+              <div className="bg-white max-w-md mx-auto rounded-lg shadow-lg overflow-hidden">
+                <div className="bg-orange-400 text-white p-3 text-center font-semibold">
                   Chatbot Demo
                 </div>
-                <div className="p-4 h-80 overflow-y-auto">
-                  <div className="space-y-3">
+                <div className="p-4 h-80 overflow-y-auto ">
+                  <div className="space-y-3 ">
                     {/* Bot message */}
                     <div
                       className="flex items-start space-x-2 animate-fade-in-up"
@@ -198,10 +251,10 @@ export default function ChatbotPage() {
                         animationFillMode: "forwards",
                       }}
                     >
-                      <div className="w-8 h-8 bg-viana-orange rounded-full flex items-center justify-center flex-shrink-0">
-                        <Bot className="w-4 h-4 text-white" />
+                      <div className="w-8 h-8 bg-gray-500 rounded-full flex items-center justify-center flex-shrink-0">
+                        <Bot className="w-4 h-4 text-green" />
                       </div>
-                      <div className="bg-gray-100 rounded-lg p-3 max-w-xs">
+                      <div className="bg-gray-500 rounded-lg p-3 max-w-xs">
                         <p className="text-sm">
                           {t("chatbot.chat.bot.greeting")}
                         </p>
@@ -217,13 +270,13 @@ export default function ChatbotPage() {
                         animationFillMode: "forwards",
                       }}
                     >
-                      <div className="bg-viana-orange text-white rounded-lg p-3 max-w-xs">
+                      <div className="bg-orange-400 text-white rounded-lg p-3 max-w-xs">
                         <p className="text-sm">
                           {t("chatbot.chat.user.order")}
                         </p>
                       </div>
-                      <div className="w-8 h-8 bg-gray-300 rounded-full flex items-center justify-center flex-shrink-0">
-                        <Users className="w-4 h-4 text-gray-600" />
+                      <div className="w-8 h-8 bg-orange-400 rounded-full flex items-center justify-center flex-shrink-0">
+                        <Users className="w-4 h-4 text-white" />
                       </div>
                     </div>
 
@@ -236,10 +289,10 @@ export default function ChatbotPage() {
                         animationFillMode: "forwards",
                       }}
                     >
-                      <div className="w-8 h-8 bg-viana-orange rounded-full flex items-center justify-center flex-shrink-0">
+                      <div className="w-8 h-8 bg-gray-500 rounded-full flex items-center justify-center flex-shrink-0">
                         <Bot className="w-4 h-4 text-white" />
                       </div>
-                      <div className="bg-gray-100 rounded-lg p-3 max-w-xs">
+                      <div className="bg-gray-500 rounded-lg p-3 max-w-xs">
                         <p className="text-sm">
                           {t("chatbot.chat.bot.options")}
                         </p>
@@ -255,13 +308,13 @@ export default function ChatbotPage() {
                         animationFillMode: "forwards",
                       }}
                     >
-                      <div className="bg-viana-orange text-white rounded-lg p-3 max-w-xs">
-                        <p className="text-sm">
+                      <div className="bg-orange-400 text-white rounded-lg p-3 max-w-xs">
+                        <p className="text-sm text-white">
                           {t("chatbot.chat.user.choice")}
                         </p>
                       </div>
-                      <div className="w-8 h-8 bg-gray-300 rounded-full flex items-center justify-center flex-shrink-0">
-                        <Users className="w-4 h-4 text-gray-600" />
+                      <div className="w-8 h-8 bg-orange-400 rounded-full flex items-center justify-center flex-shrink-0">
+                        <Users className="w-4 h-4 text-white" />
                       </div>
                     </div>
 
@@ -274,10 +327,10 @@ export default function ChatbotPage() {
                         animationFillMode: "forwards",
                       }}
                     >
-                      <div className="w-8 h-8 bg-viana-orange rounded-full flex items-center justify-center flex-shrink-0">
+                      <div className="w-8 h-8 bg-gray-500 rounded-full flex items-center justify-center flex-shrink-0">
                         <Bot className="w-4 h-4 text-white" />
                       </div>
-                      <div className="bg-gray-100 rounded-lg p-3 max-w-xs">
+                      <div className="bg-gray-500 rounded-lg p-3 max-w-xs">
                         <p className="text-sm">
                           {t("chatbot.chat.bot.confirm")}
                         </p>
@@ -293,13 +346,13 @@ export default function ChatbotPage() {
                         animationFillMode: "forwards",
                       }}
                     >
-                      <div className="bg-viana-orange text-white rounded-lg p-3 max-w-xs">
+                      <div className="bg-orange-400 text-white rounded-lg p-3 max-w-xs">
                         <p className="text-sm">
                           {t("chatbot.chat.user.confirm")}
                         </p>
                       </div>
-                      <div className="w-8 h-8 bg-gray-300 rounded-full flex items-center justify-center flex-shrink-0">
-                        <Users className="w-4 h-4 text-gray-600" />
+                      <div className="w-8 h-8 bg-orange-400 rounded-full flex items-center justify-center flex-shrink-0">
+                        <Users className="w-4 h-4 text-white" />
                       </div>
                     </div>
 
@@ -312,10 +365,10 @@ export default function ChatbotPage() {
                         animationFillMode: "forwards",
                       }}
                     >
-                      <div className="w-8 h-8 bg-viana-orange rounded-full flex items-center justify-center flex-shrink-0">
+                      <div className="w-8 h-8 bg-gray-500 rounded-full flex items-center justify-center flex-shrink-0">
                         <Bot className="w-4 h-4 text-white" />
                       </div>
-                      <div className="bg-gray-100 rounded-lg p-3 max-w-xs">
+                      <div className="bg-gray-500 rounded-lg p-3 max-w-xs">
                         <p className="text-sm">
                           {t("chatbot.chat.bot.success")}
                         </p>
@@ -358,7 +411,7 @@ export default function ChatbotPage() {
           <div className="my-8"></div>
           <Button
             size="lg"
-            className="bg-orange-500 hover:bg-viana-orange/90 text-white font-semibold px-8 py-3"
+            className="bg-orange-400 hover:bg-orange-500 text-white font-semibold px-8 py-3"
           >
             {t("chatbot.cta.button")}
           </Button>

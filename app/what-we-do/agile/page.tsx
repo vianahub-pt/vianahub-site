@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -12,28 +13,18 @@ import {
   Target,
   Repeat,
   Eye,
+  Workflow,
 } from "lucide-react";
 import { useTranslation } from "@/components/translation-context";
-import { ParallaxSection } from "@/components/parallax-section";
 import { ScrollIndicator } from "@/components/scroll-indicator";
+import { motion } from "framer-motion";
 
 function AgilePageContent() {
   const { t } = useTranslation();
-  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    setMounted(true);
+    window.scrollTo(0, 0);
   }, []);
-
-  useEffect(() => {
-    if (mounted) {
-      window.scrollTo(0, 0);
-    }
-  }, [mounted]);
-
-  if (!mounted) {
-    return null;
-  }
 
   const benefits = [
     {
@@ -58,7 +49,7 @@ function AgilePageContent() {
     },
   ];
 
-  const process = [
+  const processes = [
     {
       icon: Target,
       title: t("agile.process.planning.title"),
@@ -81,26 +72,99 @@ function AgilePageContent() {
     },
   ];
 
+  const technologies = [
+    { description: t("agile.technology.scrum.description") },
+    { description: t("agile.technology.kanban.description") },
+    { description: t("agile.technology.xp.description") },
+    { description: t("agile.technology.lean.description") },
+    { description: t("agile.technology.safe.description") },
+  ];
+
+  interface CardProps {
+    service: {
+      icon: React.ComponentType<any>;
+      title: string;
+      description: string;
+    };
+    index: number;
+  }
+
+  function BenefitsCard({ service, index }: CardProps) {
+    const Icon = service.icon;
+    return (
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: false, amount: 0.2 }}
+        transition={{ delay: index * 0.2, duration: 0.6 }}
+        className="h-full"
+      >
+        <Card className="text-center bg-orange-400 hover:scale-105 transition-all duration-300 relative border-none h-full">
+          <CardContent className="p-6 flex flex-col h-full">
+            <Icon className="h-12 w-12 text-white mx-auto mb-4" />
+            <h3 className="text-gray-900 text-xl font-semibold mb-3">
+              {service.title}
+            </h3>
+            <p className="text-md mt-auto">{service.description}</p>
+          </CardContent>
+        </Card>
+      </motion.div>
+    );
+  }
+
+  function ProcessesCard({ service, index }: CardProps) {
+    const Icon = service.icon;
+    return (
+      <motion.div
+        initial={{ opacity: 0, scale: 0.8, rotate: -10 }}
+        whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
+        viewport={{ once: false, amount: 0.2 }}
+        transition={{
+          delay: index * 0.15,
+          duration: 0.8,
+          type: "spring",
+          stiffness: 120,
+        }}
+        className="h-full"
+      >
+        <Card className="bg-viana-white/90 hover:scale-105 transition-all duration-300 relative border-none h-full">
+          <CardContent className="p-8 text-center">
+            <div className="w-16 h-16 mx-auto mb-6 flex items-center justify-center rounded-full bg-viana-orange/10">
+              <service.icon className="w-8 h-8 text-orange-400" />
+            </div>
+            <h3 className="text-xl font-bold mb-4 text-orange-400">
+              {service.title}
+            </h3>
+            <p className="!text-gray-900">{service.description}</p>
+          </CardContent>
+        </Card>
+      </motion.div>
+    );
+  }
+
   return (
     <div className="flex flex-col min-h-screen">
       {/* Hero Section */}
       <section
-        className="relative pt-0 pb-0 h-[500px]"
+        className="relative pt-0 pb-0 h-[600px]"
         style={{
-          backgroundImage: "url(/pages/agile.jpg)",
+          backgroundImage: "url(/pages/hero-agile.jpg)",
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
       >
         <div className="absolute inset-0 bg-black/60 z-0" />
         <div className="container mx-auto px-4 relative z-10 h-full flex items-center justify-center">
-          <div className="max-w-4xl mx-auto text-center ">
-            <h1 className="text-orange-400 text-4xl lg:text-6xl font-bold mb-6 flex items-center justify-center">
-              <Zap className=" w-12 h-12 lg:w-16 lg:h-16" />
+          <div className="max-w-4xl mx-auto text-center bg-black/20 backdrop-blur-sm rounded-lg p-6">
+            <h1 className="text-orange-400 text-orange-400 text-4xl lg:text-6xl font-bold mb-6 flex items-center justify-center">
+              <Workflow
+                className=" w-12 h-12 lg:w-16 lg:h-16"
+                style={{ color: "#F59E0B" }}
+              />
               &nbsp;{t("agile.hero.title")}
             </h1>
 
-            <p className="text-xl items-center justify-center mx-auto bg-black/20 backdrop-blur-sm rounded-lg p-6">
+            <p className="text-xl items-center justify-center mx-auto ">
               {t("agile.hero.subtitle")}
             </p>
           </div>
@@ -121,32 +185,19 @@ function AgilePageContent() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {benefits.map((benefit, index) => (
-              <Card
-                key={index}
-                className="!bg-black hover:scale-105 transition-all duration-300 cursor-pointer"
-              >
-                <CardContent className="p-8 text-center">
-                  <div className="w-16 h-16 mx-auto mb-6 flex items-center justify-center rounded-full bg-white/20">
-                    <benefit.icon className="w-8 h-8 !text-orange-400" />
-                  </div>
-                  <h3 className="text-xl font-bold mb-4 text-orange-400">
-                    {benefit.title}
-                  </h3>
-                  <p className="!text-viana-white">{benefit.description}</p>
-                </CardContent>
-              </Card>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+            {benefits.map((service, index) => (
+              <BenefitsCard key={index} service={service} index={index} />
             ))}
           </div>
         </div>
       </section>
 
       {/* Parallax Section */}
-      <div
+      <section
         className="relative h-[500px] overflow-hidden"
         style={{
-          backgroundImage: "url('/pages/agile-parallax.jpg')",
+          backgroundImage: "url('/pages/parallax-agile.jpg')",
           backgroundAttachment: "fixed",
           backgroundPosition: "center center",
           backgroundRepeat: "no-repeat",
@@ -154,7 +205,7 @@ function AgilePageContent() {
         }}
       >
         <div className="absolute inset-0 bg-gradient-to-b from-black/5 to-black/10" />
-      </div>
+      </section>
 
       {/* Process Section */}
       <section className="py-20 px-4 bg-orange-200">
@@ -168,23 +219,55 @@ function AgilePageContent() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {process.map((step, index) => (
-              <Card
-                key={index}
-                className="bg-viana-white/90 hover:scale-105 transition-all duration-300 relative"
-              >
-                <CardContent className="p-8 text-center">
-                  <div className="w-16 h-16 mx-auto mb-6 flex items-center justify-center rounded-full bg-viana-orange/10">
-                    <step.icon className="w-8 h-8 text-orange-400" />
-                  </div>
-                  <h3 className="text-xl font-bold mb-4 text-orange-400">
-                    {step.title}
-                  </h3>
-                  <p className="!text-gray-900">{step.description}</p>
-                </CardContent>
-              </Card>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+            {processes.map((service, index) => (
+              <ProcessesCard key={index} service={service} index={index} />
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Technology Section */}
+      <section className="py-20 px-4 bg-white">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <h2 className="text-orange-400 text-3xl md:text-4xl font-bold mb-6">
+                {t("agile.technology.title")}
+              </h2>
+              <p className="text-lg text-gray-900 max-w-2xl mx-auto">
+                {t("agile.technology.subtitle")}
+              </p>
+              <br />
+              <div className="space-y-4">
+                {technologies.map((feature, index) => (
+                  <div
+                    key={index}
+                    className="text-orange-400 flex items-center gap-3"
+                  >
+                    <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0" />
+                    <span>{feature.description}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div className="relative">
+              <motion.div
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 2, y: 0 }}
+                transition={{ duration: 3.5, ease: "easeOut" }}
+                viewport={{ once: false, amount: 0.5 }}
+              >
+                <div className="aspect-[16/9] w-full max-w-3xl mx-auto">
+                  <Image
+                    src="/pages/agile-technology.jpg"
+                    alt="Government Technology"
+                    fill
+                    className="rounded-lg shadow-2xl object-cover"
+                  />
+                </div>
+              </motion.div>
+            </div>
           </div>
         </div>
       </section>
@@ -201,7 +284,7 @@ function AgilePageContent() {
           <div className="my-8"></div>
           <Button
             size="lg"
-            className="bg-orange-500 hover:bg-viana-orange/90 text-white font-semibold px-8 py-3"
+            className="bg-orange-400 hover:bg-orange-500 text-white font-semibold px-8 py-3"
           >
             {t("agile.cta.button")}
           </Button>

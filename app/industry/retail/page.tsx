@@ -1,21 +1,313 @@
-import type { Metadata } from "next"
-import { Navbar } from "@/components/navbar"
-import { Footer } from "@/components/footer"
-import { RetailPageContent } from "@/components/retail-page-content"
+"use client";
 
-export const metadata: Metadata = {
-  title: "Varejo - Soluções Tecnológicas para o Comércio | VianaHub",
-  description: "Soluções tecnológicas para o setor de varejo. E-commerce, gestão de estoque e experiência do cliente.",
-}
+import Image from "next/image";
+import { Button } from "@/components/ui/button";
+import { ScrollIndicator } from "@/components/scroll-indicator";
+import { useTranslation } from "@/components/translation-context";
+import { Card, CardContent } from "@/components/ui/card";
+import { useEffect } from "react";
+import {
+  Activity,
+  Banknote,
+  GraduationCap,
+  Rocket,
+  ShieldCheck,
+  CheckCircle,
+  Laptop,
+  Building2,
+  Puzzle,
+  BarChart3,
+  ShoppingCart,
+  Boxes,
+  Users,
+  BarChart2,
+  Package,
+  LayoutGrid,
+  CreditCard,
+  BadgePercent,
+  Truck,
+} from "lucide-react";
+import { motion } from "framer-motion";
 
 export default function RetailPage() {
+  const { t } = useTranslation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  const benefits = [
+    {
+      icon: ShoppingCart,
+      title: t("retail.benefits.e-commerce.title"),
+      description: t("retail.benefits.e-commerce.description"),
+    },
+    {
+      icon: Boxes,
+      title: t("retail.benefits.inventory-management.title"),
+      description: t("retail.benefits.inventory-management.description"),
+    },
+    {
+      icon: Users,
+      title: t("retail.benefits.crm.title"),
+      description: t("retail.benefits.crm.description"),
+    },
+    {
+      icon: BarChart2,
+      title: t("retail.benefits.analytics.title"),
+      description: t("retail.benefits.analytics.description"),
+    },
+  ];
+
+  const innovations = [
+    {
+      icon: LayoutGrid,
+      title: t("retail.innovation.omnichannel.title"),
+      description: t("retail.innovation.omnichannel.description"),
+    },
+    {
+      icon: CreditCard,
+      title: t("retail.innovation.pos.title"),
+      description: t("retail.innovation.pos.description"),
+    },
+    {
+      icon: BadgePercent,
+      title: t("retail.innovation.loyalty.title"),
+      description: t("retail.innovation.loyalty.description"),
+    },
+    {
+      icon: Truck,
+      title: t("retail.innovation.supply-chain.title"),
+      description: t("retail.innovation.supply-chain.description"),
+    },
+  ];
+
+  const technologies = [
+    { description: t("retail.technology.smart-platform") },
+    { description: t("retail.technology.cashier-automation") },
+    { description: t("retail.technology.self-service") },
+    { description: t("retail.technology.integration-service") },
+    { description: t("retail.technology.marketplace") },
+  ];
+
+  interface CardProps {
+    service: {
+      icon: React.ComponentType<any>;
+      title: string;
+      description: string;
+    };
+    index: number;
+  }
+
+  function BenefitsCard({ service, index }: CardProps) {
+    const Icon = service.icon;
+    return (
+      <motion.div
+        initial={{ opacity: 0, rotateY: -90 }}
+        whileInView={{ opacity: 1, rotateY: 0 }}
+        viewport={{ once: false, amount: 0.2 }}
+        transition={{
+          delay: index * 0.2,
+          type: "spring",
+          duration: 20,
+          stiffness: 50,
+        }}
+        className="h-full"
+        style={{ perspective: 1000 }}
+      >
+        <Card className="bg-orange-200 hover:shadow-lg transition-shadow border-none h-full">
+          <CardContent className="p-6 text-center">
+            <div className="flex items-center justify-center rounded-full">
+              <service.icon className="text-orange-400" />
+            </div>
+            <h3 className="text-xl font-bold mb-4 text-orange-400">
+              {service.title}
+            </h3>
+            <p className="!text-gray-900">{service.description}</p>
+          </CardContent>
+        </Card>
+      </motion.div>
+    );
+  }
+
+  function InnovationsCard({ service, index }: CardProps) {
+    const Icon = service.icon;
+    return (
+      <motion.div
+        initial={{ opacity: 0, scale: 0.8, rotate: -10 }}
+        whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
+        viewport={{ once: false, amount: 0.2 }}
+        transition={{
+          delay: index * 0.15,
+          duration: 0.8,
+          type: "spring",
+          stiffness: 120,
+        }}
+        className="h-full"
+      >
+        <Card className="bg-viana-white/90 hover:scale-105 transition-all duration-300 relative border-none h-full">
+          <CardContent className="p-8 text-center">
+            <div className="w-16 h-16 mx-auto mb-6 flex items-center justify-center rounded-full bg-viana-orange/10">
+              <service.icon className="w-8 h-8 text-orange-400" />
+            </div>
+            <h3 className="text-xl font-bold mb-4 text-orange-400">
+              {service.title}
+            </h3>
+            <p className="!text-gray-900">{service.description}</p>
+          </CardContent>
+        </Card>
+      </motion.div>
+    );
+  }
+
   return (
-    <div className="min-h-screen bg-viana-white">
-      <Navbar />
-      <main>
-        <RetailPageContent />
-      </main>
-      <Footer />
-    </div>
-  )
+    <section className="flex flex-col min-h-screen">
+      {/* Hero Section */}
+      <section
+        className="relative pt-0 pb-0 h-[600px]"
+        style={{
+          backgroundImage: "url(/pages/hero-retail.jpg)",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}
+      >
+        <div className="absolute inset-0 bg-black/60 z-0" />
+        <div className="container mx-auto px-4 relative z-10 h-full flex items-center justify-center">
+          <div className="max-w-4xl mx-auto text-center bg-black/20 backdrop-blur-sm rounded-lg p-6">
+            <h1 className="text-orange-400 text-4xl lg:text-6xl font-bold mb-6 flex items-center justify-center">
+              <GraduationCap
+                className=" w-12 h-12 lg:w-16 lg:h-16"
+                style={{ color: "#FACC15" }}
+              />
+              &nbsp;{t("retail.hero.title")}
+            </h1>
+
+            <p className="text-xl items-center justify-center mx-auto ">
+              {t("retail.hero.subtitle")}
+            </p>
+          </div>
+        </div>
+
+        <ScrollIndicator />
+      </section>
+
+      {/* Benefits Section */}
+      <section className="py-20 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="block text-orange-400 text-3xl md:text-4xl font-bold mb-4">
+              {t("retail.benefits.title")}
+            </h2>
+            <p className="text-lg text-gray-900 max-w-2xl mx-auto">
+              {t("retail.benefits.subtitle")}
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 sm:grid-cols-2  gap-8">
+            {benefits.map((service, index) => (
+              <BenefitsCard key={index} service={service} index={index} />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Parallax Section */}
+      <section
+        className="relative h-[500px] overflow-hidden"
+        style={{
+          backgroundImage: "url('/pages/parallax-retail.jpg')",
+          backgroundAttachment: "fixed",
+          backgroundPosition: "center center",
+          backgroundRepeat: "no-repeat",
+          backgroundSize: "cover",
+        }}
+      >
+        <div className="absolute inset-0 bg-gradient-to-b from-black/5 to-black/10" />
+      </section>
+
+      {/* innovation Section */}
+      <section className="py-20 px-4 bg-orange-200">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="!text-orange-400 text-3xl md:text-4xl font-bold mb-4">
+              {t("retail.innovation.title")}
+            </h2>
+            <p className="text-xl text-gray-900">
+              {t("retail.innovation.subtitle")}
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+            {innovations.map((service, index) => (
+              <InnovationsCard key={index} service={service} index={index} />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Technology Section */}
+      <section className="py-20 px-4 bg-white">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <h2 className="text-orange-400 text-3xl md:text-4xl font-bold mb-6">
+                {t("retail.technology.title")}
+              </h2>
+              <p className="text-lg text-gray-900 max-w-2xl mx-auto">
+                {t("retail.technology.subtitle")}
+              </p>
+              <br />
+              <div className="space-y-4">
+                {technologies.map((feature, index) => (
+                  <div
+                    key={index}
+                    className="text-orange-400 flex items-center gap-3"
+                  >
+                    <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0" />
+                    <span>{feature.description}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div className="relative">
+              <motion.div
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 2, y: 0 }}
+                transition={{ duration: 3.5, ease: "easeOut" }}
+                viewport={{ once: false, amount: 0.5 }}
+              >
+                <div className="aspect-[16/9] w-full max-w-3xl mx-auto">
+                  <Image
+                    src="/pages/retail-technology.jpg"
+                    alt="retail Technology"
+                    fill
+                    className="rounded-lg shadow-2xl object-cover"
+                  />
+                </div>
+              </motion.div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-20 bg-white/90">
+        <div className="text-center mb-16">
+          <h2 className="text-orange-400 text-3xl md:text-4xl font-bold mb-6">
+            {t("retail.cta.title")}
+          </h2>
+          <p className="text-lg text-gray-900 max-w-2xl mx-auto">
+            {t("retail.cta.subtitle")}
+          </p>
+          <div className="my-8"></div>
+          <Button
+            size="lg"
+            className="bg-orange-400 hover:bg-orange-500 text-white font-semibold px-8 py-3"
+          >
+            {t("retail.cta.button")}
+          </Button>
+        </div>
+      </section>
+    </section>
+  );
 }

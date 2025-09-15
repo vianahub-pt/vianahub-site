@@ -1,101 +1,305 @@
-"use client"
-import { Navbar } from "@/components/navbar"
-import { Footer } from "@/components/footer"
-import { useTranslation } from "@/components/translation-context"
-import Image from "next/image"
+"use client";
 
-function Breadcrumb({ items }: { items: { label: string; href: string }[] }) {
-  return (
-    <nav className="flex mb-8" aria-label="Breadcrumb">
-      <ol className="inline-flex items-center space-x-1 md:space-x-3">
-        {items.map((item, index) => (
-          <li key={index} className="inline-flex items-center">
-            {index > 0 && (
-              <svg
-                className="w-6 h-6 text-gray-400"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  fillRule="evenodd"
-                  d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
-                  clipRule="evenodd"
-                />
-              </svg>
-            )}
-            <a
-              href={item.href}
-              className={`${
-                index === items.length - 1 ? "text-gray-500 cursor-default" : "text-blue-600 hover:text-blue-800"
-              } ml-1 text-sm font-medium md:ml-2`}
-            >
-              {item.label}
-            </a>
-          </li>
-        ))}
-      </ol>
-    </nav>
-  )
-}
+import Image from "next/image";
+import { Button } from "@/components/ui/button";
+import { ScrollIndicator } from "@/components/scroll-indicator";
+import { useTranslation } from "@/components/translation-context";
+import { Card, CardContent } from "@/components/ui/card";
+import { useState, useEffect } from "react";
+import {
+  BarChart2,
+  GraduationCap,
+  LaptopMinimal,
+  LineChart,
+} from "lucide-react";
+import {
+  CheckCircle,
+  Laptop,
+  Building2,
+  Puzzle,
+  BarChart3,
+} from "lucide-react";
+import { motion } from "framer-motion";
 
 export default function EducationPage() {
-  const { t } = useTranslation()
+  const { t } = useTranslation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  const benefits = [
+    {
+      icon: Laptop,
+      title: t("education.benefits.e-learning.title"),
+      description: t("education.benefits.e-learning.description"),
+    },
+    {
+      icon: Building2,
+      title: t("education.benefits.school-management.title"),
+      description: t("education.benefits.school-management.description"),
+    },
+    {
+      icon: Puzzle,
+      title: t("education.benefits.pedagogical-tools.title"),
+      description: t("education.benefits.pedagogical-tools.description"),
+    },
+    {
+      icon: BarChart3,
+      title: t("education.benefits.performance-analysis.title"),
+      description: t("education.benefits.performance-analysis.description"),
+    },
+  ];
+
+  const innovations = [
+    {
+      icon: LaptopMinimal,
+      title: t("education.innovation.e-learning.title"),
+      description: t("education.innovation.e-learning.description"),
+    },
+    {
+      icon: BarChart2,
+      title: t("education.innovation.management.title"),
+      description: t("education.innovation.management.description"),
+    },
+    {
+      icon: GraduationCap,
+      title: t("education.innovation.pedagogical.title"),
+      description: t("education.innovation.pedagogical.description"),
+    },
+    {
+      icon: LineChart,
+      title: t("education.innovation.analytics.title"),
+      description: t("education.innovation.analytics.description"),
+    },
+  ];
+
+  const technologies = [
+    { description: t("education.technology.interactive") },
+    { description: t("education.technology.remote") },
+    { description: t("education.technology.management") },
+    { description: t("education.technology.online") },
+    { description: t("education.technology.planning") },
+  ];
+
+  interface CardProps {
+    service: {
+      icon: React.ComponentType<any>;
+      title: string;
+      description: string;
+    };
+    index: number;
+  }
+
+  function BenefitsCard({ service, index }: CardProps) {
+    const Icon = service.icon;
+    return (
+      <motion.div
+        initial={{ opacity: 0, rotateY: -90 }}
+        whileInView={{ opacity: 1, rotateY: 0 }}
+        viewport={{ once: false, amount: 0.2 }}
+        transition={{
+          delay: index * 0.2,
+          type: "spring",
+          duration: 20,
+          stiffness: 50,
+        }}
+        className="h-full"
+        style={{ perspective: 1000 }}
+      >
+        <Card className="bg-orange-200 hover:shadow-lg transition-shadow border-none h-full">
+          <CardContent className="p-6 text-center">
+            <div className="flex items-center justify-center rounded-full">
+              <service.icon className="text-orange-400" />
+            </div>
+            <h3 className="text-xl font-bold mb-4 text-orange-400">
+              {service.title}
+            </h3>
+            <p className="!text-gray-900">{service.description}</p>
+          </CardContent>
+        </Card>
+      </motion.div>
+    );
+  }
+
+  function InnovationsCard({ service, index }: CardProps) {
+    const Icon = service.icon;
+    return (
+      <motion.div
+        initial={{ opacity: 0, scale: 0.8, rotate: -10 }}
+        whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
+        viewport={{ once: false, amount: 0.2 }}
+        transition={{
+          delay: index * 0.15,
+          duration: 0.8,
+          type: "spring",
+          stiffness: 120,
+        }}
+        className="h-full"
+      >
+        <Card className="bg-viana-white/90 hover:scale-105 transition-all duration-300 relative border-none h-full">
+          <CardContent className="p-8 text-center">
+            <div className="w-16 h-16 mx-auto mb-6 flex items-center justify-center rounded-full bg-viana-orange/10">
+              <service.icon className="w-8 h-8 text-orange-400" />
+            </div>
+            <h3 className="text-xl font-bold mb-4 text-orange-400">
+              {service.title}
+            </h3>
+            <p className="!text-gray-900">{service.description}</p>
+          </CardContent>
+        </Card>
+      </motion.div>
+    );
+  }
 
   return (
-    <div className="min-h-screen bg-viana-white">
-      <Navbar />
-      <main>
-        <div className="relative h-[400px] bg-gradient-to-r from-blue-600 to-purple-600">
-          <Image src="/pages/education.jpg" alt="Educação" fill className="object-cover opacity-30" />
-          <div className="absolute inset-0 flex items-center justify-center">
-            <div className="text-center text-white">
-              <h1 className="text-4xl md:text-6xl font-bold mb-4">{t("education.hero.title")}</h1>
-              <p className="text-xl md:text-2xl">{t("education.hero.subtitle")}</p>
+    <section className="flex flex-col min-h-screen">
+      {/* Hero Section */}
+      <section
+        className="relative pt-0 pb-0 h-[600px]"
+        style={{
+          backgroundImage: "url(/pages/hero-education.jpg)",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}
+      >
+        <div className="absolute inset-0 bg-black/60 z-0" />
+        <div className="container mx-auto px-4 relative z-10 h-full flex items-center justify-center">
+          <div className="max-w-4xl mx-auto text-center bg-black/20 backdrop-blur-sm rounded-lg p-6">
+            <h1 className="text-orange-400 text-4xl lg:text-6xl font-bold mb-6 flex items-center justify-center">
+              <GraduationCap
+                className=" w-12 h-12 lg:w-16 lg:h-16"
+                style={{ color: "#FACC15" }}
+              />
+              &nbsp;{t("education.hero.title")}
+            </h1>
+
+            <p className="text-xl items-center justify-center mx-auto ">
+              {t("education.hero.subtitle")}
+            </p>
+          </div>
+        </div>
+
+        <ScrollIndicator />
+      </section>
+
+      {/* Benefits Section */}
+      <section className="py-20 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="block text-orange-400 text-3xl md:text-4xl font-bold mb-4">
+              {t("education.benefits.title")}
+            </h2>
+            <p className="text-lg text-gray-900 max-w-2xl mx-auto">
+              {t("education.benefits.subtitle")}
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 sm:grid-cols-2  gap-8">
+            {benefits.map((service, index) => (
+              <BenefitsCard key={index} service={service} index={index} />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Parallax Section */}
+      <section
+        className="relative h-[500px] overflow-hidden"
+        style={{
+          backgroundImage: "url('/pages/parallax-education.jpg')",
+          backgroundAttachment: "fixed",
+          backgroundPosition: "center center",
+          backgroundRepeat: "no-repeat",
+          backgroundSize: "cover",
+        }}
+      >
+        <div className="absolute inset-0 bg-gradient-to-b from-black/5 to-black/10" />
+      </section>
+
+      {/* innovation Section */}
+      <section className="py-20 px-4 bg-orange-200">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="!text-orange-400 text-3xl md:text-4xl font-bold mb-4">
+              {t("education.innovation.title")}
+            </h2>
+            <p className="text-xl text-gray-900">
+              {t("education.innovation.subtitle")}
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+            {innovations.map((service, index) => (
+              <InnovationsCard key={index} service={service} index={index} />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Technology Section */}
+      <section className="py-20 px-4 bg-white">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <h2 className="text-orange-400 text-3xl md:text-4xl font-bold mb-6">
+                {t("education.technology.title")}
+              </h2>
+              <p className="text-lg text-gray-900 max-w-2xl mx-auto">
+                {t("education.technology.subtitle")}
+              </p>
+              <br />
+              <div className="space-y-4">
+                {technologies.map((feature, index) => (
+                  <div
+                    key={index}
+                    className="text-orange-400 flex items-center gap-3"
+                  >
+                    <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0" />
+                    <span>{feature.description}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div className="relative">
+              <motion.div
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 2, y: 0 }}
+                transition={{ duration: 3.5, ease: "easeOut" }}
+                viewport={{ once: false, amount: 0.5 }}
+              >
+                <div className="aspect-[16/9] w-full max-w-3xl mx-auto">
+                  <Image
+                    src="/pages/education-technology.jpg"
+                    alt="Education Technology"
+                    fill
+                    className="rounded-lg shadow-2xl object-cover"
+                  />
+                </div>
+              </motion.div>
             </div>
           </div>
         </div>
+      </section>
 
-        <div className="container mx-auto px-4 py-12">
-          <Breadcrumb
-            items={[
-              { label: "Início", href: "/" },
-              { label: "Indústrias", href: "/" },
-              { label: "Educação", href: "/industry/education" },
-            ]}
-          />
-
-          <div className="max-w-4xl mx-auto">
-            <section className="mb-12">
-              <h2 className="text-3xl font-bold mb-6">{t("education.innovation.title")}</h2>
-              <p className="text-lg text-gray-600 mb-6">{t("education.innovation.description")}</p>
-            </section>
-
-            <section className="mb-12">
-              <h3 className="text-2xl font-bold mb-6">{t("education.solutions.title")}</h3>
-              <div className="grid md:grid-cols-2 gap-8">
-                <div className="bg-white p-6 rounded-lg shadow-lg">
-                  <h4 className="text-xl font-semibold mb-4">{t("education.solutions.elearning.title")}</h4>
-                  <p className="text-gray-600">{t("education.solutions.elearning.description")}</p>
-                </div>
-                <div className="bg-white p-6 rounded-lg shadow-lg">
-                  <h4 className="text-xl font-semibold mb-4">{t("education.solutions.management.title")}</h4>
-                  <p className="text-gray-600">{t("education.solutions.management.description")}</p>
-                </div>
-                <div className="bg-white p-6 rounded-lg shadow-lg">
-                  <h4 className="text-xl font-semibold mb-4">{t("education.solutions.pedagogical.title")}</h4>
-                  <p className="text-gray-600">{t("education.solutions.pedagogical.description")}</p>
-                </div>
-                <div className="bg-white p-6 rounded-lg shadow-lg">
-                  <h4 className="text-xl font-semibold mb-4">{t("education.solutions.analytics.title")}</h4>
-                  <p className="text-gray-600">{t("education.solutions.analytics.description")}</p>
-                </div>
-              </div>
-            </section>
-          </div>
+      {/* CTA Section */}
+      <section className="py-20 bg-white/90">
+        <div className="text-center mb-16">
+          <h2 className="text-orange-400 text-3xl md:text-4xl font-bold mb-6">
+            {t("education.cta.title")}
+          </h2>
+          <p className="text-lg text-gray-900 max-w-2xl mx-auto">
+            {t("education.cta.subtitle")}
+          </p>
+          <div className="my-8"></div>
+          <Button
+            size="lg"
+            className="bg-orange-400 hover:bg-orange-500 text-white font-semibold px-8 py-3"
+          >
+            {t("education.cta.button")}
+          </Button>
         </div>
-      </main>
-      <Footer />
-    </div>
-  )
+      </section>
+    </section>
+  );
 }

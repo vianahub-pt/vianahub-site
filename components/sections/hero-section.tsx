@@ -74,12 +74,12 @@ export function HeroSection() {
                 </span>
               </p>
             </div>
-            <p className="font-kurale text-xl text-center bg-black/30 backdrop-blur-sm rounded-lg p-6 shadow-xl">
+            <p className="font-kurale tex-white text-xl text-center bg-black/30 backdrop-blur-sm rounded-lg p-6 shadow-xl">
               {t("home.section.hero.subtitle")}
             </p>
-
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 pt-12 max-w-2xl mx-auto">
-              <div className="text-center bg-black/30 backdrop-blur-sm rounded-lg p-6 shadow-xl">
+              <ScrollIndicator />
+              <div className="text-viana-white bg-black/30 backdrop-blur-sm rounded-lg p-6 shadow-xl">
                 <Counter
                   end={500}
                   suffix="+"
@@ -113,7 +113,6 @@ export function HeroSection() {
           </div>
         </div>
       </div>
-      <ScrollIndicator />
     </section>
   );
 }

@@ -1,54 +1,227 @@
-"use client"
-import Image from "next/image"
-import { useTranslation } from "@/components/translation-context"
+"use client";
+
+import Image from "next/image";
+import { Button } from "@/components/ui/button";
+import { useState, useEffect } from "react";
+import { Card, CardContent } from "@/components/ui/card";
+import { ScrollIndicator } from "@/components/scroll-indicator";
+import { useTranslation } from "@/components/translation-context";
+import {
+  Landmark,
+  CheckCircle,
+  Building,
+  Puzzle,
+  Eye,
+  Shield,
+} from "lucide-react";
+import { motion } from "framer-motion";
 
 export default function GovernmentPage() {
-  const { t } = useTranslation()
+  const { t } = useTranslation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  const benefits = [
+    {
+      icon: Building,
+      title: t("government.benefits.solutions.portals.title"),
+      description: t("government.benefits.solutions.portals.description"),
+    },
+    {
+      icon: Puzzle,
+      title: t("government.benefits.solutions.management.title"),
+      description: t("government.benefits.solutions.management.description"),
+    },
+    {
+      icon: Eye,
+      title: t("government.benefits.solutions.transparency.title"),
+      description: t("government.benefits.solutions.transparency.description"),
+    },
+    {
+      icon: Shield,
+      title: t("government.benefits.solutions.security.title"),
+      description: t("government.benefits.solutions.security.description"),
+    },
+  ];
+
+  const technologies = [
+    { description: t("government.technology.automation") },
+    { description: t("government.technology.monitoring") },
+    { description: t("government.technology.predictive") },
+    { description: t("government.technology.integration") },
+    { description: t("government.technology.compliance") },
+  ];
+
+  interface CardProps {
+    service: {
+      icon: React.ComponentType<any>;
+      title: string;
+      description: string;
+    };
+    index: number;
+  }
+
+  function BenefitsCard({ service, index }: CardProps) {
+    const Icon = service.icon;
+    return (
+      <motion.div
+        initial={{ opacity: 0, scale: 0.8, rotate: -10 }}
+        whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
+        viewport={{ once: false, amount: 0.2 }}
+        transition={{
+          delay: index * 0.15,
+          duration: 0.8,
+          type: "spring",
+          stiffness: 120,
+        }}
+        className="h-full"
+      >
+        <Card className="bg-viana-white/90 hover:scale-105 transition-all duration-300 relative border-none h-full">
+          <CardContent className="p-8 text-center">
+            <div className="w-16 h-16 mx-auto mb-6 flex items-center justify-center rounded-full bg-viana-orange/10">
+              <service.icon className="w-8 h-8 text-orange-400" />
+            </div>
+            <h3 className="text-xl font-bold mb-4 text-orange-400">
+              {service.title}
+            </h3>
+            <p className="!text-gray-900">{service.description}</p>
+          </CardContent>
+        </Card>
+      </motion.div>
+    );
+  }
 
   return (
-    <div className="min-h-screen bg-viana-white">
-      <main>
-        <div className="relative h-[400px] bg-gradient-to-r from-blue-600 to-blue-800">
-          <Image src="/pages/government.jpg" alt="Governo" fill className="object-cover opacity-30" />
-          <div className="absolute inset-0 flex items-center justify-center">
-            <div className="text-center text-white">
-              <h1 className="text-4xl md:text-6xl font-bold mb-4">{t("government.hero.title")}</h1>
-              <p className="text-xl md:text-2xl">{t("government.hero.subtitle")}</p>
+    <section className="min-h-screen bg-viana-white">
+      {/* Hero Section */}
+      <section
+        className="relative pt-0 pb-0 h-[600px]"
+        style={{
+          backgroundImage: "url(/pages/hero-government.jpg)",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}
+      >
+        <div className="absolute inset-0 bg-black/60 z-0" />
+        <div className="container mx-auto px-4 relative z-10 h-full flex items-center justify-center">
+          <div className="max-w-4xl mx-auto text-center bg-black/20 backdrop-blur-sm rounded-lg p-6">
+            <h1 className="text-orange-400 text-4xl lg:text-6xl font-bold mb-6 flex items-center justify-center">
+              <Landmark
+                className=" w-12 h-12 lg:w-16 lg:h-16"
+                style={{ color: "#FFFFFF" }}
+              />
+              &nbsp;{t("government.hero.title")}
+            </h1>
+
+            <p className="text-xl items-center justify-center mx-auto ">
+              {t("government.hero.subtitle")}
+            </p>
+          </div>
+        </div>
+
+        <ScrollIndicator />
+      </section>
+
+      {/* Benefits Section */}
+      <section className="py-20 px-4 bg-orange-100">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="!text-orange-400 text-3xl md:text-4xl font-bold mb-4">
+              {t("education.innovation.title")}
+            </h2>
+            <p className="text-xl text-gray-900">
+              {t("education.innovation.subtitle")}
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+            {benefits.map((service, index) => (
+              <BenefitsCard key={index} service={service} index={index} />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Parallax Section */}
+      <section
+        className="relative h-[500px] overflow-hidden"
+        style={{
+          backgroundImage: "url('/pages/parallax-government.jpg')",
+          backgroundAttachment: "fixed",
+          backgroundPosition: "center center",
+          backgroundRepeat: "no-repeat",
+          backgroundSize: "cover",
+        }}
+      >
+        <div className="absolute inset-0 bg-gradient-to-b from-black/5 to-black/10" />
+      </section>
+
+      {/* Technology Section */}
+      <section className="py-20 px-4 bg-white">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <h2 className="text-orange-400 text-3xl md:text-4xl font-bold mb-6">
+                {t("government.technology.title")}
+              </h2>
+              <p className="text-lg text-gray-900 max-w-2xl mx-auto">
+                {t("government.technology.subtitle")}
+              </p>
+              <br />
+              <div className="space-y-4">
+                {technologies.map((feature, index) => (
+                  <div
+                    key={index}
+                    className="text-orange-400 flex items-center gap-3"
+                  >
+                    <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0" />
+                    <span>{feature.description}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="relative">
+              <motion.div
+                initial={{ opacity: 0, y: 50 }} // começa invisível e deslocada
+                whileInView={{ opacity: 2, y: 0 }} // aparece e sobe
+                transition={{ duration: 3.5, ease: "easeOut" }}
+                viewport={{ once: false, amount: 0.5 }} // repete sempre que aparecer
+              >
+                <div className="aspect-[16/9] w-full max-w-3xl mx-auto">
+                  <Image
+                    src="/pages/government-technology.jpg"
+                    alt="Government Technology"
+                    fill
+                    className="rounded-lg shadow-2xl object-cover"
+                  />
+                </div>
+              </motion.div>
             </div>
           </div>
         </div>
+      </section>
 
-        <div className="container mx-auto px-4 py-12">
-          <div className="max-w-4xl mx-auto">
-            <section className="mb-12">
-              <h2 className="text-3xl font-bold mb-6">{t("government.transformation.title")}</h2>
-              <p className="text-lg text-gray-600 mb-6">{t("government.transformation.description")}</p>
-            </section>
-
-            <section className="mb-12">
-              <h3 className="text-2xl font-bold mb-6">{t("government.solutions.title")}</h3>
-              <div className="grid md:grid-cols-2 gap-8">
-                <div className="bg-white p-6 rounded-lg shadow-lg">
-                  <h4 className="text-xl font-semibold mb-4">{t("government.solutions.portals.title")}</h4>
-                  <p className="text-gray-600">{t("government.solutions.portals.description")}</p>
-                </div>
-                <div className="bg-white p-6 rounded-lg shadow-lg">
-                  <h4 className="text-xl font-semibold mb-4">{t("government.solutions.management.title")}</h4>
-                  <p className="text-gray-600">{t("government.solutions.management.description")}</p>
-                </div>
-                <div className="bg-white p-6 rounded-lg shadow-lg">
-                  <h4 className="text-xl font-semibold mb-4">{t("government.solutions.transparency.title")}</h4>
-                  <p className="text-gray-600">{t("government.solutions.transparency.description")}</p>
-                </div>
-                <div className="bg-white p-6 rounded-lg shadow-lg">
-                  <h4 className="text-xl font-semibold mb-4">{t("government.solutions.security.title")}</h4>
-                  <p className="text-gray-600">{t("government.solutions.security.description")}</p>
-                </div>
-              </div>
-            </section>
-          </div>
+      {/* CTA Section */}
+      <section className="py-20 bg-white/90">
+        <div className="text-center mb-16">
+          <h2 className="text-orange-400 text-3xl md:text-4xl font-bold mb-6">
+            {t("government.cta.title")}
+          </h2>
+          <p className="text-lg text-gray-900 max-w-2xl mx-auto">
+            {t("government.cta.subtitle")}
+          </p>
+          <div className="my-8"></div>
+          <Button
+            size="lg"
+            className="bg-orange-400 hover:bg-orange-500 text-white font-semibold px-8 py-3"
+          >
+            {t("government.cta.button")}
+          </Button>
         </div>
-      </main>
-    </div>
-  )
+      </section>
+    </section>
+  );
 }
