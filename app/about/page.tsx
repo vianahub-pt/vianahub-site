@@ -1,52 +1,107 @@
-"use client"
+"use client";
 
-import { Card, CardContent } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
-import { Users, Target, Eye, Lightbulb, Award, Handshake } from "lucide-react"
-import Image from "next/image"
-import { TranslationProvider, useTranslation } from "@/components/translation-context"
+import Image from "next/image";
+import { useEffect, useRef, useState } from "react";
+import { Card, CardContent } from "@/components/ui/card";
+import { useTranslation } from "@/components/translation-context";
+import { ScrollIndicator } from "@/components/scroll-indicator";
+import { motion } from "framer-motion";
+import { Button } from "@/components/ui/button";
+import { CheckCircle, Users, Target, Eye, Info } from "lucide-react";
 
-const teamMembers = [
-  {
-    name: "Dener Viana",
-    role: "CEO & Founder",
-    image: "/dener-viana.jpg",
-    bio: "Visionário em tecnologia com mais de 15 anos de experiência em desenvolvimento de software e liderança de equipas.",
-  },
-  {
-    name: "Ana Costa",
-    role: "CTO",
-    image: "/ana-costa.jpg",
-    bio: "Especialista em arquitetura de sistemas e inovação tecnológica, liderando a estratégia técnica da empresa.",
-  },
-  {
-    name: "Carlos Oliveira",
-    role: "Lead Developer",
-    image: "/carlos-oliveira.jpg",
-    bio: "Desenvolvedor full-stack experiente, especializado em React, Node.js e arquiteturas cloud-native.",
-  },
-  {
-    name: "Maria Silva",
-    role: "UX/UI Designer",
-    image: "/maria-silva.jpg",
-    bio: "Designer criativa focada em experiências de utilizador excepcionais e interfaces intuitivas.",
-  },
-  {
-    name: "João Santos",
-    role: "Project Manager",
-    image: "/joao-santos.jpg",
-    bio: "Gestor de projetos certificado PMP, especializado em metodologias ágeis e entrega de valor.",
-  },
-  {
-    name: "Lúcia Ferreira",
-    role: "Quality Assurance",
-    image: "/lucia-ferreira.jpg",
-    bio: "Especialista em garantia de qualidade e testes automatizados, assegurando a excelência dos nossos produtos.",
-  },
-]
+export default function AboutPageContent() {
+  const { t } = useTranslation();
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [videoError, setVideoError] = useState(false);
 
-function AboutPageContent() {
-  const { t, language } = useTranslation()
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  useEffect(() => {
+    if (videoRef.current && !videoError) {
+      const playVideo = async () => {
+        try {
+          await videoRef.current?.play();
+        } catch (error) {
+          console.warn(
+            "Vídeo não pôde ser reproduzido automaticamente:",
+            error
+          );
+          setVideoError(true);
+        }
+      };
+
+      // Tentar reproduzir o vídeo após um pequeno delay
+      const timer = setTimeout(playVideo, 100);
+
+      return () => clearTimeout(timer);
+    }
+  }, [videoError]);
+
+  const mvvs = [
+    {
+      icon: Target,
+      title: t("about.mission.title"),
+      description: t("about.mission.description"),
+    },
+    {
+      icon: Eye,
+      title: t("about.vision.title"),
+      description: t("about.vision.description"),
+    },
+    {
+      icon: Users,
+      title: t("about.values.title"),
+      description: t("about.values.description"),
+    },
+  ];
+
+  const teamMembers = [
+    {
+      name: "Dener Viana",
+      role: "CEO & Founder",
+      image: "/dener-viana.jpg",
+      bio: "Visionário em tecnologia com mais de 15 anos de experiência em desenvolvimento de software e liderança de equipas.",
+    },
+    {
+      name: "Ana Costa",
+      role: "CTO",
+      image: "/ana-costa.jpg",
+      bio: "Especialista em arquitetura de sistemas e inovação tecnológica, liderando a estratégia técnica da empresa.",
+    },
+    {
+      name: "Carlos Oliveira",
+      role: "Lead Developer",
+      image: "/carlos-oliveira.jpg",
+      bio: "Desenvolvedor full-stack experiente, especializado em React, Node.js e arquiteturas cloud-native.",
+    },
+    {
+      name: "Maria Silva",
+      role: "UX/UI Designer",
+      image: "/maria-silva.jpg",
+      bio: "Designer criativa focada em experiências de utilizador excepcionais e interfaces intuitivas.",
+    },
+    {
+      name: "João Santos",
+      role: "Project Manager",
+      image: "/joao-santos.jpg",
+      bio: "Gestor de projetos certificado PMP, especializado em metodologias ágeis e entrega de valor.",
+    },
+    {
+      name: "Lúcia Ferreira",
+      role: "Quality Assurance",
+      image: "/lucia-ferreira.jpg",
+      bio: "Especialista em garantia de qualidade e testes automatizados, assegurando a excelência dos nossos produtos.",
+    },
+  ];
+
+  const technologies = [
+    { description: t("about.technology.website.description") },
+    { description: t("about.technology.development.description") },
+    { description: t("about.technology.outsourcing.description") },
+    { description: t("about.technology.consultancy.description") },
+  ];
 
   const getLocalizedImage = () => {
     const imageMap = {
@@ -55,131 +110,205 @@ function AboutPageContent() {
       es: "/about-es-es.jpg",
       fr: "/about-fr-fr.jpg",
       de: "/about-de-de.jpg",
-    }
-    return imageMap[language] || imageMap.pt
+    };
+    return imageMap[language] || imageMap.pt;
+  };
+
+  interface CardProps {
+    service: {
+      icon: React.ComponentType<any>;
+      title: string;
+      description: string;
+    };
+    index: number;
+  }
+
+  function MvvsCard({ service, index }: CardProps) {
+    const Icon = service.icon;
+    return (
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: false, amount: 0.2 }}
+        transition={{ delay: index * 0.2, duration: 0.6 }}
+        className="h-full"
+      >
+        <Card className="text-center bg-orange-400 hover:scale-105 transition-all duration-300 relative border-none h-full">
+          <CardContent className="p-6 flex flex-col h-full">
+            <Icon className="h-12 w-12 text-white mx-auto mb-4" />
+            <h3 className="text-gray-900 text-xl font-semibold mb-3">
+              {service.title}
+            </h3>
+            <p className="text-md mt-auto">{service.description}</p>
+          </CardContent>
+        </Card>
+      </motion.div>
+    );
   }
 
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative h-[60vh] flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0">
-          <Image
-            src={getLocalizedImage() || "/placeholder.svg"}
-            alt={t("about.hero.title")}
-            fill
-            className="object-cover"
-            priority
-          />
-          <div className="absolute inset-0 bg-black/50" />
+      <section
+        className="relative pt-0 pb-0 h-[600px]"
+        style={{
+          backgroundImage: "url('/pages/hero-about.jpg')",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}
+      >
+        <div className="absolute inset-0 z-0" />
+        <div className="container mx-auto px-4 relative z-10 h-full flex items-center justify-center">
+          <div className="max-w-4xl mx-auto text-center bg-black/50 backdrop-blur-sm rounded-lg p-6">
+            <h1 className="text-orange-400 text-orange-400 text-4xl lg:text-6xl font-bold mb-6 flex items-center justify-center">
+              <Info
+                className=" w-12 h-12 lg:w-16 lg:h-16"
+                style={{ color: "#F59E0B" }}
+              />
+              &nbsp;{t("about.hero.title")}
+            </h1>
+
+            <p className="text-xl items-center justify-center mx-auto ">
+              {t("about.hero.subtitle")}
+            </p>
+          </div>
         </div>
-        <div className="relative z-10 text-center text-white max-w-4xl mx-auto px-4">
-          <h1 className="text-4xl md:text-6xl font-bold mb-6">{t("about.hero.title")}</h1>
-          <p className="text-xl md:text-2xl opacity-90">{t("about.hero.subtitle")}</p>
+
+        <ScrollIndicator />
+      </section>
+
+      {/* History Section */}
+      <section className="py-20 px-4 bg-white">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-orange-500 text-3xl md:text-4xl font-bold mb-6">
+              {t("about.history.title")}
+            </h2>
+            <p className="text-lg text-gray-900 mx-auto">
+              {t("about.history.subtitle")}
+            </p>
+          </div>
+
+          <div className="flex flex-col lg:flex-row items-start gap-8">
+            {/* Imagem à esquerda */}
+            <div className="w-[300px] flex-shrink-0">
+              <div className="aspect-square relative">
+                <Image src="/face.png" alt="Government Technology" fill />
+              </div>
+            </div>
+
+            {/* Texto à direita */}
+            <div className="text-xl text-justify text-gray-900 font-kurale">
+              <p>{t("about.history.p1")}</p>
+              <p className="py-2">{t("about.history.p2")}</p>
+              <p className="py-2">{t("about.history.p3")}</p>
+            </div>
+          </div>
         </div>
+      </section>
+
+      {/* Parallax Section */}
+      <section
+        className="relative h-[500px] overflow-hidden"
+        style={{
+          backgroundImage: "url('/pages/parallax-about.jpg')",
+          backgroundAttachment: "fixed",
+          backgroundPosition: "center center",
+          backgroundRepeat: "no-repeat",
+          backgroundSize: "cover",
+        }}
+      >
+        <div className="absolute inset-0 bg-gradient-to-b from-black/5 to-black/10" />
       </section>
 
       {/* Mission, Vision, Values */}
-      <section className="py-20 px-4">
-        <div className="max-w-6xl mx-auto">
-          <div className="grid md:grid-cols-3 gap-8">
-            {/* Mission */}
-            <Card className="text-center">
-              <CardContent className="p-8">
-                <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6">
-                  <Target className="w-8 h-8 text-blue-600" />
-                </div>
-                <h3 className="text-2xl font-bold mb-4">{t("about.mission.title")}</h3>
-                <p className="text-gray-600">{t("about.mission.description")}</p>
-              </CardContent>
-            </Card>
-
-            {/* Vision */}
-            <Card className="text-center">
-              <CardContent className="p-8">
-                <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
-                  <Eye className="w-8 h-8 text-green-600" />
-                </div>
-                <h3 className="text-2xl font-bold mb-4">{t("about.vision.title")}</h3>
-                <p className="text-gray-600">{t("about.vision.description")}</p>
-              </CardContent>
-            </Card>
-
-            {/* Values */}
-            <Card className="text-center">
-              <CardContent className="p-8">
-                <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-6">
-                  <Users className="w-8 h-8 text-purple-600" />
-                </div>
-                <h3 className="text-2xl font-bold mb-4">{t("about.values.title")}</h3>
-                <div className="space-y-4">
-                  <div className="flex items-center gap-3">
-                    <Lightbulb className="w-5 h-5 text-yellow-500" />
-                    <div className="text-left">
-                      <h4 className="font-semibold">{t("about.values.innovation")}</h4>
-                      <p className="text-sm text-gray-600">{t("about.values.innovation.description")}</p>
-                    </div>
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <Award className="w-5 h-5 text-blue-500" />
-                    <div className="text-left">
-                      <h4 className="font-semibold">{t("about.values.quality")}</h4>
-                      <p className="text-sm text-gray-600">{t("about.values.quality.description")}</p>
-                    </div>
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <Handshake className="w-5 h-5 text-green-500" />
-                    <div className="text-left">
-                      <h4 className="font-semibold">{t("about.values.collaboration")}</h4>
-                      <p className="text-sm text-gray-600">{t("about.values.collaboration.description")}</p>
-                    </div>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-          </div>
-        </div>
-      </section>
-
-      {/* Team Section */}
-      <section className="py-20 px-4 bg-gray-50">
+      <section className="py-20 px-4 bg-white/90">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">{t("about.team.title")}</h2>
-            <p className="text-xl text-gray-600">{t("about.team.subtitle")}</p>
+            <h2 className="!text-orange-400 text-3xl md:text-4xl font-bold mb-4">
+              {t("about.mission.title")}
+            </h2>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {teamMembers.map((member, index) => (
-              <Card key={index} className="text-center hover:shadow-lg transition-shadow">
-                <CardContent className="p-6">
-                  <div className="relative w-32 h-32 mx-auto mb-4">
-                    <Image
-                      src={member.image || "/placeholder.svg"}
-                      alt={member.name}
-                      fill
-                      className="object-cover rounded-full"
-                    />
-                  </div>
-                  <h3 className="text-xl font-bold mb-2">{member.name}</h3>
-                  <Badge variant="secondary" className="mb-4">
-                    {member.role}
-                  </Badge>
-                  <p className="text-gray-600 text-sm">{member.bio}</p>
-                </CardContent>
-              </Card>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-8">
+            {mvvs.map((service, index) => (
+              <MvvsCard key={index} service={service} index={index} />
             ))}
           </div>
         </div>
       </section>
-    </div>
-  )
-}
 
-export default function AboutPage() {
-  return (
-    <TranslationProvider>
-      <AboutPageContent />
-    </TranslationProvider>
-  )
+      {/* Technology Section */}
+      <section className="py-20 px-4 bg-white">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <h2 className="text-orange-400 text-3xl md:text-4xl font-bold mb-6">
+                {t("about.technology.title")}
+              </h2>
+              <p className="text-lg text-gray-900 max-w-2xl mx-auto">
+                {t("about.technology.subtitle")}
+              </p>
+              <br />
+              <div className="space-y-4">
+                {technologies.map((feature, index) => (
+                  <div
+                    key={index}
+                    className="text-orange-400 flex items-center gap-3"
+                  >
+                    <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0" />
+                    <span>{feature.description}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div className="relative">
+              <motion.div
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 2, y: 0 }}
+                transition={{ duration: 3.5, ease: "easeOut" }}
+                viewport={{ once: false, amount: 0.5 }}
+              >
+                <div className="aspect-[16/9] w-full max-w-3xl mx-auto">
+                  <video
+                    ref={videoRef}
+                    className="absolute inset-0 w-full h-full object-cover"
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    onError={() => setVideoError(true)}
+                  >
+                    <source
+                      src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/home-hero-QF1p4zm3ekF8rOyXzcuiTVontRDngQ.mp4"
+                      type="video/mp4"
+                    />
+                  </video>
+                </div>
+              </motion.div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-20 bg-white/90">
+        <div className="text-center mb-16">
+          <h2 className="text-orange-400 text-3xl md:text-4xl font-bold mb-6">
+            {t("about.cta.title")}
+          </h2>
+          <p className="text-lg text-gray-900 max-w-2xl mx-auto">
+            {t("about.cta.subtitle")}
+          </p>
+          <div className="my-8"></div>
+          <Button
+            size="lg"
+            className="bg-orange-400 hover:bg-orange-500 text-white font-semibold px-8 py-3"
+          >
+            {t("about.cta.button")}
+          </Button>
+        </div>
+      </section>
+    </div>
+  );
 }

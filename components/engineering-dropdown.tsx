@@ -10,6 +10,7 @@ import {
   DollarSign,
   ShoppingCart,
   Heart,
+  Shield,
 } from "lucide-react";
 import { useTranslation } from "@/components/translation-context";
 import { color } from "framer-motion";
@@ -60,6 +61,12 @@ export function EngineeringDropdown() {
       path: "/industry/healthcare",
       icon: Heart,
       color: "#EC4899",
+    },
+    {
+      key: "nav.engineering.cybersecurity.title",
+      path: "/industry/cybersecurity",
+      icon: Shield,
+      color: "#f7f308ff",
     },
   ];
 

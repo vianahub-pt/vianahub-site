@@ -55,13 +55,11 @@ export function HeroSection() {
         )}
       </div>
 
-      {/* Overlay para melhorar o contraste */}
-
       {/* Conteúdo - ajustado para começar do topo */}
       <div className="relative z-10 container mx-auto px-4 py-20 pt-24 lg:pt-28">
         <div className="max-w-4xl mx-auto text-center">
           <div className="space-y-8">
-            <div className="space-y-6">
+            <div className="space-y-6 bg-black/50 backdrop-blur-sm rounded-lg p-6 shadow-xl">
               <p className="font-kurale text-4xl lg:text-7xl font-bold text-viana-white leading-tight drop-shadow-2xl">
                 <span className="block text-viana-white">
                   {t("home.section.hero.title.line1")}
@@ -73,10 +71,11 @@ export function HeroSection() {
                   {t("home.section.hero.title.line3")}
                 </span>
               </p>
+              <p className="font-kurale tex-white text-xl text-center ">
+                {t("home.section.hero.subtitle")}
+              </p>
             </div>
-            <p className="font-kurale tex-white text-xl text-center bg-black/30 backdrop-blur-sm rounded-lg p-6 shadow-xl">
-              {t("home.section.hero.subtitle")}
-            </p>
+
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 pt-12 max-w-2xl mx-auto">
               <ScrollIndicator />
               <div className="text-viana-white bg-black/30 backdrop-blur-sm rounded-lg p-6 shadow-xl">

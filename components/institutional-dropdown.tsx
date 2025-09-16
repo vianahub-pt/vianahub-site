@@ -21,7 +21,7 @@ export function InstitutionalDropdown() {
       key: "nav.institutional.aboutUs.title",
       path: "/about",
       icon: Info,
-      color: "#6D28D9",
+      color: "#F59E0B",
     },
     {
       key: "nav.institutional.opportunities.title",

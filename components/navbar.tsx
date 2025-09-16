@@ -7,7 +7,6 @@ import { Menu, X } from "lucide-react";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { WhatWeDoDropdown } from "@/components/what-we-do-dropdown";
 import { EngineeringDropdown } from "@/components/engineering-dropdown";
-import { SecurityDropdown } from "@/components/security-dropdown";
 import { InstitutionalDropdown } from "@/components/institutional-dropdown";
 import { LanguageSelector } from "@/components/language-selector";
 import { useTranslation } from "@/components/translation-context";
@@ -47,7 +46,6 @@ export function Navbar() {
             <div className="ml-10 flex items-baseline space-x-4">
               <WhatWeDoDropdown />
               <EngineeringDropdown />
-              <SecurityDropdown />
               <InstitutionalDropdown />
               <button
                 onClick={() => handleNavigation("/contact")}

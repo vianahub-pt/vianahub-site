@@ -18,6 +18,19 @@ module.exports = {
       },
     },
     extend: {
+      fontFamily: {
+        kurale: ["Kurale", "serif"],
+      },
+      fontSize: {
+        xs: ["0.75rem", { lineHeight: "1rem" }],
+        sm: ["0.875rem", { lineHeight: "1.25rem" }],
+        base: ["1rem", { lineHeight: "1.5rem" }],
+        lg: ["1.125rem", { lineHeight: "1.75rem" }],
+        xl: ["1.25rem", { lineHeight: "1.75rem" }],
+        xxl: ["1.5rem", { lineHeight: "2rem" }],
+        xxxl: ["2rem", { lineHeight: "2.5rem" }],
+        // Adicione outros tamanhos conforme necessário
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",

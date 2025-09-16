@@ -1,25 +1,28 @@
 "use client";
 
+import Image from "next/image";
 import { useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { ArrowRight } from "lucide-react";
-import Image from "next/image";
 import { Card, CardContent } from "@/components/ui/card";
-import { ScrollIndicator } from "@/components/scroll-indicator";
 import {
-  Signal,
-  Wrench,
-  Users,
   CheckCircle,
+  Workflow,
+  ShieldAlert,
+  Radar,
+  AlarmCheck,
+  Lock,
+  SlidersHorizontal,
+  ServerCog,
+  GraduationCap,
+  FileSearch,
+  RefreshCcw,
   Shield,
-  Zap,
-  Settings,
-  Truck,
 } from "lucide-react";
 import { useTranslation } from "@/components/translation-context";
+import { ScrollIndicator } from "@/components/scroll-indicator";
 import { motion } from "framer-motion";
 
-export default function RoadPage() {
+export default function CyberSecurityPageContent() {
   const { t } = useTranslation();
 
   useEffect(() => {
@@ -28,56 +31,66 @@ export default function RoadPage() {
 
   const benefits = [
     {
-      icon: Shield,
-      title: t("road.benefits.safety.title"),
-      description: t("road.benefits.safety.description"),
+      icon: ShieldAlert,
+      title: t("cyberSecurity.benefits.firewall.title"),
+      description: t("cyberSecurity.benefits.firewall.description"),
     },
     {
-      icon: Zap,
-      title: t("road.benefits.efficiency.title"),
-      description: t("road.benefits.efficiency.description"),
+      icon: Lock,
+      title: t("cyberSecurity.benefits.cryptography.title"),
+      description: t("cyberSecurity.benefits.cryptography.description"),
     },
     {
-      icon: CheckCircle,
-      title: t("road.benefits.reliability.title"),
-      description: t("road.benefits.reliability.description"),
+      icon: Radar,
+      title: t("cyberSecurity.benefits.monitoring.title"),
+      description: t("cyberSecurity.benefits.monitoring.description"),
     },
     {
-      icon: Settings,
-      title: t("road.benefits.integration.title"),
-      description: t("road.benefits.integration.description"),
+      icon: AlarmCheck,
+      title: t("cyberSecurity.benefits.incidents.title"),
+      description: t("cyberSecurity.benefits.incidents.description"),
     },
   ];
 
-  const solutions = [
+  const processes = [
     {
-      icon: Signal,
-      title: t("road.solutions.signaling.title"),
-      description: t("road.solutions.signaling.description"),
+      icon: ShieldAlert,
+      title: t("cyberSecurity.process.assessment.title"),
+      description: t("cyberSecurity.process.assessment.description"),
     },
     {
-      icon: Settings,
-      title: t("road.solutions.control.title"),
-      description: t("road.solutions.control.description"),
+      icon: SlidersHorizontal,
+      title: t("cyberSecurity.process.strategy.title"),
+      description: t("cyberSecurity.process.strategy.description"),
     },
     {
-      icon: Wrench,
-      title: t("road.solutions.maintenance.title"),
-      description: t("road.solutions.maintenance.description"),
+      icon: ServerCog,
+      title: t("cyberSecurity.process.implementation.title"),
+      description: t("cyberSecurity.process.implementation.description"),
     },
     {
-      icon: Users,
-      title: t("road.solutions.passenger.title"),
-      description: t("road.solutions.passenger.description"),
+      icon: GraduationCap,
+      title: t("cyberSecurity.process.training.title"),
+      description: t("cyberSecurity.process.training.description"),
+    },
+    {
+      icon: FileSearch,
+      title: t("cyberSecurity.process.audit.title"),
+      description: t("cyberSecurity.process.audit.description"),
+    },
+    {
+      icon: RefreshCcw,
+      title: t("cyberSecurity.process.evolution.title"),
+      description: t("cyberSecurity.process.evolution.description"),
     },
   ];
 
   const technologies = [
-    { description: t("road.technology.systems.description") },
-    { description: t("road.technology.control.description") },
-    { description: t("road.technology.monitoring.description") },
-    { description: t("road.technology.maintenance.description") },
-    { description: t("road.technology.integration.description") },
+    { description: t("cyberSecurity.technology.firewall.description") },
+    { description: t("cyberSecurity.technology.cryptography.description") },
+    { description: t("cyberSecurity.technology.siem.description") },
+    { description: t("cyberSecurity.technology.edr.description") },
+    { description: t("cyberSecurity.technology.iam.description") },
   ];
 
   interface CardProps {
@@ -93,31 +106,28 @@ export default function RoadPage() {
     const Icon = service.icon;
     return (
       <motion.div
-        initial={{ opacity: 0, x: -100 }} // começa 100px à esquerda
-        whileInView={{ opacity: 1, x: 0 }} // desliza para a posição normal
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: false, amount: 0.2 }}
-        transition={{
-          delay: index * 0.15, // animação em cascata
-          duration: 0.8,
-          type: "spring",
-          stiffness: 120,
-        }}
+        transition={{ delay: index * 0.2, duration: 0.6 }}
         className="h-full"
       >
-        <Card className="text-center hover:scale-105 transition-all duration-300 relative border-none h-full">
+        <Card className="text-center bg-gray-200 hover:scale-105 transition-all duration-300 relative border-none h-full">
           <CardContent className="p-6 flex flex-col h-full">
-            <Icon className="h-12 w-12 text-white mx-auto mb-4" />
-            <h3 className="text-orange-500 text-xl font-semibold mb-3">
+            <Icon className="h-12 w-12 text-orange-400 mx-auto mb-4" />
+            <h3 className="text-orange-400 text-xl font-semibold mb-3">
               {service.title}
             </h3>
-            <p className="text-md mt-auto">{service.description}</p>
+            <p className="text-gray-900 text-md mt-auto">
+              {service.description}
+            </p>
           </CardContent>
         </Card>
       </motion.div>
     );
   }
 
-  function SolutionsCard({ service, index }: CardProps) {
+  function ProcessesCard({ service, index }: CardProps) {
     const Icon = service.icon;
     return (
       <motion.div
@@ -132,8 +142,8 @@ export default function RoadPage() {
         }}
         className="h-full"
       >
-        <Card className="bg-gray-200 hover:scale-105 transition-all duration-300 relative border-none h-full">
-          <CardContent className="p-6 text-center">
+        <Card className="bg-viana-white/90 hover:scale-105 transition-all duration-300 relative border-none h-full">
+          <CardContent className="p-8 text-center">
             <div className="w-16 h-16 mx-auto mb-6 flex items-center justify-center rounded-full bg-viana-orange/10">
               <service.icon className="w-8 h-8 text-orange-400" />
             </div>
@@ -153,7 +163,7 @@ export default function RoadPage() {
       <section
         className="relative pt-0 pb-0 h-[600px]"
         style={{
-          backgroundImage: "url(/pages/hero-road.jpg)",
+          backgroundImage: "url(/pages/hero-cyberSecurity.jpg)",
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
@@ -161,16 +171,16 @@ export default function RoadPage() {
         <div className="absolute inset-0 z-0" />
         <div className="container mx-auto px-4 relative z-10 h-full flex items-center justify-center">
           <div className="max-w-4xl mx-auto text-center bg-black/50 backdrop-blur-sm rounded-lg p-6">
-            <h1 className="text-orange-400 text-4xl lg:text-6xl font-bold mb-6 flex items-center justify-center">
-              <Truck
+            <h1 className="text-orange-400 text-orange-400 text-4xl lg:text-6xl font-bold mb-6 flex items-center justify-center">
+              <Shield
                 className=" w-12 h-12 lg:w-16 lg:h-16"
-                style={{ color: "#CA8A04" }}
+                style={{ color: "#f7f308ff" }}
               />
-              &nbsp;{t("road.hero.title")}
+              &nbsp;{t("cyberSecurity.hero.title")}
             </h1>
 
             <p className="text-xl items-center justify-center mx-auto ">
-              {t("road.hero.subtitle")}
+              {t("cyberSecurity.hero.subtitle")}
             </p>
           </div>
         </div>
@@ -179,14 +189,14 @@ export default function RoadPage() {
       </section>
 
       {/* Benefits Section */}
-      <section className="py-20 px-4 bg-white/80">
+      <section className="py-20 px-4 bg-white">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-orange-400 text-3xl md:text-4xl font-bold mb-6">
-              {t("road.benefits.title")}
+            <h2 className="!text-orange-400 text-3xl md:text-4xl font-bold mb-4">
+              {t("cyberSecurity.benefits.title")}
             </h2>
             <p className="text-lg text-gray-900 max-w-2xl mx-auto">
-              {t("road.benefits.subtitle")}
+              {t("cyberSecurity.benefits.subtitle")}
             </p>
           </div>
 
@@ -202,7 +212,7 @@ export default function RoadPage() {
       <section
         className="relative h-[500px] overflow-hidden"
         style={{
-          backgroundImage: "url('/pages/parallax-road.jpg')",
+          backgroundImage: "url('/pages/parallax-cyberSecurity.jpg')",
           backgroundAttachment: "fixed",
           backgroundPosition: "center center",
           backgroundRepeat: "no-repeat",
@@ -212,21 +222,21 @@ export default function RoadPage() {
         <div className="absolute inset-0 bg-gradient-to-b from-black/5 to-black/10" />
       </section>
 
-      {/* Solutions Section */}
-      <section className="py-20 px-4 bg-white">
+      {/* Process Section */}
+      <section className="py-20 px-4 bg-orange-200">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-orange-400 text-3xl md:text-4xl font-bold mb-6">
-              {t("road.solutions.title")}
+            <h2 className="!text-orange-400 text-3xl md:text-4xl font-bold mb-4">
+              {t("cyberSecurity.process.title")}
             </h2>
-            <p className="text-lg text-gray-900 max-w-2xl mx-auto">
-              {t("road.solutions.subtitle")}
+            <p className="text-xl text-gray-900">
+              {t("cyberSecurity.process.subtitle")}
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
-            {solutions.map((service, index) => (
-              <SolutionsCard key={index} service={service} index={index} />
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-8">
+            {processes.map((service, index) => (
+              <ProcessesCard key={index} service={service} index={index} />
             ))}
           </div>
         </div>
@@ -238,10 +248,10 @@ export default function RoadPage() {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
               <h2 className="text-orange-400 text-3xl md:text-4xl font-bold mb-6">
-                {t("road.technology.title")}
+                {t("cyberSecurity.technology.title")}
               </h2>
               <p className="text-lg text-gray-900 max-w-2xl mx-auto">
-                {t("road.technology.subtitle")}
+                {t("cyberSecurity.technology.subtitle")}
               </p>
               <br />
               <div className="space-y-4">
@@ -265,8 +275,8 @@ export default function RoadPage() {
               >
                 <div className="aspect-[16/9] w-full max-w-3xl mx-auto">
                   <Image
-                    src="/pages/technology-road.jpg"
-                    alt="Road Technology"
+                    src="/pages/technology-cyberSecurity.jpg"
+                    alt="Government Technology"
                     fill
                     className="rounded-lg shadow-2xl object-cover"
                   />
@@ -281,17 +291,17 @@ export default function RoadPage() {
       <section className="py-20 bg-white/90">
         <div className="text-center mb-16">
           <h2 className="text-orange-400 text-3xl md:text-4xl font-bold mb-6">
-            {t("road.cta.title")}
+            {t("cyberSecurity.cta.title")}
           </h2>
           <p className="text-lg text-gray-900 max-w-2xl mx-auto">
-            {t("road.cta.subtitle")}
+            {t("cyberSecurity.cta.subtitle")}
           </p>
           <div className="my-8"></div>
           <Button
             size="lg"
             className="bg-orange-400 hover:bg-orange-500 text-white font-semibold px-8 py-3"
           >
-            {t("road.cta.button")}
+            {t("cyberSecurity.cta.button")}
           </Button>
         </div>
       </section>
