@@ -41,23 +41,17 @@ export function Navbar() {
             </button>
           </div>
 
-          {/* Desktop Navigation */}
-          <div className="hidden lg:block">
-            <div className="ml-10 flex items-baseline space-x-4">
-              <WhatWeDoDropdown />
-              <EngineeringDropdown />
-              <InstitutionalDropdown />
-              <button
-                onClick={() => handleNavigation("/contact")}
-                className="flex items-center space-x-1 px-3 py-2 rounded-md transition-all duration-100 font-medium drop-shadow-lg cursor-pointer bg-transparent text-orange-400 hover:bg-yellow-500/20 hover:text-white text-sm"
-              >
-                {t("nav.contact.title")}
-              </button>
-            </div>
-          </div>
-
           {/* Right side - Language selector and theme toggle */}
           <div className="hidden lg:flex items-center space-x-4">
+            <WhatWeDoDropdown />
+            <EngineeringDropdown />
+            <InstitutionalDropdown />
+            <button
+              onClick={() => handleNavigation("/contact")}
+              className="flex items-center space-x-1 px-3 py-2 rounded-md transition-all duration-100 font-medium drop-shadow-lg cursor-pointer bg-transparent text-orange-400 hover:bg-yellow-500/20 hover:text-white text-sm"
+            >
+              {t("nav.contact.title")}
+            </button>
             <LanguageSelector />
             <ThemeToggle />
           </div>
@@ -82,55 +76,17 @@ export function Navbar() {
         {isMenuOpen && (
           <div className="lg:hidden">
             <div className="px-2 pt-2 pb-3 space-y-1 bg-black/80 backdrop-blur-md rounded-md mt-2">
-              <div className="space-y-1">
-                <div className="px-3 py-2 text-white font-medium text-sm">
-                  {t("nav.whatWeDo")}
-                </div>
-                <button
-                  onClick={() => handleNavigation("/what-we-do/development")}
-                  className="block px-6 py-2 text-sm text-white hover:bg-yellow-500/20 w-full text-left"
-                >
-                  {t("nav.development")}
-                </button>
-                <button
-                  onClick={() => handleNavigation("/what-we-do/agile")}
-                  className="block px-6 py-2 text-sm text-white hover:bg-yellow-500/20 w-full text-left"
-                >
-                  {t("nav.agile")}
-                </button>
-                <button
-                  onClick={() => handleNavigation("/what-we-do/outsourcing")}
-                  className="block px-6 py-2 text-sm text-white hover:bg-yellow-500/20 w-full text-left"
-                >
-                  {t("nav.outsourcing")}
-                </button>
-                <button
-                  onClick={() => handleNavigation("/what-we-do/chatbot")}
-                  className="block px-6 py-2 text-sm text-white hover:bg-yellow-500/20 w-full text-left"
-                >
-                  {t("nav.chatbot")}
-                </button>
-                <button
-                  onClick={() => handleNavigation("/what-we-do/landing-pages")}
-                  className="block px-6 py-2 text-sm text-white hover:bg-yellow-500/20 w-full text-left"
-                >
-                  {t("nav.landingPages")}
-                </button>
-                <button
-                  onClick={() =>
-                    handleNavigation("/what-we-do/system-integration")
-                  }
-                  className="block px-6 py-2 text-sm text-white hover:bg-yellow-500/20 w-full text-left"
-                >
-                  {t("nav.systemIntegration")}
-                </button>
-              </div>
+              <WhatWeDoDropdown />
+              <EngineeringDropdown />
+              <InstitutionalDropdown />
               <button
                 onClick={() => handleNavigation("/contact")}
-                className="block px-3 py-2 text-white hover:bg-yellow-500/20 w-full text-left font-medium"
+                className="flex items-center space-x-1 px-3 py-2 rounded-md transition-all duration-100 font-medium drop-shadow-lg cursor-pointer bg-transparent text-orange-400 hover:bg-yellow-500/20 hover:text-white text-sm"
               >
-                {t("nav.contact")}
+                {t("nav.contact.title")}
               </button>
+              <LanguageSelector />
+              <ThemeToggle />
             </div>
           </div>
         )}
