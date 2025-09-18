@@ -1,6 +1,6 @@
 "use client";
 
-import type React from "react";
+import { useEffect } from "react";
 import { useTranslation } from "@/components/translation-context";
 import { useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -14,6 +14,10 @@ import Image from "next/image";
 export default function ContactPage() {
   const { t, language } = useTranslation();
   const [isSubmitting, setIsSubmitting] = useState(false);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   const getLocalizedImage = () => {
     const imageMap = {
