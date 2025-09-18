@@ -1,22 +1,29 @@
-"use client"
+"use client";
 
-import type React from "react"
-import { createContext, useContext, useState, useEffect } from "react"
+import type React from "react";
+import { createContext, useContext, useState, useEffect } from "react";
 
-import ptBRTranslations from "@/public/locales/pt-BR/common.json"
-import ptPTTranslations from "@/public/locales/pt-PT/common.json"
-import enUSTranslations from "@/public/locales/en-US/common.json"
-import esESTranslations from "@/public/locales/es-ES/common.json"
-import frFRTranslations from "@/public/locales/fr-FR/common.json"
-import deDETranslations from "@/public/locales/de-DE/common.json"
-import itITTranslations from "@/public/locales/it-IT/common.json"
+import ptBRTranslations from "@/locales/pt-BR/common.json";
+import ptPTTranslations from "@/locales/pt-PT/common.json";
+import enUSTranslations from "@/locales/en-US/common.json";
+import esESTranslations from "@/locales/es-ES/common.json";
+import frFRTranslations from "@/locales/fr-FR/common.json";
+import deDETranslations from "@/locales/de-DE/common.json";
+import itITTranslations from "@/locales/it-IT/common.json";
 
-export type Language = "pt-BR" | "pt-PT" | "en-US" | "es-ES" | "fr-FR" | "de-DE" | "it-IT"
+export type Language =
+  | "pt-BR"
+  | "pt-PT"
+  | "en-US"
+  | "es-ES"
+  | "fr-FR"
+  | "de-DE"
+  | "it-IT";
 
 interface TranslationContextProps {
-  language: Language
-  setLanguage: (lang: Language) => void
-  t: (key: string) => string
+  language: Language;
+  setLanguage: (lang: Language) => void;
+  t: (key: string) => string;
 }
 
 const translations: Record<Language, Record<string, string>> = {
@@ -27,37 +34,41 @@ const translations: Record<Language, Record<string, string>> = {
   "fr-FR": frFRTranslations,
   "de-DE": deDETranslations,
   "it-IT": itITTranslations,
-}
+};
 
 const TranslationContext = createContext<TranslationContextProps>({
   language: "pt-PT",
   setLanguage: () => {},
   t: (key: string) => key,
-})
+});
 
 export const TranslationProvider = ({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) => {
-  const [language, setLanguage] = useState<Language>("pt-PT")
+  const [language, setLanguage] = useState<Language>("pt-PT");
 
   useEffect(() => {
-    const savedLanguage = localStorage.getItem("language") as Language
+    const savedLanguage = localStorage.getItem("language") as Language;
     if (savedLanguage && translations[savedLanguage]) {
-      setLanguage(savedLanguage)
+      setLanguage(savedLanguage);
     }
-  }, []) // No dependencies to run only on mount
+  }, []); // No dependencies to run only on mount
 
   useEffect(() => {
-    localStorage.setItem("language", language)
-  }, [language])
+    localStorage.setItem("language", language);
+  }, [language]);
 
   const t = (key: string) => {
-    return translations[language]?.[key] || key
-  }
+    return translations[language]?.[key] || key;
+  };
 
-  return <TranslationContext.Provider value={{ language, setLanguage, t }}>{children}</TranslationContext.Provider>
-}
+  return (
+    <TranslationContext.Provider value={{ language, setLanguage, t }}>
+      {children}
+    </TranslationContext.Provider>
+  );
+};
 
-export const useTranslation = () => useContext(TranslationContext)
+export const useTranslation = () => useContext(TranslationContext);
