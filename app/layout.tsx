@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     address: false,
     telephone: false,
   },
-  metadataBase: new URL("https://vianahub.com"),
+  metadataBase: new URL("https://vianahub.pt"),
   alternates: {
     canonical: "/",
     languages: {
