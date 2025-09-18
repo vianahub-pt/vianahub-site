@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     title: "VianaHub - Soluções Tecnológicas Inovadoras",
     description:
       "Transformamos ideias em soluções digitais inovadoras. Desenvolvimento de software, consultoria tecnológica e soluções personalizadas para o seu negócio.",
-    url: "https://vianahub.com",
+    url: "https://vianahub.pt",
     siteName: "VianaHub",
     images: [
       {
