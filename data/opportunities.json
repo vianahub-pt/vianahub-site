@@ -1,0 +1,511 @@
+[
+  {
+    "id": "1",
+    "type": "opportunities.softwareEngineer.type",
+    "title": "opportunities.softwareEngineer.title",
+    "summary": "opportunities.softwareEngineer.summary",
+    "description": "opportunities.softwareEngineer.description",
+    "employmentType": "opportunities.softwareEngineer.employmentType",
+    "seniorityLevel": "opportunities.softwareEngineer.seniorityLevel",
+    "workplaceType": "opportunities.softwareEngineer.workplaceType",
+    "location": {
+      "city": "opportunities.location.softwareEngineer.city",
+      "state": "opportunities.location.softwareEngineer.state",
+      "country": "opportunities.location.softwareEngineer.country",
+      "remote": "opportunities.location.softwareEngineer.remote"
+    },
+    "requirements": [
+      "opportunities.softwareEngineer.requirements.0",
+      "opportunities.softwareEngineer.requirements.1",
+      "opportunities.softwareEngineer.requirements.2",
+      "opportunities.softwareEngineer.requirements.3"
+    ],
+    "responsibilities": [
+      "opportunities.softwareEngineer.responsibilities.0",
+      "opportunities.softwareEngineer.responsibilities.1",
+      "opportunities.softwareEngineer.responsibilities.2"
+    ],
+    "skills": [
+      "opportunities.softwareEngineer.skills.0",
+      "opportunities.softwareEngineer.skills.1",
+      "opportunities.softwareEngineer.skills.2",
+      "opportunities.softwareEngineer.skills.3"
+    ],
+    "languages": ["opportunities.softwareEngineer.languages.0", "opportunities.softwareEngineer.languages.1"],
+    "benefits": [
+      "opportunities.softwareEngineer.benefits.0",
+      "opportunities.softwareEngineer.benefits.1",
+      "opportunities.softwareEngineer.benefits.2",
+      "opportunities.softwareEngineer.benefits.3"
+    ],
+    "cultureFit": [
+      "opportunities.softwareEngineer.cultureFit.0",
+      "opportunities.softwareEngineer.cultureFit.1",
+      "opportunities.softwareEngineer.cultureFit.2"
+    ],
+    "postedAt": "opportunities.softwareEngineer.postedAt",
+    "validUntil": "opportunities.softwareEngineer.validUntil",
+    "applications": 12
+  },
+  {
+    "id": "2",
+    "type": "opportunities.frontendDeveloper.type",
+    "title": "opportunities.frontendDeveloper.title",
+    "summary": "opportunities.frontendDeveloper.summary",
+    "description": "opportunities.frontendDeveloper.description",
+    "employmentType": "opportunities.frontendDeveloper.employmentType",
+    "seniorityLevel": "opportunities.frontendDeveloper.seniorityLevel",
+    "workplaceType": "opportunities.frontendDeveloper.workplaceType",
+    "location": {
+      "city": "opportunities.location.frontendDeveloper.city",
+      "state": "opportunities.location.frontendDeveloper.state",
+      "country": "opportunities.location.frontendDeveloper.country",
+      "remote": "opportunities.location.frontendDeveloper.remote"
+    },
+    "requirements": [
+      "opportunities.frontendDeveloper.requirements.0",
+      "opportunities.frontendDeveloper.requirements.1",
+      "opportunities.frontendDeveloper.requirements.2"
+    ],
+    "responsibilities": [
+      "opportunities.frontendDeveloper.responsibilities.0",
+      "opportunities.frontendDeveloper.responsibilities.1",
+      "opportunities.frontendDeveloper.responsibilities.2"
+    ],
+    "skills": [
+      "opportunities.frontendDeveloper.skills.0",
+      "opportunities.frontendDeveloper.skills.1",
+      "opportunities.frontendDeveloper.skills.2"
+    ],
+    "languages": ["opportunities.frontendDeveloper.languages.0", "opportunities.frontendDeveloper.languages.1"],
+    "benefits": [
+      "opportunities.frontendDeveloper.benefits.0",
+      "opportunities.frontendDeveloper.benefits.1",
+      "opportunities.frontendDeveloper.benefits.2"
+    ],
+    "cultureFit": ["opportunities.frontendDeveloper.cultureFit.0", "opportunities.frontendDeveloper.cultureFit.1"],
+    "postedAt": "opportunities.frontendDeveloper.postedAt",
+    "validUntil": "opportunities.frontendDeveloper.validUntil",
+    "applications": 8
+  },
+  {
+    "id": "3",
+    "type": "opportunities.devopsEngineer.type",
+    "title": "opportunities.devopsEngineer.title",
+    "summary": "opportunities.devopsEngineer.summary",
+    "description": "opportunities.devopsEngineer.description",
+    "employmentType": "opportunities.devopsEngineer.employmentType",
+    "seniorityLevel": "opportunities.devopsEngineer.seniorityLevel",
+    "workplaceType": "opportunities.devopsEngineer.workplaceType",
+    "location": {
+      "city": "opportunities.location.devopsEngineer.city",
+      "state": "opportunities.location.devopsEngineer.state",
+      "country": "opportunities.location.devopsEngineer.country",
+      "remote": "opportunities.location.devopsEngineer.remote"
+    },
+    "requirements": [
+      "opportunities.devopsEngineer.requirements.0",
+      "opportunities.devopsEngineer.requirements.1",
+      "opportunities.devopsEngineer.requirements.2",
+      "opportunities.devopsEngineer.requirements.3"
+    ],
+    "responsibilities": [
+      "opportunities.devopsEngineer.responsibilities.0",
+      "opportunities.devopsEngineer.responsibilities.1",
+      "opportunities.devopsEngineer.responsibilities.2"
+    ],
+    "skills": [
+      "opportunities.devopsEngineer.skills.0",
+      "opportunities.devopsEngineer.skills.1",
+      "opportunities.devopsEngineer.skills.2",
+      "opportunities.devopsEngineer.skills.3"
+    ],
+    "languages": ["opportunities.devopsEngineer.languages.0", "opportunities.devopsEngineer.languages.1"],
+    "benefits": [
+      "opportunities.devopsEngineer.benefits.0",
+      "opportunities.devopsEngineer.benefits.1",
+      "opportunities.devopsEngineer.benefits.2"
+    ],
+    "cultureFit": ["opportunities.devopsEngineer.cultureFit.0", "opportunities.devopsEngineer.cultureFit.1"],
+    "postedAt": "opportunities.devopsEngineer.postedAt",
+    "validUntil": "opportunities.devopsEngineer.validUntil",
+    "applications": 15
+  },
+  {
+    "id": "4",
+    "type": "opportunities.dataScientist.type",
+    "title": "opportunities.dataScientist.title",
+    "summary": "opportunities.dataScientist.summary",
+    "description": "opportunities.dataScientist.description",
+    "employmentType": "opportunities.dataScientist.employmentType",
+    "seniorityLevel": "opportunities.dataScientist.seniorityLevel",
+    "workplaceType": "opportunities.dataScientist.workplaceType",
+    "location": {
+      "city": "opportunities.location.dataScientist.city",
+      "state": "opportunities.location.dataScientist.state",
+      "country": "opportunities.location.dataScientist.country",
+      "remote": "opportunities.location.dataScientist.remote"
+    },
+    "requirements": [
+      "opportunities.dataScientist.requirements.0",
+      "opportunities.dataScientist.requirements.1",
+      "opportunities.dataScientist.requirements.2",
+      "opportunities.dataScientist.requirements.3"
+    ],
+    "responsibilities": [
+      "opportunities.dataScientist.responsibilities.0",
+      "opportunities.dataScientist.responsibilities.1",
+      "opportunities.dataScientist.responsibilities.2"
+    ],
+    "skills": [
+      "opportunities.dataScientist.skills.0",
+      "opportunities.dataScientist.skills.1",
+      "opportunities.dataScientist.skills.2",
+      "opportunities.dataScientist.skills.3"
+    ],
+    "languages": ["opportunities.dataScientist.languages.0", "opportunities.dataScientist.languages.1"],
+    "benefits": [
+      "opportunities.dataScientist.benefits.0",
+      "opportunities.dataScientist.benefits.1",
+      "opportunities.dataScientist.benefits.2"
+    ],
+    "cultureFit": ["opportunities.dataScientist.cultureFit.0", "opportunities.dataScientist.cultureFit.1"],
+    "postedAt": "opportunities.dataScientist.postedAt",
+    "validUntil": "opportunities.dataScientist.validUntil",
+    "applications": 22
+  },
+  {
+    "id": "5",
+    "type": "opportunities.productManager.type",
+    "title": "opportunities.productManager.title",
+    "summary": "opportunities.productManager.summary",
+    "description": "opportunities.productManager.description",
+    "employmentType": "opportunities.productManager.employmentType",
+    "seniorityLevel": "opportunities.productManager.seniorityLevel",
+    "workplaceType": "opportunities.productManager.workplaceType",
+    "location": {
+      "city": "opportunities.location.productManager.city",
+      "state": "opportunities.location.productManager.state",
+      "country": "opportunities.location.productManager.country",
+      "remote": "opportunities.location.productManager.remote"
+    },
+    "requirements": [
+      "opportunities.productManager.requirements.0",
+      "opportunities.productManager.requirements.1",
+      "opportunities.productManager.requirements.2"
+    ],
+    "responsibilities": [
+      "opportunities.productManager.responsibilities.0",
+      "opportunities.productManager.responsibilities.1",
+      "opportunities.productManager.responsibilities.2"
+    ],
+    "skills": [
+      "opportunities.productManager.skills.0",
+      "opportunities.productManager.skills.1",
+      "opportunities.productManager.skills.2"
+    ],
+    "languages": ["opportunities.productManager.languages.0", "opportunities.productManager.languages.1"],
+    "benefits": [
+      "opportunities.productManager.benefits.0",
+      "opportunities.productManager.benefits.1",
+      "opportunities.productManager.benefits.2"
+    ],
+    "cultureFit": ["opportunities.productManager.cultureFit.0", "opportunities.productManager.cultureFit.1"],
+    "postedAt": "opportunities.productManager.postedAt",
+    "validUntil": "opportunities.productManager.validUntil",
+    "applications": 18
+  },
+  {
+    "id": "6",
+    "type": "opportunities.uxDesigner.type",
+    "title": "opportunities.uxDesigner.title",
+    "summary": "opportunities.uxDesigner.summary",
+    "description": "opportunities.uxDesigner.description",
+    "employmentType": "opportunities.uxDesigner.employmentType",
+    "seniorityLevel": "opportunities.uxDesigner.seniorityLevel",
+    "workplaceType": "opportunities.uxDesigner.workplaceType",
+    "location": {
+      "city": "opportunities.location.uxDesigner.city",
+      "state": "opportunities.location.uxDesigner.state",
+      "country": "opportunities.location.uxDesigner.country",
+      "remote": "opportunities.location.uxDesigner.remote"
+    },
+    "requirements": [
+      "opportunities.uxDesigner.requirements.0",
+      "opportunities.uxDesigner.requirements.1",
+      "opportunities.uxDesigner.requirements.2"
+    ],
+    "responsibilities": [
+      "opportunities.uxDesigner.responsibilities.0",
+      "opportunities.uxDesigner.responsibilities.1",
+      "opportunities.uxDesigner.responsibilities.2"
+    ],
+    "skills": [
+      "opportunities.uxDesigner.skills.0",
+      "opportunities.uxDesigner.skills.1",
+      "opportunities.uxDesigner.skills.2"
+    ],
+    "languages": ["opportunities.uxDesigner.languages.0", "opportunities.uxDesigner.languages.1"],
+    "benefits": [
+      "opportunities.uxDesigner.benefits.0",
+      "opportunities.uxDesigner.benefits.1",
+      "opportunities.uxDesigner.benefits.2"
+    ],
+    "cultureFit": ["opportunities.uxDesigner.cultureFit.0", "opportunities.uxDesigner.cultureFit.1"],
+    "postedAt": "opportunities.uxDesigner.postedAt",
+    "validUntil": "opportunities.uxDesigner.validUntil",
+    "applications": 14
+  },
+  {
+    "id": "7",
+    "type": "opportunities.backendDeveloper.type",
+    "title": "opportunities.backendDeveloper.title",
+    "summary": "opportunities.backendDeveloper.summary",
+    "description": "opportunities.backendDeveloper.description",
+    "employmentType": "opportunities.backendDeveloper.employmentType",
+    "seniorityLevel": "opportunities.backendDeveloper.seniorityLevel",
+    "workplaceType": "opportunities.backendDeveloper.workplaceType",
+    "location": {
+      "city": "opportunities.location.backendDeveloper.city",
+      "state": "opportunities.location.backendDeveloper.state",
+      "country": "opportunities.location.backendDeveloper.country",
+      "remote": "opportunities.location.backendDeveloper.remote"
+    },
+    "requirements": [
+      "opportunities.backendDeveloper.requirements.0",
+      "opportunities.backendDeveloper.requirements.1",
+      "opportunities.backendDeveloper.requirements.2",
+      "opportunities.backendDeveloper.requirements.3"
+    ],
+    "responsibilities": [
+      "opportunities.backendDeveloper.responsibilities.0",
+      "opportunities.backendDeveloper.responsibilities.1",
+      "opportunities.backendDeveloper.responsibilities.2"
+    ],
+    "skills": [
+      "opportunities.backendDeveloper.skills.0",
+      "opportunities.backendDeveloper.skills.1",
+      "opportunities.backendDeveloper.skills.2",
+      "opportunities.backendDeveloper.skills.3"
+    ],
+    "languages": ["opportunities.backendDeveloper.languages.0", "opportunities.backendDeveloper.languages.1"],
+    "benefits": [
+      "opportunities.backendDeveloper.benefits.0",
+      "opportunities.backendDeveloper.benefits.1",
+      "opportunities.backendDeveloper.benefits.2"
+    ],
+    "cultureFit": ["opportunities.backendDeveloper.cultureFit.0", "opportunities.backendDeveloper.cultureFit.1"],
+    "postedAt": "opportunities.backendDeveloper.postedAt",
+    "validUntil": "opportunities.backendDeveloper.validUntil",
+    "applications": 19
+  },
+  {
+    "id": "8",
+    "type": "opportunities.mobileEngineer.type",
+    "title": "opportunities.mobileEngineer.title",
+    "summary": "opportunities.mobileEngineer.summary",
+    "description": "opportunities.mobileEngineer.description",
+    "employmentType": "opportunities.mobileEngineer.employmentType",
+    "seniorityLevel": "opportunities.mobileEngineer.seniorityLevel",
+    "workplaceType": "opportunities.mobileEngineer.workplaceType",
+    "location": {
+      "city": "opportunities.location.mobileEngineer.city",
+      "state": "opportunities.location.mobileEngineer.state",
+      "country": "opportunities.location.mobileEngineer.country",
+      "remote": "opportunities.location.mobileEngineer.remote"
+    },
+    "requirements": [
+      "opportunities.mobileEngineer.requirements.0",
+      "opportunities.mobileEngineer.requirements.1",
+      "opportunities.mobileEngineer.requirements.2"
+    ],
+    "responsibilities": [
+      "opportunities.mobileEngineer.responsibilities.0",
+      "opportunities.mobileEngineer.responsibilities.1",
+      "opportunities.mobileEngineer.responsibilities.2"
+    ],
+    "skills": [
+      "opportunities.mobileEngineer.skills.0",
+      "opportunities.mobileEngineer.skills.1",
+      "opportunities.mobileEngineer.skills.2"
+    ],
+    "languages": ["opportunities.mobileEngineer.languages.0", "opportunities.mobileEngineer.languages.1"],
+    "benefits": [
+      "opportunities.mobileEngineer.benefits.0",
+      "opportunities.mobileEngineer.benefits.1",
+      "opportunities.mobileEngineer.benefits.2"
+    ],
+    "cultureFit": ["opportunities.mobileEngineer.cultureFit.0", "opportunities.mobileEngineer.cultureFit.1"],
+    "postedAt": "opportunities.mobileEngineer.postedAt",
+    "validUntil": "opportunities.mobileEngineer.validUntil",
+    "applications": 11
+  },
+  {
+    "id": "9",
+    "type": "opportunities.qaEngineer.type",
+    "title": "opportunities.qaEngineer.title",
+    "summary": "opportunities.qaEngineer.summary",
+    "description": "opportunities.qaEngineer.description",
+    "employmentType": "opportunities.qaEngineer.employmentType",
+    "seniorityLevel": "opportunities.qaEngineer.seniorityLevel",
+    "workplaceType": "opportunities.qaEngineer.workplaceType",
+    "location": {
+      "city": "opportunities.location.qaEngineer.city",
+      "state": "opportunities.location.qaEngineer.state",
+      "country": "opportunities.location.qaEngineer.country",
+      "remote": "opportunities.location.qaEngineer.remote"
+    },
+    "requirements": [
+      "opportunities.qaEngineer.requirements.0",
+      "opportunities.qaEngineer.requirements.1",
+      "opportunities.qaEngineer.requirements.2"
+    ],
+    "responsibilities": [
+      "opportunities.qaEngineer.responsibilities.0",
+      "opportunities.qaEngineer.responsibilities.1",
+      "opportunities.qaEngineer.responsibilities.2"
+    ],
+    "skills": [
+      "opportunities.qaEngineer.skills.0",
+      "opportunities.qaEngineer.skills.1",
+      "opportunities.qaEngineer.skills.2"
+    ],
+    "languages": ["opportunities.qaEngineer.languages.0", "opportunities.qaEngineer.languages.1"],
+    "benefits": [
+      "opportunities.qaEngineer.benefits.0",
+      "opportunities.qaEngineer.benefits.1",
+      "opportunities.qaEngineer.benefits.2"
+    ],
+    "cultureFit": ["opportunities.qaEngineer.cultureFit.0", "opportunities.qaEngineer.cultureFit.1"],
+    "postedAt": "opportunities.qaEngineer.postedAt",
+    "validUntil": "opportunities.qaEngineer.validUntil",
+    "applications": 7
+  },
+  {
+    "id": "10",
+    "type": "opportunities.systemsArchitect.type",
+    "title": "opportunities.systemsArchitect.title",
+    "summary": "opportunities.systemsArchitect.summary",
+    "description": "opportunities.systemsArchitect.description",
+    "employmentType": "opportunities.systemsArchitect.employmentType",
+    "seniorityLevel": "opportunities.systemsArchitect.seniorityLevel",
+    "workplaceType": "opportunities.systemsArchitect.workplaceType",
+    "location": {
+      "city": "opportunities.location.systemsArchitect.city",
+      "state": "opportunities.location.systemsArchitect.state",
+      "country": "opportunities.location.systemsArchitect.country",
+      "remote": "opportunities.location.systemsArchitect.remote"
+    },
+    "requirements": [
+      "opportunities.systemsArchitect.requirements.0",
+      "opportunities.systemsArchitect.requirements.1",
+      "opportunities.systemsArchitect.requirements.2",
+      "opportunities.systemsArchitect.requirements.3"
+    ],
+    "responsibilities": [
+      "opportunities.systemsArchitect.responsibilities.0",
+      "opportunities.systemsArchitect.responsibilities.1",
+      "opportunities.systemsArchitect.responsibilities.2"
+    ],
+    "skills": [
+      "opportunities.systemsArchitect.skills.0",
+      "opportunities.systemsArchitect.skills.1",
+      "opportunities.systemsArchitect.skills.2",
+      "opportunities.systemsArchitect.skills.3"
+    ],
+    "languages": ["opportunities.systemsArchitect.languages.0", "opportunities.systemsArchitect.languages.1"],
+    "benefits": [
+      "opportunities.systemsArchitect.benefits.0",
+      "opportunities.systemsArchitect.benefits.1",
+      "opportunities.systemsArchitect.benefits.2"
+    ],
+    "cultureFit": ["opportunities.systemsArchitect.cultureFit.0", "opportunities.systemsArchitect.cultureFit.1"],
+    "postedAt": "opportunities.systemsArchitect.postedAt",
+    "validUntil": "opportunities.systemsArchitect.validUntil",
+    "applications": 25
+  },
+  {
+    "id": "11",
+    "type": "opportunities.cloudEngineer.type",
+    "title": "opportunities.cloudEngineer.title",
+    "summary": "opportunities.cloudEngineer.summary",
+    "description": "opportunities.cloudEngineer.description",
+    "employmentType": "opportunities.cloudEngineer.employmentType",
+    "seniorityLevel": "opportunities.cloudEngineer.seniorityLevel",
+    "workplaceType": "opportunities.cloudEngineer.workplaceType",
+    "location": {
+      "city": "opportunities.location.cloudEngineer.city",
+      "state": "opportunities.location.cloudEngineer.state",
+      "country": "opportunities.location.cloudEngineer.country",
+      "remote": "opportunities.location.cloudEngineer.remote"
+    },
+    "requirements": [
+      "opportunities.cloudEngineer.requirements.0",
+      "opportunities.cloudEngineer.requirements.1",
+      "opportunities.cloudEngineer.requirements.2"
+    ],
+    "responsibilities": [
+      "opportunities.cloudEngineer.responsibilities.0",
+      "opportunities.cloudEngineer.responsibilities.1",
+      "opportunities.cloudEngineer.responsibilities.2"
+    ],
+    "skills": [
+      "opportunities.cloudEngineer.skills.0",
+      "opportunities.cloudEngineer.skills.1",
+      "opportunities.cloudEngineer.skills.2"
+    ],
+    "languages": ["opportunities.cloudEngineer.languages.0", "opportunities.cloudEngineer.languages.1"],
+    "benefits": [
+      "opportunities.cloudEngineer.benefits.0",
+      "opportunities.cloudEngineer.benefits.1",
+      "opportunities.cloudEngineer.benefits.2"
+    ],
+    "cultureFit": ["opportunities.cloudEngineer.cultureFit.0", "opportunities.cloudEngineer.cultureFit.1"],
+    "postedAt": "opportunities.cloudEngineer.postedAt",
+    "validUntil": "opportunities.cloudEngineer.validUntil",
+    "applications": 16
+  },
+  {
+    "id": "12",
+    "type": "opportunities.securityEngineer.type",
+    "title": "opportunities.securityEngineer.title",
+    "summary": "opportunities.securityEngineer.summary",
+    "description": "opportunities.securityEngineer.description",
+    "employmentType": "opportunities.securityEngineer.employmentType",
+    "seniorityLevel": "opportunities.securityEngineer.seniorityLevel",
+    "workplaceType": "opportunities.securityEngineer.workplaceType",
+    "location": {
+      "city": "opportunities.location.securityEngineer.city",
+      "state": "opportunities.location.securityEngineer.state",
+      "country": "opportunities.location.securityEngineer.country",
+      "remote": "opportunities.location.securityEngineer.remote"
+    },
+    "requirements": [
+      "opportunities.securityEngineer.requirements.0",
+      "opportunities.securityEngineer.requirements.1",
+      "opportunities.securityEngineer.requirements.2",
+      "opportunities.securityEngineer.requirements.3"
+    ],
+    "responsibilities": [
+      "opportunities.securityEngineer.responsibilities.0",
+      "opportunities.securityEngineer.responsibilities.1",
+      "opportunities.securityEngineer.responsibilities.2"
+    ],
+    "skills": [
+      "opportunities.securityEngineer.skills.0",
+      "opportunities.securityEngineer.skills.1",
+      "opportunities.securityEngineer.skills.2",
+      "opportunities.securityEngineer.skills.3"
+    ],
+    "languages": ["opportunities.securityEngineer.languages.0", "opportunities.securityEngineer.languages.1"],
+    "benefits": [
+      "opportunities.securityEngineer.benefits.0",
+      "opportunities.securityEngineer.benefits.1",
+      "opportunities.securityEngineer.benefits.2"
+    ],
+    "cultureFit": ["opportunities.securityEngineer.cultureFit.0", "opportunities.securityEngineer.cultureFit.1"],
+    "postedAt": "opportunities.securityEngineer.postedAt",
+    "validUntil": "opportunities.securityEngineer.validUntil",
+    "applications": 13
+  }
+]

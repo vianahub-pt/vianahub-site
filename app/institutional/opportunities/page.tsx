@@ -9,6 +9,7 @@ import { ScrollIndicator } from "@/components/scroll-indicator"
 import { useTranslation } from "@/components/translation-context"
 import { Search, Grid3X3, List, MapPin, Calendar, Users, Eye, ChevronLeft, ChevronRight } from "lucide-react"
 import { motion } from "framer-motion"
+import opportunitiesData from "@/data/opportunities.json"
 
 export default function opportunitiesPage() {
   const { t } = useTranslation()
@@ -26,143 +27,30 @@ export default function opportunitiesPage() {
     window.scrollTo(0, 0)
   }, [])
 
-  const opportunities = [
-    {
-      id: "1",
-      type: t("opportunities.softwareEngineer.type"),
-      title: t("opportunities.softwareEngineer.title"),
-      summary: t("opportunities.softwareEngineer.summary"),
-      description: t("opportunities.softwareEngineer.description"),
-      employmentType: t("opportunities.softwareEngineer.employmentType"),
-      seniorityLevel: t("opportunities.softwareEngineer.seniorityLevel"),
-      workplaceType: t("opportunities.softwareEngineer.workplaceType"),
-      location: {
-        city: t("opportunities.location.softwareEngineer.city"),
-        state: t("opportunities.location.softwareEngineer.state"),
-        country: t("opportunities.location.softwareEngineer.country"),
-        remote: t("opportunities.location.softwareEngineer.remote"),
-      },
-      requirements: [
-        t("opportunities.softwareEngineer.requirements.0"),
-        t("opportunities.softwareEngineer.requirements.1"),
-        t("opportunities.softwareEngineer.requirements.2"),
-        t("opportunities.softwareEngineer.requirements.3"),
-      ],
-      responsibilities: [
-        t("opportunities.softwareEngineer.responsibilities.0"),
-        t("opportunities.softwareEngineer.responsibilities.1"),
-        t("opportunities.softwareEngineer.responsibilities.2"),
-      ],
-      skills: [
-        t("opportunities.softwareEngineer.skills.0"),
-        t("opportunities.softwareEngineer.skills.1"),
-        t("opportunities.softwareEngineer.skills.2"),
-        t("opportunities.softwareEngineer.skills.3"),
-      ],
-      languages: [t("opportunities.softwareEngineer.languages.0"), t("opportunities.softwareEngineer.languages.1")],
-      benefits: [
-        t("opportunities.softwareEngineer.benefits.0"),
-        t("opportunities.softwareEngineer.benefits.1"),
-        t("opportunities.softwareEngineer.benefits.2"),
-        t("opportunities.softwareEngineer.benefits.3"),
-      ],
-      cultureFit: [
-        t("opportunities.softwareEngineer.cultureFit.0"),
-        t("opportunities.softwareEngineer.cultureFit.1"),
-        t("opportunities.softwareEngineer.cultureFit.2"),
-      ],
-      postedAt: t("opportunities.softwareEngineer.postedAt"),
-      validUntil: t("opportunities.softwareEngineer.validUntil"),
-      applications: 12,
+  const opportunities = opportunitiesData.map((opportunity) => ({
+    ...opportunity,
+    type: t(opportunity.type),
+    title: t(opportunity.title),
+    summary: t(opportunity.summary),
+    description: t(opportunity.description),
+    employmentType: t(opportunity.employmentType),
+    seniorityLevel: t(opportunity.seniorityLevel),
+    workplaceType: t(opportunity.workplaceType),
+    location: {
+      city: t(opportunity.location.city),
+      state: t(opportunity.location.state),
+      country: t(opportunity.location.country),
+      remote: t(opportunity.location.remote),
     },
-    {
-      id: "2",
-      type: t("opportunities.frontendDeveloper.type"),
-      title: t("opportunities.frontendDeveloper.title"),
-      summary: t("opportunities.frontendDeveloper.summary"),
-      description: t("opportunities.frontendDeveloper.description"),
-      employmentType: t("opportunities.frontendDeveloper.employmentType"),
-      seniorityLevel: t("opportunities.frontendDeveloper.seniorityLevel"),
-      workplaceType: t("opportunities.frontendDeveloper.workplaceType"),
-      location: {
-        city: t("opportunities.location.frontendDeveloper.city"),
-        state: t("opportunities.location.frontendDeveloper.state"),
-        country: t("opportunities.location.frontendDeveloper.country"),
-        remote: t("opportunities.location.frontendDeveloper.remote"),
-      },
-      requirements: [
-        t("opportunities.frontendDeveloper.requirements.0"),
-        t("opportunities.frontendDeveloper.requirements.1"),
-        t("opportunities.frontendDeveloper.requirements.2"),
-      ],
-      responsibilities: [
-        t("opportunities.frontendDeveloper.responsibilities.0"),
-        t("opportunities.frontendDeveloper.responsibilities.1"),
-        t("opportunities.frontendDeveloper.responsibilities.2"),
-      ],
-      skills: [
-        t("opportunities.frontendDeveloper.skills.0"),
-        t("opportunities.frontendDeveloper.skills.1"),
-        t("opportunities.frontendDeveloper.skills.2"),
-      ],
-      languages: [t("opportunities.frontendDeveloper.languages.0"), t("opportunities.frontendDeveloper.languages.1")],
-      benefits: [
-        t("opportunities.frontendDeveloper.benefits.0"),
-        t("opportunities.frontendDeveloper.benefits.1"),
-        t("opportunities.frontendDeveloper.benefits.2"),
-      ],
-      cultureFit: [
-        t("opportunities.frontendDeveloper.cultureFit.0"),
-        t("opportunities.frontendDeveloper.cultureFit.1"),
-      ],
-      postedAt: t("opportunities.frontendDeveloper.postedAt"),
-      validUntil: t("opportunities.frontendDeveloper.validUntil"),
-      applications: 8,
-    },
-    {
-      id: "3",
-      type: t("opportunities.devopsEngineer.type"),
-      title: t("opportunities.devopsEngineer.title"),
-      summary: t("opportunities.devopsEngineer.summary"),
-      description: t("opportunities.devopsEngineer.description"),
-      employmentType: t("opportunities.devopsEngineer.employmentType"),
-      seniorityLevel: t("opportunities.devopsEngineer.seniorityLevel"),
-      workplaceType: t("opportunities.devopsEngineer.workplaceType"),
-      location: {
-        city: t("opportunities.location.devopsEngineer.city"),
-        state: t("opportunities.location.devopsEngineer.state"),
-        country: t("opportunities.location.devopsEngineer.country"),
-        remote: t("opportunities.location.devopsEngineer.remote"),
-      },
-      requirements: [
-        t("opportunities.devopsEngineer.requirements.0"),
-        t("opportunities.devopsEngineer.requirements.1"),
-        t("opportunities.devopsEngineer.requirements.2"),
-        t("opportunities.devopsEngineer.requirements.3"),
-      ],
-      responsibilities: [
-        t("opportunities.devopsEngineer.responsibilities.0"),
-        t("opportunities.devopsEngineer.responsibilities.1"),
-        t("opportunities.devopsEngineer.responsibilities.2"),
-      ],
-      skills: [
-        t("opportunities.devopsEngineer.skills.0"),
-        t("opportunities.devopsEngineer.skills.1"),
-        t("opportunities.devopsEngineer.skills.2"),
-        t("opportunities.devopsEngineer.skills.3"),
-      ],
-      languages: [t("opportunities.devopsEngineer.languages.0"), t("opportunities.devopsEngineer.languages.1")],
-      benefits: [
-        t("opportunities.devopsEngineer.benefits.0"),
-        t("opportunities.devopsEngineer.benefits.1"),
-        t("opportunities.devopsEngineer.benefits.2"),
-      ],
-      cultureFit: [t("opportunities.devopsEngineer.cultureFit.0"), t("opportunities.devopsEngineer.cultureFit.1")],
-      postedAt: t("opportunities.devopsEngineer.postedAt"),
-      validUntil: t("opportunities.devopsEngineer.validUntil"),
-      applications: 15,
-    },
-  ]
+    requirements: opportunity.requirements.map((req) => t(req)),
+    responsibilities: opportunity.responsibilities.map((resp) => t(resp)),
+    skills: opportunity.skills.map((skill) => t(skill)),
+    languages: opportunity.languages.map((lang) => t(lang)),
+    benefits: opportunity.benefits.map((benefit) => t(benefit)),
+    cultureFit: opportunity.cultureFit.map((fit) => t(fit)),
+    postedAt: t(opportunity.postedAt),
+    validUntil: t(opportunity.validUntil),
+  }))
 
   const filteredJobs = opportunities
     .filter((job) => selectedCountry === "All" || job.location.country === selectedCountry)
