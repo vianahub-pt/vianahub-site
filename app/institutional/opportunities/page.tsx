@@ -9,10 +9,11 @@ import { ScrollIndicator } from "@/components/scroll-indicator"
 import { useTranslation } from "@/components/translation-context"
 import { Search, Grid3X3, List, MapPin, Calendar, Users, Eye, ChevronLeft, ChevronRight } from "lucide-react"
 import { motion } from "framer-motion"
-import opportunitiesData from "@/data/opportunities.json"
+import ptOpportunities from "@/locales/pt-PT/opportunities.json"
+import enOpportunities from "@/locales/en-US/opportunities.json"
 
 export default function opportunitiesPage() {
-  const { t } = useTranslation()
+  const { t, locale } = useTranslation()
   const router = useRouter()
 
   const [selectedCountry, setSelectedCountry] = useState("All")
@@ -27,29 +28,63 @@ export default function opportunitiesPage() {
     window.scrollTo(0, 0)
   }, [])
 
-  const opportunities = opportunitiesData.map((opportunity) => ({
-    ...opportunity,
-    type: t(opportunity.type),
-    title: t(opportunity.title),
-    summary: t(opportunity.summary),
-    description: t(opportunity.description),
-    employmentType: t(opportunity.employmentType),
-    seniorityLevel: t(opportunity.seniorityLevel),
-    workplaceType: t(opportunity.workplaceType),
+  const opportunitiesData = locale === "pt-PT" ? ptOpportunities : enOpportunities
+
+  const opportunityKeys = [
+    "softwareEngineer",
+    "dataScientist",
+    "productManager",
+    "uxDesigner",
+    "backendDeveloper",
+    "mobileEngineer",
+    "qaEngineer",
+    "systemsArchitect",
+    "cloudEngineer",
+    "securityEngineer",
+    "devopsEngineer",
+    "frontendDeveloper",
+  ]
+
+  const opportunities = opportunityKeys.map((key) => ({
+    id: opportunitiesData[`opportunities.${key}.id`],
+    type: opportunitiesData[`opportunities.${key}.type`],
+    title: opportunitiesData[`opportunities.${key}.title`],
+    summary: opportunitiesData[`opportunities.${key}.summary`],
+    description: opportunitiesData[`opportunities.${key}.description`],
+    employmentType: opportunitiesData[`opportunities.${key}.employmentType`],
+    seniorityLevel: opportunitiesData[`opportunities.${key}.seniorityLevel`],
+    workplaceType: opportunitiesData[`opportunities.${key}.workplaceType`],
+    companyLogo: "/logo.png",
     location: {
-      city: t(opportunity.location.city),
-      state: t(opportunity.location.state),
-      country: t(opportunity.location.country),
-      remote: t(opportunity.location.remote),
+      city: opportunitiesData[`opportunities.location.${key}.city`],
+      state: opportunitiesData[`opportunities.location.${key}.state`],
+      country: opportunitiesData[`opportunities.location.${key}.country`],
+      remote: opportunitiesData[`opportunities.location.${key}.remote`],
     },
-    requirements: opportunity.requirements.map((req) => t(req)),
-    responsibilities: opportunity.responsibilities.map((resp) => t(resp)),
-    skills: opportunity.skills.map((skill) => t(skill)),
-    languages: opportunity.languages.map((lang) => t(lang)),
-    benefits: opportunity.benefits.map((benefit) => t(benefit)),
-    cultureFit: opportunity.cultureFit.map((fit) => t(fit)),
-    postedAt: t(opportunity.postedAt),
-    validUntil: t(opportunity.validUntil),
+    requirements: [
+      opportunitiesData[`opportunities.${key}.requirements.0`],
+      opportunitiesData[`opportunities.${key}.requirements.1`],
+    ],
+    responsibilities: [
+      opportunitiesData[`opportunities.${key}.responsibilities.0`],
+      opportunitiesData[`opportunities.${key}.responsibilities.1`],
+    ],
+    skills: [opportunitiesData[`opportunities.${key}.skills.0`], opportunitiesData[`opportunities.${key}.skills.1`]],
+    languages: [
+      opportunitiesData[`opportunities.${key}.languages.0`],
+      opportunitiesData[`opportunities.${key}.languages.1`],
+    ],
+    benefits: [
+      opportunitiesData[`opportunities.${key}.benefits.0`],
+      opportunitiesData[`opportunities.${key}.benefits.1`],
+    ],
+    cultureFit: [
+      opportunitiesData[`opportunities.${key}.cultureFit.0`],
+      opportunitiesData[`opportunities.${key}.cultureFit.1`],
+    ],
+    postedAt: opportunitiesData[`opportunities.${key}.postedAt`],
+    validUntil: opportunitiesData[`opportunities.${key}.validUntil`],
+    applications: Math.floor(Math.random() * 50) + 1, // Random number for demo
   }))
 
   const filteredJobs = opportunities
@@ -121,6 +156,7 @@ export default function opportunitiesPage() {
     cultureFit: string[]
     postedAt: string
     validUntil: string
+    applications: number
   }
   interface OpportunityCardProps {
     opportunity: Opportunity
