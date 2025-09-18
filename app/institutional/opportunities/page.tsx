@@ -26,134 +26,162 @@ export default function opportunitiesPage() {
     window.scrollTo(0, 0)
   }, [])
 
-  const mockJobs = [
+  const opportunities = [
     {
       id: "1",
-      title: "Senior Software Engineer",
-      country: "Brazil",
-      location: "São Paulo, SP",
-      workModel: "Hybrid",
-      postedDate: "2024-01-15",
+      type: t("opportunities.softwareEngineer.type"),
+      title: t("opportunities.softwareEngineer.title"),
+      summary: t("opportunities.softwareEngineer.summary"),
+      description: t("opportunities.softwareEngineer.description"),
+      employmentType: t("opportunities.softwareEngineer.employmentType"),
+      seniorityLevel: t("opportunities.softwareEngineer.seniorityLevel"),
+      workplaceType: t("opportunities.softwareEngineer.workplaceType"),
+      location: {
+        city: t("opportunities.location.softwareEngineer.city"),
+        state: t("opportunities.location.softwareEngineer.state"),
+        country: t("opportunities.location.softwareEngineer.country"),
+        remote: t("opportunities.location.softwareEngineer.remote"),
+      },
+      requirements: [
+        t("opportunities.softwareEngineer.requirements.0"),
+        t("opportunities.softwareEngineer.requirements.1"),
+        t("opportunities.softwareEngineer.requirements.2"),
+        t("opportunities.softwareEngineer.requirements.3"),
+      ],
+      responsibilities: [
+        t("opportunities.softwareEngineer.responsibilities.0"),
+        t("opportunities.softwareEngineer.responsibilities.1"),
+        t("opportunities.softwareEngineer.responsibilities.2"),
+      ],
+      skills: [
+        t("opportunities.softwareEngineer.skills.0"),
+        t("opportunities.softwareEngineer.skills.1"),
+        t("opportunities.softwareEngineer.skills.2"),
+        t("opportunities.softwareEngineer.skills.3"),
+      ],
+      languages: [t("opportunities.softwareEngineer.languages.0"), t("opportunities.softwareEngineer.languages.1")],
+      benefits: [
+        t("opportunities.softwareEngineer.benefits.0"),
+        t("opportunities.softwareEngineer.benefits.1"),
+        t("opportunities.softwareEngineer.benefits.2"),
+        t("opportunities.softwareEngineer.benefits.3"),
+      ],
+      cultureFit: [
+        t("opportunities.softwareEngineer.cultureFit.0"),
+        t("opportunities.softwareEngineer.cultureFit.1"),
+        t("opportunities.softwareEngineer.cultureFit.2"),
+      ],
+      postedAt: t("opportunities.softwareEngineer.postedAt"),
+      validUntil: t("opportunities.softwareEngineer.validUntil"),
       applications: 12,
     },
     {
       id: "2",
-      title: "Frontend Developer",
-      country: "Portugal",
-      location: "Lisbon",
-      workModel: "Remote",
-      postedDate: "2024-01-10",
+      type: t("opportunities.frontendDeveloper.type"),
+      title: t("opportunities.frontendDeveloper.title"),
+      summary: t("opportunities.frontendDeveloper.summary"),
+      description: t("opportunities.frontendDeveloper.description"),
+      employmentType: t("opportunities.frontendDeveloper.employmentType"),
+      seniorityLevel: t("opportunities.frontendDeveloper.seniorityLevel"),
+      workplaceType: t("opportunities.frontendDeveloper.workplaceType"),
+      location: {
+        city: t("opportunities.location.frontendDeveloper.city"),
+        state: t("opportunities.location.frontendDeveloper.state"),
+        country: t("opportunities.location.frontendDeveloper.country"),
+        remote: t("opportunities.location.frontendDeveloper.remote"),
+      },
+      requirements: [
+        t("opportunities.frontendDeveloper.requirements.0"),
+        t("opportunities.frontendDeveloper.requirements.1"),
+        t("opportunities.frontendDeveloper.requirements.2"),
+      ],
+      responsibilities: [
+        t("opportunities.frontendDeveloper.responsibilities.0"),
+        t("opportunities.frontendDeveloper.responsibilities.1"),
+        t("opportunities.frontendDeveloper.responsibilities.2"),
+      ],
+      skills: [
+        t("opportunities.frontendDeveloper.skills.0"),
+        t("opportunities.frontendDeveloper.skills.1"),
+        t("opportunities.frontendDeveloper.skills.2"),
+      ],
+      languages: [t("opportunities.frontendDeveloper.languages.0"), t("opportunities.frontendDeveloper.languages.1")],
+      benefits: [
+        t("opportunities.frontendDeveloper.benefits.0"),
+        t("opportunities.frontendDeveloper.benefits.1"),
+        t("opportunities.frontendDeveloper.benefits.2"),
+      ],
+      cultureFit: [
+        t("opportunities.frontendDeveloper.cultureFit.0"),
+        t("opportunities.frontendDeveloper.cultureFit.1"),
+      ],
+      postedAt: t("opportunities.frontendDeveloper.postedAt"),
+      validUntil: t("opportunities.frontendDeveloper.validUntil"),
       applications: 8,
     },
     {
       id: "3",
-      title: "DevOps Engineer",
-      country: "United States",
-      location: "New York, NY",
-      workModel: "In-Person",
-      postedDate: "2024-01-12",
+      type: t("opportunities.devopsEngineer.type"),
+      title: t("opportunities.devopsEngineer.title"),
+      summary: t("opportunities.devopsEngineer.summary"),
+      description: t("opportunities.devopsEngineer.description"),
+      employmentType: t("opportunities.devopsEngineer.employmentType"),
+      seniorityLevel: t("opportunities.devopsEngineer.seniorityLevel"),
+      workplaceType: t("opportunities.devopsEngineer.workplaceType"),
+      location: {
+        city: t("opportunities.location.devopsEngineer.city"),
+        state: t("opportunities.location.devopsEngineer.state"),
+        country: t("opportunities.location.devopsEngineer.country"),
+        remote: t("opportunities.location.devopsEngineer.remote"),
+      },
+      requirements: [
+        t("opportunities.devopsEngineer.requirements.0"),
+        t("opportunities.devopsEngineer.requirements.1"),
+        t("opportunities.devopsEngineer.requirements.2"),
+        t("opportunities.devopsEngineer.requirements.3"),
+      ],
+      responsibilities: [
+        t("opportunities.devopsEngineer.responsibilities.0"),
+        t("opportunities.devopsEngineer.responsibilities.1"),
+        t("opportunities.devopsEngineer.responsibilities.2"),
+      ],
+      skills: [
+        t("opportunities.devopsEngineer.skills.0"),
+        t("opportunities.devopsEngineer.skills.1"),
+        t("opportunities.devopsEngineer.skills.2"),
+        t("opportunities.devopsEngineer.skills.3"),
+      ],
+      languages: [t("opportunities.devopsEngineer.languages.0"), t("opportunities.devopsEngineer.languages.1")],
+      benefits: [
+        t("opportunities.devopsEngineer.benefits.0"),
+        t("opportunities.devopsEngineer.benefits.1"),
+        t("opportunities.devopsEngineer.benefits.2"),
+      ],
+      cultureFit: [t("opportunities.devopsEngineer.cultureFit.0"), t("opportunities.devopsEngineer.cultureFit.1")],
+      postedAt: t("opportunities.devopsEngineer.postedAt"),
+      validUntil: t("opportunities.devopsEngineer.validUntil"),
       applications: 15,
-    },
-    {
-      id: "4",
-      title: "UX Designer",
-      country: "Spain",
-      location: "Madrid",
-      workModel: "Hybrid",
-      postedDate: "2024-01-08",
-      applications: 6,
-    },
-    {
-      id: "5",
-      title: "Backend Developer",
-      country: "Germany",
-      location: "Berlin",
-      workModel: "Remote",
-      postedDate: "2024-01-14",
-      applications: 10,
-    },
-    {
-      id: "6",
-      title: "Product Manager",
-      country: "France",
-      location: "Paris",
-      workModel: "Hybrid",
-      postedDate: "2024-01-13",
-      applications: 18,
-    },
-    {
-      id: "7",
-      title: "Data Scientist",
-      country: "Italy",
-      location: "Milan",
-      workModel: "In-Person",
-      postedDate: "2024-01-11",
-      applications: 7,
-    },
-    {
-      id: "8",
-      title: "Mobile Developer",
-      country: "Brazil",
-      location: "Rio de Janeiro, RJ",
-      workModel: "Remote",
-      postedDate: "2024-01-09",
-      applications: 14,
-    },
-    {
-      id: "9",
-      title: "QA Engineer",
-      country: "Portugal",
-      location: "Porto",
-      workModel: "Hybrid",
-      postedDate: "2024-01-07",
-      applications: 5,
-    },
-    {
-      id: "10",
-      title: "System Administrator",
-      country: "Spain",
-      location: "Barcelona",
-      workModel: "In-Person",
-      postedDate: "2024-01-06",
-      applications: 9,
-    },
-    {
-      id: "11",
-      title: "UI/UX Designer",
-      country: "United States",
-      location: "San Francisco, CA",
-      workModel: "Remote",
-      postedDate: "2024-01-05",
-      applications: 22,
-    },
-    {
-      id: "12",
-      title: "Full Stack Developer",
-      country: "Germany",
-      location: "Munich",
-      workModel: "Hybrid",
-      postedDate: "2024-01-04",
-      applications: 16,
     },
   ]
 
-  const filteredJobs = mockJobs
-    .filter((job) => selectedCountry === "All" || job.country === selectedCountry)
-    .filter((job) => selectedWorkModel === "All" || job.workModel === selectedWorkModel)
+  const filteredJobs = opportunities
+    .filter((job) => selectedCountry === "All" || job.location.country === selectedCountry)
+    .filter((job) => selectedWorkModel === "All" || job.workplaceType === selectedWorkModel)
     .filter(
       (job) =>
         searchText === "" ||
         job.title.toLowerCase().includes(searchText.toLowerCase()) ||
-        job.location.toLowerCase().includes(searchText.toLowerCase()),
+        job.location.city.toLowerCase().includes(searchText.toLowerCase()) ||
+        job.location.country.toLowerCase().includes(searchText.toLowerCase()),
     )
     .sort((a, b) => {
       switch (sortBy) {
         case "recent":
-          return new Date(b.postedDate).getTime() - new Date(a.postedDate).getTime()
+          return new Date(b.postedAt).getTime() - new Date(a.postedAt).getTime()
         case "applications":
           return a.applications - b.applications
         case "workModel":
-          return a.workModel.localeCompare(b.workModel)
+          return a.workplaceType.localeCompare(b.workplaceType)
         default:
           return 0
       }
@@ -359,28 +387,28 @@ export default function opportunitiesPage() {
                       <div className="flex items-center text-gray-600 mb-2">
                         <MapPin className="w-4 h-4 mr-1" />
                         <span className="text-sm">
-                          {job.country}, {job.location}
+                          {job.location.country}, {job.location.city}
                         </span>
                       </div>
 
                       <div className="flex items-center justify-between mb-4">
                         <span
                           className={`px-3 py-1 rounded-full text-xs font-medium ${
-                            job.workModel === "Remote"
+                            job.workplaceType === "Remote"
                               ? "bg-green-100 text-green-800"
-                              : job.workModel === "Hybrid"
+                              : job.workplaceType === "Hybrid"
                                 ? "bg-blue-100 text-blue-800"
                                 : "bg-purple-100 text-purple-800"
                           }`}
                         >
-                          {job.workModel}
+                          {job.workplaceType}
                         </span>
                       </div>
 
                       <div className="flex items-center justify-between text-sm text-gray-500 mb-4">
                         <div className="flex items-center">
                           <Calendar className="w-4 h-4 mr-1" />
-                          <span>Posted {formatDate(job.postedDate)}</span>
+                          <span>Posted {formatDate(job.postedAt)}</span>
                         </div>
                         <div className="flex items-center">
                           <Users className="w-4 h-4 mr-1" />
