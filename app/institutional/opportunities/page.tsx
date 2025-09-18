@@ -7,7 +7,7 @@ import { useRouter } from "next/navigation"
 import { Button } from "@/components/ui/button"
 import { ScrollIndicator } from "@/components/scroll-indicator"
 import { useTranslation } from "@/components/translation-context"
-import { Search, Grid3X3, List, MapPin, Calendar, Users, Eye } from "lucide-react"
+import { Search, Grid3X3, List, MapPin, Calendar, Users, Eye, ChevronLeft, ChevronRight } from "lucide-react"
 import { motion } from "framer-motion"
 
 export default function opportunitiesPage() {
@@ -15,10 +15,12 @@ export default function opportunitiesPage() {
   const router = useRouter()
 
   const [selectedCountry, setSelectedCountry] = useState("All")
-  const [selectedLocation, setSelectedLocation] = useState("All")
   const [selectedWorkModel, setSelectedWorkModel] = useState("All")
+  const [searchText, setSearchText] = useState("")
   const [viewMode, setViewMode] = useState<"grid" | "list">("grid")
   const [sortBy, setSortBy] = useState("recent")
+  const [currentPage, setCurrentPage] = useState(1)
+  const itemsPerPage = 10
 
   useEffect(() => {
     window.scrollTo(0, 0)
@@ -61,12 +63,89 @@ export default function opportunitiesPage() {
       postedDate: "2024-01-08",
       applications: 6,
     },
+    {
+      id: "5",
+      title: "Backend Developer",
+      country: "Germany",
+      location: "Berlin",
+      workModel: "Remote",
+      postedDate: "2024-01-14",
+      applications: 10,
+    },
+    {
+      id: "6",
+      title: "Product Manager",
+      country: "France",
+      location: "Paris",
+      workModel: "Hybrid",
+      postedDate: "2024-01-13",
+      applications: 18,
+    },
+    {
+      id: "7",
+      title: "Data Scientist",
+      country: "Italy",
+      location: "Milan",
+      workModel: "In-Person",
+      postedDate: "2024-01-11",
+      applications: 7,
+    },
+    {
+      id: "8",
+      title: "Mobile Developer",
+      country: "Brazil",
+      location: "Rio de Janeiro, RJ",
+      workModel: "Remote",
+      postedDate: "2024-01-09",
+      applications: 14,
+    },
+    {
+      id: "9",
+      title: "QA Engineer",
+      country: "Portugal",
+      location: "Porto",
+      workModel: "Hybrid",
+      postedDate: "2024-01-07",
+      applications: 5,
+    },
+    {
+      id: "10",
+      title: "System Administrator",
+      country: "Spain",
+      location: "Barcelona",
+      workModel: "In-Person",
+      postedDate: "2024-01-06",
+      applications: 9,
+    },
+    {
+      id: "11",
+      title: "UI/UX Designer",
+      country: "United States",
+      location: "San Francisco, CA",
+      workModel: "Remote",
+      postedDate: "2024-01-05",
+      applications: 22,
+    },
+    {
+      id: "12",
+      title: "Full Stack Developer",
+      country: "Germany",
+      location: "Munich",
+      workModel: "Hybrid",
+      postedDate: "2024-01-04",
+      applications: 16,
+    },
   ]
 
   const filteredJobs = mockJobs
     .filter((job) => selectedCountry === "All" || job.country === selectedCountry)
-    .filter((job) => selectedLocation === "All" || job.location.includes(selectedLocation))
     .filter((job) => selectedWorkModel === "All" || job.workModel === selectedWorkModel)
+    .filter(
+      (job) =>
+        searchText === "" ||
+        job.title.toLowerCase().includes(searchText.toLowerCase()) ||
+        job.location.toLowerCase().includes(searchText.toLowerCase()),
+    )
     .sort((a, b) => {
       switch (sortBy) {
         case "recent":
@@ -80,52 +159,18 @@ export default function opportunitiesPage() {
       }
     })
 
+  const totalPages = Math.ceil(filteredJobs.length / itemsPerPage)
+  const startIndex = (currentPage - 1) * itemsPerPage
+  const paginatedJobs = filteredJobs.slice(startIndex, startIndex + itemsPerPage)
+
+  useEffect(() => {
+    setCurrentPage(1)
+  }, [selectedCountry, selectedWorkModel, searchText, sortBy])
+
   const formatDate = (dateString: string) => {
     const date = new Date(dateString)
     return date.toLocaleDateString()
   }
-
-  const opportunities = [
-    {
-      id: t("opportunities.softwareEngineer.id"),
-      type: t("opportunities.softwareEngineer.type"),
-      title: t("opportunities.softwareEngineer.title"),
-      summary: t("opportunities.softwareEngineer.summary"),
-      description: t("opportunities.softwareEngineer.description"),
-      employmentType: t("opportunities.softwareEngineer.employmentType"),
-      seniorityLevel: t("opportunities.softwareEngineer.seniorityLevel"),
-      workplaceType: t("opportunities.softwareEngineer.workplaceType"),
-      companyLogo: "", // Placeholder for company logo
-      location: {
-        city: t("opportunities.location.softwareEngineer.city"),
-        state: t("opportunities.location.softwareEngineer.state"),
-        country: t("opportunities.location.softwareEngineer.country"),
-        remote: t("opportunities.location.softwareEngineer.remote"),
-      },
-      requirements: [
-        t("opportunities.softwareEngineer.requirements.0"),
-        t("opportunities.softwareEngineer.requirements.1"),
-      ],
-      responsibilities: [
-        t("opportunities.softwareEngineer.responsibilities.0"),
-        t("opportunities.softwareEngineer.responsibilities.1"),
-      ],
-      skills: [t("opportunities.softwareEngineer.skills.0"), t("opportunities.softwareEngineer.skills.1")],
-      languages: [t("opportunities.softwareEngineer.languages.0"), t("opportunities.softwareEngineer.languages.1")],
-      benefits: [t("opportunities.softwareEngineer.benefits.0"), t("opportunities.softwareEngineer.benefits.1")],
-      cultureFit: [t("opportunities.softwareEngineer.cultureFit.0"), t("opportunities.softwareEngineer.cultureFit.1")],
-      postedAt: t("opportunities.softwareEngineer.postedAt"),
-      validUntil: t("opportunities.softwareEngineer.validUntil"),
-    },
-  ]
-
-  const technologies = [
-    { description: t("opportunities.technology.modernStack") },
-    { description: t("opportunities.technology.collaboration") },
-    { description: t("opportunities.technology.learning") },
-    { description: t("opportunities.technology.innovation") },
-    { description: t("opportunities.technology.flexibility") },
-  ]
 
   interface CardProps {
     service: {
@@ -195,8 +240,8 @@ export default function opportunitiesPage() {
       <section className="py-16 bg-gray-50">
         <div className="container mx-auto px-4">
           {/* Search Filters */}
-          <div className="bg-white rounded-lg shadow-md p-6 mb-8">
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-6">
+          <div className="bg-white rounded-lg shadow-md p-6 mb-8 w-4/5 mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
               {/* Country Filter */}
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">Country</label>
@@ -216,18 +261,6 @@ export default function opportunitiesPage() {
                 </select>
               </div>
 
-              {/* Location Filter */}
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">Location</label>
-                <input
-                  type="text"
-                  placeholder="All locations"
-                  value={selectedLocation}
-                  onChange={(e) => setSelectedLocation(e.target.value)}
-                  className="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-orange-500 focus:border-transparent"
-                />
-              </div>
-
               {/* Work Model Filter */}
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">Work Model</label>
@@ -243,26 +276,48 @@ export default function opportunitiesPage() {
                 </select>
               </div>
 
-              {/* Sort By */}
+              {/* Text Search */}
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">Sort By</label>
-                <select
-                  value={sortBy}
-                  onChange={(e) => setSortBy(e.target.value)}
+                <label className="block text-sm font-medium text-gray-700 mb-2">Search</label>
+                <input
+                  type="text"
+                  placeholder="Search jobs or locations..."
+                  value={searchText}
+                  onChange={(e) => setSearchText(e.target.value)}
                   className="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-orange-500 focus:border-transparent"
-                >
-                  <option value="recent">Most Recent</option>
-                  <option value="applications">Least Applications</option>
-                  <option value="workModel">Work Model</option>
-                </select>
+                />
               </div>
             </div>
+          </div>
 
-            {/* View Toggle */}
-            <div className="flex items-center justify-between">
-              <div className="text-sm text-gray-600">
-                {filteredJobs.length} job{filteredJobs.length !== 1 ? "s" : ""} found
+          {/* Job Results */}
+          <div className="bg-white rounded-lg shadow-md p-6 mb-8">
+            <div className="flex items-center justify-between mb-6">
+              <div className="flex items-center space-x-4">
+                <div className="text-sm text-gray-600">
+                  {filteredJobs.length} job{filteredJobs.length !== 1 ? "s" : ""} found
+                  {filteredJobs.length > itemsPerPage && (
+                    <span className="ml-2">
+                      (Showing {startIndex + 1}-{Math.min(startIndex + itemsPerPage, filteredJobs.length)})
+                    </span>
+                  )}
+                </div>
+
+                {/* Sort By */}
+                <div>
+                  <select
+                    value={sortBy}
+                    onChange={(e) => setSortBy(e.target.value)}
+                    className="p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-orange-500 focus:border-transparent text-sm"
+                  >
+                    <option value="recent">Most Recent</option>
+                    <option value="applications">Least Applications</option>
+                    <option value="workModel">Work Model</option>
+                  </select>
+                </div>
               </div>
+
+              {/* View Toggle */}
               <div className="flex items-center space-x-2">
                 <button
                   onClick={() => setViewMode("grid")}
@@ -282,74 +337,115 @@ export default function opportunitiesPage() {
                 </button>
               </div>
             </div>
-          </div>
 
-          {/* Job Results */}
-          <div
-            className={`grid gap-6 ${
-              viewMode === "grid" ? "grid-cols-1 md:grid-cols-2 lg:grid-cols-3" : "grid-cols-1"
-            }`}
-          >
-            {filteredJobs.map((job, index) => (
-              <motion.div
-                key={job.id}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.3, delay: index * 0.1 }}
-                className="bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 p-6"
-              >
-                <div className="flex flex-col h-full">
-                  <div className="flex-grow">
-                    <h3 className="text-xl font-semibold text-gray-900 mb-2">{job.title}</h3>
+            {/* Job Results */}
+            <div
+              className={`grid gap-6 mb-6 ${
+                viewMode === "grid" ? "grid-cols-1 md:grid-cols-2 lg:grid-cols-3" : "grid-cols-1"
+              }`}
+            >
+              {paginatedJobs.map((job, index) => (
+                <motion.div
+                  key={job.id}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.3, delay: index * 0.1 }}
+                  className="bg-gray-50 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300 p-6"
+                >
+                  <div className="flex flex-col h-full">
+                    <div className="flex-grow">
+                      <h3 className="text-xl font-semibold text-gray-900 mb-2">{job.title}</h3>
 
-                    <div className="flex items-center text-gray-600 mb-2">
-                      <MapPin className="w-4 h-4 mr-1" />
-                      <span className="text-sm">
-                        {job.country}, {job.location}
-                      </span>
-                    </div>
-
-                    <div className="flex items-center justify-between mb-4">
-                      <span
-                        className={`px-3 py-1 rounded-full text-xs font-medium ${
-                          job.workModel === "Remote"
-                            ? "bg-green-100 text-green-800"
-                            : job.workModel === "Hybrid"
-                              ? "bg-blue-100 text-blue-800"
-                              : "bg-purple-100 text-purple-800"
-                        }`}
-                      >
-                        {job.workModel}
-                      </span>
-                    </div>
-
-                    <div className="flex items-center justify-between text-sm text-gray-500 mb-4">
-                      <div className="flex items-center">
-                        <Calendar className="w-4 h-4 mr-1" />
-                        <span>Posted {formatDate(job.postedDate)}</span>
+                      <div className="flex items-center text-gray-600 mb-2">
+                        <MapPin className="w-4 h-4 mr-1" />
+                        <span className="text-sm">
+                          {job.country}, {job.location}
+                        </span>
                       </div>
-                      <div className="flex items-center">
-                        <Users className="w-4 h-4 mr-1" />
-                        <span>{job.applications} applications</span>
+
+                      <div className="flex items-center justify-between mb-4">
+                        <span
+                          className={`px-3 py-1 rounded-full text-xs font-medium ${
+                            job.workModel === "Remote"
+                              ? "bg-green-100 text-green-800"
+                              : job.workModel === "Hybrid"
+                                ? "bg-blue-100 text-blue-800"
+                                : "bg-purple-100 text-purple-800"
+                          }`}
+                        >
+                          {job.workModel}
+                        </span>
+                      </div>
+
+                      <div className="flex items-center justify-between text-sm text-gray-500 mb-4">
+                        <div className="flex items-center">
+                          <Calendar className="w-4 h-4 mr-1" />
+                          <span>Posted {formatDate(job.postedDate)}</span>
+                        </div>
+                        <div className="flex items-center">
+                          <Users className="w-4 h-4 mr-1" />
+                          <span>{job.applications} applications</span>
+                        </div>
                       </div>
                     </div>
+
+                    <Button className="w-full bg-orange-500 hover:bg-orange-600 text-white">
+                      <Eye className="w-4 h-4 mr-2" />
+                      View Details
+                    </Button>
                   </div>
-
-                  <Button className="w-full bg-orange-500 hover:bg-orange-600 text-white">
-                    <Eye className="w-4 h-4 mr-2" />
-                    View Details
-                  </Button>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-
-          {filteredJobs.length === 0 && (
-            <div className="text-center py-12">
-              <div className="text-gray-500 text-lg mb-2">No jobs found</div>
-              <div className="text-gray-400">Try adjusting your search filters</div>
+                </motion.div>
+              ))}
             </div>
-          )}
+
+            {/* Pagination Controls */}
+            {totalPages > 1 && (
+              <div className="flex items-center justify-center space-x-2">
+                <Button
+                  variant="outline"
+                  size="sm"
+                  onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
+                  disabled={currentPage === 1}
+                  className="flex items-center"
+                >
+                  <ChevronLeft className="w-4 h-4 mr-1" />
+                  Previous
+                </Button>
+
+                <div className="flex items-center space-x-1">
+                  {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
+                    <Button
+                      key={page}
+                      variant={currentPage === page ? "default" : "outline"}
+                      size="sm"
+                      onClick={() => setCurrentPage(page)}
+                      className={currentPage === page ? "bg-orange-500 hover:bg-orange-600" : ""}
+                    >
+                      {page}
+                    </Button>
+                  ))}
+                </div>
+
+                <Button
+                  variant="outline"
+                  size="sm"
+                  onClick={() => setCurrentPage((prev) => Math.min(prev + 1, totalPages))}
+                  disabled={currentPage === totalPages}
+                  className="flex items-center"
+                >
+                  Next
+                  <ChevronRight className="w-4 h-4 ml-1" />
+                </Button>
+              </div>
+            )}
+
+            {filteredJobs.length === 0 && (
+              <div className="text-center py-12">
+                <div className="text-gray-500 text-lg mb-2">No jobs found</div>
+                <div className="text-gray-400">Try adjusting your search filters</div>
+              </div>
+            )}
+          </div>
         </div>
       </section>
     </section>
