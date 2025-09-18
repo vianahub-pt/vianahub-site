@@ -27,13 +27,13 @@ export function InstitutionalDropdown() {
       key: "nav.institutional.aboutUs.title",
       path: "/institutional/about",
       icon: Info,
-      color: "#F59E0B",
+      color: "#FFFFFF",
     },
     {
       key: "nav.institutional.opportunities.title",
       path: "/institutional/careers",
       icon: User2Icon,
-      color: "#FFF",
+      color: "#FFFFFF",
     },
   ];
 

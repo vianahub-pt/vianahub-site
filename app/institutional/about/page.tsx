@@ -161,11 +161,11 @@ export default function AboutPageContent() {
       >
         <div className="absolute inset-0 z-0" />
         <div className="container mx-auto px-4 relative z-10 h-full flex items-center justify-center">
-          <div className="max-w-4xl mx-auto text-center bg-black/50 backdrop-blur-sm rounded-lg p-6">
+          <div className="max-w-5xl mx-auto text-center bg-black/50 backdrop-blur-sm rounded-lg p-6">
             <h1 className="text-orange-400 text-orange-400 text-4xl lg:text-6xl font-bold mb-6 flex items-center justify-center">
               <Info
                 className=" w-12 h-12 lg:w-16 lg:h-16"
-                style={{ color: "#F59E0B" }}
+                style={{ color: "#FFFFFF" }}
               />
               &nbsp;{t("about.hero.title")}
             </h1>

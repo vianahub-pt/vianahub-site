@@ -30,7 +30,7 @@ export function EngineeringDropdown() {
       key: "nav.engineering.education.title",
       path: "/engineering/education",
       icon: GraduationCap,
-      color: "#3B82F6",
+      color: "#FFFFFF",
     },
     {
       key: "nav.engineering.government.title",
@@ -42,31 +42,31 @@ export function EngineeringDropdown() {
       key: "nav.engineering.manufacturing.title",
       path: "/engineering/manufacturing",
       icon: Factory,
-      color: "#9CA3AF",
+      color: "#FFFFFF",
     },
     {
       key: "nav.engineering.financial.title",
       path: "/engineering/financial",
       icon: DollarSign,
-      color: "#22C55E",
+      color: "#FFFFFF",
     },
     {
       key: "nav.engineering.retail.title",
       path: "/engineering/retail",
       icon: ShoppingCart,
-      color: "#E11D48",
+      color: "#FFFFFF",
     },
     {
       key: "nav.engineering.healthcare.title",
       path: "/engineering/healthcare",
       icon: Heart,
-      color: "#EC4899",
+      color: "#FFFFFF",
     },
     {
       key: "nav.engineering.cybersecurity.title",
       path: "/engineering/cybersecurity",
       icon: Shield,
-      color: "#f7f308ff",
+      color: "#FFFFFF",
     },
   ];
 

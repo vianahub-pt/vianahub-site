@@ -57,7 +57,7 @@ export function HeroSection() {
 
       {/* Conteúdo - ajustado para começar do topo */}
       <div className="relative z-10 container mx-auto px-4 py-20 pt-24 lg:pt-28">
-        <div className="max-w-4xl mx-auto text-center">
+        <div className="max-w-5xl mx-auto text-center">
           <div className="space-y-8">
             <div className="space-y-6 bg-black/50 backdrop-blur-sm rounded-lg p-6 shadow-xl">
               <p className="font-kurale text-4xl lg:text-7xl font-bold text-viana-white leading-tight drop-shadow-2xl">
