@@ -1,10 +1,17 @@
 "use client";
 
+<<<<<<< HEAD
 import type React from "react";
 
 import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
 import { Toaster } from "@/components/ui/toaster";
+=======
+import type React from "react"
+import { Navbar } from "@/components/navbar"
+import { Footer } from "@/components/footer"
+import { Toaster } from "@/components/ui/toaster"
+>>>>>>> 0ba0a437a9386b2c8649f9370e1f8ea46d4dbcbd
 
 export default function ClientLayout({
   children,
@@ -18,5 +25,9 @@ export default function ClientLayout({
       <Footer />
       <Toaster />
     </div>
+<<<<<<< HEAD
   );
+=======
+  )
+>>>>>>> 0ba0a437a9386b2c8649f9370e1f8ea46d4dbcbd
 }

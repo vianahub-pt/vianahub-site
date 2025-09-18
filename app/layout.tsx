@@ -1,19 +1,18 @@
-import type React from "react";
-import type { Metadata } from "next";
-import { Inter } from "next/font/google";
-import "./globals.css";
-import ClientLayout from "./client-layout";
-import Providers from "./providers";
-import { TranslationProvider } from "../components/translation-context";
+import type React from "react"
+import type { Metadata } from "next"
+import { Inter } from "next/font/google"
+import "./globals.css"
+import ClientLayout from "./client-layout"
+import Providers from "./providers"
+import { TranslationProvider } from "@/components/translation-context"
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
   title: "VianaHub - Soluções Tecnológicas Inovadoras",
   description:
     "Transformamos ideias em soluções digitais inovadoras. Desenvolvimento de software, consultoria tecnológica e soluções personalizadas para o seu negócio.",
-  keywords:
-    "desenvolvimento de software, consultoria tecnológica, soluções digitais, inovação, tecnologia",
+  keywords: "desenvolvimento de software, consultoria tecnológica, soluções digitais, inovação, tecnologia",
   authors: [{ name: "VianaHub" }],
   creator: "VianaHub",
   publisher: "VianaHub",
@@ -69,22 +68,22 @@ export const metadata: Metadata = {
     },
   },
   generator: "v0.app",
-};
+}
 
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode;
+  children: React.ReactNode
 }) {
   return (
     <html lang="pt" suppressHydrationWarning>
       <body className={inter.className}>
-        <Providers>
-          <TranslationProvider>
+        <TranslationProvider>
+          <Providers>
             <ClientLayout>{children}</ClientLayout>
-          </TranslationProvider>
-        </Providers>
+          </Providers>
+        </TranslationProvider>
       </body>
     </html>
-  );
+  )
 }
