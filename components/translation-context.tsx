@@ -1,20 +1,7 @@
 "use client"
 
-<<<<<<< HEAD
-import type React from "react";
-import { createContext, useContext, useState } from "react";
-
-import ptBRTranslations from "@/public/locales/pt-BR/common.json";
-import ptPTTranslations from "@/public/locales/pt-PT/common.json";
-import enUSTranslations from "@/public/locales/en-US/common.json";
-import esESTranslations from "@/public/locales/es-ES/common.json";
-import frFRTranslations from "@/public/locales/fr-FR/common.json";
-import deDETranslations from "@/public/locales/de-DE/common.json";
-import itITTranslations from "@/public/locales/it-IT/common.json";
-=======
 import type React from "react"
-import { createContext, useContext, useState } from "react"
->>>>>>> 0ba0a437a9386b2c8649f9370e1f8ea46d4dbcbd
+import { createContext, useContext, useState, useEffect } from "react"
 
 import ptBRTranslations from "@/public/locales/pt-BR/common.json"
 import ptPTTranslations from "@/public/locales/pt-PT/common.json"
@@ -42,16 +29,6 @@ const translations: Record<Language, Record<string, string>> = {
   "it-IT": itITTranslations,
 }
 
-const translations: Record<Language, Record<string, string>> = {
-  "pt-BR": ptBRTranslations,
-  "pt-PT": ptPTTranslations,
-  "en-US": enUSTranslations,
-  "es-ES": esESTranslations,
-  "fr-FR": frFRTranslations,
-  "de-DE": deDETranslations,
-  "it-IT": itITTranslations,
-};
-
 const TranslationContext = createContext<TranslationContextProps>({
   language: "pt-PT",
   setLanguage: () => {},
@@ -63,14 +40,18 @@ export const TranslationProvider = ({
 }: {
   children: React.ReactNode
 }) => {
-<<<<<<< HEAD
-  const [language, setLanguage] = useState<Language>("pt-PT");
-
-  const t = (key: string) => {
-    return translations[language]?.[key] || key;
-  };
-=======
   const [language, setLanguage] = useState<Language>("pt-PT")
+
+  useEffect(() => {
+    const savedLanguage = localStorage.getItem("language") as Language
+    if (savedLanguage && translations[savedLanguage]) {
+      setLanguage(savedLanguage)
+    }
+  }, []) // No dependencies to run only on mount
+
+  useEffect(() => {
+    localStorage.setItem("language", language)
+  }, [language])
 
   const t = (key: string) => {
     return translations[language]?.[key] || key
@@ -78,6 +59,5 @@ export const TranslationProvider = ({
 
   return <TranslationContext.Provider value={{ language, setLanguage, t }}>{children}</TranslationContext.Provider>
 }
->>>>>>> 0ba0a437a9386b2c8649f9370e1f8ea46d4dbcbd
 
 export const useTranslation = () => useContext(TranslationContext)
