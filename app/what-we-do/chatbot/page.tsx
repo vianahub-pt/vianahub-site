@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
+import { useRouter } from "next/navigation";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import {
@@ -19,6 +20,7 @@ import { motion } from "framer-motion";
 
 export default function ChatbotPage() {
   const { t } = useTranslation();
+  const router = useRouter();
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -412,6 +414,7 @@ export default function ChatbotPage() {
           <Button
             size="lg"
             className="bg-orange-400 hover:bg-orange-500 text-white font-semibold px-8 py-3"
+            onClick={() => router.push("/contact")}
           >
             {t("chatbot.cta.button")}
           </Button>

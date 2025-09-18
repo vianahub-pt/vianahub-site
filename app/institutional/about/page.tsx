@@ -1,7 +1,8 @@
 "use client";
 
-import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
+import { useRouter } from "next/navigation";
+import Image from "next/image";
 import { Card, CardContent } from "@/components/ui/card";
 import { useTranslation } from "@/components/translation-context";
 import { ScrollIndicator } from "@/components/scroll-indicator";
@@ -11,6 +12,7 @@ import { CheckCircle, Users, Target, Eye, Info } from "lucide-react";
 
 export default function AboutPageContent() {
   const { t } = useTranslation();
+  const router = useRouter();
   const videoRef = useRef<HTMLVideoElement>(null);
   const [videoError, setVideoError] = useState(false);
 
@@ -304,6 +306,7 @@ export default function AboutPageContent() {
           <Button
             size="lg"
             className="bg-orange-400 hover:bg-orange-500 text-white font-semibold px-8 py-3"
+            onClick={() => router.push("/contact")}
           >
             {t("about.cta.button")}
           </Button>
