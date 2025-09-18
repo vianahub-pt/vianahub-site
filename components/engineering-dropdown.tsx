@@ -28,43 +28,43 @@ export function EngineeringDropdown() {
   const menuItems = [
     {
       key: "nav.engineering.education.title",
-      path: "/industry/education",
+      path: "/engineering/education",
       icon: GraduationCap,
       color: "#3B82F6",
     },
     {
       key: "nav.engineering.government.title",
-      path: "/industry/government",
+      path: "/engineering/government",
       icon: Landmark,
       color: "#FFFFFF",
     },
     {
       key: "nav.engineering.manufacturing.title",
-      path: "/industry/manufacturing",
+      path: "/engineering/manufacturing",
       icon: Factory,
       color: "#9CA3AF",
     },
     {
       key: "nav.engineering.financial.title",
-      path: "/industry/financial",
+      path: "/engineering/financial",
       icon: DollarSign,
       color: "#22C55E",
     },
     {
       key: "nav.engineering.retail.title",
-      path: "/industry/retail",
+      path: "/engineering/retail",
       icon: ShoppingCart,
       color: "#E11D48",
     },
     {
       key: "nav.engineering.healthcare.title",
-      path: "/industry/healthcare",
+      path: "/engineering/healthcare",
       icon: Heart,
       color: "#EC4899",
     },
     {
       key: "nav.engineering.cybersecurity.title",
-      path: "/industry/cybersecurity",
+      path: "/engineering/cybersecurity",
       icon: Shield,
       color: "#f7f308ff",
     },
@@ -86,7 +86,7 @@ export function EngineeringDropdown() {
       </button>
 
       {isOpen && (
-        <div className="absolute top-full left-0 bg-black/80 backdrop-blur-md rounded-md shadow-lg py-2 min-w-[200px] z-50">
+        <div className="absolute top-full left-0 w-56 bg-black/80 backdrop-blur-md rounded-md shadow-lg border border-gray-600 z-50">
           {menuItems.map((item) => {
             const IconComponent = item.icon;
             return (

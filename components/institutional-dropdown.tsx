@@ -2,7 +2,13 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { ChevronDown, Info, Briefcase } from "lucide-react";
+import {
+  ChevronDown,
+  Info,
+  Briefcase,
+  UserCircle,
+  User2Icon,
+} from "lucide-react";
 import { useTranslation } from "@/components/translation-context";
 import { color } from "framer-motion";
 
@@ -19,15 +25,15 @@ export function InstitutionalDropdown() {
   const menuItems = [
     {
       key: "nav.institutional.aboutUs.title",
-      path: "/about",
+      path: "/institutional/about",
       icon: Info,
       color: "#F59E0B",
     },
     {
       key: "nav.institutional.opportunities.title",
-      path: "/careers",
-      icon: Briefcase,
-      color: "#14B8A6",
+      path: "/institutional/careers",
+      icon: User2Icon,
+      color: "#FFF",
     },
   ];
 
@@ -47,7 +53,7 @@ export function InstitutionalDropdown() {
       </button>
 
       {isOpen && (
-        <div className="absolute top-full left-0 bg-black/80 backdrop-blur-md rounded-md shadow-lg py-2 min-w-[200px] z-50">
+        <div className="absolute top-full left-0 w-56 bg-black/80 backdrop-blur-md rounded-md shadow-lg border border-gray-600 z-50">
           {menuItems.map((item) => {
             const IconComponent = item.icon;
             return (

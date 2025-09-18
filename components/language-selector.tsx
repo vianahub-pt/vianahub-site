@@ -53,7 +53,7 @@ export function LanguageSelector() {
       </button>
 
       {isOpen && (
-        <div className="absolute top-full right-0 bg-black/80 backdrop-blur-md rounded-md shadow-lg py-2 min-w-[160px] z-50">
+        <div className="absolute top-full left-0 w-56 bg-black/80 backdrop-blur-md rounded-md shadow-lg border border-gray-600 z-50">
           {languages.map((lang) => (
             <button
               key={lang.code}
