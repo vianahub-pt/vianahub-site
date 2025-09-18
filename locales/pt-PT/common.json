@@ -2,7 +2,6 @@
   "nav.whatWeDo.title": "O que Fazemos",
   "nav.engineering.title": "Engenharia",
   "nav.security.title": "Segurança",
-  "nav.institutional.title": "Institucional",
   "nav.contact.title": "Contacto",
   "nav.whatWeDo.development.title": "Desenvolvimento",
   "nav.whatWeDo.agile.title": "Metodologia Ágil",
@@ -20,8 +19,9 @@
   "nav.engineering.retail.title": "Retalho",
   "nav.engineering.healthcare.title": "Saúde",
   "nav.engineering.cybersecurity.title": "Cibersegurança",
+  "nav.institutional.title": "Institucional",
   "nav.institutional.aboutUs.title": "Sobre Nós",
-  "nav.institutional.opportunities.title": "Oportunidades",
+  "nav.institutional.opportunities.title": "Carreira",
 
   "footer.companyName": "VianaHub",
   "footer.description": "Desenvolvemos tecnologias inovadoras que impulsionam o crescimento do seu negócio.",
