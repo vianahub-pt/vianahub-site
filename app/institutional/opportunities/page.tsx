@@ -140,24 +140,6 @@ export default function opportunitiesPage() {
         <ScrollIndicator />
       </section>
 
-      {/* Opportunities Section */}
-      <section className="py-20 bg-white">
-        <div className="container mx-auto px-4">
-          {/* Título e Subtítulo */}
-          <div className="text-center mb-12">
-            <h2 className="block text-orange-400 text-3xl md:text-4xl font-bold mb-4">
-              {t("opportunities.title")}
-            </h2>
-            <p className="text-lg text-gray-900 max-w-2xl mx-auto">
-              {t("opportunities.subtitle")}
-            </p>
-          </div>
-
-          {/* Grid de Oportunidades */}
-          <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8"></div>
-        </div>
-      </section>
-
       {/* Parallax Section */}
       <section
         className="relative h-[500px] overflow-hidden"
@@ -172,88 +154,6 @@ export default function opportunitiesPage() {
         <div className="absolute inset-0 bg-gradient-to-b from-black/5 to-black/10" />
       </section>
 
-      {/* Testimonials Section */}
-      <section className="py-20 px-4 bg-orange-200">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="!text-orange-400 text-3xl md:text-4xl font-bold mb-4">
-              {t("opportunities.testimonials.title")}
-            </h2>
-            <p className="text-xl text-gray-900">
-              {t("opportunities.testimonials.subtitle")}
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8"></div>
-        </div>
-      </section>
-
-      {/* Technology Section */}
-      <section className="py-20 px-4 bg-white">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <h2 className="text-orange-400 text-3xl md:text-4xl font-bold mb-6">
-                {t("opportunities.technology.title")}
-              </h2>
-              <p className="text-lg text-gray-900 max-w-2xl mx-auto">
-                {t("opportunities.technology.subtitle")}
-              </p>
-              <br />
-              <div className="space-y-4">
-                {technologies.map((feature, index) => (
-                  <div
-                    key={index}
-                    className="text-orange-400 flex items-center gap-3"
-                  >
-                    <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0" />
-                    <span>{feature.description}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-            <div className="relative">
-              <motion.div
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 2, y: 0 }}
-                transition={{ duration: 3.5, ease: "easeOut" }}
-                viewport={{ once: false, amount: 0.5 }}
-              >
-                <div className="w-[400px] flex-shrink-0">
-                  <div className="aspect-square relative">
-                    <Image
-                      src="/pages/technology-opportunities.png"
-                      alt="opportunities Technology"
-                      fill
-                      className="rounded-lg shadow-2xl object-cover"
-                    />
-                  </div>
-                </div>
-              </motion.div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="py-20 bg-white/90">
-        <div className="text-center mb-16">
-          <h2 className="text-orange-400 text-3xl md:text-4xl font-bold mb-6">
-            {t("opportunities.cta.title")}
-          </h2>
-          <p className="text-lg text-gray-900 max-w-2xl mx-auto">
-            {t("opportunities.cta.subtitle")}
-          </p>
-          <div className="my-8"></div>
-          <Button
-            size="lg"
-            className="bg-orange-400 hover:bg-orange-500 text-white font-semibold px-8 py-3"
-            onClick={() => router.push("/contact")}
-          >
-            {t("opportunities.cta.button")}
-          </Button>
-        </div>
-      </section>
     </section>
   );
 }
