@@ -78,11 +78,11 @@ export default function RootLayout({
   return (
     <html lang="pt" suppressHydrationWarning>
       <body className={inter.className}>
-        <Providers>
-          <TranslationProvider>
+        <TranslationProvider>
+          <Providers>
             <ClientLayout>{children}</ClientLayout>
-          </TranslationProvider>
-        </Providers>
+          </Providers>
+        </TranslationProvider>
       </body>
     </html>
   )
