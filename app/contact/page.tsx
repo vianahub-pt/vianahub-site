@@ -1,45 +1,122 @@
 "use client";
 
-import { useEffect } from "react";
-import { useTranslation } from "@/components/translation-context";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
-import {
-  MapPin,
-  Phone,
-  Mail,
-  Clock,
-  Link,
-  MessageSquare,
-  MessageSquareCode,
-  MessagesSquare,
-  Send,
-  SendHorizonal,
-} from "lucide-react";
-import Image from "next/image";
+import { MapPin, Phone, Mail, SendHorizonal, CheckCircle } from "lucide-react";
 import { ScrollIndicator } from "@/components/scroll-indicator";
+import { useDropzone } from "react-dropzone";
+import { useTranslation } from "@/components/translation-context";
+import { motion } from "framer-motion";
+
+// Componente de upload customizado
+function FileUpload({ onFileSelect }: { onFileSelect: (file: File) => void }) {
+  const { getRootProps, getInputProps, acceptedFiles } = useDropzone({
+    multiple: false,
+    onDrop: (files) => {
+      if (files.length > 0) {
+        onFileSelect(files[0]);
+      }
+    },
+  });
+
+  const { t } = useTranslation(); // ✅ Adiciona isso aqui
+
+  return (
+    <div
+      {...getRootProps()}
+      className="border border-dashed border-gray-400 p-4 rounded cursor-pointer text-center bg-white hover:bg-gray-50 transition"
+    >
+      <input {...getInputProps()} />
+      <p className="text-sm text-gray-600">
+        {acceptedFiles.length > 0
+          ? `${t("contact.form.label.acceptedFiles.true")} ${
+              acceptedFiles[0].name
+            }`
+          : t("contact.form.label.acceptedFiles.false")}
+      </p>
+    </div>
+  );
+}
 
 export default function ContactPage() {
-  const { t, language } = useTranslation();
+  const { t } = useTranslation();
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [selectedFile, setSelectedFile] = useState<File | null>(null);
+  const [showSuccessAlert, setShowSuccessAlert] = useState(false);
+  const [showInsuccessAlert, setShowInsuccessAlert] = useState(false);
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const technologies = [
+    { description: t("education.technology.web-sites") },
+    { description: t("education.technology.apps") },
+    { description: t("education.technology.outsourcing") },
+    { description: t("education.technology.uiux") },
+    { description: t("education.technology.crm") },
+  ];
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 2000));
+    const form = e.currentTarget;
+    const formData = new FormData(form);
 
-    setIsSubmitting(false);
-    // Here you would typically send the form data to an external API
+    const payload = new FormData();
+    payload.append("from", "vianahub@vianahub.pt");
+    payload.append("to", "vianahub@vianahub.pt");
+    payload.append("subject", formData.get("subject") as string);
+    payload.append("body", formData.get("message") as string);
+    payload.append("templateCode", "VianahubPtContact");
+
+    payload.append("metadata[0].Name", formData.get("name") as string);
+    payload.append("metadata[0].Email", formData.get("email") as string);
+    payload.append("metadata[0].Phone", formData.get("phone") as string);
+    payload.append("metadata[0].Company", formData.get("company") as string);
+
+    if (selectedFile) {
+      payload.append("document[0].Name", selectedFile.name);
+      payload.append(
+        "document[0].Extension",
+        `.${selectedFile.name.split(".").pop()}`
+      );
+      payload.append("document[0].Size", selectedFile.size.toString());
+      payload.append("document[0].Content", selectedFile);
+    }
+
+    try {
+      const response = await fetch(
+        "https://www.mail.vianahub.pt/contacts/send-mail",
+        {
+          method: "POST",
+          headers: {
+            "x-user": "Dener Viana",
+            "x-channel": "Portal Promo",
+            "x-correlationid": crypto.randomUUID(),
+          },
+          body: payload,
+        }
+      );
+
+      if (!response.ok) throw new Error("Erro ao enviar o formulário");
+
+      setShowSuccessAlert(true);
+      setTimeout(() => setShowSuccessAlert(false), 10000); // fecha após 5 segundos
+      form.reset();
+      setSelectedFile(null);
+    } catch (error) {
+      console.error(error);
+      setShowInsuccessAlert(true);
+      setTimeout(() => setShowInsuccessAlert(false), 10000); // fecha após 5 segundos
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -56,29 +133,76 @@ export default function ContactPage() {
         <div className="absolute inset-0 z-0" />
         <div className="container mx-auto px-4 relative z-10 h-full flex items-center justify-center">
           <div className="max-w-5xl mx-auto text-center bg-black/50 backdrop-blur-sm rounded-lg p-6">
-            <h1 className="text-orange-400 text-orange-400 text-4xl lg:text-6xl font-bold mb-6 flex items-center justify-center">
+            <h1 className="text-orange-400 text-4xl lg:text-6xl font-bold mb-6 flex items-center justify-center">
               <SendHorizonal
-                className=" w-12 h-12 lg:w-16 lg:h-16"
+                className="w-12 h-12 lg:w-16 lg:h-16"
                 style={{ color: "#FFFFFF" }}
               />
               &nbsp;{t("contact.hero.title")}
             </h1>
-
-            <p className="text-xl items-center justify-center mx-auto ">
+            <p className="text-xl items-center justify-center mx-auto">
               {t("contact.hero.subtitle")}
             </p>
           </div>
         </div>
-
         <ScrollIndicator />
       </section>
 
-      {/* Contact Section */}
-      <section className="py-20 px-4">
-        <div className="max-w-6xl mx-auto">
-          <div className="grid lg:grid-cols-2 gap-12">
+      {/* Alert Section */}
+      {showSuccessAlert && (
+        <div className="fixed bottom-6 right-6 z-50">
+          <div className="relative max-w-5xl bg-green-100 border border-green-400 text-green-800 mx-auto text-left bg-green/50 backdrop-blur-sm rounded-lg p-6 pr-10">
+            <strong className="font-bold">
+              {t("contact.form.alert.true.title")}
+            </strong>
+            <span className="block sm:inline ml-2">
+              {t("contact.form.alert.true.message")}
+            </span>
+            <button
+              onClick={() => setShowSuccessAlert(false)}
+              className="absolute top-2 right-2 text-green-900"
+              aria-label='${t("contact.form.alert.true.close")}'
+            >
+              <span className="text-xl font-bold">&times;</span>
+            </button>
+          </div>
+        </div>
+      )}
+      {showInsuccessAlert && (
+        <div className="fixed bottom-6 right-6 z-50">
+          <div className="relative max-w-5xl bg-green-100 border border-green-400 text-green-800 mx-auto text-left bg-green/50 backdrop-blur-sm rounded-lg p-6 pr-10">
+            <strong className="font-bold">
+              {t("contact.form.alert.false.title")}
+            </strong>
+            <span className="block sm:inline ml-2">
+              {t("contact.form.alert.false.message")}
+            </span>
+            <button
+              onClick={() => setShowSuccessAlert(false)}
+              className="absolute top-2 right-2 text-green-900"
+              aria-label='${t("contact.form.alert.false.close")}'
+            >
+              <span className="text-xl font-bold">&times;</span>
+            </button>
+          </div>
+        </div>
+      )}
+
+      {/* Form Section */}
+      <section className="py-20 bg-white/80">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="block text-orange-400 text-3xl md:text-4xl font-bold mb-4">
+              {t("contact.form.title")}
+            </h2>
+            <p className="text-lg text-gray-900 max-w-2xl mx-auto">
+              {t("contact.form.subtitle")}
+            </p>
+          </div>
+
+          <div className="flex justify-center bg-white">
             {/* Contact Form */}
-            <Card>
+            <Card className="w-[60%] border-none">
               <CardHeader>
                 <CardTitle className="text-2xl text-orange-400">
                   {t("contact.form.title")}
@@ -86,45 +210,84 @@ export default function ContactPage() {
               </CardHeader>
               <CardContent>
                 <form onSubmit={handleSubmit} className="space-y-6">
-                  <div className="grid md:grid-cols-2 gap-4">
+                  <div className="grid md:grid-cols-1 gap-4">
                     <div>
-                      <Label htmlFor="name">
+                      <Label htmlFor="name" className="text-gray-900">
                         {t("contact.form.label.name")}
                       </Label>
-                      <Input id="name" required />
+                      <Input
+                        id="name"
+                        name="name"
+                        required
+                        className="bg-gray-200 text-gray-900 placeholder-gray-600 border border-gray-300 focus:border-gray-400 focus:ring-0 focus:outline-none"
+                      />
                     </div>
                     <div>
-                      <Label htmlFor="email">
+                      <Label htmlFor="email" className="text-gray-900">
                         {t("contact.form.label.email")}
                       </Label>
-                      <Input id="email" type="email" required />
+                      <Input
+                        id="email"
+                        name="email"
+                        type="email"
+                        required
+                        className="bg-gray-200 text-gray-900 placeholder-gray-600 border border-gray-300 focus:border-gray-400 focus:ring-0 focus:outline-none"
+                      />
                     </div>
                   </div>
                   <div className="grid md:grid-cols-2 gap-4">
                     <div>
-                      <Label htmlFor="phone">
+                      <Label htmlFor="phone" className="text-gray-900">
                         {t("contact.form.label.phone")}
                       </Label>
-                      <Input id="phone" type="tel" />
+                      <Input
+                        id="phone"
+                        name="phone"
+                        type="tel"
+                        className="bg-gray-200 text-gray-900 placeholder-gray-600 border border-gray-300 focus:border-gray-400 focus:ring-0 focus:outline-none"
+                      />
                     </div>
                     <div>
-                      <Label htmlFor="company">
+                      <Label htmlFor="company" className="text-gray-900">
                         {t("contact.form.label.company")}
                       </Label>
-                      <Input id="company" />
+                      <Input
+                        id="company"
+                        name="company"
+                        className="bg-gray-200 text-gray-900 placeholder-gray-600 border border-gray-300 focus:border-gray-400 focus:ring-0 focus:outline-none"
+                      />
                     </div>
                   </div>
                   <div>
-                    <Label htmlFor="subject">
+                    <Label htmlFor="subject" className="text-gray-900">
                       {t("contact.form.label.subject")}
                     </Label>
-                    <Input id="subject" required />
+                    <Input
+                      id="subject"
+                      name="subject"
+                      required
+                      className="bg-gray-200 text-gray-900 placeholder-gray-600 border border-none focus:border-gray-400 focus:ring-0 focus:outline-none"
+                    />
                   </div>
                   <div>
-                    <Label htmlFor="message">
+                    <Label htmlFor="message" className="text-gray-900">
                       {t("contact.form.label.message")}
                     </Label>
-                    <Textarea id="message" rows={6} required />
+                    <Textarea
+                      id="message"
+                      name="message"
+                      rows={6}
+                      required
+                      className="bg-gray-200 text-gray-900 placeholder-gray-600 border border-none focus:border-gray-400 focus:ring-0 focus:outline-none"
+                    />
+                  </div>
+                  <div>
+                    <Label className="text-gray-900">
+                      {t("contact.form.label.attachment") || "Anexar ficheiro"}
+                    </Label>
+                    <FileUpload
+                      onFileSelect={(file) => setSelectedFile(file)}
+                    />
                   </div>
                   <Button
                     type="submit"
@@ -132,72 +295,108 @@ export default function ContactPage() {
                     disabled={isSubmitting}
                   >
                     {isSubmitting
-                      ? t("contact.form.label.sending")
+                      ? t("contact.form.label.sending") || "A enviar..."
                       : t("contact.form.label.send")}
                   </Button>
                 </form>
               </CardContent>
             </Card>
+          </div>
+        </div>
+      </section>
 
-            {/* Contact Information */}
-            <div className="space-y-8">
-              <Card>
-                <CardHeader>
-                  <CardTitle className="text-2xl text-orange-400">
-                    {t("contact.info.title")}
-                  </CardTitle>
-                </CardHeader>
-                <CardContent className="space-y-6">
-                  <div className="flex items-center gap-4">
-                    <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0">
-                      <MapPin className="w-6 h-6 text-blue-600" />
-                    </div>
-                    <div>
-                      <h3 className="font-semibold mb-1">
-                        {t("contact.info.address")}
-                      </h3>
-                    </div>
-                  </div>
+      {/* Parallax Section */}
+      <section
+        className="relative h-[500px] overflow-hidden"
+        style={{
+          backgroundImage: "url('/pages/parallax-contact.jpg')",
+          backgroundAttachment: "fixed",
+          backgroundPosition: "center center",
+          backgroundRepeat: "no-repeat",
+          backgroundSize: "cover",
+        }}
+      >
+        <div className="absolute inset-0 bg-gradient-to-b from-black/5 to-black/10" />
+      </section>
 
-                  <div className="flex items-center gap-4">
-                    <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0">
-                      <Phone className="w-6 h-6 text-green-600" />
-                    </div>
-                    <div>
-                      <h3 className="font-semibold mb-1">
-                        {t("contact.info.phone")}
-                      </h3>
-                    </div>
+      {/* Technology Section */}
+      <section className="py-20 px-4 bg-white">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <h2 className="text-orange-400 text-3xl md:text-4xl font-bold mb-6">
+                {t("contact.technology.title")}
+              </h2>
+              <p className="text-lg text-gray-900 max-w-2xl mx-auto">
+                {t("contact.technology.subtitle")}
+              </p>
+              <br />
+              <div className="space-y-4">
+                {technologies.map((feature, index) => (
+                  <div
+                    key={index}
+                    className="text-orange-400 flex items-center gap-3"
+                  >
+                    <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0" />
+                    <span>{feature.description}</span>
                   </div>
-
-                  <div className="flex items-center gap-4">
-                    <div className="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center flex-shrink-0">
-                      <Mail className="w-6 h-6 text-purple-600" />
-                    </div>
-                    <div>
-                      <h3 className="font-semibold mb-1">
-                        {t("contact.info.email")}
-                      </h3>
-                    </div>
-                  </div>
-
-                  <div className="flex items-center gap-4">
-                    <div className="w-12 h-12 bg-orange-100 rounded-full flex items-center justify-center flex-shrink-0">
-                      <Clock className="w-6 h-6 text-orange-600" />
-                    </div>
-                    <div>
-                      <h3 className="font-semibold mb-1">
-                        {t("contact.info.hours")}
-                      </h3>
-                      <p className="text-orange-200">
-                        {t("contact.info.hours.weekdays")}
-                        <br />
-                        {t("contact.info.hours.weekend")}
-                      </p>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
+                ))}
+              </div>
+            </div>
+            <div className="relative">
+              <motion.div
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 2, y: 0 }}
+                transition={{ duration: 3.5, ease: "easeOut" }}
+                viewport={{ once: false, amount: 0.5 }}
+              >
+                <div className="aspect-[16/9] w-full max-w-3xl mx-auto">
+                  <Card>
+                    <CardHeader>
+                      <CardTitle className="text-2xl text-orange-400">
+                        {t("contact.info.title")}
+                      </CardTitle>
+                    </CardHeader>
+                    <CardContent className="space-y-6">
+                      <div className="flex items-center gap-4">
+                        <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0">
+                          <MapPin className="w-6 h-6 text-blue-600" />
+                        </div>
+                        <div>
+                          <h3 className="font-semibold mb-1">
+                            {t("contact.info.address")}
+                          </h3>
+                        </div>
+                      </div>
+                      <div className="flex items-center gap-4">
+                        <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0">
+                          <Phone className="w-6 h-6 text-green-600" />
+                        </div>
+                        <div>
+                          <h3 className="font-semibold mb-1">
+                            {t("contact.info.phone")}
+                          </h3>
+                        </div>
+                      </div>
+                      <div className="flex items-center gap-4">
+                        <div className="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center flex-shrink-0">
+                          <Mail className="w-6 h-6 text-purple-600" />
+                        </div>
+                        <div>
+                          <h3 className="font-semibold mb-1">
+                            {t("contact.info.hours")}
+                          </h3>
+                          <p className="text-orange-200">
+                            {t("contact.info.hours.weekdays")}
+                            <br />
+                            {t("contact.info.hours.weekend")}
+                          </p>
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+                </div>
+              </motion.div>
             </div>
           </div>
         </div>

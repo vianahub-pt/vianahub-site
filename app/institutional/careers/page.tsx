@@ -188,7 +188,12 @@ export default function CareersPage() {
             <Button
               size="lg"
               className="bg-orange-400 hover:bg-orange-500 text-white font-semibold px-8 py-3"
-              onClick={() => router.push("https://www.linkedin.com/jobs/search/?currentJobId=4197940301&keywords=vianahub&origin=JOBS_HOME_SEARCH_BUTTON")}
+              onClick={() =>
+                window.open(
+                  "https://www.linkedin.com/jobs/search/?currentJobId=4197940301&keywords=vianahub&origin=JOBS_HOME_SEARCH_BUTTON",
+                  "_blank"
+                )
+              }
             >
               {t("careers.cta.button")}
             </Button>
