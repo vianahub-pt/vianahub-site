@@ -41,17 +41,17 @@ export function InsightsSection() {
 
   return (
     <section
-      className="py-20 bg-gradient-to-r from-viana-blue to-viana-orange text-white relative"
+      className="py-20 bg-gray-20 dark:bg-gray-700"
       style={{
-        backgroundImage: `linear-gradient(rgba(211, 211, 211, 0.9), rgba(0, 0, 0, 0.9)), url('/insights.jpg')`,
+        backgroundImage: `url('/insights.jpg')`,
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundAttachment: "fixed",
       }}
     >
       <div className="container mx-auto px-4 relative z-10">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold mb-4">
+        <div className="text-center bg-white/50 dark:bg-black/60 border border-white backdrop-blur-sm rounded-lg p-6 mb-16">
+          <h2 className="text-3xl lg:text-4xl font-bold text-viana-black mb-4">
             <span className="text-black">
               {t("home.section.insights.title.part1")}
             </span>{" "}
@@ -59,7 +59,7 @@ export function InsightsSection() {
               {t("home.section.insights.title.part2")}
             </span>
           </h2>
-          <p className="text-xl text-gray-100 max-w-3xl mx-auto font-kurale">
+          <p className="text-lg text-black dark:text-white max-w-2xl mx-auto">
             {t("home.section.insights.subtitle")}
           </p>
         </div>
@@ -68,17 +68,19 @@ export function InsightsSection() {
           {insights.map((insight, index) => (
             <Card
               key={index}
-              className="bg-white/10 backdrop-blur-sm border-white/20 text-white"
+              className="text-center bg-white/50 dark:bg-black/60 border border-white backdrop-blur-sm rounded-lg p-6"
             >
               <CardContent className="p-8 text-center">
                 <div className="flex justify-center mb-4">{insight.icon}</div>
                 <Counter
                   end={insight.value}
                   suffix={insight.suffix}
-                  className="text-4xl font-bold text-black mb-2"
+                  className="text-4xl font-bold text-orange-400 dark:text-white mb-2"
                 />
-                <h3 className="text-xl font-bold mb-3">{insight.title}</h3>
-                <p className="text-gray-100 font-kurale">
+                <h3 className="text-xl text-black dark:text-orange-400 font-bold mb-3">
+                  {insight.title}
+                </h3>
+                <p className="text-orange-400 dark:text-white">
                   {insight.description}
                 </p>
               </CardContent>

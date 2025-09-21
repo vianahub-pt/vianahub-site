@@ -30,26 +30,26 @@ export default function CyberSecurityPageContent() {
     window.scrollTo(0, 0);
   }, []);
 
-  const benefits = [
+  const carousels = [
     {
       icon: ShieldAlert,
-      title: t("cyberSecurity.benefits.firewall.title"),
-      description: t("cyberSecurity.benefits.firewall.description"),
+      title: t("cyberSecurity.carousel.firewall.title"),
+      description: t("cyberSecurity.carousel.firewall.description"),
     },
     {
       icon: Lock,
-      title: t("cyberSecurity.benefits.cryptography.title"),
-      description: t("cyberSecurity.benefits.cryptography.description"),
+      title: t("cyberSecurity.carousel.cryptography.title"),
+      description: t("cyberSecurity.carousel.cryptography.description"),
     },
     {
       icon: Radar,
-      title: t("cyberSecurity.benefits.monitoring.title"),
-      description: t("cyberSecurity.benefits.monitoring.description"),
+      title: t("cyberSecurity.carousel.monitoring.title"),
+      description: t("cyberSecurity.carousel.monitoring.description"),
     },
     {
       icon: AlarmCheck,
-      title: t("cyberSecurity.benefits.incidents.title"),
-      description: t("cyberSecurity.benefits.incidents.description"),
+      title: t("cyberSecurity.carousel.incidents.title"),
+      description: t("cyberSecurity.carousel.incidents.description"),
     },
   ];
 
@@ -103,7 +103,7 @@ export default function CyberSecurityPageContent() {
     index: number;
   }
 
-  function BenefitsCard({ service, index }: CardProps) {
+  function CarouselsCard({ service, index }: CardProps) {
     const Icon = service.icon;
     return (
       <motion.div
@@ -143,7 +143,7 @@ export default function CyberSecurityPageContent() {
         }}
         className="h-full"
       >
-        <Card className="bg-viana-white/90 hover:scale-105 transition-all duration-300 relative border-none h-full">
+        <Card className="bg-viana-white/90 hover:scale-105 transition-all duration-300 relative card-shadow border-none h-full">
           <CardContent className="p-8 text-center">
             <div className="w-16 h-16 mx-auto mb-6 flex items-center justify-center rounded-full bg-viana-orange/10">
               <service.icon className="w-8 h-8 text-orange-400" />
@@ -169,18 +169,15 @@ export default function CyberSecurityPageContent() {
           backgroundPosition: "center",
         }}
       >
-        <div className="absolute inset-0 z-0" />
+        <div className="absolute inset-0 z-0 bg-black/30" />
         <div className="container mx-auto px-4 relative z-10 h-full flex items-center justify-center">
-          <div className="max-w-5xl mx-auto text-center bg-black/50 backdrop-blur-sm rounded-lg p-6">
-            <h1 className="text-orange-400 text-orange-400 text-4xl lg:text-6xl font-bold mb-6 flex items-center justify-center">
-              <Shield
-                className=" w-12 h-12 lg:w-16 lg:h-16"
-                style={{ color: "#FFFFFF" }}
-              />
+          <div className="bg-white/50 dark:bg-black/50 text-orange-400 dark:text-orange-400 border border-white rounded-lg p-6 ">
+            <h1 className="text-orange-400 text-orange-400 text-4xl lg:text-6xl font-bold flex items-center justify-center text-shadow">
+              <Shield className="h-12 w-12 stroke-white dark:stroke-gray-400 icon-shadow " />
               &nbsp;{t("cyberSecurity.hero.title")}
             </h1>
 
-            <p className="text-xl items-center justify-center mx-auto ">
+            <p className="py-7 block text-2xl text-center text-white dark:text-orange-400 text-shadow">
               {t("cyberSecurity.hero.subtitle")}
             </p>
           </div>
@@ -189,21 +186,27 @@ export default function CyberSecurityPageContent() {
         <ScrollIndicator />
       </section>
 
-      {/* Benefits Section */}
-      <section className="py-20 px-4 bg-white">
+      {/* Carousels Section */}
+      <section className="py-20 px-4 bg-white dark:bg-gray-500">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="!text-orange-400 text-3xl md:text-4xl font-bold mb-4">
-              {t("cyberSecurity.benefits.title")}
+            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+              <span className="text-black">
+                {t("cyberSecurity.carousel.title.part1")}
+              </span>{" "}
+              <span className="text-orange-400">
+                {t("cyberSecurity.carousel.title.part2")}
+              </span>
             </h2>
-            <p className="text-lg text-gray-900 max-w-2xl mx-auto">
-              {t("cyberSecurity.benefits.subtitle")}
+
+            <p className="text-lg text-black dark:text-white max-w-2xl mx-auto">
+              {t("cyberSecurity.carousel.subtitle")}
             </p>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
-            {benefits.map((service, index) => (
-              <BenefitsCard key={index} service={service} index={index} />
+            {carousels.map((service, index) => (
+              <CarouselsCard key={index} service={service} index={index} />
             ))}
           </div>
         </div>
@@ -224,13 +227,19 @@ export default function CyberSecurityPageContent() {
       </section>
 
       {/* Process Section */}
-      <section className="py-20 px-4 bg-orange-200">
+      <section className="py-20 px-4 bg-orange-50 dark:bg-gray-600">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="!text-orange-400 text-3xl md:text-4xl font-bold mb-4">
-              {t("cyberSecurity.process.title")}
+            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+              <span className="text-black">
+                {t("cyberSecurity.process.title.part1")}
+              </span>{" "}
+              <span className="text-orange-400">
+                {t("cyberSecurity.process.title.part2")}
+              </span>
             </h2>
-            <p className="text-xl text-gray-900">
+
+            <p className="text-lg text-black dark:text-white max-w-2xl mx-auto">
               {t("cyberSecurity.process.subtitle")}
             </p>
           </div>
@@ -244,14 +253,14 @@ export default function CyberSecurityPageContent() {
       </section>
 
       {/* Technology Section */}
-      <section className="py-20 px-4 bg-white">
+      <section className="py-20 px-4 bg-yellow-50 dark:bg-gray-500">
         <div className="max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
               <h2 className="text-orange-400 text-3xl md:text-4xl font-bold mb-6">
                 {t("cyberSecurity.technology.title")}
               </h2>
-              <p className="text-lg text-gray-900 max-w-2xl mx-auto">
+              <p className="text-lg text-black dark:text-white max-w-2xl mx-auto">
                 {t("cyberSecurity.technology.subtitle")}
               </p>
               <br />
@@ -289,18 +298,18 @@ export default function CyberSecurityPageContent() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-white/90">
+      <section className="py-20 bg-yellow-100 dark:bg-gray-600">
         <div className="text-center mb-16">
           <h2 className="text-orange-400 text-3xl md:text-4xl font-bold mb-6">
             {t("cyberSecurity.cta.title")}
           </h2>
-          <p className="text-lg text-gray-900 max-w-2xl mx-auto">
+          <p className="text-lg text-gray-900 dark:text-white max-w-2xl mx-auto">
             {t("cyberSecurity.cta.subtitle")}
           </p>
           <div className="my-8"></div>
           <Button
             size="lg"
-            className="bg-orange-400 hover:bg-orange-500 text-white font-semibold px-8 py-3"
+            className="bg-orange-400 hover:bg-orange-500 text-white font-semibold px-8 py-3 button-shadow"
             onClick={() => router.push("/contact")}
           >
             {t("cyberSecurity.cta.button")}

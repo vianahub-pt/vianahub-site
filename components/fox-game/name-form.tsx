@@ -25,8 +25,8 @@ export function NameForm({ onNameSubmit }: NameFormProps) {
   };
 
   return (
-    <div className="flex items-center justify-center h-[750px] bg-white ">
-      <Card className="w-full max-w-md bg-white/90 backdrop-blur-sm shadow-2xl border-none">
+    <div className="flex items-center justify-center h-[750px] bg-gray-100 dark:bg-gray-800">
+      <Card className="w-full max-w-md bg-white/50 dark:bg-gray-500 shadow-2xl border border-white">
         <CardContent className="p-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -40,10 +40,10 @@ export function NameForm({ onNameSubmit }: NameFormProps) {
                 alt="Fox"
                 className="w-16 h-16 mx-auto mb-4 object-contain"
               />
-              <h1 className="text-2xl font-bold text-amber-800 mb-2">
+              <h1 className="text-2xl text-amber-500 dark:text-orange-400 font-bold  mb-2">
                 {t("foxGame.title")}
               </h1>
-              <p className="text-amber-600 text-sm mb-4">
+              <p className="text-sm text-amber-500 dark:text-orange-400 mb-4">
                 {t("foxGame.subtitle")}
               </p>
             </div>
@@ -52,7 +52,7 @@ export function NameForm({ onNameSubmit }: NameFormProps) {
               <div className="text-left">
                 <label
                   htmlFor="playerName"
-                  className="block text-sm font-medium text-amber-700 mb-2"
+                  className="block text-sm font-medium text-black dark:text-white mb-2"
                 >
                   {t("foxGame.nameLabel")}
                 </label>
@@ -62,25 +62,23 @@ export function NameForm({ onNameSubmit }: NameFormProps) {
                   value={name}
                   onChange={(e) => setName(e.target.value)}
                   placeholder={t("foxGame.namePlaceholder")}
-                  className="w-full bg-white border-gray-200 focus:bg-white"
+                  className="w-full text-amber-600 focus:text-amber-600 dark:text-black bg-gray-200 dark:bg-orange-200 focus:bg-white dark:focus:bg-orange-200 border-none "
                   maxLength={20}
                   required
                 />
               </div>
               <Button
                 type="submit"
-                className="w-full bg-amber-600 hover:bg-amber-700 text-white"
+                className="w-full text-white dark:text-white bg-orange-700 hover:bg-orange-400 dark:bg-orange-700 hover:dark:bg-orange-400 "
                 disabled={!name.trim()}
               >
                 {t("foxGame.startButton")}
               </Button>
             </form>
 
-            <div className="mt-6 text-left">
-              <h3 className="text-sm font-semibold text-amber-800 mb-2">
-                {t("foxGame.howToPlay")}
-              </h3>
-              <div className="text-xs text-amber-600 space-y-1">
+            <div className="text-black dark:text-white text-left mt-6">
+              <h3 className="text-sm mb-2">{t("foxGame.howToPlay")}</h3>
+              <div className="text-xs space-y-1">
                 <div>
                   •{" "}
                   {t("foxGame.instructions").split(" • ")[0].replace("• ", "")}

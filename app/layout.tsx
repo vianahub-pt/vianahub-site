@@ -1,18 +1,19 @@
-import type React from "react"
-import type { Metadata } from "next"
-import { Inter } from "next/font/google"
-import "./globals.css"
-import ClientLayout from "./client-layout"
-import Providers from "./providers"
-import { TranslationProvider } from "@/components/translation-context"
+import type React from "react";
+import type { Metadata } from "next";
+import { Inter } from "next/font/google";
+import "./globals.css";
+import ClientLayout from "./client-layout";
+import Providers from "./providers";
+import { TranslationProvider } from "@/components/translation-context";
 
-const inter = Inter({ subsets: ["latin"] })
+const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "VianaHub - Soluções Tecnológicas Inovadoras",
   description:
     "Transformamos ideias em soluções digitais inovadoras. Desenvolvimento de software, consultoria tecnológica e soluções personalizadas para o seu negócio.",
-  keywords: "desenvolvimento de software, consultoria tecnológica, soluções digitais, inovação, tecnologia",
+  keywords:
+    "desenvolvimento de software, consultoria tecnológica, soluções digitais, inovação, tecnologia",
   authors: [{ name: "VianaHub" }],
   creator: "VianaHub",
   publisher: "VianaHub",
@@ -68,15 +69,31 @@ export const metadata: Metadata = {
     },
   },
   generator: "v0.app",
-}
+};
 
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
   return (
     <html lang="pt" suppressHydrationWarning>
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+    (function() {
+      try {
+        var theme = localStorage.getItem('vianahub-theme');
+        if (theme === 'dark' || (!theme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+          document.documentElement.classList.add('dark');
+        }
+      } catch (e) {}
+    })();
+  `,
+          }}
+        />
+      </head>
       <body className={inter.className}>
         <TranslationProvider>
           <Providers>
@@ -85,5 +102,5 @@ export default function RootLayout({
         </TranslationProvider>
       </body>
     </html>
-  )
+  );
 }

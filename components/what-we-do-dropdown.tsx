@@ -89,13 +89,17 @@ export function WhatWeDoDropdown() {
       onMouseEnter={() => setIsOpen(true)}
       onMouseLeave={() => setIsOpen(false)}
     >
-      <button className="flex items-center space-x-1 px-3 py-2 rounded-md transition-all duration-100 font-medium drop-shadow-lg cursor-pointer bg-transparent text-orange-400 hover:bg-yellow-500/20 hover:text-white text-sm">
+      <button
+        className="flex items-center space-x-1 px-3 py-2 rounded-md transition-all duration-100 font-medium cursor-pointer
+    bg-orange-400 text-white hover:bg-black/80 hover:text-orange-400
+    dark:bg-black dark:text-orange-400 dark:hover:bg-orange-400 dark:hover:text-white text-md"
+      >
         <span>{t("nav.whatWeDo.title")}</span>
         <ChevronDown className="h-4 w-4" />
       </button>
 
       {isOpen && (
-        <div className="absolute top-full left-0 w-56 bg-black/80 backdrop-blur-md rounded-md shadow-lg border border-gray-600 z-50">
+        <div className="absolute top-full left-0 w-56 bg-black/80 backdrop-blur-md rounded-md shadow-lg border border-gray-600 z-80">
           {menuItems.map((item) => {
             const IconComponent = item.icon;
             return (
@@ -104,10 +108,7 @@ export function WhatWeDoDropdown() {
                 onClick={() => handleNavigation(item.path)}
                 className="flex items-center gap-3 w-full text-left px-4 py-2 text-sm text-orange-400 hover:bg-yellow-500/20 hover:text-white transition-colors duration-150"
               >
-                <IconComponent
-                  className="h-4 w-4"
-                  style={{ color: item.color }}
-                />
+                <IconComponent className="h-4 w-4 stroke-white dark:stroke-gray-400" />
                 {t(item.key)}
               </button>
             );

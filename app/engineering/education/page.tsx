@@ -109,7 +109,7 @@ export default function EducationPage() {
         className="h-full"
         style={{ perspective: 1000 }}
       >
-        <Card className="bg-orange-200 hover:shadow-lg transition-shadow border-none h-full">
+        <Card className="bg-yellow-200 dark:bg-white hover:shadow-lg transition-shadow border-none h-full">
           <CardContent className="p-6 text-center">
             <div className="flex items-center justify-center rounded-full">
               <service.icon className="text-orange-400" />
@@ -165,18 +165,15 @@ export default function EducationPage() {
           backgroundPosition: "center",
         }}
       >
-        <div className="absolute inset-0 z-0" />
+        <div className="absolute inset-0 z-0 bg-black/30" />
         <div className="container mx-auto px-4 relative z-10 h-full flex items-center justify-center">
-          <div className="max-w-5xl mx-auto text-center bg-black/50 backdrop-blur-sm rounded-lg p-6">
-            <h1 className="text-orange-400 text-orange-400 text-4xl lg:text-6xl font-bold mb-6 flex items-center justify-center">
-              <GraduationCap
-                className=" w-12 h-12 lg:w-16 lg:h-16"
-                style={{ color: "#FFFFFF" }}
-              />
+          <div className="bg-white/50 dark:bg-black/50 text-orange-400 dark:text-orange-400 border border-white rounded-lg p-6 ">
+            <h1 className="text-orange-400 text-orange-400 text-4xl lg:text-6xl font-bold flex items-center justify-center text-shadow">
+              <GraduationCap className="h-12 w-12 stroke-white dark:stroke-gray-400 icon-shadow " />
               &nbsp;{t("education.hero.title")}
             </h1>
 
-            <p className="text-xl items-center justify-center mx-auto ">
+            <p className="py-7 block text-2xl text-center text-white dark:text-orange-400 text-shadow">
               {t("education.hero.subtitle")}
             </p>
           </div>
@@ -186,13 +183,19 @@ export default function EducationPage() {
       </section>
 
       {/* Benefits Section */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-yellow-50 dark:bg-gray-600">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="block text-orange-400 text-3xl md:text-4xl font-bold mb-4">
-              {t("education.benefits.title")}
+            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+              <span className="text-black">
+                {t("education.benefits.title.part1")}
+              </span>{" "}
+              <span className="text-orange-400">
+                {t("education.benefits.title.part2")}
+              </span>
             </h2>
-            <p className="text-lg text-gray-900 max-w-2xl mx-auto">
+
+            <p className="text-lg text-black dark:text-white max-w-2xl mx-auto">
               {t("education.benefits.subtitle")}
             </p>
           </div>
@@ -220,13 +223,19 @@ export default function EducationPage() {
       </section>
 
       {/* innovation Section */}
-      <section className="py-20 px-4 bg-orange-200">
+      <section className="py-20 px-4 bg-orange-200 dark:bg-gray-400">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="!text-orange-400 text-3xl md:text-4xl font-bold mb-4">
-              {t("education.innovation.title")}
+            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+              <span className="text-black">
+                {t("education.innovation.title.part1")}
+              </span>{" "}
+              <span className="text-orange-400">
+                {t("education.innovation.title.part2")}
+              </span>
             </h2>
-            <p className="text-xl text-gray-900">
+
+            <p className="text-lg text-black dark:text-white max-w-2xl mx-auto">
               {t("education.innovation.subtitle")}
             </p>
           </div>
@@ -240,14 +249,14 @@ export default function EducationPage() {
       </section>
 
       {/* Technology Section */}
-      <section className="py-20 px-4 bg-white">
+      <section className="py-20 px-4 bg-yellow-50 dark:bg-gray-500">
         <div className="max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
               <h2 className="text-orange-400 text-3xl md:text-4xl font-bold mb-6">
                 {t("education.technology.title")}
               </h2>
-              <p className="text-lg text-gray-900 max-w-2xl mx-auto">
+              <p className="text-lg text-black dark:text-white max-w-2xl mx-auto">
                 {t("education.technology.subtitle")}
               </p>
               <br />
@@ -285,18 +294,18 @@ export default function EducationPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-white/90">
+      <section className="py-20 bg-yellow-100 dark:bg-gray-600">
         <div className="text-center mb-16">
           <h2 className="text-orange-400 text-3xl md:text-4xl font-bold mb-6">
             {t("education.cta.title")}
           </h2>
-          <p className="text-lg text-gray-900 max-w-2xl mx-auto">
+          <p className="text-lg text-gray-900 dark:text-white max-w-2xl mx-auto">
             {t("education.cta.subtitle")}
           </p>
           <div className="my-8"></div>
           <Button
             size="lg"
-            className="bg-orange-400 hover:bg-orange-500 text-white font-semibold px-8 py-3"
+            className="bg-orange-400 hover:bg-orange-500 text-white font-semibold px-8 py-3 button-shadow"
             onClick={() => router.push("/contact")}
           >
             {t("education.cta.button")}

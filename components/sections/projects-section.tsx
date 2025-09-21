@@ -116,18 +116,18 @@ export function ProjectsSection() {
   };
 
   return (
-    <section className="py-20 bg-gradient-to-br from-gray-50 to-orange-50">
+    <section className="py-20 bg-gray-100 dark:bg-gray-600">
       <div className="container mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-3xl lg:text-4xl font-bold text-viana-black mb-4">
-            <span className="text-gray-900">
+            <span className="text-black">
               {t("home.section.projects.title.part1")}
             </span>{" "}
             <span className="text-orange-400">
               {t("home.section.projects.title.part2")}
             </span>
           </h2>
-          <p className="text-lg text-gray-900 max-w-2xl mx-auto">
+          <p className="text-lg text-black dark:text-white max-w-2xl mx-auto">
             {t("home.section.projects.subtitle")}
           </p>
         </div>
@@ -168,14 +168,13 @@ export function ProjectsSection() {
                         </div>
 
                         {/* Content Section */}
-                        <div className="p-8 flex flex-col justify-center bg-white">
+                        <div className="p-6 flex flex-col justify-center bg-white">
                           <h3 className="text-2xl font-bold text-gray-900 mb-4">
                             {t(project.title)}
                           </h3>
                           <p className="text-gray-900 mb-6 leading-relaxed">
                             {t(project.description)}
                           </p>
-
                           {/* Tech Stack */}
                           <div className="flex flex-wrap gap-2 mb-6">
                             {project.tech.map((tech, index) => (
@@ -187,17 +186,6 @@ export function ProjectsSection() {
                               </span>
                             ))}
                           </div>
-
-                          <Button
-                            className="!bg-viana-orange hover:bg-viana-yellow text-white hover:text-viana-black transition-colors w-fit"
-                            onClick={(e) => {
-                              e.stopPropagation();
-                              handleProjectClick(project.url);
-                            }}
-                          >
-                            {t("home.section.projects.viewProject")}
-                            <ExternalLink className="ml-2 h-4 w-4" />
-                          </Button>
                         </div>
                       </div>
                     </CardContent>
@@ -219,16 +207,6 @@ export function ProjectsSection() {
               />
             ))}
           </div>
-        </div>
-
-        {/* Call to Action */}
-        <div className="text-center mt-16">
-          <Button
-            size="lg"
-            className="!bg-viana-orange hover:!bg-viana-yellow text-white hover:text-viana-black"
-          >
-            {t("home.section.projects.cta")}
-          </Button>
         </div>
       </div>
     </section>

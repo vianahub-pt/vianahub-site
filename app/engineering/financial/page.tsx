@@ -111,7 +111,7 @@ export default function FinancialPage() {
         <Card className="bg-orange-200 hover:shadow-lg transition-shadow border-none h-full">
           <CardContent className="p-6 text-center">
             <div className="flex items-center justify-center rounded-full">
-              <service.icon className="text-orange-400" />
+              <service.icon className="w-12 h-12 text-orange-400 mb-2" />
             </div>
             <h3 className="text-xl font-bold mb-4 text-orange-400">
               {service.title}
@@ -164,18 +164,15 @@ export default function FinancialPage() {
           backgroundPosition: "center",
         }}
       >
-        <div className="absolute inset-0 z-0" />
+        <div className="absolute inset-0 z-0 bg-black/30" />
         <div className="container mx-auto px-4 relative z-10 h-full flex items-center justify-center">
-          <div className="max-w-5xl mx-auto text-center bg-black/50 backdrop-blur-sm rounded-lg p-6">
-            <h1 className="text-orange-400 text-orange-400 text-4xl lg:text-6xl font-bold mb-6 flex items-center justify-center">
-              <DollarSign
-                className=" w-12 h-12 lg:w-16 lg:h-16"
-                style={{ color: "#FFFFFF" }}
-              />
+          <div className="bg-white/50 dark:bg-black/50 text-orange-400 dark:text-orange-400 border border-white rounded-lg p-6 ">
+            <h1 className="text-orange-400 text-orange-400 text-4xl lg:text-6xl font-bold flex items-center justify-center text-shadow">
+              <DollarSign className="h-12 w-12 stroke-white dark:stroke-gray-400 icon-shadow " />
               &nbsp;{t("financial.hero.title")}
             </h1>
 
-            <p className="text-xl items-center justify-center mx-auto ">
+            <p className="py-7 block text-2xl text-center text-white dark:text-orange-400 text-shadow">
               {t("financial.hero.subtitle")}
             </p>
           </div>
@@ -185,13 +182,19 @@ export default function FinancialPage() {
       </section>
 
       {/* Benefits Section */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-white dark:bg-gray-500">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="block text-orange-400 text-3xl md:text-4xl font-bold mb-4">
-              {t("financial.benefits.title")}
+            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+              <span className="text-black">
+                {t("financial.benefits.title.part1")}
+              </span>{" "}
+              <span className="text-orange-400">
+                {t("financial.benefits.title.part2")}
+              </span>
             </h2>
-            <p className="text-lg text-gray-900 max-w-2xl mx-auto">
+
+            <p className="text-lg text-black dark:text-white max-w-2xl mx-auto">
               {t("financial.benefits.subtitle")}
             </p>
           </div>
@@ -219,13 +222,19 @@ export default function FinancialPage() {
       </section>
 
       {/* innovation Section */}
-      <section className="py-20 px-4 bg-orange-200">
+      <section className="py-20 px-4 bg-orange-50 dark:bg-gray-600">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="!text-orange-400 text-3xl md:text-4xl font-bold mb-4">
-              {t("financial.innovation.title")}
+            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+              <span className="text-black">
+                {t("financial.innovation.title.part1")}
+              </span>{" "}
+              <span className="text-orange-400">
+                {t("financial.innovation.title.part2")}
+              </span>
             </h2>
-            <p className="text-xl text-gray-900">
+
+            <p className="text-lg text-black dark:text-white max-w-2xl mx-auto">
               {t("financial.innovation.subtitle")}
             </p>
           </div>
@@ -239,14 +248,14 @@ export default function FinancialPage() {
       </section>
 
       {/* Technology Section */}
-      <section className="py-20 px-4 bg-white">
+      <section className="py-20 px-4 bg-yellow-50 dark:bg-gray-500">
         <div className="max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
               <h2 className="text-orange-400 text-3xl md:text-4xl font-bold mb-6">
                 {t("financial.technology.title")}
               </h2>
-              <p className="text-lg text-gray-900 max-w-2xl mx-auto">
+              <p className="text-lg text-black dark:text-white max-w-2xl mx-auto">
                 {t("financial.technology.subtitle")}
               </p>
               <br />
@@ -269,7 +278,7 @@ export default function FinancialPage() {
                 transition={{ duration: 3.5, ease: "easeOut" }}
                 viewport={{ once: false, amount: 0.5 }}
               >
-                <div className="aspect-[16/9] w-full max-w-3xl mx-auto">
+                <div className="aspect-[16/9] w-full max-w-3xl mx-auto car-shadow">
                   <Image
                     src="/pages/technology-financial.jpg"
                     alt="financial Technology"
@@ -284,18 +293,18 @@ export default function FinancialPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-white/90">
+      <section className="py-20 bg-yellow-100 dark:bg-gray-600">
         <div className="text-center mb-16">
           <h2 className="text-orange-400 text-3xl md:text-4xl font-bold mb-6">
             {t("financial.cta.title")}
           </h2>
-          <p className="text-lg text-gray-900 max-w-2xl mx-auto">
+          <p className="text-lg text-gray-900 dark:text-white max-w-2xl mx-auto">
             {t("financial.cta.subtitle")}
           </p>
           <div className="my-8"></div>
           <Button
             size="lg"
-            className="bg-orange-400 hover:bg-orange-500 text-white font-semibold px-8 py-3"
+            className="bg-orange-400 hover:bg-orange-500 text-white font-semibold px-8 py-3 button-shadow"
             onClick={() => router.push("/contact")}
           >
             {t("financial.cta.button")}

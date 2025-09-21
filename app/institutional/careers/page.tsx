@@ -170,33 +170,31 @@ export default function CareersPage() {
           backgroundPosition: "center",
         }}
       >
-        <div className="absolute inset-0 z-0" />
+        <div className="absolute inset-0 z-0 bg-black/30" />
         <div className="container mx-auto px-4 relative z-10 h-full flex items-center justify-center">
-          <div className="max-w-5xl mx-auto text-center bg-black/50 backdrop-blur-sm rounded-lg p-6">
-            <h1 className="text-orange-400 text-orange-400 text-4xl lg:text-6xl font-bold mb-6 flex items-center justify-center">
-              <GraduationCap
-                className=" w-12 h-12 lg:w-16 lg:h-16"
-                style={{ color: "#FFFFFF" }}
-              />
+          <div className="bg-white/50 dark:bg-black/50 text-orange-400 dark:text-orange-400 border border-white rounded-lg p-6 ">
+            <h1 className="text-orange-400 text-orange-400 text-4xl lg:text-6xl font-bold flex items-center justify-center text-shadow">
+              <GraduationCap className="h-12 w-12 stroke-white dark:stroke-gray-400 icon-shadow " />
               &nbsp;{t("careers.hero.title")}
             </h1>
 
-            <p className="text-xl items-center justify-center mx-auto ">
+            <p className="py-7 block text-2xl text-center text-white dark:text-orange-400 text-shadow">
               {t("careers.hero.subtitle")}
             </p>
-            <div className="my-8"></div>
-            <Button
-              size="lg"
-              className="bg-orange-400 hover:bg-orange-500 text-white font-semibold px-8 py-3"
-              onClick={() =>
-                window.open(
-                  "https://www.linkedin.com/jobs/search/?currentJobId=4197940301&keywords=vianahub&origin=JOBS_HOME_SEARCH_BUTTON",
-                  "_blank"
-                )
-              }
-            >
-              {t("careers.cta.button")}
-            </Button>
+            <div className="my-8 text-center">
+              <Button
+                size="lg"
+                className="bg-orange-400 hover:bg-orange-500 text-white font-semibold px-8 py-3 button-shadow"
+                onClick={() =>
+                  window.open(
+                    "https://www.linkedin.com/jobs/search/?currentJobId=4197940301&keywords=vianahub&origin=JOBS_HOME_SEARCH_BUTTON",
+                    "_blank"
+                  )
+                }
+              >
+                {t("careers.cta.button")}
+              </Button>
+            </div>
           </div>
         </div>
 

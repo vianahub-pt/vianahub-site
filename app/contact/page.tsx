@@ -54,11 +54,11 @@ export default function ContactPage() {
   }, []);
 
   const technologies = [
-    { description: t("education.technology.web-sites") },
-    { description: t("education.technology.apps") },
-    { description: t("education.technology.outsourcing") },
-    { description: t("education.technology.uiux") },
-    { description: t("education.technology.crm") },
+    { description: t("contact.technology.web-sites") },
+    { description: t("contact.technology.apps") },
+    { description: t("contact.technology.outsourcing") },
+    { description: t("contact.technology.uiux") },
+    { description: t("contact.technology.crm") },
   ];
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -130,21 +130,20 @@ export default function ContactPage() {
           backgroundPosition: "center",
         }}
       >
-        <div className="absolute inset-0 z-0" />
+        <div className="absolute inset-0 z-0 bg-black/30" />
         <div className="container mx-auto px-4 relative z-10 h-full flex items-center justify-center">
-          <div className="max-w-5xl mx-auto text-center bg-black/50 backdrop-blur-sm rounded-lg p-6">
-            <h1 className="text-orange-400 text-4xl lg:text-6xl font-bold mb-6 flex items-center justify-center">
-              <SendHorizonal
-                className="w-12 h-12 lg:w-16 lg:h-16"
-                style={{ color: "#FFFFFF" }}
-              />
+          <div className="bg-white/20 dark:bg-black/60 text-orange-400 dark:text-orange-400 border border-white rounded-lg p-6 text-shadow">
+            <h1 className="text-orange-400 text-orange-400 text-4xl lg:text-6xl font-bold flex items-center justify-center">
+              <SendHorizonal className="h-12 w-12 stroke-white dark:stroke-gray-400 icon-shadow" />
               &nbsp;{t("contact.hero.title")}
             </h1>
-            <p className="text-xl items-center justify-center mx-auto">
+
+            <p className="py-7 block font-bold text-2xl text-center text-white dark:text-orange-400 text-shadow">
               {t("contact.hero.subtitle")}
             </p>
           </div>
         </div>
+
         <ScrollIndicator />
       </section>
 
@@ -350,7 +349,7 @@ export default function ContactPage() {
                 transition={{ duration: 3.5, ease: "easeOut" }}
                 viewport={{ once: false, amount: 0.5 }}
               >
-                <div className="aspect-[16/9] w-full max-w-3xl mx-auto">
+                <div className="aspect-[16/9] w-full max-w-3xl mx-auto bg-white/70">
                   <Card>
                     <CardHeader>
                       <CardTitle className="text-2xl text-orange-400">

@@ -97,15 +97,17 @@ export default function OutsourcingPage() {
         className="h-full"
         style={{ perspective: 1000 }} // necessário para o efeito 3D
       >
-        <Card className="text-center hover:scale-105 transition-all duration-300 relative border-none h-full">
+        <Card className="text-center hover:scale-105 transition-all duration-300 relative border-none h-full bg-orange-100 dark:bg-gray-700">
           <CardContent className="p-6 flex flex-col h-full">
-            <div className="w-16 h-16 mx-auto mb-6 flex items-center justify-center rounded-full bg-viana-orange/10">
-              <Icon className="w-8 h-8 text-orange-400" /> {/* ← aqui */}
+            <div className="w-16 h-16 mx-auto mb-6 flex items-center justify-center rounded-full bg-orange-400 dark:bg-black">
+              <Icon className="w-8 h-8 text-white dark:text-orange-400" />
             </div>
-            <h3 className="text-orange-400 text-xl font-semibold mb-3">
+            <h3 className="text-black dark:text-white text-xl font-semibold mb-3">
               {service.title}
             </h3>
-            <p className="text-md mt-auto">{service.description}</p>
+            <p className="text-md text-orange-400 dark:text-orange-400 mt-auto">
+              {service.description}
+            </p>
           </CardContent>
         </Card>
       </motion.div>
@@ -127,13 +129,15 @@ export default function OutsourcingPage() {
         }}
         className="h-full"
       >
-        <Card className="text-center bg-orange-400 hover:scale-105 transition-all duration-300 relative border-none h-full">
+        <Card className="text-center hover:scale-105 transition-all duration-300 relative border-none h-full bg-orange-400 dark:bg-black">
           <CardContent className="p-6 flex flex-col h-full">
-            <Icon className="h-12 w-12 text-white mx-auto mb-4" />
-            <h3 className="text-gray-900 text-xl font-semibold mb-3">
+            <Icon className="h-12 w-12 text-white dark:text-orange-400 mx-auto mb-4" />
+            <h3 className="text-black dark:text-white text-xl font-semibold mb-3">
               {service.title}
             </h3>
-            <p className="text-md mt-auto">{service.description}</p>
+            <p className="text-md text-white dark:text-orange-400 mt-auto">
+              {service.description}
+            </p>
           </CardContent>
         </Card>
       </motion.div>
@@ -151,18 +155,15 @@ export default function OutsourcingPage() {
           backgroundPosition: "center",
         }}
       >
-        <div className="absolute inset-0 z-0" />
+        <div className="absolute inset-0 z-0 bg-black/30" />
         <div className="container mx-auto px-4 relative z-10 h-full flex items-center justify-center">
-          <div className="max-w-5xl mx-auto text-center bg-black/50 backdrop-blur-sm rounded-lg p-6">
-            <h1 className="text-orange-400 text-orange-400 text-4xl lg:text-6xl font-bold mb-6 flex items-center justify-center">
-              <Users
-                className=" w-12 h-12 lg:w-16 lg:h-16"
-                style={{ color: "#FFFFFF" }}
-              />
+          <div className="bg-white/20 dark:bg-black/60 text-orange-400 dark:text-orange-400 border border-white rounded-lg p-6">
+            <h1 className="text-orange-400 text-orange-400 text-4xl lg:text-6xl font-bold flex items-center justify-center">
+              <Users className="h-12 w-12 stroke-white dark:stroke-gray-400 icon-shadow" />
               &nbsp;{t("outsourcing.hero.title")}
             </h1>
 
-            <p className="text-xl items-center justify-center mx-auto ">
+            <p className="py-7 block font-bold text-2xl text-center text-white dark:text-orange-400 text-shadow">
               {t("outsourcing.hero.subtitle")}
             </p>
           </div>
@@ -172,13 +173,19 @@ export default function OutsourcingPage() {
       </section>
 
       {/* Benefits Section */}
-      <section className="py-20 bg-white/90">
+      <section className="py-20 bg-white dark:bg-gray-500">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-orange-400 text-3xl md:text-4xl font-bold mb-6">
-              {t("outsourcing.benefits.title")}
+            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+              <span className="text-black">
+                {t("outsourcing.benefits.title.part1")}
+              </span>{" "}
+              <span className="text-orange-400">
+                {t("outsourcing.benefits.title.part2")}
+              </span>
             </h2>
-            <p className="text-lg text-gray-900 max-w-2xl mx-auto">
+
+            <p className="text-lg text-black dark:text-white max-w-2xl mx-auto">
               {t("outsourcing.benefits.subtitle")}
             </p>
           </div>
@@ -206,13 +213,19 @@ export default function OutsourcingPage() {
       </div>
 
       {/* Services Section */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-gray-200 dark:bg-gray-700">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-orange-400 text-3xl md:text-4xl font-bold mb-6">
-              {t("outsourcing.services.title")}
+            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+              <span className="text-black">
+                {t("outsourcing.services.title.part1")}
+              </span>{" "}
+              <span className="text-orange-400">
+                {t("outsourcing.services.title.part2")}
+              </span>
             </h2>
-            <p className="text-lg text-gray-900 max-w-2xl mx-auto">
+
+            <p className="text-lg text-black dark:text-white max-w-2xl mx-auto">
               {t("outsourcing.services.subtitle")}
             </p>
           </div>
@@ -226,50 +239,56 @@ export default function OutsourcingPage() {
       </section>
 
       {/* Process Section */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-white dark:bg-gray-500">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-orange-400 text-3xl md:text-4xl font-bold mb-6">
-              {t("outsourcing.process.title")}
+            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+              <span className="text-black">
+                {t("outsourcing.process.title.part1")}
+              </span>{" "}
+              <span className="text-orange-400">
+                {t("outsourcing.process.title.part2")}
+              </span>
             </h2>
-            <p className="text-lg text-gray-900 max-w-2xl mx-auto">
+
+            <p className="text-lg text-black dark:text-white max-w-2xl mx-auto">
               {t("outsourcing.process.subtitle")}
             </p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
             <div className="text-center">
-              <div className="w-16 h-16 bg-viana-orange rounded-full flex items-center justify-center text-white font-bold text-xl mx-auto mb-4">
+              <div className="text-white dark:text-white bg-orange-400 dark:bg-black w-16 h-16 rounded-full flex items-center justify-center text-white font-bold text-xl mx-auto mb-4">
                 1
               </div>
               <h3 className="text-xl font-bold text-orange-400 mb-3">
                 {t("outsourcing.process.analysis.title")}
               </h3>
-              <p className="text-viana-gray">
+              <p className="text-black dark:text-white">
                 {t("outsourcing.process.analysis.description")}
               </p>
             </div>
 
             <div className="text-center">
-              <div className="w-16 h-16 bg-viana-orange rounded-full flex items-center justify-center text-white font-bold text-xl mx-auto mb-4">
+              <div className="text-white dark:text-white bg-orange-400 dark:bg-black w-16 h-16 rounded-full flex items-center justify-center text-white font-bold text-xl mx-auto mb-4">
                 2
               </div>
               <h3 className="text-xl font-bold text-orange-400 mb-3">
                 {t("outsourcing.process.selection.title")}
               </h3>
-              <p className="text-viana-gray">
+              <p className="text-black dark:text-white">
                 {t("outsourcing.process.selection.description")}
               </p>
             </div>
 
             <div className="text-center">
-              <div className="w-16 h-16 bg-viana-orange rounded-full flex items-center justify-center text-white font-bold text-xl mx-auto mb-4">
+              <div className="text-white dark:text-white bg-orange-400 dark:bg-black w-16 h-16 rounded-full flex items-center justify-center text-white font-bold text-xl mx-auto mb-4">
                 3
               </div>
               <h3 className="text-xl font-bold text-orange-400 mb-3">
                 {t("outsourcing.process.integration.title")}
               </h3>
-              <p className="text-viana-gray">
+              <p className="text-black dark:text-white">
                 {t("outsourcing.process.integration.description")}
               </p>
             </div>
@@ -278,18 +297,18 @@ export default function OutsourcingPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-white/90">
+      <section className="py-20 bg-orange-100 dark:bg-gray-600">
         <div className="text-center mb-16">
           <h2 className="text-orange-400 text-3xl md:text-4xl font-bold mb-6">
             {t("outsourcing.cta.title")}
           </h2>
-          <p className="text-lg text-gray-900 max-w-2xl mx-auto">
+          <p className="text-lg text-gray-900 dark:text-white max-w-2xl mx-auto">
             {t("outsourcing.cta.subtitle")}
           </p>
           <div className="my-8"></div>
           <Button
             size="lg"
-            className="bg-orange-400 hover:bg-orange-500 text-white font-semibold px-8 py-3"
+            className="bg-orange-400 hover:bg-orange-500 text-white font-semibold px-8 py-3 button-shadow"
             onClick={() => router.push("/contact")}
           >
             {t("outsourcing.cta.button")}

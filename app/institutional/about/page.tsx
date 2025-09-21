@@ -105,17 +105,6 @@ export default function AboutPageContent() {
     { description: t("about.technology.consultancy.description") },
   ];
 
-  const getLocalizedImage = () => {
-    const imageMap = {
-      pt: "/about-pt-pt.jpg",
-      en: "/about-en-us.jpg",
-      es: "/about-es-es.jpg",
-      fr: "/about-fr-fr.jpg",
-      de: "/about-de-de.jpg",
-    };
-    return imageMap[language] || imageMap.pt;
-  };
-
   interface CardProps {
     service: {
       icon: React.ComponentType<any>;
@@ -141,7 +130,7 @@ export default function AboutPageContent() {
             <h3 className="text-gray-900 text-xl font-semibold mb-3">
               {service.title}
             </h3>
-            <p className="text-md mt-auto">{service.description}</p>
+            <p className="text-md text-white mt-auto">{service.description}</p>
           </CardContent>
         </Card>
       </motion.div>
@@ -159,18 +148,15 @@ export default function AboutPageContent() {
           backgroundPosition: "center",
         }}
       >
-        <div className="absolute inset-0 z-0" />
+        <div className="absolute inset-0 z-0 bg-black/30" />
         <div className="container mx-auto px-4 relative z-10 h-full flex items-center justify-center">
-          <div className="max-w-5xl mx-auto text-center bg-black/50 backdrop-blur-sm rounded-lg p-6">
-            <h1 className="text-orange-400 text-orange-400 text-4xl lg:text-6xl font-bold mb-6 flex items-center justify-center">
-              <Info
-                className=" w-12 h-12 lg:w-16 lg:h-16"
-                style={{ color: "#FFFFFF" }}
-              />
+          <div className="bg-white/50 dark:bg-black/50 text-orange-400 dark:text-orange-400 border border-white rounded-lg p-6 ">
+            <h1 className="text-orange-400 text-orange-400 text-4xl lg:text-6xl font-bold flex items-center justify-center text-shadow">
+              <Info className="h-12 w-12 stroke-white dark:stroke-gray-400 icon-shadow " />
               &nbsp;{t("about.hero.title")}
             </h1>
 
-            <p className="text-xl items-center justify-center mx-auto ">
+            <p className="py-7 block text-2xl text-center text-white dark:text-orange-400 text-shadow">
               {t("about.hero.subtitle")}
             </p>
           </div>
@@ -180,30 +166,63 @@ export default function AboutPageContent() {
       </section>
 
       {/* History Section */}
-      <section className="py-20 px-4 bg-white">
+      <section className="py-20 px-4 bg-orange-200 dark:bg-gray-700">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-orange-500 text-3xl md:text-4xl font-bold mb-6">
-              {t("about.history.title")}
+            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+              <span className="text-black">
+                {t("about.history.title.part1")}
+              </span>{" "}
+              <span className="text-orange-400">
+                {t("about.history.title.part2")}
+              </span>
             </h2>
-            <p className="text-lg text-gray-900 mx-auto">
+
+            <p className="text-lg text-black dark:text-white max-w-2xl mx-auto">
               {t("about.history.subtitle")}
             </p>
           </div>
 
-          <div className="flex flex-col lg:flex-row items-start gap-8">
-            {/* Imagem à esquerda */}
-            <div className="w-[300px] flex-shrink-0">
-              <div className="aspect-square relative">
-                <Image src="/face.png" alt="Government Technology" fill />
-              </div>
-            </div>
-
+          <div className="grid lg:grid-cols-1 gap-4 items-center">
             {/* Texto à direita */}
-            <div className="text-xl text-justify text-gray-900 font-kurale">
+            <div className="text-xl text-justify text-black dark:text-orange-400 font-kurale">
               <p>{t("about.history.p1")}</p>
               <p className="py-2">{t("about.history.p2")}</p>
               <p className="py-2">{t("about.history.p3")}</p>
+            </div>
+          </div>
+          <div className="grid lg:grid-cols-2 gap-4 items-center">
+            <div className="flex-shrink-0">
+              <motion.div
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 2, y: 0 }}
+                transition={{ duration: 3.5, ease: "easeOut" }}
+                viewport={{ once: false, amount: 0.5 }}
+              >
+                <div className="aspect-square relative">
+                  <Image
+                    src="/pages/about-history-dener.png"
+                    alt="Dener Viana"
+                    fill
+                  />
+                </div>
+              </motion.div>
+            </div>
+            <div className="flex-shrink-0">
+              <motion.div
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 2, y: 0 }}
+                transition={{ duration: 3.5, ease: "easeOut" }}
+                viewport={{ once: false, amount: 0.5 }}
+              >
+                <div className="aspect-square relative">
+                  <Image
+                    src="/pages/about-history-tati.png"
+                    alt="Government Technology"
+                    fill
+                  />
+                </div>
+              </motion.div>
             </div>
           </div>
         </div>
@@ -224,7 +243,7 @@ export default function AboutPageContent() {
       </section>
 
       {/* Mission, Vision, Values */}
-      <section className="py-20 px-4 bg-white/90">
+      <section className="py-20 px-4 bg-white dark:bg-gray-600">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="!text-orange-400 text-3xl md:text-4xl font-bold mb-4">
@@ -241,14 +260,14 @@ export default function AboutPageContent() {
       </section>
 
       {/* Technology Section */}
-      <section className="py-20 px-4 bg-white">
+      <section className="py-20 px-4 bg-yellow-50 dark:bg-gray-500">
         <div className="max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
               <h2 className="text-orange-400 text-3xl md:text-4xl font-bold mb-6">
                 {t("about.technology.title")}
               </h2>
-              <p className="text-lg text-gray-900 max-w-2xl mx-auto">
+              <p className="text-lg text-black dark:text-white max-w-2xl mx-auto">
                 {t("about.technology.subtitle")}
               </p>
               <br />
@@ -294,18 +313,18 @@ export default function AboutPageContent() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-white/90">
+      <section className="py-20 bg-yellow-100 dark:bg-gray-600">
         <div className="text-center mb-16">
           <h2 className="text-orange-400 text-3xl md:text-4xl font-bold mb-6">
             {t("about.cta.title")}
           </h2>
-          <p className="text-lg text-gray-900 max-w-2xl mx-auto">
+          <p className="text-lg text-gray-900 dark:text-white max-w-2xl mx-auto">
             {t("about.cta.subtitle")}
           </p>
           <div className="my-8"></div>
           <Button
             size="lg"
-            className="bg-orange-400 hover:bg-orange-500 text-white font-semibold px-8 py-3"
+            className="bg-orange-400 hover:bg-orange-500 text-white font-semibold px-8 py-3 button-shadow"
             onClick={() => router.push("/contact")}
           >
             {t("about.cta.button")}

@@ -1,7 +1,6 @@
 "use client";
 
 import { Card, CardContent } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
 import {
   GraduationCap,
   Banknote,
@@ -9,9 +8,7 @@ import {
   Heart,
   Factory,
   ShoppingCart,
-  ArrowRight,
 } from "lucide-react";
-import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { useTranslation } from "@/components/translation-context";
 
@@ -66,42 +63,42 @@ export function IndustriesSection() {
 
   const industries = [
     {
-      icon: <GraduationCap className="h-8 w-8" style={{ color: "#FF8C00" }} />,
+      icon: <GraduationCap className="h-8 w-8" />,
       title: t("home.section.industries.education.title"),
       description: t("home.section.industries.education.description"),
       href: "/industry/education",
       backgroundImage: "/industries/digital-education.jpg",
     },
     {
-      icon: <Banknote className="h-8 w-8" style={{ color: "#FF8C00" }} />,
+      icon: <Banknote className="h-8 w-8" />,
       title: t("home.section.industries.financial.title"),
       description: t("home.section.industries.financial.description"),
       href: "/industry/financial",
       backgroundImage: "/industries/payment.jpg",
     },
     {
-      icon: <Building2 className="h-8 w-8" style={{ color: "#FF8C00" }} />,
+      icon: <Building2 className="h-8 w-8" />,
       title: t("home.section.industries.government.title"),
       description: t("home.section.industries.government.description"),
       href: "/industry/government",
       backgroundImage: "/industries/gov-pt.jpg",
     },
     {
-      icon: <Heart className="h-8 w-8" style={{ color: "#FF8C00" }} />,
+      icon: <Heart className="h-8 w-8" />,
       title: t("home.section.industries.healthcare.title"),
       description: t("home.section.industries.healthcare.description"),
       href: "/industry/healthcare",
       backgroundImage: "/industries/digital-health.jpg",
     },
     {
-      icon: <Factory className="h-8 w-8" style={{ color: "#FF8C00" }} />,
+      icon: <Factory className="h-8 w-8" />,
       title: t("home.section.industries.manufacturing.title"),
       description: t("home.section.industries.manufacturing.description"),
       href: "/industry/manufacturing",
       backgroundImage: "/industries/robot.jpg",
     },
     {
-      icon: <ShoppingCart className="h-8 w-8" style={{ color: "#FF8C00" }} />,
+      icon: <ShoppingCart className="h-8 w-8" />,
       title: t("home.section.industries.retail.title"),
       description: t("home.section.industries.retail.description"),
       href: "/industry/retail",
@@ -110,21 +107,18 @@ export function IndustriesSection() {
   ];
 
   return (
-    <section
-      ref={sectionRef}
-      className="py-20 bg-gradient-to-br from-gray-50 to-white"
-    >
+    <section ref={sectionRef} className="py-20 bg-gray-20 dark:bg-gray-700">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold mb-4">
-            <span className="text-gray-900">
+          <h2 className="text-3xl lg:text-4xl font-bold text-viana-black mb-4">
+            <span className="text-black">
               {t("home.section.industries.title.part1")}
             </span>{" "}
-            <span style={{ color: "#FF8C00" }}>
+            <span className="text-orange-400">
               {t("home.section.industries.title.part2")}
             </span>
           </h2>
-          <p className="text-xl text-gray-900 dark:text-gray-900 max-w-3xl mx-auto font-kurale">
+          <p className="text-lg text-black dark:text-white max-w-2xl mx-auto">
             {t("home.section.industries.subtitle")}
           </p>
         </div>
@@ -134,55 +128,24 @@ export function IndustriesSection() {
             <Card
               key={index}
               data-index={index}
-              className={`industry-card group hover:shadow-xl border-0 overflow-hidden transform transition-all duration-1000 ease-out ${
-                visibleCards[index]
-                  ? "opacity-100 translate-y-0 scale-100"
-                  : "opacity-0 translate-y-12 scale-95"
-              }`}
+              className="w-full max-w-md dark:bg-gray-500 shadow-2xl border-none"
               style={{
-                transitionDelay: visibleCards[index]
-                  ? `${index * 200}ms`
-                  : "0ms",
-                backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(${industry.backgroundImage})`,
+                backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.1)), url(${industry.backgroundImage})`,
                 backgroundSize: "cover",
                 backgroundPosition: "center",
                 backgroundRepeat: "no-repeat",
               }}
             >
               <CardContent className="p-8 text-center relative z-10">
-                <h3
-                  className="text-xl font-bold mb-4 transition-colors text-white"
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.color = "#FF8C00";
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.color = "#FFFFFF";
-                  }}
-                >
-                  {industry.icon} {industry.title}
+                <div className="text-4x1 text-orange-400 dark:text-white mb-4 flex items-center justify-center ">
+                  {industry.icon}
+                </div>
+                <h3 className="text-xl font-semibold text-orange-400 dark:text-white mb-4">
+                  {industry.title}
                 </h3>
-                <p className="text-gray-200 mb-6 font-kurale">
+                <p className="text-md text-orange-400 dark:text-white mb-6 leading-relaxed">
                   {industry.description}
                 </p>
-                <Link href={industry.href}>
-                  <Button
-                    variant="outline"
-                    className="transition-all duration-300 bg-transparent border-white text-white"
-                    onMouseEnter={(e) => {
-                      e.currentTarget.style.backgroundColor = "#FF8C00";
-                      e.currentTarget.style.color = "#FFFFFF";
-                      e.currentTarget.style.borderColor = "#FF8C00";
-                    }}
-                    onMouseLeave={(e) => {
-                      e.currentTarget.style.backgroundColor = "transparent";
-                      e.currentTarget.style.color = "#FFFFFF";
-                      e.currentTarget.style.borderColor = "#FFFFFF";
-                    }}
-                  >
-                    {t("home.section.industries.cta")}
-                    <ArrowRight className="ml-2 h-4 w-4" />
-                  </Button>
-                </Link>
               </CardContent>
             </Card>
           ))}

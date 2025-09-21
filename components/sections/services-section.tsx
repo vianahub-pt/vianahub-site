@@ -2,8 +2,7 @@
 
 import { useState, useEffect, useRef } from "react";
 import { Card, CardContent } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { Code, Smartphone, Globe, Settings, Shield, Zap } from "lucide-react";
+import { Code, Smartphone, Shield, Zap, Layout, Link } from "lucide-react";
 import { useTranslation } from "@/components/translation-context";
 
 const services = [
@@ -11,37 +10,31 @@ const services = [
     icon: Code,
     titleKey: "home.section.services.web.title",
     descriptionKey: "home.section.services.web.description",
-    color: "from-blue-500 to-purple-600",
   },
   {
     icon: Smartphone,
     titleKey: "home.section.services.mobile.title",
     descriptionKey: "home.section.services.mobile.description",
-    color: "from-green-500 to-teal-600",
   },
   {
-    icon: Globe,
+    icon: Layout,
     titleKey: "home.section.services.landing.title",
     descriptionKey: "home.section.services.landing.description",
-    color: "from-orange-500 to-red-600",
   },
   {
-    icon: Settings,
+    icon: Link,
     titleKey: "home.section.services.integration.title",
     descriptionKey: "home.section.services.integration.description",
-    color: "from-purple-500 to-pink-600",
   },
   {
     icon: Shield,
     titleKey: "home.section.services.security.title",
     descriptionKey: "home.section.services.security.description",
-    color: "from-red-500 to-orange-600",
   },
   {
     icon: Zap,
     titleKey: "home.section.services.automation.title",
     descriptionKey: "home.section.services.automation.description",
-    color: "from-yellow-500 to-orange-600",
   },
 ];
 
@@ -76,21 +69,18 @@ export function ServicesSection() {
   }, []);
 
   return (
-    <section
-      ref={sectionRef}
-      className="py-20 bg-gradient-to-br from-gray-50 to-blue-50"
-    >
+    <section ref={sectionRef} className="py-20 bg-gray-20 dark:bg-gray-700">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
-            <span className="text-gray-900">
+            <span className="text-black">
               {t("home.section.services.title.part1")}
             </span>{" "}
             <span className="text-orange-400">
               {t("home.section.services.title.part2")}
             </span>
           </h2>
-          <p className="text-lg text-gray-900 max-w-2xl mx-auto">
+          <p className="text-lg text-black dark:text-white max-w-2xl mx-auto">
             {t("home.section.services.subtitle")}
           </p>
         </div>
@@ -98,38 +88,22 @@ export function ServicesSection() {
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {services.map((service, index) => {
             const Icon = service.icon;
-            const isVisible = visibleCards.includes(index);
 
             return (
               <Card
                 key={index}
-                className={`group hover:shadow-xl transition-all duration-500 border-0 bg-white/80 backdrop-blur-sm transform ${
-                  isVisible
-                    ? "translate-y-0 opacity-100"
-                    : "translate-y-8 opacity-0"
-                }`}
-                style={{
-                  transitionDelay: isVisible ? "0ms" : `${index * 150}ms`,
-                }}
+                className="w-full max-w-md bg-orange-200 dark:bg-gray-500 shadow-2xl border-none"
               >
                 <CardContent className="p-8 text-center">
-                  <div
-                    className={`w-16 h-16 mx-auto mb-6 rounded-full bg-gradient-to-r ${service.color} flex items-center justify-center group-hover:scale-110 transition-transform duration-300`}
-                  >
-                    <Icon className="w-8 h-8 text-white" />
+                  <div className="text-4x1 text-orange-400 dark:text-orange-400 mb-4 flex items-center justify-center ">
+                    <Icon />
                   </div>
-                  <h3 className="text-xl font-semibold text-gray-900 mb-4">
+                  <h3 className="text-xl font-semibold text-orange-400 dark:text-orange-400 mb-4">
                     {t(service.titleKey)}
                   </h3>
-                  <p className="text-gray-600 mb-6 leading-relaxed">
+                  <p className="text-md text-black dark:text-white mb-6 leading-relaxed">
                     {t(service.descriptionKey)}
                   </p>
-                  <Button
-                    variant="outline"
-                    className="!bg-viana-orange/50 text-gray-900 group-hover:bg-orange-500 group-hover:text-gray-900 group-hover:border-orange-500 transition-colors duration-300 bg-transparent"
-                  >
-                    {t("services.cta")}
-                  </Button>
                 </CardContent>
               </Card>
             );

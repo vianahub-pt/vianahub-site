@@ -2,16 +2,11 @@
 
 import type React from "react";
 
-import { ThemeProvider } from "@/components/theme-provider";
+import { ThemeProvider } from "next-themes";
 
 export default function Providers({ children }: { children: React.ReactNode }) {
   return (
-    <ThemeProvider
-      attribute="class"
-      defaultTheme="system"
-      enableSystem
-      disableTransitionOnChange
-    >
+    <ThemeProvider attribute="class" defaultTheme="system" enableSystem={true}>
       {children}
     </ThemeProvider>
   );

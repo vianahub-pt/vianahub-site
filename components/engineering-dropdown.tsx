@@ -39,8 +39,8 @@ export function EngineeringDropdown() {
       color: "#FFFFFF",
     },
     {
-      key: "nav.engineering.manufacturing.title",
-      path: "/engineering/manufacturing",
+      key: "nav.engineering.industry.title",
+      path: "/engineering/industry",
       icon: Factory,
       color: "#FFFFFF",
     },
@@ -76,7 +76,11 @@ export function EngineeringDropdown() {
       onMouseEnter={() => setIsOpen(true)}
       onMouseLeave={() => setIsOpen(false)}
     >
-      <button className="flex items-center space-x-1 px-3 py-2 rounded-md transition-all duration-100 font-medium drop-shadow-lg cursor-pointer bg-transparent text-orange-400 hover:bg-yellow-500/20 hover:text-white text-sm">
+      <button
+        className="flex items-center space-x-1 px-3 py-2 rounded-md transition-all duration-100 font-medium cursor-pointer
+    bg-orange-400 text-white hover:bg-black/80 hover:text-orange-400
+    dark:bg-black dark:text-orange-400 dark:hover:bg-orange-400 dark:hover:text-white text-md"
+      >
         <span>{t("nav.engineering.title")}</span>
         <ChevronDown
           className={`h-4 w-4 transition-transform duration-200 ${
@@ -95,10 +99,7 @@ export function EngineeringDropdown() {
                 onClick={() => handleNavigation(item.path)}
                 className="flex items-center gap-3 w-full text-left px-4 py-2 text-sm text-orange-400 hover:bg-yellow-500/20 hover:text-white transition-colors duration-150"
               >
-                <IconComponent
-                  className="h-4 w-4"
-                  style={{ color: item.color }}
-                />
+                <IconComponent className="h-4 w-4 stroke-white dark:stroke-gray-400" />
                 {t(item.key)}
               </button>
             );

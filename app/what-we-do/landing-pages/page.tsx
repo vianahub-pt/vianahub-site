@@ -98,15 +98,15 @@ export default function LandingPagesPage() {
         className="h-full"
         style={{ perspective: 1000 }} // necessário para o efeito 3D
       >
-        <Card className="text-center hover:scale-105 transition-all duration-300 relative border-none h-full">
+        <Card className="text-center bg-orange-400 hover:scale-105 transition-all duration-300 relative border-none h-full">
           <CardContent className="p-6 flex flex-col h-full">
-            <div className="w-16 h-16 mx-auto mb-6 flex items-center justify-center rounded-full bg-viana-orange/10">
-              <Icon className="w-8 h-8 text-orange-400" /> {/* ← aqui */}
-            </div>
-            <h3 className="text-orange-400 text-xl font-semibold mb-3">
+            <Icon className="h-12 w-12 text-white dark:text-black mx-auto mb-4" />
+            <h3 className="text-black dark:text-white text-xl font-semibold mb-3">
               {service.title}
             </h3>
-            <p className="text-md mt-auto">{service.description}</p>
+            <p className="text-md text-white dark:text-black mt-auto">
+              {service.description}
+            </p>
           </CardContent>
         </Card>
       </motion.div>
@@ -128,13 +128,15 @@ export default function LandingPagesPage() {
         }}
         className="h-full"
       >
-        <Card className="text-center bg-orange-400 hover:scale-105 transition-all duration-300 relative border-none h-full">
+        <Card className="text-center bg-yellow-500 hover:scale-105 transition-all duration-300 relative border-none h-full">
           <CardContent className="p-6 flex flex-col h-full">
-            <Icon className="h-12 w-12 text-white mx-auto mb-4" />
-            <h3 className="text-gray-900 text-xl font-semibold mb-3">
+            <Icon className="h-12 w-12 text-white dark:text-black mx-auto mb-4" />
+            <h3 className="text-black dark:text-white text-xl font-semibold mb-3">
               {service.title}
             </h3>
-            <p className="text-md mt-auto">{service.description}</p>
+            <p className="text-md text-white dark:text-black mt-auto">
+              {service.description}
+            </p>
           </CardContent>
         </Card>
       </motion.div>
@@ -152,18 +154,15 @@ export default function LandingPagesPage() {
           backgroundPosition: "center",
         }}
       >
-        <div className="absolute inset-0 z-0" />
+        <div className="absolute inset-0 z-0 bg-black/20" />
         <div className="container mx-auto px-4 relative z-10 h-full flex items-center justify-center">
-          <div className="max-w-5xl mx-auto text-center bg-black/50 backdrop-blur-sm rounded-lg p-6">
-            <h1 className="text-orange-400 text-orange-400 text-4xl lg:text-6xl font-bold mb-6 flex items-center justify-center">
-              <Layout
-                className=" w-12 h-12 lg:w-16 lg:h-16"
-                style={{ color: "#FFFFFF" }}
-              />
+          <div className="bg-white/50 dark:bg-black/50 text-orange-400 dark:text-orange-400 border border-white rounded-lg p-6 ">
+            <h1 className="text-orange-400 text-orange-400 text-4xl lg:text-6xl font-bold flex items-center justify-center text-shadow">
+              <Layout className="h-12 w-12 stroke-white dark:stroke-gray-400 icon-shadow " />
               &nbsp;{t("landingPages.hero.title")}
             </h1>
 
-            <p className="text-xl items-center justify-center mx-auto ">
+            <p className="py-7 block text-2xl text-center text-white dark:text-orange-400 text-shadow">
               {t("landingPages.hero.subtitle")}
             </p>
           </div>
@@ -173,13 +172,19 @@ export default function LandingPagesPage() {
       </section>
 
       {/* Benefits Section */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-gray-200 dark:bg-gray-700">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-orange-400 text-3xl lg:text-4xl font-bold mb-4">
-              {t("landingPages.benefits.title")}
+            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+              <span className="text-black">
+                {t("landingPages.benefits.title.part1")}
+              </span>{" "}
+              <span className="text-orange-400">
+                {t("landingPages.benefits.title.part2")}
+              </span>
             </h2>
-            <p className="text-xl text-gray-900 max-w-3xl mx-auto">
+
+            <p className="text-lg text-black dark:text-white max-w-2xl mx-auto">
               {t("landingPages.benefits.subtitle")}
             </p>
           </div>
@@ -207,13 +212,19 @@ export default function LandingPagesPage() {
       </section>
 
       {/* Features Section */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-white dark:bg-gray-500">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-orange-400 text-3xl lg:text-4xl font-bold mb-4">
-              {t("landingPages.features.title")}
+            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+              <span className="text-black">
+                {t("landingPages.features.title.part1")}
+              </span>{" "}
+              <span className="text-orange-400">
+                {t("landingPages.features.title.part2")}
+              </span>
             </h2>
-            <p className="text-xl text-gray-900 max-w-3xl mx-auto">
+
+            <p className="text-lg text-black dark:text-white max-w-2xl mx-auto">
               {t("landingPages.features.subtitle")}
             </p>
           </div>
@@ -227,18 +238,18 @@ export default function LandingPagesPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-white/90">
+      <section className="py-20 bg-yellow-100 dark:bg-gray-600">
         <div className="text-center mb-16">
-          <h2 className="text-orange-400 text-3xl md:text-4xl font-bold mb-6">
+          <h2 className="text-black dark:text-orange-400 text-3xl md:text-4xl font-bold mb-6">
             {t("landingPages.cta.title")}
           </h2>
-          <p className="text-lg text-gray-900 max-w-2xl mx-auto">
+          <p className="text-lg text-orange-400 dark:text-white max-w-2xl mx-auto">
             {t("landingPages.cta.subtitle")}
           </p>
           <div className="my-8"></div>
           <Button
             size="lg"
-            className="bg-orange-400 hover:bg-orange-500 text-white font-semibold px-8 py-3"
+            className="bg-orange-400 hover:bg-orange-500 text-white font-semibold px-8 py-3 button-shadow"
             onClick={() => router.push("/contact")}
           >
             {t("landingPages.cta.button")}

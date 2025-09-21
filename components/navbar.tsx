@@ -22,33 +22,46 @@ export function Navbar() {
   };
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-black/80 dark:bg-black/80 backdrop-blur-md border-b border-white/30 dark:border-gray-400/30">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-orange-400 dark:bg-black backdrop-blur-md border-b border-white/30 dark:border-gray-400/30">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <div className="flex-shrink-0">
+          <div className="flex-shrink-0 h-full flex items-center">
             <button
               onClick={() => handleNavigation("/")}
-              className="flex items-center cursor-pointer"
+              className="flex items-center cursor-pointer h-full relative"
             >
+              {/* Logo Light */}
               <Image
-                src="/logo.png"
-                alt="VianaHub"
-                width={40}
-                height={40}
-                className="h-10 w-auto"
+                src="/logo-default-white.png"
+                alt="VianaHub Light"
+                className="h-[80%] w-auto dark:hidden"
+                width={200}
+                height={100}
+                priority
+              />
+              {/* Logo Dark */}
+              <Image
+                src="/logo-default-orange.png"
+                alt="VianaHub Dark"
+                className="h-[80%] w-auto hidden dark:block"
+                width={200}
+                height={100}
+                priority
               />
             </button>
           </div>
 
-          {/* Right side - Language selector and theme toggle */}
+          {/* Right side */}
           <div className="hidden lg:flex items-center space-x-4">
             <WhatWeDoDropdown />
             <EngineeringDropdown />
             <InstitutionalDropdown />
             <button
               onClick={() => handleNavigation("/contact")}
-              className="flex items-center space-x-1 px-3 py-2 rounded-md transition-all duration-100 font-medium drop-shadow-lg cursor-pointer bg-transparent text-orange-400 hover:bg-yellow-500/20 hover:text-white text-sm"
+              className="flex items-center space-x-1 px-3 py-2 rounded-md transition-all duration-100 font-medium cursor-pointer
+    bg-orange-400 text-white hover:bg-black/80 hover:text-orange-400
+    dark:bg-black dark:text-orange-400 dark:hover:bg-orange-400 dark:hover:text-white text-md"
             >
               {t("nav.contact.title")}
             </button>
@@ -81,7 +94,10 @@ export function Navbar() {
               <InstitutionalDropdown />
               <button
                 onClick={() => handleNavigation("/contact")}
-                className="flex items-center space-x-1 px-3 py-2 rounded-md transition-all duration-100 font-medium drop-shadow-lg cursor-pointer bg-transparent text-orange-400 hover:bg-yellow-500/20 hover:text-white text-sm"
+                className="flex items-center space-x-1 px-3 py-2 rounded-md transition-all duration-200 font-medium drop-shadow-lg cursor-pointer
+                  bg-orange-400 text-white hover:bg-white hover:text-orange-400
+                  dark:bg-black dark:text-orange-400 dark:hover:bg-orange-400 dark:hover:text-white
+                  text-sm"
               >
                 {t("nav.contact.title")}
               </button>

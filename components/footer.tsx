@@ -1,34 +1,74 @@
-"use client"
+"use client";
 
-import Link from "next/link"
-import Image from "next/image"
-import { useTranslation } from "@/components/translation-context"
-import { Facebook, Instagram, Linkedin, Twitter, Mail, Phone, MapPin } from "lucide-react"
+import { useState, useEffect } from "react";
+import { useTheme } from "next-themes";
+import Link from "next/link";
+import Image from "next/image";
+import { useTranslation } from "@/components/translation-context";
+import {
+  Mail,
+  Phone,
+  MapPin,
+  Facebook,
+  Instagram,
+  Linkedin,
+  Twitter,
+} from "lucide-react";
 
 export function Footer() {
-  const { t } = useTranslation()
+  const { t } = useTranslation();
+  const { theme, resolvedTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+  const isDark = mounted && (theme === "dark" || resolvedTheme === "dark");
+
+  useEffect(() => setMounted(true), []);
 
   return (
-    <footer className="bg-gray-900 text-white">
+    <footer className="bg-orange-900 text-white dark:bg-black dark:text-orange-400 text-md">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Logo and Description */}
           <div className="space-y-4">
             <Link href="/" className="flex items-center">
-              <Image src="/logo.png" alt={t("footer.companyName")} width={40} height={40} className="h-10 w-auto" />
+              {mounted && (
+                <Image
+                  src={
+                    isDark
+                      ? "/logo-default-orange.png"
+                      : "/logo-default-white.png"
+                  }
+                  alt="VianaHub"
+                  className="h-[80%] w-auto"
+                  width={200}
+                  height={100}
+                  priority
+                />
+              )}
             </Link>
             <p className="text-gray-300 text-sm">{t("footer.description")}</p>
             <div className="flex space-x-4">
-              <a href="#" className="text-gray-400 hover:text-white transition-colors">
+              <a
+                href="#"
+                className="text-gray-400 hover:text-white transition-colors"
+              >
                 <Facebook className="h-5 w-5" />
               </a>
-              <a href="#" className="text-gray-400 hover:text-white transition-colors">
+              <a
+                href="#"
+                className="text-gray-400 hover:text-white transition-colors"
+              >
                 <Instagram className="h-5 w-5" />
               </a>
-              <a href="#" className="text-gray-400 hover:text-white transition-colors">
+              <a
+                href="#"
+                className="text-gray-400 hover:text-white transition-colors"
+              >
                 <Linkedin className="h-5 w-5" />
               </a>
-              <a href="#" className="text-gray-400 hover:text-white transition-colors">
+              <a
+                href="#"
+                className="text-gray-400 hover:text-white transition-colors"
+              >
                 <Twitter className="h-5 w-5" />
               </a>
             </div>
@@ -36,7 +76,9 @@ export function Footer() {
 
           {/* Services */}
           <div>
-            <h3 className="text-lg font-semibold mb-4">{t("footer.services")}</h3>
+            <h3 className="text-lg font-semibold mb-4">
+              {t("footer.services")}
+            </h3>
             <ul className="space-y-2">
               <li>
                 <Link
@@ -47,12 +89,18 @@ export function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/what-we-do/agile" className="text-gray-300 hover:text-white transition-colors text-sm">
+                <Link
+                  href="/what-we-do/agile"
+                  className="text-gray-300 hover:text-white transition-colors text-sm"
+                >
                   {t("footer.whatWeDo.agile")}
                 </Link>
               </li>
               <li>
-                <Link href="/what-we-do/chatbot" className="text-gray-300 hover:text-white transition-colors text-sm">
+                <Link
+                  href="/what-we-do/chatbot"
+                  className="text-gray-300 hover:text-white transition-colors text-sm"
+                >
                   {t("footer.whatWeDo.chatbot")}
                 </Link>
               </li>
@@ -69,25 +117,39 @@ export function Footer() {
 
           {/* Industries */}
           <div>
-            <h3 className="text-lg font-semibold mb-4">{t("footer.industries")}</h3>
+            <h3 className="text-lg font-semibold mb-4">
+              {t("footer.industries")}
+            </h3>
             <ul className="space-y-2">
               <li>
-                <Link href="/industry/healthcare" className="text-gray-300 hover:text-white transition-colors text-sm">
+                <Link
+                  href="/industry/healthcare"
+                  className="text-gray-300 hover:text-white transition-colors text-sm"
+                >
                   {t("footer.link.industry.healthcare")}
                 </Link>
               </li>
               <li>
-                <Link href="/industry/financial" className="text-gray-300 hover:text-white transition-colors text-sm">
+                <Link
+                  href="/industry/financial"
+                  className="text-gray-300 hover:text-white transition-colors text-sm"
+                >
                   {t("footer.link.industry.financial")}
                 </Link>
               </li>
               <li>
-                <Link href="/industry/education" className="text-gray-300 hover:text-white transition-colors text-sm">
+                <Link
+                  href="/industry/education"
+                  className="text-gray-300 hover:text-white transition-colors text-sm"
+                >
                   {t("footer.link.industry.education")}
                 </Link>
               </li>
               <li>
-                <Link href="/industry/retail" className="text-gray-300 hover:text-white transition-colors text-sm">
+                <Link
+                  href="/industry/retail"
+                  className="text-gray-300 hover:text-white transition-colors text-sm"
+                >
                   {t("footer.link.industry.retail")}
                 </Link>
               </li>
@@ -96,7 +158,9 @@ export function Footer() {
 
           {/* Contact */}
           <div>
-            <h3 className="text-lg font-semibold mb-4">{t("footer.contact")}</h3>
+            <h3 className="text-lg font-semibold mb-4">
+              {t("footer.contact")}
+            </h3>
             <ul className="space-y-2">
               <li className="flex items-center text-gray-300 text-sm">
                 <Mail className="h-4 w-4 mr-2" />
@@ -108,7 +172,9 @@ export function Footer() {
               </li>
               <li className="flex items-start text-gray-300 text-sm">
                 <MapPin className="h-4 w-4 mr-2 mt-0.5" />
-                <span dangerouslySetInnerHTML={{ __html: t("footer.address") }} />
+                <span
+                  dangerouslySetInnerHTML={{ __html: t("footer.address") }}
+                />
               </li>
             </ul>
           </div>
@@ -118,10 +184,16 @@ export function Footer() {
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-gray-400 text-sm">{t("footer.copyright")}</p>
             <div className="flex space-x-6 mt-4 md:mt-0">
-              <Link href="/privacy" className="text-gray-400 hover:text-white transition-colors text-sm">
+              <Link
+                href="/privacy"
+                className="text-gray-400 hover:text-white transition-colors text-sm"
+              >
                 {t("footer.privacy")}
               </Link>
-              <Link href="/terms" className="text-gray-400 hover:text-white transition-colors text-sm">
+              <Link
+                href="/terms"
+                className="text-gray-400 hover:text-white transition-colors text-sm"
+              >
                 {t("footer.terms")}
               </Link>
             </div>
@@ -129,5 +201,5 @@ export function Footer() {
         </div>
       </div>
     </footer>
-  )
+  );
 }

@@ -21,70 +21,51 @@ export default function SolarEnergyPage() {
 
   const benefits = [
     {
-      title: t("solar-energy.benefits.card1.title"),
-      subtitle: t("solar-energy.benefits.card1.subtitle"),
-      description: t("solar-energy.benefits.card1.description"),
+      title: t("solarEnergy.benefits.card1.title"),
+      subtitle: t("solarEnergy.benefits.card1.subtitle"),
+      description: t("solarEnergy.benefits.card1.description"),
     },
     {
-      title: t("solar-energy.benefits.card2.title"),
-      subtitle: t("solar-energy.benefits.card2.subtitle"),
-      description: t("solar-energy.benefits.card2.description"),
+      title: t("solarEnergy.benefits.card2.title"),
+      subtitle: t("solarEnergy.benefits.card2.subtitle"),
+      description: t("solarEnergy.benefits.card2.description"),
     },
     {
-      title: t("solar-energy.benefits.card3.title"),
-      subtitle: t("solar-energy.benefits.card3.subtitle"),
-      description: t("solar-energy.benefits.card3.description"),
+      title: t("solarEnergy.benefits.card3.title"),
+      subtitle: t("solarEnergy.benefits.card3.subtitle"),
+      description: t("solarEnergy.benefits.card3.description"),
     },
   ];
 
   const services = [
     {
       icon: Sun,
-      title: t("solar-energy.services.panels.title"),
-      description: t("solar-energy.services.panels.description"),
+      title: t("solarEnergy.services.panels.title"),
+      description: t("solarEnergy.services.panels.description"),
     },
     {
       icon: Battery,
-      title: t("solar-energy.services.systems.title"),
-      description: t("solar-energy.services.systems.description"),
+      title: t("solarEnergy.services.systems.title"),
+      description: t("solarEnergy.services.systems.description"),
     },
     {
       icon: Zap,
-      title: t("solar-energy.services.microgeneration.title"),
-      description: t("solar-energy.services.microgeneration.description"),
+      title: t("solarEnergy.services.microgeneration.title"),
+      description: t("solarEnergy.services.microgeneration.description"),
     },
     {
       icon: BarChart3,
-      title: t("solar-energy.services.monitoring.title"),
-      description: t("solar-energy.services.monitoring.title"),
-    },
-  ];
-
-  const projects = [
-    {
-      title: t("solar-energy.projects.solar-park.title"),
-      description: t("solar-energy.projects.solar-park.description"),
-      image: "/pages/solar-energy-project-1.jpg",
-      status: t("solar-energy.projects.solar-park.status"),
-      year: t("solar-energy.projects.solar-park.year"),
-      capacity: t("solar-energy.projects.solar-park.capacity"),
-    },
-    {
-      title: t("solar-energy.projects.community.title"),
-      description: t("solar-energy.projects.community.description"),
-      image: "/pages/solar-energy-project-2.jpg",
-      status: t("solar-energy.projects.community.status"),
-      year: t("solar-energy.projects.community.year"),
-      capacity: t("solar-energy.projects.community.capacity"),
+      title: t("solarEnergy.services.monitoring.title"),
+      description: t("solarEnergy.services.monitoring.description"),
     },
   ];
 
   const technologies = [
-    { description: t("solar-energy.technology.panels") },
-    { description: t("solar-energy.technology.inverters") },
-    { description: t("solar-energy.technology.monitoring") },
-    { description: t("solar-energy.technology.maintenance") },
-    { description: t("solar-energy.technology.certification") },
+    { description: t("solarEnergy.technology.panels") },
+    { description: t("solarEnergy.technology.inverters") },
+    { description: t("solarEnergy.technology.monitoring") },
+    { description: t("solarEnergy.technology.maintenance") },
+    { description: t("solarEnergy.technology.certification") },
   ];
 
   interface BenefitsCardProps {
@@ -150,9 +131,9 @@ export default function SolarEnergyPage() {
         className="h-full"
         style={{ perspective: 1000 }}
       >
-        <Card className="bg-orange-200 hover:scale-105 transition-all duration-300 relative border-none h-full">
+        <Card className="bg-orange-200 dark:bg-gray-200 hover:scale-105 transition-all duration-300 relative border-none h-full">
           <CardContent className="p-8 text-center">
-            <div className="w-16 h-16 mx-auto mb-6 flex items-center justify-center rounded-full bg-viana-orange/10">
+            <div className="bg-yellow-50 dark:bg-black w-16 h-16 mx-auto mb-6 flex items-center justify-center rounded-full ">
               <service.icon className="w-8 h-8 text-orange-400" />
             </div>
             <h3 className="text-xl font-bold mb-4 text-orange-400">
@@ -176,19 +157,16 @@ export default function SolarEnergyPage() {
           backgroundPosition: "center",
         }}
       >
-        <div className="absolute inset-0 z-0" />
+        <div className="absolute inset-0 z-0 bg-black/30" />
         <div className="container mx-auto px-4 relative z-10 h-full flex items-center justify-center">
-          <div className="max-w-5xl mx-auto text-center bg-black/50 backdrop-blur-sm rounded-lg p-6">
-            <h1 className="text-orange-400 text-orange-400 text-4xl lg:text-6xl font-bold mb-6 flex items-center justify-center">
-              <Sun
-                className=" w-12 h-12 lg:w-16 lg:h-16"
-                style={{ color: "#FFFFFF" }}
-              />
-              &nbsp;{t("solar-energy.hero.title")}
+          <div className="bg-white/50 dark:bg-black/50 text-orange-400 dark:text-orange-400 border border-white rounded-lg p-6 ">
+            <h1 className="text-orange-400 text-orange-400 text-4xl lg:text-6xl font-bold flex items-center justify-center text-shadow">
+              <Sun className="h-12 w-12 stroke-white dark:stroke-gray-400 icon-shadow " />
+              &nbsp;{t("solarEnergy.hero.title")}
             </h1>
 
-            <p className="text-xl items-center justify-center mx-auto ">
-              {t("solar-energy.hero.subtitle")}
+            <p className="py-7 block text-2xl text-center text-white dark:text-orange-400 text-shadow">
+              {t("solarEnergy.hero.subtitle")}
             </p>
           </div>
         </div>
@@ -197,14 +175,20 @@ export default function SolarEnergyPage() {
       </section>
 
       {/* Benefits Section */}
-      <section className="py-20 px-4 bg-white">
+      <section className="py-20 px-4 bg-gray-200 dark:bg-gray-600">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-orange-400 text-3xl md:text-4xl font-bold mb-6">
-              {t("solar-energy.benefits.title")}
+            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+              <span className="text-black">
+                {t("solarEnergy.benefits.title.part1")}
+              </span>{" "}
+              <span className="text-orange-400">
+                {t("solarEnergy.benefits.title.part2")}
+              </span>
             </h2>
-            <p className="text-lg text-gray-900 max-w-2xl mx-auto">
-              {t("solar-energy.benefits.subtitle")}
+
+            <p className="text-lg text-black dark:text-white max-w-2xl mx-auto">
+              {t("solarEnergy.benefits.subtitle")}
             </p>
           </div>
 
@@ -231,14 +215,20 @@ export default function SolarEnergyPage() {
       </section>
 
       {/* Services Section */}
-      <section className="py-20 px-4 bg-yellow-50">
+      <section className="py-20 px-4 bg-yellow-50 dark:bg-black">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-orange-400 text-3xl md:text-4xl font-bold mb-6">
-              {t("solar-energy.services.title")}
+            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+              <span className="text-center text-black dark:text-white">
+                {t("solarEnergy.services.title.part1")}
+              </span>{" "}
+              <span className="text-center text-orange-400">
+                {t("solarEnergy.services.title.part2")}
+              </span>
             </h2>
-            <p className="text-lg text-gray-900 max-w-2xl mx-auto">
-              {t("solar-energy.services.subtitle")}
+
+            <p className="text-lg text-black dark:text-white max-w-2xl mx-auto">
+              {t("solarEnergy.services.subtitle")}
             </p>
           </div>
 
@@ -250,68 +240,16 @@ export default function SolarEnergyPage() {
         </div>
       </section>
 
-      {/* Projects Section */}
-      <section className="py-20 px-4 bg-white/95">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-orange-400 text-3xl md:text-4xl font-bold mb-4">
-              {t("solar-energy.projects.title")}
-            </h2>
-            <p className="text-xl text-gray-900">
-              {t("solar-energy.projects.subtitle")}
-            </p>
-          </div>
-
-          <div className="grid lg:grid-cols-2 gap-8">
-            {projects.map((project, index) => (
-              <Card
-                key={index}
-                className="overflow-hidden hover:shadow-lg transition-shadow"
-              >
-                <div className="relative h-48">
-                  <Image
-                    src={project.image || "/placeholder.svg"}
-                    alt={project.title}
-                    fill
-                    className="object-cover"
-                  />
-                  <div className="absolute top-4 right-4">
-                    <Badge
-                      variant={
-                        project.status === "Concluído" ? "default" : "secondary"
-                      }
-                    >
-                      {project.status}
-                    </Badge>
-                  </div>
-                </div>
-                <CardContent className="p-6">
-                  <div className="flex items-center justify-between mb-2">
-                    <h3 className="text-orange-400 text-xl font-bold">
-                      {project.title}
-                    </h3>
-                    <span className="text-sm text-white/90">
-                      {project.year}
-                    </span>
-                  </div>
-                  <p className="text-white mb-4">{project.description}</p>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Technology Section */}
-      <section className="py-20 px-4 bg-white">
+      <section className="py-20 px-4 bg-white dark:bg-gray-700">
         <div className="max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
               <h2 className="text-orange-400 text-3xl md:text-4xl font-bold mb-6">
-                {t("solar-energy.technology.title")}
+                {t("solarEnergy.technology.title")}
               </h2>
-              <p className="text-lg text-gray-900 max-w-2xl mx-auto">
-                {t("solar-energy.technology.subtitle")}
+              <p className="text-lg dark:text-white text-gray-900 max-w-2xl mx-auto">
+                {t("solarEnergy.technology.subtitle")}
               </p>
               <br />
               <div className="space-y-4">
@@ -348,21 +286,21 @@ export default function SolarEnergyPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-white/90">
+      <section className="py-20 bg-yellow-100 dark:bg-gray-600">
         <div className="text-center mb-16">
           <h2 className="text-orange-400 text-3xl md:text-4xl font-bold mb-6">
-            {t("solar-energy.cta.title")}
+            {t("solarEnergy.cta.title")}
           </h2>
-          <p className="text-lg text-gray-900 max-w-2xl mx-auto">
-            {t("solar-energy.cta.subtitle")}
+          <p className="text-lg text-gray-900 dark:text-white max-w-2xl mx-auto">
+            {t("solarEnergy.cta.subtitle")}
           </p>
           <div className="my-8"></div>
           <Button
             size="lg"
-            className="bg-orange-400 hover:bg-orange-500 text-white font-semibold px-8 py-3"
+            className="bg-orange-400 hover:bg-orange-500 text-white font-semibold px-8 py-3 button-shadow"
             onClick={() => router.push("/contact")}
           >
-            {t("solar-energy.cta.button")}
+            {t("solarEnergy.cta.button")}
           </Button>
         </div>
       </section>

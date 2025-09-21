@@ -15,199 +15,199 @@ body {
 
   /* Force Viana colors to work properly */
   .text-viana-orange {
-    color: #ff8c00 !important;
+    color: #ff8c00;
   }
 
   .text-viana-yellow {
-    color: #ffd700 !important;
+    color: #ffd700;
   }
 
   .text-viana-black {
-    color: #000000 !important;
+    color: #000000;
   }
 
   .text-viana-gray {
-    color: #363636 !important;
+    color: #363636;
   }
 
   .text-viana-white {
-    color: #ffffff !important;
+    color: #ffffff;
   }
 
   .bg-viana-orange {
-    background-color: #ff8c00 !important;
+    background-color: #ff8c00;
   }
 
   .bg-viana-yellow {
-    background-color: #ffd700 !important;
+    background-color: #ffd700;
   }
 
   .bg-viana-black {
-    background-color: #000000 !important;
+    background-color: #000000;
   }
 
   .bg-viana-gray {
-    background-color: #363636 !important;
+    background-color: #363636;
   }
 
   .bg-viana-white {
-    background-color: #ffffff !important;
+    background-color: #ffffff;
   }
 
   .border-viana-orange {
-    border-color: #ff8c00 !important;
+    border-color: #ff8c00;
   }
 
   .border-viana-yellow {
-    border-color: #ffd700 !important;
+    border-color: #ffd700;
   }
 
   .border-viana-black {
-    border-color: #000000 !important;
+    border-color: #000000;
   }
 
   .border-viana-gray {
-    border-color: #363636 !important;
+    border-color: #363636;
   }
 
   .border-viana-white {
-    border-color: #ffffff !important;
+    border-color: #ffffff;
   }
 
   .hover\:text-viana-orange:hover {
-    color: #ff8c00 !important;
+    color: #ff8c00;
   }
 
   .hover\:text-viana-yellow:hover {
-    color: #ffd700 !important;
+    color: #ffd700;
   }
 
   .hover\:bg-viana-orange:hover {
-    background-color: #ff8c00 !important;
+    background-color: #ff8c00;
   }
 
   .hover\:bg-viana-yellow:hover {
-    background-color: #ffd700 !important;
+    background-color: #ffd700;
   }
 
   .group:hover .group-hover\:text-viana-orange {
-    color: #ff8c00 !important;
+    color: #ff8c00;
   }
 
   .group:hover .group-hover\:bg-viana-orange {
-    background-color: #ff8c00 !important;
+    background-color: #ff8c00;
   }
 
   .group:hover .group-hover\:text-white {
-    color: #ffffff !important;
+    color: #ffffff;
   }
 
   .text-viana-blue {
-    color: #1e40af !important;
+    color: #1e40af;
   }
 
   .bg-viana-blue {
-    background-color: #1e40af !important;
+    background-color: #1e40af;
   }
 
   .text-viana-green {
-    color: #10b981 !important;
+    color: #10b981;
   }
 
   .bg-viana-green {
-    background-color: #10b981 !important;
+    background-color: #10b981;
   }
 
   .text-viana-purple {
-    color: #8b5cf6 !important;
+    color: #8b5cf6;
   }
 
   .bg-viana-purple {
-    background-color: #8b5cf6 !important;
+    background-color: #8b5cf6;
   }
 
   .text-viana-red {
-    color: #ef4444 !important;
+    color: #ef4444;
   }
 
   .bg-viana-red {
-    background-color: #ef4444 !important;
+    background-color: #ef4444;
   }
 
   .text-viana-pink {
-    color: #ec4899 !important;
+    color: #ec4899;
   }
 
   .bg-viana-pink {
-    background-color: #ec4899 !important;
+    background-color: #ec4899;
   }
 
   .text-viana-indigo {
-    color: #6366f1 !important;
+    color: #6366f1;
   }
 
   .bg-viana-indigo {
-    background-color: #6366f1 !important;
+    background-color: #6366f1;
   }
 
   /* Add opacity variants for viana colors */
   .bg-viana-orange\/90 {
-    background-color: rgba(255, 140, 0, 0.9) !important;
+    background-color: rgba(255, 140, 0, 0.9);
   }
 
   .hover\:bg-viana-orange\/90:hover {
-    background-color: rgba(255, 140, 0, 0.9) !important;
+    background-color: rgba(255, 140, 0, 0.9);
   }
 
   .bg-viana-yellow\/90 {
-    background-color: rgba(255, 215, 0, 0.9) !important;
+    background-color: rgba(255, 215, 0, 0.9);
   }
 
   .hover\:bg-viana-yellow\/90:hover {
-    background-color: rgba(255, 215, 0, 0.9) !important;
+    background-color: rgba(255, 215, 0, 0.9);
   }
 
   /* Dark mode variants for opacity */
   .dark .bg-viana-orange\/90 {
-    background-color: rgba(64, 64, 64, 0.9) !important;
+    background-color: rgba(64, 64, 64, 0.9);
   }
 
   .dark .hover\:bg-viana-orange\/90:hover {
-    background-color: rgba(64, 64, 64, 0.9) !important;
+    background-color: rgba(64, 64, 64, 0.9);
   }
 
   .dark .bg-viana-yellow\/90 {
-    background-color: rgba(82, 82, 82, 0.9) !important;
+    background-color: rgba(82, 82, 82, 0.9);
   }
 
   .dark .hover\:bg-viana-yellow\/90:hover {
-    background-color: rgba(82, 82, 82, 0.9) !important;
+    background-color: rgba(82, 82, 82, 0.9);
   }
 
   /* Missing classes for Agile page */
   .text-viana-black {
-    color: #000000 !important;
+    color: #000000;
   }
 
   .text-viana-gray {
-    color: #363636 !important;
+    color: #363636;
   }
 
   .bg-viana-white {
-    background-color: #ffffff !important;
+    background-color: #ffffff;
   }
 
   /* Dark mode overrides for missing classes */
   .dark .text-viana-black {
-    color: #fafafa !important;
+    color: #fafafa;
   }
 
   .dark .text-viana-gray {
-    color: #a3a3a3 !important;
+    color: #a3a3a3;
   }
 
   .dark .bg-viana-white {
-    background-color: #1a1a1a !important;
+    background-color: #1a1a1a;
   }
 }
 
@@ -299,6 +299,18 @@ body {
   --viana-secondary: #a3a3a3; /* Cinza médio para substituir amarelo */
   --viana-accent: #525252; /* Cinza escuro para acentos */
 }
+.text-shadow {
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.55);
+}
+.icon-shadow {
+  filter: drop-shadow(5px 5px 4px rgba(0, 0, 0, 0.55));
+}
+.button-shadow {
+  filter: drop-shadow(5px 5px 4px rgba(0, 0, 0, 0.55));
+}
+.card-shadow {
+  filter: drop-shadow(5px 5px 4px rgba(0, 0, 0, 0.1));
+}
 
 .dark body {
   background-color: #0a0a0a;
@@ -307,134 +319,134 @@ body {
 
 /* Backgrounds no tema escuro */
 .dark .bg-viana-white {
-  background-color: #1a1a1a !important;
+  background-color: #1a1a1a;
 }
 
 .dark .bg-viana-orange {
-  background-color: #404040 !important;
+  background-color: #404040;
 }
 
 .dark .bg-viana-yellow {
-  background-color: #525252 !important;
+  background-color: #525252;
 }
 
 .dark .bg-gray-50 {
-  background-color: #171717 !important;
+  background-color: #171717;
 }
 
 .dark .bg-gray-100 {
-  background-color: #262626 !important;
+  background-color: #262626;
 }
 
 /* Textos no tema escuro */
 .dark .text-viana-black {
-  color: #fafafa !important;
+  color: #fafafa;
 }
 
 .dark .text-viana-gray {
-  color: #a3a3a3 !important;
+  color: #a3a3a3;
 }
 
 .dark .text-viana-orange {
-  color: #e5e5e5 !important;
+  color: #e5e5e5;
 }
 
 .dark .text-viana-yellow {
-  color: #d4d4d4 !important;
+  color: #d4d4d4;
 }
 
 /* Bordas no tema escuro */
 .dark .border-viana-gray {
-  border-color: #404040 !important;
+  border-color: #404040;
 }
 
 .dark .border-gray-200 {
-  border-color: #404040 !important;
+  border-color: #404040;
 }
 
 .dark .border-gray-300 {
-  border-color: #525252 !important;
+  border-color: #525252;
 }
 
 /* Botões no tema escuro */
 .dark .bg-viana-orange:hover {
-  background-color: #525252 !important;
+  background-color: #525252;
 }
 
 .dark .bg-viana-yellow:hover {
-  background-color: #404040 !important;
+  background-color: #404040;
 }
 
 /* Hover states no tema escuro */
 .dark .hover\:bg-viana-orange:hover {
-  background-color: #404040 !important;
+  background-color: #404040;
 }
 
 .dark .hover\:bg-viana-yellow:hover {
-  background-color: #525252 !important;
+  background-color: #525252;
 }
 
 .dark .hover\:text-viana-orange:hover {
-  color: #e5e5e5 !important;
+  color: #e5e5e5;
 }
 
 .dark .hover\:text-viana-yellow:hover {
-  color: #d4d4d4 !important;
+  color: #d4d4d4;
 }
 
 /* Group hover states for light mode */
 .group:hover .group-hover\:text-viana-orange {
-  color: #ff8c00 !important;
+  color: #ff8c00;
 }
 
 .group:hover .group-hover\:bg-viana-orange {
-  background-color: #ff8c00 !important;
+  background-color: #ff8c00;
 }
 
 /* Group hover states for dark mode */
 .dark .group:hover .group-hover\:text-viana-orange {
-  color: #e5e5e5 !important;
+  color: #e5e5e5;
 }
 
 .dark .group:hover .group-hover\:bg-viana-orange {
-  background-color: #404040 !important;
+  background-color: #404040;
 }
 
 /* Cards e componentes no tema escuro */
 .dark .shadow-lg {
   box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3),
-    0 4px 6px -2px rgba(0, 0, 0, 0.1) !important;
+    0 4px 6px -2px rgba(0, 0, 0, 0.1);
 }
 
 .dark .shadow-xl {
   box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3),
-    0 10px 10px -5px rgba(0, 0, 0, 0.1) !important;
+    0 10px 10px -5px rgba(0, 0, 0, 0.1);
 }
 
 .dark .shadow-2xl {
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.4) !important;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.4);
 }
 
 /* Garantir contraste adequado para textos brancos */
 .text-white {
-  color: #ffffff !important;
+  color: #ffffff;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 }
 
 .dark .text-white {
-  color: #ffffff !important;
+  color: #ffffff;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
 }
 
 /* Melhorar contraste em botões */
 .bg-viana-white .text-viana-orange {
-  color: #ea580c !important;
+  color: #ea580c;
   font-weight: 600;
 }
 
 .dark .bg-viana-white .text-viana-orange {
-  background-color: #fafafa !important;
-  color: #0a0a0a !important;
+  background-color: #fafafa;
+  color: #0a0a0a;
 }
 
 /* Garantir que os botões flutuantes não sobreponham o footer */
@@ -520,39 +532,39 @@ body {
 
 /* Inputs no tema escuro */
 .dark input {
-  background-color: #262626 !important;
-  border-color: #404040 !important;
-  color: #fafafa !important;
+  background-color: #262626;
+  border-color: #404040;
+  color: #fafafa;
 }
 
 .dark input::placeholder {
-  color: #737373 !important;
+  color: #737373;
 }
 
 /* Select no tema escuro */
 .dark select {
-  background-color: #262626 !important;
-  border-color: #404040 !important;
-  color: #fafafa !important;
+  background-color: #262626;
+  border-color: #404040;
+  color: #fafafa;
 }
 
 /* Garantir que os submenus da navegação fiquem por cima de tudo */
 [data-radix-navigation-menu-content] {
-  z-index: 9999 !important;
+  z-index: 9999;
 }
 
 [data-radix-navigation-menu-viewport] {
-  z-index: 9999 !important;
+  z-index: 9999;
 }
 
 /* Melhorar a visibilidade dos dropdowns */
 .navigation-dropdown {
-  z-index: 9999 !important;
+  z-index: 9999;
   box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
-    0 10px 10px -5px rgba(0, 0, 0, 0.04) !important;
+    0 10px 10px -5px rgba(0, 0, 0, 0.04);
 }
 
 .dark .navigation-dropdown {
   box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.4),
-    0 10px 10px -5px rgba(0, 0, 0, 0.2) !important;
+    0 10px 10px -5px rgba(0, 0, 0, 0.2);
 }

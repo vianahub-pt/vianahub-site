@@ -163,18 +163,15 @@ export default function RetailPage() {
           backgroundPosition: "center",
         }}
       >
-        <div className="absolute inset-0 z-0" />
+        <div className="absolute inset-0 z-0 bg-black/30" />
         <div className="container mx-auto px-4 relative z-10 h-full flex items-center justify-center">
-          <div className="max-w-5xl mx-auto text-center bg-black/50 backdrop-blur-sm rounded-lg p-6">
-            <h1 className="text-orange-400 text-orange-400 text-4xl lg:text-6xl font-bold mb-6 flex items-center justify-center">
-              <ShoppingCart
-                className=" w-12 h-12 lg:w-16 lg:h-16"
-                style={{ color: "#FFFFFF" }}
-              />
+          <div className="bg-white/50 dark:bg-black/50 text-orange-400 dark:text-orange-400 border border-white rounded-lg p-6 ">
+            <h1 className="text-orange-400 text-orange-400 text-4xl lg:text-6xl font-bold flex items-center justify-center text-shadow">
+              <ShoppingCart className="h-12 w-12 stroke-white dark:stroke-gray-400 icon-shadow " />
               &nbsp;{t("retail.hero.title")}
             </h1>
 
-            <p className="text-xl items-center justify-center mx-auto ">
+            <p className="py-7 block text-2xl text-center text-white dark:text-orange-400 text-shadow">
               {t("retail.hero.subtitle")}
             </p>
           </div>
@@ -184,13 +181,19 @@ export default function RetailPage() {
       </section>
 
       {/* Benefits Section */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-gray-100 dark:bg-gray-500">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="block text-orange-400 text-3xl md:text-4xl font-bold mb-4">
-              {t("retail.benefits.title")}
+            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+              <span className="text-black">
+                {t("retail.benefits.title.part1")}
+              </span>{" "}
+              <span className="text-orange-400">
+                {t("retail.benefits.title.part2")}
+              </span>
             </h2>
-            <p className="text-lg text-gray-900 max-w-2xl mx-auto">
+
+            <p className="text-lg text-black dark:text-white max-w-2xl mx-auto">
               {t("retail.benefits.subtitle")}
             </p>
           </div>
@@ -218,13 +221,19 @@ export default function RetailPage() {
       </section>
 
       {/* innovation Section */}
-      <section className="py-20 px-4 bg-orange-200">
+      <section className="py-20 px-4 bg-orange-50 dark:bg-gray-600">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="!text-orange-400 text-3xl md:text-4xl font-bold mb-4">
-              {t("retail.innovation.title")}
+            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+              <span className="text-black">
+                {t("retail.innovation.title.part1")}
+              </span>{" "}
+              <span className="text-orange-400">
+                {t("retail.innovation.title.part2")}
+              </span>
             </h2>
-            <p className="text-xl text-gray-900">
+
+            <p className="text-lg text-black dark:text-white max-w-2xl mx-auto">
               {t("retail.innovation.subtitle")}
             </p>
           </div>
@@ -238,14 +247,14 @@ export default function RetailPage() {
       </section>
 
       {/* Technology Section */}
-      <section className="py-20 px-4 bg-white">
+      <section className="py-20 px-4 bg-white dark:bg-gray-700">
         <div className="max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
               <h2 className="text-orange-400 text-3xl md:text-4xl font-bold mb-6">
                 {t("retail.technology.title")}
               </h2>
-              <p className="text-lg text-gray-900 max-w-2xl mx-auto">
+              <p className="text-lg text-black dark:text-white max-w-2xl mx-auto">
                 {t("retail.technology.subtitle")}
               </p>
               <br />
@@ -283,18 +292,18 @@ export default function RetailPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-white/90">
+      <section className="py-20 bg-yellow-100 dark:bg-gray-600">
         <div className="text-center mb-16">
           <h2 className="text-orange-400 text-3xl md:text-4xl font-bold mb-6">
             {t("retail.cta.title")}
           </h2>
-          <p className="text-lg text-gray-900 max-w-2xl mx-auto">
+          <p className="text-lg text-gray-900 dark:text-white max-w-2xl mx-auto">
             {t("retail.cta.subtitle")}
           </p>
           <div className="my-8"></div>
           <Button
             size="lg"
-            className="bg-orange-400 hover:bg-orange-500 text-white font-semibold px-8 py-3"
+            className="bg-orange-400 hover:bg-orange-500 text-white font-semibold px-8 py-3 button-shadow"
             onClick={() => router.push("/contact")}
           >
             {t("retail.cta.button")}

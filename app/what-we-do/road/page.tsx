@@ -105,13 +105,15 @@ export default function RoadPage() {
         }}
         className="h-full"
       >
-        <Card className="text-center hover:scale-105 transition-all duration-300 relative border-none h-full">
+        <Card className="bg-black dark:bg-orange-400 text-center hover:scale-105 transition-all duration-300 relative border-none h-full">
           <CardContent className="p-6 flex flex-col h-full">
-            <Icon className="h-12 w-12 text-white mx-auto mb-4" />
-            <h3 className="text-orange-500 text-xl font-semibold mb-3">
+            <Icon className="h-12 w-12 text-white dark:text-white mx-auto mb-4" />
+            <h3 className="text-orange-500 dark:text-black text-xl font-semibold mb-3">
               {service.title}
             </h3>
-            <p className="text-md mt-auto">{service.description}</p>
+            <p className="text-md text-white dark:text-white mt-auto">
+              {service.description}
+            </p>
           </CardContent>
         </Card>
       </motion.div>
@@ -133,15 +135,17 @@ export default function RoadPage() {
         }}
         className="h-full"
       >
-        <Card className="bg-gray-200 hover:scale-105 transition-all duration-300 relative border-none h-full">
+        <Card className="bg-orange-400 dark:bg-black hover:scale-105 transition-all duration-300 relative border-none card-shadow h-full">
           <CardContent className="p-6 text-center">
-            <div className="w-16 h-16 mx-auto mb-6 flex items-center justify-center rounded-full bg-viana-orange/10">
-              <service.icon className="w-8 h-8 text-orange-400" />
+            <div className="bg-white dark:bg-white w-16 h-16 mx-auto mb-6 flex items-center justify-center rounded-full">
+              <service.icon className="w-8 h-8 text-orange-400 dark:text-orange-400" />
             </div>
-            <h3 className="text-xl font-bold mb-4 text-orange-400">
+            <h3 className="text-xl font-bold mb-4 text-white dark:text-orange-400">
               {service.title}
             </h3>
-            <p className="!text-gray-900">{service.description}</p>
+            <p className="text-white dark:text-orange-400">
+              {service.description}
+            </p>
           </CardContent>
         </Card>
       </motion.div>
@@ -159,18 +163,15 @@ export default function RoadPage() {
           backgroundPosition: "center",
         }}
       >
-        <div className="absolute inset-0 z-0" />
+        <div className="absolute inset-0 z-0 bg-black/30" />
         <div className="container mx-auto px-4 relative z-10 h-full flex items-center justify-center">
-          <div className="max-w-5xl mx-auto text-center bg-black/50 backdrop-blur-sm rounded-lg p-6">
-            <h1 className="text-orange-400 text-orange-400 text-4xl lg:text-6xl font-bold mb-6 flex items-center justify-center">
-              <Truck
-                className=" w-12 h-12 lg:w-16 lg:h-16"
-                style={{ color: "#FFFFFF" }}
-              />
+          <div className="bg-white/50 dark:bg-black/50 text-orange-400 dark:text-orange-400 border border-white rounded-lg p-6 ">
+            <h1 className="text-orange-400 text-orange-400 text-4xl lg:text-6xl font-bold flex items-center justify-center text-shadow">
+              <Truck className="h-12 w-12 stroke-white dark:stroke-gray-400 icon-shadow " />
               &nbsp;{t("road.hero.title")}
             </h1>
 
-            <p className="text-xl items-center justify-center mx-auto ">
+            <p className="py-7 block text-2xl text-center text-white dark:text-orange-400 text-shadow">
               {t("road.hero.subtitle")}
             </p>
           </div>
@@ -180,13 +181,19 @@ export default function RoadPage() {
       </section>
 
       {/* Benefits Section */}
-      <section className="py-20 px-4 bg-white/80">
+      <section className="py-20 px-4 bg-white dark:bg-gray-500">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-orange-400 text-3xl md:text-4xl font-bold mb-6">
-              {t("road.benefits.title")}
+            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+              <span className="text-black">
+                {t("road.benefits.title.part1")}
+              </span>{" "}
+              <span className="text-orange-400">
+                {t("road.benefits.title.part2")}
+              </span>
             </h2>
-            <p className="text-lg text-gray-900 max-w-2xl mx-auto">
+
+            <p className="text-lg text-black dark:text-white max-w-2xl mx-auto">
               {t("road.benefits.subtitle")}
             </p>
           </div>
@@ -214,13 +221,19 @@ export default function RoadPage() {
       </section>
 
       {/* Solutions Section */}
-      <section className="py-20 px-4 bg-white">
+      <section className="py-20 px-4 bg-gray-200 dark:bg-gray-600">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-orange-400 text-3xl md:text-4xl font-bold mb-6">
-              {t("road.solutions.title")}
+            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+              <span className="text-black">
+                {t("road.solutions.title.part1")}
+              </span>{" "}
+              <span className="text-orange-400">
+                {t("road.solutions.title.part2")}
+              </span>
             </h2>
-            <p className="text-lg text-gray-900 max-w-2xl mx-auto">
+
+            <p className="text-lg text-black dark:text-white max-w-2xl mx-auto">
               {t("road.solutions.subtitle")}
             </p>
           </div>
@@ -234,14 +247,14 @@ export default function RoadPage() {
       </section>
 
       {/* Technology Section */}
-      <section className="py-20 px-4 bg-white">
+      <section className="py-20 px-4 bg-white dark:bg-gray-700">
         <div className="max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
-              <h2 className="text-orange-400 text-3xl md:text-4xl font-bold mb-6">
+              <h2 className="text-orange-400 dark:text-orange-400 text-3xl md:text-4xl font-bold mb-6">
                 {t("road.technology.title")}
               </h2>
-              <p className="text-lg text-gray-900 max-w-2xl mx-auto">
+              <p className="text-lg text-black dark:text-white max-w-2xl mx-auto">
                 {t("road.technology.subtitle")}
               </p>
               <br />
@@ -279,18 +292,18 @@ export default function RoadPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-white/90">
+      <section className="py-20 bg-yellow-100 dark:bg-gray-600">
         <div className="text-center mb-16">
           <h2 className="text-orange-400 text-3xl md:text-4xl font-bold mb-6">
             {t("road.cta.title")}
           </h2>
-          <p className="text-lg text-gray-900 max-w-2xl mx-auto">
+          <p className="text-lg text-gray-900 dark:text-white max-w-2xl mx-auto">
             {t("road.cta.subtitle")}
           </p>
           <div className="my-8"></div>
           <Button
             size="lg"
-            className="bg-orange-400 hover:bg-orange-500 text-white font-semibold px-8 py-3"
+            className="bg-orange-400 hover:bg-orange-500 text-white font-semibold px-8 py-3 button-shadow"
             onClick={() => router.push("/contact")}
           >
             {t("road.cta.button")}

@@ -572,7 +572,7 @@ export default function FoxMazeGame() {
   return (
     <TooltipProvider>
       <div
-        className={`flex flex-col items-center justify-center h-[750px] bg-white ${
+        className={`flex flex-col items-center justify-center h-[750px] bg-gray-100 dark:bg-gray-800 ${
           isMobile ? "p-1" : "p-2 lg:p-4"
         } overflow-hidden`}
         style={{ touchAction: "pan-x pan-y" }} // Evitar problemas de scroll em mobile
@@ -580,17 +580,17 @@ export default function FoxMazeGame() {
         <Card
           className={`w-full ${
             isMobile ? "max-w-full mx-1" : "max-w-6xl"
-          } bg-white/90 backdrop-blur-sm shadow-2xl`}
+          } bg-gray-400 dark:bg-gray-400 border border-white `}
         >
           <CardContent
             className={`${isMobile ? "p-1" : "p-3 lg:p-6"} overflow-hidden`}
           >
             {/* Header */}
-            <div className="text-center mb-4">
+            <div className="text-center mb-4 text-white dark:text-black">
               <h1
                 className={`${
                   isMobile ? "text-lg" : "text-xl lg:text-3xl"
-                } font-bold text-amber-800 mb-2 flex items-center justify-center gap-2`}
+                } font-bold text-white dark:text-black mb-2 flex items-center justify-center gap-2`}
               >
                 <img
                   src="/fox-desktop.png"
@@ -608,7 +608,7 @@ export default function FoxMazeGame() {
                     : "lg:gap-4 text-sm lg:text-lg flex-wrap"
                 }`}
               >
-                <span className="font-semibold text-green-700 flex items-center gap-1">
+                <span className="font-semibold flex items-center gap-1">
                   <img
                     src="/user.png"
                     alt="Player"
@@ -616,24 +616,22 @@ export default function FoxMazeGame() {
                   />
                   {playerName}
                 </span>
-                <span className="font-semibold text-amber-700">
+                <span className="font-semibold">
                   {t("foxGame.level")}: {currentLevel + 1}/5
                 </span>
-                <span className="text-amber-600">
+                <span className="font-semibold">
                   {currentMaze?.name || t("foxGame.loading")}
                 </span>
                 {!isMobile && (
-                  <span className="text-purple-600 font-medium">
+                  <span className="font-semibold">
                     {t("foxGame.routes")} {currentLevel + 1} {getPathInfo()}
                   </span>
                 )}
-                <span className="font-semibold text-blue-700">
+                <span className="font-semibold">
                   {t("foxGame.time")}: {getCurrentTime()}
                 </span>
                 {gameStarted && !gameStopped && (
-                  <span className="text-green-600 font-semibold">
-                    {t("foxGame.playing")}
-                  </span>
+                  <span className="font-semibold">{t("foxGame.playing")}</span>
                 )}
                 {gameStopped && (
                   <span className="text-red-600 font-semibold">

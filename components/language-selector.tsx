@@ -36,7 +36,11 @@ export function LanguageSelector() {
       onMouseEnter={() => setIsOpen(true)}
       onMouseLeave={() => setIsOpen(false)}
     >
-      <button className="flex items-center space-x-2 px-3 py-2 rounded-md transition-all duration-100 font-medium drop-shadow-lg cursor-pointer bg-transparent text-orange-400 hover:bg-yellow-500/20 hover:text-white text-sm">
+      <button
+        className="flex items-center space-x-1 px-3 py-2 rounded-md transition-all duration-100 font-medium cursor-pointer
+    bg-orange-400 text-white hover:bg-black/80 hover:text-orange-400
+    dark:bg-black dark:text-orange-400 dark:hover:bg-orange-400 dark:hover:text-white text-md"
+      >
         <Image
           src={currentLanguage.flag || "/placeholder.svg"}
           alt={currentLanguage.name}
