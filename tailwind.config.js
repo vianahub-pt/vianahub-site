@@ -5,7 +5,7 @@ module.exports = {
     "./pages/**/*.{ts,tsx}",
     "./components/**/*.{ts,tsx}",
     "./app/**/*.{ts,tsx}",
-    "./src/**/*.{ts,tsx}",
+    "./src/**/*.{js,ts,jsx,tsx}",
     "*.{js,ts,jsx,tsx,mdx}",
   ],
   prefix: "",
@@ -101,5 +101,16 @@ module.exports = {
       },
     },
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [
+    require("tailwindcss-animate"),
+    function ({ addBase }) {
+      addBase({
+        "input:-webkit-autofill": {
+          "-webkit-box-shadow": "0 0 0px 1000px white inset",
+          "-webkit-text-fill-color": "black",
+          "box-shadow": "0 0 0px 1000px white inset",
+        },
+      });
+    },
+  ],
 };

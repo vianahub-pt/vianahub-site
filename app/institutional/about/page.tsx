@@ -182,15 +182,15 @@ export default function AboutPageContent() {
               {t("about.history.subtitle")}
             </p>
           </div>
-
           <div className="grid lg:grid-cols-1 gap-4 items-center">
-            {/* Texto à direita */}
-            <div className="text-xl text-justify text-black dark:text-orange-400 font-kurale">
+            {/* Texto */}
+            <div className="font-kurale text-xl text-justify text-black dark:text-orange-400">
               <p>{t("about.history.p1")}</p>
               <p className="py-2">{t("about.history.p2")}</p>
               <p className="py-2">{t("about.history.p3")}</p>
             </div>
           </div>
+
           <div className="grid lg:grid-cols-2 gap-4 items-center">
             <div className="flex-shrink-0">
               <motion.div
@@ -206,6 +206,7 @@ export default function AboutPageContent() {
                     fill
                   />
                 </div>
+                <div className="border-t border-4 bg-orange-400 border-orange-400 dark:border-white"></div>
               </motion.div>
             </div>
             <div className="flex-shrink-0">
@@ -222,6 +223,7 @@ export default function AboutPageContent() {
                     fill
                   />
                 </div>
+                <div className="border-t border-4 bg-orange-400 border-orange-400 dark:border-white"></div>
               </motion.div>
             </div>
           </div>
