@@ -99,7 +99,7 @@ export default function GovernmentPage() {
     <section className="min-h-screen bg-viana-white">
       {/* Hero Section */}
       <section
-        className="relative pt-0 pb-0 h-[600px]"
+        className="relative pt-0 pb-0 h-[650px]"
         style={{
           backgroundImage: "url(/pages/hero-government.jpg)",
           backgroundSize: "cover",
@@ -128,7 +128,7 @@ export default function GovernmentPage() {
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
-              <span className="text-black dark:text-white">
+              <span className="text-black dark:text-yellow-500">
                 {t("government.benefits.title.part1")}
               </span>{" "}
               <span className="text-orange-400">

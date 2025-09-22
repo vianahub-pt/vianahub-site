@@ -156,7 +156,7 @@ export default function RoadPage() {
     <div className="flex flex-col min-h-screen">
       {/* Hero Section */}
       <section
-        className="relative pt-0 pb-0 h-[600px]"
+        className="relative pt-0 pb-0 h-[650px]"
         style={{
           backgroundImage: "url(/pages/hero-road.jpg)",
           backgroundSize: "cover",
@@ -181,11 +181,11 @@ export default function RoadPage() {
       </section>
 
       {/* Benefits Section */}
-      <section className="py-20 px-4 bg-white dark:bg-gray-500">
+      <section className="py-20 px-4 bg-white dark:bg-black">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
-              <span className="text-black">
+              <span className="text-black dark:text-yellow-500">
                 {t("road.benefits.title.part1")}
               </span>{" "}
               <span className="text-orange-400">

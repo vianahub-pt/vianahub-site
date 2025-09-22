@@ -163,14 +163,14 @@ export default function CareersPage() {
     <section className="flex flex-col min-h-screen">
       {/* Hero Section */}
       <section
-        className="relative pt-0 pb-0 h-[600px]"
+        className="relative pt-0 pb-0 h-[650px]"
         style={{
           backgroundImage: "url(/pages/hero-careers.jpg)",
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
       >
-        <div className="absolute inset-0 z-0 bg-black/30" />
+        <div className="absolute inset-0 z-0" />
         <div className="container mx-auto px-4 relative z-10 h-full flex items-center justify-center">
           <div className="bg-white/50 dark:bg-black/50 text-orange-400 dark:text-orange-400 border border-white rounded-lg p-6 ">
             <h1 className="text-orange-400 text-orange-400 text-4xl lg:text-6xl font-bold flex items-center justify-center text-shadow">
@@ -202,13 +202,19 @@ export default function CareersPage() {
       </section>
 
       {/* Benefits Section */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-white dark:bg-black">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="block text-orange-400 text-3xl md:text-4xl font-bold mb-4">
-              {t("careers.benefits.title")}
+            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+              <span className="text-black dark:text-yellow-500">
+                {t("careers.benefits.title.part1")}
+              </span>{" "}
+              <span className="text-orange-400">
+                {t("careers.benefits.title.part2")}
+              </span>
             </h2>
-            <p className="text-lg text-gray-900 max-w-2xl mx-auto">
+
+            <p className="text-lg text-black dark:text-white max-w-2xl mx-auto">
               {t("careers.benefits.subtitle")}
             </p>
           </div>
@@ -236,13 +242,13 @@ export default function CareersPage() {
       </section>
 
       {/* Testimonials Section */}
-      <section className="py-20 px-4 bg-orange-200">
+      <section className="py-20 px-4 bg-orange-100 dark:bg-gray-700">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="!text-orange-400 text-3xl md:text-4xl font-bold mb-4">
               {t("careers.testimonials.title")}
             </h2>
-            <p className="text-xl text-gray-900">
+            <p className="text-xl text-black dark:text-white">
               {t("careers.testimonials.subtitle")}
             </p>
           </div>
@@ -256,14 +262,14 @@ export default function CareersPage() {
       </section>
 
       {/* Technology Section */}
-      <section className="py-20 px-4 bg-white">
+      <section className="py-20 px-4 bg-orange-100 dark:bg-black">
         <div className="max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
               <h2 className="text-orange-400 text-3xl md:text-4xl font-bold mb-6">
                 {t("careers.technology.title")}
               </h2>
-              <p className="text-lg text-gray-900 max-w-2xl mx-auto">
+              <p className="text-lg text-black dark:text-white max-w-2xl mx-auto">
                 {t("careers.technology.subtitle")}
               </p>
               <br />
@@ -274,7 +280,7 @@ export default function CareersPage() {
                     className="text-orange-400 flex items-center gap-3"
                   >
                     <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0" />
-                    <span>{feature.description}</span>
+                    <span className="">{feature.description}</span>
                   </div>
                 ))}
               </div>
@@ -292,7 +298,7 @@ export default function CareersPage() {
                       src="/pages/technology-careers.png"
                       alt="careers Technology"
                       fill
-                      className="rounded-lg shadow-2xl object-cover"
+                      className="rounded-all card-shadow object-cover"
                     />
                   </div>
                 </div>
@@ -303,19 +309,19 @@ export default function CareersPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-white/90">
+      <section className="py-20 bg-yellow-100 dark:bg-gray-600">
         <div className="text-center mb-16">
           <h2 className="text-orange-400 text-3xl md:text-4xl font-bold mb-6">
             {t("careers.cta.title")}
           </h2>
-          <p className="text-lg text-gray-900 max-w-2xl mx-auto">
+          <p className="text-lg text-gray-900 dark:text-white max-w-2xl mx-auto">
             {t("careers.cta.subtitle")}
           </p>
           <div className="my-8"></div>
           <Button
             size="lg"
-            className="bg-orange-400 hover:bg-orange-500 text-white font-semibold px-8 py-3"
-            onClick={() => router.push("/institutional/opportunities")}
+            className="bg-orange-400 hover:bg-orange-500 text-white font-semibold px-8 py-3 button-shadow"
+            onClick={() => router.push("/contact")}
           >
             {t("careers.cta.button")}
           </Button>

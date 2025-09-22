@@ -141,7 +141,7 @@ export default function AboutPageContent() {
     <div className="min-h-screen">
       {/* Hero Section */}
       <section
-        className="relative pt-0 pb-0 h-[600px]"
+        className="relative pt-0 pb-0 h-[650px]"
         style={{
           backgroundImage: "url('/pages/hero-about.jpg')",
           backgroundSize: "cover",
@@ -166,11 +166,11 @@ export default function AboutPageContent() {
       </section>
 
       {/* History Section */}
-      <section className="py-20 px-4 bg-orange-200 dark:bg-gray-700">
+      <section className="py-20 px-4 bg-orange-200 dark:bg-black">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
-              <span className="text-black">
+              <span className="text-black dark:text-yellow-500">
                 {t("about.history.title.part1")}
               </span>{" "}
               <span className="text-orange-400">
@@ -218,7 +218,7 @@ export default function AboutPageContent() {
                 <div className="aspect-square relative">
                   <Image
                     src="/pages/about-history-tati.png"
-                    alt="Government Technology"
+                    alt="Tatiana Viana"
                     fill
                   />
                 </div>
@@ -290,10 +290,10 @@ export default function AboutPageContent() {
                 transition={{ duration: 3.5, ease: "easeOut" }}
                 viewport={{ once: false, amount: 0.5 }}
               >
-                <div className="aspect-[16/9] w-full max-w-3xl mx-auto">
+                <div className="aspect-[16/9] w-full max-w-3xl mx-auto rounded-lg card-shadow">
                   <video
                     ref={videoRef}
-                    className="absolute inset-0 w-full h-full object-cover"
+                    className="absolute inset-0 w-full h-full object-cover rounded-lg card-shadow"
                     autoPlay
                     muted
                     loop

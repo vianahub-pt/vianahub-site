@@ -177,11 +177,11 @@ export default function AgilePageContent() {
       </section>
 
       {/* Benefits Section */}
-      <section className="py-20 px-4 bg-gray-200 dark:bg-gray-700">
+      <section className="py-20 px-4 bg-gray-200 dark:bg-black">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
-              <span className="text-black">
+              <span className="text-black dark:text-yellow-500">
                 {t("agile.benefits.title.part1")}
               </span>{" "}
               <span className="text-orange-400">
