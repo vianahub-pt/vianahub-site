@@ -278,20 +278,6 @@ export default function ContactPage() {
         </div>
       </section>
 
-      {/* Parallax Section */}
-      <section
-        className="relative h-[500px] overflow-hidden"
-        style={{
-          backgroundImage: "url('/pages/parallax-contact.jpg')",
-          backgroundAttachment: "fixed",
-          backgroundPosition: "center center",
-          backgroundRepeat: "no-repeat",
-          backgroundSize: "cover",
-        }}
-      >
-        <div className="absolute inset-0 bg-gradient-to-b from-black/5 to-black/10" />
-      </section>
-
       {/* Technology Section */}
       <section className="py-20 px-4 bg-white">
         <div className="max-w-7xl mx-auto">
@@ -359,6 +345,20 @@ export default function ContactPage() {
           </div>
         </div>
       </section>
+
+      {/* Parallax Section */}
+      <section
+        className="relative h-[500px] overflow-hidden"
+        style={{
+          backgroundImage: "url('/pages/parallax-contact.jpg')",
+          backgroundAttachment: "fixed",
+          backgroundPosition: "center center",
+          backgroundRepeat: "no-repeat",
+          backgroundSize: "cover",
+        }}
+      >
+        <div className="absolute inset-0 bg-gradient-to-b from-black/5 to-black/10" />
+      </section>      
     </div>
   )
 }
