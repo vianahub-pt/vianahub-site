@@ -202,7 +202,7 @@ export default function ContactPage() {
                         id="name"
                         name="name"
                         required
-                        className="bg-white text-orange-400 border border-gray-300 "
+                        className="bg-white text-black placeholder-gray-500 border border-gray-300 focus:border-gray-400 focus:ring-0 focus:outline-none font-normal"
                       />
                     </div>
                     <div>
@@ -214,7 +214,7 @@ export default function ContactPage() {
                         name="email"
                         type="email"
                         required
-                        className="bg-gray-200 text-gray-900 placeholder-gray-600 border border-gray-300 focus:border-gray-400 focus:ring-0 focus:outline-none"
+                        className="bg-white text-black placeholder-gray-500 border border-gray-300 focus:border-gray-400 focus:ring-0 focus:outline-none font-normal"
                       />
                     </div>
                   </div>
@@ -227,7 +227,7 @@ export default function ContactPage() {
                         id="phone"
                         name="phone"
                         type="tel"
-                        className="bg-gray-200 text-gray-900 placeholder-gray-600 border border-gray-300 focus:border-gray-400 focus:ring-0 focus:outline-none"
+                        className="bg-white text-black placeholder-gray-500 border border-gray-300 focus:border-gray-400 focus:ring-0 focus:outline-none font-normal"
                       />
                     </div>
                     <div>
@@ -237,7 +237,7 @@ export default function ContactPage() {
                       <Input
                         id="company"
                         name="company"
-                        className="bg-gray-200 text-gray-900 placeholder-gray-600 border border-gray-300 focus:border-gray-400 focus:ring-0 focus:outline-none"
+                        className="bg-white text-black placeholder-gray-500 border border-gray-300 focus:border-gray-400 focus:ring-0 focus:outline-none font-normal"
                       />
                     </div>
                   </div>
