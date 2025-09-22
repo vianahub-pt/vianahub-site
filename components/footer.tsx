@@ -73,7 +73,7 @@ export function Footer() {
                 className="text-gray-400 hover:text-white transition-colors"
                 title="Face Book"
               >
-                <Facebook className="h-4 w-4 stroke-white dark:stroke-gray-400" />
+                <Facebook className="h-4 w-4 stroke-white dark:stroke-orange-400" />
               </a>
               <a
                 href={t("footer.instagram.url")}
@@ -81,7 +81,7 @@ export function Footer() {
                 className="text-gray-400 hover:text-white transition-colors"
                 title="Instagram"
               >
-                <Instagram className="h-4 w-4 stroke-white dark:stroke-gray-400" />
+                <Instagram className="h-4 w-4 stroke-white dark:stroke-orange-400" />
               </a>
               <a
                 href={t("footer.linkedin.url")}
@@ -89,7 +89,7 @@ export function Footer() {
                 className="text-gray-400 hover:text-white transition-colors"
                 title="LinkedIn"
               >
-                <Linkedin className="h-4 w-4 stroke-white dark:stroke-gray-400" />
+                <Linkedin className="h-4 w-4 stroke-white dark:stroke-orange-400" />
               </a>
             </div>
           </div>
@@ -107,7 +107,7 @@ export function Footer() {
                   title={t("footer.whatWeDo.development")}
                 >
                   <div className="flex items-center text-orange-400 dark:text-white">
-                    <Code2 className="h-4 w-4 stroke-white dark:stroke-gray-400" />
+                    <Code2 className="h-4 w-4 stroke-white dark:stroke-orange-400" />
                     <span className="ml-2">
                       {t("footer.whatWeDo.development")}
                     </span>
@@ -121,7 +121,7 @@ export function Footer() {
                   title={t("footer.whatWeDo.agile")}
                 >
                   <div className="flex items-center text-orange-400 dark:text-white">
-                    <Workflow className="h-4 w-4 stroke-white dark:stroke-gray-400" />
+                    <Workflow className="h-4 w-4 stroke-white dark:stroke-orange-400" />
                     <span className="ml-2">{t("footer.whatWeDo.agile")}</span>
                   </div>
                 </Link>
@@ -133,7 +133,7 @@ export function Footer() {
                   title={t("footer.whatWeDo.outsourcing")}
                 >
                   <div className="flex items-center text-orange-400 dark:text-white">
-                    <Bot className="h-4 w-4 stroke-white dark:stroke-gray-400" />
+                    <Bot className="h-4 w-4 stroke-white dark:stroke-orange-400" />
                     <span className="ml-2">
                       {t("footer.whatWeDo.outsourcing")}
                     </span>
@@ -147,7 +147,7 @@ export function Footer() {
                   title={t("footer.whatWeDo.chatbot")}
                 >
                   <div className="flex items-center text-orange-400 dark:text-white">
-                    <Users className="h-4 w-4 stroke-white dark:stroke-gray-400" />
+                    <Users className="h-4 w-4 stroke-white dark:stroke-orange-400" />
                     <span className="ml-2">{t("footer.whatWeDo.chatbot")}</span>
                   </div>
                 </Link>
@@ -159,7 +159,7 @@ export function Footer() {
                   title={t("footer.whatWeDo.landingPages")}
                 >
                   <div className="flex items-center text-orange-400 dark:text-white">
-                    <Layout className="h-4 w-4 stroke-white dark:stroke-gray-400" />
+                    <Layout className="h-4 w-4 stroke-white dark:stroke-orange-400" />
                     <span className="ml-2">
                       {t("footer.whatWeDo.landingPages")}
                     </span>
@@ -173,7 +173,7 @@ export function Footer() {
                   title={t("footer.whatWeDo.systemIntegration")}
                 >
                   <div className="flex items-center text-orange-400 dark:text-white">
-                    <Waypoints className="h-4 w-4 stroke-white dark:stroke-gray-400" />
+                    <Waypoints className="h-4 w-4 stroke-white dark:stroke-orange-400" />
                     <span className="ml-2">
                       {t("footer.whatWeDo.systemIntegration")}
                     </span>
@@ -187,7 +187,7 @@ export function Footer() {
                   title={t("footer.whatWeDo.railway")}
                 >
                   <div className="flex items-center text-orange-400 dark:text-white">
-                    <Train className="h-4 w-4 stroke-white dark:stroke-gray-400" />
+                    <Train className="h-4 w-4 stroke-white dark:stroke-orange-400" />
                     <span className="ml-2">{t("footer.whatWeDo.railway")}</span>
                   </div>
                 </Link>
@@ -199,7 +199,7 @@ export function Footer() {
                   title={t("footer.whatWeDo.road")}
                 >
                   <div className="flex items-center text-orange-400 dark:text-white">
-                    <Truck className="h-4 w-4 stroke-white dark:stroke-gray-400" />
+                    <Truck className="h-4 w-4 stroke-white dark:stroke-orange-400" />
                     <span className="ml-2">{t("footer.whatWeDo.road")}</span>
                   </div>
                 </Link>
@@ -211,7 +211,7 @@ export function Footer() {
                   title={t("footer.whatWeDo.solarEnergy")}
                 >
                   <div className="flex items-center text-orange-400 dark:text-white">
-                    <Sun className="h-4 w-4 stroke-white dark:stroke-gray-400" />
+                    <Sun className="h-4 w-4 stroke-white dark:stroke-orange-400" />
                     <span className="ml-2">
                       {t("footer.whatWeDo.solarEnergy")}
                     </span>
@@ -234,7 +234,7 @@ export function Footer() {
                   title={t("footer.engineering.education")}
                 >
                   <div className="flex items-center text-orange-400 dark:text-white">
-                    <GraduationCap className="h-4 w-4 stroke-white dark:stroke-gray-400" />
+                    <GraduationCap className="h-4 w-4 stroke-white dark:stroke-orange-400" />
                     <span className="ml-2">
                       {t("footer.engineering.education")}
                     </span>
@@ -248,7 +248,7 @@ export function Footer() {
                   title={t("footer.engineering.government")}
                 >
                   <div className="flex items-center text-orange-400 dark:text-white">
-                    <Landmark className="h-4 w-4 stroke-white dark:stroke-gray-400" />
+                    <Landmark className="h-4 w-4 stroke-white dark:stroke-orange-400" />
                     <span className="ml-2">
                       {t("footer.engineering.government")}
                     </span>
@@ -262,7 +262,7 @@ export function Footer() {
                   title={t("footer.engineering.industry")}
                 >
                   <div className="flex items-center text-orange-400 dark:text-white">
-                    <Factory className="h-4 w-4 stroke-white dark:stroke-gray-400" />
+                    <Factory className="h-4 w-4 stroke-white dark:stroke-orange-400" />
                     <span className="ml-2">
                       {t("footer.engineering.industry")}
                     </span>
@@ -276,7 +276,7 @@ export function Footer() {
                   title={t("footer.engineering.financial")}
                 >
                   <div className="flex items-center text-orange-400 dark:text-white">
-                    <DollarSign className="h-4 w-4 stroke-white dark:stroke-gray-400" />
+                    <DollarSign className="h-4 w-4 stroke-white dark:stroke-orange-400" />
                     <span className="ml-2">
                       {t("footer.engineering.financial")}
                     </span>
@@ -290,7 +290,7 @@ export function Footer() {
                   title={t("footer.engineering.retail")}
                 >
                   <div className="flex items-center text-orange-400 dark:text-white">
-                    <Sun className="h-4 w-4 stroke-white dark:stroke-gray-400" />
+                    <Sun className="h-4 w-4 stroke-white dark:stroke-orange-400" />
                     <span className="ml-2">
                       {t("footer.engineering.retail")}
                     </span>
@@ -304,7 +304,7 @@ export function Footer() {
                   title={t("footer.engineering.healthcare")}
                 >
                   <div className="flex items-center text-orange-400 dark:text-white">
-                    <Heart className="h-4 w-4 stroke-white dark:stroke-gray-400" />
+                    <Heart className="h-4 w-4 stroke-white dark:stroke-orange-400" />
                     <span className="ml-2">
                       {t("footer.engineering.healthcare")}
                     </span>
@@ -318,7 +318,7 @@ export function Footer() {
                   title={t("footer.engineering.cybersecurity")}
                 >
                   <div className="flex items-center text-orange-400 dark:text-white">
-                    <Shield className="h-4 w-4 stroke-white dark:stroke-gray-400" />
+                    <Shield className="h-4 w-4 stroke-white dark:stroke-orange-400" />
                     <span className="ml-2">
                       {t("footer.engineering.cybersecurity")}
                     </span>
@@ -341,7 +341,7 @@ export function Footer() {
                   title={t("footer.institutional.about")}
                 >
                   <div className="flex items-center text-orange-400 dark:text-white">
-                    <Info className="h-4 w-4 stroke-white dark:stroke-gray-400" />
+                    <Info className="h-4 w-4 stroke-white dark:stroke-orange-400" />
                     <span className="ml-2">
                       {t("footer.institutional.about")}
                     </span>
@@ -355,7 +355,7 @@ export function Footer() {
                   title={t("footer.institutional.careers")}
                 >
                   <div className="flex items-center text-orange-400 dark:text-white">
-                    <User2Icon className="h-4 w-4 stroke-white dark:stroke-gray-400" />
+                    <User2Icon className="h-4 w-4 stroke-white dark:stroke-orange-400" />
                     <span className="ml-2">
                       {t("footer.institutional.careers")}
                     </span>
@@ -372,38 +372,38 @@ export function Footer() {
             <ul className="space-y-2">
               <li className="lex items-center text-gray-300 text-sm">
                 <div className="flex items-center text-orange-400 dark:text-white">
-                  <Mail className="h-4 w-4 stroke-white dark:stroke-gray-400" />
+                  <Mail className="h-4 w-4 stroke-white dark:stroke-orange-400" />
                   <span className="ml-2">{t("footer.email.pt")}</span>
                 </div>
               </li>
               <li className="flex items-center text-gray-300 text-sm">
                 <div className="flex items-center text-orange-400 dark:text-white">
-                  <Phone className="h-4 w-4 stroke-white dark:stroke-gray-400" />
+                  <Phone className="h-4 w-4 stroke-white dark:stroke-orange-400" />
                   <span className="ml-2">{t("footer.phone.pt")}</span>
                 </div>
               </li>
               <li className="flex items-start text-gray-300 text-sm">
                 <div className="flex items-center text-orange-400 dark:text-white">
-                  <MapPin className="h-4 w-4 stroke-white dark:stroke-gray-400" />
+                  <MapPin className="h-4 w-4 stroke-white dark:stroke-orange-400" />
                   <span className="ml-2">{t("footer.address.pt")}</span>
                 </div>
               </li>
-              <hr />
+              <div className="border-t border-orange-400 dark:border-white"></div>
               <li className="lex items-center text-gray-300 text-sm">
                 <div className="flex items-center text-orange-400 dark:text-white">
-                  <Mail className="h-4 w-4 stroke-white dark:stroke-gray-400" />
+                  <Mail className="h-4 w-4 stroke-white dark:stroke-orange-400" />
                   <span className="ml-2">{t("footer.email.br")}</span>
                 </div>
               </li>
               <li className="flex items-center text-gray-300 text-sm">
                 <div className="flex items-center text-orange-400 dark:text-white">
-                  <Phone className="h-4 w-4 stroke-white dark:stroke-gray-400" />
+                  <Phone className="h-4 w-4 stroke-white dark:stroke-orange-400" />
                   <span className="ml-2">{t("footer.phone.br")}</span>
                 </div>
               </li>
               <li className="flex items-start text-gray-300 text-sm">
                 <div className="flex items-center text-orange-400 dark:text-white">
-                  <MapPin className="h-4 w-4 stroke-white dark:stroke-gray-400" />
+                  <MapPin className="h-4 w-4 stroke-white dark:stroke-orange-400" />
                   <span className="ml-2">{t("footer.address.br")}</span>
                 </div>
               </li>

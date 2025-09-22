@@ -188,41 +188,47 @@ export default function ContactPage() {
       )}
 
       {/* Form Section */}
-      <section className="py-20 bg-white/80">
+      <section className="py-20 bg-white dark:bg-black">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="block text-orange-400 text-3xl md:text-4xl font-bold mb-4">
-              {t("contact.form.title")}
+            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+              <span className="text-black dark:text-yellow-500">
+                {t("contact.form.title.part1")}
+              </span>{" "}
+              <span className="text-orange-400">
+                {t("contact.form.title.part2")}
+              </span>
             </h2>
-            <p className="text-lg text-gray-900 max-w-2xl mx-auto">
+
+            <p className="text-lg text-black dark:text-white max-w-2xl mx-auto">
               {t("contact.form.subtitle")}
             </p>
           </div>
 
-          <div className="flex justify-center bg-white">
+          <div className="flex justify-center">
             {/* Contact Form */}
-            <Card className="w-[60%] border-none">
+            <Card className="w-[60%] bg-orange-100 border-lg border-none card-shadow">
               <CardHeader>
-                <CardTitle className="text-2xl text-orange-400">
+                <CardTitle className="text-2xl text-center text-orange-400">
                   {t("contact.form.title")}
                 </CardTitle>
               </CardHeader>
               <CardContent>
                 <form onSubmit={handleSubmit} className="space-y-6">
-                  <div className="grid md:grid-cols-1 gap-4">
+                  <div className="grid md:grid-cols-2 gap-4">
                     <div>
-                      <Label htmlFor="name" className="text-gray-900">
+                      <Label htmlFor="name" className="text-black">
                         {t("contact.form.label.name")}
                       </Label>
                       <Input
                         id="name"
                         name="name"
                         required
-                        className="bg-gray-200 text-gray-900 placeholder-gray-600 border border-gray-300 focus:border-gray-400 focus:ring-0 focus:outline-none"
+                        className="bg-white text-orange-400 border border-gray-300 "
                       />
                     </div>
                     <div>
-                      <Label htmlFor="email" className="text-gray-900">
+                      <Label htmlFor="email" className="text-black">
                         {t("contact.form.label.email")}
                       </Label>
                       <Input
@@ -236,7 +242,7 @@ export default function ContactPage() {
                   </div>
                   <div className="grid md:grid-cols-2 gap-4">
                     <div>
-                      <Label htmlFor="phone" className="text-gray-900">
+                      <Label htmlFor="phone" className="text-black">
                         {t("contact.form.label.phone")}
                       </Label>
                       <Input
@@ -247,7 +253,7 @@ export default function ContactPage() {
                       />
                     </div>
                     <div>
-                      <Label htmlFor="company" className="text-gray-900">
+                      <Label htmlFor="company" className="text-black">
                         {t("contact.form.label.company")}
                       </Label>
                       <Input
@@ -258,7 +264,7 @@ export default function ContactPage() {
                     </div>
                   </div>
                   <div>
-                    <Label htmlFor="subject" className="text-gray-900">
+                    <Label htmlFor="subject" className="text-black">
                       {t("contact.form.label.subject")}
                     </Label>
                     <Input

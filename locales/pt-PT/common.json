@@ -62,8 +62,10 @@
 
   "contact.hero.title": "Entre em contacto connosco",
   "contact.hero.subtitle": "Estamos prontos para ajudar a transformar a sua empresa através da tecnologia.",
-  "contact.form.title": "Envie-nos uma mensagem",
+  "contact.form.title.part1": "Envie-nos a",
+  "contact.form.title.part2": "sua Mensagem",
   "contact.form.subtitle": "Preencha todos os campos do formulário abaixo, anexe um documento se necessário e clique em enviar",
+  "contact.form.title": "Como podemos ajudar?",
   "contact.form.label.name": "Nome",
   "contact.form.label.email": "E-mail",
   "contact.form.label.phone": "Telemóvel",
