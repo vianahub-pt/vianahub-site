@@ -202,7 +202,7 @@ export default function ContactPage() {
                         id="name"
                         name="name"
                         required
-                        className="bg-white text-black placeholder-gray-500 border-none focus:outline-none focus:border-transparent font-normal"
+                        className="bg-white text-black placeholder-black border-none focus:outline-none focus:border-transparent font-normal"
                       />
                     </div>
                     <div>
