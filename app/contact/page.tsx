@@ -214,7 +214,7 @@ export default function ContactPage() {
                         name="email"
                         type="email"
                         required
-                        className="bg-white text-black placeholder-gray-500 border border-gray-300 focus:border-gray-400 focus:ring-0 focus:outline-none font-normal"
+                        className="bg-white text-black placeholder-gray-500 border-none focus:outline-none focus:border-transparent font-normal"
                       />
                     </div>
                   </div>
@@ -227,7 +227,7 @@ export default function ContactPage() {
                         id="phone"
                         name="phone"
                         type="tel"
-                        className="bg-white text-black placeholder-gray-500 border border-gray-300 focus:border-gray-400 focus:ring-0 focus:outline-none font-normal"
+                        className="bg-white text-black placeholder-gray-500 border-none focus:outline-none focus:border-transparent font-normal"
                       />
                     </div>
                     <div>
@@ -237,7 +237,7 @@ export default function ContactPage() {
                       <Input
                         id="company"
                         name="company"
-                        className="bg-white text-black placeholder-gray-500 border border-gray-300 focus:border-gray-400 focus:ring-0 focus:outline-none font-normal"
+                        className="bg-white text-black placeholder-gray-500 border-none focus:outline-none focus:border-transparent font-normal"
                       />
                     </div>
                   </div>
@@ -249,7 +249,7 @@ export default function ContactPage() {
                       id="subject"
                       name="subject"
                       required
-                      className="bg-white text-black placeholder-gray-500 border border-gray-300 focus:border-gray-400 focus:ring-0 focus:outline-none font-normal"
+                      className="bg-white text-black placeholder-gray-500 border-none focus:outline-none focus:border-transparent font-normal"
                     />
                   </div>
                   <div>
@@ -261,7 +261,7 @@ export default function ContactPage() {
                       name="message"
                       rows={6}
                       required
-                      className="bg-white text-black placeholder-gray-500 border border-gray-300 focus:border-gray-400 focus:ring-0 focus:outline-none font-normal"
+                      className="bg-white text-black placeholder-gray-500 border-none focus:outline-none focus:border-transparent font-normal"
                     />
                   </div>
                   <div>
