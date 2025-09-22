@@ -145,10 +145,7 @@ export function ProjectsSection() {
             >
               {projects.map((project) => (
                 <div key={project.id} className="w-full flex-shrink-0">
-                  <Card
-                    className="mx-4 cursor-pointer bg-transparent border-none rounded-none"
-                    onClick={() => handleProjectClick(project.url)}
-                  >
+                  <Card className="mx-4 bg-transparent border-none rounded-none">
                     <CardContent className="p-0">
                       <div className="grid md:grid-cols-2 gap-0 h-full">
                         {/* Image Section */}

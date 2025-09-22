@@ -13,6 +13,7 @@ import {
   Train,
   Truck,
   Sun,
+  Waypoints,
 } from "lucide-react";
 import { useTranslation } from "@/components/translation-context";
 
@@ -28,55 +29,55 @@ export function WhatWeDoDropdown() {
 
   const menuItems = [
     {
-      key: "nav.whatWeDo.development.title",
+      key: "nav.whatWeDo.development",
       path: "/what-we-do/development",
       icon: Code2,
       color: "#FFFFFF",
     },
     {
-      key: "nav.whatWeDo.agile.title",
+      key: "nav.whatWeDo.agile",
       path: "/what-we-do/agile",
       icon: Workflow,
       color: "#FFFFFF",
     },
     {
-      key: "nav.whatWeDo.outsourcing.title",
+      key: "nav.whatWeDo.outsourcing",
       path: "/what-we-do/outsourcing",
       icon: Users,
       color: "#FFFFFF",
     },
     {
-      key: "nav.whatWeDo.chatbot.title",
+      key: "nav.whatWeDo.chatbot",
       path: "/what-we-do/chatbot",
       icon: Bot,
       color: "#FFFFFF",
     },
     {
-      key: "nav.whatWeDo.landingPages.title",
+      key: "nav.whatWeDo.landingPages",
       path: "/what-we-do/landing-pages",
       icon: Layout,
       color: "#FFFFFF",
     },
     {
-      key: "nav.whatWeDo.systemIntegration.title",
+      key: "nav.whatWeDo.systemIntegration",
       path: "/what-we-do/system-integration",
-      icon: Link,
+      icon: Waypoints,
       color: "#FFFFFF",
     },
     {
-      key: "nav.whatWeDo.railway.title",
+      key: "nav.whatWeDo.railway",
       path: "/what-we-do/railway",
       icon: Train,
       color: "#FFFFFF",
     },
     {
-      key: "nav.whatWeDo.road.title",
+      key: "nav.whatWeDo.road",
       path: "/what-we-do/road",
       icon: Truck,
       color: "#FFFFFF",
     },
     {
-      key: "nav.whatWeDo.solarEnergy.title",
+      key: "nav.whatWeDo.solarEnergy",
       path: "/what-we-do/solar-energy",
       icon: Sun,
       color: "#FFFFFF",
@@ -91,10 +92,10 @@ export function WhatWeDoDropdown() {
     >
       <button
         className="flex items-center space-x-1 px-3 py-2 rounded-md transition-all duration-100 font-medium cursor-pointer
-    bg-orange-400 text-white hover:bg-black/80 hover:text-orange-400
-    dark:bg-black dark:text-orange-400 dark:hover:bg-orange-400 dark:hover:text-white text-md"
+    bg-orange-400 text-white hover:bg-black/80 hover:text-orange-400 dark:bg-black dark:text-orange-400 dark:hover:bg-orange-400 dark:hover:text-white text-md"
+        title={t("nav.whatWeDo")}
       >
-        <span>{t("nav.whatWeDo.title")}</span>
+        <span>{t("nav.whatWeDo")}</span>
         <ChevronDown className="h-4 w-4" />
       </button>
 
@@ -107,6 +108,7 @@ export function WhatWeDoDropdown() {
                 key={item.key}
                 onClick={() => handleNavigation(item.path)}
                 className="flex items-center gap-3 w-full text-left px-4 py-2 text-sm text-orange-400 hover:bg-yellow-500/20 hover:text-white transition-colors duration-150"
+                title={t(item.key)}
               >
                 <IconComponent className="h-4 w-4 stroke-white dark:stroke-gray-400" />
                 {t(item.key)}

@@ -59,11 +59,10 @@ export function Navbar() {
             <InstitutionalDropdown />
             <button
               onClick={() => handleNavigation("/contact")}
-              className="flex items-center space-x-1 px-3 py-2 rounded-md transition-all duration-100 font-medium cursor-pointer
-    bg-orange-400 text-white hover:bg-black/80 hover:text-orange-400
-    dark:bg-black dark:text-orange-400 dark:hover:bg-orange-400 dark:hover:text-white text-md"
+              className="flex items-center space-x-1 px-3 py-2 rounded-md transition-all duration-100 font-medium cursor-pointer bg-orange-400 text-white hover:bg-black/80 hover:text-orange-400 dark:bg-black dark:text-orange-400 dark:hover:bg-orange-400 dark:hover:text-white text-md"
+              title={t("nav.contact")}
             >
-              {t("nav.contact.title")}
+              {t("nav.contact")}
             </button>
             <LanguageSelector />
             <ThemeToggle />
