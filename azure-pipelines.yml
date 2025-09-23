@@ -41,8 +41,8 @@ stages:
             displayName: "Install dependencies with pnpm"
 
           - script: |
-              pnpm run build && pnpm run export
-            displayName: "Build project (next build && next export)"
+              pnpm run build
+            displayName: "Build project (next build only)"
 
           - task: PublishPipelineArtifact@1
             inputs:
@@ -72,7 +72,7 @@ stages:
 
           - task: AzureStaticWebApp@0
             inputs:
-              app_location: "$(Pipeline.Workspace)/build_output"
+              app_location: $(Pipeline.Workspace)/build_output
               output_location: ""
               azure_static_web_apps_api_token: "$(DEPLOYMENT_TOKEN_VH_DEV)"
             displayName: "Deploy to DEV"
