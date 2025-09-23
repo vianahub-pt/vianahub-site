@@ -41,13 +41,14 @@ stages:
             displayName: "Install dependencies with pnpm"
 
           - script: |
-              pnpm run build
-            displayName: "Build project (next build)"
+              pnpm run build && pnpm run export
+            displayName: "Build project (next build && next export)"
 
           - task: PublishPipelineArtifact@1
             inputs:
               targetPath: out
               artifact: build_output
+              publishLocation: pipeline
             displayName: "Publish build artifact"
 
   # Stage 2: Deploy to DEV (branch develop)
@@ -64,7 +65,10 @@ stages:
           - task: DownloadPipelineArtifact@2
             inputs:
               artifact: build_output
-              path: $(Pipeline.Workspace)/build_output
+              path: "$(Pipeline.Workspace)/build_output"
+
+          - script: ls -la $(Pipeline.Workspace)/build_output
+            displayName: "Debug: Conteúdo do artefato baixado"
 
           - task: AzureStaticWebApp@0
             inputs:
