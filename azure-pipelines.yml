@@ -10,10 +10,11 @@ variables:
   - group: VianaHubSecrets
 
 stages:
-  - stage: BuildAndDeploy
-    displayName: "Build and Conditional Deploy"
+  # Stage 1: Build
+  - stage: Build
+    displayName: "Build"
     jobs:
-      - job: Build
+      - job: BuildJob
         displayName: "Build Job"
         pool:
           vmImage: "ubuntu-latest"
@@ -43,18 +44,22 @@ stages:
               pnpm run build
             displayName: "Build project"
 
-          # Publica a pasta 'out' como artefato
           - task: PublishPipelineArtifact@1
             inputs:
               targetPath: out
               artifact: build_output
             displayName: "Publish build artifact"
 
-      # Deploy para DEV (apenas na branch develop)
-      - job: DeployDEV
+  # Stage 2: Deploy (DEV or PRD, condicional)
+  - stage: Deploy
+    displayName: "Deploy to DEV or PRD"
+    dependsOn: Build
+    condition: succeeded()
+    jobs:
+      # Deploy para DEV (sem aprovação)
+      - job: DeployToDev
         displayName: "Deploy to DEV"
-        dependsOn: Build
-        condition: and(succeeded(), eq(variables['Build.SourceBranchName'], 'develop'))
+        condition: eq(variables['Build.SourceBranchName'], 'develop')
         pool:
           vmImage: "ubuntu-latest"
         steps:
@@ -70,12 +75,11 @@ stages:
               azure_static_web_apps_api_token: "$(DEPLOYMENT_TOKEN_VH_DEV)"
             displayName: "Deploy to DEV"
 
-      # Deploy para PRD (apenas na branch main, com aprovação no ambiente)
-      - deployment: DeployPRD
+      # Deploy para PRD (com aprovação via environment)
+      - deployment: DeployToPrd
         displayName: "Deploy to PRD"
-        dependsOn: Build
-        condition: and(succeeded(), eq(variables['Build.SourceBranchName'], 'main'))
-        environment: "PRD" # <- Configure aprovação no DevOps
+        environment: "PRD" # <- Configure com aprovadores no Azure DevOps
+        condition: eq(variables['Build.SourceBranchName'], 'main')
         strategy:
           runOnce:
             deploy:
