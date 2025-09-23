@@ -1,0 +1,58 @@
+trigger:
+  branches:
+    include:
+      - develop
+      - main
+
+pool:
+  vmImage: "ubuntu-latest"
+
+variables:
+  - name: NODE_VERSION
+    value: "18.x"
+  - group: VianaHubSecrets
+
+steps:
+  - task: NodeTool@0
+    inputs:
+      versionSpec: "18.x"
+    displayName: "Install Node.js"
+
+  - script: npm install -g pnpm
+    displayName: "Install pnpm"
+
+  - task: Cache@2
+    inputs:
+      key: 'pnpm | "$(Agent.OS)" | pnpm-lock.yaml'
+      restoreKeys: |
+        pnpm | "$(Agent.OS)"
+      path: $(Pipeline.Workspace)/.pnpm-store
+    displayName: "Cache pnpm dependencies"
+
+  - script: |
+      pnpm config set store-dir $(Pipeline.Workspace)/.pnpm-store
+      pnpm install --frozen-lockfile
+    displayName: "Install dependencies with pnpm"
+
+  - script: |
+      pnpm run build
+    displayName: "Build project"
+
+  - task: ArchiveFiles@2
+    displayName: "Archive files"
+    inputs:
+      rootFolderOrFile: "$(System.DefaultWorkingDirectory)"
+      includeRootFolder: false
+      archiveType: zip
+      archiveFile: $(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip
+      replaceExistingArchive: true
+
+  - upload: $(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip
+    artifact: drop
+
+  - task: AzureStaticWebApp@0
+    inputs:
+      app_location: "out"
+      output_location: ""
+      azure_static_web_apps_api_token: "$(DEPLOYMENT_TOKEN_VH_DEV)"
+    displayName: "Deploy to Azure Static Web App"
