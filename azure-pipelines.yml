@@ -68,7 +68,7 @@ stages:
 
                 - task: AzureStaticWebApp@0
                   inputs:
-                    app_location: "$(Pipeline.Workspace)/build_output"
+                    app_location: "$(Pipeline.Workspace)/build_output/out"
                     output_location: ""
                     azure_static_web_apps_api_token: "$(DEPLOYMENT_TOKEN_VH_DEV)"
                   displayName: "Deploy to DEV"
