@@ -42,15 +42,15 @@ stages:
 
           - script: |
               pnpm run build
-            displayName: "Build project"
+            displayName: "Build project (next build && next export)"
 
           - task: PublishPipelineArtifact@1
             inputs:
-              targetPath: out
+              targetPath: $(Pipeline.Workspace)/out
               artifact: build_output
             displayName: "Publish build artifact"
 
-  # Stage 2: Deploy to DEV (executa apenas na branch develop)
+  # Stage 2: Deploy to DEV (branch develop)
   - stage: Deploy_DEV
     displayName: "Deploy to DEV"
     dependsOn: Build
@@ -64,16 +64,16 @@ stages:
           - task: DownloadPipelineArtifact@2
             inputs:
               artifact: build_output
-              path: $(Pipeline.Workspace)
+              path: $(Pipeline.Workspace)/build_output
 
           - task: AzureStaticWebApp@0
             inputs:
-              app_location: "$(Pipeline.Workspace)"
+              app_location: "$(Pipeline.Workspace)/build_output/out"
               output_location: ""
               azure_static_web_apps_api_token: "$(DEPLOYMENT_TOKEN_VH_DEV)"
             displayName: "Deploy to DEV"
 
-  # Stage 3: Deploy to PRD (executa apenas na branch main, e só após DEV)
+  # Stage 3: Deploy to PRD (branch main, após DEV)
   - stage: Deploy_PRD
     displayName: "Deploy to PRD"
     dependsOn: Deploy_DEV
@@ -89,11 +89,11 @@ stages:
                 - task: DownloadPipelineArtifact@2
                   inputs:
                     artifact: build_output
-                    path: $(Pipeline.Workspace)
+                    path: $(Pipeline.Workspace)/build_output
 
                 - task: AzureStaticWebApp@0
                   inputs:
-                    app_location: "$(Pipeline.Workspace)"
+                    app_location: "$(Pipeline.Workspace)/build_output/out"
                     output_location: ""
                     azure_static_web_apps_api_token: "$(DEPLOYMENT_TOKEN_VH_PRD)"
                   displayName: "Deploy to PRD"
