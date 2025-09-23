@@ -50,16 +50,14 @@ stages:
               artifact: build_output
             displayName: "Publish build artifact"
 
-  # Stage 2: Deploy (DEV or PRD, condicional)
-  - stage: Deploy
-    displayName: "Deploy to DEV or PRD"
+  # Stage 2: Deploy to DEV (executa apenas na branch develop)
+  - stage: Deploy_DEV
+    displayName: "Deploy to DEV"
     dependsOn: Build
-    condition: succeeded()
+    condition: and(succeeded(), eq(variables['Build.SourceBranchName'], 'develop'))
     jobs:
-      # Deploy para DEV (sem aprovação)
       - job: DeployToDev
         displayName: "Deploy to DEV"
-        condition: eq(variables['Build.SourceBranchName'], 'develop')
         pool:
           vmImage: "ubuntu-latest"
         steps:
@@ -75,11 +73,15 @@ stages:
               azure_static_web_apps_api_token: "$(DEPLOYMENT_TOKEN_VH_DEV)"
             displayName: "Deploy to DEV"
 
-      # Deploy para PRD (com aprovação via environment)
+  # Stage 3: Deploy to PRD (executa apenas na branch main, e só após DEV)
+  - stage: Deploy_PRD
+    displayName: "Deploy to PRD"
+    dependsOn: Deploy_DEV
+    condition: and(succeeded(), eq(variables['Build.SourceBranchName'], 'main'))
+    jobs:
       - deployment: DeployToPrd
         displayName: "Deploy to PRD"
-        environment: "PRD" # <- Configure com aprovadores no Azure DevOps
-        condition: eq(variables['Build.SourceBranchName'], 'main')
+        environment: "PRD" # <- Configure com aprovadores no DevOps
         strategy:
           runOnce:
             deploy:
