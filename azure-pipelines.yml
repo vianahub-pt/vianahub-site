@@ -4,9 +4,6 @@ trigger:
       - develop
       - main
 
-pool:
-  vmImage: "ubuntu-latest"
-
 variables:
   - name: NODE_VERSION
     value: "18.x"
@@ -14,15 +11,16 @@ variables:
 
 stages:
   - stage: Build
-    displayName: "Build and Deploy to DEV"
+    displayName: "Build"
     jobs:
-      - job: BuildAndDeployDev
+      - job: Build
+        displayName: "Build Job"
         pool:
           vmImage: "ubuntu-latest"
         steps:
           - task: NodeTool@0
             inputs:
-              versionSpec: "18.x"
+              versionSpec: "$(NODE_VERSION)"
             displayName: "Install Node.js"
 
           - script: npm install -g pnpm
@@ -45,39 +43,55 @@ stages:
               pnpm run build
             displayName: "Build project"
 
-          - task: ArchiveFiles@2
-            displayName: "Archive files"
-            inputs:
-              rootFolderOrFile: "$(System.DefaultWorkingDirectory)"
-              includeRootFolder: false
-              archiveType: zip
-              archiveFile: $(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip
-              replaceExistingArchive: true
-
+          # Publica a pasta 'out' como artefato
           - task: PublishPipelineArtifact@1
             inputs:
-              targetPath: $(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip
-              artifact: drop
+              targetPath: out
+              artifact: build_output
+            displayName: "Publish build artifact"
 
-          - task: AzureStaticWebApp@0
-            inputs:
-              app_location: "out"
-              output_location: ""
-              azure_static_web_apps_api_token: "$(DEPLOYMENT_TOKEN_VH_DEV)"
-            displayName: "Deploy to DEV"
-
-  - stage: Deploy_PRD
-    displayName: "Deploy to Production"
+  - stage: Deploy_DEV
+    displayName: "Deploy to Development"
+    dependsOn: Build
+    condition: and(succeeded(), eq(variables['Build.SourceBranchName'], 'develop'))
     jobs:
-      - deployment: DeployPRD
-        environment: "PRD" # <- Aqui você configura aprovadores no DevOps
+      - deployment: DeployDEV
+        environment: "DEV"
         strategy:
           runOnce:
             deploy:
               steps:
+                - task: DownloadPipelineArtifact@2
+                  inputs:
+                    artifact: build_output
+                    path: $(Pipeline.Workspace)
+
                 - task: AzureStaticWebApp@0
                   inputs:
-                    app_location: "out"
+                    app_location: "$(Pipeline.Workspace)/build_output"
+                    output_location: ""
+                    azure_static_web_apps_api_token: "$(DEPLOYMENT_TOKEN_VH_DEV)"
+                  displayName: "Deploy to DEV"
+
+  - stage: Deploy_PRD
+    displayName: "Deploy to Production"
+    dependsOn: Build
+    condition: and(succeeded(), eq(variables['Build.SourceBranchName'], 'main'))
+    jobs:
+      - deployment: DeployPRD
+        environment: "PRD" # Configure aprovadores no DevOps
+        strategy:
+          runOnce:
+            deploy:
+              steps:
+                - task: DownloadPipelineArtifact@2
+                  inputs:
+                    artifact: build_output
+                    path: $(Pipeline.Workspace)
+
+                - task: AzureStaticWebApp@0
+                  inputs:
+                    app_location: "$(Pipeline.Workspace)/build_output"
                     output_location: ""
                     azure_static_web_apps_api_token: "$(DEPLOYMENT_TOKEN_VH_PRD)"
                   displayName: "Deploy to PRD"
