@@ -5,7 +5,10 @@ import { useRouter } from "next/navigation";
 import Image from "next/image";
 import { Menu, X } from "lucide-react";
 import { ThemeToggle } from "@/components/theme-toggle";
-import { WhatWeDoDropdown } from "@/components/what-we-do-dropdown";
+import {
+  WhatWeDoDropdown,
+  WhatWeDoDropdownMobile,
+} from "@/components/what-we-do-dropdown";
 import { EngineeringDropdown } from "@/components/engineering-dropdown";
 import { InstitutionalDropdown } from "@/components/institutional-dropdown";
 import { LanguageSelector } from "@/components/language-selector";
@@ -74,7 +77,9 @@ export function Navbar() {
             <ThemeToggle />
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="inline-flex items-center justify-center p-2 rounded-md text-white hover:bg-yellow-500/20 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
+              className="inline-flex items-center justify-center p-2 rounded-md 
+              focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white
+              bg-white/0 text-orange-500 hover:bg-black/80 hover:text-orange-400 dark:bg-black dark:text-orange-400 dark:hover:bg-white dark:hover:text-orange-500"
             >
               {isMenuOpen ? (
                 <X className="block h-6 w-6" />
@@ -89,7 +94,7 @@ export function Navbar() {
         {isMenuOpen && (
           <div className="lg:hidden">
             <div className="px-2 pt-2 pb-3 space-y-1 bg-black/80 backdrop-blur-md rounded-md mt-2">
-              <WhatWeDoDropdown />
+              <WhatWeDoDropdownMobile />
               <EngineeringDropdown />
               <InstitutionalDropdown />
               <button
