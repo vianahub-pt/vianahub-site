@@ -52,8 +52,8 @@ export function Footer() {
                 <Image
                   src={
                     isDark
-                      ? "/logo-default-orange.png"
-                      : "/logo-default-white.png"
+                      ? "/logo/default-white-logo.png"
+                      : "/logo/default-white-logo.png"
                   }
                   alt="VianaHub"
                   className="h-[80%] w-auto"

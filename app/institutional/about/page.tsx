@@ -44,18 +44,18 @@ export default function AboutPageContent() {
   const mvvs = [
     {
       icon: Target,
-      title: t("about.mission.title"),
-      description: t("about.mission.description"),
+      title: t("about.mvv.mission.title"),
+      description: t("about.mvv.mission.description"),
     },
     {
       icon: Eye,
-      title: t("about.vision.title"),
-      description: t("about.vision.description"),
+      title: t("about.mvv.vision.title"),
+      description: t("about.mvv.vision.description"),
     },
     {
       icon: Users,
-      title: t("about.values.title"),
-      description: t("about.values.description"),
+      title: t("about.mvv.values.title"),
+      description: t("about.mvv.values.description"),
     },
   ];
 

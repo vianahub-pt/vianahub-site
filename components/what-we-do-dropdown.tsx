@@ -92,7 +92,7 @@ export function WhatWeDoDropdown() {
     >
       <button
         className="flex items-center space-x-1 px-3 py-2 rounded-md transition-all duration-100 font-medium cursor-pointer
-    bg-orange-400 text-white hover:bg-black/80 hover:text-orange-400 dark:bg-black dark:text-orange-400 dark:hover:bg-orange-400 dark:hover:text-white text-md"
+    bg-white/0 text-orange-500 hover:bg-black/80 hover:text-orange-400 dark:bg-black dark:text-orange-400 dark:hover:bg-white dark:hover:text-orange-500 text-md"
         title={t("nav.whatWeDo")}
       >
         <span>{t("nav.whatWeDo")}</span>
@@ -100,7 +100,7 @@ export function WhatWeDoDropdown() {
       </button>
 
       {isOpen && (
-        <div className="absolute top-full left-0 w-56 bg-black/80 backdrop-blur-md rounded-md shadow-lg border border-gray-600 z-80">
+        <div className="absolute top-full left-0 w-56 bg-black/80 backdrop-blur-md rounded-md shadow-lg border border-gray-600 z-50">
           {menuItems.map((item) => {
             const IconComponent = item.icon;
             return (

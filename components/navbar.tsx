@@ -22,7 +22,7 @@ export function Navbar() {
   };
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-orange-400 dark:bg-black backdrop-blur-md border-b border-white/30 dark:border-gray-400/30">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-white/80 dark:bg-black backdrop-blur-md border-b border-white/30 dark:border-gray-400/30">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
@@ -33,7 +33,7 @@ export function Navbar() {
             >
               {/* Logo Light */}
               <Image
-                src="/logo-default-white.png"
+                src="/logo/default-black-logo.png"
                 alt="VianaHub Light"
                 className="h-[80%] w-auto dark:hidden"
                 width={200}
@@ -42,7 +42,7 @@ export function Navbar() {
               />
               {/* Logo Dark */}
               <Image
-                src="/logo-default-orange.png"
+                src="/logo/default-white-logo.png"
                 alt="VianaHub Dark"
                 className="h-[80%] w-auto hidden dark:block"
                 width={200}
@@ -59,7 +59,8 @@ export function Navbar() {
             <InstitutionalDropdown />
             <button
               onClick={() => handleNavigation("/contact")}
-              className="flex items-center space-x-1 px-3 py-2 rounded-md transition-all duration-100 font-medium cursor-pointer bg-orange-400 text-white hover:bg-black/80 hover:text-orange-400 dark:bg-black dark:text-orange-400 dark:hover:bg-orange-400 dark:hover:text-white text-md"
+              className="flex items-center space-x-1 px-3 py-2 rounded-md transition-all duration-100 font-medium cursor-pointer 
+              bg-white/0 text-orange-500 hover:bg-black hover:text-orange-400 dark:bg-black dark:text-orange-400 dark:hover:bg-white dark:hover:text-orange-500 text-md"
               title={t("nav.contact")}
             >
               {t("nav.contact")}
