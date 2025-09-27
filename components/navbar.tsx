@@ -1,28 +1,75 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
-import { Menu, X } from "lucide-react";
+import { ChevronDown, Menu, X } from "lucide-react";
 import { ThemeToggle } from "@/components/theme-toggle";
 import {
   WhatWeDoDropdown,
   WhatWeDoDropdownMobile,
 } from "@/components/what-we-do-dropdown";
-import { EngineeringDropdown } from "@/components/engineering-dropdown";
-import { InstitutionalDropdown } from "@/components/institutional-dropdown";
-import { LanguageSelector } from "@/components/language-selector";
-import { useTranslation } from "@/components/translation-context";
+import {
+  EngineeringDropdown,
+  EngineeringDropdownMobile,
+} from "@/components/engineering-dropdown";
+import {
+  InstitutionalDropdown,
+  InstitutionalDropdownMobile,
+} from "@/components/institutional-dropdown";
+import {
+  LanguageSelector,
+  LanguageSelectorMobile,
+} from "@/components/language-selector";
+import {
+  useTranslation,
+  type Language,
+} from "@/components/translation-context";
+
+const languages = [
+  { code: "pt-BR" as Language, name: "Português", flag: "/flags/br.svg" },
+  { code: "pt-PT" as Language, name: "Português", flag: "/flags/pt.svg" },
+  { code: "en-US" as Language, name: "English", flag: "/flags/us.svg" },
+  { code: "es-ES" as Language, name: "Español", flag: "/flags/es.svg" },
+  { code: "fr-FR" as Language, name: "Français", flag: "/flags/fr.svg" },
+  { code: "de-DE" as Language, name: "Deutsch", flag: "/flags/de.svg" },
+  { code: "it-IT" as Language, name: "Italian", flag: "/flags/it.svg" },
+];
 
 export function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [openDropdown, setOpenDropdown] = useState<string | null>(null); // <-- controla QUAL dropdown está aberto
+  const { language } = useTranslation();
   const router = useRouter();
   const { t } = useTranslation();
+  const menuRef = useRef<HTMLDivElement>(null);
 
-  const handleNavigation = (path: string) => {
-    router.push(path);
+  const handleNavigation = (path?: string) => {
+    if (path) {
+      router.push(path);
+    }
     setIsMenuOpen(false);
+    setOpenDropdown(null);
   };
+
+  // Fecha todos os dropdowns ao clicar fora
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent | TouchEvent) => {
+      if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
+        setOpenDropdown(null);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    document.addEventListener("touchstart", handleClickOutside);
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener("touchstart", handleClickOutside);
+    };
+  }, []);
+
+  const currentLanguage =
+    languages.find((lang) => lang.code === language) || languages[0];
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-white/80 dark:bg-black backdrop-blur-md border-b border-white/30 dark:border-gray-400/30">
@@ -34,7 +81,6 @@ export function Navbar() {
               onClick={() => handleNavigation("/")}
               className="flex items-center cursor-pointer h-full relative"
             >
-              {/* Logo Light */}
               <Image
                 src="/logo/default-black-logo.png"
                 alt="VianaHub Light"
@@ -43,7 +89,6 @@ export function Navbar() {
                 height={100}
                 priority
               />
-              {/* Logo Dark */}
               <Image
                 src="/logo/default-white-logo.png"
                 alt="VianaHub Dark"
@@ -55,7 +100,7 @@ export function Navbar() {
             </button>
           </div>
 
-          {/* Right side */}
+          {/* Right side (desktop) */}
           <div className="hidden lg:flex items-center space-x-4">
             <WhatWeDoDropdown />
             <EngineeringDropdown />
@@ -92,22 +137,125 @@ export function Navbar() {
 
         {/* Mobile Menu */}
         {isMenuOpen && (
-          <div className="lg:hidden">
-            <div className="px-2 pt-2 pb-3 space-y-1 bg-black/80 backdrop-blur-md rounded-md mt-2">
-              <WhatWeDoDropdownMobile />
-              <EngineeringDropdown />
-              <InstitutionalDropdown />
+          <div className="lg:hidden" ref={menuRef}>
+            <div className="w-[180px] px-2 pt-2 pb-3 space-y-1 bg-black/80 backdrop-blur-md rounded-md mt-2">
+              {/* WhatWeDo */}
+              <div className="relative">
+                <button
+                  onClick={() =>
+                    setOpenDropdown(
+                      openDropdown === "whatWeDo" ? null : "whatWeDo"
+                    )
+                  }
+                  className="flex items-center space-x-1 px-3 py-2 rounded-md transition-all duration-100 font-medium cursor-pointer
+                   bg-white/0 text-orange-500 hover:bg-black/80 hover:text-orange-400 dark:bg-black dark:text-orange-400 
+                   dark:hover:bg-white dark:hover:text-orange-500 text-md"
+                  title={t("nav.whatWeDo")}
+                >
+                  <span>{t("nav.whatWeDo")}</span>
+                  <ChevronDown
+                    className={`h-4 w-4 transition-transform duration-200 ${
+                      openDropdown === "whatWeDo" ? "rotate-180" : "rotate-0"
+                    }`}
+                  />
+                </button>
+                {openDropdown === "whatWeDo" && (
+                  <WhatWeDoDropdownMobile onNavigate={handleNavigation} />
+                )}
+              </div>
+
+              {/* Engineering */}
+              <div className="relative">
+                <button
+                  onClick={() =>
+                    setOpenDropdown(
+                      openDropdown === "engineering" ? null : "engineering"
+                    )
+                  }
+                  className="flex items-center space-x-1 px-3 py-2 rounded-md transition-all duration-100 font-medium cursor-pointer
+                   bg-white/0 text-orange-500 hover:bg-black/80 hover:text-orange-400 dark:bg-black dark:text-orange-400 
+                   dark:hover:bg-white dark:hover:text-orange-500 text-md"
+                  title={t("nav.engineering")}
+                >
+                  <span>{t("nav.engineering")}</span>
+                  <ChevronDown
+                    className={`h-4 w-4 transition-transform duration-200 ${
+                      openDropdown === "engineering" ? "rotate-180" : "rotate-0"
+                    }`}
+                  />
+                </button>
+                {openDropdown === "engineering" && (
+                  <EngineeringDropdownMobile onNavigate={handleNavigation} />
+                )}
+              </div>
+
+              {/* Institutional */}
+              <div className="relative">
+                <button
+                  onClick={() =>
+                    setOpenDropdown(
+                      openDropdown === "institutional" ? null : "institutional"
+                    )
+                  }
+                  className="flex items-center space-x-1 px-3 py-2 rounded-md transition-all duration-100 font-medium cursor-pointer
+                   bg-white/0 text-orange-500 hover:bg-black/80 hover:text-orange-400 dark:bg-black dark:text-orange-400 
+                   dark:hover:bg-white dark:hover:text-orange-500 text-md"
+                  title={t("nav.institutional")}
+                >
+                  <span>{t("nav.institutional")}</span>
+                  <ChevronDown
+                    className={`h-4 w-4 transition-transform duration-200 ${
+                      openDropdown === "institutional"
+                        ? "rotate-180"
+                        : "rotate-0"
+                    }`}
+                  />
+                </button>
+                {openDropdown === "institutional" && (
+                  <InstitutionalDropdownMobile onNavigate={handleNavigation} />
+                )}
+              </div>
+
+              {/* Contact */}
               <button
                 onClick={() => handleNavigation("/contact")}
-                className="flex items-center space-x-1 px-3 py-2 rounded-md transition-all duration-200 font-medium drop-shadow-lg cursor-pointer
-                  bg-orange-400 text-white hover:bg-white hover:text-orange-400
-                  dark:bg-black dark:text-orange-400 dark:hover:bg-orange-400 dark:hover:text-white
-                  text-sm"
+                className="flex items-center space-x-1 px-3 py-2 rounded-md transition-all duration-100 font-medium cursor-pointer 
+              bg-white/0 text-orange-500 hover:bg-black hover:text-orange-400 dark:bg-black dark:text-orange-400 dark:hover:bg-white dark:hover:text-orange-500 text-md"
+                title={t("nav.contact")}
               >
-                {t("nav.contact.title")}
+                {t("nav.contact")}
               </button>
-              <LanguageSelector />
-              <ThemeToggle />
+
+              {/* Language */}
+              <div className="relative">
+                <button
+                  onClick={() =>
+                    setOpenDropdown(
+                      openDropdown === "language" ? null : "language"
+                    )
+                  }
+                  className="flex items-center space-x-1 px-3 py-2 rounded-md transition-all duration-100 font-medium cursor-pointer 
+                                 bg-white/0 text-orange-500 hover:bg-black hover:text-orange-400 dark:bg-black dark:text-orange-400 
+                                 dark:hover:bg-white dark:hover:text-orange-500 text-md"
+                >
+                  <Image
+                    src={currentLanguage.flag || "/placeholder.svg"}
+                    alt={currentLanguage.name}
+                    width={20}
+                    height={15}
+                    className="w-5 h-4 object-cover rounded-sm"
+                  />
+                  <span>{currentLanguage.name}</span>
+                  <ChevronDown
+                    className={`h-4 w-4 transition-transform duration-200 ${
+                      openDropdown === "language" ? "rotate-180" : "rotate-0"
+                    }`}
+                  />
+                </button>
+                {openDropdown === "language" && (
+                  <LanguageSelectorMobile onNavigate={handleNavigation} />
+                )}
+              </div>
             </div>
           </div>
         )}

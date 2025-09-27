@@ -25,8 +25,8 @@ export function NameForm({ onNameSubmit }: NameFormProps) {
   };
 
   return (
-    <div className="flex items-center justify-center h-[750px] bg-gray-100 dark:bg-gray-800">
-      <Card className="w-full max-w-md bg-white/50 dark:bg-gray-500 shadow-2xl border border-white">
+    <div className="p-20 flex items-center justify-center bg-gray-100 dark:bg-gray-800">
+      <Card className="bg-white/50 dark:bg-gray-500 shadow-2xl">
         <CardContent className="p-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}

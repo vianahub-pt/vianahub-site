@@ -82,3 +82,43 @@ export function LanguageSelector() {
     </div>
   );
 }
+
+export function LanguageSelectorMobile({
+  onNavigate,
+}: {
+  onNavigate: (path?: string) => void;
+}) {
+  const { language, setLanguage } = useTranslation();
+
+  const handleChange = (lang: Language) => {
+    setLanguage(lang);
+    onNavigate(); // ✅ só fecha os menus, sem redirecionar
+  };
+
+  return (
+    <div className="absolute top-0 left-full ml-2 w-56 bg-black/80 backdrop-blur-md rounded-md shadow-lg border border-gray-600 z-50">
+      {languages.map((lang) => (
+        <button
+          key={lang.code}
+          onClick={() => handleChange(lang.code)}
+          className={`flex items-center gap-3 w-full text-left px-4 py-2 text-sm transition-colors duration-150
+            ${
+              language === lang.code
+                ? "text-white bg-yellow-500/20"
+                : "text-orange-400 hover:bg-yellow-500/20 hover:text-white"
+            }
+          `}
+        >
+          <Image
+            src={lang.flag || "/placeholder.svg"}
+            alt={lang.name}
+            width={20}
+            height={15}
+            className="w-5 h-4 object-cover rounded-sm"
+          />
+          {lang.name}
+        </button>
+      ))}
+    </div>
+  );
+}

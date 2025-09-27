@@ -1,27 +1,33 @@
-"use client"
+"use client";
 
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
-import { Loader2, RefreshCw } from "lucide-react"
-import { useClientData } from "@/hooks/use-client-data"
-import { useTranslation } from "@/components/translation-context"
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Loader2, RefreshCw } from "lucide-react";
+import { useClientData } from "@/hooks/use-client-data";
+import { useTranslation } from "@/components/translation-context";
 
 interface Post {
-  id: number
-  title: string
-  body: string
-  userId: number
+  id: number;
+  title: string;
+  body: string;
+  userId: number;
 }
 
 interface DataItem {
-  id: number
-  title: string
-  description: string
-  author: string
+  id: number;
+  title: string;
+  description: string;
+  author: string;
 }
 
 export function DataList() {
-  const { t } = useTranslation()
+  const { t } = useTranslation();
   const { data, loading, error, refetch } = useClientData<DataItem>({
     url: "https://jsonplaceholder.typicode.com/posts?_limit=9",
     transform: (posts: Post[]) =>
@@ -31,7 +37,7 @@ export function DataList() {
         description: post.body.substring(0, 120) + "...",
         author: `${t("dataList.author")} ${post.userId}`,
       })),
-  })
+  });
 
   if (loading) {
     return (
@@ -41,12 +47,12 @@ export function DataList() {
           <span>{t("dataList.loading")}</span>
         </div>
       </div>
-    )
+    );
   }
 
   if (error) {
     return (
-      <Card className="w-full max-w-md mx-auto">
+      <Card className="w-full mx-auto">
         <CardHeader>
           <CardTitle className="text-red-600">{t("dataList.error")}</CardTitle>
           <CardDescription>{error}</CardDescription>
@@ -58,7 +64,7 @@ export function DataList() {
           </Button>
         </CardContent>
       </Card>
-    )
+    );
   }
 
   return (
@@ -75,17 +81,21 @@ export function DataList() {
         {data.map((item) => (
           <Card key={item.id} className="h-full">
             <CardHeader>
-              <CardTitle className="text-lg line-clamp-2">{item.title}</CardTitle>
+              <CardTitle className="text-lg line-clamp-2">
+                {item.title}
+              </CardTitle>
               <CardDescription>
                 {t("dataList.by")} {item.author}
               </CardDescription>
             </CardHeader>
             <CardContent>
-              <p className="text-sm text-muted-foreground">{item.description}</p>
+              <p className="text-sm text-muted-foreground">
+                {item.description}
+              </p>
             </CardContent>
           </Card>
         ))}
       </div>
     </div>
-  )
+  );
 }

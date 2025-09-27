@@ -160,22 +160,21 @@ export default function IndustryPage() {
     <section className="flex flex-col min-h-screen">
       {/* Hero Section */}
       <section
-        className="relative pt-0 pb-0 h-[650px]"
+        className="relative h-[650px] overflow-hidden"
         style={{
           backgroundImage: "url(/pages/hero-industry.jpg)",
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
       >
-        <div className="absolute inset-0 z-0 bg-black/30" />
+        <div className="absolute inset-0 z-0 bg-black/50" />
         <div className="container mx-auto px-4 relative z-10 h-full flex items-center justify-center">
-          <div className="bg-white/50 dark:bg-black/50 text-orange-400 dark:text-orange-400 border border-white rounded-lg p-6 ">
-            <h1 className="text-orange-400 text-orange-400 text-4xl lg:text-6xl font-bold flex items-center justify-center text-shadow">
-              <Factory className="h-12 w-12 stroke-white dark:stroke-gray-400 icon-shadow " />
-              &nbsp;{t("industry.hero.title")}
+          <div className="bg-white/50 dark:bg-black/50 text-orange-400 rounded-lg p-6 max-w-full overflow-hidden">
+            <h1 className="text-orange-400 text-3xl sm:text-4xl lg:text-6xl font-bold text-center text-shadow break-words">
+              <Factory className="inline h-10 w-10 sm:h-12 sm:w-12 stroke-white dark:stroke-gray-400 icon-shadow mr-2 align-middle" />
+              {t("industry.hero.title")}
             </h1>
-
-            <p className="py-7 block text-2xl text-center text-white dark:text-orange-400 text-shadow">
+            <p className="mt-6 text-lg sm:text-xl text-center text-white dark:text-orange-400 text-shadow">
               {t("industry.hero.subtitle")}
             </p>
           </div>

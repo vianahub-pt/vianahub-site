@@ -13,7 +13,51 @@ import {
   Shield,
 } from "lucide-react";
 import { useTranslation } from "@/components/translation-context";
-import { color } from "framer-motion";
+
+const menuItems = [
+  {
+    key: "nav.engineering.education",
+    path: "/engineering/education",
+    icon: GraduationCap,
+    color: "#FFFFFF",
+  },
+  {
+    key: "nav.engineering.government",
+    path: "/engineering/government",
+    icon: Landmark,
+    color: "#FFFFFF",
+  },
+  {
+    key: "nav.engineering.industry",
+    path: "/engineering/industry",
+    icon: Factory,
+    color: "#FFFFFF",
+  },
+  {
+    key: "nav.engineering.financial",
+    path: "/engineering/financial",
+    icon: DollarSign,
+    color: "#FFFFFF",
+  },
+  {
+    key: "nav.engineering.retail",
+    path: "/engineering/retail",
+    icon: ShoppingCart,
+    color: "#FFFFFF",
+  },
+  {
+    key: "nav.engineering.healthcare",
+    path: "/engineering/healthcare",
+    icon: Heart,
+    color: "#FFFFFF",
+  },
+  {
+    key: "nav.engineering.cybersecurity",
+    path: "/engineering/cybersecurity",
+    icon: Shield,
+    color: "#FFFFFF",
+  },
+];
 
 export function EngineeringDropdown() {
   const [isOpen, setIsOpen] = useState(false);
@@ -24,51 +68,6 @@ export function EngineeringDropdown() {
     router.push(path);
     setIsOpen(false);
   };
-
-  const menuItems = [
-    {
-      key: "nav.engineering.education",
-      path: "/engineering/education",
-      icon: GraduationCap,
-      color: "#FFFFFF",
-    },
-    {
-      key: "nav.engineering.government",
-      path: "/engineering/government",
-      icon: Landmark,
-      color: "#FFFFFF",
-    },
-    {
-      key: "nav.engineering.industry",
-      path: "/engineering/industry",
-      icon: Factory,
-      color: "#FFFFFF",
-    },
-    {
-      key: "nav.engineering.financial",
-      path: "/engineering/financial",
-      icon: DollarSign,
-      color: "#FFFFFF",
-    },
-    {
-      key: "nav.engineering.retail",
-      path: "/engineering/retail",
-      icon: ShoppingCart,
-      color: "#FFFFFF",
-    },
-    {
-      key: "nav.engineering.healthcare",
-      path: "/engineering/healthcare",
-      icon: Heart,
-      color: "#FFFFFF",
-    },
-    {
-      key: "nav.engineering.cybersecurity",
-      path: "/engineering/cybersecurity",
-      icon: Shield,
-      color: "#FFFFFF",
-    },
-  ];
 
   return (
     <div
@@ -107,6 +106,33 @@ export function EngineeringDropdown() {
           })}
         </div>
       )}
+    </div>
+  );
+}
+
+export function EngineeringDropdownMobile({
+  onNavigate,
+}: {
+  onNavigate: (path: string) => void;
+}) {
+  const { t } = useTranslation();
+
+  return (
+    <div className="absolute top-0 left-full ml-2 w-56 bg-black/80 backdrop-blur-md rounded-md shadow-lg border border-gray-600 z-50">
+      {menuItems.map((item) => {
+        const IconComponent = item.icon;
+        return (
+          <button
+            key={item.key}
+            onClick={() => onNavigate(item.path)} // ✅ fecha e navega
+            className="flex items-center gap-3 w-full text-left px-4 py-2 text-sm text-orange-400 hover:bg-yellow-500/20 hover:text-white transition-colors duration-150"
+            title={t(item.key)}
+          >
+            <IconComponent className="h-4 w-4 stroke-white dark:stroke-gray-400" />
+            {t(item.key)}
+          </button>
+        );
+      })}
     </div>
   );
 }

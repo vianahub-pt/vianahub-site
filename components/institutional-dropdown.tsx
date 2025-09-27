@@ -2,15 +2,23 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import {
-  ChevronDown,
-  Info,
-  Briefcase,
-  UserCircle,
-  User2Icon,
-} from "lucide-react";
+import { ChevronDown, Info, User2Icon } from "lucide-react";
 import { useTranslation } from "@/components/translation-context";
-import { color } from "framer-motion";
+
+const menuItems = [
+  {
+    key: "nav.institutional.aboutUs",
+    path: "/institutional/about",
+    icon: Info,
+    color: "#FFFFFF",
+  },
+  {
+    key: "nav.institutional.careers",
+    path: "/institutional/careers",
+    icon: User2Icon,
+    color: "#FFFFFF",
+  },
+];
 
 export function InstitutionalDropdown() {
   const [isOpen, setIsOpen] = useState(false);
@@ -21,21 +29,6 @@ export function InstitutionalDropdown() {
     router.push(path);
     setIsOpen(false);
   };
-
-  const menuItems = [
-    {
-      key: "nav.institutional.aboutUs",
-      path: "/institutional/about",
-      icon: Info,
-      color: "#FFFFFF",
-    },
-    {
-      key: "nav.institutional.careers",
-      path: "/institutional/careers",
-      icon: User2Icon,
-      color: "#FFFFFF",
-    },
-  ];
 
   return (
     <div
@@ -74,6 +67,33 @@ export function InstitutionalDropdown() {
           })}
         </div>
       )}
+    </div>
+  );
+}
+
+export function InstitutionalDropdownMobile({
+  onNavigate,
+}: {
+  onNavigate: (path: string) => void;
+}) {
+  const { t } = useTranslation();
+
+  return (
+    <div className="absolute top-0 left-full ml-2 w-56 bg-black/80 backdrop-blur-md rounded-md shadow-lg border border-gray-600 z-50">
+      {menuItems.map((item) => {
+        const IconComponent = item.icon;
+        return (
+          <button
+            key={item.key}
+            onClick={() => onNavigate(item.path)} // ✅ fecha e navega
+            className="flex items-center gap-3 w-full text-left px-4 py-2 text-sm text-orange-400 hover:bg-yellow-500/20 hover:text-white transition-colors duration-150"
+            title={t(item.key)}
+          >
+            <IconComponent className="h-4 w-4 stroke-white dark:stroke-gray-400" />
+            {t(item.key)}
+          </button>
+        );
+      })}
     </div>
   );
 }

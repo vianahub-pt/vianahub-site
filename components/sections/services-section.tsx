@@ -92,7 +92,7 @@ export function ServicesSection() {
             return (
               <Card
                 key={index}
-                className="w-full max-w-md bg-orange-200 dark:bg-gray-500 shadow-2xl border-none"
+                className="w-full bg-orange-200 dark:bg-gray-500 shadow-2xl border-none"
               >
                 <CardContent className="p-8 text-center">
                   <div className="text-4x1 text-orange-400 dark:text-orange-400 mb-4 flex items-center justify-center ">

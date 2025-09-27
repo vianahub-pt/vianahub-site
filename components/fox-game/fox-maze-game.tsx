@@ -572,14 +572,14 @@ export default function FoxMazeGame() {
   return (
     <TooltipProvider>
       <div
-        className={`flex flex-col items-center justify-center h-[750px] bg-gray-100 dark:bg-gray-800 ${
+        className={`flex flex-col items-center justify-center bg-gray-100 dark:bg-gray-800 ${
           isMobile ? "p-1" : "p-2 lg:p-4"
         } overflow-hidden`}
         style={{ touchAction: "pan-x pan-y" }} // Evitar problemas de scroll em mobile
       >
         <Card
           className={`w-full ${
-            isMobile ? "max-w-full mx-1" : "max-w-6xl"
+            isMobile ? "max-w-5xl mx-1" : "max-w-6xl"
           } bg-gray-400 dark:bg-gray-400 border border-white `}
         >
           <CardContent
@@ -918,10 +918,10 @@ export default function FoxMazeGame() {
                         className="bg-green-100 border-2 border-green-500 rounded-lg p-4"
                       >
                         <h2 className="text-2xl font-bold text-green-800 mb-2 text-center">
-                          {t("foxGame.congratulations")}
+                          {t("foxGame.congratulations.title")}
                         </h2>
                         <p className="text-green-700 mb-4 text-center">
-                          {t("foxGame.allLevelsCompleted")}{" "}
+                          {t("foxGame.congratulations.allLevelsCompleted")}{" "}
                           <strong>{getCurrentTime()}</strong>!
                         </p>
                         <div className="text-center space-y-2">
@@ -930,7 +930,7 @@ export default function FoxMazeGame() {
                             className="bg-green-600 hover:bg-green-700 text-white"
                           >
                             <RefreshIcon size={16} className="mr-2" />
-                            {t("foxGame.playAgain")}
+                            {t("foxGame.congratulations.playAgain")}
                           </Button>
                         </div>
                       </motion.div>

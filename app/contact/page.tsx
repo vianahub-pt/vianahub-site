@@ -123,25 +123,24 @@ export default function ContactPage() {
   };
 
   return (
-    <div className="min-h-screen">
+    <section className="min-h-screen">
       {/* Hero Section */}
       <section
-        className="relative pt-0 pb-0 h-[600px]"
+        className="relative h-[650px] overflow-hidden"
         style={{
           backgroundImage: "url(/pages/hero-contact.jpg)",
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
       >
-        <div className="absolute inset-0 z-0 bg-black/30" />
-        <div className="font-kurale container mx-auto px-4 relative z-10 h-full flex items-center justify-center">
-          <div className="bg-white/20 dark:bg-black/60 text-orange-400 dark:text-orange-400 border border-white rounded-lg p-6 text-shadow">
-            <h1 className="text-orange-400 text-orange-400 text-4xl lg:text-6xl font-bold flex items-center justify-center">
-              <SendHorizonal className="h-12 w-12 stroke-white dark:stroke-gray-400 icon-shadow" />
-              &nbsp;{t("contact.hero.title")}
+        <div className="absolute inset-0 z-0 bg-black/50" />
+        <div className="container mx-auto px-4 relative z-10 h-full flex items-center justify-center">
+          <div className="bg-white/50 dark:bg-black/50 text-orange-400 rounded-lg p-6 max-w-full overflow-hidden">
+            <h1 className="text-orange-400 text-3xl sm:text-4xl lg:text-6xl font-bold text-center text-shadow break-words">
+              <SendHorizonal className="inline h-10 w-10 sm:h-12 sm:w-12 stroke-white dark:stroke-gray-400 icon-shadow mr-2 align-middle" />
+              {t("contact.hero.title")}
             </h1>
-
-            <p className="py-7 block font-bold text-2xl text-center text-white dark:text-orange-400 text-shadow">
+            <p className="mt-6 text-lg sm:text-xl text-center text-white dark:text-orange-400 text-shadow">
               {t("contact.hero.subtitle")}
             </p>
           </div>
@@ -160,13 +159,7 @@ export default function ContactPage() {
             <span className="block sm:inline ml-2">
               {t("contact.form.alert.true.message")}
             </span>
-            <button
-              onClick={() => setShowSuccessAlert(false)}
-              className="absolute top-2 right-2 text-green-900"
-              aria-label='${t("contact.form.alert.true.close")}'
-            >
-              <span className="text-xl font-bold">&times;</span>
-            </button>
+            git
           </div>
         </div>
       )}
@@ -192,7 +185,7 @@ export default function ContactPage() {
 
       {/* Form Section */}
       <section className="py-20 bg-white dark:bg-black">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
               <span className="text-black dark:text-yellow-500">
@@ -210,7 +203,7 @@ export default function ContactPage() {
 
           <div className="flex justify-center">
             {/* Contact Form */}
-            <Card className="w-[60%] bg-orange-100 border-lg border-none card-shadow">
+            <Card className="w-[90%] bg-orange-100 border-lg border-none card-shadow">
               <CardHeader>
                 <CardTitle className="text-2xl text-center text-orange-400">
                   {t("contact.form.title")}
@@ -315,14 +308,31 @@ export default function ContactPage() {
         </div>
       </section>
 
+      {/* Parallax Section */}
+      <section
+        className="relative h-[500px] overflow-hidden"
+        style={{
+          backgroundImage: "url('/pages/parallax-contact.jpg')",
+          backgroundAttachment: "fixed",
+          backgroundPosition: "center center",
+          backgroundRepeat: "no-repeat",
+          backgroundSize: "cover",
+        }}
+      >
+        <div className="absolute inset-0 bg-gradient-to-b from-black/5 to-black/10" />
+      </section>
+
       {/* Technology Section */}
-      <section className="py-20 px-4 bg-orange-100 dark:bg-gray-700">
+      <section className="py-20 px-4 bg-gray-200 dark:bg-gray-700">
         <div className="max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
-              <h2 className="text-orange-400 text-3xl md:text-4xl font-bold mb-6">
-                {t("contact.technology.title")}
+              <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+                <span className="text-orange-500">
+                  {t("contact.technology.title")}
+                </span>
               </h2>
+
               <p className="text-lg text-black dark:text-white max-w-2xl mx-auto">
                 {t("contact.technology.subtitle")}
               </p>
@@ -346,7 +356,7 @@ export default function ContactPage() {
                 transition={{ duration: 3.5, ease: "easeOut" }}
                 viewport={{ once: false, amount: 0.5 }}
               >
-                <div className="aspect-[16/9] w-full max-w-3xl mx-auto card-shadow rounded-lg">
+                <div className="aspect-[16/9] w-full max-w-3xl mx-auto">
                   <Card>
                     <CardHeader>
                       <CardTitle className="text-2xl text-orange-400">
@@ -405,20 +415,6 @@ export default function ContactPage() {
           </div>
         </div>
       </section>
-
-      {/* Parallax Section */}
-      <section
-        className="relative h-[500px] overflow-hidden"
-        style={{
-          backgroundImage: "url('/pages/parallax-contact.jpg')",
-          backgroundAttachment: "fixed",
-          backgroundPosition: "center center",
-          backgroundRepeat: "no-repeat",
-          backgroundSize: "cover",
-        }}
-      >
-        <div className="absolute inset-0 bg-gradient-to-b from-black/5 to-black/10" />
-      </section>
-    </div>
+    </section>
   );
 }

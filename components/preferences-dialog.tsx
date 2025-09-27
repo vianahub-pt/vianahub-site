@@ -1,27 +1,39 @@
-"use client"
+"use client";
 
-import type React from "react"
+import type React from "react";
 
-import { useState } from "react"
-import { Button } from "@/components/ui/button"
-import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
-import { Label } from "@/components/ui/label"
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
-import { Settings, Monitor, Moon, Globe, Shield, Cookie } from "lucide-react"
-import Link from "next/link"
-import { useTranslation } from "@/components/translation-context"
+import { useState } from "react";
+import { Button } from "@/components/ui/button";
+import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
+import { Label } from "@/components/ui/label";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import { Settings, Monitor, Moon, Globe, Shield, Cookie } from "lucide-react";
+import Link from "next/link";
+import { useTranslation } from "@/components/translation-context";
 
 interface PreferencesDialogProps {
-  children: React.ReactNode
+  children: React.ReactNode;
 }
 
 export function PreferencesDialog({ children }: PreferencesDialogProps) {
-  const { t } = useTranslation()
-  const [theme, setTheme] = useState("default")
-  const [language, setLanguage] = useState("pt-PT")
-  const [isOpen, setIsOpen] = useState(false)
+  const { t } = useTranslation();
+  const [theme, setTheme] = useState("default");
+  const [language, setLanguage] = useState("pt-PT");
+  const [isOpen, setIsOpen] = useState(false);
 
   const languages = [
     { code: "pt-PT", name: "Português (Portugal)", flag: "🇵🇹" },
@@ -29,31 +41,33 @@ export function PreferencesDialog({ children }: PreferencesDialogProps) {
     { code: "es-ES", name: "Español (España)", flag: "🇪🇸" },
     { code: "fr-FR", name: "Français (France)", flag: "🇫🇷" },
     { code: "de-DE", name: "Deutsch (Deutschland)", flag: "🇩🇪" },
-  ]
+  ];
 
   const handleSavePreferences = () => {
     // Aqui você pode implementar a lógica para salvar as preferências
-    localStorage.setItem("vianahub-theme", theme)
-    localStorage.setItem("vianahub-language", language)
+    localStorage.setItem("vianahub-theme", theme);
+    localStorage.setItem("vianahub-language", language);
 
     // Aplicar tema
     if (theme === "dark") {
-      document.documentElement.classList.add("dark")
+      document.documentElement.classList.add("dark");
     } else {
-      document.documentElement.classList.remove("dark")
+      document.documentElement.classList.remove("dark");
     }
 
-    setIsOpen(false)
-  }
+    setIsOpen(false);
+  };
 
   return (
     <Dialog open={isOpen} onOpenChange={setIsOpen}>
       <DialogTrigger asChild>{children}</DialogTrigger>
-      <DialogContent className="max-w-md bg-viana-white border-2 border-viana-gray shadow-2xl">
+      <DialogContent className="w-full bg-viana-white border-2 border-viana-gray shadow-2xl">
         <div className="flex items-center justify-between bg-viana-orange px-4 py-2 -mt-6 -mx-6 mb-4">
           <div className="flex items-center space-x-2">
             <Settings className="h-4 w-4 text-viana-white" />
-            <span className="text-viana-white font-medium text-sm">{t("preferences.title")}</span>
+            <span className="text-viana-white font-medium text-sm">
+              {t("preferences.title")}
+            </span>
           </div>
           <div className="flex space-x-1">
             <div className="w-3 h-3 bg-viana-yellow rounded-sm"></div>
@@ -68,27 +82,47 @@ export function PreferencesDialog({ children }: PreferencesDialogProps) {
                 <Monitor className="h-5 w-5 mr-2 text-viana-orange" />
                 {t("preferences.theme")}
               </CardTitle>
-              <CardDescription className="text-viana-gray">{t("preferences.theme.description")}</CardDescription>
+              <CardDescription className="text-viana-gray">
+                {t("preferences.theme.description")}
+              </CardDescription>
             </CardHeader>
             <CardContent>
-              <RadioGroup value={theme} onValueChange={setTheme} className="space-y-3">
+              <RadioGroup
+                value={theme}
+                onValueChange={setTheme}
+                className="space-y-3"
+              >
                 <div className="flex items-center space-x-3 p-3 rounded-lg border border-viana-gray/20 hover:bg-viana-yellow/10">
                   <RadioGroupItem value="default" id="theme-default" />
-                  <Label htmlFor="theme-default" className="flex items-center cursor-pointer flex-1">
+                  <Label
+                    htmlFor="theme-default"
+                    className="flex items-center cursor-pointer flex-1"
+                  >
                     <div className="w-6 h-6 bg-viana-orange rounded mr-3"></div>
                     <div>
-                      <div className="font-medium text-viana-black">{t("preferences.theme.default")}</div>
-                      <div className="text-sm text-viana-gray">{t("preferences.theme.default.description")}</div>
+                      <div className="font-medium text-viana-black">
+                        {t("preferences.theme.default")}
+                      </div>
+                      <div className="text-sm text-viana-gray">
+                        {t("preferences.theme.default.description")}
+                      </div>
                     </div>
                   </Label>
                 </div>
                 <div className="flex items-center space-x-3 p-3 rounded-lg border border-viana-gray/20 hover:bg-viana-yellow/10">
                   <RadioGroupItem value="dark" id="theme-dark" />
-                  <Label htmlFor="theme-dark" className="flex items-center cursor-pointer flex-1">
+                  <Label
+                    htmlFor="theme-dark"
+                    className="flex items-center cursor-pointer flex-1"
+                  >
                     <Moon className="w-6 h-6 text-viana-gray mr-3" />
                     <div>
-                      <div className="font-medium text-viana-black">{t("preferences.theme.dark")}</div>
-                      <div className="text-sm text-viana-gray">{t("preferences.theme.dark.description")}</div>
+                      <div className="font-medium text-viana-black">
+                        {t("preferences.theme.dark")}
+                      </div>
+                      <div className="text-sm text-viana-gray">
+                        {t("preferences.theme.dark.description")}
+                      </div>
                     </div>
                   </Label>
                 </div>
@@ -102,7 +136,9 @@ export function PreferencesDialog({ children }: PreferencesDialogProps) {
                 <Globe className="h-5 w-5 mr-2 text-viana-orange" />
                 {t("preferences.language")}
               </CardTitle>
-              <CardDescription className="text-viana-gray">{t("preferences.language.description")}</CardDescription>
+              <CardDescription className="text-viana-gray">
+                {t("preferences.language.description")}
+              </CardDescription>
             </CardHeader>
             <CardContent>
               <Select value={language} onValueChange={setLanguage}>
@@ -129,7 +165,9 @@ export function PreferencesDialog({ children }: PreferencesDialogProps) {
                 <Shield className="h-5 w-5 mr-2 text-viana-orange" />
                 {t("preferences.privacy")}
               </CardTitle>
-              <CardDescription className="text-viana-gray">{t("preferences.privacy.description")}</CardDescription>
+              <CardDescription className="text-viana-gray">
+                {t("preferences.privacy.description")}
+              </CardDescription>
             </CardHeader>
             <CardContent className="space-y-3">
               <Link
@@ -137,14 +175,18 @@ export function PreferencesDialog({ children }: PreferencesDialogProps) {
                 className="flex items-center p-2 rounded-lg hover:bg-viana-yellow/10 transition-colors"
               >
                 <Shield className="h-4 w-4 mr-3 text-viana-orange" />
-                <span className="text-viana-black hover:text-viana-orange">{t("preferences.privacy.policy")}</span>
+                <span className="text-viana-black hover:text-viana-orange">
+                  {t("preferences.privacy.policy")}
+                </span>
               </Link>
               <Link
                 href="/cookies"
                 className="flex items-center p-2 rounded-lg hover:bg-viana-yellow/10 transition-colors"
               >
                 <Cookie className="h-4 w-4 mr-3 text-viana-orange" />
-                <span className="text-viana-black hover:text-viana-orange">{t("preferences.cookies")}</span>
+                <span className="text-viana-black hover:text-viana-orange">
+                  {t("preferences.cookies")}
+                </span>
               </Link>
             </CardContent>
           </Card>
@@ -167,5 +209,5 @@ export function PreferencesDialog({ children }: PreferencesDialogProps) {
         </div>
       </DialogContent>
     </Dialog>
-  )
+  );
 }

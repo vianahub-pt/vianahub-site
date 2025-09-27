@@ -124,31 +124,36 @@ export function IndustriesSection() {
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {industries.map((industry, index) => (
-            <Card
-              key={index}
-              data-index={index}
-              className="w-full max-w-md dark:bg-gray-500 shadow-2xl border-none"
-              style={{
-                backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.1)), url(${industry.backgroundImage})`,
-                backgroundSize: "cover",
-                backgroundPosition: "center",
-                backgroundRepeat: "no-repeat",
-              }}
-            >
-              <CardContent className="p-8 text-center relative z-10">
-                <div className="text-4x1 text-orange-400 dark:text-white mb-4 flex items-center justify-center ">
-                  {industry.icon}
-                </div>
-                <h3 className="text-xl font-semibold text-orange-400 dark:text-white mb-4">
-                  {industry.title}
-                </h3>
-                <p className="text-md text-orange-400 dark:text-white mb-6 leading-relaxed">
-                  {industry.description}
-                </p>
-              </CardContent>
-            </Card>
-          ))}
+          {industries.map((industry, index) => {
+            const Icon = industry.icon;
+
+            return (
+              <Card
+                key={index}
+                className="w-full bg-orange-200 dark:bg-gray-500 shadow-2xl border-none"
+              >
+                <CardContent
+                  className="p-8 text-center"
+                  style={{
+                    backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.1)), url(${industry.backgroundImage})`,
+                    backgroundSize: "cover",
+                    backgroundPosition: "center",
+                    backgroundRepeat: "no-repeat",
+                  }}
+                >
+                  <div className="text-4x1 text-orange-400 dark:text-orange-400 mb-4 flex items-center justify-center ">
+                    {industry.icon}
+                  </div>
+                  <h3 className="text-xl font-semibold text-orange-400 dark:text-orange-400 mb-4">
+                    {t(industry.title)}
+                  </h3>
+                  <p className="text-md text-white dark:text-white mb-6 leading-relaxed">
+                    {t(industry.description)}
+                  </p>
+                </CardContent>
+              </Card>
+            );
+          })}
         </div>
       </div>
     </section>
