@@ -1,31 +1,32 @@
-"use client"
+"use client";
 
-import { motion } from "framer-motion"
+import { motion } from "framer-motion";
+import { type Position } from "../../data/fox-game/mazes-level-1"; // ajuste o caminho conforme sua estrutura
 
 interface FoxProps {
-  position: { x: number; y: number }
-  cellSize: number
-  isMoving: boolean
-  isMobile?: boolean
+  position: Position;
+  cellSize: number;
+  isMoving: boolean;
+  isMobile?: boolean;
+  direction: "left" | "right" | "up" | "down";
 }
 
-export function Fox({ position, cellSize, isMoving, isMobile = false }: FoxProps) {
+export function Fox({
+  position,
+  cellSize,
+  isMoving,
+  isMobile = false,
+  direction,
+}: FoxProps) {
   return (
     <motion.div
       className="absolute top-0 left-0 z-20 pointer-events-none"
-      style={{
-        width: cellSize,
-        height: cellSize,
-      }}
+      style={{ width: cellSize, height: cellSize }}
       animate={{
         x: position.x * cellSize,
         y: position.y * cellSize,
       }}
-      transition={{
-        type: "spring",
-        stiffness: 300,
-        damping: 30,
-      }}
+      transition={{ type: "spring", stiffness: 300, damping: 30 }}
     >
       <motion.div
         className="w-full h-full flex items-center justify-center relative"
@@ -39,7 +40,6 @@ export function Fox({ position, cellSize, isMoving, isMobile = false }: FoxProps
           ease: "easeInOut",
         }}
       >
-        {/* Container da raposa */}
         <div
           className="relative w-full h-full flex items-center justify-center"
           style={{
@@ -48,7 +48,17 @@ export function Fox({ position, cellSize, isMoving, isMobile = false }: FoxProps
           }}
         >
           <img
-            src={isMobile ? "/fox-mobile.png" : "/fox-desktop.png"}
+            src={
+              isMobile
+                ? "/fox-mobile.png"
+                : direction === "right"
+                ? "/fox-right.png"
+                : direction === "left"
+                ? "/fox-left.png"
+                : direction === "up"
+                ? "/fox-up.png"
+                : "/fox-down.png"
+            }
             alt="Fox"
             className="w-full h-full object-contain rounded-lg"
             style={{
@@ -60,33 +70,17 @@ export function Fox({ position, cellSize, isMoving, isMobile = false }: FoxProps
               minWidth: "28px",
               minHeight: "28px",
             }}
-            onError={(e) => {
-              console.error("Erro ao carregar imagem da raposa:", e)
-              // Fallback para a imagem mobile se a desktop falhar
-              if (!isMobile) {
-                ;(e.target as HTMLImageElement).src = "/fox-mobile.png"
-              }
-            }}
-            onLoad={() => {
-              console.log(`Imagem da raposa carregada: ${isMobile ? "mobile" : "desktop"}`)
-            }}
           />
         </div>
 
-        {/* Efeito de brilho quando se move */}
         {isMoving && (
           <motion.div
             className="absolute inset-0 bg-orange-200 rounded-lg opacity-20 pointer-events-none"
-            animate={{
-              opacity: [0.2, 0.4, 0.2],
-            }}
-            transition={{
-              duration: 0.3,
-              repeat: Number.POSITIVE_INFINITY,
-            }}
+            animate={{ opacity: [0.2, 0.4, 0.2] }}
+            transition={{ duration: 0.3, repeat: Number.POSITIVE_INFINITY }}
           />
         )}
       </motion.div>
     </motion.div>
-  )
+  );
 }

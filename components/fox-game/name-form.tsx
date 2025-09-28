@@ -36,7 +36,7 @@ export function NameForm({ onNameSubmit }: NameFormProps) {
           >
             <div className="mb-6">
               <img
-                src="/fox-desktop.png"
+                src="/fox.png"
                 alt="Fox"
                 className="w-16 h-16 mx-auto mb-4 object-contain"
               />

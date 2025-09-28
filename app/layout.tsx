@@ -6,6 +6,7 @@ import ClientLayout from "./client-layout";
 import Providers from "./providers";
 import { TranslationProvider } from "@/components/translation-context";
 import Script from "next/script";
+import CookieBanner from "@/components/cookie-banner";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -15,7 +16,8 @@ export const metadata: Metadata = {
   description:
     "A VianaHub transforma ideias em soluções digitais inovadoras. Atuamos em desenvolvimento de software com o auxilio da inteligência artificial supervisionada por humanos, metodologias ágeis, outsourcing de IT, chatbots, landing pages, integração de sistemas, soluções para transporte ferroviário e rodoviário, além de projetos em energia solar.  Tecnologia sob medida para o seu negócio. ",
   keywords:
-    "VianaHub, desenvolvimento de software, consultoria tecnológica, soluções digitais, inovação em tecnologia, metodologias ágeis, outsourcing IT, chatbot, criação de landing pages, integração de sistemas, transporte ferroviário, transporte rodoviário, energia solar, tecnologia empresarial, inteligência artificial, inteligência artificial supervisionada por humanos, IA",
+    "VianaHub, desenvolvimento de software, consultoria tecnológica, soluções digitais, inovação em tecnologia, metodologias ágeis, outsourcing IT, chatbot, landing pages, integração de sistemas, transporte ferroviário, transporte rodoviário, energia solar, inteligência artificial, IA, jogo, games, software development, IT consulting, digital solutions, custom software solutions, technology innovation, agile methodologies, IT outsourcing, AI chatbot, landing page creation, system integration, railway transport, road transport, solar energy, artificial intelligence, videojuegos, desarrollo de software, consultoría tecnológica, soluciones digitales, externalización TI, chatbot IA, integración de sistemas, transporte ferroviario, transporte por carretera, energía solar, intelligence logicielle, développement logiciel, solutions numériques, conseils informatiques, externalisation, chatbot IA, intégration de systèmes, transport ferroviaire, transport routier, énergie solaire, Softwareentwicklung, IT-Beratung, digitale Lösungen, Outsourcing IT, KI-Chatbot, Systemintegration, Bahntransport, Straßentransport, Solarenergie, gioco, sviluppo software, consulenza informatica, soluzioni digitali, esternalizzazione IT, chatbot IA, integrazione sistemi, trasporto ferroviario, trasporto stradale, energia solare",
+
   authors: [{ name: "VianaHub" }],
   creator: "VianaHub",
   publisher: "VianaHub",
@@ -119,6 +121,7 @@ export default function RootLayout({
         <TranslationProvider>
           <Providers>
             <ClientLayout>{children}</ClientLayout>
+            <CookieBanner />
           </Providers>
         </TranslationProvider>
       </body>

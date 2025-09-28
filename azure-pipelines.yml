@@ -4,13 +4,13 @@ trigger:
       - develop
       - main
 
+pool:
+  vmImage: "ubuntu-latest"
+
 variables:
   - name: NODE_VERSION
     value: "18.x"
   - group: VianaHubSecrets
-
-pool:
-  vmImage: "ubuntu-latest"
 
 stages:
   # -------------------------------
@@ -29,14 +29,6 @@ stages:
 
           - script: npm install -g pnpm
             displayName: "Install pnpm"
-
-          - task: Cache@2
-            inputs:
-              key: 'pnpm | "$(Agent.OS)" | pnpm-lock.yaml'
-              restoreKeys: |
-                pnpm | "$(Agent.OS)"
-              path: $(Pipeline.Workspace)/.pnpm-store
-            displayName: "Cache pnpm dependencies"
 
           - script: |
               pnpm config set store-dir $(Pipeline.Workspace)/.pnpm-store

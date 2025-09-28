@@ -292,6 +292,27 @@ body {
   }
 }
 
+/* Largura da scrollbar */
+::-webkit-scrollbar {
+  width: 14px;
+}
+
+/* Fundo da scrollbar */
+::-webkit-scrollbar-track {
+  background: #ffe5cc; /* laranja bem clarinho */
+}
+
+/* Barra (thumb) */
+::-webkit-scrollbar-thumb {
+  background: #f97316; /* laranja Tailwind 500 */
+  border-radius: 6px;
+}
+
+/* Hover na barra */
+::-webkit-scrollbar-thumb:hover {
+  background: #ea580c; /* laranja mais escuro (Tailwind 600) */
+}
+
 /* Tema Escuro - Cores VianaHub adaptadas */
 .dark {
   /* Cores principais adaptadas para tema escuro */

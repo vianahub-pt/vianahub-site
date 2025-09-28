@@ -53,6 +53,7 @@
     "i18next-browser-languagedetector": "latest",
     "i18next-http-backend": "latest",
     "input-otp": "latest",
+    "js-cookie": "^3.0.5",
     "lucide-react": "^0.454.0",
     "next": "15.2.4",
     "next-themes": "latest",

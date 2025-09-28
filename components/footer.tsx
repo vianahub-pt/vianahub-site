@@ -31,6 +31,7 @@ import {
   Waypoints,
   Train,
   Truck,
+  ReceiptText,
 } from "lucide-react";
 
 export function Footer() {
@@ -106,11 +107,9 @@ export function Footer() {
                   className="text-gray-300 hover:text-white transition-colors text-sm"
                   title={t("footer.whatWeDo.development")}
                 >
-                  <div className="flex items-center text-orange-400 dark:text-white">
+                  <div className="flex items-center text-sm text-orange-400 hover:text-white dark:text-white hover:dark:text-orange-400 gap-2">
                     <Code2 className="h-4 w-4 stroke-white dark:stroke-orange-400" />
-                    <span className="ml-2">
-                      {t("footer.whatWeDo.development")}
-                    </span>
+                    <span>{t("footer.whatWeDo.development")}</span>
                   </div>
                 </Link>
               </li>
@@ -120,9 +119,9 @@ export function Footer() {
                   className="text-gray-300 hover:text-white transition-colors text-sm"
                   title={t("footer.whatWeDo.agile")}
                 >
-                  <div className="flex items-center text-orange-400 dark:text-white">
+                  <div className="flex items-center text-sm text-orange-400 hover:text-white dark:text-white hover:dark:text-orange-400 gap-2">
                     <Workflow className="h-4 w-4 stroke-white dark:stroke-orange-400" />
-                    <span className="ml-2">{t("footer.whatWeDo.agile")}</span>
+                    <span>{t("footer.whatWeDo.agile")}</span>
                   </div>
                 </Link>
               </li>
@@ -132,11 +131,9 @@ export function Footer() {
                   className="text-gray-300 hover:text-white transition-colors text-sm"
                   title={t("footer.whatWeDo.outsourcing")}
                 >
-                  <div className="flex items-center text-orange-400 dark:text-white">
+                  <div className="flex items-center text-sm text-orange-400 hover:text-white dark:text-white hover:dark:text-orange-400 gap-2">
                     <Bot className="h-4 w-4 stroke-white dark:stroke-orange-400" />
-                    <span className="ml-2">
-                      {t("footer.whatWeDo.outsourcing")}
-                    </span>
+                    <span>{t("footer.whatWeDo.outsourcing")}</span>
                   </div>
                 </Link>
               </li>
@@ -146,9 +143,9 @@ export function Footer() {
                   className="text-gray-300 hover:text-white transition-colors text-sm"
                   title={t("footer.whatWeDo.chatbot")}
                 >
-                  <div className="flex items-center text-orange-400 dark:text-white">
+                  <div className="flex items-center text-sm text-orange-400 hover:text-white dark:text-white hover:dark:text-orange-400 gap-2">
                     <Users className="h-4 w-4 stroke-white dark:stroke-orange-400" />
-                    <span className="ml-2">{t("footer.whatWeDo.chatbot")}</span>
+                    <span>{t("footer.whatWeDo.chatbot")}</span>
                   </div>
                 </Link>
               </li>
@@ -158,11 +155,9 @@ export function Footer() {
                   className="text-gray-300 hover:text-white transition-colors text-sm"
                   title={t("footer.whatWeDo.landingPages")}
                 >
-                  <div className="flex items-center text-orange-400 dark:text-white">
+                  <div className="flex items-center text-sm text-orange-400 hover:text-white dark:text-white hover:dark:text-orange-400 gap-2">
                     <Layout className="h-4 w-4 stroke-white dark:stroke-orange-400" />
-                    <span className="ml-2">
-                      {t("footer.whatWeDo.landingPages")}
-                    </span>
+                    <span>{t("footer.whatWeDo.landingPages")}</span>
                   </div>
                 </Link>
               </li>
@@ -172,11 +167,9 @@ export function Footer() {
                   className="text-gray-300 hover:text-white transition-colors text-sm"
                   title={t("footer.whatWeDo.systemIntegration")}
                 >
-                  <div className="flex items-center text-orange-400 dark:text-white">
+                  <div className="flex items-center text-sm text-orange-400 hover:text-white dark:text-white hover:dark:text-orange-400 gap-2">
                     <Waypoints className="h-4 w-4 stroke-white dark:stroke-orange-400" />
-                    <span className="ml-2">
-                      {t("footer.whatWeDo.systemIntegration")}
-                    </span>
+                    <span>{t("footer.whatWeDo.integration")}</span>
                   </div>
                 </Link>
               </li>
@@ -186,9 +179,9 @@ export function Footer() {
                   className="text-gray-300 hover:text-white transition-colors text-sm"
                   title={t("footer.whatWeDo.railway")}
                 >
-                  <div className="flex items-center text-orange-400 dark:text-white">
+                  <div className="flex items-center text-sm text-orange-400 hover:text-white dark:text-white hover:dark:text-orange-400 gap-2">
                     <Train className="h-4 w-4 stroke-white dark:stroke-orange-400" />
-                    <span className="ml-2">{t("footer.whatWeDo.railway")}</span>
+                    <span>{t("footer.whatWeDo.railway")}</span>
                   </div>
                 </Link>
               </li>
@@ -198,9 +191,9 @@ export function Footer() {
                   className="text-gray-300 hover:text-white transition-colors text-sm"
                   title={t("footer.whatWeDo.road")}
                 >
-                  <div className="flex items-center text-orange-400 dark:text-white">
+                  <div className="flex items-center text-sm text-orange-400 hover:text-white dark:text-white hover:dark:text-orange-400 gap-2">
                     <Truck className="h-4 w-4 stroke-white dark:stroke-orange-400" />
-                    <span className="ml-2">{t("footer.whatWeDo.road")}</span>
+                    <span>{t("footer.whatWeDo.road")}</span>
                   </div>
                 </Link>
               </li>
@@ -210,11 +203,9 @@ export function Footer() {
                   className="text-gray-300 hover:text-white transition-colors text-sm"
                   title={t("footer.whatWeDo.solarEnergy")}
                 >
-                  <div className="flex items-center text-orange-400 dark:text-white">
+                  <div className="flex items-center text-sm text-orange-400 hover:text-white dark:text-white hover:dark:text-orange-400 gap-2">
                     <Sun className="h-4 w-4 stroke-white dark:stroke-orange-400" />
-                    <span className="ml-2">
-                      {t("footer.whatWeDo.solarEnergy")}
-                    </span>
+                    <span>{t("footer.whatWeDo.solarEnergy")}</span>
                   </div>
                 </Link>
               </li>
@@ -233,11 +224,9 @@ export function Footer() {
                   className="text-gray-300 hover:text-white transition-colors text-sm"
                   title={t("footer.engineering.education")}
                 >
-                  <div className="flex items-center text-orange-400 dark:text-white">
+                  <div className="flex items-center text-sm text-orange-400 hover:text-white dark:text-white hover:dark:text-orange-400 gap-2">
                     <GraduationCap className="h-4 w-4 stroke-white dark:stroke-orange-400" />
-                    <span className="ml-2">
-                      {t("footer.engineering.education")}
-                    </span>
+                    <span>{t("footer.engineering.education")}</span>
                   </div>
                 </Link>
               </li>
@@ -247,11 +236,9 @@ export function Footer() {
                   className="text-gray-300 hover:text-white transition-colors text-sm"
                   title={t("footer.engineering.government")}
                 >
-                  <div className="flex items-center text-orange-400 dark:text-white">
+                  <div className="flex items-center text-sm text-orange-400 hover:text-white dark:text-white hover:dark:text-orange-400 gap-2">
                     <Landmark className="h-4 w-4 stroke-white dark:stroke-orange-400" />
-                    <span className="ml-2">
-                      {t("footer.engineering.government")}
-                    </span>
+                    <span>{t("footer.engineering.government")}</span>
                   </div>
                 </Link>
               </li>
@@ -261,11 +248,9 @@ export function Footer() {
                   className="text-gray-300 hover:text-white transition-colors text-sm"
                   title={t("footer.engineering.industry")}
                 >
-                  <div className="flex items-center text-orange-400 dark:text-white">
+                  <div className="flex items-center text-sm text-orange-400 hover:text-white dark:text-white hover:dark:text-orange-400 gap-2">
                     <Factory className="h-4 w-4 stroke-white dark:stroke-orange-400" />
-                    <span className="ml-2">
-                      {t("footer.engineering.industry")}
-                    </span>
+                    <span>{t("footer.engineering.industry")}</span>
                   </div>
                 </Link>
               </li>
@@ -275,11 +260,9 @@ export function Footer() {
                   className="text-gray-300 hover:text-white transition-colors text-sm"
                   title={t("footer.engineering.financial")}
                 >
-                  <div className="flex items-center text-orange-400 dark:text-white">
+                  <div className="flex items-center text-sm text-orange-400 hover:text-white dark:text-white hover:dark:text-orange-400 gap-2">
                     <DollarSign className="h-4 w-4 stroke-white dark:stroke-orange-400" />
-                    <span className="ml-2">
-                      {t("footer.engineering.financial")}
-                    </span>
+                    <span>{t("footer.engineering.financial")}</span>
                   </div>
                 </Link>
               </li>
@@ -289,11 +272,9 @@ export function Footer() {
                   className="text-gray-300 hover:text-white transition-colors text-sm"
                   title={t("footer.engineering.retail")}
                 >
-                  <div className="flex items-center text-orange-400 dark:text-white">
+                  <div className="flex items-center text-sm text-orange-400 hover:text-white dark:text-white hover:dark:text-orange-400 gap-2">
                     <Sun className="h-4 w-4 stroke-white dark:stroke-orange-400" />
-                    <span className="ml-2">
-                      {t("footer.engineering.retail")}
-                    </span>
+                    <span>{t("footer.engineering.retail")}</span>
                   </div>
                 </Link>
               </li>
@@ -303,11 +284,9 @@ export function Footer() {
                   className="text-gray-300 hover:text-white transition-colors text-sm"
                   title={t("footer.engineering.healthcare")}
                 >
-                  <div className="flex items-center text-orange-400 dark:text-white">
+                  <div className="flex items-center text-sm text-orange-400 hover:text-white dark:text-white hover:dark:text-orange-400 gap-2">
                     <Heart className="h-4 w-4 stroke-white dark:stroke-orange-400" />
-                    <span className="ml-2">
-                      {t("footer.engineering.healthcare")}
-                    </span>
+                    <span>{t("footer.engineering.healthcare")}</span>
                   </div>
                 </Link>
               </li>
@@ -317,11 +296,9 @@ export function Footer() {
                   className="text-gray-300 hover:text-white transition-colors text-sm"
                   title={t("footer.engineering.cybersecurity")}
                 >
-                  <div className="flex items-center text-orange-400 dark:text-white">
+                  <div className="flex items-center text-sm text-orange-400 hover:text-white dark:text-white hover:dark:text-orange-400 gap-2">
                     <Shield className="h-4 w-4 stroke-white dark:stroke-orange-400" />
-                    <span className="ml-2">
-                      {t("footer.engineering.cybersecurity")}
-                    </span>
+                    <span>{t("footer.engineering.cybersecurity")}</span>
                   </div>
                 </Link>
               </li>
@@ -340,11 +317,9 @@ export function Footer() {
                   className="text-gray-300 hover:text-white transition-colors text-sm"
                   title={t("footer.institutional.about")}
                 >
-                  <div className="flex items-center text-orange-400 dark:text-white">
+                  <div className="flex items-center text-sm text-orange-400 hover:text-white dark:text-white hover:dark:text-orange-400 gap-2">
                     <Info className="h-4 w-4 stroke-white dark:stroke-orange-400" />
-                    <span className="ml-2">
-                      {t("footer.institutional.about")}
-                    </span>
+                    <span>{t("footer.institutional.about")}</span>
                   </div>
                 </Link>
               </li>
@@ -354,11 +329,9 @@ export function Footer() {
                   className="text-gray-300 hover:text-white transition-colors text-sm"
                   title={t("footer.institutional.careers")}
                 >
-                  <div className="flex items-center text-orange-400 dark:text-white">
+                  <div className="flex items-center text-sm text-orange-400 hover:text-white dark:text-white hover:dark:text-orange-400 gap-2">
                     <User2Icon className="h-4 w-4 stroke-white dark:stroke-orange-400" />
-                    <span className="ml-2">
-                      {t("footer.institutional.careers")}
-                    </span>
+                    <span>{t("footer.institutional.careers")}</span>
                   </div>
                 </Link>
               </li>
@@ -416,18 +389,25 @@ export function Footer() {
             <p className="text-orange-400 dark:text-white hover:text-white transition-colors text-sm">
               {t("footer.copyright")}
             </p>
-            <div className="flex space-x-6 mt-4 md:mt-0">
+            <div className="flex space-x-6 mt-4 md:mt-0 gap-2">
               <Link
-                href="/privacy"
-                className="text-orange-400 dark:text-white hover:text-white transition-colors text-sm"
+                href="/"
+                className="text-sm text-orange-400 hover:text-white dark:text-white hover:dark:text-orange-400"
+                title={t("footer.by")}
               >
-                {t("footer.privacy")}
+                {t("footer.by")}
               </Link>
               <Link
                 href="/terms"
-                className="text-orange-400 dark:text-white hover:text-white transition-colors text-sm"
+                className="text-sm text-orange-400 hover:text-white dark:text-white hover:dark:text-orange-400"
+                title={t("footer.terms")}
               >
-                {t("footer.terms")}
+                <div className="flex items-center text-orange-400 dark:text-white gap-2">
+                  <ReceiptText className="h-4 w-4 stroke-white dark:stroke-orange-400" />
+                  <span className="text-sm text-orange-400 hover:text-white dark:text-white hover:dark:text-orange-400">
+                    {t("footer.terms")}
+                  </span>
+                </div>
               </Link>
             </div>
           </div>

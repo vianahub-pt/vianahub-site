@@ -43,6 +43,9 @@ export default function FoxMazeGame() {
   const [gameStarted, setGameStarted] = useState(false);
   const [gameStopped, setGameStopped] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
+  const [foxDirection, setFoxDirection] = useState<
+    "left" | "right" | "up" | "down"
+  >("right");
 
   // Estados para nome e ranking
   const [playerName, setPlayerName] = useState("");
@@ -55,6 +58,70 @@ export default function FoxMazeGame() {
   const [mazes, setMazes] = useState(mobileMazes);
   const currentMaze = mazes[currentLevel] || mazes[0];
 
+  const [levelsPlayed, setLevelsPlayed] = useState(
+    mazes.map((_, index) => ({
+      level: index,
+      current: index === 0, // nível inicial é o 0
+      played: index === 0, // marcado como já jogado assim que começa
+    }))
+  );
+
+  const updateCurrentLevel = (newLevel: number) => {
+    setCurrentLevel(newLevel);
+    setFoxDirection("right");
+
+    setLevelsPlayed((prev) =>
+      prev.map((lvl, idx) => ({
+        ...lvl,
+        current: idx === newLevel,
+        played: lvl.played || idx === newLevel, // marca como "jogado" ao visitar
+      }))
+    );
+  };
+
+  // Helper: converte segundos -> "hh:mm:ss"
+  const formatSecondsToHHMMSS = (seconds: number) => {
+    const hh = Math.floor(seconds / 3600);
+    const mm = Math.floor((seconds % 3600) / 60);
+    const ss = seconds % 60;
+    return `${String(hh).padStart(2, "0")}:${String(mm).padStart(
+      2,
+      "0"
+    )}:${String(ss).padStart(2, "0")}`;
+  };
+
+  // Função para buscar ranking atualizado
+  const fetchRanking = async () => {
+    try {
+      const response = await fetch(
+        "https://www.mail.vianahub.pt/contacts/ranking"
+      );
+      if (!response.ok) {
+        const txt = await response.text();
+        throw new Error("Erro ao buscar ranking: " + txt);
+      }
+      const data: { position?: number; userName: string; time: string }[] =
+        await response.json();
+
+      // Converter para o formato local (RankingEntry)
+      const parsedRanking: RankingEntry[] = data.map((entry) => {
+        const [hh = 0, mm = 0, ss = 0] = entry.time
+          .split(":")
+          .map((v) => Number(v));
+        const totalSeconds = hh * 3600 + mm * 60 + ss;
+        return {
+          name: entry.userName,
+          time: totalSeconds,
+          date: new Date().toISOString(),
+        };
+      });
+
+      setRanking(parsedRanking.sort((a, b) => a.time - b.time).slice(0, 10));
+    } catch (error) {
+      console.error("Erro ao carregar ranking da API:", error);
+    }
+  };
+
   // Detect mobile device após montagem
   useEffect(() => {
     const checkMobile = () => {
@@ -63,7 +130,6 @@ export default function FoxMazeGame() {
       setMazes(mobile ? mobileMazes : desktopMazes);
     };
 
-    // Aguardar um frame para garantir que o DOM está pronto
     const timer = setTimeout(() => {
       checkMobile();
       setMounted(true);
@@ -83,39 +149,77 @@ export default function FoxMazeGame() {
     };
   }, [mounted]);
 
-  // Carregar ranking do localStorage
+  // Carregar ranking da API na montagem
   useEffect(() => {
     if (!mounted) return;
-
-    const savedRanking = localStorage.getItem("foxGameRanking");
-    if (savedRanking) {
-      try {
-        setRanking(JSON.parse(savedRanking));
-      } catch (error) {
-        console.error("Erro ao carregar ranking:", error);
-      }
-    }
+    fetchRanking();
   }, [mounted]);
 
-  // Salvar ranking no localStorage
-  const saveRanking = (newRanking: RankingEntry[]) => {
+  // Salvar ranking no backend (adiciona o jogador atual e envia tudo)
+  const saveRanking = async (name: string, timeInSeconds: number) => {
     if (!mounted) return;
-    localStorage.setItem("foxGameRanking", JSON.stringify(newRanking));
-    setRanking(newRanking);
+
+    // 1) Formata tempo do novo jogador
+    const formattedNewTime = formatSecondsToHHMMSS(timeInSeconds);
+
+    // 2) Converte todo o ranking atual para o formato da API (position, userName, time)
+    //    Observação: `ranking` armazena `time` em segundos (number)
+    const existingApiEntries = ranking.map((r, idx) => ({
+      position: idx,
+      userName: r.name,
+      time: formatSecondsToHHMMSS(r.time),
+    }));
+
+    // 3) Cria a nova entrada com position = existingApiEntries.length
+    const newApiEntry = {
+      position: existingApiEntries.length,
+      userName: name,
+      time: formattedNewTime,
+    };
+
+    const payload = [...existingApiEntries, newApiEntry];
+
+    // 4) Atualiza o estado local imediatamente (formato interno)
+    setRanking((prev) => [
+      ...prev,
+      { name, time: timeInSeconds, date: new Date().toISOString() },
+    ]);
+
+    try {
+      console.log("saveRanking - payload (API format):", payload);
+
+      const resp = await fetch(
+        "https://www.mail.vianahub.pt/contacts/ranking",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload),
+        }
+      );
+
+      console.log("saveRanking - response status:", resp.status);
+      if (!resp.ok) {
+        const text = await resp.text();
+        console.error("saveRanking - server returned non-OK:", text);
+      }
+
+      // Buscar ranking atualizado logo depois do POST
+      await fetchRanking();
+    } catch (error) {
+      console.error("Erro ao salvar ranking na API:", error);
+    }
   };
 
-  // Calcular tamanho da célula baseado no tamanho da tela e tipo de dispositivo
+  // Calcular tamanho da célula baseado no tamanho da tela
   const calculateCellSize = useCallback(() => {
     if (!mounted) return 50;
 
     if (isMobile) {
-      // Mobile: Calcular baseado na largura disponível para 7 colunas
       const screenWidth = window.innerWidth;
-      const availableWidth = screenWidth - 32; // 16px padding de cada lado
-      const calculatedSize = Math.floor(availableWidth / 7) - 2; // -2px para borders
-      return Math.max(calculatedSize, 45); // Aumentado para 45px mínimo para melhor visibilidade das imagens
+      const availableWidth = screenWidth - 32;
+      const calculatedSize = Math.floor(availableWidth / 7) - 2;
+      return Math.max(calculatedSize, 45);
     } else {
-      // Desktop: Tamanho fixo baseado na largura disponível
       const maxWidth = Math.min(window.innerWidth - 200, 750);
       const calculatedSize = Math.floor(maxWidth / 15);
       return Math.max(calculatedSize, 35);
@@ -163,17 +267,19 @@ export default function FoxMazeGame() {
       // Último nível - mostrar mensagem de vitória final
       setGameWon(true);
       setGameStarted(false);
-      setEndTime(Date.now());
+      const end = Date.now();
+      setEndTime(end);
 
-      // Calcular tempo total e adicionar ao ranking
+      // Calcular tempo total e adicionar ao ranking usando endTime calculado
       if (startTime) {
-        const totalTime = Math.floor((Date.now() - startTime) / 1000);
-        addToRanking(playerName, totalTime);
+        const totalTime = Math.floor((end - startTime) / 1000);
+        // Chama saveRanking que monta o array completo e envia para a API
+        saveRanking(playerName, totalTime);
       }
     } else {
       // Avançar automaticamente para o próximo nível após 1.5 segundos
       setTimeout(() => {
-        setCurrentLevel((prev) => prev + 1);
+        updateCurrentLevel(currentLevel + 1);
       }, 1500);
     }
   }, [
@@ -186,26 +292,33 @@ export default function FoxMazeGame() {
     playerName,
   ]);
 
-  // Adicionar entrada ao ranking
-  const addToRanking = (name: string, time: number) => {
-    const newEntry: RankingEntry = {
-      name,
-      time,
-      date: new Date().toISOString(),
-    };
+  // Adicionar entrada ao ranking (mantive por compatibilidade, mas fim do jogo chama saveRanking)
+  const addToRanking = async (name: string, time: number) => {
+    try {
+      const minutes = Math.floor(time / 60);
+      const seconds = time % 60;
+      const formatted = `00:${String(minutes).padStart(2, "0")}:${String(
+        seconds
+      ).padStart(2, "0")}`;
 
-    const newRanking = [...ranking, newEntry]
-      .sort((a, b) => a.time - b.time)
-      .slice(0, 10); // Manter apenas os 10 melhores
+      await fetch("https://www.mail.vianahub.pt/contacts/ranking", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify([{ userName: name, time: formatted }]),
+      });
 
-    saveRanking(newRanking);
+      // Buscar ranking atualizado logo depois do POST
+      await fetchRanking();
+    } catch (error) {
+      console.error("Erro ao salvar ranking na API:", error);
+    }
   };
 
   // Efeito para lidar com o stop do jogo
   useEffect(() => {
     if (gameStopped) {
       const timer = setTimeout(() => {
-        setCurrentLevel(0);
+        updateCurrentLevel(0);
         setGameStarted(false);
         setGameStopped(false);
         setGameWon(false);
@@ -214,7 +327,7 @@ export default function FoxMazeGame() {
         setEndTime(null);
         setPlayerName("");
         setShowNameForm(true);
-      }, 3000); // Aumentado para 3 segundos para dar tempo de ler a mensagem
+      }, 3000);
 
       return () => clearTimeout(timer);
     }
@@ -319,8 +432,15 @@ export default function FoxMazeGame() {
     setIsMoving(true);
 
     for (let i = 1; i < path.length; i++) {
+      const dx = path[i].x - path[i - 1].x;
+      const dy = path[i].y - path[i - 1].y;
+
+      if (dx > 0) setFoxDirection("right");
+      else if (dx < 0) setFoxDirection("left");
+      else if (dy > 0) setFoxDirection("down");
+      else if (dy < 0) setFoxDirection("up");
+
       setFoxPosition(path[i]);
-      // SEM DELAY - movimento instantâneo
     }
 
     setIsMoving(false);
@@ -359,13 +479,12 @@ export default function FoxMazeGame() {
     return true;
   };
 
-  // Controle de teclado - CORRIGIDO para evitar scroll da tela
+  // Controle de teclado (restante do código UI / renderização mantém-se igual)
   useEffect(() => {
     if (!mounted || !gameStarted || gameStopped || isMoving || !currentMaze)
       return;
 
     const handleKeyDown = (event: KeyboardEvent) => {
-      // Só prevenir default para as teclas de seta
       if (
         ["ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight"].includes(event.key)
       ) {
@@ -430,7 +549,7 @@ export default function FoxMazeGame() {
   };
 
   const restartGame = () => {
-    setCurrentLevel(0);
+    updateCurrentLevel(0);
     setGameWon(false);
     setGameStopped(false);
     setGameStarted(false);
@@ -459,13 +578,16 @@ export default function FoxMazeGame() {
 
   const goToPreviousLevel = () => {
     if (currentLevel > 0 && !gameStopped) {
-      setCurrentLevel(currentLevel - 1);
+      updateCurrentLevel(currentLevel - 1);
     }
   };
 
   const goToNextLevel = () => {
     if (currentLevel < mazes.length - 1 && !gameStopped) {
-      setCurrentLevel(currentLevel + 1);
+      const nextLevel = currentLevel + 1;
+      if (levelsPlayed[nextLevel].played) {
+        updateCurrentLevel(nextLevel);
+      }
     }
   };
 
@@ -523,6 +645,7 @@ export default function FoxMazeGame() {
 
     const levelProps = {
       foxPosition,
+      foxDirection,
       cellSize,
       isMoving,
       onCellClick: moveToPosition,
@@ -593,7 +716,7 @@ export default function FoxMazeGame() {
                 } font-bold text-white dark:text-black mb-2 flex items-center justify-center gap-2`}
               >
                 <img
-                  src="/fox-desktop.png"
+                  src="/fox.png"
                   alt="Fox"
                   className={`${
                     isMobile ? "w-6 h-6" : "w-8 h-8"
@@ -722,7 +845,7 @@ export default function FoxMazeGame() {
                                 </span>
                                 <span className="text-amber-800 flex items-center gap-1">
                                   <img
-                                    src="/fox-desktop.png"
+                                    src="/fox.png"
                                     alt="Player"
                                     className="w-3 h-3 object-contain"
                                   />
@@ -838,11 +961,10 @@ export default function FoxMazeGame() {
                           onClick={goToNextLevel}
                           variant="outline"
                           disabled={
-                            currentLevel === mazes.length - 1 || gameStopped
+                            currentLevel === mazes.length - 1 ||
+                            gameStopped ||
+                            !levelsPlayed[currentLevel + 1]?.played
                           }
-                          className={`border-blue-600 text-blue-700 hover:bg-blue-50 bg-transparent disabled:opacity-50 ${
-                            isMobile ? "px-2 py-1 h-8" : "px-3 py-2 h-10"
-                          } flex items-center justify-center`}
                         >
                           <ChevronRightIcon size={isMobile ? 14 : 18} />
                         </Button>
