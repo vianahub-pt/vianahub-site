@@ -104,109 +104,91 @@ export function Footer() {
               <li>
                 <Link
                   href="/what-we-do/development"
-                  className="text-gray-300 hover:text-white transition-colors text-sm"
+                  className="flex items-center text-sm text-orange-400 hover:text-white dark:text-white hover:dark:text-orange-400 "
                   title={t("footer.whatWeDo.development")}
                 >
-                  <div className="flex items-center text-sm text-orange-400 hover:text-white dark:text-white hover:dark:text-orange-400 gap-2">
-                    <Code2 className="h-4 w-4 stroke-white dark:stroke-orange-400" />
-                    <span>{t("footer.whatWeDo.development")}</span>
-                  </div>
+                  <Code2 className="h-4 w-4 stroke-white dark:stroke-orange-400 mr-2" />
+                  {t("footer.whatWeDo.development")}
                 </Link>
               </li>
               <li>
                 <Link
                   href="/what-we-do/agile"
-                  className="text-gray-300 hover:text-white transition-colors text-sm"
+                  className="flex items-center text-sm text-orange-400 hover:text-white dark:text-white hover:dark:text-orange-400"
                   title={t("footer.whatWeDo.agile")}
                 >
-                  <div className="flex items-center text-sm text-orange-400 hover:text-white dark:text-white hover:dark:text-orange-400 gap-2">
-                    <Workflow className="h-4 w-4 stroke-white dark:stroke-orange-400" />
-                    <span>{t("footer.whatWeDo.agile")}</span>
-                  </div>
+                  <Workflow className="h-4 w-4 stroke-white dark:stroke-orange-400 mr-2" />
+                  <span>{t("footer.whatWeDo.agile")}</span>
                 </Link>
               </li>
               <li>
                 <Link
                   href="/what-we-do/outsourcing"
-                  className="text-gray-300 hover:text-white transition-colors text-sm"
+                  className="flex items-center text-sm text-orange-400 hover:text-white dark:text-white hover:dark:text-orange-400"
                   title={t("footer.whatWeDo.outsourcing")}
                 >
-                  <div className="flex items-center text-sm text-orange-400 hover:text-white dark:text-white hover:dark:text-orange-400 gap-2">
-                    <Bot className="h-4 w-4 stroke-white dark:stroke-orange-400" />
-                    <span>{t("footer.whatWeDo.outsourcing")}</span>
-                  </div>
+                  <Bot className="h-4 w-4 stroke-white dark:stroke-orange-400 mr-2" />
+                  <span>{t("footer.whatWeDo.outsourcing")}</span>
                 </Link>
               </li>
               <li>
                 <Link
                   href="/what-we-do/chatbot"
-                  className="text-gray-300 hover:text-white transition-colors text-sm"
+                  className="flex items-center text-sm text-orange-400 hover:text-white dark:text-white hover:dark:text-orange-400"
                   title={t("footer.whatWeDo.chatbot")}
                 >
-                  <div className="flex items-center text-sm text-orange-400 hover:text-white dark:text-white hover:dark:text-orange-400 gap-2">
-                    <Users className="h-4 w-4 stroke-white dark:stroke-orange-400" />
-                    <span>{t("footer.whatWeDo.chatbot")}</span>
-                  </div>
+                  <Users className="h-4 w-4 stroke-white dark:stroke-orange-400 mr-2" />
+                  <span>{t("footer.whatWeDo.chatbot")}</span>
                 </Link>
               </li>
               <li>
                 <Link
                   href="/what-we-do/landing-pages/"
-                  className="text-gray-300 hover:text-white transition-colors text-sm"
+                  className="flex items-center text-sm text-orange-400 hover:text-white dark:text-white hover:dark:text-orange-400"
                   title={t("footer.whatWeDo.landingPages")}
                 >
-                  <div className="flex items-center text-sm text-orange-400 hover:text-white dark:text-white hover:dark:text-orange-400 gap-2">
-                    <Layout className="h-4 w-4 stroke-white dark:stroke-orange-400" />
-                    <span>{t("footer.whatWeDo.landingPages")}</span>
-                  </div>
+                  <Layout className="h-4 w-4 stroke-white dark:stroke-orange-400 mr-2" />
+                  <span>{t("footer.whatWeDo.landingPages")}</span>
                 </Link>
               </li>
               <li>
                 <Link
                   href="/what-we-do/system-integration"
-                  className="text-gray-300 hover:text-white transition-colors text-sm"
+                  className="flex items-center text-sm text-orange-400 hover:text-white dark:text-white hover:dark:text-orange-400"
                   title={t("footer.whatWeDo.systemIntegration")}
                 >
-                  <div className="flex items-center text-sm text-orange-400 hover:text-white dark:text-white hover:dark:text-orange-400 gap-2">
-                    <Waypoints className="h-4 w-4 stroke-white dark:stroke-orange-400" />
-                    <span>{t("footer.whatWeDo.integration")}</span>
-                  </div>
+                  <Waypoints className="h-4 w-4 stroke-white dark:stroke-orange-400 mr-2" />
+                  <span>{t("footer.whatWeDo.integration")}</span>
                 </Link>
               </li>
               <li>
                 <Link
                   href="/what-we-do/railway"
-                  className="text-gray-300 hover:text-white transition-colors text-sm"
+                  className="flex items-center text-sm text-orange-400 hover:text-white dark:text-white hover:dark:text-orange-400"
                   title={t("footer.whatWeDo.railway")}
                 >
-                  <div className="flex items-center text-sm text-orange-400 hover:text-white dark:text-white hover:dark:text-orange-400 gap-2">
-                    <Train className="h-4 w-4 stroke-white dark:stroke-orange-400" />
-                    <span>{t("footer.whatWeDo.railway")}</span>
-                  </div>
+                  <Train className="h-4 w-4 stroke-white dark:stroke-orange-400 mr-2" />
+                  <span>{t("footer.whatWeDo.railway")}</span>
                 </Link>
               </li>
               <li>
                 <Link
                   href="/what-we-do/road"
-                  className="text-gray-300 hover:text-white transition-colors text-sm"
+                  className="flex items-center text-sm text-orange-400 hover:text-white dark:text-white hover:dark:text-orange-400"
                   title={t("footer.whatWeDo.road")}
                 >
-                  <div className="flex items-center text-sm text-orange-400 hover:text-white dark:text-white hover:dark:text-orange-400 gap-2">
-                    <Truck className="h-4 w-4 stroke-white dark:stroke-orange-400" />
-                    <span>{t("footer.whatWeDo.road")}</span>
-                  </div>
+                  <Truck className="h-4 w-4 stroke-white dark:stroke-orange-400 mr-2" />
+                  <span>{t("footer.whatWeDo.road")}</span>
                 </Link>
               </li>
               <li>
                 <Link
                   href="/what-we-do/solar-energy"
-                  className="text-gray-300 hover:text-white transition-colors text-sm"
+                  className="flex items-center text-sm text-orange-400 hover:text-white dark:text-white hover:dark:text-orange-400"
                   title={t("footer.whatWeDo.solarEnergy")}
                 >
-                  <div className="flex items-center text-sm text-orange-400 hover:text-white dark:text-white hover:dark:text-orange-400 gap-2">
-                    <Sun className="h-4 w-4 stroke-white dark:stroke-orange-400" />
-                    <span>{t("footer.whatWeDo.solarEnergy")}</span>
-                  </div>
+                  <Sun className="h-4 w-4 stroke-white dark:stroke-orange-400 mr-2" />
+                  <span>{t("footer.whatWeDo.solarEnergy")}</span>
                 </Link>
               </li>
             </ul>
@@ -221,85 +203,71 @@ export function Footer() {
               <li>
                 <Link
                   href="/engineering/education"
-                  className="text-gray-300 hover:text-white transition-colors text-sm"
+                  className="flex items-center text-sm text-orange-400 hover:text-white dark:text-white hover:dark:text-orange-400"
                   title={t("footer.engineering.education")}
                 >
-                  <div className="flex items-center text-sm text-orange-400 hover:text-white dark:text-white hover:dark:text-orange-400 gap-2">
-                    <GraduationCap className="h-4 w-4 stroke-white dark:stroke-orange-400" />
-                    <span>{t("footer.engineering.education")}</span>
-                  </div>
+                  <GraduationCap className="h-4 w-4 stroke-white dark:stroke-orange-400 mr-2" />
+                  <span>{t("footer.engineering.education")}</span>
                 </Link>
               </li>
               <li>
                 <Link
                   href="/engineering/government"
-                  className="text-gray-300 hover:text-white transition-colors text-sm"
+                  className="flex items-center text-sm text-orange-400 hover:text-white dark:text-white hover:dark:text-orange-400"
                   title={t("footer.engineering.government")}
                 >
-                  <div className="flex items-center text-sm text-orange-400 hover:text-white dark:text-white hover:dark:text-orange-400 gap-2">
-                    <Landmark className="h-4 w-4 stroke-white dark:stroke-orange-400" />
-                    <span>{t("footer.engineering.government")}</span>
-                  </div>
+                  <Landmark className="h-4 w-4 stroke-white dark:stroke-orange-400 mr-2" />
+                  <span>{t("footer.engineering.government")}</span>
                 </Link>
               </li>
               <li>
                 <Link
                   href="/engineering/industry"
-                  className="text-gray-300 hover:text-white transition-colors text-sm"
+                  className="flex items-center text-sm text-orange-400 hover:text-white dark:text-white hover:dark:text-orange-400"
                   title={t("footer.engineering.industry")}
                 >
-                  <div className="flex items-center text-sm text-orange-400 hover:text-white dark:text-white hover:dark:text-orange-400 gap-2">
-                    <Factory className="h-4 w-4 stroke-white dark:stroke-orange-400" />
-                    <span>{t("footer.engineering.industry")}</span>
-                  </div>
+                  <Factory className="h-4 w-4 stroke-white dark:stroke-orange-400 mr-2" />
+                  <span>{t("footer.engineering.industry")}</span>
                 </Link>
               </li>
               <li>
                 <Link
                   href="/engineering/financial"
-                  className="text-gray-300 hover:text-white transition-colors text-sm"
+                  className="flex items-center text-sm text-orange-400 hover:text-white dark:text-white hover:dark:text-orange-400"
                   title={t("footer.engineering.financial")}
                 >
-                  <div className="flex items-center text-sm text-orange-400 hover:text-white dark:text-white hover:dark:text-orange-400 gap-2">
-                    <DollarSign className="h-4 w-4 stroke-white dark:stroke-orange-400" />
-                    <span>{t("footer.engineering.financial")}</span>
-                  </div>
+                  <DollarSign className="h-4 w-4 stroke-white dark:stroke-orange-400 mr-2" />
+                  <span>{t("footer.engineering.financial")}</span>
                 </Link>
               </li>
               <li>
                 <Link
                   href="/engineering/retail"
-                  className="text-gray-300 hover:text-white transition-colors text-sm"
+                  className="flex items-center text-sm text-orange-400 hover:text-white dark:text-white hover:dark:text-orange-400"
                   title={t("footer.engineering.retail")}
                 >
-                  <div className="flex items-center text-sm text-orange-400 hover:text-white dark:text-white hover:dark:text-orange-400 gap-2">
-                    <Sun className="h-4 w-4 stroke-white dark:stroke-orange-400" />
-                    <span>{t("footer.engineering.retail")}</span>
-                  </div>
+                  <Sun className="h-4 w-4 stroke-white dark:stroke-orange-400 mr-2" />
+                  <span>{t("footer.engineering.retail")}</span>
                 </Link>
               </li>
               <li>
                 <Link
                   href="/engineering/healthcare"
-                  className="text-gray-300 hover:text-white transition-colors text-sm"
+                  className="flex items-center text-sm text-orange-400 hover:text-white dark:text-white hover:dark:text-orange-400"
                   title={t("footer.engineering.healthcare")}
                 >
-                  <div className="flex items-center text-sm text-orange-400 hover:text-white dark:text-white hover:dark:text-orange-400 gap-2">
-                    <Heart className="h-4 w-4 stroke-white dark:stroke-orange-400" />
-                    <span>{t("footer.engineering.healthcare")}</span>
-                  </div>
+                  <Heart className="h-4 w-4 stroke-white dark:stroke-orange-400 mr-2" />
+                  <span>{t("footer.engineering.healthcare")}</span>
                 </Link>
               </li>
               <li>
                 <Link
                   href="/engineering/cybersecurity"
-                  className="text-gray-300 hover:text-white transition-colors text-sm"
+                  className="flex items-center text-sm text-orange-400 hover:text-white dark:text-white hover:dark:text-orange-400"
                   title={t("footer.engineering.cybersecurity")}
                 >
-                  <div className="flex items-center text-sm text-orange-400 hover:text-white dark:text-white hover:dark:text-orange-400 gap-2">
-                    <Shield className="h-4 w-4 stroke-white dark:stroke-orange-400" />
-                    <span>{t("footer.engineering.cybersecurity")}</span>
-                  </div>
+                  <Shield className="h-4 w-4 stroke-white dark:stroke-orange-400 mr-2" />
+                  <span>{t("footer.engineering.cybersecurity")}</span>
                 </Link>
               </li>
             </ul>
@@ -314,25 +282,21 @@ export function Footer() {
               <li>
                 <Link
                   href="/institutional/about/"
-                  className="text-gray-300 hover:text-white transition-colors text-sm"
+                  className="flex items-center text-sm text-orange-400 hover:text-white dark:text-white hover:dark:text-orange-400"
                   title={t("footer.institutional.about")}
                 >
-                  <div className="flex items-center text-sm text-orange-400 hover:text-white dark:text-white hover:dark:text-orange-400 gap-2">
-                    <Info className="h-4 w-4 stroke-white dark:stroke-orange-400" />
-                    <span>{t("footer.institutional.about")}</span>
-                  </div>
+                  <Info className="h-4 w-4 stroke-white dark:stroke-orange-400 mr-2" />
+                  <span>{t("footer.institutional.about")}</span>
                 </Link>
               </li>
               <li>
                 <Link
                   href="/institutional/careers/"
-                  className="text-gray-300 hover:text-white transition-colors text-sm"
+                  className="flex items-center text-sm text-orange-400 hover:text-white dark:text-white hover:dark:text-orange-400"
                   title={t("footer.institutional.careers")}
                 >
-                  <div className="flex items-center text-sm text-orange-400 hover:text-white dark:text-white hover:dark:text-orange-400 gap-2">
-                    <User2Icon className="h-4 w-4 stroke-white dark:stroke-orange-400" />
-                    <span>{t("footer.institutional.careers")}</span>
-                  </div>
+                  <User2Icon className="h-4 w-4 stroke-white dark:stroke-orange-400 mr-2" />
+                  <span>{t("footer.institutional.careers")}</span>
                 </Link>
               </li>
             </ul>
@@ -343,42 +307,30 @@ export function Footer() {
               {t("footer.contact")}
             </h3>
             <ul className="space-y-2">
-              <li className="lex items-center text-gray-300 text-sm">
-                <div className="flex items-center text-orange-400 dark:text-white">
-                  <Mail className="h-4 w-4 stroke-white dark:stroke-orange-400" />
-                  <span className="ml-2">{t("footer.email.pt")}</span>
-                </div>
+              <li className="flex items-center text-sm text-orange-400 hover:text-white dark:text-white hover:dark:text-orange-400">
+                <Mail className="h-4 w-4 stroke-white dark:stroke-orange-400" />
+                <span className="ml-2">{t("footer.email.pt")}</span>
               </li>
-              <li className="flex items-center text-gray-300 text-sm">
-                <div className="flex items-center text-orange-400 dark:text-white">
-                  <Phone className="h-4 w-4 stroke-white dark:stroke-orange-400" />
-                  <span className="ml-2">{t("footer.phone.pt")}</span>
-                </div>
+              <li className="flex items-center text-sm text-orange-400 hover:text-white dark:text-white hover:dark:text-orange-400">
+                <Phone className="h-4 w-4 stroke-white dark:stroke-orange-400" />
+                <span className="ml-2">{t("footer.phone.pt")}</span>
               </li>
-              <li className="flex items-start text-gray-300 text-sm">
-                <div className="flex items-center text-orange-400 dark:text-white">
-                  <MapPin className="h-4 w-4 stroke-white dark:stroke-orange-400" />
-                  <span className="ml-2">{t("footer.address.pt")}</span>
-                </div>
+              <li className="flex items-center text-sm text-orange-400 hover:text-white dark:text-white hover:dark:text-orange-400">
+                <MapPin className="h-4 w-4 stroke-white dark:stroke-orange-400" />
+                <span className="ml-2">{t("footer.address.pt")}</span>
               </li>
-              <div className="border-t border-orange-400 dark:border-white"></div>
-              <li className="lex items-center text-gray-300 text-sm">
-                <div className="flex items-center text-orange-400 dark:text-white">
-                  <Mail className="h-4 w-4 stroke-white dark:stroke-orange-400" />
-                  <span className="ml-2">{t("footer.email.br")}</span>
-                </div>
+              <li className="border-t border-orange-400 dark:border-white"></li>
+              <li className="flex items-center text-sm text-orange-400 hover:text-white dark:text-white hover:dark:text-orange-400">
+                <Mail className="h-4 w-4 stroke-white dark:stroke-orange-400" />
+                <span className="ml-2">{t("footer.email.br")}</span>
               </li>
-              <li className="flex items-center text-gray-300 text-sm">
-                <div className="flex items-center text-orange-400 dark:text-white">
-                  <Phone className="h-4 w-4 stroke-white dark:stroke-orange-400" />
-                  <span className="ml-2">{t("footer.phone.br")}</span>
-                </div>
+              <li className="flex items-center text-sm text-orange-400 hover:text-white dark:text-white hover:dark:text-orange-400">
+                <Phone className="h-4 w-4 stroke-white dark:stroke-orange-400" />
+                <span className="ml-2">{t("footer.phone.br")}</span>
               </li>
-              <li className="flex items-start text-gray-300 text-sm">
-                <div className="flex items-center text-orange-400 dark:text-white">
-                  <MapPin className="h-4 w-4 stroke-white dark:stroke-orange-400" />
-                  <span className="ml-2">{t("footer.address.br")}</span>
-                </div>
+              <li className="flex items-center text-sm text-orange-400 hover:text-white dark:text-white hover:dark:text-orange-400">
+                <MapPin className="h-4 w-4 stroke-white dark:stroke-orange-400" />
+                <span className="ml-2">{t("footer.address.br")}</span>
               </li>
             </ul>
           </div>

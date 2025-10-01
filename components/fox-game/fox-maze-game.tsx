@@ -790,89 +790,10 @@ export default function FoxMazeGame() {
               <div
                 className={`${
                   isMobile
-                    ? "order-2"
+                    ? "order-2 gap-2"
                     : "flex-1 flex flex-col space-y-4 lg:space-y-6 h-full order-2 lg:order-1 overflow-hidden"
                 }`}
               >
-                {/* Ranking History */}
-                {!isMobile && (
-                  <div className="bg-amber-50 border-2 border-amber-200 rounded-lg p-4 flex-1 flex flex-col overflow-hidden">
-                    <h3 className="text-lg font-semibold text-amber-800 mb-3">
-                      {t("foxGame.ranking.title")}
-                    </h3>
-                    <div className="space-y-2 overflow-y-auto flex-1 min-h-0 max-h-48 lg:max-h-80">
-                      {ranking.length === 0 ? (
-                        <div className="text-center py-4 text-amber-600">
-                          <p className="text-sm">
-                            {t("foxGame.ranking.empty.title")}
-                          </p>
-                          <p className="text-xs">
-                            {t("foxGame.ranking.empty.subtitle")}
-                          </p>
-                        </div>
-                      ) : (
-                        ranking.map((entry, index) => {
-                          const isCurrentPlayer =
-                            entry.name === playerName &&
-                            startTime &&
-                            endTime &&
-                            Math.abs(
-                              entry.time -
-                                Math.floor((endTime - startTime) / 1000)
-                            ) < 1;
-
-                          return (
-                            <motion.div
-                              key={`${entry.name}-${entry.date}-${index}`}
-                              initial={{ opacity: 0, x: -10 }}
-                              animate={{ opacity: 1, x: 0 }}
-                              transition={{ delay: index * 0.05 }}
-                              className={`flex items-center justify-between p-2 rounded text-sm ${
-                                isCurrentPlayer
-                                  ? "bg-green-100 border border-green-300 font-semibold"
-                                  : index === 0
-                                  ? "bg-yellow-100"
-                                  : index === 1
-                                  ? "bg-gray-100"
-                                  : index === 2
-                                  ? "bg-orange-100"
-                                  : "bg-white"
-                              }`}
-                            >
-                              <div className="flex items-center gap-2">
-                                <span className="text-xs font-bold w-6">
-                                  {index + 1}º
-                                </span>
-                                <span className="text-amber-800 flex items-center gap-1">
-                                  <img
-                                    src="/fox.png"
-                                    alt="Player"
-                                    className="w-3 h-3 object-contain"
-                                  />
-                                  {entry.name}
-                                  {isCurrentPlayer && (
-                                    <span className="ml-1 text-xs bg-green-600 text-white px-1 rounded">
-                                      {t("foxGame.ranking.you")}
-                                    </span>
-                                  )}
-                                </span>
-                              </div>
-                              <span className="font-bold text-amber-700">
-                                {formatTime(entry.time)}
-                              </span>
-                            </motion.div>
-                          );
-                        })
-                      )}
-                    </div>
-                    {ranking.length > 0 && (
-                      <div className="mt-3 pt-2 border-t border-amber-200 text-xs text-amber-600 text-center flex-shrink-0">
-                        {t("foxGame.ranking.footer")}
-                      </div>
-                    )}
-                  </div>
-                )}
-
                 {/* Navigation Controls */}
                 <div
                   className={`bg-blue-50 border-2 border-blue-200 rounded-lg ${
@@ -900,6 +821,7 @@ export default function FoxMazeGame() {
                           className={`border-blue-600 text-blue-700 hover:bg-blue-50 bg-transparent disabled:opacity-50 ${
                             isMobile ? "px-2 py-1 h-8" : "px-3 py-2 h-10"
                           } flex items-center justify-center`}
+                          aria-label="Previous Level"
                         >
                           <ChevronLeftIcon size={isMobile ? 14 : 18} />
                         </Button>
@@ -921,6 +843,7 @@ export default function FoxMazeGame() {
                               ? "bg-red-600 hover:bg-red-700 text-white"
                               : "bg-green-600 hover:bg-green-700 text-white"
                           }`}
+                          aria-label={gameStarted ? "Pause Game" : "Start Game"}
                         >
                           {gameStarted ? (
                             <PauseIcon size={isMobile ? 14 : 18} />
@@ -946,6 +869,7 @@ export default function FoxMazeGame() {
                           className={`bg-gray-600 hover:bg-gray-700 text-white ${
                             isMobile ? "px-2 py-1 h-8" : "px-3 py-2 h-10"
                           } flex items-center justify-center disabled:opacity-50`}
+                          aria-label="Stop Game"
                         >
                           <StopIcon size={isMobile ? 14 : 18} />
                         </Button>
@@ -965,6 +889,7 @@ export default function FoxMazeGame() {
                             gameStopped ||
                             !levelsPlayed[currentLevel + 1]?.played
                           }
+                          aria-label="Next Level"
                         >
                           <ChevronRightIcon size={isMobile ? 14 : 18} />
                         </Button>
@@ -983,6 +908,7 @@ export default function FoxMazeGame() {
                           className={`border-blue-600 text-blue-700 hover:bg-blue-50 bg-transparent ${
                             isMobile ? "px-2 py-1 h-8" : "px-3 py-2 h-10"
                           } flex items-center justify-center disabled:opacity-50`}
+                          aria-label="Reset Level"
                         >
                           <RefreshIcon size={isMobile ? 14 : 18} />
                         </Button>
@@ -992,6 +918,83 @@ export default function FoxMazeGame() {
                       </TooltipContent>
                     </Tooltip>
                   </div>
+                </div>
+
+                {/* Ranking History */}
+                <div className="bg-amber-50 border-2 border-amber-200 rounded-lg p-4 flex-1 flex flex-col overflow-hidden">
+                  <h3 className="text-lg font-semibold text-amber-800 mb-3">
+                    {t("foxGame.ranking.title")}
+                  </h3>
+                  <div className="space-y-2 overflow-y-auto flex-1 min-h-0 max-h-48 lg:max-h-80">
+                    {ranking.length === 0 ? (
+                      <div className="text-center py-4 text-amber-600">
+                        <p className="text-sm">
+                          {t("foxGame.ranking.empty.title")}
+                        </p>
+                        <p className="text-xs">
+                          {t("foxGame.ranking.empty.subtitle")}
+                        </p>
+                      </div>
+                    ) : (
+                      ranking.map((entry, index) => {
+                        const isCurrentPlayer =
+                          entry.name === playerName &&
+                          startTime &&
+                          endTime &&
+                          Math.abs(
+                            entry.time -
+                              Math.floor((endTime - startTime) / 1000)
+                          ) < 1;
+
+                        return (
+                          <motion.div
+                            key={`${entry.name}-${entry.date}-${index}`}
+                            initial={{ opacity: 0, x: -10 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            transition={{ delay: index * 0.05 }}
+                            className={`flex items-center justify-between p-2 rounded text-sm ${
+                              isCurrentPlayer
+                                ? "bg-green-100 border border-green-300 font-semibold"
+                                : index === 0
+                                ? "bg-yellow-100"
+                                : index === 1
+                                ? "bg-gray-100"
+                                : index === 2
+                                ? "bg-orange-100"
+                                : "bg-white"
+                            }`}
+                          >
+                            <div className="flex items-center gap-2">
+                              <span className="text-xs font-bold w-6">
+                                {index + 1}º
+                              </span>
+                              <span className="text-amber-800 flex items-center gap-1">
+                                <img
+                                  src="/fox.png"
+                                  alt="Player"
+                                  className="w-3 h-3 object-contain"
+                                />
+                                {entry.name}
+                                {isCurrentPlayer && (
+                                  <span className="ml-1 text-xs bg-green-600 text-white px-1 rounded">
+                                    {t("foxGame.ranking.you")}
+                                  </span>
+                                )}
+                              </span>
+                            </div>
+                            <span className="font-bold text-amber-700">
+                              {formatTime(entry.time)}
+                            </span>
+                          </motion.div>
+                        );
+                      })
+                    )}
+                  </div>
+                  {ranking.length > 0 && (
+                    <div className="mt-3 pt-2 border-t border-amber-200 text-xs text-amber-600 text-center flex-shrink-0">
+                      {t("foxGame.ranking.footer")}
+                    </div>
+                  )}
                 </div>
 
                 {/* Game Status */}
@@ -1050,6 +1053,10 @@ export default function FoxMazeGame() {
                           <Button
                             onClick={restartGame}
                             className="bg-green-600 hover:bg-green-700 text-white"
+                            aria-label={
+                              t("foxGame.congratulations.playAgain") ||
+                              "Play Again"
+                            }
                           >
                             <RefreshIcon size={16} className="mr-2" />
                             {t("foxGame.congratulations.playAgain")}

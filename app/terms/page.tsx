@@ -138,29 +138,19 @@ export default function TermsPage() {
                 <Card className="text-center bg-orange-400 hover:scale-105 transition-all duration-300 relative border-none h-full">
                   <CardContent className="p-6 flex flex-col h-full">
                     <ul className="space-y-2">
-                      <li className="lex items-center text-gray-300 text-sm text-white">
-                        <div className="flex items-center">
-                          <Mail className="h-4 w-4 stroke-white" />
-                          <span className="ml-2">
-                            {t("terms.ten.email.pt")}
-                          </span>
-                        </div>
+                      <li className="flex items-center text-gray-300 text-sm text-white">
+                        <Mail className="h-4 w-4 stroke-white" />
+                        <span className="ml-2">{t("terms.ten.email.pt")}</span>
                       </li>
                       <li className="flex items-center text-gray-300 text-sm text-white">
-                        <div className="flex items-center">
-                          <Phone className="h-4 w-4 stroke-white" />
-                          <span className="ml-2">
-                            {t("terms.ten.phone.pt")}
-                          </span>
-                        </div>
+                        <Phone className="h-4 w-4 stroke-white" />
+                        <span className="ml-2">{t("terms.ten.phone.pt")}</span>
                       </li>
                       <li className="flex items-start text-gray-300 text-sm text-white">
-                        <div className="flex items-center">
-                          <MapPin className="h-4 w-4 stroke-white" />
-                          <span className="ml-2">
-                            {t("terms.ten.address.pt")}
-                          </span>
-                        </div>
+                        <MapPin className="h-4 w-4 stroke-white" />
+                        <span className="ml-2">
+                          {t("terms.ten.address.pt")}
+                        </span>
                       </li>
                     </ul>
                   </CardContent>
@@ -169,29 +159,19 @@ export default function TermsPage() {
                 <Card className="text-center bg-orange-400 hover:scale-105 transition-all duration-300 relative border-none h-full">
                   <CardContent className="p-6 flex flex-col h-full">
                     <ul className="space-y-2">
-                      <li className="lex items-center text-gray-300 text-sm text-white">
-                        <div className="flex items-center">
-                          <Mail className="h-4 w-4 stroke-white" />
-                          <span className="ml-2">
-                            {t("terms.ten.email.br")}
-                          </span>
-                        </div>
+                      <li className="flex items-center text-gray-300 text-sm text-white">
+                        <Mail className="h-4 w-4 stroke-white" />
+                        <span className="ml-2">{t("terms.ten.email.br")}</span>
                       </li>
                       <li className="flex items-center text-gray-300 text-sm text-white">
-                        <div className="flex items-center">
-                          <Phone className="h-4 w-4 stroke-white" />
-                          <span className="ml-2">
-                            {t("terms.ten.phone.br")}
-                          </span>
-                        </div>
+                        <Phone className="h-4 w-4 stroke-white" />
+                        <span className="ml-2">{t("terms.ten.phone.br")}</span>
                       </li>
                       <li className="flex items-start text-gray-300 text-sm text-white">
-                        <div className="flex items-center">
-                          <MapPin className="h-4 w-4 stroke-white" />
-                          <span className="ml-2">
-                            {t("terms.ten.address.br")}
-                          </span>
-                        </div>
+                        <MapPin className="h-4 w-4 stroke-white" />
+                        <span className="ml-2">
+                          {t("terms.ten.address.br")}
+                        </span>
                       </li>
                     </ul>
                   </CardContent>
@@ -222,6 +202,7 @@ export default function TermsPage() {
                   }}
                   className="bg-orange-500 text-white hover:bg-orange-600"
                   disabled={alreadyAccepted}
+                  aria-label={t("terms.conditions.button") || "Accept Terms"}
                 >
                   {t("terms.conditions.button")}
                 </Button>

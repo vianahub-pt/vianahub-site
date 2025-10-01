@@ -38,8 +38,10 @@ export function InstitutionalDropdown() {
     >
       <button
         className="flex items-center space-x-1 px-3 py-2 rounded-md transition-all duration-100 font-medium cursor-pointer
-    bg-white/0 text-orange-500 hover:bg-black/80 hover:text-orange-400 dark:bg-black dark:text-orange-400 dark:hover:bg-white dark:hover:text-orange-500 text-md"
+                   bg-white/0 text-orange-500 hover:bg-black/80 hover:text-orange-400 dark:bg-black dark:text-orange-400 
+                   dark:hover:bg-white dark:hover:text-orange-500 text-md"
         title={t("nav.institutional")}
+        aria-label={t("nav.institutional") || "Institutional"}
       >
         <span>{t("nav.institutional")}</span>
         <ChevronDown
@@ -59,6 +61,7 @@ export function InstitutionalDropdown() {
                 onClick={() => handleNavigation(item.path)}
                 className="flex items-center gap-3 w-full text-left px-4 py-2 text-sm text-orange-400 hover:bg-yellow-500/20 hover:text-white transition-colors duration-150"
                 title={t(item.key)}
+                aria-label={t(item.key)}
               >
                 <IconComponent className="h-4 w-4 stroke-white dark:stroke-gray-400" />
                 {t(item.key)}
@@ -88,6 +91,7 @@ export function InstitutionalDropdownMobile({
             onClick={() => onNavigate(item.path)} // ✅ fecha e navega
             className="flex items-center gap-3 w-full text-left px-4 py-2 text-sm text-orange-400 hover:bg-yellow-500/20 hover:text-white transition-colors duration-150"
             title={t(item.key)}
+            aria-label={t(item.key)}
           >
             <IconComponent className="h-4 w-4 stroke-white dark:stroke-gray-400" />
             {t(item.key)}

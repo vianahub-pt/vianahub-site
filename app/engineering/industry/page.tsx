@@ -305,6 +305,7 @@ export default function IndustryPage() {
             size="lg"
             className="bg-orange-400 hover:bg-orange-500 text-white font-semibold px-8 py-3 button-shadow"
             onClick={() => router.push("/contact")}
+            aria-label={t("industry.cta.button") || "Contact Us"}
           >
             {t("industry.cta.button")}
           </Button>

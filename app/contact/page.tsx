@@ -175,7 +175,7 @@ export default function ContactPage() {
             <button
               onClick={() => setShowSuccessAlert(false)}
               className="absolute top-2 right-2 text-green-900"
-              aria-label='${t("contact.form.alert.false.close")}'
+              aria-label="Show Insuccess Alert"
             >
               <span className="text-xl font-bold">&times;</span>
             </button>
@@ -296,6 +296,7 @@ export default function ContactPage() {
                     type="submit"
                     className="bg-orange-400 hover:bg-orange-500 text-white font-semibold px-12 py-3 button-shadow"
                     disabled={isSubmitting}
+                    arial-label="Submit Contact Form"
                   >
                     {isSubmitting
                       ? t("contact.form.label.sending") || "A enviar..."
@@ -365,46 +366,30 @@ export default function ContactPage() {
                     </CardHeader>
                     <CardContent className="space-y-6">
                       <ul className="space-y-2">
-                        <li className="lex items-center text-gray-300 text-lx p-2">
-                          <div className="flex items-center text-orange-400 dark:text-white">
-                            <Mail className="h-4 w-4 stroke-black dark:stroke-orange-400" />
-                            <span className="ml-2">{t("footer.email.pt")}</span>
-                          </div>
+                        <li className="flex items-center text-black dark:text-orange-400 text-lx p-2">
+                          <Mail className="h-4 w-4 stroke-black dark:stroke-orange-400" />
+                          <span className="ml-2">{t("footer.email.pt")}</span>
                         </li>
-                        <li className="flex items-center text-gray-300 text-lx p-2">
-                          <div className="flex items-center text-orange-400 dark:text-white">
-                            <Phone className="h-4 w-4 stroke-black dark:stroke-orange-400" />
-                            <span className="ml-2">{t("footer.phone.pt")}</span>
-                          </div>
+                        <li className="flex items-center text-black dark:text-orange-400 text-lx p-2">
+                          <Phone className="h-4 w-4 stroke-black dark:stroke-orange-400" />
+                          <span className="ml-2">{t("footer.phone.pt")}</span>
                         </li>
-                        <li className="flex items-start text-gray-300 text-lx p-2">
-                          <div className="flex items-center text-orange-400 dark:text-white">
-                            <MapPin className="h-4 w-4 stroke-black dark:stroke-orange-400" />
-                            <span className="ml-2">
-                              {t("footer.address.pt")}
-                            </span>
-                          </div>
+                        <li className="flex items-start text-black dark:text-orange-400 text-lx p-2">
+                          <MapPin className="h-4 w-4 stroke-black dark:stroke-orange-400" />
+                          <span className="ml-2">{t("footer.address.pt")}</span>
                         </li>
                         <div className="border-t border-orange-400 dark:border-white p-2"></div>
-                        <li className="lex items-center text-gray-300 text-lx p-2">
-                          <div className="flex items-center text-orange-400 dark:text-white">
-                            <Mail className="h-4 w-4 stroke-black dark:stroke-orange-400" />
-                            <span className="ml-2">{t("footer.email.br")}</span>
-                          </div>
+                        <li className="flex items-center text-black dark:text-orange-400 text-lx p-2">
+                          <Mail className="h-4 w-4 stroke-black dark:stroke-orange-400" />
+                          <span className="ml-2">{t("footer.email.br")}</span>
                         </li>
-                        <li className="flex items-center text-gray-300 text-lx p-2">
-                          <div className="flex items-center text-orange-400 dark:text-white">
-                            <Phone className="h-4 w-4 stroke-black dark:stroke-orange-400" />
-                            <span className="ml-2">{t("footer.phone.br")}</span>
-                          </div>
+                        <li className="flex items-center text-black dark:text-orange-400 text-lx p-2">
+                          <Phone className="h-4 w-4 stroke-black dark:stroke-orange-400" />
+                          <span className="ml-2">{t("footer.phone.br")}</span>
                         </li>
-                        <li className="flex items-start text-gray-300 text-lx p-2">
-                          <div className="flex items-center text-orange-400 dark:text-white">
-                            <MapPin className="h-4 w-4 stroke-black dark:stroke-orange-400" />
-                            <span className="ml-2">
-                              {t("footer.address.br")}
-                            </span>
-                          </div>
+                        <li className="flex items-start text-black dark:text-orange-400 text-lx p-2">
+                          <MapPin className="h-4 w-4 stroke-black dark:stroke-orange-400" />
+                          <span className="ml-2">{t("footer.address.br")}</span>
                         </li>
                       </ul>
                     </CardContent>

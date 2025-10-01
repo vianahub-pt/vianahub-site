@@ -370,6 +370,7 @@ export default function DevelopmentPageContent() {
             size="lg"
             className="bg-orange-400 hover:bg-orange-500 text-white font-semibold px-8 py-3 button-shadow"
             onClick={() => router.push("/contact")}
+            aria-label={t("development.cta.button") || "Contact Us"}
           >
             {t("development.cta.button")}
           </Button>

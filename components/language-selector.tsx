@@ -38,7 +38,10 @@ export function LanguageSelector() {
     >
       <button
         className="flex items-center space-x-1 px-3 py-2 rounded-md transition-all duration-100 font-medium cursor-pointer 
-      bg-white/0 text-orange-500 hover:bg-black hover:text-orange-400 dark:bg-black dark:text-orange-400 dark:hover:bg-white dark:hover:text-orange-500 text-md"
+                   bg-white/0 text-orange-500 hover:bg-black hover:text-orange-400 dark:bg-black dark:text-orange-400 
+                   dark:hover:bg-white dark:hover:text-orange-500 text-md"
+        title="Select Language"
+        aria-label="Select Language"
       >
         <Image
           src={currentLanguage.flag || "/placeholder.svg"}
@@ -66,6 +69,8 @@ export function LanguageSelector() {
                   ? "bg-yellow-500/30 text-yellow-300"
                   : "text-orange-400 hover:bg-yellow-500/20 hover:text-white"
               }`}
+              title={lang.name}
+              aria-label={lang.name}
             >
               <Image
                 src={lang.flag || "/placeholder.svg"}
@@ -108,6 +113,8 @@ export function LanguageSelectorMobile({
                 : "text-orange-400 hover:bg-yellow-500/20 hover:text-white"
             }
           `}
+          title={lang.name}
+          aria-label={lang.name}
         >
           <Image
             src={lang.flag || "/placeholder.svg"}

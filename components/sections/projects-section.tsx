@@ -201,6 +201,7 @@ export function ProjectsSection() {
                   index === currentIndex ? "!bg-viana-orange" : "bg-gray-300"
                 }`}
                 onClick={() => goToProject(index)}
+                aria-label={`Go to project ${index + 1}`}
               />
             ))}
           </div>

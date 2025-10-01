@@ -1,26 +1,38 @@
-"use client"
+"use client";
 
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
-import { Badge } from "@/components/ui/badge"
-import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel"
-import { useTranslation } from "@/components/translation-context"
-import { Users, Briefcase, Clock } from "lucide-react"
-import Link from "next/link"
-import Autoplay from "embla-carousel-autoplay"
-import { useRef } from "react"
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
+import { useTranslation } from "@/components/translation-context";
+import { Users, Briefcase, Clock } from "lucide-react";
+import Link from "next/link";
+import Autoplay from "embla-carousel-autoplay";
+import { useRef } from "react";
 
 interface PositionMeta {
-  id: string
-  salary?: string
+  id: string;
+  salary?: string;
 }
 
 interface TranslatedPosition extends PositionMeta {
-  title: string
-  department: string
-  location: string
-  type: string
-  description: string
+  title: string;
+  department: string;
+  location: string;
+  type: string;
+  description: string;
 }
 
 const positionsMeta: PositionMeta[] = [
@@ -30,14 +42,16 @@ const positionsMeta: PositionMeta[] = [
   { id: "4", salary: "€50.000 - €70.000" },
   { id: "5", salary: "€38.000 - €55.000" },
   { id: "6", salary: "€45.000 - €65.000" },
-]
+];
 
 export function CareersSection() {
-  const { t } = useTranslation()
-  const plugin = useRef(Autoplay({ delay: 3000, stopOnInteraction: true }))
+  const { t } = useTranslation();
+  const plugin = useRef(Autoplay({ delay: 3000, stopOnInteraction: true }));
 
-  const getTranslatedPosition = (positionMeta: PositionMeta): TranslatedPosition => {
-    const baseKey = `careers.positions.${positionMeta.id}`
+  const getTranslatedPosition = (
+    positionMeta: PositionMeta
+  ): TranslatedPosition => {
+    const baseKey = `careers.positions.${positionMeta.id}`;
 
     return {
       ...positionMeta,
@@ -46,8 +60,8 @@ export function CareersSection() {
       location: t(`${baseKey}.location`),
       type: t(`${baseKey}.type`),
       description: t(`${baseKey}.description`),
-    }
-  }
+    };
+  };
 
   return (
     <section className="py-20 bg-gray-50 dark:bg-gray-800">
@@ -66,7 +80,11 @@ export function CareersSection() {
                 </p>
                 <div className="flex justify-center">
                   <Link href="/careers">
-                    <Button size="lg" className="bg-viana-orange hover:bg-viana-orange/90 text-white">
+                    <Button
+                      size="lg"
+                      className="bg-viana-orange hover:bg-viana-orange/90 text-white"
+                      aria-label="Careers view positions"
+                    >
                       <Briefcase className="mr-2 h-5 w-5" />
                       {t("careers.viewPositions")}
                     </Button>
@@ -88,9 +106,13 @@ export function CareersSection() {
                   >
                     <CarouselContent className="h-full">
                       {positionsMeta.map((positionMeta) => {
-                        const translatedPosition = getTranslatedPosition(positionMeta)
+                        const translatedPosition =
+                          getTranslatedPosition(positionMeta);
                         return (
-                          <CarouselItem key={positionMeta.id} className="h-full">
+                          <CarouselItem
+                            key={positionMeta.id}
+                            className="h-full"
+                          >
                             <Card className="bg-white/95 backdrop-blur-sm border-0 shadow-lg h-full flex flex-col">
                               <CardHeader className="pb-4 flex-shrink-0">
                                 <div className="flex justify-between items-start mb-3">
@@ -100,11 +122,13 @@ export function CareersSection() {
                                   <Badge
                                     variant="secondary"
                                     className={`ml-2 text-sm px-3 py-1 flex-shrink-0 ${
-                                      translatedPosition.location === t("careers.positions.1.location")
+                                      translatedPosition.location ===
+                                      t("careers.positions.1.location")
                                         ? "bg-green-100 text-green-800"
-                                        : translatedPosition.location === t("careers.positions.2.location")
-                                          ? "bg-blue-100 text-blue-800"
-                                          : "bg-purple-100 text-purple-800"
+                                        : translatedPosition.location ===
+                                          t("careers.positions.2.location")
+                                        ? "bg-blue-100 text-blue-800"
+                                        : "bg-purple-100 text-purple-800"
                                     }`}
                                   >
                                     {translatedPosition.location}
@@ -128,7 +152,7 @@ export function CareersSection() {
                               </CardContent>
                             </Card>
                           </CarouselItem>
-                        )
+                        );
                       })}
                     </CarouselContent>
                     <CarouselPrevious className="text-white border-white/50 hover:bg-white/20" />
@@ -141,5 +165,5 @@ export function CareersSection() {
         </div>
       </div>
     </section>
-  )
+  );
 }

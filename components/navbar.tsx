@@ -80,6 +80,8 @@ export function Navbar() {
             <button
               onClick={() => handleNavigation("/")}
               className="flex items-center cursor-pointer h-full relative"
+              title="VianaHub"
+              arial-label="VianaHub Home"
             >
               <Image
                 src="/logo/default-black-logo.png"
@@ -110,6 +112,7 @@ export function Navbar() {
               className="flex items-center space-x-1 px-3 py-2 rounded-md transition-all duration-100 font-medium cursor-pointer 
               bg-white/0 text-orange-500 hover:bg-black hover:text-orange-400 dark:bg-black dark:text-orange-400 dark:hover:bg-white dark:hover:text-orange-500 text-md"
               title={t("nav.contact")}
+              aria-label={t("nav.contact")}
             >
               {t("nav.contact")}
             </button>
@@ -125,6 +128,8 @@ export function Navbar() {
               className="inline-flex items-center justify-center p-2 rounded-md 
               focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white
               bg-white/0 text-orange-500 hover:bg-black/80 hover:text-orange-400 dark:bg-black dark:text-orange-400 dark:hover:bg-white dark:hover:text-orange-500"
+              aria-expanded={isMenuOpen}
+              aria-label="Toggle menu"
             >
               {isMenuOpen ? (
                 <X className="block h-6 w-6" />
@@ -151,6 +156,7 @@ export function Navbar() {
                    bg-white/0 text-orange-500 hover:bg-black/80 hover:text-orange-400 dark:bg-black dark:text-orange-400 
                    dark:hover:bg-white dark:hover:text-orange-500 text-md"
                   title={t("nav.whatWeDo")}
+                  aria-label={t("nav.whatWeDo") || "What We Do"}
                 >
                   <span>{t("nav.whatWeDo")}</span>
                   <ChevronDown
@@ -176,6 +182,7 @@ export function Navbar() {
                    bg-white/0 text-orange-500 hover:bg-black/80 hover:text-orange-400 dark:bg-black dark:text-orange-400 
                    dark:hover:bg-white dark:hover:text-orange-500 text-md"
                   title={t("nav.engineering")}
+                  aria-label={t("nav.engineering") || "Engineering"}
                 >
                   <span>{t("nav.engineering")}</span>
                   <ChevronDown
@@ -201,6 +208,7 @@ export function Navbar() {
                    bg-white/0 text-orange-500 hover:bg-black/80 hover:text-orange-400 dark:bg-black dark:text-orange-400 
                    dark:hover:bg-white dark:hover:text-orange-500 text-md"
                   title={t("nav.institutional")}
+                  aria-label={t("nav.institutional") || "Institutional"}
                 >
                   <span>{t("nav.institutional")}</span>
                   <ChevronDown
@@ -220,8 +228,10 @@ export function Navbar() {
               <button
                 onClick={() => handleNavigation("/contact")}
                 className="flex items-center space-x-1 px-3 py-2 rounded-md transition-all duration-100 font-medium cursor-pointer 
-              bg-white/0 text-orange-500 hover:bg-black hover:text-orange-400 dark:bg-black dark:text-orange-400 dark:hover:bg-white dark:hover:text-orange-500 text-md"
+                           bg-white/0 text-orange-500 hover:bg-black hover:text-orange-400 dark:bg-black dark:text-orange-400 
+                           dark:hover:bg-white dark:hover:text-orange-500 text-md"
                 title={t("nav.contact")}
+                aria-label={t("nav.contact")}
               >
                 {t("nav.contact")}
               </button>
@@ -235,8 +245,10 @@ export function Navbar() {
                     )
                   }
                   className="flex items-center space-x-1 px-3 py-2 rounded-md transition-all duration-100 font-medium cursor-pointer 
-                                 bg-white/0 text-orange-500 hover:bg-black hover:text-orange-400 dark:bg-black dark:text-orange-400 
-                                 dark:hover:bg-white dark:hover:text-orange-500 text-md"
+                             bg-white/0 text-orange-500 hover:bg-black hover:text-orange-400 dark:bg-black dark:text-orange-400 
+                             dark:hover:bg-white dark:hover:text-orange-500 text-md"
+                  title="Select Language"
+                  aria-label="Select Language"
                 >
                   <Image
                     src={currentLanguage.flag || "/placeholder.svg"}

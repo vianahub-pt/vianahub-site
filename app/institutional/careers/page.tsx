@@ -190,6 +190,7 @@ export default function CareersPage() {
                     "_blank"
                   )
                 }
+                aria-label={t("careers.cta.button") || "Apply on LinkedIn"}
               >
                 {t("careers.cta.button")}
               </Button>

@@ -20,7 +20,10 @@ export function ThemeToggle() {
   const isDark = theme === "dark";
 
   return (
-    <button onClick={() => setTheme(isDark ? "light" : "dark")}>
+    <button
+      onClick={() => setTheme(isDark ? "light" : "dark")}
+      aria-label="ThemeToggle Component"
+    >
       {isDark ? "🌙" : "☀️"}
     </button>
   );

@@ -18,6 +18,25 @@ export function Fox({
   isMobile = false,
   direction,
 }: FoxProps) {
+  const foxImages = {
+    right: {
+      desktop: "/fox-right.png",
+      mobile: "/fox-mobile-right.png",
+    },
+    left: {
+      desktop: "/fox-left.png",
+      mobile: "/fox-mobile-left.png",
+    },
+    up: {
+      desktop: "/fox-up.png",
+      mobile: "/fox-mobile-up.png",
+    },
+    down: {
+      desktop: "/fox-down.png",
+      mobile: "/fox-mobile-down.png",
+    },
+  };
+
   return (
     <motion.div
       className="absolute top-0 left-0 z-20 pointer-events-none"
@@ -50,14 +69,8 @@ export function Fox({
           <img
             src={
               isMobile
-                ? "/fox-mobile.png"
-                : direction === "right"
-                ? "/fox-right.png"
-                : direction === "left"
-                ? "/fox-left.png"
-                : direction === "up"
-                ? "/fox-up.png"
-                : "/fox-down.png"
+                ? foxImages[direction].mobile
+                : foxImages[direction].desktop
             }
             alt="Fox"
             className="w-full h-full object-contain rounded-lg"

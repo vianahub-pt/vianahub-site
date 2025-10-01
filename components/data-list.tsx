@@ -58,7 +58,11 @@ export function DataList() {
           <CardDescription>{error}</CardDescription>
         </CardHeader>
         <CardContent>
-          <Button onClick={refetch} className="w-full">
+          <Button
+            onClick={refetch}
+            className="w-full"
+            aria-label="Datalist Retry"
+          >
             <RefreshCw className="h-4 w-4 mr-2" />
             {t("dataList.retry")}
           </Button>
@@ -71,7 +75,12 @@ export function DataList() {
     <div className="space-y-6">
       <div className="flex items-center justify-between">
         <h2 className="text-2xl font-bold">{t("dataList.title")}</h2>
-        <Button onClick={refetch} variant="outline" size="sm">
+        <Button
+          onClick={refetch}
+          variant="outline"
+          size="sm"
+          aria-label="Datalist Update"
+        >
           <RefreshCw className="h-4 w-4 mr-2" />
           {t("dataList.update")}
         </Button>

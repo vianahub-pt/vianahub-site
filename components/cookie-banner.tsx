@@ -61,6 +61,7 @@ export default function CookieBanner() {
               size="sm"
               onClick={acceptCookies}
               className="bg-orange-600 hover:bg-orange-700 text-white"
+              aria-label={t("cookie.button") || "Accept Cookies"}
             >
               {t("cookie.button")}
             </Button>

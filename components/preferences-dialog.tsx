@@ -197,12 +197,18 @@ export function PreferencesDialog({ children }: PreferencesDialogProps) {
             variant="outline"
             onClick={() => setIsOpen(false)}
             className="border-viana-gray text-viana-gray hover:bg-viana-gray hover:text-viana-white"
+            arial-label={
+              t("preferences.cancel") || "Cancel and close preferences dialog"
+            }
           >
             {t("preferences.cancel")}
           </Button>
           <Button
             onClick={handleSavePreferences}
             className="bg-viana-orange text-viana-white hover:bg-viana-yellow hover:text-viana-black"
+            arial-label={
+              t("preferences.apply") || "Apply preferences and close dialog"
+            }
           >
             {t("preferences.apply")}
           </Button>

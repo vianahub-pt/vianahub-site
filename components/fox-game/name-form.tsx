@@ -71,6 +71,7 @@ export function NameForm({ onNameSubmit }: NameFormProps) {
                 type="submit"
                 className="w-full text-white dark:text-white bg-orange-700 hover:bg-orange-400 dark:bg-orange-700 hover:dark:bg-orange-400 "
                 disabled={!name.trim()}
+                aria-label="Start Game"
               >
                 {t("foxGame.startButton")}
               </Button>
