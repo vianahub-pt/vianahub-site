@@ -150,12 +150,12 @@ export default function AboutPageContent() {
       >
         <div className="absolute inset-0 z-0 bg-black/50" />
         <div className="container mx-auto px-4 relative z-10 h-full flex items-center justify-center">
-          <div className="bg-white/50 dark:bg-black/50 text-orange-400 rounded-lg p-6 max-w-full overflow-hidden">
-            <h1 className="text-orange-400 text-3xl sm:text-4xl lg:text-6xl font-bold text-center text-shadow break-words">
+          <div className="bg-white/50 dark:bg-black/50 text-orange-500 rounded-lg p-6 max-w-full overflow-hidden">
+            <h1 className="text-orange-500 text-3xl sm:text-4xl lg:text-6xl font-bold text-center text-shadow break-words">
               <Info className="inline h-10 w-10 sm:h-12 sm:w-12 stroke-white dark:stroke-gray-400 icon-shadow mr-2 align-middle" />
               {t("about.hero.title")}
             </h1>
-            <p className="mt-6 text-lg sm:text-xl text-center text-white dark:text-orange-400 text-shadow">
+            <p className="mt-6 text-lg sm:text-xl text-center text-white dark:text-orange-500 text-shadow">
               {t("about.hero.subtitle")}
             </p>
           </div>
@@ -172,7 +172,7 @@ export default function AboutPageContent() {
               <span className="text-black dark:text-yellow-500">
                 {t("about.history.title.part1")}
               </span>{" "}
-              <span className="text-orange-400">
+              <span className="text-orange-500">
                 {t("about.history.title.part2")}
               </span>
             </h2>
@@ -183,7 +183,7 @@ export default function AboutPageContent() {
           </div>
           <div className="grid lg:grid-cols-1 gap-4 items-center">
             {/* Texto */}
-            <div className="font-kurale text-xl text-justify text-black dark:text-orange-400">
+            <div className="font-kurale text-xl text-justify text-black dark:text-orange-500">
               <p>{t("about.history.p1")}</p>
               <p className="py-2">{t("about.history.p2")}</p>
               <p className="py-2">{t("about.history.p3")}</p>
@@ -247,7 +247,7 @@ export default function AboutPageContent() {
       <section className="py-20 px-4 bg-white dark:bg-gray-600">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="!text-orange-400 text-3xl md:text-4xl font-bold mb-4">
+            <h2 className="!text-orange-500 text-3xl md:text-4xl font-bold mb-4">
               {t("about.mission.title")}
             </h2>
           </div>
@@ -265,7 +265,7 @@ export default function AboutPageContent() {
         <div className="max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
-              <h2 className="text-orange-400 text-3xl md:text-4xl font-bold mb-6">
+              <h2 className="text-orange-500 text-3xl md:text-4xl font-bold mb-6">
                 {t("about.technology.title")}
               </h2>
               <p className="text-lg text-black dark:text-white max-w-2xl mx-auto">
@@ -276,7 +276,7 @@ export default function AboutPageContent() {
                 {technologies.map((feature, index) => (
                   <div
                     key={index}
-                    className="text-orange-400 flex items-center gap-3"
+                    className="text-orange-500 flex items-center gap-3"
                   >
                     <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0" />
                     <span>{feature.description}</span>
@@ -316,7 +316,7 @@ export default function AboutPageContent() {
       {/* CTA Section */}
       <section className="py-20 bg-yellow-100 dark:bg-gray-600">
         <div className="text-center mb-16">
-          <h2 className="text-orange-400 text-3xl md:text-4xl font-bold mb-6">
+          <h2 className="text-orange-500 text-3xl md:text-4xl font-bold mb-6">
             {t("about.cta.title")}
           </h2>
           <p className="text-lg text-gray-900 dark:text-white max-w-2xl mx-auto">
@@ -327,7 +327,7 @@ export default function AboutPageContent() {
             size="lg"
             className="bg-orange-400 hover:bg-orange-500 text-white font-semibold px-8 py-3 button-shadow"
             onClick={() => router.push("/contact")}
-            aria-label={t("about.cta.button") || "Contact Us"}
+            aria-label="Contact us for about solutions"
           >
             {t("about.cta.button")}
           </Button>

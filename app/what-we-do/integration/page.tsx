@@ -99,11 +99,11 @@ export default function IntegrationContent() {
       >
         <Card className="text-center bg-yellow-100 dark:bg-orange-100 hover:scale-105 transition-all duration-300 relative rounded-lg card-shadow border-none h-full">
           <CardContent className="p-6 flex flex-col h-full">
-            <Icon className="h-12 w-12 text-orange-400 dark:text-orange-500 mx-auto mb-4" />
+            <Icon className="h-12 w-12 text-orange-500 dark:text-orange-500 mx-auto mb-4" />
             <h3 className="text-gray-900 text-xl font-semibold mb-3">
               {service.title}
             </h3>
-            <p className="text-orange-400 dark:text-orange-500 text-md mt-auto">
+            <p className="text-orange-500 dark:text-orange-500 text-md mt-auto">
               {service.description}
             </p>
           </CardContent>
@@ -131,13 +131,13 @@ export default function IntegrationContent() {
         <Card className="bg-yellow-200 dark:bg-gray-600 text-center hover:scale-105 transition-all duration-300 relative card-shadow border-none h-full">
           <CardContent className="p-6 flex flex-col h-full">
             <div className="bg-white dark:bg-black w-16 h-16 mx-auto mb-6 flex items-center justify-center rounded-full">
-              <Icon className="w-8 h-8 text-orange-400 dark:text-orange-400" />{" "}
+              <Icon className="w-8 h-8 text-orange-500 dark:text-orange-500" />{" "}
               {/* ← aqui */}
             </div>
             <h3 className="text-black dark:text-black text-xl font-semibold mb-3">
               {service.title}
             </h3>
-            <p className="text-orange-400 dark:text-orange-400 text-md mt-auto">
+            <p className="text-orange-500 dark:text-orange-500 text-md mt-auto">
               {service.description}
             </p>
           </CardContent>
@@ -159,12 +159,12 @@ export default function IntegrationContent() {
       >
         <div className="absolute inset-0 z-0 bg-black/50" />
         <div className="container mx-auto px-4 relative z-10 h-full flex items-center justify-center">
-          <div className="bg-white/50 dark:bg-black/50 text-orange-400 rounded-lg p-6 max-w-full overflow-hidden">
-            <h1 className="text-orange-400 text-3xl sm:text-4xl lg:text-6xl font-bold text-center text-shadow break-words">
+          <div className="bg-white/50 dark:bg-black/50 text-orange-500 rounded-lg p-6 max-w-full overflow-hidden">
+            <h1 className="text-orange-500 text-3xl sm:text-4xl lg:text-6xl font-bold text-center text-shadow break-words">
               <Link className="inline h-10 w-10 sm:h-12 sm:w-12 stroke-white dark:stroke-gray-400 icon-shadow mr-2 align-middle" />
               {t("integration.hero.title")}
             </h1>
-            <p className="mt-6 text-lg sm:text-xl text-center text-white dark:text-orange-400 text-shadow">
+            <p className="mt-6 text-lg sm:text-xl text-center text-white dark:text-orange-500 text-shadow">
               {t("integration.hero.subtitle")}
             </p>
           </div>
@@ -181,7 +181,7 @@ export default function IntegrationContent() {
               <span className="text-black dark:text-yellow-500">
                 {t("integration.benefits.title.part1")}
               </span>{" "}
-              <span className="text-orange-400">
+              <span className="text-orange-500">
                 {t("integration.benefits.title.part2")}
               </span>
             </h2>
@@ -221,7 +221,7 @@ export default function IntegrationContent() {
               <span className="text-black">
                 {t("integration.solutions.title.part1")}
               </span>{" "}
-              <span className="text-orange-400">
+              <span className="text-orange-500">
                 {t("integration.solutions.title.part2")}
               </span>
             </h2>
@@ -242,10 +242,10 @@ export default function IntegrationContent() {
       {/* CTA Section */}
       <section className="py-20 bg-yellow-100 dark:bg-gray-600">
         <div className="text-center mb-16">
-          <h2 className="text-black dark:text-orange-400 text-3xl md:text-4xl font-bold mb-6">
+          <h2 className="text-black dark:text-orange-500 text-3xl md:text-4xl font-bold mb-6">
             {t("integration.cta.title")}
           </h2>
-          <p className="text-lg text-orange-400 dark:text-white max-w-2xl mx-auto">
+          <p className="text-lg text-orange-500 dark:text-white max-w-2xl mx-auto">
             {t("integration.cta.subtitle")}
           </p>
           <div className="my-8"></div>
@@ -253,7 +253,7 @@ export default function IntegrationContent() {
             size="lg"
             className="bg-orange-400 hover:bg-orange-500 text-white font-semibold px-8 py-3 button-shadow"
             onClick={() => router.push("/contact")}
-            aria-label={t("integration.cta.button") || "Contact Us"}
+            aria-label="Contact us for integration solutions"
           >
             {t("integration.cta.button")}
           </Button>

@@ -60,8 +60,9 @@ export default function CookieBanner() {
             <Button
               size="sm"
               onClick={acceptCookies}
-              className="bg-orange-600 hover:bg-orange-700 text-white"
-              aria-label={t("cookie.button") || "Accept Cookies"}
+              className="bg-orange-700 hover:bg-orange-700 text-white"
+              title="Accept Cookies"
+              aria-label="Accept Cookies"
             >
               {t("cookie.button")}
             </Button>

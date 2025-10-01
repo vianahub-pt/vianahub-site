@@ -114,7 +114,7 @@ export function IndustriesSection() {
             <span className="text-black">
               {t("home.section.industries.title.part1")}
             </span>{" "}
-            <span className="text-orange-400">
+            <span className="text-orange-700">
               {t("home.section.industries.title.part2")}
             </span>
           </h2>
@@ -141,10 +141,10 @@ export function IndustriesSection() {
                     backgroundRepeat: "no-repeat",
                   }}
                 >
-                  <div className="text-4x1 text-orange-400 dark:text-orange-400 mb-4 flex items-center justify-center ">
+                  <div className="text-4x1 text-white dark:text-white mb-4 flex items-center justify-center ">
                     {industry.icon}
                   </div>
-                  <h3 className="text-xl font-semibold text-orange-400 dark:text-orange-400 mb-4">
+                  <h3 className="text-xl font-semibold text-white dark:text-white mb-4">
                     {t(industry.title)}
                   </h3>
                   <p className="text-md text-white dark:text-white mb-6 leading-relaxed">

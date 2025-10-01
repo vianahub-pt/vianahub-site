@@ -184,12 +184,12 @@ export default function DevelopmentPageContent() {
       >
         <div className="absolute inset-0 z-0 bg-black/50" />
         <div className="container mx-auto px-4 relative z-10 h-full flex items-center justify-center">
-          <div className="bg-white/50 dark:bg-black/50 text-orange-400 rounded-lg p-6 max-w-full overflow-hidden">
-            <h1 className="text-orange-400 text-3xl sm:text-4xl lg:text-6xl font-bold text-center text-shadow break-words">
+          <div className="bg-white/50 dark:bg-black/50 text-orange-500 rounded-lg p-6 max-w-full overflow-hidden">
+            <h1 className="text-orange-500 text-3xl sm:text-4xl lg:text-6xl font-bold text-center text-shadow break-words">
               <Code2 className="inline h-10 w-10 sm:h-12 sm:w-12 stroke-white dark:stroke-gray-400 icon-shadow mr-2 align-middle" />
               {t("development.hero.title")}
             </h1>
-            <p className="mt-6 text-lg sm:text-xl text-center text-white dark:text-orange-400 text-shadow">
+            <p className="mt-6 text-lg sm:text-xl text-center text-white dark:text-orange-500 text-shadow">
               {t("development.hero.subtitle")}
             </p>
           </div>
@@ -206,12 +206,12 @@ export default function DevelopmentPageContent() {
               <span className="text-black dark:text-yellow-500">
                 {t("development.carousel.title.part1")}
               </span>{" "}
-              <span className="text-orange-400">
+              <span className="text-orange-500">
                 {t("development.carousel.title.part2")}
               </span>
             </h2>
 
-            <p className="text-lg text-orange-400 dark:text-white max-w-2xl mx-auto">
+            <p className="text-lg text-orange-500 dark:text-white max-w-2xl mx-auto">
               {t("development.carousel.subtitle")}
             </p>
           </div>
@@ -288,11 +288,11 @@ export default function DevelopmentPageContent() {
               <span className="text-black">
                 {t("development.services.title.part1")}
               </span>{" "}
-              <span className="text-orange-400">
+              <span className="text-orange-500">
                 {t("development.services.title.part2")}
               </span>
             </h2>
-            <p className="text-lg text-orange-400 dark:text-white max-w-2xl mx-auto">
+            <p className="text-lg text-orange-500 dark:text-white max-w-2xl mx-auto">
               {t("development.services.subtitle")}
             </p>
           </div>
@@ -314,7 +314,7 @@ export default function DevelopmentPageContent() {
                 <span className="text-black">
                   {t("development.technology.title.part1")}
                 </span>{" "}
-                <span className="text-orange-400">
+                <span className="text-orange-500">
                   {t("development.technology.title.part2")}
                 </span>
               </h2>
@@ -327,7 +327,7 @@ export default function DevelopmentPageContent() {
                 {technologies.map((feature, index) => (
                   <div
                     key={index}
-                    className="text-orange-400 flex items-center gap-3"
+                    className="text-orange-500 flex items-center gap-3"
                   >
                     <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0" />
                     <span>{feature.description}</span>
@@ -359,10 +359,10 @@ export default function DevelopmentPageContent() {
       {/* CTA Section */}
       <section className="py-20 bg-yellow-100 dark:bg-gray-600">
         <div className="text-center mb-16">
-          <h2 className="text-black dark:text-orange-400 text-3xl md:text-4xl font-bold mb-6">
+          <h2 className="text-black dark:text-orange-500 text-3xl md:text-4xl font-bold mb-6">
             {t("development.cta.title")}
           </h2>
-          <p className="text-lg text-orange-400 dark:text-white max-w-2xl mx-auto">
+          <p className="text-lg text-orange-500 dark:text-white max-w-2xl mx-auto">
             {t("development.cta.subtitle")}
           </p>
           <div className="my-8"></div>
@@ -370,7 +370,7 @@ export default function DevelopmentPageContent() {
             size="lg"
             className="bg-orange-400 hover:bg-orange-500 text-white font-semibold px-8 py-3 button-shadow"
             onClick={() => router.push("/contact")}
-            aria-label={t("development.cta.button") || "Contact Us"}
+            aria-label="Contact us for development solutions"
           >
             {t("development.cta.button")}
           </Button>

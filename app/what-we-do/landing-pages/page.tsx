@@ -156,12 +156,12 @@ export default function LandingPagesPage() {
       >
         <div className="absolute inset-0 z-0 bg-black/50" />
         <div className="container mx-auto px-4 relative z-10 h-full flex items-center justify-center">
-          <div className="bg-white/50 dark:bg-black/50 text-orange-400 rounded-lg p-6 max-w-full overflow-hidden">
-            <h1 className="text-orange-400 text-3xl sm:text-4xl lg:text-6xl font-bold text-center text-shadow break-words">
+          <div className="bg-white/50 dark:bg-black/50 text-orange-500 rounded-lg p-6 max-w-full overflow-hidden">
+            <h1 className="text-orange-500 text-3xl sm:text-4xl lg:text-6xl font-bold text-center text-shadow break-words">
               <Layout className="inline h-10 w-10 sm:h-12 sm:w-12 stroke-white dark:stroke-gray-400 icon-shadow mr-2 align-middle" />
               {t("landingPages.hero.title")}
             </h1>
-            <p className="mt-6 text-lg sm:text-xl text-center text-white dark:text-orange-400 text-shadow">
+            <p className="mt-6 text-lg sm:text-xl text-center text-white dark:text-orange-500 text-shadow">
               {t("landingPages.hero.subtitle")}
             </p>
           </div>
@@ -178,7 +178,7 @@ export default function LandingPagesPage() {
               <span className="text-black dark:text-yellow-500">
                 {t("landingPages.benefits.title.part1")}
               </span>{" "}
-              <span className="text-orange-400">
+              <span className="text-orange-500">
                 {t("landingPages.benefits.title.part2")}
               </span>
             </h2>
@@ -218,7 +218,7 @@ export default function LandingPagesPage() {
               <span className="text-black">
                 {t("landingPages.features.title.part1")}
               </span>{" "}
-              <span className="text-orange-400">
+              <span className="text-orange-500">
                 {t("landingPages.features.title.part2")}
               </span>
             </h2>
@@ -239,10 +239,10 @@ export default function LandingPagesPage() {
       {/* CTA Section */}
       <section className="py-20 bg-yellow-100 dark:bg-gray-600">
         <div className="text-center mb-16">
-          <h2 className="text-black dark:text-orange-400 text-3xl md:text-4xl font-bold mb-6">
+          <h2 className="text-black dark:text-orange-500 text-3xl md:text-4xl font-bold mb-6">
             {t("landingPages.cta.title")}
           </h2>
-          <p className="text-lg text-orange-400 dark:text-white max-w-2xl mx-auto">
+          <p className="text-lg text-orange-500 dark:text-white max-w-2xl mx-auto">
             {t("landingPages.cta.subtitle")}
           </p>
           <div className="my-8"></div>
@@ -250,7 +250,7 @@ export default function LandingPagesPage() {
             size="lg"
             className="bg-orange-400 hover:bg-orange-500 text-white font-semibold px-8 py-3 button-shadow"
             onClick={() => router.push("/contact")}
-            aria-label={t("landingPages.cta.button") || "Contact Us"}
+            aria-label="Contact us for landingPages solutions"
           >
             {t("landingPages.cta.button")}
           </Button>

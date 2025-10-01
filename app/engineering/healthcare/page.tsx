@@ -165,11 +165,11 @@ export default function HealthcarePageContent() {
       >
         <Card className="text-center bg-orange-400 dark:bg-black hover:scale-105 transition-all duration-300 relative border-none h-full">
           <CardContent className="p-6 flex flex-col h-full">
-            <Icon className="h-12 w-12 text-white dark:text-orange-400 mx-auto mb-4" />
+            <Icon className="h-12 w-12 text-white dark:text-orange-500 mx-auto mb-4" />
             <h3 className="text-black dark:text-white text-xl font-semibold mb-3">
               {service.title}
             </h3>
-            <p className="text-md text-white dark:text-orange-400 mt-auto">
+            <p className="text-md text-white dark:text-orange-500 mt-auto">
               {service.description}
             </p>
           </CardContent>
@@ -191,12 +191,12 @@ export default function HealthcarePageContent() {
       >
         <div className="absolute inset-0 z-0 bg-black/50" />
         <div className="container mx-auto px-4 relative z-10 h-full flex items-center justify-center">
-          <div className="bg-white/50 dark:bg-black/50 text-orange-400 rounded-lg p-6 max-w-full overflow-hidden">
-            <h1 className="text-orange-400 text-3xl sm:text-4xl lg:text-6xl font-bold text-center text-shadow break-words">
+          <div className="bg-white/50 dark:bg-black/50 text-orange-500 rounded-lg p-6 max-w-full overflow-hidden">
+            <h1 className="text-orange-500 text-3xl sm:text-4xl lg:text-6xl font-bold text-center text-shadow break-words">
               <Heart className="inline h-10 w-10 sm:h-12 sm:w-12 stroke-white dark:stroke-gray-400 icon-shadow mr-2 align-middle" />
               {t("healthcare.hero.title")}
             </h1>
-            <p className="mt-6 text-lg sm:text-xl text-center text-white dark:text-orange-400 text-shadow">
+            <p className="mt-6 text-lg sm:text-xl text-center text-white dark:text-orange-500 text-shadow">
               {t("healthcare.hero.subtitle")}
             </p>
           </div>
@@ -213,7 +213,7 @@ export default function HealthcarePageContent() {
               <span className="text-black dark:text-yellow-500">
                 {t("healthcare.carousel.title.part1")}
               </span>{" "}
-              <span className="text-orange-400">
+              <span className="text-orange-500">
                 {t("healthcare.carousel.title.part2")}
               </span>
             </h2>
@@ -295,7 +295,7 @@ export default function HealthcarePageContent() {
               <span className="text-black">
                 {t("healthcare.services.title.part1")}
               </span>{" "}
-              <span className="text-orange-400">
+              <span className="text-orange-500">
                 {t("healthcare.services.title.part2")}
               </span>
             </h2>
@@ -318,7 +318,7 @@ export default function HealthcarePageContent() {
         <div className="max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
-              <h2 className="text-orange-400 text-3xl md:text-4xl font-bold mb-6">
+              <h2 className="text-orange-500 text-3xl md:text-4xl font-bold mb-6">
                 {t("healthcare.technology.title")}
               </h2>
               <p className="text-lg text-black dark:text-white max-w-2xl mx-auto">
@@ -329,7 +329,7 @@ export default function HealthcarePageContent() {
                 {technologies.map((feature, index) => (
                   <div
                     key={index}
-                    className="text-orange-400 flex items-center gap-3"
+                    className="text-orange-500 flex items-center gap-3"
                   >
                     <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0" />
                     <span>{feature.description}</span>
@@ -361,7 +361,7 @@ export default function HealthcarePageContent() {
       {/* CTA Section */}
       <section className="py-20 bg-yellow-100 dark:bg-gray-600">
         <div className="text-center mb-16">
-          <h2 className="text-orange-400 text-3xl md:text-4xl font-bold mb-6">
+          <h2 className="text-orange-500 text-3xl md:text-4xl font-bold mb-6">
             {t("healthcare.cta.title")}
           </h2>
           <p className="text-lg text-gray-900 dark:text-white max-w-2xl mx-auto">
@@ -372,7 +372,7 @@ export default function HealthcarePageContent() {
             size="lg"
             className="bg-orange-400 hover:bg-orange-500 text-white font-semibold px-8 py-3 button-shadow"
             onClick={() => router.push("/contact")}
-            aria-label={t("healthcare.cta.button") || "Contact Us"}
+            aria-label="Contact us for healthcare solutions"
           >
             {t("healthcare.cta.button")}
           </Button>

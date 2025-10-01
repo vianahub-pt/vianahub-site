@@ -51,7 +51,7 @@ export function BackupsPageContent() {
           <Button
             size="lg"
             className="bg-viana-white text-viana-orange hover:bg-viana-yellow hover:text-viana-black"
-            aria-label={t("backups.cta.button") || "Contact Us"}
+            aria-label="Hero Backups Page"
           >
             {t("backups.hero.button")}
             <ArrowRight className="ml-2 h-5 w-5" />
@@ -72,7 +72,7 @@ export function BackupsPageContent() {
                 className="text-center hover:shadow-lg transition-shadow"
               >
                 <CardHeader>
-                  <div className="w-16 h-16 bg-viana-orange rounded-full flex items-center justify-center mx-auto mb-4">
+                  <div className="w-16 h-16 bg-orange-500 rounded-full flex items-center justify-center mx-auto mb-4">
                     <feature.icon className="h-8 w-8 text-viana-white" />
                   </div>
                   <CardTitle className="text-viana-black">

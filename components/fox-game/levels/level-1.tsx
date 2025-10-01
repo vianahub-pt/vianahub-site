@@ -37,7 +37,7 @@ export function Level1({
 
     switch (cellValue) {
       case 1:
-        baseClass = "bg-amber-800"; // Parede
+        baseClass = "bg-orange-800"; // Parede
         break;
       case 2:
         baseClass = "bg-gradient-to-br from-yellow-200 to-orange-300"; // Início - Deserto
@@ -53,7 +53,7 @@ export function Level1({
     // Adicionar classe para células clicáveis (que estão na área alcançável)
     if (gameStarted && cellValue !== 1 && isReachable(x, y)) {
       baseClass +=
-        " cursor-pointer hover:bg-yellow-200 hover:ring-2 hover:ring-amber-400 transition-all duration-200 touch-manipulation";
+        " cursor-pointer hover:bg-yellow-200 hover:ring-2 hover:ring-orange-400 transition-all duration-200 touch-manipulation";
     }
 
     return baseClass;
@@ -121,7 +121,7 @@ export function Level1({
       animate={{ opacity: 1, scale: 1 }}
       exit={{ opacity: 0, scale: 0.9 }}
       transition={{ duration: 0.5 }}
-      className={`relative border-4 border-amber-600 rounded-lg overflow-hidden bg-yellow-50 ${
+      className={`relative border-4 border-orange-600 rounded-lg overflow-hidden bg-yellow-50 ${
         isMobile ? "mx-auto" : ""
       }`}
       style={{
@@ -149,7 +149,7 @@ export function Level1({
           return (
             <div
               key={index}
-              className={`border border-amber-200 ${getCellClass(
+              className={`border border-orange-200 ${getCellClass(
                 x,
                 y
               )} relative overflow-hidden`}
@@ -164,7 +164,7 @@ export function Level1({
               {cellContent}
               {/* Indicador visual para células clicáveis com 25% mais de cor */}
               {gameStarted && isReachable(x, y) && maze.grid[y][x] !== 1 && (
-                <div className="absolute inset-0 bg-amber-400 bg-opacity-25 pointer-events-none" />
+                <div className="absolute inset-0 bg-orange-400 bg-opacity-25 pointer-events-none" />
               )}
             </div>
           );

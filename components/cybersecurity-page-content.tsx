@@ -51,7 +51,7 @@ export function CyberSecurityPageContent() {
           <Button
             size="lg"
             className="bg-viana-white text-viana-orange hover:bg-viana-yellow hover:text-viana-black"
-            aria-label={t("cybersecurity.cta.button") || "Contact Us"}
+            aria-label="Hero Cybersecurity Page"
           >
             {t("cybersecurity.hero.button")}
             <ArrowRight className="ml-2 h-5 w-5" />
@@ -72,7 +72,7 @@ export function CyberSecurityPageContent() {
                 className="text-center hover:shadow-lg transition-shadow"
               >
                 <CardHeader>
-                  <div className="w-16 h-16 bg-viana-orange rounded-full flex items-center justify-center mx-auto mb-4">
+                  <div className="w-16 h-16 bg-black rounded-full flex items-center justify-center mx-auto mb-4">
                     <feature.icon className="h-8 w-8 text-viana-white" />
                   </div>
                   <CardTitle className="text-viana-black">

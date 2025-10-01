@@ -26,7 +26,7 @@ export function NameForm({ onNameSubmit }: NameFormProps) {
 
   return (
     <div className="p-20 flex items-center justify-center bg-gray-100 dark:bg-gray-800">
-      <Card className="bg-white/50 dark:bg-gray-500 shadow-2xl">
+      <Card className="bg-white/50 dark:bg-gray-600 shadow-2xl">
         <CardContent className="p-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -40,10 +40,10 @@ export function NameForm({ onNameSubmit }: NameFormProps) {
                 alt="Fox"
                 className="w-16 h-16 mx-auto mb-4 object-contain"
               />
-              <h1 className="text-2xl text-amber-500 dark:text-orange-400 font-bold  mb-2">
+              <h1 className="text-2xl text-orange-700 dark:text-orange-500 font-bold  mb-2">
                 {t("foxGame.title")}
               </h1>
-              <p className="text-sm text-amber-500 dark:text-orange-400 mb-4">
+              <p className="text-sm text-orange-800 dark:text-orange-200 mb-4">
                 {t("foxGame.subtitle")}
               </p>
             </div>
@@ -62,7 +62,7 @@ export function NameForm({ onNameSubmit }: NameFormProps) {
                   value={name}
                   onChange={(e) => setName(e.target.value)}
                   placeholder={t("foxGame.namePlaceholder")}
-                  className="w-full text-amber-600 focus:text-amber-600 dark:text-black bg-gray-200 dark:bg-orange-200 focus:bg-white dark:focus:bg-orange-200 border-none "
+                  className="w-full text-gray-800 focus:text-orange-700 dark:text-white bg-gray-100 dark:bg-gray-800 focus:bg-white dark:focus:bg-gray-600 border-none"
                   maxLength={20}
                   required
                 />
@@ -78,7 +78,7 @@ export function NameForm({ onNameSubmit }: NameFormProps) {
             </form>
 
             <div className="text-black dark:text-white text-left mt-6">
-              <h3 className="text-sm mb-2">{t("foxGame.howToPlay")}</h3>
+              <h2 className="text-sm mb-2">{t("foxGame.howToPlay")}</h2>
               <div className="text-xs space-y-1">
                 <div>
                   •{" "}

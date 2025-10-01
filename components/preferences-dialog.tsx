@@ -1,10 +1,8 @@
 "use client";
 
 import type React from "react";
-
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
 import {
   Card,
   CardContent,
@@ -12,8 +10,6 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
-import { Label } from "@/components/ui/label";
 import {
   Select,
   SelectContent,
@@ -21,9 +17,12 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { Label } from "@/components/ui/label";
 import { Settings, Monitor, Moon, Globe, Shield, Cookie } from "lucide-react";
 import Link from "next/link";
 import { useTranslation } from "@/components/translation-context";
+import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 
 interface PreferencesDialogProps {
   children: React.ReactNode;
@@ -62,7 +61,7 @@ export function PreferencesDialog({ children }: PreferencesDialogProps) {
     <Dialog open={isOpen} onOpenChange={setIsOpen}>
       <DialogTrigger asChild>{children}</DialogTrigger>
       <DialogContent className="w-full bg-viana-white border-2 border-viana-gray shadow-2xl">
-        <div className="flex items-center justify-between bg-viana-orange px-4 py-2 -mt-6 -mx-6 mb-4">
+        <div className="flex items-center justify-between bg-orange-500 px-4 py-2 -mt-6 -mx-6 mb-4">
           <div className="flex items-center space-x-2">
             <Settings className="h-4 w-4 text-viana-white" />
             <span className="text-viana-white font-medium text-sm">
@@ -98,7 +97,7 @@ export function PreferencesDialog({ children }: PreferencesDialogProps) {
                     htmlFor="theme-default"
                     className="flex items-center cursor-pointer flex-1"
                   >
-                    <div className="w-6 h-6 bg-viana-orange rounded mr-3"></div>
+                    <div className="w-6 h-6 bg-orange-500 rounded mr-3"></div>
                     <div>
                       <div className="font-medium text-viana-black">
                         {t("preferences.theme.default")}
@@ -197,18 +196,14 @@ export function PreferencesDialog({ children }: PreferencesDialogProps) {
             variant="outline"
             onClick={() => setIsOpen(false)}
             className="border-viana-gray text-viana-gray hover:bg-viana-gray hover:text-viana-white"
-            arial-label={
-              t("preferences.cancel") || "Cancel and close preferences dialog"
-            }
+            arial-label="Cancel and close preferences dialog"
           >
             {t("preferences.cancel")}
           </Button>
           <Button
             onClick={handleSavePreferences}
-            className="bg-viana-orange text-viana-white hover:bg-viana-yellow hover:text-viana-black"
-            arial-label={
-              t("preferences.apply") || "Apply preferences and close dialog"
-            }
+            className="bg-orange-500 text-viana-white hover:bg-viana-yellow hover:text-viana-black"
+            arial-label="Apply preferences and close dialog"
           >
             {t("preferences.apply")}
           </Button>

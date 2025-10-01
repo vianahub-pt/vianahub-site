@@ -40,8 +40,8 @@ export default function TermsPage() {
       >
         <div className="absolute inset-0 z-0 bg-black/50" />
         <div className="container mx-auto px-4 relative z-10 h-full flex items-center justify-center">
-          <div className="bg-white/50 dark:bg-black/50 text-orange-400 rounded-lg p-6 max-w-full overflow-hidden">
-            <h1 className="text-orange-400 text-3xl sm:text-4xl lg:text-6xl font-bold text-center text-shadow break-words">
+          <div className="bg-white/50 dark:bg-black/50 text-orange-500 rounded-lg p-6 max-w-full overflow-hidden">
+            <h1 className="text-orange-500 text-3xl sm:text-4xl lg:text-6xl font-bold text-center text-shadow break-words">
               <ReceiptText className="inline h-10 w-10 sm:h-12 sm:w-12 stroke-white dark:stroke-gray-400 icon-shadow mr-2 align-middle" />
               {t("terms.hero.title")}
             </h1>
@@ -202,7 +202,7 @@ export default function TermsPage() {
                   }}
                   className="bg-orange-500 text-white hover:bg-orange-600"
                   disabled={alreadyAccepted}
-                  aria-label={t("terms.conditions.button") || "Accept Terms"}
+                  aria-label="Accept Terms and Conditions"
                 >
                   {t("terms.conditions.button")}
                 </Button>

@@ -135,12 +135,12 @@ export default function ContactPage() {
       >
         <div className="absolute inset-0 z-0 bg-black/50" />
         <div className="container mx-auto px-4 relative z-10 h-full flex items-center justify-center">
-          <div className="bg-white/50 dark:bg-black/50 text-orange-400 rounded-lg p-6 max-w-full overflow-hidden">
-            <h1 className="text-orange-400 text-3xl sm:text-4xl lg:text-6xl font-bold text-center text-shadow break-words">
+          <div className="bg-white/50 dark:bg-black/50 text-orange-500 rounded-lg p-6 max-w-full overflow-hidden">
+            <h1 className="text-orange-500 text-3xl sm:text-4xl lg:text-6xl font-bold text-center text-shadow break-words">
               <SendHorizonal className="inline h-10 w-10 sm:h-12 sm:w-12 stroke-white dark:stroke-gray-400 icon-shadow mr-2 align-middle" />
               {t("contact.hero.title")}
             </h1>
-            <p className="mt-6 text-lg sm:text-xl text-center text-white dark:text-orange-400 text-shadow">
+            <p className="mt-6 text-lg sm:text-xl text-center text-white dark:text-orange-500 text-shadow">
               {t("contact.hero.subtitle")}
             </p>
           </div>
@@ -191,7 +191,7 @@ export default function ContactPage() {
               <span className="text-black dark:text-yellow-500">
                 {t("contact.form.title.part1")}
               </span>{" "}
-              <span className="text-orange-400">
+              <span className="text-orange-500">
                 {t("contact.form.title.part2")}
               </span>
             </h2>
@@ -205,7 +205,7 @@ export default function ContactPage() {
             {/* Contact Form */}
             <Card className="w-[90%] bg-orange-100 border-lg border-none card-shadow">
               <CardHeader>
-                <CardTitle className="text-2xl text-center text-orange-400">
+                <CardTitle className="text-2xl text-center text-orange-500">
                   {t("contact.form.title")}
                 </CardTitle>
               </CardHeader>
@@ -342,7 +342,7 @@ export default function ContactPage() {
                 {technologies.map((feature, index) => (
                   <div
                     key={index}
-                    className="text-orange-400 flex items-center gap-3"
+                    className="text-orange-500 flex items-center gap-3"
                   >
                     <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0" />
                     <span>{feature.description}</span>
@@ -360,34 +360,34 @@ export default function ContactPage() {
                 <div className="aspect-[16/9] w-full max-w-3xl mx-auto">
                   <Card>
                     <CardHeader>
-                      <CardTitle className="text-2xl text-orange-400">
+                      <CardTitle className="text-2xl text-orange-500">
                         {t("contact.info.title")}
                       </CardTitle>
                     </CardHeader>
                     <CardContent className="space-y-6">
                       <ul className="space-y-2">
-                        <li className="flex items-center text-black dark:text-orange-400 text-lx p-2">
+                        <li className="flex items-center text-black dark:text-orange-500 text-lx p-2">
                           <Mail className="h-4 w-4 stroke-black dark:stroke-orange-400" />
                           <span className="ml-2">{t("footer.email.pt")}</span>
                         </li>
-                        <li className="flex items-center text-black dark:text-orange-400 text-lx p-2">
+                        <li className="flex items-center text-black dark:text-orange-500 text-lx p-2">
                           <Phone className="h-4 w-4 stroke-black dark:stroke-orange-400" />
                           <span className="ml-2">{t("footer.phone.pt")}</span>
                         </li>
-                        <li className="flex items-start text-black dark:text-orange-400 text-lx p-2">
+                        <li className="flex items-start text-black dark:text-orange-500 text-lx p-2">
                           <MapPin className="h-4 w-4 stroke-black dark:stroke-orange-400" />
                           <span className="ml-2">{t("footer.address.pt")}</span>
                         </li>
                         <div className="border-t border-orange-400 dark:border-white p-2"></div>
-                        <li className="flex items-center text-black dark:text-orange-400 text-lx p-2">
+                        <li className="flex items-center text-black dark:text-orange-500 text-lx p-2">
                           <Mail className="h-4 w-4 stroke-black dark:stroke-orange-400" />
                           <span className="ml-2">{t("footer.email.br")}</span>
                         </li>
-                        <li className="flex items-center text-black dark:text-orange-400 text-lx p-2">
+                        <li className="flex items-center text-black dark:text-orange-500 text-lx p-2">
                           <Phone className="h-4 w-4 stroke-black dark:stroke-orange-400" />
                           <span className="ml-2">{t("footer.phone.br")}</span>
                         </li>
-                        <li className="flex items-start text-black dark:text-orange-400 text-lx p-2">
+                        <li className="flex items-start text-black dark:text-orange-500 text-lx p-2">
                           <MapPin className="h-4 w-4 stroke-black dark:stroke-orange-400" />
                           <span className="ml-2">{t("footer.address.br")}</span>
                         </li>

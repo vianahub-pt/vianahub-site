@@ -4,6 +4,7 @@ import { useState, useEffect, useRef } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Code, Smartphone, Shield, Zap, Layout, Link } from "lucide-react";
 import { useTranslation } from "@/components/translation-context";
+import { motion } from "framer-motion";
 
 const services = [
   {
@@ -76,7 +77,7 @@ export function ServicesSection() {
             <span className="text-black">
               {t("home.section.services.title.part1")}
             </span>{" "}
-            <span className="text-orange-400">
+            <span className="text-orange-700">
               {t("home.section.services.title.part2")}
             </span>
           </h2>
@@ -90,22 +91,36 @@ export function ServicesSection() {
             const Icon = service.icon;
 
             return (
-              <Card
-                key={index}
-                className="w-full bg-orange-200 dark:bg-gray-500 shadow-2xl border-none"
+              <motion.div
+                initial={{ opacity: 0, rotateY: -90 }}
+                whileInView={{ opacity: 1, rotateY: 0 }}
+                viewport={{ once: false, amount: 0.2 }}
+                transition={{
+                  delay: index * 0.2,
+                  type: "spring",
+                  duration: 20,
+                  stiffness: 50,
+                }}
+                className="h-full"
+                style={{ perspective: 1000 }}
               >
-                <CardContent className="p-8 text-center">
-                  <div className="text-4x1 text-orange-400 dark:text-orange-400 mb-4 flex items-center justify-center ">
-                    <Icon />
-                  </div>
-                  <h3 className="text-xl font-semibold text-orange-400 dark:text-orange-400 mb-4">
-                    {t(service.titleKey)}
-                  </h3>
-                  <p className="text-md text-black dark:text-white mb-6 leading-relaxed">
-                    {t(service.descriptionKey)}
-                  </p>
-                </CardContent>
-              </Card>
+                <Card
+                  key={index}
+                  className="w-full bg-orange-900 dark:bg-orange-900 shadow-2xl border-none"
+                >
+                  <CardContent className="p-8 text-center">
+                    <div className="text-4x1 text-yellow-200 dark:text-yellow-200 mb-4 flex items-center justify-center ">
+                      <Icon />
+                    </div>
+                    <h3 className="text-xl font-semibold text-white dark:text-white mb-4">
+                      {t(service.titleKey)}
+                    </h3>
+                    <p className="text-md text-yellow-200 dark:text-yellow-200 mb-6 leading-relaxed">
+                      {t(service.descriptionKey)}
+                    </p>
+                  </CardContent>
+                </Card>
+              </motion.div>
             );
           })}
         </div>

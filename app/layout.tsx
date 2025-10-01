@@ -85,6 +85,23 @@ export default function RootLayout({
   return (
     <html lang="en-US" suppressHydrationWarning>
       <head>
+        {/* Favicon padrão */}
+        <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+
+        {/* Favicon PNG para navegadores modernos */}
+        <link rel="icon" href="/favicon.png" type="image/png" sizes="32x32" />
+        <link rel="icon" href="/favicon.png" type="image/png" sizes="16x16" />
+
+        {/* Favicon para dispositivos Apple */}
+        <link
+          rel="apple-touch-icon"
+          href="/apple-touch-icon.png"
+          sizes="180x180"
+        />
+
+        {/* Favicon para Android e PWA */}
+        <link rel="icon" href="/android-icon-192x192.png" sizes="192x192" />
+        <link rel="icon" href="/android-icon-512x512.png" sizes="512x512" />
         <script
           dangerouslySetInnerHTML={{
             __html: `

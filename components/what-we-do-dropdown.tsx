@@ -15,6 +15,7 @@ import {
   Waypoints,
 } from "lucide-react";
 import { useTranslation } from "@/components/translation-context";
+import { Button } from "./ui/button";
 
 const menuItems = [
   {
@@ -89,16 +90,20 @@ export function WhatWeDoDropdown() {
       onMouseEnter={() => setIsOpen(true)}
       onMouseLeave={() => setIsOpen(false)}
     >
-      <button
-        className="flex items-center space-x-1 px-3 py-2 rounded-md transition-all duration-100 font-medium cursor-pointer
-                   bg-white/0 text-orange-500 hover:bg-black/80 hover:text-orange-400 dark:bg-black dark:text-orange-400 
-                   dark:hover:bg-white dark:hover:text-orange-500 text-md"
+      <Button
+        className="flex items-center space-x-1 px-3 py-2 rounded-md transition-all duration-100 cursor-pointer text-md
+                   bg-white text-black hover:bg-white hover:text-orange-600 dark:bg-black dark:text-orange-500 
+                   dark:hover:bg-black dark:hover:text-white"
         title={t("nav.whatWeDo")}
-        aria-label={t("nav.whatWeDo") || "What We Do"}
+        aria-label="What We Do Dropdown"
       >
         <span>{t("nav.whatWeDo")}</span>
-        <ChevronDown className="h-4 w-4" />
-      </button>
+        <ChevronDown
+          className={`h-4 w-4 transition-transform duration-200 ${
+            isOpen ? "rotate-180" : ""
+          }`}
+        />
+      </Button>
 
       {isOpen && (
         <div className="absolute top-full left-0 w-56 bg-black/80 backdrop-blur-md rounded-md shadow-lg border border-gray-600 z-50">
@@ -108,9 +113,9 @@ export function WhatWeDoDropdown() {
               <button
                 key={item.key}
                 onClick={() => handleNavigation(item.path)}
-                className="flex items-center gap-3 w-full text-left px-4 py-2 text-sm text-orange-400 hover:bg-yellow-500/20 hover:text-white transition-colors duration-150"
+                className="flex items-center gap-3 w-full text-left px-4 py-2 text-sm text-orange-500 hover:bg-yellow-500/20 hover:text-white transition-colors duration-150"
                 title={t(item.key)}
-                aria-label={t(item.key)}
+                aria-label="Language Selector"
               >
                 <IconComponent className="h-4 w-4 stroke-white dark:stroke-gray-400" />
                 {t(item.key)}
@@ -135,16 +140,16 @@ export function WhatWeDoDropdownMobile({
       {menuItems.map((item) => {
         const IconComponent = item.icon;
         return (
-          <button
+          <Button
             key={item.key}
             onClick={() => onNavigate(item.path)} // ✅ fecha e navega
-            className="flex items-center gap-3 w-full text-left px-4 py-2 text-sm text-orange-400 hover:bg-yellow-500/20 hover:text-white transition-colors duration-150"
+            className="flex items-center gap-3 w-full text-left px-4 py-2 text-sm text-orange-500 hover:bg-yellow-500/20 hover:text-white transition-colors duration-150"
             title={t(item.key)}
-            aria-label={t(item.key)}
+            aria-label="Language Selector Mobile"
           >
             <IconComponent className="h-4 w-4 stroke-white dark:stroke-gray-400" />
             {t(item.key)}
-          </button>
+          </Button>
         );
       })}
     </div>

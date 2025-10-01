@@ -59,7 +59,7 @@ export function TestimonialsSection() {
             <span className="text-black">
               {t("home.section.testimonials.title.part1")}
             </span>{" "}
-            <span className="text-orange-400">
+            <span className="text-orange-700">
               {t("home.section.testimonials.title.part2")}
             </span>
           </h2>
@@ -89,7 +89,7 @@ export function TestimonialsSection() {
                     className="flex-shrink-0 px-4"
                     style={{ width: "300px" }}
                   >
-                    <div className="bg-orange-400 dark:bg-gray-800 rounded-lg p-6 shadow-md transition-all duration-700 ease-in-out mx-auto max-w-sm h-full">
+                    <div className="bg-black dark:bg-black rounded-lg p-6 shadow-md transition-all duration-700 ease-in-out mx-auto max-w-sm h-full">
                       <div className="flex flex-col items-center mb-4">
                         <div className="relative w-20 h-20 rounded-full overflow-hidden mb-4">
                           <Image
@@ -109,15 +109,15 @@ export function TestimonialsSection() {
                         </div>
                       </div>
 
-                      <blockquote className="text-xs text-black dark:text-white mb-4 text-center italic ">
+                      <blockquote className="text-xs text-white dark:text-white mb-4 text-center italic ">
                         "{t(testimonial.textKey)}"
                       </blockquote>
 
                       <div className="text-center">
-                        <p className="font-semibold text-white dark:text-orange-400">
+                        <p className="font-semibold text-white dark:text-white">
                           {t(testimonial.nameKey)}
                         </p>
-                        <p className="text-xs text-black dark:text-white">
+                        <p className="text-md text-yellow-400 dark:text-yellow-400">
                           {t(testimonial.companyKey)}
                         </p>
                       </div>

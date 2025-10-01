@@ -25,6 +25,7 @@ import {
   useTranslation,
   type Language,
 } from "@/components/translation-context";
+import { Button } from "./ui/button";
 
 const languages = [
   { code: "pt-BR" as Language, name: "Português", flag: "/flags/br.svg" },
@@ -81,12 +82,12 @@ export function Navbar() {
               onClick={() => handleNavigation("/")}
               className="flex items-center cursor-pointer h-full relative"
               title="VianaHub"
-              arial-label="VianaHub Home"
+              aria-label="VianaHub Home"
             >
               <Image
                 src="/logo/default-black-logo.png"
                 alt="VianaHub Light"
-                className="h-[80%] w-auto dark:hidden"
+                className="w-[150px] h-auto dark:hidden object-contain"
                 width={200}
                 height={100}
                 priority
@@ -94,7 +95,7 @@ export function Navbar() {
               <Image
                 src="/logo/default-white-logo.png"
                 alt="VianaHub Dark"
-                className="h-[80%] w-auto hidden dark:block"
+                className="w-[150px] h-auto hidden dark:block object-contain"
                 width={200}
                 height={100}
                 priority
@@ -107,15 +108,16 @@ export function Navbar() {
             <WhatWeDoDropdown />
             <EngineeringDropdown />
             <InstitutionalDropdown />
-            <button
+            <Button
               onClick={() => handleNavigation("/contact")}
-              className="flex items-center space-x-1 px-3 py-2 rounded-md transition-all duration-100 font-medium cursor-pointer 
-              bg-white/0 text-orange-500 hover:bg-black hover:text-orange-400 dark:bg-black dark:text-orange-400 dark:hover:bg-white dark:hover:text-orange-500 text-md"
+              className="flex items-center space-x-1 px-3 py-2 rounded-md transition-all duration-100 cursor-pointer text-md
+                   bg-white text-black hover:bg-white hover:text-orange-600 dark:bg-black dark:text-orange-500 
+                   dark:hover:bg-black dark:hover:text-white"
               title={t("nav.contact")}
-              aria-label={t("nav.contact")}
+              aria-label="Contact Us"
             >
               {t("nav.contact")}
-            </button>
+            </Button>
             <LanguageSelector />
             <ThemeToggle />
           </div>
@@ -123,11 +125,11 @@ export function Navbar() {
           {/* Mobile menu button */}
           <div className="lg:hidden flex items-center space-x-2">
             <ThemeToggle />
-            <button
+            <Button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               className="inline-flex items-center justify-center p-2 rounded-md 
               focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white
-              bg-white/0 text-orange-500 hover:bg-black/80 hover:text-orange-400 dark:bg-black dark:text-orange-400 dark:hover:bg-white dark:hover:text-orange-500"
+              bg-white/0 text-orange-500 hover:bg-black/80 hover:text-orange-500 dark:bg-black dark:text-orange-500 dark:hover:bg-white dark:hover:text-orange-500"
               aria-expanded={isMenuOpen}
               aria-label="Toggle menu"
             >
@@ -136,7 +138,7 @@ export function Navbar() {
               ) : (
                 <Menu className="block h-6 w-6" />
               )}
-            </button>
+            </Button>
           </div>
         </div>
 
@@ -146,17 +148,17 @@ export function Navbar() {
             <div className="w-[180px] px-2 pt-2 pb-3 space-y-1 bg-black/80 backdrop-blur-md rounded-md mt-2">
               {/* WhatWeDo */}
               <div className="relative">
-                <button
+                <Button
                   onClick={() =>
                     setOpenDropdown(
                       openDropdown === "whatWeDo" ? null : "whatWeDo"
                     )
                   }
                   className="flex items-center space-x-1 px-3 py-2 rounded-md transition-all duration-100 font-medium cursor-pointer
-                   bg-white/0 text-orange-500 hover:bg-black/80 hover:text-orange-400 dark:bg-black dark:text-orange-400 
+                   bg-white/0 text-orange-500 hover:bg-black/80 hover:text-orange-500 dark:bg-black dark:text-orange-500 
                    dark:hover:bg-white dark:hover:text-orange-500 text-md"
                   title={t("nav.whatWeDo")}
-                  aria-label={t("nav.whatWeDo") || "What We Do"}
+                  aria-label="What We Do"
                 >
                   <span>{t("nav.whatWeDo")}</span>
                   <ChevronDown
@@ -164,7 +166,7 @@ export function Navbar() {
                       openDropdown === "whatWeDo" ? "rotate-180" : "rotate-0"
                     }`}
                   />
-                </button>
+                </Button>
                 {openDropdown === "whatWeDo" && (
                   <WhatWeDoDropdownMobile onNavigate={handleNavigation} />
                 )}
@@ -172,17 +174,17 @@ export function Navbar() {
 
               {/* Engineering */}
               <div className="relative">
-                <button
+                <Button
                   onClick={() =>
                     setOpenDropdown(
                       openDropdown === "engineering" ? null : "engineering"
                     )
                   }
                   className="flex items-center space-x-1 px-3 py-2 rounded-md transition-all duration-100 font-medium cursor-pointer
-                   bg-white/0 text-orange-500 hover:bg-black/80 hover:text-orange-400 dark:bg-black dark:text-orange-400 
+                   bg-white/0 text-orange-500 hover:bg-black/80 hover:text-orange-500 dark:bg-black dark:text-orange-500 
                    dark:hover:bg-white dark:hover:text-orange-500 text-md"
                   title={t("nav.engineering")}
-                  aria-label={t("nav.engineering") || "Engineering"}
+                  aria-label="Engineering"
                 >
                   <span>{t("nav.engineering")}</span>
                   <ChevronDown
@@ -190,7 +192,7 @@ export function Navbar() {
                       openDropdown === "engineering" ? "rotate-180" : "rotate-0"
                     }`}
                   />
-                </button>
+                </Button>
                 {openDropdown === "engineering" && (
                   <EngineeringDropdownMobile onNavigate={handleNavigation} />
                 )}
@@ -198,17 +200,17 @@ export function Navbar() {
 
               {/* Institutional */}
               <div className="relative">
-                <button
+                <Button
                   onClick={() =>
                     setOpenDropdown(
                       openDropdown === "institutional" ? null : "institutional"
                     )
                   }
                   className="flex items-center space-x-1 px-3 py-2 rounded-md transition-all duration-100 font-medium cursor-pointer
-                   bg-white/0 text-orange-500 hover:bg-black/80 hover:text-orange-400 dark:bg-black dark:text-orange-400 
+                   bg-white/0 text-orange-500 hover:bg-black/80 hover:text-orange-500 dark:bg-black dark:text-orange-500 
                    dark:hover:bg-white dark:hover:text-orange-500 text-md"
                   title={t("nav.institutional")}
-                  aria-label={t("nav.institutional") || "Institutional"}
+                  aria-label="Institutional"
                 >
                   <span>{t("nav.institutional")}</span>
                   <ChevronDown
@@ -218,34 +220,34 @@ export function Navbar() {
                         : "rotate-0"
                     }`}
                   />
-                </button>
+                </Button>
                 {openDropdown === "institutional" && (
                   <InstitutionalDropdownMobile onNavigate={handleNavigation} />
                 )}
               </div>
 
               {/* Contact */}
-              <button
+              <Button
                 onClick={() => handleNavigation("/contact")}
                 className="flex items-center space-x-1 px-3 py-2 rounded-md transition-all duration-100 font-medium cursor-pointer 
-                           bg-white/0 text-orange-500 hover:bg-black hover:text-orange-400 dark:bg-black dark:text-orange-400 
+                           bg-white/0 text-orange-500 hover:bg-black hover:text-orange-500 dark:bg-black dark:text-orange-500 
                            dark:hover:bg-white dark:hover:text-orange-500 text-md"
                 title={t("nav.contact")}
-                aria-label={t("nav.contact")}
+                aria-label="Contact Us"
               >
                 {t("nav.contact")}
-              </button>
+              </Button>
 
               {/* Language */}
               <div className="relative">
-                <button
+                <Button
                   onClick={() =>
                     setOpenDropdown(
                       openDropdown === "language" ? null : "language"
                     )
                   }
                   className="flex items-center space-x-1 px-3 py-2 rounded-md transition-all duration-100 font-medium cursor-pointer 
-                             bg-white/0 text-orange-500 hover:bg-black hover:text-orange-400 dark:bg-black dark:text-orange-400 
+                             bg-white/0 text-orange-500 hover:bg-black hover:text-orange-500 dark:bg-black dark:text-orange-500 
                              dark:hover:bg-white dark:hover:text-orange-500 text-md"
                   title="Select Language"
                   aria-label="Select Language"
@@ -263,7 +265,7 @@ export function Navbar() {
                       openDropdown === "language" ? "rotate-180" : "rotate-0"
                     }`}
                   />
-                </button>
+                </Button>
                 {openDropdown === "language" && (
                   <LanguageSelectorMobile onNavigate={handleNavigation} />
                 )}

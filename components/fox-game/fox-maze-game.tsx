@@ -675,11 +675,11 @@ export default function FoxMazeGame() {
     return (
       <div className="flex items-center justify-center h-[750px] bg-white">
         <div className="flex flex-col items-center gap-4">
-          <div className="w-16 h-16 border-4 border-amber-600 border-t-transparent rounded-full animate-spin"></div>
-          <div className="text-2xl text-amber-800 font-bold">
+          <div className="w-16 h-16 border-4 border-orange-600 border-t-transparent rounded-full animate-spin"></div>
+          <div className="text-2xl text-orange-800 font-bold">
             {t("foxGame.loading")}
           </div>
-          <div className="text-sm text-amber-600">
+          <div className="text-sm text-orange-600">
             {t("foxGame.loadingSubtitle")}
           </div>
         </div>
@@ -843,7 +843,7 @@ export default function FoxMazeGame() {
                               ? "bg-red-600 hover:bg-red-700 text-white"
                               : "bg-green-600 hover:bg-green-700 text-white"
                           }`}
-                          aria-label={gameStarted ? "Pause Game" : "Start Game"}
+                          aria-label="Start/Pause Game"
                         >
                           {gameStarted ? (
                             <PauseIcon size={isMobile ? 14 : 18} />
@@ -921,13 +921,13 @@ export default function FoxMazeGame() {
                 </div>
 
                 {/* Ranking History */}
-                <div className="bg-amber-50 border-2 border-amber-200 rounded-lg p-4 flex-1 flex flex-col overflow-hidden">
-                  <h3 className="text-lg font-semibold text-amber-800 mb-3">
+                <div className="bg-orange-50 border-2 border-orange-200 rounded-lg p-4 flex-1 flex flex-col overflow-hidden">
+                  <h3 className="text-lg font-semibold text-orange-800 mb-3">
                     {t("foxGame.ranking.title")}
                   </h3>
                   <div className="space-y-2 overflow-y-auto flex-1 min-h-0 max-h-48 lg:max-h-80">
                     {ranking.length === 0 ? (
-                      <div className="text-center py-4 text-amber-600">
+                      <div className="text-center py-4 text-orange-600">
                         <p className="text-sm">
                           {t("foxGame.ranking.empty.title")}
                         </p>
@@ -968,7 +968,7 @@ export default function FoxMazeGame() {
                               <span className="text-xs font-bold w-6">
                                 {index + 1}º
                               </span>
-                              <span className="text-amber-800 flex items-center gap-1">
+                              <span className="text-orange-800 flex items-center gap-1">
                                 <img
                                   src="/fox.png"
                                   alt="Player"
@@ -982,7 +982,7 @@ export default function FoxMazeGame() {
                                 )}
                               </span>
                             </div>
-                            <span className="font-bold text-amber-700">
+                            <span className="font-bold text-orange-700">
                               {formatTime(entry.time)}
                             </span>
                           </motion.div>
@@ -991,7 +991,7 @@ export default function FoxMazeGame() {
                     )}
                   </div>
                   {ranking.length > 0 && (
-                    <div className="mt-3 pt-2 border-t border-amber-200 text-xs text-amber-600 text-center flex-shrink-0">
+                    <div className="mt-3 pt-2 border-t border-orange-200 text-xs text-orange-600 text-center flex-shrink-0">
                       {t("foxGame.ranking.footer")}
                     </div>
                   )}
@@ -1053,10 +1053,7 @@ export default function FoxMazeGame() {
                           <Button
                             onClick={restartGame}
                             className="bg-green-600 hover:bg-green-700 text-white"
-                            aria-label={
-                              t("foxGame.congratulations.playAgain") ||
-                              "Play Again"
-                            }
+                            aria-label="Play Again"
                           >
                             <RefreshIcon size={16} className="mr-2" />
                             {t("foxGame.congratulations.playAgain")}

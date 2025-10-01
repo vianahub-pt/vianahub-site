@@ -50,12 +50,12 @@ export function InsightsSection() {
       }}
     >
       <div className="container mx-auto px-4 relative z-10">
-        <div className="text-center bg-white/50 dark:bg-black/60 border border-white backdrop-blur-sm rounded-lg p-6 mb-16">
+        <div className="text-center bg-white/50 dark:bg-black/50 backdrop-blur-sm rounded-lg p-6 mb-16">
           <h2 className="text-3xl lg:text-4xl font-bold text-viana-black mb-4">
             <span className="text-black">
               {t("home.section.insights.title.part1")}
             </span>{" "}
-            <span className="text-orange-400">
+            <span className="text-orange-500 dark:text-white">
               {t("home.section.insights.title.part2")}
             </span>
           </h2>
@@ -68,19 +68,19 @@ export function InsightsSection() {
           {insights.map((insight, index) => (
             <Card
               key={index}
-              className="text-center bg-white/50 dark:bg-black/60 border border-white backdrop-blur-sm rounded-lg p-6"
+              className="text-center bg-white/50 dark:bg-black/40 border-none backdrop-blur-sm rounded-lg p-6"
             >
               <CardContent className="p-8 text-center">
                 <div className="flex justify-center mb-4">{insight.icon}</div>
                 <Counter
                   end={insight.value}
                   suffix={insight.suffix}
-                  className="text-4xl font-bold text-orange-400 dark:text-white mb-2"
+                  className="text-4xl font-bold text-orange-500 dark:text-white mb-2"
                 />
-                <h3 className="text-xl text-black dark:text-orange-400 font-bold mb-3">
+                <h3 className="text-xl text-black dark:text-white font-bold mb-3">
                   {insight.title}
                 </h3>
-                <p className="text-orange-400 dark:text-white">
+                <p className="text-orange-500 dark:text-white">
                   {insight.description}
                 </p>
               </CardContent>

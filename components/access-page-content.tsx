@@ -72,7 +72,7 @@ export function AccessPageContent() {
                 className="text-center hover:shadow-lg transition-shadow"
               >
                 <CardHeader>
-                  <div className="w-16 h-16 bg-viana-orange rounded-full flex items-center justify-center mx-auto mb-4">
+                  <div className="w-16 h-16 bg-orange/500 rounded-full flex items-center justify-center mx-auto mb-4">
                     <feature.icon className="h-8 w-8 text-viana-white" />
                   </div>
                   <CardTitle className="text-viana-black">

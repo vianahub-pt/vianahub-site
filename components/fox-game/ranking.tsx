@@ -29,13 +29,13 @@ export function Ranking({
   };
 
   return (
-    <div className="bg-amber-50 border-2 border-amber-200 rounded-lg p-4 flex-1 flex flex-col overflow-hidden">
-      <h3 className="text-lg font-semibold text-amber-800 mb-3">
+    <div className="bg-orange-50 border-2 border-orange-200 rounded-lg p-4 flex-1 flex flex-col overflow-hidden">
+      <h3 className="text-lg font-semibold text-orange-800 mb-3">
         {t("foxGame.ranking.title")}
       </h3>
       <div className="space-y-2 overflow-y-auto flex-1 min-h-0 max-h-48 lg:max-h-80">
         {ranking.length === 0 ? (
-          <div className="text-center py-4 text-amber-600">
+          <div className="text-center py-4 text-orange-600">
             <p className="text-sm">{t("foxGame.ranking.empty.title")}</p>
             <p className="text-xs">{t("foxGame.ranking.empty.subtitle")}</p>
           </div>
@@ -66,7 +66,7 @@ export function Ranking({
               >
                 <div className="flex items-center gap-2">
                   <span className="text-xs font-bold w-6">{index + 1}º</span>
-                  <span className="text-amber-800 flex items-center gap-1">
+                  <span className="text-orange-800 flex items-center gap-1">
                     <img
                       src="/fox-right.png"
                       alt="Player"
@@ -80,7 +80,7 @@ export function Ranking({
                     )}
                   </span>
                 </div>
-                <span className="font-bold text-amber-700">
+                <span className="font-bold text-orange-700">
                   {formatTime(entry.time)}
                 </span>
               </motion.div>
@@ -89,7 +89,7 @@ export function Ranking({
         )}
       </div>
       {ranking.length > 0 && (
-        <div className="mt-3 pt-2 border-t border-amber-200 text-xs text-amber-600 text-center flex-shrink-0">
+        <div className="mt-3 pt-2 border-t border-orange-200 text-xs text-orange-600 text-center flex-shrink-0">
           {t("foxGame.ranking.footer")}
         </div>
       )}

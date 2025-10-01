@@ -3,7 +3,6 @@
 import { useState, useEffect } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { ChevronLeft, ChevronRight, ExternalLink } from "lucide-react";
 import Image from "next/image";
 import { useTranslation } from "@/components/translation-context";
 
@@ -123,7 +122,7 @@ export function ProjectsSection() {
             <span className="text-black">
               {t("home.section.projects.title.part1")}
             </span>{" "}
-            <span className="text-orange-400">
+            <span className="text-orange-700">
               {t("home.section.projects.title.part2")}
             </span>
           </h2>
@@ -158,7 +157,7 @@ export function ProjectsSection() {
                           />
                           <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
                           <div className="absolute top-4 right-4">
-                            <div className="!bg-viana-orange text-white px-3 py-1 text-sm font-medium">
+                            <div className="bg-orange-700 text-white px-3 py-1 text-sm font-medium">
                               {t(project.category)}
                             </div>
                           </div>
@@ -177,7 +176,7 @@ export function ProjectsSection() {
                             {project.tech.map((tech, index) => (
                               <span
                                 key={index}
-                                className="!bg-viana-orange/50 text-gray-900 px-3 py-1 text-sm font-medium"
+                                className="bg-orange-500 text-gray-900 px-3 py-1 text-sm font-medium"
                               >
                                 {tech}
                               </span>
@@ -195,13 +194,13 @@ export function ProjectsSection() {
           {/* Dots Indicator */}
           <div className="flex justify-center mt-8 space-x-2">
             {projects.map((_, index) => (
-              <button
+              <Button
                 key={index}
                 className={`w-3 h-3 rounded-full transition-colors ${
-                  index === currentIndex ? "!bg-viana-orange" : "bg-gray-300"
+                  index === currentIndex ? "bg-orange-500" : "bg-gray-300"
                 }`}
                 onClick={() => goToProject(index)}
-                aria-label={`Go to project ${index + 1}`}
+                aria-label="Go to project"
               />
             ))}
           </div>
