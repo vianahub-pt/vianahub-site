@@ -1,0 +1,122 @@
+trigger:
+  branches:
+    include:
+      - develop
+      - main
+
+pool:
+  vmImage: "ubuntu-latest"
+
+variables:
+  - name: NODE_VERSION
+    value: "18.x"
+  - group: VianaHubSecrets
+
+stages:
+  # -------------------------------
+  # Stage 1: BUILD + Artifact
+  # -------------------------------
+  - stage: Build
+    displayName: "Build and Create Artifact"
+    jobs:
+      - job: BuildJob
+        displayName: "Build Static Site"
+        steps:
+          - task: NodeTool@0
+            inputs:
+              versionSpec: "$(NODE_VERSION)"
+            displayName: "Install Node.js"
+
+          - script: npm install -g pnpm
+            displayName: "Install pnpm"
+
+          - script: |
+              pnpm config set store-dir $(Pipeline.Workspace)/.pnpm-store
+              pnpm install --frozen-lockfile
+            displayName: "Install dependencies with pnpm"
+
+          - script: |
+              pnpm run build
+            displayName: "Build project"
+
+          - task: ArchiveFiles@2
+            displayName: "Archive build output files"
+            inputs:
+              rootFolderOrFile: "$(System.DefaultWorkingDirectory)/out" # pasta com o build output
+              includeRootFolder: false
+              archiveType: zip
+              archiveFile: $(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip
+              replaceExistingArchive: true
+
+          - upload: $(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip
+            artifact: drop
+
+  # -------------------------------
+  # Stage 2: Deploy to DEV (develop)
+  # -------------------------------
+  - stage: Deploy_DEV
+    displayName: "Deploy to DEV"
+    dependsOn: Build
+    condition: and(succeeded(), eq(variables['Build.SourceBranchName'], 'develop'))
+    jobs:
+      - job: DeployDev
+        displayName: "Deploy to Azure Static Web App - DEV"
+        steps:
+          - download: current
+            artifact: drop
+
+          - task: ExtractFiles@1
+            inputs:
+              archiveFilePatterns: "$(Pipeline.Workspace)/drop/$(Build.BuildId).zip"
+              destinationFolder: "$(Pipeline.Workspace)/unzipped"
+              cleanDestinationFolder: true
+            displayName: "Extract artifact"
+
+          # Copiando apenas o conteúdo extraído para a pasta padrão de trabalho do deploy
+          - script: |
+              mkdir -p $(System.DefaultWorkingDirectory)/out
+              cp -r $(Pipeline.Workspace)/unzipped/* $(System.DefaultWorkingDirectory)/out/
+            displayName: "Copy extracted build output to 'out' folder"
+
+          - task: AzureStaticWebApp@0
+            inputs:
+              app_location: "out" # Pasta que contém o build pronto
+              output_location: "" # Vazio, pois o build já está pronto
+              azure_static_web_apps_api_token: "$(DEPLOYMENT_TOKEN_VH_DEV)"
+            displayName: "Deploy to DEV"
+
+  # -------------------------------
+  # Stage 3: Deploy to PRD (main)
+  # -------------------------------
+  - stage: Deploy_PRD
+    displayName: "Deploy to PRD"
+    dependsOn: Deploy_DEV
+    condition: succeeded()
+    jobs:
+      - deployment: DeployPrd
+        displayName: "Deploy to Azure Static Web App - PRD"
+        environment: PRD # Nome do Environment que já tem aprovação configurada
+        strategy:
+          runOnce:
+            deploy:
+              steps:
+                - download: current
+                  artifact: drop
+
+                - task: ExtractFiles@1
+                  inputs:
+                    archiveFilePatterns: "$(Pipeline.Workspace)/drop/$(Build.BuildId).zip"
+                    destinationFolder: "$(Pipeline.Workspace)/unzipped"
+                    cleanDestinationFolder: true
+                  displayName: "Extract artifact"
+
+                - script: |
+                    cp -r $(Pipeline.Workspace)/unzipped/* $(System.DefaultWorkingDirectory)/
+                  displayName: "Copy extracted build output to working directory"
+
+                - task: AzureStaticWebApp@0
+                  inputs:
+                    app_location: "."
+                    output_location: ""
+                    azure_static_web_apps_api_token: "$(DEPLOYMENT_TOKEN_VH_PRD)"
+                  displayName: "Deploy to PRD"

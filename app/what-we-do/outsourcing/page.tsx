@@ -1,0 +1,320 @@
+"use client";
+
+import { useEffect } from "react";
+import { useRouter } from "next/navigation";
+import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import {
+  Users,
+  Globe,
+  DollarSign,
+  Clock,
+  Shield,
+  Award,
+  TrendingUp,
+  CheckCircle,
+} from "lucide-react";
+import { useTranslation } from "@/components/translation-context";
+import { ScrollIndicator } from "@/components/scroll-indicator";
+import { motion } from "framer-motion";
+
+export default function OutsourcingPage() {
+  const { t } = useTranslation();
+  const router = useRouter();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  const services = [
+    {
+      icon: Users,
+      title: t("outsourcing.services.dedicated.title"),
+      description: t("outsourcing.services.dedicated.description"),
+    },
+    {
+      icon: Globe,
+      title: t("outsourcing.services.offshore.title"),
+      description: t("outsourcing.services.offshore.description"),
+    },
+    {
+      icon: Clock,
+      title: t("outsourcing.services.support.title"),
+      description: t("outsourcing.services.support.description"),
+    },
+    {
+      icon: Award,
+      title: t("outsourcing.services.specialists.title"),
+      description: t("outsourcing.services.specialists.description"),
+    },
+  ];
+
+  const benefits = [
+    {
+      icon: DollarSign,
+      title: t("outsourcing.benefits.costs.title"),
+      description: t("outsourcing.benefits.costs.description"),
+    },
+    {
+      icon: TrendingUp,
+      title: t("outsourcing.benefits.scalability.title"),
+      description: t("outsourcing.benefits.scalability.description"),
+    },
+    {
+      icon: Shield,
+      title: t("outsourcing.benefits.quality.title"),
+      description: t("outsourcing.benefits.quality.description"),
+    },
+    {
+      icon: CheckCircle,
+      title: t("outsourcing.benefits.focus.title"),
+      description: t("outsourcing.benefits.focus.description"),
+    },
+  ];
+
+  interface CardProps {
+    service: {
+      icon: React.ComponentType<any>;
+      title: string;
+      description: string;
+    };
+    index: number;
+  }
+
+  function BenefitsCard({ service, index }: CardProps) {
+    const Icon = service.icon; // ← correto
+    return (
+      <motion.div
+        initial={{ opacity: 0, rotateY: -90 }} // começa "virado para a esquerda"
+        whileInView={{ opacity: 1, rotateY: 0 }} // termina na posição normal
+        viewport={{ once: false, amount: 0.2 }}
+        transition={{
+          delay: index * 0.2,
+          type: "spring",
+          duration: 20,
+          stiffness: 50,
+        }}
+        className="h-full"
+        style={{ perspective: 1000 }} // necessário para o efeito 3D
+      >
+        <Card className="text-center hover:scale-105 transition-all duration-300 relative border-none h-full bg-orange-100 dark:bg-gray-700">
+          <CardContent className="p-6 flex flex-col h-full">
+            <div className="w-16 h-16 mx-auto mb-6 flex items-center justify-center rounded-full bg-orange-400 dark:bg-black">
+              <Icon className="w-8 h-8 text-white dark:text-orange-500" />
+            </div>
+            <h3 className="text-black dark:text-white text-xl font-semibold mb-3">
+              {service.title}
+            </h3>
+            <p className="text-md text-orange-500 dark:text-orange-500 mt-auto">
+              {service.description}
+            </p>
+          </CardContent>
+        </Card>
+      </motion.div>
+    );
+  }
+
+  function ServiceCard({ service, index }: CardProps) {
+    const Icon = service.icon;
+    return (
+      <motion.div
+        initial={{ opacity: 0, scale: 0.8, rotate: -10 }}
+        whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
+        viewport={{ once: false, amount: 0.2 }}
+        transition={{
+          delay: index * 0.15,
+          duration: 0.8,
+          type: "spring",
+          stiffness: 120,
+        }}
+        className="h-full"
+      >
+        <Card className="text-center hover:scale-105 transition-all duration-300 relative border-none h-full bg-orange-400 dark:bg-black">
+          <CardContent className="p-6 flex flex-col h-full">
+            <Icon className="h-12 w-12 text-white dark:text-orange-500 mx-auto mb-4" />
+            <h3 className="text-black dark:text-white text-xl font-semibold mb-3">
+              {service.title}
+            </h3>
+            <p className="text-md text-white dark:text-orange-500 mt-auto">
+              {service.description}
+            </p>
+          </CardContent>
+        </Card>
+      </motion.div>
+    );
+  }
+
+  return (
+    <div className="flex flex-col min-h-screen">
+      {/* Hero Section */}
+      <section
+        className="relative h-[650px] overflow-hidden"
+        style={{
+          backgroundImage: "url(/pages/hero-outsourcing.jpg)",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}
+      >
+        <div className="absolute inset-0 z-0 bg-black/50" />
+        <div className="container mx-auto px-4 relative z-10 h-full flex items-center justify-center">
+          <div className="bg-white/50 dark:bg-black/50 text-orange-500 rounded-lg p-6 max-w-full overflow-hidden">
+            <h1 className="text-orange-500 text-3xl sm:text-4xl lg:text-6xl font-bold text-center text-shadow break-words">
+              <Users className="inline h-10 w-10 sm:h-12 sm:w-12 stroke-white dark:stroke-gray-400 icon-shadow mr-2 align-middle" />
+              {t("outsourcing.hero.title")}
+            </h1>
+            <p className="mt-6 text-lg sm:text-xl text-center text-white dark:text-orange-500 text-shadow">
+              {t("outsourcing.hero.subtitle")}
+            </p>
+          </div>
+        </div>
+
+        <ScrollIndicator />
+      </section>
+
+      {/* Benefits Section */}
+      <section className="py-20 bg-white dark:bg-black">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+              <span className="text-black dark:text-yellow-500">
+                {t("outsourcing.benefits.title.part1")}
+              </span>{" "}
+              <span className="text-orange-500">
+                {t("outsourcing.benefits.title.part2")}
+              </span>
+            </h2>
+
+            <p className="text-lg text-black dark:text-white max-w-2xl mx-auto">
+              {t("outsourcing.benefits.subtitle")}
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 sm:grid-cols-2  gap-8">
+            {benefits.map((service, index) => (
+              <BenefitsCard key={index} service={service} index={index} />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Parallax Section */}
+      <div
+        className="relative h-[500px] overflow-hidden"
+        style={{
+          backgroundImage: "url('/pages/parallax-outsourcing.jpg')",
+          backgroundAttachment: "fixed",
+          backgroundPosition: "center center",
+          backgroundRepeat: "no-repeat",
+          backgroundSize: "cover",
+        }}
+      >
+        <div className="absolute inset-0 bg-gradient-to-b from-black/5 to-black/10" />
+      </div>
+
+      {/* Services Section */}
+      <section className="py-20 bg-gray-200 dark:bg-gray-700">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+              <span className="text-black">
+                {t("outsourcing.services.title.part1")}
+              </span>{" "}
+              <span className="text-orange-500">
+                {t("outsourcing.services.title.part2")}
+              </span>
+            </h2>
+
+            <p className="text-lg text-black dark:text-white max-w-2xl mx-auto">
+              {t("outsourcing.services.subtitle")}
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+            {services.map((service, index) => (
+              <ServiceCard key={index} service={service} index={index} />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Process Section */}
+      <section className="py-20 bg-white dark:bg-gray-500">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+              <span className="text-black">
+                {t("outsourcing.process.title.part1")}
+              </span>{" "}
+              <span className="text-orange-500">
+                {t("outsourcing.process.title.part2")}
+              </span>
+            </h2>
+
+            <p className="text-lg text-black dark:text-white max-w-2xl mx-auto">
+              {t("outsourcing.process.subtitle")}
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+            <div className="text-center">
+              <div className="text-white dark:text-white bg-orange-400 dark:bg-black w-16 h-16 rounded-full flex items-center justify-center text-white font-bold text-xl mx-auto mb-4">
+                1
+              </div>
+              <h3 className="text-xl font-bold text-orange-500 mb-3">
+                {t("outsourcing.process.analysis.title")}
+              </h3>
+              <p className="text-black dark:text-white">
+                {t("outsourcing.process.analysis.description")}
+              </p>
+            </div>
+
+            <div className="text-center">
+              <div className="text-white dark:text-white bg-orange-400 dark:bg-black w-16 h-16 rounded-full flex items-center justify-center text-white font-bold text-xl mx-auto mb-4">
+                2
+              </div>
+              <h3 className="text-xl font-bold text-orange-500 mb-3">
+                {t("outsourcing.process.selection.title")}
+              </h3>
+              <p className="text-black dark:text-white">
+                {t("outsourcing.process.selection.description")}
+              </p>
+            </div>
+
+            <div className="text-center">
+              <div className="text-white dark:text-white bg-orange-400 dark:bg-black w-16 h-16 rounded-full flex items-center justify-center text-white font-bold text-xl mx-auto mb-4">
+                3
+              </div>
+              <h3 className="text-xl font-bold text-orange-500 mb-3">
+                {t("outsourcing.process.integration.title")}
+              </h3>
+              <p className="text-black dark:text-white">
+                {t("outsourcing.process.integration.description")}
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-20 bg-orange-100 dark:bg-gray-600">
+        <div className="text-center mb-16">
+          <h2 className="text-orange-500 text-3xl md:text-4xl font-bold mb-6">
+            {t("outsourcing.cta.title")}
+          </h2>
+          <p className="text-lg text-gray-900 dark:text-white max-w-2xl mx-auto">
+            {t("outsourcing.cta.subtitle")}
+          </p>
+          <div className="my-8"></div>
+          <Button
+            size="lg"
+            className="bg-orange-400 hover:bg-orange-500 text-white font-semibold px-8 py-3 button-shadow"
+            onClick={() => router.push("/contact")}
+            aria-label="Contact us for outsourcing solutions"
+          >
+            {t("outsourcing.cta.button")}
+          </Button>
+        </div>
+      </section>
+    </div>
+  );
+}

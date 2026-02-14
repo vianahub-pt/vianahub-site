@@ -1,0 +1,591 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url("https://fonts.googleapis.com/css2?family=Kurale&display=swap");
+
+body {
+  font-family: Kurale, Arial, Helvetica, sans-serif;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  /* Force Viana colors to work properly */
+  .text-viana-orange {
+    color: #ff8c00;
+  }
+
+  .text-viana-yellow {
+    color: #ffd700;
+  }
+
+  .text-viana-black {
+    color: #000000;
+  }
+
+  .text-viana-gray {
+    color: #363636;
+  }
+
+  .text-viana-white {
+    color: #ffffff;
+  }
+
+  .bg-viana-orange {
+    background-color: #ff8c00;
+  }
+
+  .bg-viana-yellow {
+    background-color: #ffd700;
+  }
+
+  .bg-viana-black {
+    background-color: #000000;
+  }
+
+  .bg-viana-gray {
+    background-color: #363636;
+  }
+
+  .bg-viana-white {
+    background-color: #ffffff;
+  }
+
+  .border-viana-orange {
+    border-color: #ff8c00;
+  }
+
+  .border-viana-yellow {
+    border-color: #ffd700;
+  }
+
+  .border-viana-black {
+    border-color: #000000;
+  }
+
+  .border-viana-gray {
+    border-color: #363636;
+  }
+
+  .border-viana-white {
+    border-color: #ffffff;
+  }
+
+  .hover\:text-viana-orange:hover {
+    color: #ff8c00;
+  }
+
+  .hover\:text-viana-yellow:hover {
+    color: #ffd700;
+  }
+
+  .hover\:bg-viana-orange:hover {
+    background-color: #ff8c00;
+  }
+
+  .hover\:bg-viana-yellow:hover {
+    background-color: #ffd700;
+  }
+
+  .group:hover .group-hover\:text-viana-orange {
+    color: #ff8c00;
+  }
+
+  .group:hover .group-hover\:bg-viana-orange {
+    background-color: #ff8c00;
+  }
+
+  .group:hover .group-hover\:text-white {
+    color: #ffffff;
+  }
+
+  .text-viana-blue {
+    color: #1e40af;
+  }
+
+  .bg-viana-blue {
+    background-color: #1e40af;
+  }
+
+  .text-viana-green {
+    color: #10b981;
+  }
+
+  .bg-viana-green {
+    background-color: #10b981;
+  }
+
+  .text-viana-purple {
+    color: #8b5cf6;
+  }
+
+  .bg-viana-purple {
+    background-color: #8b5cf6;
+  }
+
+  .text-viana-red {
+    color: #ef4444;
+  }
+
+  .bg-viana-red {
+    background-color: #ef4444;
+  }
+
+  .text-viana-pink {
+    color: #ec4899;
+  }
+
+  .bg-viana-pink {
+    background-color: #ec4899;
+  }
+
+  .text-viana-indigo {
+    color: #6366f1;
+  }
+
+  .bg-viana-indigo {
+    background-color: #6366f1;
+  }
+
+  /* Add opacity variants for viana colors */
+  .bg-viana-orange\/90 {
+    background-color: rgba(255, 140, 0, 0.9);
+  }
+
+  .hover\:bg-viana-orange\/90:hover {
+    background-color: rgba(255, 140, 0, 0.9);
+  }
+
+  .bg-viana-yellow\/90 {
+    background-color: rgba(255, 215, 0, 0.9);
+  }
+
+  .hover\:bg-viana-yellow\/90:hover {
+    background-color: rgba(255, 215, 0, 0.9);
+  }
+
+  /* Dark mode variants for opacity */
+  .dark .bg-viana-orange\/90 {
+    background-color: rgba(64, 64, 64, 0.9);
+  }
+
+  .dark .hover\:bg-viana-orange\/90:hover {
+    background-color: rgba(64, 64, 64, 0.9);
+  }
+
+  .dark .bg-viana-yellow\/90 {
+    background-color: rgba(82, 82, 82, 0.9);
+  }
+
+  .dark .hover\:bg-viana-yellow\/90:hover {
+    background-color: rgba(82, 82, 82, 0.9);
+  }
+
+  /* Missing classes for Agile page */
+  .text-viana-black {
+    color: #000000;
+  }
+
+  .text-viana-gray {
+    color: #363636;
+  }
+
+  .bg-viana-white {
+    background-color: #ffffff;
+  }
+
+  /* Dark mode overrides for missing classes */
+  .dark .text-viana-black {
+    color: #fafafa;
+  }
+
+  .dark .text-viana-gray {
+    color: #a3a3a3;
+  }
+
+  .dark .bg-viana-white {
+    background-color: #1a1a1a;
+  }
+}
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 3.9%;
+    --primary: 0 0% 9%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 0 0% 96.1%;
+    --secondary-foreground: 0 0% 9%;
+    --muted: 0 0% 96.1%;
+    --muted-foreground: 0 0% 45.1%;
+    --accent: 0 0% 96.1%;
+    --accent-foreground: 0 0% 9%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 89.8%;
+    --input: 0 0% 89.8%;
+    --ring: 0 0% 3.9%;
+    --chart-1: 12 76% 61%;
+    --chart-2: 173 58% 39%;
+    --chart-3: 197 37% 24%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
+    --radius: 0.5rem;
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+  .dark {
+    --background: 0 0% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 0 0% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 0 0% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 25 95% 53%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 45 93% 47%;
+    --secondary-foreground: 0 0% 9%;
+    --muted: 0 0% 14.9%;
+    --muted-foreground: 0 0% 63.9%;
+    --accent: 45 93% 47%;
+    --accent-foreground: 0 0% 9%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 14.9%;
+    --input: 0 0% 14.9%;
+    --ring: 25 95% 53%;
+    --chart-1: 220 70% 50%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Largura da scrollbar */
+::-webkit-scrollbar {
+  width: 14px;
+}
+
+/* Fundo da scrollbar */
+::-webkit-scrollbar-track {
+  background: #ffe5cc; /* laranja bem clarinho */
+}
+
+/* Barra (thumb) */
+::-webkit-scrollbar-thumb {
+  background: #f97316; /* laranja Tailwind 500 */
+  border-radius: 6px;
+}
+
+/* Hover na barra */
+::-webkit-scrollbar-thumb:hover {
+  background: #ea580c; /* laranja mais escuro (Tailwind 600) */
+}
+
+/* Tema Escuro - Cores VianaHub adaptadas */
+.dark {
+  /* Cores principais adaptadas para tema escuro */
+  --viana-primary: #e5e5e5; /* Cinza claro para substituir laranja */
+  --viana-secondary: #a3a3a3; /* Cinza médio para substituir amarelo */
+  --viana-accent: #525252; /* Cinza escuro para acentos */
+}
+.text-shadow {
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.55);
+}
+.icon-shadow {
+  filter: drop-shadow(5px 5px 4px rgba(0, 0, 0, 0.55));
+}
+.button-shadow {
+  filter: drop-shadow(5px 5px 4px rgba(0, 0, 0, 0.55));
+}
+.card-shadow {
+  filter: drop-shadow(5px 5px 4px rgba(0, 0, 0, 0.1));
+}
+
+.dark body {
+  background-color: #0a0a0a;
+  color: #fafafa;
+}
+
+/* Backgrounds no tema escuro */
+.dark .bg-viana-white {
+  background-color: #1a1a1a;
+}
+
+.dark .bg-viana-orange {
+  background-color: #404040;
+}
+
+.dark .bg-viana-yellow {
+  background-color: #525252;
+}
+
+.dark .bg-gray-50 {
+  background-color: #171717;
+}
+
+.dark .bg-gray-100 {
+  background-color: #262626;
+}
+
+/* Textos no tema escuro */
+.dark .text-viana-black {
+  color: #fafafa;
+}
+
+.dark .text-viana-gray {
+  color: #a3a3a3;
+}
+
+.dark .text-viana-orange {
+  color: #e5e5e5;
+}
+
+.dark .text-viana-yellow {
+  color: #d4d4d4;
+}
+
+/* Bordas no tema escuro */
+.dark .border-viana-gray {
+  border-color: #404040;
+}
+
+.dark .border-gray-200 {
+  border-color: #404040;
+}
+
+.dark .border-gray-300 {
+  border-color: #525252;
+}
+
+/* Botões no tema escuro */
+.dark .bg-viana-orange:hover {
+  background-color: #525252;
+}
+
+.dark .bg-viana-yellow:hover {
+  background-color: #404040;
+}
+
+/* Hover states no tema escuro */
+.dark .hover\:bg-viana-orange:hover {
+  background-color: #404040;
+}
+
+.dark .hover\:bg-viana-yellow:hover {
+  background-color: #525252;
+}
+
+.dark .hover\:text-viana-orange:hover {
+  color: #e5e5e5;
+}
+
+.dark .hover\:text-viana-yellow:hover {
+  color: #d4d4d4;
+}
+
+/* Group hover states for light mode */
+.group:hover .group-hover\:text-viana-orange {
+  color: #ff8c00;
+}
+
+.group:hover .group-hover\:bg-viana-orange {
+  background-color: #ff8c00;
+}
+
+/* Group hover states for dark mode */
+.dark .group:hover .group-hover\:text-viana-orange {
+  color: #e5e5e5;
+}
+
+.dark .group:hover .group-hover\:bg-viana-orange {
+  background-color: #404040;
+}
+
+/* Cards e componentes no tema escuro */
+.dark .shadow-lg {
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3),
+    0 4px 6px -2px rgba(0, 0, 0, 0.1);
+}
+
+.dark .shadow-xl {
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3),
+    0 10px 10px -5px rgba(0, 0, 0, 0.1);
+}
+
+.dark .shadow-2xl {
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.4);
+}
+
+/* Garantir contraste adequado para textos brancos */
+.text-white {
+  color: #ffffff;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.dark .text-white {
+  color: #ffffff;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* Melhorar contraste em botões */
+.bg-viana-white .text-viana-orange {
+  color: #ea580c;
+  font-weight: 600;
+}
+
+.dark .bg-viana-white .text-viana-orange {
+  background-color: #fafafa;
+  color: #0a0a0a;
+}
+
+/* Garantir que os botões flutuantes não sobreponham o footer */
+.floating-buttons-spacing {
+  padding-bottom: 80px;
+}
+
+/* Ajustar z-index dos botões flutuantes */
+.floating-button {
+  z-index: 30;
+}
+
+/* Garantir que o dropdown de preferências apareça acima de tudo */
+.preferences-dropdown {
+  z-index: 50;
+}
+
+/* Animações para dropdowns */
+@keyframes slideUpFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes slideDownFadeOut {
+  from {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(8px) scale(0.95);
+  }
+}
+
+/* Melhorar transições dos dropdowns */
+.dropdown-enter {
+  animation: slideUpFadeIn 0.2s ease-out forwards;
+}
+
+.dropdown-exit {
+  animation: slideDownFadeOut 0.2s ease-out forwards;
+}
+
+/* Sombra mais suave para os dropdowns */
+.dropdown-shadow {
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+    0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.dark .dropdown-shadow {
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.4),
+    0 10px 10px -5px rgba(0, 0, 0, 0.2);
+}
+
+/* Transição suave para botões flutuantes */
+.floating-button {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.floating-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.dark .floating-button:hover {
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+}
+
+/* Melhorar aparência das setas indicativas */
+.dropdown-arrow {
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+}
+
+.dark .dropdown-arrow {
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+}
+
+/* Inputs no tema escuro */
+.dark input {
+  background-color: #262626;
+  border-color: #404040;
+  color: #fafafa;
+}
+
+.dark input::placeholder {
+  color: #737373;
+}
+
+/* Select no tema escuro */
+.dark select {
+  background-color: #262626;
+  border-color: #404040;
+  color: #fafafa;
+}
+
+/* Garantir que os submenus da navegação fiquem por cima de tudo */
+[data-radix-navigation-menu-content] {
+  z-index: 9999;
+}
+
+[data-radix-navigation-menu-viewport] {
+  z-index: 9999;
+}
+
+/* Melhorar a visibilidade dos dropdowns */
+.navigation-dropdown {
+  z-index: 9999;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+    0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.dark .navigation-dropdown {
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.4),
+    0 10px 10px -5px rgba(0, 0, 0, 0.2);
+}
